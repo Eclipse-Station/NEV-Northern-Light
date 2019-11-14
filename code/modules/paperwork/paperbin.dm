@@ -17,10 +17,10 @@
 		if(!isslime(usr) && !isanimal(usr))
 			if( !usr.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
-				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_ARM]
+				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 
 				if (H.hand)
-					temp = H.organs_by_name[BP_L_ARM]
+					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
 					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
@@ -31,25 +31,24 @@
 	return
 
 /obj/item/weapon/paper_bin/attack_hand(mob/user as mob)
-	if (istype(loc, /turf))
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/temp = H.organs_by_name[BP_R_ARM]
-			if (H.hand)
-				temp = H.organs_by_name[BP_L_ARM]
-			if(temp && !temp.is_usable())
-				to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
-				return
-		var/response = ""
-		if(!papers.len > 0)
-			response = alert(user, "Do you take regular paper, or Carbon copy paper?", "Paper type request", "Regular", "Carbon-Copy", "Cancel")
-			if (response != "Regular" && response != "Carbon-Copy")
-				add_fingerprint(user)
-				return
-		if(amount >= 1)
-			amount--
-			if(amount==0)
-				update_icon()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+		if (H.hand)
+			temp = H.organs_by_name[BP_L_HAND]
+		if(temp && !temp.is_usable())
+			user << SPAN_NOTICE("You try to move your [temp.name], but cannot!")
+			return
+	var/response = ""
+	if(!papers.len > 0)
+		response = alert(user, "Do you take regular paper, or Carbon copy paper?", "Paper type request", "Regular", "Carbon-Copy", "Cancel")
+		if (response != "Regular" && response != "Carbon-Copy")
+			add_fingerprint(user)
+			return
+	if(amount >= 1)
+		amount--
+		if(amount==0)
+			update_icon()
 
 			var/obj/item/weapon/paper/P
 			if(papers.len > 0)	//If there's any custom paper on the stack, use that instead of creating a new paper.

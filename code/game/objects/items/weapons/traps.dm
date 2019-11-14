@@ -258,7 +258,7 @@ Freeing yourself is much harder than freeing someone else. Calling for help is a
 	if(L.lying)
 		target_zone = ran_zone()
 	else
-		target_zone = pick(BP_L_LEG, BP_R_LEG)
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG , BP_R_LEG)
 
 	deployed = FALSE
 	can_buckle = initial(can_buckle)

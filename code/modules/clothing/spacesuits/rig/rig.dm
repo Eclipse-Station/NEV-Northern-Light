@@ -892,6 +892,33 @@
 	cell.use(aimove_power_usage * CELLRATE)
 	wearer.DoMove(direction, user)
 
+	if(istype(wearer.buckled, /obj/vehicle))
+		//manually set move_delay for vehicles so we don't inherit any mob movement penalties
+		//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
+		wearer_move_delay = world.time + tickcomp
+		return wearer.buckled.relaymove(wearer, direction)
+
+	if(istype(wearer.machine, /obj/machinery))
+		if(wearer.machine.relaymove(wearer, direction))
+			return
+
+	if(wearer.pulledby || wearer.buckled) // Wheelchair driving!
+		if(istype(wearer.loc, /turf/space))
+			return // No wheelchair driving in space
+		if(istype(wearer.pulledby, /obj/structure/bed/chair/wheelchair))
+			return wearer.pulledby.relaymove(wearer, direction)
+		else if(istype(wearer.buckled, /obj/structure/bed/chair/wheelchair))
+			if(ishuman(wearer.buckled))
+				var/obj/item/organ/external/l_hand = wearer.get_organ(BP_L_HAND)
+				var/obj/item/organ/external/r_hand = wearer.get_organ(BP_R_HAND)
+				if((!l_hand || (l_hand.status & ORGAN_DESTROYED)) && (!r_hand || (r_hand.status & ORGAN_DESTROYED)))
+					return // No hands to drive your chair? Tough luck!
+			wearer_move_delay += 2
+			return wearer.buckled.relaymove(wearer,direction)
+
+	cell.use(200) //Arbitrary, TODO
+	wearer.Move(get_step(get_turf(wearer),direction),direction)
+
 // This returns the rig if you are contained inside one, but not if you are wearing it
 /atom/proc/get_rig()
 	if(loc)

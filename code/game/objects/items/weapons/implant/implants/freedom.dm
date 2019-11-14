@@ -10,7 +10,7 @@
 	var/install_organ = INSTALL_HANDS
 	is_legal = FALSE
 	origin_tech = list(TECH_COMBAT=5, TECH_MAGNET=3, TECH_BIO=4, TECH_ILLEGAL=2)
-	allowed_organs = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
+	allowed_organs = list(BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT)
 
 /obj/item/weapon/implant/freedom/trigger(emote, mob/living/carbon/source)
 	if (src.uses < 1)
@@ -45,7 +45,7 @@
 					W.layer = initial(W.layer)
 
 /obj/item/weapon/implant/freedom/on_install(mob/living/carbon/source, obj/item/organ/O)
-	if(O.organ_tag in list(BP_L_LEG, BP_R_LEG))
+	if(O.organ_tag in list(BP_L_FOOT, BP_R_FOOT))
 		install_organ = INSTALL_FOOTS
 
 /obj/item/weapon/implant/freedom/on_install(mob/living/source)

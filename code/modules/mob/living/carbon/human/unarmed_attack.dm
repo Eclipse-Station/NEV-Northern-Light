@@ -28,11 +28,11 @@ var/global/list/sparring_attack_cache = list()
 		return 0
 
 	// Check if they have a functioning hand.
-	var/obj/item/organ/external/E = user.organs_by_name[BP_L_ARM]
+	var/obj/item/organ/external/E = user.organs_by_name[BP_L_HAND]
 	if(E && !E.is_stump())
 		return 1
 
-	E = user.organs_by_name[BP_R_ARM]
+	E = user.organs_by_name[BP_R_HAND]
 	if(E && !E.is_stump())
 		return 1
 
@@ -57,7 +57,7 @@ var/global/list/sparring_attack_cache = list()
 					SPAN_DANGER("You see stars.")
 				)
 				target.apply_effect(attack_damage*2, EYE_BLUR)
-			if(BP_L_ARM)
+			if(BP_L_ARM, BP_L_HAND)
 				if (target.l_hand)
 					// Disarm left hand
 					//Urist McAssistant dropped the macguffin with a scream just sounds odd. Plus it doesn't work with NO_PAIN
@@ -65,7 +65,7 @@ var/global/list/sparring_attack_cache = list()
 						SPAN_DANGER("\The [target.l_hand] was knocked right out of [target]'s grasp!")
 					)
 					target.drop_l_hand()
-			if(BP_R_ARM)
+			if(BP_R_ARM, BP_R_HAND)
 				if (target.r_hand)
 					// Disarm right hand
 					target.visible_message(
@@ -91,7 +91,7 @@ var/global/list/sparring_attack_cache = list()
 					SPAN_WARNING((target.gender=="female") ? "Oh god that hurt!" : "Oh no, not your[pick("testicles", "crown jewels", "clockweights", "family jewels", "marbles", "bean bags", "teabags", "sweetmeats", "goolies")]!")
 				)
 				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3)
-			if(BP_L_LEG, BP_R_LEG)
+			if(BP_L_LEG , BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
 				if(!target.lying)
 					target.visible_message(SPAN_WARNING("[target] gives way slightly."))
 					target.apply_effect(attack_damage*3, AGONY)
@@ -195,11 +195,11 @@ var/global/list/sparring_attack_cache = list()
 	if(!zone in (BP_LEGS + BP_GROIN))
 		return 0
 
-	var/obj/item/organ/external/E = user.organs_by_name[BP_L_LEG]
+	var/obj/item/organ/external/E = user.organs_by_name[BP_L_FOOT]
 	if(E && !E.is_stump())
 		return 1
 
-	E = user.organs_by_name[BP_R_LEG]
+	E = user.organs_by_name[BP_R_FOOT]
 	if(E && !E.is_stump())
 		return 1
 
@@ -236,14 +236,14 @@ var/global/list/sparring_attack_cache = list()
 	if(!istype(target))
 		return 0
 
-	if (!user.lying && (target.lying || (zone in list(BP_L_LEG, BP_R_LEG))))
+	if (!user.lying && (target.lying || (zone in list(BP_L_FOOT, BP_R_FOOT))))
 		if(target.grabbed_by == user && target.lying)
 			return 0
-		var/obj/item/organ/external/E = user.organs_by_name[BP_L_LEG]
+		var/obj/item/organ/external/E = user.organs_by_name[BP_L_FOOT]
 		if(E && !E.is_stump())
 			return 1
 
-		E = user.organs_by_name[BP_R_LEG]
+		E = user.organs_by_name[BP_R_FOOT]
 		if(E && !E.is_stump())
 			return 1
 

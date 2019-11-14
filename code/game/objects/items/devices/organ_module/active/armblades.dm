@@ -12,8 +12,7 @@
 	desc = "A mechanical blade designed to be inserted into an arm. Gives you a nice advantage in a brawl."
 	verb_name = "Deploy armblade"
 	icon_state = "armblade"
-	matter = list(MATERIAL_STEEL = 16)
-	allowed_organs = list(BP_R_ARM, BP_L_ARM)
+	allowed_organs = list(BP_R_HAND, BP_L_HAND)
 	holding_type = /obj/item/weapon/material/hatchet/tacknife/armblade
 
 
@@ -28,6 +27,6 @@
 	desc = "A variant on the popular armblade, these claws allow for a more traditional unarmed brawl style while still mantaining your advantage."
 	verb_name = "Deploy embedded claws"
 	icon_state = "wolverine"
-	allowed_organs = list(BP_R_ARM, BP_L_ARM)
+	allowed_organs = list(BP_R_HAND, BP_L_HAND)
 	holding_type = /obj/item/weapon/material/hatchet/tacknife/armblade/claws
 

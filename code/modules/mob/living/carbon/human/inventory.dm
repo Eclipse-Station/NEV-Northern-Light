@@ -73,6 +73,39 @@ This saves us from having to call add_fingerprint() any time something is put in
 	W.plane = initial(W.plane)
 	W.screen_loc = null
 
+/mob/living/carbon/human/proc/has_organ_for_slot(slot)
+	switch(slot)
+		if(slot_back)
+			return has_organ(BP_CHEST)
+		if(slot_wear_mask)
+			return has_organ(BP_HEAD)
+		if(slot_handcuffed)
+			return has_organ(BP_L_HAND) && has_organ(BP_R_HAND)
+		if(slot_legcuffed)
+			return has_organ(BP_L_LEG ) && has_organ(BP_R_LEG)
+		if(slot_l_hand)
+			return has_organ(BP_L_HAND)
+		if(slot_r_hand)
+			return has_organ(BP_R_HAND)
+		if(slot_belt)
+			return has_organ(BP_CHEST)
+		if(slot_wear_id)
+			// the only relevant check for this is the uniform check
+			return 1
+		if(slot_l_ear, slot_r_ear, slot_glasses)
+			return has_organ(BP_HEAD)
+		if(slot_gloves)
+			return has_organ(BP_L_HAND) || has_organ(BP_R_HAND)
+		if(slot_head)
+			return has_organ(BP_HEAD)
+		if(slot_shoes)
+			return has_organ(BP_R_FOOT) || has_organ(BP_L_FOOT)
+		if(slot_wear_suit, slot_w_uniform, slot_l_store, slot_r_store, slot_s_store)
+			return has_organ(BP_CHEST)
+		if(slot_in_backpack)
+			return 1
+		if(slot_accessory_buffer)
+			return 1
 
 	if (W == wear_suit)
 		if(s_store)
@@ -170,16 +203,16 @@ This saves us from having to call add_fingerprint() any time something is put in
 
 /mob/living/carbon/human/proc/get_active_hand_organ()
 	if(hand)
-		return get_organ(BP_L_ARM)
+		return get_organ(BP_L_HAND)
 	else
-		return get_organ(BP_R_ARM)
+		return get_organ(BP_R_HAND)
 
 /mob/living/carbon/human/proc/get_holding_hand(var/obj/item/W)
 	switch(get_inventory_slot(W))
 		if(slot_l_hand)
-			return BP_L_ARM
+			return BP_L_HAND
 		if(slot_r_hand)
-			return BP_R_ARM
+			return BP_R_HAND
 
 /mob/living/carbon/human/equip_to_slot(obj/item/W, slot, redraw_mob = 1)
 	switch(slot)
