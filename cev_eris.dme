@@ -10,6 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "code\_macros.dm"
 #include "code\client_macros.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
@@ -278,6 +279,7 @@
 #include "code\datums\autolathe\parts.dm"
 #include "code\datums\autolathe\security.dm"
 #include "code\datums\autolathe\tools.dm"
+#include "code\datums\colors\color_generator.dm"
 #include "code\datums\components\_component.dm"
 #include "code\datums\components\fabric.dm"
 #include "code\datums\craft\item.dm"
@@ -1756,11 +1758,14 @@
 #include "code\modules\mob\living\carbon\human\whisper.dm"
 #include "code\modules\mob\living\carbon\human\species\species.dm"
 #include "code\modules\mob\living\carbon\human\species\species_attack.dm"
+#include "code\modules\mob\living\carbon\human\species\species_getters.dm"
 #include "code\modules\mob\living\carbon\human\species\species_hud.dm"
+#include "code\modules\mob\living\carbon\human\species\species_random.dm"
 #include "code\modules\mob\living\carbon\human\species\station\golem.dm"
 #include "code\modules\mob\living\carbon\human\species\station\monkey.dm"
 #include "code\modules\mob\living\carbon\human\species\station\slime.dm"
 #include "code\modules\mob\living\carbon\human\species\station\station.dm"
+#include "code\modules\mob\living\carbon\human\species\station\station_vr.dm"
 #include "code\modules\mob\living\carbon\human\species\xenomorphs\alien_powers.dm"
 #include "code\modules\mob\living\carbon\human\species\xenomorphs\alien_species.dm"
 #include "code\modules\mob\living\carbon\human\species\xenomorphs\xenomorphs.dm"

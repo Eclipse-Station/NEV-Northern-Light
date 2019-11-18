@@ -3,8 +3,8 @@
 	var/list/modifications_colors = list()
 	var/current_organ = BP_CHEST
 	var/global/list/r_organs = list(BP_HEAD, BP_R_ARM, BP_R_HAND, BP_CHEST, BP_R_LEG, BP_R_FOOT)
-	var/global/list/l_organs = list(O_EYES, BP_L_ARM, BP_L_HAND, BP_GROIN, BP_L_LEG, BP_L_FOOT)
-	var/global/list/internal_organs = list("chest2", O_HEART, O_LUNGS, O_LIVER)
+	var/global/list/l_organs = list(BP_EYES, BP_L_ARM, BP_L_HAND, BP_GROIN, BP_L_LEG, BP_L_FOOT)
+	var/global/list/internal_organs = list("chest2", BP_HEART, BP_LUNGS, BP_LIVER)
 
 /datum/category_item/player_setup_item/augmentation/modifications
 	name = "Augmentation"
@@ -83,7 +83,7 @@
 			dat += "<a class='Organs_active' href='?src=\ref[src];organ=[organ]'><b>[organ_tag_to_name[organ]]</b></a>"
 		else
 			dat += "<a href='?src=\ref[src];organ=[organ]'><b>[organ_tag_to_name[organ]]</b></a>"
-		dat += "<br>[disp_name]</div>"
+		dat += "<br><div >[disp_name]</div></div>"
 
 	dat += "</td></tr></table><hr>"
 

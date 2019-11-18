@@ -17,6 +17,10 @@
 	var/icon_name = null
 	var/tally = 0
 
+	var/list/s_col                     // skin colour
+	var/s_col_blend = ICON_ADD         // How the skin colour is applied.
+	var/list/h_col                     // hair colour
+
 	// Strings
 	var/broken_description				// fracture string if any.
 	var/damage_state = "00"				// Modifier used for generating the on-mob damage overlay for this limb.
@@ -37,10 +41,7 @@
 	//var/default_icon	// Used to force override of species-specific limb icons (for prosthetics).
 	var/force_icon
 	var/icon/mob_icon                  // Cached icon for use in mob overlays.
-	var/gendered = null
 	var/skin_tone			// Skin tone.
-	var/skin_col			// skin colour
-	var/hair_col
 
 	// Wound and structural data.
 	var/wound_update_accuracy = 1		// how often wounds should be updated, a higher number means less often
@@ -69,6 +70,8 @@
 
 	var/cavity_name = "cavity"				// Name of body part's cavity, displayed during cavity implant surgery
 	var/cavity_max_w_class = ITEM_SIZE_TINY	// Max w_class of cavity implanted items
+
+	var/gendered = FALSE
 
 	// Surgery vars.
 	var/open = 0

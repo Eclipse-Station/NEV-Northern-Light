@@ -107,7 +107,7 @@
 /datum/organ_description/hand
 	min_broken_damage = 40
 	w_class = ITEM_SIZE_SMALL
-	can_grasp = TRUE
+//	can_grasp = TRUE
 	drop_on_remove = list(slot_gloves, slot_handcuffed)
 
 /datum/organ_description/hand/left
@@ -128,7 +128,7 @@
 
 /datum/organ_description/foot
 	min_broken_damage = 40
-	can_stand = TRUE
+//	can_stand = TRUE
 	drop_on_remove = list(slot_shoes, slot_legcuffed)
 
 /datum/organ_description/foot/left

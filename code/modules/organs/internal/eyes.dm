@@ -22,15 +22,17 @@
 
 	// Apply our eye colour to the target.
 	if(istype(target) && eyes_color)
-		target.eyes_color = eyes_color
+		var/list/eyecolors = ReadRGB(eyes_color)
+		target.r_eyes = eyecolors[1]
+		target.g_eyes = eyecolors[2]
+		target.b_eyes = eyecolors[3]
 		target.update_eyes()
 	..()
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
 		return
-	eyes_color = owner.eyes_color
-
+	eyes_color = rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
 /obj/item/organ/internal/eyes/take_damage(amount, var/silent=0)
 	var/oldbroken = is_broken()
 	..()

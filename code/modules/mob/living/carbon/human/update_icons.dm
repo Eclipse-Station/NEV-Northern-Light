@@ -247,6 +247,11 @@ var/global/list/damage_icon_parts = list()
 				if(isnull(part))
 					icon_key += "[organ_tag]Missed"
 					continue
+
+				if(part.s_col && part.s_col.len >= 3)
+					icon_key += "[rgb(part.s_col[1],part.s_col[2],part.s_col[3])]"
+					icon_key += "[part.s_col_blend]"
+
 				icon_key += "[organ_tag][part.get_cache_key()]"
 
 			appearance_test.Log("Generated key: [icon_key]")
@@ -303,6 +308,9 @@ var/global/list/damage_icon_parts = list()
 		//END CACHED ICON GENERATION.
 		stand_icon.Blend(base_icon,ICON_OVERLAY)
 
+	//tail
+	update_tail_showing(0)
+
 	appearance_test.Log("EXIT update_body()")
 	if(update_icons)
 		update_icons()
@@ -348,7 +356,7 @@ var/global/list/damage_icon_parts = list()
 		if(facial_hair_style && facial_hair_style.species_allowed && (src.species.get_bodytype() in facial_hair_style.species_allowed))
 			var/icon/facial_s = new/icon(facial_hair_style.icon, facial_hair_style.icon_state)
 			if(facial_hair_style.do_colouration)
-				facial_s.Blend(facial_color, ICON_ADD)
+				facial_s.Blend(rgb(r_facial, g_facial, b_facial), facial_hair_style.blend)
 
 			face_standing.Blend(facial_s, ICON_OVERLAY)
 
@@ -357,7 +365,7 @@ var/global/list/damage_icon_parts = list()
 		if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
 			var/icon/hair_s = new/icon(hair_style.icon, hair_style.icon_state)
 			if(hair_style.do_colouration)
-				hair_s.Blend(hair_color, ICON_ADD)
+				hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.blend)
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
 
@@ -950,6 +958,95 @@ var/global/list/damage_icon_parts = list()
 		overlays_standing[L_HAND_LAYER] = null
 
 	if(update_icons) update_icons()
+
+
+/mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
+	overlays_standing[TAIL_LAYER] = null
+
+	var/species_tail = species.get_tail(src)
+
+	if(species_tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+		var/icon/tail_s = get_tail_icon()
+		overlays_standing[TAIL_LAYER] = image(tail_s, icon_state = "[species_tail]_s")
+		animate_tail_reset(0)
+
+	if(update_icons)
+		update_icons()
+
+/mob/living/carbon/human/proc/get_tail_icon()
+	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin]"
+	var/icon/tail_icon = tail_icon_cache[icon_key]
+	if(!tail_icon)
+		//generate a new one
+		var/species_tail_anim = species.get_tail_animation(src)
+		if(!species_tail_anim) species_tail_anim = 'icons/effects/species.dmi'
+		tail_icon = new/icon(species_tail_anim)
+		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.tail_blend)
+		// The following will not work with animated tails.
+/*		var/use_species_tail = species.get_tail_hair(src)
+		if(use_species_tail)
+			var/icon/hair_icon = icon('icons/effects/species.dmi', "[species.get_tail(src)]_[use_species_tail]")
+			hair_icon.Blend(hair_colour, ICON_ADD)
+			tail_icon.Blend(hair_icon, ICON_OVERLAY)*/
+		tail_icon_cache[icon_key] = tail_icon
+
+	return tail_icon
+
+
+/mob/living/carbon/human/proc/set_tail_state(var/t_state)
+	var/image/tail_overlay = overlays_standing[TAIL_LAYER]
+
+	if(tail_overlay && species.get_tail_animation(src))
+		tail_overlay.icon_state = t_state
+		return tail_overlay
+	return null
+
+//Not really once, since BYOND can't do that.
+//Update this if the ability to flick() images or make looping animation start at the first frame is ever added.
+/mob/living/carbon/human/proc/animate_tail_once(var/update_icons=1)
+	var/t_state = "[species.get_tail(src)]_once"
+
+	var/image/tail_overlay = overlays_standing[TAIL_LAYER]
+	if(tail_overlay && tail_overlay.icon_state == t_state)
+		return //let the existing animation finish
+
+	tail_overlay = set_tail_state(t_state)
+	if(tail_overlay)
+		spawn(20)
+			//check that the animation hasn't changed in the meantime
+			if(overlays_standing[TAIL_LAYER] == tail_overlay && tail_overlay.icon_state == t_state)
+				animate_tail_stop()
+
+	if(update_icons)
+		update_icons()
+
+/mob/living/carbon/human/proc/animate_tail_start(var/update_icons=1)
+	set_tail_state("[species.get_tail(src)]_slow[rand(0,9)]")
+
+	if(update_icons)
+		update_icons()
+
+/mob/living/carbon/human/proc/animate_tail_fast(var/update_icons=1)
+	set_tail_state("[species.get_tail(src)]_loop[rand(0,9)]")
+
+	if(update_icons)
+		update_icons()
+
+/mob/living/carbon/human/proc/animate_tail_reset(var/update_icons=1)
+	if(stat != DEAD)
+		set_tail_state("[species.get_tail(src)]_idle[rand(0,9)]")
+	else
+		set_tail_state("[species.get_tail(src)]_static")
+
+	if(update_icons)
+		update_icons()
+
+/mob/living/carbon/human/proc/animate_tail_stop(var/update_icons=1)
+	set_tail_state("[species.get_tail(src)]_static")
+
+	if(update_icons)
+		update_icons()
+
 
 //Adds a collar overlay above the helmet layer if the suit has one
 //	Suit needs an identically named sprite in icons/mob/collar.dmi

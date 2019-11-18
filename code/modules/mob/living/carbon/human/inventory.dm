@@ -107,6 +107,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if(slot_accessory_buffer)
 			return 1
 
+/mob/living/carbon/human/u_equip(obj/W as obj)
+	if(!W)	return 0
 	if (W == wear_suit)
 		if(s_store)
 			drop_from_inventory(s_store)
@@ -195,10 +197,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 		update_inv_l_hand()
 	else
 		return 0
-
+/*
 	W.update_wear_icon(TRUE)
 	if(W.action_button_name)
-		update_action_buttons()
+		update_action_buttons()*/
 	return 1
 
 /mob/living/carbon/human/proc/get_active_hand_organ()

@@ -84,19 +84,25 @@ var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Al
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
 var/global/list/organ_structure = list(
-	chest = list(name= "Chest", children=list()),
+	torso = list(name= "Torso", children=list()),
 	groin = list(name= "Groin",     parent=BP_CHEST, children=list()),
 	head  = list(name= "Head",      parent=BP_CHEST, children=list()),
 	r_arm = list(name= "Right arm", parent=BP_CHEST, children=list()),
 	l_arm = list(name= "Left arm",  parent=BP_CHEST, children=list()),
 	r_leg = list(name= "Right leg", parent=BP_GROIN, children=list()),
 	l_leg = list(name= "Left leg",  parent=BP_GROIN, children=list()),
+	l_foot = list(name= "Left Foot",  parent=BP_L_LEG, children=list()),
+	r_foot = list(name= "Right Foot",  parent=BP_R_LEG, children=list()),
+	r_hand = list(name= "Right Hand",  parent=BP_R_ARM, children=list()),
+	l_hand = list(name= "Left Hand",  parent=BP_L_ARM, children=list()),
 	)
 
 var/global/list/organ_tag_to_name = list(
-	head  = "Head", r_arm = "Right arm",
-	chest = "Body", r_leg = "Right Leg",
-	eyes  = "Eyes", l_arm = "Left arm",
+	head  = "Head", r_arm = "Right Arm",
+	torso = "Chest", r_leg = "Right Leg",
+	l_foot = "Left Foot", r_foot = "Right Foot",
+	r_hand = "Right Hand", l_hand = "Left Hand",
+	eyes  = "Eyes", l_arm = "Left Arm",
 	groin = "Groin",l_leg = "Left Leg",
 	chest2= "Back", heart = "Heart",
 	lungs  = "Lungs", liver = "Liver"

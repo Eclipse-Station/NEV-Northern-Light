@@ -14,8 +14,8 @@ var/global/list/limb_icon_cache = list()
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	skin_tone = null
-	skin_col = null
-	hair_col = null
+	s_col = null
+	h_col = list(human.r_hair, human.g_hair, human.b_hair)
 	if(BP_IS_ROBOTIC(src))
 		return
 	if(species && human.species && species.name != human.species.name)
@@ -23,20 +23,19 @@ var/global/list/limb_icon_cache = list()
 	if(!isnull(human.s_tone) && (human.species.appearance_flags & HAS_SKIN_TONE))
 		skin_tone = human.s_tone
 	if(human.species.appearance_flags & HAS_SKIN_COLOR)
-		skin_col = human.skin_color
-	hair_col = human.hair_color
+		s_col = list(human.r_skin, human.g_skin, human.b_skin)
 
 /obj/item/organ/external/proc/sync_colour_to_dna()
 	skin_tone = null
-	skin_col = null
-	hair_col = null
+	s_col = null
+	h_col = list(dna.GetUIValue(DNA_UI_HAIR_R),dna.GetUIValue(DNA_UI_HAIR_G),dna.GetUIValue(DNA_UI_HAIR_B))
 	if(BP_IS_ROBOTIC(src))
 		return
 	if(!isnull(dna.GetUIValue(DNA_UI_SKIN_TONE)) && (species.appearance_flags & HAS_SKIN_TONE))
 		skin_tone = dna.GetUIValue(DNA_UI_SKIN_TONE)
 	if(species.appearance_flags & HAS_SKIN_COLOR)
-		skin_col = rgb(dna.GetUIValue(DNA_UI_SKIN_R), dna.GetUIValue(DNA_UI_SKIN_G), dna.GetUIValue(DNA_UI_SKIN_B))
-	hair_col = rgb(dna.GetUIValue(DNA_UI_HAIR_R),dna.GetUIValue(DNA_UI_HAIR_G),dna.GetUIValue(DNA_UI_HAIR_B))
+		s_col = list(dna.GetUIValue(DNA_UI_SKIN_R), dna.GetUIValue(DNA_UI_SKIN_G), dna.GetUIValue(DNA_UI_SKIN_B))
+	h_col = list(dna.GetUIValue(DNA_UI_HAIR_R),dna.GetUIValue(DNA_UI_HAIR_G),dna.GetUIValue(DNA_UI_HAIR_B))
 
 /obj/item/organ/external/proc/get_cache_key()
 	var/part_key = ""
@@ -59,7 +58,7 @@ var/global/list/limb_icon_cache = list()
 
 	part_key += "[dna.GetUIState(DNA_UI_GENDER)]"
 	part_key += "[skin_tone]"
-	part_key += skin_col
+	part_key += rgb(s_col[1], s_col[2], s_col[3])
 	part_key += model
 
 	if(!appearance_test.special_update)
@@ -101,7 +100,7 @@ var/global/list/limb_icon_cache = list()
 			if(facial_hair_style && facial_hair_style.species_allowed && (species.get_bodytype() in facial_hair_style.species_allowed))
 				var/icon/facial = new/icon(facial_hair_style.icon, facial_hair_style.icon_state)
 				if(facial_hair_style.do_colouration)
-					facial.Blend(owner.facial_color, ICON_ADD)
+					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
 				overlays |= facial
 
 		if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
@@ -109,7 +108,7 @@ var/global/list/limb_icon_cache = list()
 			if(hair_style && (species.get_bodytype() in hair_style.species_allowed))
 				var/icon/hair = new/icon(hair_style.icon, hair_style.icon_state)
 				if(hair_style.do_colouration)
-					hair.Blend(hair_col, ICON_ADD)
+					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_ADD)
 				overlays |= hair
 
 	return mob_icon
@@ -119,14 +118,20 @@ var/global/list/limb_icon_cache = list()
 
 	if(appearance_test.simple_setup)
 		gender = owner.gender == FEMALE ? "_f" : "_m"
-		icon_state = "[organ_tag][gender]"
+		if(gendered)
+			icon_state = "[organ_tag][gender]"
+		else
+			icon_state = "[organ_tag]"
 	else
 		if (dna && dna.GetUIState(DNA_UI_GENDER))
 			gender = "_f"
 		else if(owner && owner.gender == FEMALE)
 			gender = "_f"
 
-		icon_state = "[organ_tag][gender][is_stump()?"_s":""]"
+		if(gendered)
+			icon_state = "[organ_tag][gender][is_stump()?"_s":""]"
+		else
+			icon_state = "[organ_tag][is_stump()?"_s":""]"
 
 	if(!appearance_test.get_species_sprite)
 		icon = 'icons/mob/human_races/r_human.dmi'
@@ -154,8 +159,8 @@ var/global/list/limb_icon_cache = list()
 			else
 				mob_icon.Blend(rgb(-skin_tone,  -skin_tone,  -skin_tone), ICON_SUBTRACT)
 		else
-			if(skin_col)
-				mob_icon.Blend(skin_col, ICON_ADD)
+			if(s_col)
+				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_ADD)
 
 
 	dir = EAST

@@ -19,5 +19,5 @@
 /obj/item/organ/external/robotic/xion
 	name = "Xion"
 	desc = "Prosthesis with minimalist black and red casing."
-	force_icon = 'icons/mob/human_races/cyberlimbs/xion.dmi'
+	force_icon = 'icons/mob/human_races/cyberlimbs/xion/xion_main.dmi'
 	model = "xion"

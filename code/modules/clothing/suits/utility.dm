@@ -50,7 +50,7 @@
 	icon_state = "bombsuit"
 	armor = list(melee = 50, bullet = 50, energy = 50, bomb = 300, bio = 50, rad = 50)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES|EARS
+	body_parts_covered = HEAD|FACE|EYES
 	item_flags = COVER_PREVENT_MANIPULATION
 	siemens_coefficient = 0
 	equip_delay = 50
