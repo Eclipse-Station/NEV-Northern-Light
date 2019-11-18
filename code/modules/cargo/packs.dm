@@ -526,7 +526,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/electrical
 	name = "Electrical maintenance crate"
-	contains = list (/obj/item/weapon/storage/toolbox/electrical,
+	contains = list(/obj/item/weapon/storage/toolbox/electrical,
 					/obj/item/weapon/storage/toolbox/electrical,
 					/obj/item/clothing/gloves/insulated,
 					/obj/item/clothing/gloves/insulated,
@@ -568,6 +568,15 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	cost = 1500
 	containertype = /obj/structure/closet/crate
 	crate_name = "Tool upgrade Crate"
+	group = "Engineering"
+
+/datum/supply_pack/omnitool
+	contains = list(/obj/item/weapon/tool/omnitool,
+					/obj/item/weapon/tool/omnitool)
+	name = "\"Munchkin 5000\" omnitool"
+	cost = 2500
+	containertype = /obj/structure/closet/crate
+	crate_name = "omnitool crate"
 	group = "Engineering"
 
 /datum/supply_pack/fueltank
@@ -806,8 +815,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	crate_name = "Coolant tank crate"
 	group = "Medical / Science"
 
-/datum/supply_pack/phoron
-	name = "Phoron assembly crate"
+/datum/supply_pack/plasma
+	name = "Plasma assembly crate"
 	contains = list(/obj/item/weapon/tank/plasma,
 					/obj/item/weapon/tank/plasma,
 					/obj/item/weapon/tank/plasma,
@@ -822,7 +831,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/device/assembly/timer)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure/scisecurecrate
-	crate_name = "Phoron assembly crate"
+	crate_name = "Plasma assembly crate"
 	access = access_tox_storage
 	group = "Medical / Science"
 

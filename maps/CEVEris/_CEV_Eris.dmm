@@ -718,10 +718,10 @@
 	name = "ammo crate";
 	req_access = list(63)
 	},
-/obj/item/ammo_magazine/ammobox/c9mm/rubber,
-/obj/item/ammo_magazine/ammobox/c9mm/rubber,
-/obj/item/ammo_magazine/ammobox/a10mm/rubber,
-/obj/item/ammo_magazine/ammobox/a10mm/rubber,
+/obj/item/ammo_magazine/ammobox/pistol/rubber,
+/obj/item/ammo_magazine/ammobox/pistol/rubber,
+/obj/item/ammo_magazine/ammobox/pistol/rubber,
+/obj/item/ammo_magazine/ammobox/pistol/rubber,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "abV" = (
@@ -754,6 +754,7 @@
 	name = "Yeetus"
 	},
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/hull{
 	flooring_override = "hullcenter18";
 	icon_state = "hullcenter18";
@@ -879,10 +880,10 @@
 	name = "ammo crate";
 	req_access = list(63)
 	},
-/obj/item/ammo_magazine/ammobox/c65mm/rubber,
-/obj/item/ammo_magazine/ammobox/c65mm/rubber,
-/obj/item/ammo_magazine/ammobox/c65mm/rubber,
-/obj/item/ammo_magazine/ammobox/c65mm/rubber,
+/obj/item/ammo_magazine/ammobox/clrifle/rubber,
+/obj/item/ammo_magazine/ammobox/clrifle/rubber,
+/obj/item/ammo_magazine/ammobox/clrifle/rubber,
+/obj/item/ammo_magazine/ammobox/clrifle/rubber,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "aco" = (
@@ -890,10 +891,10 @@
 	name = "ammo crate";
 	req_access = list(63)
 	},
-/obj/item/ammo_magazine/ammobox/c44/rubber,
-/obj/item/ammo_magazine/ammobox/c44/rubber,
-/obj/item/ammo_magazine/ammobox/c44/rubber,
-/obj/item/ammo_magazine/ammobox/c44/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "acp" = (
@@ -1166,6 +1167,7 @@
 	locked = 1;
 	name = "External Security Airlock"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "acQ" = (
@@ -6410,6 +6412,7 @@
 	locked = 1;
 	name = "External Second Section Airlock - 2"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/maintenance/section2deck5port)
 "aox" = (
@@ -11307,7 +11310,7 @@
 	pixel_x = 7;
 	pixel_y = 25;
 	req_access = list(3);
-	step_x = 0
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/warden)
@@ -11955,6 +11958,7 @@
 	locked = 1;
 	name = "External Third Section Airlock - 3"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/maintenance/section3deck2starboard)
 "aBf" = (
@@ -21214,14 +21218,14 @@
 /area/eris/engineering/wastingroom)
 "aXf" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/smg9mm,
-/obj/item/ammo_magazine/smg9mm,
-/obj/item/ammo_magazine/smg9mm,
-/obj/item/ammo_magazine/smg9mm,
-/obj/item/ammo_magazine/smg9mm,
-/obj/item/ammo_magazine/smg9mm,
-/obj/item/ammo_magazine/smg9mm,
-/obj/item/ammo_magazine/smg9mm,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
@@ -21236,6 +21240,7 @@
 	locked = 1;
 	name = "External Atmospherics Airlock"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/maintenance/section4deck5port)
 "aXh" = (
@@ -22389,28 +22394,28 @@
 	name = "ammo crate";
 	req_access = list(63)
 	},
-/obj/item/ammo_magazine/ammobox/c65mm,
-/obj/item/ammo_magazine/ammobox/c65mm,
-/obj/item/ammo_magazine/ammobox/c9mm,
-/obj/item/ammo_magazine/ammobox/c9mm,
+/obj/item/ammo_magazine/ammobox/clrifle,
+/obj/item/ammo_magazine/ammobox/clrifle,
+/obj/item/ammo_magazine/ammobox/pistol,
+/obj/item/ammo_magazine/ammobox/pistol,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/ammo_magazine/ammobox/a10mm,
-/obj/item/ammo_magazine/ammobox/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/ammobox/magnum,
+/obj/item/ammo_magazine/ammobox/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nonlethal_ammo,
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/lethal_ammo,
-/obj/item/ammo_magazine/ammobox/a556,
-/obj/item/ammo_magazine/ammobox/a556,
+/obj/item/ammo_magazine/ammobox/srifle,
+/obj/item/ammo_magazine/ammobox/srifle,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "aZC" = (
@@ -38778,6 +38783,7 @@
 	locked = 1;
 	name = "External Third Section Airlock - 1"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel,
 /area/eris/maintenance/section3deck1central)
 "bIo" = (
@@ -57552,6 +57558,7 @@
 	locked = 1;
 	name = "External Post Airlock"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/post)
 "cyB" = (
@@ -57586,7 +57593,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/computer/ordercomp,
+/obj/machinery/computer/supplycomp/order,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/quartermaster/office)
 "cyH" = (
@@ -59507,6 +59514,12 @@
 "cCx" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/food/snacks/mint,
+/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+	pixel_x = -3
+	},
+/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+	pixel_x = 3
+	},
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
 "cCy" = (
@@ -62496,6 +62509,7 @@
 	pixel_y = -10;
 	req_one_access = list(13,48)
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/miningdock)
 "cJA" = (
@@ -62531,6 +62545,7 @@
 	name = "Mining Dock Airlock";
 	req_access = list(13)
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/miningdock)
 "cJD" = (
@@ -64465,6 +64480,7 @@
 	locked = 1;
 	name = "External Engineering E.V.A. Atmospherics Airlock"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel,
 /area/eris/engineering/engeva)
 "cOi" = (
@@ -77125,6 +77141,7 @@
 	locked = 1;
 	name = "External Medbay Airlock"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/medical/medeva)
 "dqf" = (
@@ -80162,6 +80179,7 @@
 	locked = 1;
 	name = "External Third Section Airlock - 2"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/maintenance/section3deck2port)
 "dwM" = (
@@ -80752,6 +80770,7 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/maintenance/oldbridge)
 "dyp" = (
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/rnd/docking)
 "dyq" = (
@@ -80917,6 +80936,7 @@
 	req_access = list(13);
 	tag = "icon-door_closed"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/rnd/docking)
 "dyI" = (
@@ -81053,12 +81073,12 @@
 /area/eris/command/bridge)
 "dyY" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a50,
-/obj/item/ammo_magazine/a50,
-/obj/item/ammo_magazine/a50,
-/obj/item/ammo_magazine/a50,
-/obj/item/ammo_magazine/a50,
-/obj/item/ammo_magazine/a50,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
+/obj/item/ammo_magazine/magnum,
 /obj/machinery/door/blast/shutters/glass{
 	id = "BridgeArmoury";
 	name = "Armoury showcase"
@@ -81069,17 +81089,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/ammo_magazine/ammobox/c50,
-/obj/item/ammo_magazine/ammobox/c50,
+/obj/item/ammo_magazine/ammobox/magnum,
+/obj/item/ammo_magazine/ammobox/magnum,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dyZ" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a50/rubber,
-/obj/item/ammo_magazine/a50/rubber,
-/obj/item/ammo_magazine/a50/rubber,
-/obj/item/ammo_magazine/a50/rubber,
-/obj/item/ammo_magazine/a50/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
 /obj/machinery/door/blast/shutters/glass{
 	id = "BridgeArmoury";
 	name = "Armoury showcase"
@@ -81087,9 +81107,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/item/ammo_magazine/a50/rubber,
-/obj/item/ammo_magazine/ammobox/c50/rubber,
-/obj/item/ammo_magazine/ammobox/c50/rubber,
+/obj/item/ammo_magazine/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dza" = (
@@ -87137,6 +87157,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "dMi" = (
@@ -88892,7 +88913,7 @@
 	id = "shieldroom";
 	name = "Shield Generator Shutters";
 	pixel_x = 25;
-	step_x = 0
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/shield_generator)
@@ -90908,6 +90929,7 @@
 	pixel_y = 24;
 	sensor_dir = 8
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/maintenance/section2deck1port)
 "dVc" = (
@@ -91064,6 +91086,7 @@
 	pixel_x = 0;
 	pixel_y = -25
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/maintenance/section2deck1port)
 "dVs" = (
@@ -91640,12 +91663,12 @@
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/ammo_magazine/ih556,
-/obj/item/ammo_magazine/ih556,
-/obj/item/ammo_magazine/ih556,
-/obj/item/ammo_magazine/ih556,
-/obj/item/ammo_magazine/ih556,
-/obj/item/ammo_magazine/ih556,
+/obj/item/ammo_magazine/ihsrifle,
+/obj/item/ammo_magazine/ihsrifle,
+/obj/item/ammo_magazine/ihsrifle,
+/obj/item/ammo_magazine/ihsrifle,
+/obj/item/ammo_magazine/ihsrifle,
+/obj/item/ammo_magazine/ihsrifle,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "dWB" = (
@@ -99267,14 +99290,14 @@
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/ammo_magazine/sol65,
-/obj/item/ammo_magazine/sol65,
-/obj/item/ammo_magazine/sol65,
-/obj/item/ammo_magazine/sol65,
-/obj/item/ammo_magazine/sol65,
-/obj/item/ammo_magazine/sol65,
-/obj/item/ammo_magazine/sol65,
-/obj/item/ammo_magazine/sol65,
+/obj/item/ammo_magazine/ihclrifle,
+/obj/item/ammo_magazine/ihclrifle,
+/obj/item/ammo_magazine/ihclrifle,
+/obj/item/ammo_magazine/ihclrifle,
+/obj/item/ammo_magazine/ihclrifle,
+/obj/item/ammo_magazine/ihclrifle,
+/obj/item/ammo_magazine/ihclrifle,
+/obj/item/ammo_magazine/ihclrifle,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "enX" = (
@@ -103260,10 +103283,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/storage/primary)
-"ewx" = (
-/obj/machinery/camera/network/third_section,
-/turf/simulated/floor/dirt,
-/area/space)
 "ewy" = (
 /obj/machinery/camera/network/third_section{
 	dir = 8
@@ -108369,6 +108388,26 @@
 	},
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
+"ijn" = (
+/obj/structure/table/bar_special,
+/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+	pixel_x = 3
+	},
+/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+	pixel_x = -3
+	},
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
+"kcK" = (
+/obj/structure/table/bar_special,
+/obj/item/weapon/reagent_containers/food/condiment/saltshaker{
+	pixel_x = 3
+	},
+/obj/item/weapon/reagent_containers/food/condiment/peppermill{
+	pixel_x = -3
+	},
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
 
 (1,1,1) = {"
 aaa
@@ -129026,7 +129065,7 @@ aaR
 aaR
 aaR
 aaR
-aae
+aaR
 aaa
 aaa
 aaa
@@ -129228,7 +129267,7 @@ adm
 aeo
 aec
 abS
-aae
+aaR
 aaa
 aaa
 aaa
@@ -129430,7 +129469,7 @@ adO
 aep
 aeQ
 abS
-aae
+aaR
 aaa
 aaa
 aaa
@@ -129632,7 +129671,7 @@ adP
 aeq
 aeU
 abS
-aae
+aaR
 aaa
 aaa
 aaa
@@ -129834,7 +129873,7 @@ abS
 aer
 aeU
 abS
-aae
+aaR
 aaa
 aaa
 aaa
@@ -130036,7 +130075,7 @@ adS
 aes
 aaR
 aaR
-aae
+aaR
 abF
 abF
 abF
@@ -168075,12 +168114,12 @@ cin
 cis
 cje
 cjA
-cjQ
+kcK
 cjQ
 ckn
 ckL
 cjA
-cjQ
+ijn
 cjQ
 clX
 cjq
@@ -223228,7 +223267,7 @@ aaa
 aaa
 aaa
 aaa
-ewx
+aaa
 aaa
 aaa
 aaa
