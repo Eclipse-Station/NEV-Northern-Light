@@ -160,7 +160,7 @@ var/global/list/limb_icon_cache = list()
 				mob_icon.Blend(rgb(-skin_tone,  -skin_tone,  -skin_tone), ICON_SUBTRACT)
 		else
 			if(s_col)
-				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_ADD)
+				mob_icon.Blend(rgb(s_col[1], s_col[2], s_col[3]), ICON_MULTIPLY)
 
 
 	dir = EAST

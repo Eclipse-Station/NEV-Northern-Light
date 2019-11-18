@@ -247,11 +247,9 @@ var/global/list/damage_icon_parts = list()
 				if(isnull(part))
 					icon_key += "[organ_tag]Missed"
 					continue
-
-				if(part.s_col && part.s_col.len >= 3)
+				/*if(part.s_col && part.s_col.len >= 3)
 					icon_key += "[rgb(part.s_col[1],part.s_col[2],part.s_col[3])]"
-					icon_key += "[part.s_col_blend]"
-
+					icon_key += "[part.s_col_blend]"*/
 				icon_key += "[organ_tag][part.get_cache_key()]"
 
 			appearance_test.Log("Generated key: [icon_key]")
