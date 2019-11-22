@@ -133,7 +133,8 @@ Please contact me on #coderbus IRC. ~Carn x
 #define R_HAND_LAYER		25
 #define FIRE_LAYER			26		//If you're on fire
 #define TARGETED_LAYER		27		//BS12: Layer for the target overlay from weapon targeting system
-#define TOTAL_LAYERS		27
+#define WING_LAYER			28
+#define TOTAL_LAYERS		28
 //////////////////////////////////
 
 /mob/living/carbon/human
@@ -308,6 +309,7 @@ var/global/list/damage_icon_parts = list()
 
 	//tail
 	update_tail_showing(0)
+	update_wing_showing()
 
 	appearance_test.Log("EXIT update_body()")
 	if(update_icons)
@@ -352,7 +354,7 @@ var/global/list/damage_icon_parts = list()
 	if(f_style && !(wear_mask && (wear_mask.flags_inv & BLOCKFACEHAIR)))
 		var/datum/sprite_accessory/facial_hair_style = GLOB.facial_hair_styles_list[f_style]
 		if(facial_hair_style && facial_hair_style.species_allowed && (src.species.get_bodytype() in facial_hair_style.species_allowed))
-			var/icon/facial_s = new/icon(facial_hair_style.icon, facial_hair_style.icon_state)
+			var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
 				facial_s.Blend(rgb(r_facial, g_facial, b_facial), facial_hair_style.blend)
 
@@ -367,6 +369,9 @@ var/global/list/damage_icon_parts = list()
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
 
+	var/icon/ears_s = get_ears_overlay()
+	if (ears_s)
+		face_standing.Blend(ears_s, ICON_OVERLAY)
 	overlays_standing[HAIR_LAYER]	= image(face_standing)
 
 	if(update_icons)   update_icons()
@@ -777,6 +782,8 @@ var/global/list/damage_icon_parts = list()
 		update_inv_shoes(0)
 
 	update_collar(0)
+	update_wing_showing()
+	update_tail_showing()
 
 	if(update_icons)   update_icons()
 
@@ -961,6 +968,12 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 	overlays_standing[TAIL_LAYER] = null
 
+	var/image/vr_tail_image = get_tail_image()
+	if(vr_tail_image)
+		vr_tail_image.layer = (-100)+TAIL_LAYER
+		overlays_standing[TAIL_LAYER] = vr_tail_image
+		return
+
 	var/species_tail = species.get_tail(src)
 
 	if(species_tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
@@ -1078,6 +1091,19 @@ var/global/list/damage_icon_parts = list()
 	overlays_standing[SURGERY_LAYER] = total
 	if(update_icons)   update_icons()
 
+/mob/living/carbon/human/proc/update_wing_showing()
+	if(QDESTROYING(src))
+		return
+
+	overlays_standing[WING_LAYER] = null
+
+	var/image/vr_wing_image = get_wing_image()
+	if(vr_wing_image)
+		vr_wing_image.layer = (-100)+WING_LAYER
+		overlays_standing[WING_LAYER] = vr_wing_image
+
+
+
 //Human Overlays Indexes/////////
 #undef MUTATIONS_LAYER
 #undef DAMAGE_LAYER
@@ -1105,4 +1131,5 @@ var/global/list/damage_icon_parts = list()
 #undef R_HAND_LAYER
 #undef TARGETED_LAYER
 #undef FIRE_LAYER
+#undef WING_LAYER
 #undef TOTAL_LAYERS

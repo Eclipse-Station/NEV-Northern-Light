@@ -205,6 +205,25 @@
 
 	character.s_tone = s_tone
 
+	character.ear_style			= ear_styles_list[ear_style]
+	character.r_ears			= r_ears
+	character.b_ears			= b_ears
+	character.g_ears			= g_ears
+	character.r_ears2			= r_ears2
+	character.b_ears2			= b_ears2
+	character.g_ears2			= g_ears2
+	character.tail_style		= tail_styles_list[tail_style]
+	character.r_tail			= r_tail
+	character.b_tail			= b_tail
+	character.g_tail			= g_tail
+	character.r_tail2			= r_tail2
+	character.b_tail2			= b_tail2
+	character.g_tail2			= g_tail2
+	character.wing_style		= wing_styles_list[wing_style]
+	character.r_wing			= r_wing
+	character.b_wing			= b_wing
+	character.g_wing			= g_wing
+
 	QDEL_NULL_LIST(character.worn_underwear)
 	character.worn_underwear = list()
 

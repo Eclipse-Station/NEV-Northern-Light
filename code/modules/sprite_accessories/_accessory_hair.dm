@@ -7,6 +7,7 @@
 */
 
 /datum/sprite_accessory/hair
+	var/icon_add = 'icons/mob/human_face.dmi'
 	icon = 'icons/mob/human_races/species/human/hair.dmi'
 
 /datum/sprite_accessory/hair/bald
