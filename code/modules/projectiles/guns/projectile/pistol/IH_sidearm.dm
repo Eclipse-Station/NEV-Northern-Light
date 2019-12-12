@@ -5,6 +5,7 @@
 	icon_state = "IH_sidearm"
 	item_state = "IH_sidearm"
 	w_class = ITEM_SIZE_NORMAL
+	can_dual = 1
 	caliber = "pistol"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -19,7 +20,7 @@
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 	silencer_type = /obj/item/weapon/silencer
 	damage_multiplier = 1.1
-	recoil = 0.5 //regular pistol recoil
+	recoil_buildup = 20
 
 /obj/item/weapon/gun/projectile/IH_sidearm/update_icon()
 	..()

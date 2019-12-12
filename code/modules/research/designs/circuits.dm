@@ -1,6 +1,6 @@
 /datum/design/research/circuit
 	build_type = IMPRINTER
-	chemicals = list("silicon" = 15)
+	chemicals = list("silicon" = 5)
 
 /datum/design/research/circuit/AssembleDesignName(atom/temp_atom)
 	..()
@@ -9,11 +9,11 @@
 		return
 
 	if(C.board_type == "machine")
-		name = "Machine circuit design ([item_name])"
+		name = "Machine circuit ([item_name])"
 	else if(C.board_type == "computer")
-		name = "Computer circuit design ([item_name])"
+		name = "Computer circuit ([item_name])"
 	else
-		name = "Circuit design ([item_name])"
+		name = "Circuit ([item_name])"
 
 /datum/design/research/circuit/AssembleDesignDesc()
 	if(!desc)

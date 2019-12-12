@@ -30,8 +30,7 @@
 		remove_cursor(user)
 
 /obj/item/weapon/gun/proc/update_cursor(mob/living/H)
-	if(!H || !istype(H))
-		return
+	ASSERT(H)
 	if(H.get_preference_value(/datum/client_preference/gun_cursor) != GLOB.PREF_YES)
 		remove_cursor(H)
 		return
@@ -41,18 +40,18 @@
 	if(H.client)
 		H.client.mouse_pointer_icon = initial(H.client.mouse_pointer_icon)
 		var/icon/scaled = 'icons/obj/gun_cursors/standard/standard1.dmi' //Default cursor
-		switch(calc_recoil(H))
-			if(0 to 0.5)
+		switch(H.calc_recoil())
+			if(0 to 10)
 				scaled = 'icons/obj/gun_cursors/standard/standard1.dmi'
-			if(0.5 to 1)
+			if(10 to 20)
 				scaled = 'icons/obj/gun_cursors/standard/standard2.dmi'
-			if(1 to 1.5)
+			if(20 to 30)
 				scaled = 'icons/obj/gun_cursors/standard/standard3.dmi'
-			if(1.5 to 2)
+			if(30 to 50)
 				scaled = 'icons/obj/gun_cursors/standard/standard4.dmi'
-			if(2 to 3)
+			if(50 to MAX_ACCURACY_OFFSET)
 				scaled = 'icons/obj/gun_cursors/standard/standard5.dmi'
-			if(3 to INFINITY)
+			if(MAX_ACCURACY_OFFSET to INFINITY)
 				scaled = 'icons/obj/gun_cursors/standard/standard6.dmi' //Catch. If we're above these numbers of recoil
 		if(scaled)
 			H.client.mouse_pointer_icon = scaled

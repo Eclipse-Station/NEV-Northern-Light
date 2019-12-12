@@ -209,7 +209,7 @@
 	max_ammo = 30
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/ihclrifler/empty
+/obj/item/ammo_magazine/ihclrifle/empty
 	icon_state = "mg_ih_sol"
 	initial_ammo = 0
 
@@ -308,6 +308,16 @@
 	max_ammo = 96
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/sllrifle
+	name = "ammo strip (.30 Rifle)"
+	icon_state = "lrifle"
+	icon = 'icons/obj/ammo_speed.dmi'
+	caliber = "lrifle"
+	matter = list(MATERIAL_STEEL = 3)
+	ammo_type = /obj/item/ammo_casing/lrifle
+	max_ammo = 5
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/slpistol
 	name = "speed loader (.35 Special)"
 	icon_state = "38l"
@@ -367,7 +377,7 @@
 /obj/item/ammo_magazine/magnum/hv
 	name = "magazine (40 Magnum high-velocity)"
 	icon_state = "mg_ih_pst_44hv"
-	ammo_type = /obj/item/ammo_casing/pistol/hv
+	ammo_type = /obj/item/ammo_casing/magnum/hv
 
 /obj/item/ammo_magazine/caps
 	name = "speed loader (caps)"
@@ -391,4 +401,41 @@
 	max_ammo = 4
 
 /obj/item/ammo_magazine/a75/empty
+	initial_ammo = 0
+
+////////////Shotguns!////////////
+
+/obj/item/ammo_magazine/m12
+	name = "ammo drum (12 gauge slug)"
+	icon_state = "m12_slug"
+	mag_type = MAGAZINE
+	mag_well =  MAG_WELL_RIFLE
+	caliber = "shotgun"
+	ammo_type = /obj/item/ammo_casing/shotgun
+	matter = list(MATERIAL_STEEL = 6)
+	multiple_sprites = 1
+	max_ammo = 8
+	ammo_color = "-slug"
+
+/obj/item/ammo_magazine/m12/pellet
+	name = "ammo drum (12 gauge pellet)"
+	icon_state = "m12_pellets"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	ammo_color = "-pellets"
+
+/obj/item/ammo_magazine/m12/stun
+	name = "ammo drum (12 gauge stun)"
+	icon_state = "m12_stun"
+	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
+	ammo_color = "-stun"
+
+/obj/item/ammo_magazine/m12/beanbag
+	name = "ammo drum (12 gauge beanbag)"
+	icon_state = "m12_beanbag"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+	ammo_color = "-beanbag"
+
+/obj/item/ammo_magazine/m12/empty
+	name = "ammo drum (12 gauge)"
+	icon_state = "m12"
 	initial_ammo = 0

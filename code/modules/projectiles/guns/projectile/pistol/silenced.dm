@@ -5,6 +5,7 @@
 	icon_state = "mandella"
 	item_state = "pistol_s"
 	w_class = ITEM_SIZE_NORMAL
+	can_dual = 1
 	caliber = "pistol"
 	silencer_type = /obj/item/weapon/silencer/integrated
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -13,8 +14,8 @@
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL
 	magazine_type = /obj/item/ammo_magazine/pistol
-	damage_multiplier = 1.2
-	recoil = 0.4 //less than regular pistol because of integrated silencer
+	damage_multiplier = 1.1
+	recoil_buildup = 14
 
 
 //This comes with a preinstalled silencer

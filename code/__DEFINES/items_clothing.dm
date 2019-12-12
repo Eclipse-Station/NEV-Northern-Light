@@ -209,6 +209,10 @@
 #define DIRECTION_IMAGE 	4
 
 
+// Hair Defines
+#define HAIR_VERY_SHORT 0x1
+#define HAIR_TIEABLE 0x4
+
 //Stash storytypes
 #define STORY_CRIME	"Crime"
 #define STORY_MUTINY "Mutiny"
