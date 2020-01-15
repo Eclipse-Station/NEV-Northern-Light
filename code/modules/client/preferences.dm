@@ -185,12 +185,44 @@
 	// Build mob body from prefs
 	character.rebuild_organs(src)
 
-	character.eyes_color = eyes_color
-	character.hair_color = hair_color
-	character.facial_color = facial_color
-	character.skin_color = skin_color
+
+	character.r_eyes = r_eyes
+	character.g_eyes = g_eyes
+	character.b_eyes = b_eyes
+
+	character.h_style = h_style
+	character.r_hair = r_hair
+	character.g_hair = g_hair
+	character.b_hair = b_hair
+
+	character.f_style = f_style
+	character.r_facial = r_facial
+	character.g_facial = g_facial
+	character.b_facial = b_facial
+	character.r_skin = r_skin
+	character.g_skin = g_skin
+	character.b_skin = b_skin
 
 	character.s_tone = s_tone
+
+	character.ear_style			= ear_styles_list[ear_style]
+	character.r_ears			= r_ears
+	character.b_ears			= b_ears
+	character.g_ears			= g_ears
+	character.r_ears2			= r_ears2
+	character.b_ears2			= b_ears2
+	character.g_ears2			= g_ears2
+	character.tail_style		= tail_styles_list[tail_style]
+	character.r_tail			= r_tail
+	character.b_tail			= b_tail
+	character.g_tail			= g_tail
+	character.r_tail2			= r_tail2
+	character.b_tail2			= b_tail2
+	character.g_tail2			= g_tail2
+	character.wing_style		= wing_styles_list[wing_style]
+	character.r_wing			= r_wing
+	character.b_wing			= b_wing
+	character.g_wing			= g_wing
 
 	QDEL_NULL_LIST(character.worn_underwear)
 	character.worn_underwear = list()

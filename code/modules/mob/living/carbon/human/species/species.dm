@@ -27,6 +27,8 @@
 	var/base_color                                       // Used by changelings. Should also be used for icon previes..
 	var/tail                                             // Name of tail state in species effects icon file.
 	var/tail_animation                                   // If set, the icon to obtain tail animation states from.
+	var/tail_blend = ICON_ADD
+	var/tail_hair
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
@@ -38,7 +40,7 @@
 
 	var/min_age = 17
 	var/max_age = 70
-
+	var/preview_icon = null
 	// Language/culture vars.
 	var/default_language = LANGUAGE_COMMON   // Default language is used when 'say' is used without modifiers.
 	var/language = LANGUAGE_COMMON           // Default racial language, if any.
@@ -125,6 +127,8 @@
 	var/flags = 0                 // Various specific features.
 	var/appearance_flags = 0      // Appearance/display related features.
 	var/spawn_flags = 0           // Flags that specify who can spawn as this species
+	var/species_flags = 0
+	var/species_preview = 0
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
 	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
 	var/greater_form              // Greater form, if any, ie. human for monkeys.
@@ -150,7 +154,11 @@
 		BP_L_ARM =  new /datum/organ_description/arm/left,
 		BP_R_ARM =  new /datum/organ_description/arm/right,
 		BP_L_LEG =  new /datum/organ_description/leg/left,
-		BP_R_LEG =  new /datum/organ_description/leg/right
+		BP_R_LEG =  new /datum/organ_description/leg/right,
+		BP_L_HAND = new /datum/organ_description/hand/left,
+		BP_R_HAND = new /datum/organ_description/hand/right,
+		BP_L_FOOT = new /datum/organ_description/foot/left,
+		BP_R_FOOT = new /datum/organ_description/foot/right
 		)
 
 	// Misc
@@ -167,6 +175,9 @@
 	return
 
 /datum/species/New()
+
+	species_flags = spawn_flags       // Flags that specify who can spawn as this species
+
 	if(hud_type)
 		hud = new hud_type()
 	else
@@ -390,3 +401,74 @@
 		if(!(slot in hud.equip_slots))
 			return FALSE
 	return TRUE
+
+/datum/species/proc/get_description(var/header, var/append, var/verbose = TRUE, var/skip_detail, var/skip_photo)
+	var/list/damage_types = list(
+		"physical trauma" = brute_mod,
+		"burns" = burn_mod,
+		"lack of air" = oxy_mod,
+		"poison" = toxins_mod
+	)
+	if(!header)
+		header = "<center><h2>[name]</h2></center><hr/>"
+	var/dat = list()
+	dat += "[header]"
+	dat += "<table padding='8px'>"
+	dat += "<tr>"
+	dat += "<td width = 400>"
+	if(verbose || length(blurb) <= MAX_DESC_LEN)
+		dat += "[blurb]"
+	else
+		dat += "[copytext(blurb, 1, MAX_DESC_LEN)] \[...\]"
+	if(append)
+		dat += "<br>[append]"
+	dat += "</td>"
+	if((!skip_photo && preview_icon) || !skip_detail)
+		dat += "<td width = 200 align='center'>"
+		if(!skip_photo && preview_icon)
+			usr << browse_rsc(icon(icon = preview_icon, icon_state = ""), "species_preview_[name].png")
+			dat += "<img src='species_preview_[name].png' width='64px' height='64px'><br/><br/>"
+		if(!skip_detail)
+			dat += "<small>"
+			if(spawn_flags & SPECIES_CAN_JOIN)
+				dat += "</br><b>Often present among humans.</b>"
+			if(spawn_flags & SPECIES_IS_WHITELISTED)
+				dat += "</br><b>Whitelist restricted.</b>"
+			if(!has_organ[BP_HEART])
+				dat += "</br><b>Does not have blood.</b>"
+		/*	if(!has_organ[breathing_organ])
+				dat += "</br><b>Does not breathe.</b>"*/
+			if(species_flags & SPECIES_FLAG_NO_SCAN)
+				dat += "</br><b>Does not have DNA.</b>"
+			if(species_flags & SPECIES_FLAG_NO_PAIN)
+				dat += "</br><b>Does not feel pain.</b>"
+			if(species_flags & SPECIES_FLAG_NO_MINOR_CUT)
+				dat += "</br><b>Has thick skin/scales.</b>"
+			if(species_flags & SPECIES_FLAG_NO_SLIP)
+				dat += "</br><b>Has excellent traction.</b>"
+			if(species_flags & SPECIES_FLAG_NO_POISON)
+				dat += "</br><b>Immune to most poisons.</b>"
+			if(appearance_flags & HAS_A_SKIN_TONE)
+				dat += "</br><b>Has a variety of skin tones.</b>"
+			if(appearance_flags & HAS_SKIN_COLOR)
+				dat += "</br><b>Has a variety of skin colours.</b>"
+			if(appearance_flags & HAS_EYE_COLOR)
+				dat += "</br><b>Has a variety of eye colours.</b>"
+			if(species_flags & SPECIES_FLAG_IS_PLANT)
+				dat += "</br><b>Has a plantlike physiology.</b>"
+			if(slowdown)
+				dat += "</br><b>Moves [slowdown > 0 ? "slower" : "faster"] than most.</b>"
+			for(var/kind in damage_types)
+				if(damage_types[kind] > 1)
+					dat += "</br><b>Vulnerable to [kind].</b>"
+				else if(damage_types[kind] < 1)
+					dat += "</br><b>Resistant to [kind].</b>"
+			dat += "</br><b>They breathe [gas_data.name[breath_type]].</b>"
+			dat += "</br><b>They exhale [gas_data.name[exhale_type]].</b>"
+		/*	if(LAZYLEN(poison_types))
+				dat += "</br><b>[capitalize(english_list(poison_types))] [LAZYLEN(poison_types) == 1 ? "is" : "are"] poisonous to them.</b>"*/
+			dat += "</small>"
+		dat += "</td>"
+	dat += "</tr>"
+	dat += "</table><hr/>"
+	return jointext(dat, null)

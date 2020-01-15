@@ -93,9 +93,9 @@ meteor_act
 //	No siemens coefficient calculations now, it's all done with armor "Energy" protection stat
 
 	switch (def_zone)
-		if(BP_L_ARM, BP_R_ARM)
+		if(BP_L_HAND, BP_R_HAND)
 			var/c_hand
-			if (def_zone == BP_L_ARM)
+			if (def_zone == BP_L_HAND)
 				c_hand = l_hand
 			else
 				c_hand = r_hand

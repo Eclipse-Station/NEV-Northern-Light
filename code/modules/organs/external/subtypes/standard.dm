@@ -19,6 +19,7 @@
 	parent_organ = null
 	encased = "ribcage"
 	cavity_name = "thoracic cavity"
+	gendered = TRUE
 	cavity_max_w_class = ITEM_SIZE_NORMAL
 
 /obj/item/organ/external/groin
@@ -35,6 +36,7 @@
 	amputation_point = "lumbar"
 	joint = "hip"
 	cavity_name = "abdominal cavity"
+	gendered = TRUE
 	cavity_max_w_class = ITEM_SIZE_SMALL
 	dislocated = -1
 
@@ -51,6 +53,7 @@
 	parent_organ = BP_CHEST
 	joint = "jaw"
 	amputation_point = "neck"
+	gendered = TRUE
 	encased = "skull"
 	cavity_name = "cranial cavity"
 	drop_on_remove = list(slot_head, slot_glasses, slot_l_ear, slot_r_ear, slot_wear_mask)

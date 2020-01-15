@@ -143,10 +143,22 @@
 	return ..(user, distance, "", message)
 
 /obj/item/attack_hand(mob/user as mob)
-	if(pre_pickup(user))
-		pickup(user)
-		return TRUE
-	return FALSE
+	if (!user) return
+	if (hasorgans(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+		if (user.hand)
+			temp = H.organs_by_name[BP_L_HAND]
+		if(temp && !temp.is_usable())
+			user << SPAN_NOTICE("You try to move your [temp.name], but cannot!")
+			return
+		if(!temp)
+			user << SPAN_NOTICE("You try to use your hand, but realize it is no longer attached!")
+			return
+	src.pickup(user)
+	if (istype(src.loc, /obj/item/weapon/storage))
+		var/obj/item/weapon/storage/S = src.loc
+		S.remove_from_storage(src)
 
 //	Places item in active hand and invokes pickup animation
 //	NOTE: This proc was created and replaced previous pickup() proc which is now called pre_pickup() as it makes more sense

@@ -7,7 +7,7 @@
 		slot_r_hand_str = "helmet",
 		)
 	item_flags = THICKMATERIAL
-	body_parts_covered = HEAD | EARS
+	body_parts_covered = HEAD
 	armor = list(melee = 35, bullet = 40,energy = 30, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS
 	cold_protection = HEAD
@@ -24,7 +24,7 @@
 	icon_state = "botanist"
 	armor = list(melee = 35, bullet = 20, energy = 20, bomb = 25, bio = 100, rad = 80)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EARS
+	body_parts_covered = HEAD|FACE
 
 /obj/item/clothing/head/helmet/acolyte
 	name = "Acolyte hood"
@@ -32,7 +32,7 @@
 	icon_state = "acolyte"
 	armor = list(melee = 35, bullet = 20, energy = 20, bomb = 25, bio = 100, rad = 80)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EARS
+	body_parts_covered = HEAD|FACE
 
 /obj/item/clothing/head/helmet/custodian
 	name = "Custodian helmet"
@@ -40,7 +40,7 @@
 	icon_state = "custodian"
 	armor = list(melee = 35, bullet = 20, energy = 20, bomb = 25, bio = 100, rad = 80)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EARS
+	body_parts_covered = HEAD|FACE
 
 /obj/item/clothing/head/helmet/swat
 	name = "\improper SWAT helmet"
@@ -79,7 +79,7 @@
 	icon_state = "gladiator"
 	armor = list(melee = 35, bullet = 35, energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EARS
+	body_parts_covered = HEAD|FACE
 	siemens_coefficient = 1
 
 /obj/item/clothing/head/helmet/tactical
@@ -108,7 +108,7 @@
 	name = "riot helmet"
 	desc = "Standard-issue Ironhammer helmet with a basic HUD and targeting system included."
 	icon_state = "light_riot"
-	body_parts_covered = HEAD|FACE|EARS
+	body_parts_covered = HEAD|FACE
 	armor = list(melee = 60, bullet = 35, energy = 25, bomb = 5, bio = 2, rad = 0)
 	item_flags = THICKMATERIAL | COVER_PREVENT_MANIPULATION
 	flags_inv = HIDEEARS
