@@ -308,6 +308,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		griefProtection()
 		var/choice = alert("R&D Console Database Reset", "Are you sure you want to reset the R&D console's database? Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
+			log_and_message_admins("reset the R&D console's database")
 			screen = SCREEN_WORKING
 			qdel(files)
 			files = new /datum/research(src)
@@ -376,10 +377,6 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					"missing_chemicals" = missing_chemicals
 				))
 	return designs_list
-
-/obj/machinery/computer/rdconsole/attack_ai(mob/user)
-	. = ..()
-	ui_interact(user)
 
 /obj/machinery/computer/rdconsole/attack_hand(mob/user)
 	if(..())
@@ -644,7 +641,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 			var/list/unlock_list = list()
 			for(var/T in tech_node.unlocks_designs)
-				var/datum/design/D = locate(T) in SSresearch.all_designs
+				var/datum/design/D = SSresearch.get_design(T)
 				if(D) // remove?
 					var/list/build_types = list()
 					if(D.build_type & IMPRINTER)

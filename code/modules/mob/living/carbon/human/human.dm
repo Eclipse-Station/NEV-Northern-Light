@@ -323,14 +323,14 @@ var/list/rank_prefix = list(\
 
 //Removed the horrible safety parameter. It was only being used by ninja code anyways.
 //Now checks siemens_coefficient of the affected area by default
-/mob/living/carbon/human/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null)
+/mob/living/carbon/human/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, def_zone = null)
 	if(status_flags & GODMODE)	return 0	//godmode
 
 	if (!def_zone)
 		def_zone = pick(BP_L_HAND, BP_R_HAND)
 
 	var/obj/item/organ/external/affected_organ = get_organ(check_zone(def_zone))
-	var/siemens_coeff = base_siemens_coeff * get_siemens_coefficient_organ(affected_organ)
+	siemens_coeff *= get_siemens_coefficient_organ(affected_organ)
 
 	return ..(shock_damage, source, siemens_coeff, def_zone)
 
@@ -1014,10 +1014,11 @@ var/list/rank_prefix = list(\
 						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."), \
 						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."))
 					to_chat(src, msg)
-
-				organ.take_damage(rand(1,3), 0, 0)
-				if(organ.setBleeding())
-					src.adjustToxLoss(rand(1,3))
+				var/mob/living/carbon/human/H = organ.owner
+				if(!MOVING_DELIBERATELY(H))
+					organ.take_damage(rand(1,3), 0, 0)
+					if(organ.setBleeding())
+						src.adjustToxLoss(rand(1,3))
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
@@ -1130,10 +1131,6 @@ var/list/rank_prefix = list(\
 	else
 		return 0
 
-#define MODIFICATION_ORGANIC 1
-#define MODIFICATION_SILICON 2
-#define MODIFICATION_REMOVED 3
-
 //Needed for augmentation
 /mob/living/carbon/human/proc/rebuild_organs(from_preference)
 	if(!species)
@@ -1193,8 +1190,9 @@ var/list/rank_prefix = list(\
 			var/obj/item/weapon/implant/core_implant/C = new I.implant_type
 			C.install(src)
 			C.activate()
-			C.install_default_modules_by_job(mind.assigned_job)
-			C.access.Add(mind.assigned_job.cruciform_access)
+			if(mind)
+				C.install_default_modules_by_job(mind.assigned_job)
+				C.access.Add(mind.assigned_job.cruciform_access)
 
 	else
 		var/organ_type = null
@@ -1219,10 +1217,6 @@ var/list/rank_prefix = list(\
 	species.organs_spawned(src)
 
 	update_body()
-
-#undef MODIFICATION_REMOVED
-#undef MODIFICATION_ORGANIC
-#undef MODIFICATION_SILICON
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"

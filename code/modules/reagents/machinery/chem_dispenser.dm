@@ -1,7 +1,3 @@
-#define SOLID 1
-#define LIQUID 2
-#define GAS 3
-
 #define chemical_dispenser_ENERGY_COST (CHEM_SYNTH_ENERGY * CELLRATE) //How many cell charge do we use per unit of chemical?
 #define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4") //list of available bottle sprites
 
@@ -162,9 +158,6 @@
 			to_chat(user, "You set [B] on the machine.")
 			SSnano.update_uis(src) // update all UIs attached to src
 			return
-
-/obj/machinery/chemical_dispenser/attack_ai(mob/living/user)
-	return src.attack_hand(user)
 
 /obj/machinery/chemical_dispenser/attack_hand(mob/living/user)
 	if(stat & BROKEN)

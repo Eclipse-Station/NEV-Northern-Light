@@ -325,8 +325,6 @@
 		else
 			src.register_in_db()
 
-
-#undef TOPIC_SPAM_DELAY
 #undef UPLOAD_LIMIT
 
 //checks if a client is afk
@@ -369,6 +367,7 @@
 		for(var/datum/asset/D in (priority_assets + other_assets))
 			D.send_slow(src)
 
+		send_all_cursor_icons(src)
 
 /mob/proc/MayRespawn()
 	return FALSE

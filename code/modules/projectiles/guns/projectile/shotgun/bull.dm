@@ -19,6 +19,7 @@
 	price_tag = 2800 //gives tactical advantage with beanbags, but consumes more ammo and hits less harder with lethal ammo, so Gladstone or Regulator would be better for lethal takedowns in general
 	damage_multiplier = 0.75
 	penetration_multiplier = 0.75
+	one_hand_penalty = 5
 	burst_delay = null
 	fire_delay = null
 	bulletinsert_sound = 'sound/weapons/guns/interact/shotgun_insert.ogg'
@@ -30,10 +31,11 @@
 		)
 
 /obj/item/weapon/gun/projectile/shotgun/bull/proc/pump(mob/M as mob)
+	var/turf/newloc = get_turf(src)
 	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
 	if(chambered)
 		if(!chambered.BB)
-			chambered.loc = get_turf(src)//Eject casing
+			chambered.forceMove(newloc) //Eject casing
 			chambered = null
 	if(!chambered)
 		if(loaded.len)
@@ -51,8 +53,9 @@
 
 /obj/item/weapon/gun/projectile/shotgun/bull/handle_post_fire()
 	..()
+	var/turf/newloc = get_turf(src)
 	if(chambered)
-		chambered.loc = get_turf(src)//Eject casing
+		chambered.forceMove(newloc) //Eject casing
 		chambered = null
 		if(!reload)
 			if(loaded.len)
@@ -62,8 +65,9 @@
 	reload = 1
 
 /obj/item/weapon/gun/projectile/shotgun/bull/unload_ammo(user, allow_dump)
+	var/turf/newloc = get_turf(src)
 	if(chambered)
-		chambered.loc = get_turf(src)//Eject casing
+		chambered.forceMove(newloc) //Eject casing
 		chambered = null
 		reload = 1
 	..(user, allow_dump=1)
