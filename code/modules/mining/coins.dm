@@ -34,7 +34,7 @@
 
 /obj/item/weapon/coin/phoron
 	name = COIN_PHORON
-	icon_state = "coin_phoron"
+	icon_state = "coin_plasma"
 
 /obj/item/weapon/coin/uranium
 	name = COIN_URANIUM

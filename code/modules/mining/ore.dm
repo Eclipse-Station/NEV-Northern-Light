@@ -45,7 +45,7 @@
 
 /obj/item/weapon/ore/phoron
 	name = "phoron crystals"
-	icon_state = "ore_phoron"
+	icon_state = "ore_plasma"
 	origin_tech = list(TECH_MATERIAL = 2)
 	material = "phoron"
 
