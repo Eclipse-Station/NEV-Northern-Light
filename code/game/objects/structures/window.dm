@@ -533,7 +533,7 @@
 	name = "phoron window"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
 	basestate = "pwindow"
-	icon_state = "phoronwindow"
+	icon_state = "plasmawindow"
 	shardtype = /obj/item/weapon/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	maximal_heat = T0C + 5227  // Safe use temperature at 5500 kelvin. Easy to remember.
@@ -544,7 +544,7 @@
 /obj/structure/window/phoronbasic/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
-	icon_state = "phoronwindow_mask"
+	icon_state = "plasmawindow_mask"
 	alpha = 150
 	maxhealth = 200
 	resistance = RESISTANCE_AVERAGE
@@ -583,7 +583,7 @@
 	name = "reinforced phoron window"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	basestate = "rpwindow"
-	icon_state = "phoronrwindow"
+	icon_state = "plasmarwindow"
 	shardtype = /obj/item/weapon/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	maximal_heat = T0C + 5453 // Safe use temperature at 6000 kelvin.
@@ -594,7 +594,7 @@
 /obj/structure/window/reinforced/phoron/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
-	icon_state = "phoronrwindow_mask"
+	icon_state = "plasmarwindow_mask"
 	alpha = 150
 	maxhealth = 250
 	resistance = RESISTANCE_IMPROVED

@@ -137,7 +137,7 @@
 /obj/item/weapon/storage/deferred/crate/tools
 	name = "tool storage box"
 	desc = "A moderately sized crate full of assorted tools."
-	icon_state = "phoroncrate"
+	icon_state = "plasmacrate"
 	initial_contents = list(/obj/random/tool = 13,
 	/obj/random/tool/advanced = 2)
 
@@ -205,7 +205,7 @@
 /obj/item/weapon/storage/deferred/crate/cells
 	name = "power cell bin"
 	desc = "A moderately sized crate full of various power cells."
-	icon_state = "phoroncrate"
+	icon_state = "plasmacrate"
 	initial_contents = list(/obj/random/powercell = 16)
 
 

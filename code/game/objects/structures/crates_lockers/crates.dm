@@ -269,7 +269,7 @@
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"
 	desc = "A secure phoron crate."
-	icon_state = "phoroncrate"
+	icon_state = "plasmacrate"
 
 /obj/structure/closet/crate/secure/gear
 	name = "gear crate"
@@ -381,4 +381,4 @@
 /obj/structure/closet/crate/secure/woodseccrate
 	desc = "A secure wooden crate."
 	name = "Secure wooden crate"
-	icon_state = "phoroncrate"
+	icon_state = "plasmacrate"

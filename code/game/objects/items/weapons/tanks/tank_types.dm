@@ -79,7 +79,7 @@
 /obj/item/weapon/tank/phoron
 	name = "phoron tank"
 	desc = "Contains dangerous phoron. Do not inhale. Warning: extremely flammable."
-	icon_state = "phoron"
+	icon_state = "plasma"
 	force = WEAPON_FORCE_NORMAL
 	gauge_icon = null
 	flags = CONDUCT

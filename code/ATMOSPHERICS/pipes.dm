@@ -1163,7 +1163,7 @@
 
 /obj/machinery/atmospherics/pipe/tank/phoron
 	name = "Pressure Tank (Phoron)"
-	icon_state = "phoron_map"
+	icon_state = "plasma_map"
 
 /obj/machinery/atmospherics/pipe/tank/phoron/New()
 	air_temporary = new
@@ -1173,7 +1173,7 @@
 	air_temporary.adjust_gas("phoron", (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
 	..()
-	icon_state = "phoron"
+	icon_state = "plasma"
 
 /obj/machinery/atmospherics/pipe/tank/nitrous_oxide
 	name = "Pressure Tank (Nitrous Oxide)"
