@@ -18,7 +18,7 @@
 	var/list/sheet_reagents = list(
 		/obj/item/stack/material/iron = "iron",
 		/obj/item/stack/material/uranium = MATERIAL_URANIUM,
-		/obj/item/stack/material/plasma = "plasma",
+		/obj/item/stack/material/phoron = "phoron",
 		/obj/item/stack/material/gold = MATERIAL_GOLD,
 		/obj/item/stack/material/silver = MATERIAL_SILVER,
 		/obj/item/stack/material/mhydrogen = "hydrogen"

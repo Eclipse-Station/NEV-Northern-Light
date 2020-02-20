@@ -210,7 +210,7 @@
 		src.ricochet_id = 0
 	var/proj_damage = Proj.get_structure_damage()
 	if(istype(Proj,/obj/item/projectile/beam))
-		burn(500)//TODO : fucking write these two procs not only for plasma (see plasma in materials.dm:283) ~
+		burn(500)//TODO : fucking write these two procs not only for phoron (see phoron in materials.dm:283) ~
 	else if(istype(Proj,/obj/item/projectile/ion))
 		burn(500)
 
@@ -422,11 +422,11 @@
 	return total_radiation
 
 /turf/simulated/wall/proc/burn(temperature)
-	if(material.combustion_effect(src, temperature, 0.7))//it wont return something in any way, this proc is commented and it belongs to plasma material.(see materials.dm:283)
+	if(material.combustion_effect(src, temperature, 0.7))//it wont return something in any way, this proc is commented and it belongs to phoron material.(see materials.dm:283)
 		spawn(2)
 			new /obj/structure/girder(src)
 			src.ChangeTurf(/turf/simulated/floor)
 			for(var/turf/simulated/wall/W in trange(3, src) - src)
 				W.burn((temperature/4))
-			for(var/obj/machinery/door/airlock/plasma/D in range(3,src))
+			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
 				D.ignite(temperature/4)

@@ -24,10 +24,10 @@
 /obj/random/material_resources/item_to_spawn()
 	return pickweight(list(/obj/item/stack/material/steel/random = 5,\
 				/obj/item/stack/material/glass/random = 4,\
-				/obj/item/stack/material/glass/plasmaglass/random = 3,\
+				/obj/item/stack/material/glass/phoronglass/random = 3,\
 				/obj/item/stack/material/iron/random = 2,\
 				/obj/item/stack/material/diamond/random = 1,\
-				/obj/item/stack/material/plasma/random = 3,\
+				/obj/item/stack/material/phoron/random = 3,\
 				/obj/item/stack/material/gold/random = 2,\
 				/obj/item/stack/material/uranium/random = 1,\
 				/obj/item/stack/material/silver/random = 2))
@@ -46,7 +46,7 @@
 				/obj/item/stack/material/gold/random = 2,\
 				/obj/item/stack/material/uranium/random = 1,\
 				/obj/item/stack/material/silver/random = 2,\
-				/obj/item/stack/material/glass/plasmaglass/random = 2))
+				/obj/item/stack/material/glass/phoronglass/random = 2))
 
 /obj/random/material_rare/low_chance
 	name = "low chance random rare material"
@@ -65,7 +65,7 @@
 				/obj/item/weapon/ore/hydrogen = 2,\
 				/obj/item/weapon/ore/iron = 4,\
 				/obj/item/weapon/ore/osmium = 2,\
-				/obj/item/weapon/ore/plasma = 3,\
+				/obj/item/weapon/ore/phoron = 3,\
 				/obj/item/weapon/ore/silver = 2,\
 				/obj/item/weapon/ore/uranium = 1,\
 				/obj/item/weapon/ore/diamond = 1))

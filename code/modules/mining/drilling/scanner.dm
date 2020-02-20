@@ -32,7 +32,7 @@
 				if("silicates", "carbonaceous rock", "iron")	ore_type = "surface minerals"
 				if(MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND)					ore_type = "precious metals"
 				if(MATERIAL_URANIUM)									ore_type = "nuclear fuel"
-				if("plasma", "osmium", "hydrogen")				ore_type = "exotic matter"
+				if("phoron", "osmium", "hydrogen")				ore_type = "exotic matter"
 
 			if(ore_type) metals[ore_type] += T.resources[metal]
 

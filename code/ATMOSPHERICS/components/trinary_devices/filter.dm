@@ -17,7 +17,7 @@
 	/*
 	Filter types:
 	-1: Nothing
-	 0: Plasma: Plasma, Oxygen Agent B
+	 0: Phoron: Phoron, Oxygen Agent B
 	 1: Oxygen: Oxygen ONLY
 	 2: Nitrogen: Nitrogen ONLY
 	 3: Carbon Dioxide: Carbon Dioxide ONLY
@@ -40,7 +40,7 @@
 	..()
 	switch(filter_type)
 		if(0) //removing hydrocarbons
-			filtered_out = list("plasma")
+			filtered_out = list("phoron")
 		if(1) //removing O2
 			filtered_out = list("oxygen")
 		if(2) //removing N2
@@ -159,7 +159,7 @@
 	var/current_filter_type
 	switch(filter_type)
 		if(0)
-			current_filter_type = "Plasma"
+			current_filter_type = "Phoron"
 		if(1)
 			current_filter_type = "Oxygen"
 		if(2)
@@ -177,7 +177,7 @@
 			<b>Power: </b><a href='?src=\ref[src];power=1'>[use_power?"On":"Off"]</a><br>
 			<b>Filtering: </b>[current_filter_type]<br><HR>
 			<h4>Set Filter Type:</h4>
-			<A href='?src=\ref[src];filterset=0'>Plasma</A><BR>
+			<A href='?src=\ref[src];filterset=0'>Phoron</A><BR>
 			<A href='?src=\ref[src];filterset=1'>Oxygen</A><BR>
 			<A href='?src=\ref[src];filterset=2'>Nitrogen</A><BR>
 			<A href='?src=\ref[src];filterset=3'>Carbon Dioxide</A><BR>
@@ -204,7 +204,7 @@
 		filtered_out.Cut()	//no need to create new lists unnecessarily
 		switch(filter_type)
 			if(0) //removing hydrocarbons
-				filtered_out += "plasma"
+				filtered_out += "phoron"
 			if(1) //removing O2
 				filtered_out += "oxygen"
 			if(2) //removing N2

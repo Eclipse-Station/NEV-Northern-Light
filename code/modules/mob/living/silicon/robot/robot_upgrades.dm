@@ -172,7 +172,7 @@
 	name = "engineering robot RCD"
 	desc = "A rapid construction device module for use during construction operations."
 	icon_state = "cyborg_upgrade3"
-	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_PLASMA = 10, MATERIAL_URANIUM = 10)
+	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_PHORON = 10, MATERIAL_URANIUM = 10)
 	require_module = TRUE
 
 /obj/item/borg/upgrade/rcd/action(var/mob/living/silicon/robot/R)

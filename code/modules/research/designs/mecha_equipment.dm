@@ -129,8 +129,8 @@
 	desc = "Automated repair droid, exosuits' best companion. BEEP BOOP"
 	build_path = /obj/item/mecha_parts/mecha_equipment/repair_droid
 
-/datum/design/research/item/mecha/plasma_generator
-	desc = "Plasma reactor"
+/datum/design/research/item/mecha/phoron_generator
+	desc = "Phoron reactor"
 	build_path = /obj/item/mecha_parts/mecha_equipment/generator
 
 /datum/design/research/item/mecha/energy_relay

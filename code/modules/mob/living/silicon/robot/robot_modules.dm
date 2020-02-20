@@ -523,7 +523,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // to stop those pesky human beings entering the zone
 	src.modules += new /obj/item/weapon/tool/pickaxe/drill(src)
 	src.modules += new /obj/item/weapon/hatton/robot(src)
-	//src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	//src.emag = new /obj/item/weapon/gun/energy/phoroncutter/mounted(src)
 	//src.malfAImodule += new /obj/item/weapon/rtf(src) //We don't have these features
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
@@ -899,7 +899,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/miner(src)
 	src.modules += new /obj/item/weapon/mining_scanner(src)
 	src.modules += new /obj/item/device/t_scanner(src)
-	//src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
+	//src.emag = new /obj/item/weapon/gun/energy/phoroncutter/mounted(src)
 	..(R)
 
 /obj/item/weapon/robot_module/research
@@ -1045,8 +1045,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 
-	//src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
-	//src.emag.name = "Plasma Cutter"
+	//src.emag = new /obj/item/weapon/gun/energy/phoroncutter/mounted(src)
+	//src.emag.name = "Phoron Cutter"
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)

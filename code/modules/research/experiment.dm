@@ -10,7 +10,7 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 	var/static/list/tech_points = list(
 		TECH_MATERIAL = 200,
 		TECH_ENGINEERING = 250,
-		TECH_PLASMA = 500,
+		TECH_PHORON = 500,
 		TECH_POWER = 300,
 		TECH_BLUESPACE = 1000,
 		TECH_BIO = 300,

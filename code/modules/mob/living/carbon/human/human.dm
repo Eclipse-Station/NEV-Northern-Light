@@ -76,9 +76,9 @@
 				stat("Tank Pressure", internal.air_contents.return_pressure())
 				stat("Distribution Pressure", internal.distribute_pressure)
 
-		var/obj/item/organ/internal/xenos/plasmavessel/P = internal_organs_by_name[BP_PLASMA]
+		var/obj/item/organ/internal/xenos/phoronvessel/P = internal_organs_by_name[BP_PHORON]
 		if(P)
-			stat(null, "Plasma Stored: [P.stored_plasma]/[P.max_plasma]")
+			stat(null, "Phoron Stored: [P.stored_phoron]/[P.max_phoron]")
 
 		if(back && istype(back,/obj/item/weapon/rig))
 			var/obj/item/weapon/rig/suit = back

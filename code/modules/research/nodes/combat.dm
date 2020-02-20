@@ -113,7 +113,7 @@
 
 /datum/technology/adv_exotic_weaponry
 	name = "Advanced Experemental Weaponry"
-	desc = "Specisl weapon system using plasma as catalyst. Special weapon core prototipe that deal DNA damage to target."
+	desc = "Specisl weapon system using phoron as catalyst. Special weapon core prototipe that deal DNA damage to target."
 	tech_type = RESEARCH_COMBAT
 
 	x = 0.8
@@ -125,7 +125,7 @@
 	cost = 5000
 
 	unlocks_designs = list(	/datum/design/research/item/weapon/decloner,
-							/datum/design/research/item/weapon/plasmapistol
+							/datum/design/research/item/weapon/phoronpistol
 						)
 
 /datum/technology/adv_lethal

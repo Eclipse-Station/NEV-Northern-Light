@@ -6,7 +6,7 @@
 	onto victims, allowing acidproof gear to provide some good protection
 
 	Blobs are very vulnerable to fire and lasers. Flamethrower is the recommended weapon, and
-	In an emergency, a plasma canister and a lighter will bring a quick end to a blob
+	In an emergency, a phoron canister and a lighter will bring a quick end to a blob
 */
 
 /datum/storyevent/blob

@@ -5,13 +5,13 @@
 	desc = "It smells like an accident in a chemical factory."
 
 /obj/item/organ/internal/xenos/proc/check_alien_ability(var/cost,var/needs_foundation)
-	var/obj/item/organ/internal/xenos/plasmavessel/P = owner.internal_organs_by_name[BP_PLASMA]
+	var/obj/item/organ/internal/xenos/phoronvessel/P = owner.internal_organs_by_name[BP_PHORON]
 	if(!istype(P))
-		to_chat(owner, SPAN_DANGER("Your plasma vessel has been removed!"))
+		to_chat(owner, SPAN_DANGER("Your phoron vessel has been removed!"))
 		return
 
-	if(P.stored_plasma < cost)
-		to_chat(owner, SPAN_WARNING("You don't have enough plasma stored to do that."))
+	if(P.stored_phoron < cost)
+		to_chat(owner, SPAN_WARNING("You don't have enough phoron stored to do that."))
 		return FALSE
 
 	if(needs_foundation)
@@ -25,5 +25,5 @@
 			to_chat(owner, SPAN_WARNING("You need a solid foundation to do that on."))
 			return FALSE
 
-	P.stored_plasma -= cost
+	P.stored_phoron -= cost
 	return TRUE

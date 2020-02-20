@@ -128,13 +128,13 @@
 	rand_min = 2
 	rand_max = 15
 
-/obj/item/stack/material/plasma
-	name = "solid plasma"
+/obj/item/stack/material/phoron
+	name = "solid phoron"
 	icon_state = "sheet-plasma"
-	default_type = MATERIAL_PLASMA
+	default_type = MATERIAL_PHORON
 	price_tag = 30
 
-/obj/item/stack/material/plasma/random
+/obj/item/stack/material/phoron/random
 	rand_min = 3
 	rand_max = 20
 
@@ -277,24 +277,24 @@
 	icon_state = "sheet-rglass"
 	default_type = MATERIAL_RGLASS
 
-/obj/item/stack/material/glass/plasmaglass
+/obj/item/stack/material/glass/phoronglass
 	name = "borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
-	icon_state = "sheet-plasmaglass"
-	default_type = MATERIAL_PLASMAGLASS
+	icon_state = "sheet-phoronglass"
+	default_type = MATERIAL_PHORONGLASS
 	price_tag = 10
 
-/obj/item/stack/material/glass/plasmaglass/random
+/obj/item/stack/material/glass/phoronglass/random
 	rand_min = 3
 	rand_max = 30
 
-/obj/item/stack/material/glass/plasmarglass
+/obj/item/stack/material/glass/phoronrglass
 	name = "reinforced borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
-	icon_state = "sheet-plasmarglass"
-	default_type = MATERIAL_RPLASMAGLASS
+	icon_state = "sheet-phoronrglass"
+	default_type = MATERIAL_RPHORONGLASS
 	price_tag = 12
 
 /obj/item/stack/material/biomatter

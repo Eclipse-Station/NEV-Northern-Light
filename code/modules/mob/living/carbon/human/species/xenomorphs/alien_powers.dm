@@ -9,11 +9,11 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/gain_plasma(var/amount)
+/mob/living/carbon/human/proc/gain_phoron(var/amount)
 
-	var/obj/item/organ/internal/xenos/plasmavessel/I = internal_organs_by_name[BP_PLASMA]
+	var/obj/item/organ/internal/xenos/phoronvessel/I = internal_organs_by_name[BP_PHORON]
 	if(!istype(I)) return
 
 	if(amount)
-		I.stored_plasma += amount
-	I.stored_plasma = max(0,min(I.stored_plasma,I.max_plasma))
+		I.stored_phoron += amount
+	I.stored_phoron = max(0,min(I.stored_phoron,I.max_phoron))

@@ -56,7 +56,7 @@
 	name = "bluespace beaker"
 	desc = "A bluespace beaker, powered by experimental bluespace technology."
 	icon_state = "beakerbluespace"
-	matter = list(MATERIAL_STEEL = 4, MATERIAL_PLASMA = 1)
+	matter = list(MATERIAL_STEEL = 4, MATERIAL_PHORON = 1)
 	volume = 300
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)

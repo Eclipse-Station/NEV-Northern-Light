@@ -1343,7 +1343,7 @@
 	switch(input["vsc"])
 		if("airflow")
 			vsc.ChangeSettingsDialog(usr,vsc.settings)
-		if("plasma")
+		if("phoron")
 			vsc.ChangeSettingsDialog(usr,vsc.plc.settings)
 		if("default")
 			vsc.SetDefault(usr)

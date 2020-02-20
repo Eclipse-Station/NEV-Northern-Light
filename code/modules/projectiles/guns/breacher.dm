@@ -150,7 +150,7 @@
 	w_class = ITEM_SIZE_SMALL
 	//m_amt = 15
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(MATERIAL_PLASMA = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
+	matter = list(MATERIAL_PHORON = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
 	price_tag = 100
 
 	var/charge = 3
@@ -168,7 +168,7 @@
 /obj/item/weapon/hatton_magazine/moebius
 	name = "Moebius BT \"Q-del\" gas tube"
 	icon_state = "Moebius_box1"
-	matter = list(MATERIAL_PLASMA = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
+	matter = list(MATERIAL_PHORON = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
 	charge = 2
 
 /obj/item/weapon/hatton_magazine/moebius/update_icon()

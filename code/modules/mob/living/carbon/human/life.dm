@@ -23,7 +23,7 @@
 
 /mob/living/carbon/human
 	var/oxygen_alert = 0
-	var/plasma_alert = 0
+	var/phoron_alert = 0
 	var/co2_alert = 0
 	var/fire_alert = 0
 	var/pressure_alert = 0
@@ -338,7 +338,7 @@
 	if(!environment)
 		return
 
-	//Stuff like the xenomorph's plasma regen happens here.
+	//Stuff like the xenomorph's phoron regen happens here.
 	species.handle_environment_special(src)
 
 	//Moved pressure calculations here for use in skip-processing check.
@@ -562,11 +562,11 @@
 		if(!(CE_ALCOHOL in chem_effects))
 			stats.getPerk(/datum/perk/inspiration)?.deactivate()
 
-		var/total_plasmaloss = 0
+		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
 			if(I.contaminated)
-				total_plasmaloss += vsc.plc.CONTAMINATION_LOSS
-		if(!(status_flags & GODMODE)) adjustToxLoss(total_plasmaloss)
+				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
+		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
 
 	if(status_flags & GODMODE)	return 0	//godmode
 

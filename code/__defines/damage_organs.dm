@@ -45,7 +45,7 @@
 #define BP_LIVER    "liver"
 #define BP_KIDNEYS  "kidneys"
 #define BP_STOMACH  "stomach"
-#define BP_PLASMA   "plasma vessel"
+#define BP_PHORON   "phoron vessel"
 #define BP_APPENDIX "appendix"
 #define BP_CELL     "cell"
 #define BP_HIVE     "hive node"
@@ -58,7 +58,7 @@
 #define BP_GBLADDER "gas bladder"
 #define BP_POLYP    "polyp segment"
 #define BP_ANCHOR   "anchoring ligament"
-#define BP_PLASMA   "plasma filter"
+#define BP_PHORON   "phoron filter"
 #define BP_ACETONE  "acetone reactor"
 
 // Robo Organs.

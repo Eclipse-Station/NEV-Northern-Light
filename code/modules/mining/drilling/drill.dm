@@ -22,7 +22,7 @@
 		MATERIAL_GOLD = /obj/item/weapon/ore/gold,
 		MATERIAL_SILVER = /obj/item/weapon/ore/silver,
 		MATERIAL_DIAMOND = /obj/item/weapon/ore/diamond,
-		"plasma" = /obj/item/weapon/ore/plasma,
+		"phoron" = /obj/item/weapon/ore/phoron,
 		"osmium" = /obj/item/weapon/ore/osmium,
 		"hydrogen" = /obj/item/weapon/ore/hydrogen,
 		"silicates" = /obj/item/weapon/ore/glass,

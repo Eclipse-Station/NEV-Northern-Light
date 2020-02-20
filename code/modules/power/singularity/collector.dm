@@ -3,14 +3,14 @@ var/global/list/rad_collectors = list()
 
 /obj/machinery/power/rad_collector
 	name = "Radiation Collector Array"
-	desc = "A device which uses Hawking Radiation and plasma to produce power."
+	desc = "A device which uses Hawking Radiation and phoron to produce power."
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "ca"
 	anchored = 0
 	density = 1
 	req_access = list(access_engine_equip)
 //	use_power = 0
-	var/obj/item/weapon/tank/plasma/P = null
+	var/obj/item/weapon/tank/phoron/P = null
 	var/last_power = 0
 	var/last_power_new = 0
 	var/active = 0
@@ -32,11 +32,11 @@ var/global/list/rad_collectors = list()
 
 
 	if(P)
-		if(P.air_contents.gas["plasma"] == 0)
+		if(P.air_contents.gas["phoron"] == 0)
 			investigate_log("<font color='red'>out of fuel</font>.","singulo")
 			eject()
 		else
-			P.air_contents.adjust_gas("plasma", -0.001*drainratio)
+			P.air_contents.adjust_gas("phoron", -0.001*drainratio)
 	return
 
 
@@ -46,7 +46,7 @@ var/global/list/rad_collectors = list()
 			toggle_power()
 			user.visible_message("[user.name] turns the [src.name] [active? "on":"off"].", \
 			"You turn the [src.name] [active? "on":"off"].")
-			investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [user.key]. [P?"Fuel: [round(P.air_contents.gas["plasma"]/0.29)]%":"<font color='red'>It is empty</font>"].","singulo")
+			investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [user.key]. [P?"Fuel: [round(P.air_contents.gas["phoron"]/0.29)]%":"<font color='red'>It is empty</font>"].","singulo")
 			return
 		else
 			to_chat(user, "\red The controls are locked!")
@@ -88,12 +88,12 @@ var/global/list/rad_collectors = list()
 		if(ABORT_CHECK)
 			return
 
-	if(istype(I, /obj/item/weapon/tank/plasma))
+	if(istype(I, /obj/item/weapon/tank/phoron))
 		if(!src.anchored)
 			to_chat(user, "\red The [src] needs to be secured to the floor first.")
 			return
 		if(src.P)
-			to_chat(user, "\red The [src] already has a plasma tank loaded.")
+			to_chat(user, "\red The [src] already has a phoron tank loaded.")
 			return
 		user.drop_item()
 		src.P = I
@@ -128,7 +128,7 @@ var/global/list/rad_collectors = list()
 
 /obj/machinery/power/rad_collector/proc/eject()
 	locked = 0
-	var/obj/item/weapon/tank/plasma/Z = src.P
+	var/obj/item/weapon/tank/phoron/Z = src.P
 	if (!Z)
 		return
 	Z.loc = get_turf(src)
@@ -142,7 +142,7 @@ var/global/list/rad_collectors = list()
 /obj/machinery/power/rad_collector/proc/receive_pulse(var/pulse_strength)
 	if(P && active)
 		var/power_produced = 0
-		power_produced = P.air_contents.gas["plasma"]*pulse_strength*20
+		power_produced = P.air_contents.gas["phoron"]*pulse_strength*20
 		add_avail(power_produced)
 		last_power_new = power_produced
 		return

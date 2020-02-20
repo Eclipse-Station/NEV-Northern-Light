@@ -43,7 +43,7 @@
 			overlays += "tank_nitro"
 		else if(istype(tank,/obj/item/weapon/tank/oxygen))
 			overlays += "tank_oxyg"
-		else if(istype(tank,/obj/item/weapon/tank/plasma))
+		else if(istype(tank,/obj/item/weapon/tank/phoron))
 			overlays += "tank_plasma"
 		//else if(istype(tank,/obj/item/weapon/tank/hydrogen))
 		//	overlays += "tank_hydro"

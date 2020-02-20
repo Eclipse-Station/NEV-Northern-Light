@@ -544,7 +544,7 @@
 /obj/screen/toxin/update_icon()
 	var/mob/living/carbon/human/H = parentmob
 	overlays.Cut()
-	if(H.plasma_alert)
+	if(H.phoron_alert)
 		overlays += ovrls["tox1"]
 //		icon_state = "tox1"
 //	else
@@ -697,7 +697,7 @@ obj/screen/fire/DEADelize()
 										contents.Add(0)
 
 								if ("oxygen")
-									if(t.air_contents.gas["oxygen"] && !t.air_contents.gas["plasma"])
+									if(t.air_contents.gas["oxygen"] && !t.air_contents.gas["phoron"])
 										contents.Add(t.air_contents.gas["oxygen"])
 									else if(istype(t, /obj/item/weapon/tank/onestar_regenerator))
 										contents.Add(BREATH_MOLES*2)
@@ -706,7 +706,7 @@ obj/screen/fire/DEADelize()
 
 								// No races breath this, but never know about downstream servers.
 								if ("carbon dioxide")
-									if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["plasma"])
+									if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["phoron"])
 										contents.Add(t.air_contents.gas["carbon_dioxide"])
 									else
 										contents.Add(0)
