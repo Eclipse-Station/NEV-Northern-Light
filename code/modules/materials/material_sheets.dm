@@ -130,7 +130,7 @@
 
 /obj/item/stack/material/phoron
 	name = "solid phoron"
-	icon_state = "sheet-phoron"
+	icon_state = "sheet-plasma"
 	default_type = MATERIAL_PHORON
 	price_tag = 30
 
