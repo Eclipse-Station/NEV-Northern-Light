@@ -57,12 +57,12 @@
 		material = get_material_by_name(MATERIAL_GLASS)
 		..()
 
-/obj/structure/table/plasmaglass
+/obj/structure/table/phoronglass
 	icon_state = "plain_preview"
 	color = "#FC2BC5"
 	alpha = 77 // 0.3 * 255
 	New()
-		material = get_material_by_name(MATERIAL_PLASMAGLASS)
+		material = get_material_by_name(MATERIAL_PHORONGLASS)
 		..()
 
 /obj/structure/table/holotable

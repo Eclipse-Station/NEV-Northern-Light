@@ -162,7 +162,7 @@
 							/datum/design/research/item/mecha/rcd,
 							/datum/design/research/item/mecha/gravcatapult,
 							/datum/design/research/item/mecha/repair_droid,
-							/datum/design/research/item/mecha/plasma_generator,
+							/datum/design/research/item/mecha/phoron_generator,
 							/datum/design/research/item/mecha/energy_relay,
 							/datum/design/research/item/mecha/syringe_gun,
 							/datum/design/research/item/mecha/diamond_drill,

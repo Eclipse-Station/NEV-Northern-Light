@@ -529,22 +529,22 @@
 	resistance = RESISTANCE_NONE
 	flags = null
 
-/obj/structure/window/plasmabasic
-	name = "plasma window"
+/obj/structure/window/phoronbasic
+	name = "phoron window"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
 	basestate = "pwindow"
-	icon_state = "plasmawindow"
-	shardtype = /obj/item/weapon/material/shard/plasma
-	glasstype = /obj/item/stack/material/glass/plasmaglass
+	icon_state = "phoronwindow"
+	shardtype = /obj/item/weapon/material/shard/phoron
+	glasstype = /obj/item/stack/material/glass/phoronglass
 	maximal_heat = T0C + 5227  // Safe use temperature at 5500 kelvin. Easy to remember.
 	damage_per_fire_tick = 1.5 // Lowest per-tick damage so overheated supermatter chambers have some time to respond to it. Will still shatter before a delam.
 	maxhealth = 150
 	resistance = RESISTANCE_AVERAGE
 
-/obj/structure/window/plasmabasic/full
+/obj/structure/window/phoronbasic/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
-	icon_state = "plasmawindow_mask"
+	icon_state = "phoronwindow_mask"
 	alpha = 150
 	maxhealth = 200
 	resistance = RESISTANCE_AVERAGE
@@ -579,22 +579,22 @@
 	resistance = RESISTANCE_FRAGILE
 	flags = null
 
-/obj/structure/window/reinforced/plasma
-	name = "reinforced plasma window"
+/obj/structure/window/reinforced/phoron
+	name = "reinforced phoron window"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	basestate = "rpwindow"
-	icon_state = "plasmarwindow"
-	shardtype = /obj/item/weapon/material/shard/plasma
-	glasstype = /obj/item/stack/material/glass/plasmarglass
+	icon_state = "phoronrwindow"
+	shardtype = /obj/item/weapon/material/shard/phoron
+	glasstype = /obj/item/stack/material/glass/phoronrglass
 	maximal_heat = T0C + 5453 // Safe use temperature at 6000 kelvin.
 	damage_per_fire_tick = 1.5
 	maxhealth = 200
 	resistance = RESISTANCE_IMPROVED
 
-/obj/structure/window/reinforced/plasma/full
+/obj/structure/window/reinforced/phoron/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
-	icon_state = "plasmarwindow_mask"
+	icon_state = "phoronrwindow_mask"
 	alpha = 150
 	maxhealth = 250
 	resistance = RESISTANCE_IMPROVED

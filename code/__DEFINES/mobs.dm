@@ -230,4 +230,4 @@
 #define SPECIES_ZORREN_FLAT		"Flatland Zorren"
 #define SPECIES_ZORREN_HIGH		"Highlander Zorren"
 #define SPECIES_CUSTOM			"Custom Species"
-#define SPECIES_PLASMAMAN		"Phoronoid"
+#define SPECIES_PHORONMAN		"Phoronoid"

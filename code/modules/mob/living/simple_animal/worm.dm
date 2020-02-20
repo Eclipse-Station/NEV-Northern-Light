@@ -39,7 +39,7 @@
 
 	var/stomachProcessProbability = 50
 	var/digestionProbability = 20
-	var/flatPlasmaValue = 5 //flat plasma amount given for non-items
+	var/flatPhoronValue = 5 //flat phoron amount given for non-items
 
 	var/atom/currentlyEating //what the worm is currently eating
 	var/eatingDuration = 0 //how long he's been eating it for
@@ -171,19 +171,19 @@
 	proc/ProcessStomach()
 		for(var/atom/movable/stomachContent in contents)
 			if(prob(digestionProbability))
-				if(istype(stomachContent,/obj/item/stack)) //converts to plasma, keeping the stack value
-					if(!istype(stomachContent,/obj/item/stack/material/plasma))
+				if(istype(stomachContent,/obj/item/stack)) //converts to phoron, keeping the stack value
+					if(!istype(stomachContent,/obj/item/stack/material/phoron))
 						var/obj/item/stack/oldStack = stomachContent
-						new /obj/item/stack/material/plasma(src, oldStack.get_amount())
+						new /obj/item/stack/material/phoron(src, oldStack.get_amount())
 						qdel(oldStack)
 						continue
-				else if(istype(stomachContent,/obj/item)) //converts to plasma, keeping the w_class
+				else if(istype(stomachContent,/obj/item)) //converts to phoron, keeping the w_class
 					var/obj/item/oldItem = stomachContent
-					new /obj/item/stack/material/plasma(src, oldItem.w_class)
+					new /obj/item/stack/material/phoron(src, oldItem.w_class)
 					qdel(oldItem)
 					continue
 				else
-					new /obj/item/stack/material/plasma(src, flatPlasmaValue) //just flat amount
+					new /obj/item/stack/material/phoron(src, flatPhoronValue) //just flat amount
 					qdel(stomachContent)
 					continue
 

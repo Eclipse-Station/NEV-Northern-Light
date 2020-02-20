@@ -43,11 +43,11 @@
 			if(istype(loc, /turf/)) qdel(src)
 
 
-/obj/item/weapon/ore/plasma
-	name = "plasma crystals"
-	icon_state = "ore_plasma"
+/obj/item/weapon/ore/phoron
+	name = "phoron crystals"
+	icon_state = "ore_phoron"
 	origin_tech = list(TECH_MATERIAL = 2)
-	material = "plasma"
+	material = "phoron"
 
 /obj/item/weapon/ore/silver
 	name = "native silver ore"

@@ -295,4 +295,4 @@
 	icon = 'icons/obj/tank.dmi'
 	icon_state = "jetpack-black"
 	icon_state_broken = "jetpack-black"
-	matter = list(MATERIAL_STEEL = 10, MATERIAL_PLASMA = 10, MATERIAL_SILVER = 20)
+	matter = list(MATERIAL_STEEL = 10, MATERIAL_PHORON = 10, MATERIAL_SILVER = 20)

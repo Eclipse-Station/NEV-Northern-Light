@@ -30,7 +30,7 @@
 			price = 150
 		if(COIN_URANIUM)
 			price = 180
-		if(COIN_PLASMA)
+		if(COIN_PHORON)
 			price = 220
 		if(COIN_PLATINUM)
 			price = 300

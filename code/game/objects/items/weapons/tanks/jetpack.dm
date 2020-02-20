@@ -213,7 +213,7 @@
 	//We've used some thrust. This will allow our trail to make a particle effect
 	thrust_fx_done = FALSE
 
-	var/allgases = G.gas["carbon_dioxide"] + G.gas["nitrogen"] + G.gas["oxygen"] + G.gas["plasma"]
+	var/allgases = G.gas["carbon_dioxide"] + G.gas["nitrogen"] + G.gas["oxygen"] + G.gas["phoron"]
 	if(allgases >= 0.005)
 		return TRUE
 

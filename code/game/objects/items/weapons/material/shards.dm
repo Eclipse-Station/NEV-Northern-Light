@@ -185,5 +185,5 @@
 	name = "scrap metal"
 	amount = 1
 
-/obj/item/weapon/material/shard/plasma/New(loc)
-	..(loc, MATERIAL_PLASMAGLASS)
+/obj/item/weapon/material/shard/phoron/New(loc)
+	..(loc, MATERIAL_PHORONGLASS)

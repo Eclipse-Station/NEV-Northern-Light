@@ -28,7 +28,7 @@
 	build_path = /obj/item/weapon/gun/projectile/automatic/c20r
 	sort_string = "TAAAF"
 
-/datum/design/research/item/weapon/plasmapistol
+/datum/design/research/item/weapon/phoronpistol
 	build_path = /obj/item/weapon/gun/energy/toxgun
 	sort_string = "TAAAD"
 

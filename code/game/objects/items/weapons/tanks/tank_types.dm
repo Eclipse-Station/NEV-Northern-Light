@@ -3,7 +3,7 @@
  *		Oxygen
  *		Anesthetic
  *		Air
- *		Plasma
+ *		Phoron
  *		Emergency Oxygen
  */
 
@@ -74,18 +74,18 @@
 
 
 /*
- * Plasma
+ * Phoron
  */
-/obj/item/weapon/tank/plasma
-	name = "plasma tank"
-	desc = "Contains dangerous plasma. Do not inhale. Warning: extremely flammable."
-	icon_state = "plasma"
+/obj/item/weapon/tank/phoron
+	name = "phoron tank"
+	desc = "Contains dangerous phoron. Do not inhale. Warning: extremely flammable."
+	icon_state = "phoron"
 	force = WEAPON_FORCE_NORMAL
 	gauge_icon = null
 	flags = CONDUCT
 	slot_flags = null	//they have no straps!
 	default_pressure = 3*ONE_ATMOSPHERE
-	default_gas = "plasma"
+	default_gas = "phoron"
 
 
 /*

@@ -32,7 +32,7 @@
 	access_scanner = new /obj(src)
 	access_scanner.req_access = req_access.Copy()
 	access_scanner.req_one_access = req_one_access.Copy()
-	var/atom/A = pick(/obj/item/stack/material/plasma/random, /obj/item/stack/material/iron/random, /obj/item/stack/material/gold/random, /obj/item/stack/material/diamond/random, /obj/item/stack/material/uranium/random)
+	var/atom/A = pick(/obj/item/stack/material/phoron/random, /obj/item/stack/material/iron/random, /obj/item/stack/material/gold/random, /obj/item/stack/material/diamond/random, /obj/item/stack/material/uranium/random)
 	loot = new A
 
 /mob/living/bot/miningonestar/resources/agressive/Life()
@@ -60,7 +60,7 @@
 	access_scanner.req_access = req_access.Copy()
 	access_scanner.req_one_access = req_one_access.Copy()
 
-	var/atom/A = pick(/obj/item/stack/material/plasma/random, /obj/item/stack/material/iron/random, /obj/item/stack/material/gold/random, /obj/item/stack/material/diamond/random, /obj/item/stack/material/uranium/random)
+	var/atom/A = pick(/obj/item/stack/material/phoron/random, /obj/item/stack/material/iron/random, /obj/item/stack/material/gold/random, /obj/item/stack/material/diamond/random, /obj/item/stack/material/uranium/random)
 	loot = new A
 	var/counter = 0
 	var/counterfinish = rand(1,2)

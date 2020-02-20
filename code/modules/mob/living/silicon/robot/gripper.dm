@@ -254,7 +254,7 @@
 		/obj/item/weapon/reagent_containers/spray,
 		/obj/item/weapon/storage/pill_bottle,
 		/obj/item/weapon/hand_labeler,
-		/obj/item/stack/material/plasma
+		/obj/item/stack/material/phoron
 		)
 
 /obj/item/weapon/gripper/service //Used to handle food, drinks, and seeds.

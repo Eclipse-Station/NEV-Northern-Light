@@ -10,9 +10,9 @@
 /obj/item/weapon/paper/toxin
 	name = "Chemical Information"
 	info = {"Known Onboard Toxins:
-	<BR>\n\tGrade A Semi-Liquid Plasma:
+	<BR>\n\tGrade A Semi-Liquid Phoron:
 	<BR>\n\t\tHighly poisonous. You cannot sustain concentrations above 15 units.
-	<BR>\n\t\tA gas mask fails to filter plasma after 50 units.
+	<BR>\n\t\tA gas mask fails to filter phoron after 50 units.
 	<BR>\n\t\tWill attempt to diffuse like a gas.
 	<BR>\n\t\tFiltered by scrubbers.
 	<BR>\n\t\tThere is a bottled version which is very different
@@ -22,7 +22,7 @@
 	<BR>\n\t\texcept in a enclosed fire area!
 	<BR>\n\t\tWARNING: It is a crime to use this without authorization.
 	<BR>\nKnown Onboard Anti-Toxin:
-	<BR>\n\tAnti-Toxin Type 01P: Works against Grade A Plasma.
+	<BR>\n\tAnti-Toxin Type 01P: Works against Grade A Phoron.
 	<BR>\n\t\tBest if injected directly into bloodstream.
 	<BR>\n\t\tA full injection is in every regular Med-Kit.
 	<BR>\n\t\tSpecial toxin Kits hold around 7.
@@ -30,7 +30,7 @@
 	<BR>\nKnown Onboard Chemicals (other):
 	<BR>\n\tRejuvenation T#001:
 	<BR>\n\t\tEven 1 unit injected directly into the bloodstream
-	<BR>\n\t\t\twill cure paralysis and sleep plasma.
+	<BR>\n\t\t\twill cure paralysis and sleep phoron.
 	<BR>\n\t\tIf administered to a dying patient it will prevent
 	<BR>\n\t\t\tfurther damage for about units*3 seconds.
 	<BR>\n\t\t\tit will not cure them or allow them to be cured.
@@ -190,9 +190,9 @@
 	<BR>\n2. Research medical properties of materials studied of Space Station 13.
 	<BR>\n
 	<BR>\n<B>Scientist</B> 2>5-0-0
-	<BR>\n\tThese people study the properties, particularly the toxic properties, of materials handled on SS13.\nTechnically they can also be called Plasma Technicians as plasma is the material they routinly handle.
-	<BR>\n1. Research plasma
-	<BR>\n2. Make sure all plasma is properly handled.
+	<BR>\n\tThese people study the properties, particularly the toxic properties, of materials handled on SS13.\nTechnically they can also be called Phoron Technicians as phoron is the material they routinly handle.
+	<BR>\n1. Research phoron
+	<BR>\n2. Make sure all phoron is properly handled.
 	<BR>\n
 	<BR>\n<B>Medical Doctor (Officer)</B> 2>0-0-0<BR>\n\tPeople working this job should primarily stay in the medical area. They should make sure everyone goes to\nthe medical bay for treatment and examination. Also they should make sure that medical supplies are kept in\norder.
 	<BR>\n1. Heal wounded people.

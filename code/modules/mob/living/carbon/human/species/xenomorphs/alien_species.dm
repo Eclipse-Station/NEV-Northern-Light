@@ -48,7 +48,7 @@
 	has_organ = list(
 		BP_HEART =  /obj/item/organ/internal/heart,
 		BP_BRAIN =  /obj/item/organ/internal/brain/xeno,
-		BP_PLASMA = /obj/item/organ/internal/xenos/plasmavessel,
+		BP_PHORON = /obj/item/organ/internal/xenos/phoronvessel,
 		BP_HIVE =   /obj/item/organ/internal/xenos/hivenode,
 	)
 
@@ -59,7 +59,7 @@
 	var/alien_number = 0
 	var/caste_name = "creature" // Used to update alien name.
 	var/weeds_heal_rate = 1     // Health regen on weeds.
-	var/weeds_plasma_rate = 5   // Plasma regen on weeds.
+	var/weeds_phoron_rate = 5   // Phoron regen on weeds.
 
 /datum/species/xenos/get_bodytype()
 	return "Xenomorph"
@@ -95,10 +95,10 @@
 	if(!environment) return
 
 	var/obj/effect/plant/plant = locate() in T
-	if((environment.gas["plasma"] > 0 || (plant && plant.seed && plant.seed.name == "xenomorph")) && !regenerate(H))
-		var/obj/item/organ/internal/xenos/plasmavessel/P = H.internal_organs_by_name[BP_PLASMA]
-		P.stored_plasma += weeds_plasma_rate
-		P.stored_plasma = min(max(P.stored_plasma,0),P.max_plasma)
+	if((environment.gas["phoron"] > 0 || (plant && plant.seed && plant.seed.name == "xenomorph")) && !regenerate(H))
+		var/obj/item/organ/internal/xenos/phoronvessel/P = H.internal_organs_by_name[BP_PHORON]
+		P.stored_phoron += weeds_phoron_rate
+		P.stored_phoron = min(max(P.stored_phoron,0),P.max_phoron)
 	..()
 
 /datum/species/xenos/proc/regenerate(var/mob/living/carbon/human/H)
@@ -139,7 +139,7 @@
 /datum/species/xenos/drone
 	name = "Xenomorph Drone"
 	caste_name = "drone"
-	weeds_plasma_rate = 15
+	weeds_phoron_rate = 15
 	slowdown = 1
 	tail = "xenos_drone_tail"
 	rarity_value = 5
@@ -150,7 +150,7 @@
 	has_organ = list(
 		BP_HEART =  /obj/item/organ/internal/heart,
 		BP_BRAIN =  /obj/item/organ/internal/brain/xeno,
-		BP_PLASMA = /obj/item/organ/internal/xenos/plasmavessel/drone,
+		BP_PHORON = /obj/item/organ/internal/xenos/phoronvessel/drone,
 		O_ACID =   /obj/item/organ/internal/xenos/acidgland/drone,
 		BP_HIVE =   /obj/item/organ/internal/xenos/hivenode,
 		O_RESIN =  /obj/item/organ/internal/xenos/resinspinner,
@@ -171,7 +171,7 @@
 /datum/species/xenos/hunter
 
 	name = "Xenomorph Hunter"
-	weeds_plasma_rate = 5
+	weeds_phoron_rate = 5
 	caste_name = "hunter"
 	slowdown = -2
 	total_health = 150
@@ -183,7 +183,7 @@
 	has_organ = list(
 		BP_HEART =  /obj/item/organ/internal/heart,
 		BP_BRAIN =  /obj/item/organ/internal/brain/xeno,
-		BP_PLASMA = /obj/item/organ/internal/xenos/plasmavessel/hunter,
+		BP_PHORON = /obj/item/organ/internal/xenos/phoronvessel/hunter,
 		BP_HIVE =   /obj/item/organ/internal/xenos/hivenode,
 	)
 
@@ -198,7 +198,7 @@
 
 /datum/species/xenos/sentinel
 	name = "Xenomorph Sentinel"
-	weeds_plasma_rate = 10
+	weeds_phoron_rate = 10
 	caste_name = "sentinel"
 	slowdown = 0
 	total_health = 125
@@ -210,7 +210,7 @@
 	has_organ = list(
 		BP_HEART =  /obj/item/organ/internal/heart,
 		BP_BRAIN =  /obj/item/organ/internal/brain/xeno,
-		BP_PLASMA = /obj/item/organ/internal/xenos/plasmavessel/sentinel,
+		BP_PHORON = /obj/item/organ/internal/xenos/phoronvessel/sentinel,
 		O_ACID =   /obj/item/organ/internal/xenos/acidgland,
 		BP_HIVE =   /obj/item/organ/internal/xenos/hivenode,
 	)
@@ -226,7 +226,7 @@
 	name = "Xenomorph Queen"
 	total_health = 250
 	weeds_heal_rate = 5
-	weeds_plasma_rate = 20
+	weeds_phoron_rate = 20
 	caste_name = "queen"
 	slowdown = 4
 	tail = "xenos_queen_tail"
@@ -239,7 +239,7 @@
 		BP_HEART =  /obj/item/organ/internal/heart,
 		BP_BRAIN =  /obj/item/organ/internal/brain/xeno,
 		O_EGG =    /obj/item/organ/internal/xenos/eggsac,
-		BP_PLASMA = /obj/item/organ/internal/xenos/plasmavessel/queen,
+		BP_PHORON = /obj/item/organ/internal/xenos/phoronvessel/queen,
 		O_ACID =   /obj/item/organ/internal/xenos/acidgland,
 		BP_HIVE =   /obj/item/organ/internal/xenos/hivenode,
 		O_RESIN =  /obj/item/organ/internal/xenos/resinspinner,

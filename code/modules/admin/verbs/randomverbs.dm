@@ -682,7 +682,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_check_contents, R_ADMIN, FALSE)
 
 
 /* This proc is DEFERRED. Does not do anything.
-/client/proc/cmd_admin_remove_plasma()
+/client/proc/cmd_admin_remove_phoron()
 	set category = "Debug"
 	set name = "Stabilize Atmos."
 	if(!holder)

@@ -93,7 +93,7 @@
 		/obj/item/stack/material/plasteel{amount = 10} = 40,
 		/obj/item/stack/material/silver{amount = 10} = 20,
 		/obj/item/stack/material/gold{amount = 10} = 20,
-		/obj/item/stack/material/plasma{amount = 10} = 20,
+		/obj/item/stack/material/phoron{amount = 10} = 20,
 	)
 
 /obj/structure/salvageable/implant_container

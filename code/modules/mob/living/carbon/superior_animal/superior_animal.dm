@@ -31,11 +31,11 @@
 	var/stop_automated_movement = 0 //use this to temporarely stop random movement
 	var/stop_automated_movement_when_pulled = 0
 
-	var/contaminant_immunity = 0 //if 1, mob is immune to harmful contaminants in air (plasma), skin contact, does not relate to breathing
+	var/contaminant_immunity = 0 //if 1, mob is immune to harmful contaminants in air (phoron), skin contact, does not relate to breathing
 	var/cold_protection = 0 //0 to 1 value, which corresponds to the percentage of protection, affects only bodytemperature
 	var/heat_protection = 0
 	var/breath_required_type = "oxygen" //0 to disable, oxyloss if absent in sufficient quantity
-	var/breath_poison_type = "plasma" //0 to disable, toxloss if present in sufficient quantity
+	var/breath_poison_type = "phoron" //0 to disable, toxloss if present in sufficient quantity
 	var/min_breath_required_type = 16 //minimum portion of gas in a single breath
 	var/min_breath_poison_type = 0.2 //minimum portion of gas in a single breath
 	var/light_dam = 0 //0 to disable, minimum amount of lums to cause damage, otherwise heals in darkness
