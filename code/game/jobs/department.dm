@@ -111,7 +111,7 @@
 
 
 /******************
-	Independant
+	Independent
 *******************/
 //Self funds and pays wages out of its earnings
 /datum/department/guild

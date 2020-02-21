@@ -10,7 +10,7 @@
 	faction = "CEV Eris"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the First Officer"
+	supervisors = "the Head of Personnel"
 	selection_color = "#dddddd"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 15, LANGUAGE_JIVE = 80)
 	access = list(access_bar, access_kitchen)
@@ -24,7 +24,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/service/bartender //Re-using this.
 	description = "As the Club Manager, you run the club aboard CEV Eris. Provide the crewmembers with drinks, food, and entertainment.<br>\
 	<br>\
-	Technically you take orders from no one, but the Captain and the First Officer are the ones who hired you and you should strive to please them. Your Club Workers help you run the place and make money. Pay them well!"
+	Technically you take orders from no one, but the Captain and the Head of Personnel are the ones who hired you and you should strive to please them. Your Club Workers help you run the place and make money. Pay them well!"
 
 	duties = "		Run the club, provide a safe haven for food, drinks, and entertainment.<br>\
 		Make money, run deals through your place, provide entertainment, trade secrets.<br>\
@@ -83,7 +83,7 @@
 	faction = "CEV Eris"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the First Officer"
+	supervisors = "the Head of Personnel"
 	selection_color = "#dddddd"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_SERBIAN = 5, LANGUAGE_JIVE = 80)
 	access = list(access_maint_tunnels, access_theatre)
