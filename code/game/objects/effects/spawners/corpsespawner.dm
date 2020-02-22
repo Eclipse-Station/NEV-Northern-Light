@@ -132,9 +132,9 @@
 	corpseidjob = "Medical doctor"
 
 /obj/landmark/corpse/engineer
-	name = "Technomancer"
+	name = "Engineer"
 	corpseid = 1
-	corpseidjob = "Technomancer"
+	corpseidjob = "Engineer"
 
 /obj/landmark/corpse/engineer/rig
 	corpsesuit = /obj/item/clothing/suit/space/void/engineering

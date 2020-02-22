@@ -1,6 +1,6 @@
 /datum/job/chief_engineer
 	title = "Chief Engineer"
-	flag = CHIEF_ENGINEER
+	flag = EXULTANT
 	head_position = 1
 	department = DEPARTMENT_ENGINEERING
 	department_flag = ENGINEERING | COMMAND
@@ -15,7 +15,7 @@
 	ideal_character_age = 50
 //	alt_titles = list()
 
-	outfit_type = /decl/hierarchy/outfit/job/engineering/chief
+	outfit_type = /decl/hierarchy/outfit/job/engineering/exultant
 
 	access = list(
 		access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
@@ -59,7 +59,7 @@ Your second loyalty is to your clan. Ensure they are paid, fed and safe. Don't r
 
 /datum/job/technomancer
 	title = "Ship Engineer"
-	flag = ENGINEER
+	flag = TECHNOMANCER
 	department = DEPARTMENT_ENGINEERING
 	department_flag = ENGINEERING
 	faction = "CEV Eris"

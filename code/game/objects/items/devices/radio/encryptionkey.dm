@@ -32,7 +32,7 @@
 	channels = list("Security" = 1)
 
 /obj/item/device/encryptionkey/headset_eng
-	name = "technomancer radio encryption key"
+	name = "engineering radio encryption key"
 	icon_state = "eng_cypherkey"
 	channels = list("Engineering" = 1)
 
@@ -93,7 +93,7 @@
 	channels = list("Security" = 1, "Command" = 1)
 
 /obj/item/device/encryptionkey/heads/ce
-	name = "exultant's encryption key"
+	name = "chief engineer's encryption key"
 	icon_state = "ce_cypherkey"
 	channels = list("Engineering" = 1, "Command" = 1)
 
