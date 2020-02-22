@@ -36,8 +36,8 @@
 	/obj/structure/strangebeacon/bombard)
 
 /obj/random/spawner/encouter/cryopod
-	randspawn = list(/obj/structure/cryopod_spawner/ironhammer, /obj/structure/cryopod_spawner/medical, /obj/structure/cryopod_spawner/technomancer, \
-	/obj/structure/cryopod_spawner/serbian)
+	randspawn = list(/obj/structure/cryopod_spawner/ironhammer, /obj/structure/cryopod_spawner/medical, \
+	/obj/structure/cryopod_spawner/serbian)	//Eclipse edit: Removed technomancer cryopod to maintain lore compliance
 
 /obj/random/spawner/encouter/satellite
 	randspawn = list(/obj/structure/satellite, /obj/structure/satellite/science)

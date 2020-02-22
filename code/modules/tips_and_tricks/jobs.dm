@@ -42,22 +42,24 @@
 /tipsAndTricks/jobs/captain_mutiny
     jobs_list = list(/datum/job/captain)
     tipText = "When do you break out the lash and airlock the ringleaders? Black. Bloody. Mutiny."
-
+	
+/*		//Eclipse removal - moved inhouse
 /tipsAndTricks/jobs/engies_tribe
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "In the ancient times, a group of engineers was called a tribe. That is why some technomancers call you Chief."
+*/
 
 /tipsAndTricks/jobs/engies_suppermatter_one
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "The Supreme Matter is a fickle mistress, and each Exultant has their own unique ritual. No ritual is strictly wrong; such a poor lover would be dead by now, surely..."
+    tipText = "The Supreme Matter is a fickle mistress, and each Chief Engineer has their own unique ritual. No ritual is strictly wrong; such a poor lover would be dead by now, surely..."
 
 /tipsAndTricks/jobs/engies_suppermatter_two
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "Venting the Supreme Matter's overheated coolant may drop temperatures immediately, but without fresh coolant gas the Supreme Matter will almost surely delaminate."
+    tipText = "Venting the Supermatter's overheated coolant may drop temperatures immediately, but without fresh coolant gas the Supermatter will almost surely delaminate."
 
 /tipsAndTricks/jobs/engies_suppermatter_three
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "Woe betide the Exultant who jettisons a Supreme Matter, one of the ancient relics of the grand, lost fleets; for their numbers dwindle, and the artifice of their creation is lost. It is better to hurl oneself after it than live so ashamed."
+    tipText = "Woe betide the Chief Engineer who jettisons a Supermatter, one of the ancient relics of the grand, lost fleets; for their numbers dwindle, and the artifice of their creation is lost. It is better to hurl oneself after it than live so ashamed."
 
 /tipsAndTricks/jobs/engies_lifekeeper
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
@@ -65,11 +67,11 @@
 
 /tipsAndTricks/jobs/engies_die_live
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "A technomancer shall die so that the ship shall live. It is the one rite all clans share."
+    tipText = "An Engineer shall die so that the ship shall live. It is the one rite all engineers share."
 
 /tipsAndTricks/jobs/engies_tenants
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "The relationship between ship captains and technomancers is like that between tenants and landlords. One struts around between carpeting and ceiling like they own the place, while the other crawls in the foundation and attic actually giving a damn."
+    tipText = "The relationship between ship captains and engineers is like that between tenants and landlords. One struts around between carpeting and ceiling like they own the place, while the other crawls in the foundation and attic actually giving a damn."
 
 /tipsAndTricks/jobs/engies_glass_fire
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
@@ -77,7 +79,7 @@
 
 /tipsAndTricks/jobs/engies_firespacesuit
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "No technomancer lives long without learning that firesuits are not space suits, and vice versa."
+    tipText = "No engineer lives long without learning that firesuits are not space suits, and vice versa."
 
 /tipsAndTricks/jobs/tric
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
@@ -162,11 +164,11 @@
 
 /tipsAndTricks/jobs/chem_app
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist, /datum/job/cmo, /datum/job/doctor, /datum/job/paramedic)
-    tipText = "There is programm in your PDA called MIRC (Moebious Internal Reagent Catalogue) that can help you with chemistry."
+    tipText = "There is program in your PDA called MIRC (Moebious Internal Reagent Catalogue) that can help you with chemistry."
 
 /tipsAndTricks/jobs/drink_app
     jobs_list = list(/datum/job/clubworker, /datum/job/clubmanager)
-    tipText = "There is programm in your PDA called Neon Cocktails that can help you with making drinks."
+    tipText = "There is program in your PDA called Neon Cocktails that can help you with making drinks."
 
 /tipsAndTricks/jobs/bots
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)

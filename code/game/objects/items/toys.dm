@@ -496,8 +496,8 @@
 	icon_state = "assistant"
 
 /obj/item/toy/figure/atmos
-	name = "Technomancer Atmosphericist action figure"
-	desc = "A \"Space Life\" brand Technomancer Atmosphericist action figure."
+	name = "Atmospherics Technician action figure"
+	desc = "A \"Space Life\" brand Atmospherics Technician action figure."
 	icon_state = "atmos"
 
 /obj/item/toy/figure/bartender
@@ -527,7 +527,7 @@
 
 /obj/item/toy/figure/ce
 	name = "Technomancer Exultant action figure"
-	desc = "A \"Space Life\" brand Technomancer Exultant action figure."
+	desc = "A \"Space Life\" brand Chief Engineer action figure."
 	icon_state = "ce"
 
 /obj/item/toy/figure/chaplain
@@ -566,8 +566,8 @@
 	icon_state = "dsquad"
 
 /obj/item/toy/figure/engineer
-	name = "Technomancer action figure"
-	desc = "A \"Space Life\" brand Technomancer action figure."
+	name = "Engineer action figure"
+	desc = "A \"Space Life\" brand Engineer action figure."
 	icon_state = "engineer"
 
 /obj/item/toy/figure/geneticist
@@ -576,8 +576,8 @@
 	icon_state = "geneticist"
 
 /obj/item/toy/figure/hop
-	name = "First Officer action figure"
-	desc = "A \"Space Life\" brand First Officer action figure."
+	name = "Head of Personnel action figure"
+	desc = "A \"Space Life\" brand Head of Personnel action figure."
 	icon_state = "hop"
 
 /obj/item/toy/figure/hos

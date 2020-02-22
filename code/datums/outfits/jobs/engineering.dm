@@ -12,7 +12,7 @@
 	..()
 	BACKPACK_OVERRIDE_ENGINEERING
 
-/decl/hierarchy/outfit/job/engineering/chief
+/decl/hierarchy/outfit/job/engineering/exultant
 	name = OUTFIT_JOB_NAME("Chief Engineer")
 	head = /obj/item/clothing/head/hardhat/white
 	uniform = /obj/item/clothing/under/rank/exultant
