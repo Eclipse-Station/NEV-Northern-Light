@@ -290,12 +290,12 @@
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
 
 /area/eris/command/fo
-	name = "\improper Command - First Officer's Office"
+	name = "\improper Command - Head of Personnel's Office"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 
 /area/eris/command/fo/quarters
-	name = "\improper Command - First Officer's Quarters"
+	name = "\improper Command - Head of Personnel's Quarters"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 	area_light_color = COLOR_LIGHTING_CREW_SOFT

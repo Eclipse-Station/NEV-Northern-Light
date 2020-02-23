@@ -73,7 +73,7 @@
 
 
 /obj/item/clothing/under/rank/fo_suit
-	name = "First Officer's suit"
+	name = "head of personnel's suit"
 	desc = "A teal suit and yellow necktie. An authoritative yet tacky ensemble."
 	icon_state = "teal_suit"
 	item_state = "g_suit"

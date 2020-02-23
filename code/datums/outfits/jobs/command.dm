@@ -31,7 +31,7 @@
 				qdel(medal)
 
 /decl/hierarchy/outfit/job/hop
-	name = OUTFIT_JOB_NAME("First Officer")
+	name = OUTFIT_JOB_NAME("Head of Personnel")
 	uniform = /obj/item/clothing/under/rank/first_officer
 	suit = /obj/item/clothing/suit/armor/vest
 	l_ear = /obj/item/device/radio/headset/heads/hop
