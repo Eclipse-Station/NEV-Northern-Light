@@ -568,8 +568,8 @@
 	icon_state = "astersguild"
 
 /obj/structure/sign/faction/technomancers
-	name = "Technomancer League"
-	desc = "Technomancer League - anarchistic community ruled by powerful clans."
+	name = "Engineering Department"
+	desc = "Oh, dear, Atmosia isn't declaring independence <i>again</i>, are they...?"
 	icon_state = "technomancers"
 
 /obj/structure/sign/faction/excelsior

@@ -204,6 +204,7 @@
 	desc = {"This breaching tool was reverse engineered from the \"Hatton\" design.
 	Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,
 	this device suffers from a wide number of reliability issues stemming from it being lathe printed."}
+	//Eclipse Note: Leaving this reference to technomancers intact since it doesn't imply that our engineering staff is contracted out ^Spitzer
 	icon_state = "Moebius_Hammer_1"
 	item_state = "Moebius_Hammer_1"
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_SILVER = 5, MATERIAL_PLASTIC = 5)

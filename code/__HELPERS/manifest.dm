@@ -23,7 +23,7 @@
 		list("names" = list(), "header" = "Asters Guild", "flag" = GUILD),
 		list("names" = list(), "header" = "Civilian", "flag" = CIVILIAN),
 		list("names" = list(), "header" = "Service", "flag" = SERVICE),
-		list("names" = list(), "header" = "Technomancer League", "flag" = ENGINEERING),
+		list("names" = list(), "header" = "Engineering", "flag" = ENGINEERING),
 		list("names" = list(), "header" = "Miscellaneous", "flag" = MISC),
 		list("names" = list(), "header" = "Silicon")
 	)

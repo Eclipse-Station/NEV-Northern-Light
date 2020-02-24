@@ -64,16 +64,17 @@
 	account_initial_balance = 2000000
 	funding_type = FUNDING_NONE
 
-//Eclipse Edit: Engineering - moved in-house
-/datum/department/technomancers
-	name = "CEV Eris Engineering"
-	id = DEPARTMENT_ENGINEERING
-
 
 /*************
 	Retainers
 **************/
 //These departments are paid out of ship funding
+
+//Eclipse Edit: Engineering - moved in-house
+/datum/department/technomancers
+	name = "CEV Eris Engineering"
+	id = DEPARTMENT_ENGINEERING
+
 /datum/department/ironhammer
 	name = "Ironhammer Mercenary Company"
 	id = DEPARTMENT_SECURITY
