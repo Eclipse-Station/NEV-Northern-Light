@@ -65,8 +65,8 @@
 
 
 /obj/item/clothing/under/rank/first_officer
-	desc = "It's a jumpsuit worn by someone who works in the position of \"First Officer\"."
-	name = "First Officer's jumpsuit"
+	desc = "It's a jumpsuit worn by a person with the title \"Head of Personnel\"."
+	name = "head of personnel's jumpsuit"
 	icon_state = "hop"
 	item_state = "b_suit"
 

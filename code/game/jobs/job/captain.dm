@@ -67,7 +67,7 @@ Your second loyalty is to your command officers. The heads of each faction. List
 
 
 /datum/job/hop
-	title = "First Officer"
+	title = "Head of Personnel"
 	flag = FIRSTOFFICER
 	department = DEPARTMENT_COMMAND
 	head_position = 1
@@ -126,6 +126,6 @@ Act as the captain's sidekick, bodyguard, and last line of defense in a crisis o
 	)
 
 /obj/landmark/join/start/hop
-	name = "First Officer"
+	name = "Head of Personnel"
 	icon_state = "player-gold"
 	join_tag = /datum/job/hop

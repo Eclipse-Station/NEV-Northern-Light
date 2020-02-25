@@ -7,7 +7,7 @@
 /datum/reagent/stim/mbr
 	name = "Machine binding ritual"
 	id = "machine binding ritual"
-	description = "A ethanol based stimulator. Used as ritual drink during technomancers initiation into tribe."
+	description = "A ethanol based stimulator. Said to be used as ritual drink during the technomancers' initiation into a tribe."		//Need to make this less of a reference to technos
 	taste_description = "bitterness"
 	reagent_state = LIQUID
 	color = "#5f95e2"

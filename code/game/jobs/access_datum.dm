@@ -314,13 +314,13 @@
 /var/const/access_ce = 56
 /datum/access/ce
 	id = access_ce
-	desc = "Technomancer Exultant"
+	desc = "Chief Engineer"
 	region = ACCESS_REGION_ENGINEERING
 
 /var/const/access_hop = 57
 /datum/access/hop
 	id = access_hop
-	desc = "First Officer"
+	desc = "Head of Personnel"
 	region = ACCESS_REGION_COMMAND
 
 /var/const/access_hos = 58

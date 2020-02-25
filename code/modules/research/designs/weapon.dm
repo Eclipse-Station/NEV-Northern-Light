@@ -67,6 +67,7 @@
 	desc = "This breaching tool was reverse engineered from the \"Hatton\" design.\
 			Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,\
 			this device suffers from a wide number of reliability issues stemming from it being lathe printed."
+	//Eclipse Note: Leaving this reference to technomancers intact since it doesn't imply that our engineering staff is contracted out ^Spitzer
 	build_path = /obj/item/weapon/hatton/moebius
 	sort_string = "TBAAD"
 

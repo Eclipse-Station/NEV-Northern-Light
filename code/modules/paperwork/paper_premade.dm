@@ -134,7 +134,7 @@
 	<BR>\nTips (where applicable)
 	<BR>\n
 	<BR>\n<B>Research Assistant</B> 1>1-0-0
-	<BR>\n\tThis is probably the lowest level position. Anyone who enters the space station after the initial job\nassignment will automatically receive this position. Access with this is restricted. First Officer should\nappropriate the correct level of assistance.
+	<BR>\n\tThis is probably the lowest level position. Anyone who enters the space station after the initial job\nassignment will automatically receive this position. Access with this is restricted. Head of Personnel should\nappropriate the correct level of assistance.
 	<BR>\n1. Assist the researchers.
 	<BR>\n2. Clean up the labs.
 	<BR>\n3. Prepare materials.
@@ -212,8 +212,8 @@
 	<BR>\n2. Assign patrol duties.
 	<BR>\n3. Protect the station and staff.
 	<BR>\n
-	<BR>\n<B>First Officer</B> 4>4-2-2
-	<BR>\n\tPeople assigned as First Officer will find themselves moderating all actions done by personnel. \nAlso they have the ability to assign jobs and access levels.
+	<BR>\n<B>Head of Personnel</B> 4>4-2-2
+	<BR>\n\tPeople assigned as Head of Personnel will find themselves moderating all actions done by personnel. \nAlso they have the ability to assign jobs and access levels.
 	<BR>\n1. Assign duties.
 	<BR>\n2. Moderate personnel.
 	<BR>\n3. Moderate research.

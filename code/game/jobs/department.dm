@@ -69,13 +69,15 @@
 	Retainers
 **************/
 //These departments are paid out of ship funding
+
+//Eclipse Edit: Engineering - moved in-house
+/datum/department/technomancers
+	name = "CEV Eris Engineering"
+	id = DEPARTMENT_ENGINEERING
+
 /datum/department/ironhammer
 	name = "Ironhammer Mercenary Company"
 	id = DEPARTMENT_SECURITY
-
-/datum/department/technomancers
-	name = "Technomancer League"
-	id = DEPARTMENT_ENGINEERING
 
 /datum/department/civilian
 	name = "CEV Eris Civic"
@@ -111,7 +113,7 @@
 
 
 /******************
-	Independant
+	Independent
 *******************/
 //Self funds and pays wages out of its earnings
 /datum/department/guild

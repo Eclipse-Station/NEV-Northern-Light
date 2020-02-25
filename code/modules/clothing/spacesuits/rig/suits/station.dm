@@ -100,9 +100,9 @@
 
 
 
-/***************************************
-Advanced Voidsuit: Technomancer Exultant
-****************************************/
+/*********************************
+Advanced Voidsuit: Chief Engineer
+**********************************/
 
 /obj/item/weapon/rig/ce
 	name = "advanced voidsuit control module"

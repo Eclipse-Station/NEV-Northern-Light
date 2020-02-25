@@ -32,7 +32,7 @@
 	channels = list("Security" = 1)
 
 /obj/item/device/encryptionkey/headset_eng
-	name = "technomancer radio encryption key"
+	name = "engineering radio encryption key"
 	icon_state = "eng_cypherkey"
 	channels = list("Engineering" = 1)
 
@@ -93,7 +93,7 @@
 	channels = list("Security" = 1, "Command" = 1)
 
 /obj/item/device/encryptionkey/heads/ce
-	name = "exultant's encryption key"
+	name = "chief engineer's encryption key"
 	icon_state = "ce_cypherkey"
 	channels = list("Engineering" = 1, "Command" = 1)
 
@@ -103,7 +103,7 @@
 	channels = list("Medical" = 1, "Command" = 1)
 
 /obj/item/device/encryptionkey/heads/hop
-	name = "First Officer's encryption key"
+	name = "head of personnel's encryption key"
 	icon_state = "hop_cypherkey"
 	channels = list("Command" = 1, "Security" = 1, "Engineering" = 0, "NT Voice" = 0, "Science" = 0, "Medical" = 0, "Supply" = 0, "Service" = 0)
 

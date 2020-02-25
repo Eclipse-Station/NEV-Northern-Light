@@ -1,6 +1,6 @@
 /obj/item/weapon/tool/tape_roll
 	name = "duct tape"
-	desc = "The technomancer's eternal friend. Fixes just about anything, for a while at least."
+	desc = "The engineer's eternal friend. Fixes just about anything, for a while at least."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "taperoll"
 	w_class = ITEM_SIZE_SMALL

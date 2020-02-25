@@ -24,7 +24,7 @@
 	new /obj/item/weapon/storage/pouch/pistol_holster(src)
 
 /obj/structure/closet/secure_closet/reinforced/hop
-	name = "First Officer's locker"
+	name = "\improper Head of Personnel's locker"
 	req_access = list(access_hop)
 	icon_state = "hop"
 
