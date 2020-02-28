@@ -111,7 +111,7 @@ var/global/list/modifications_types = list(
 	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, \
 		BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
 	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/robotic.dmi'
+	icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 

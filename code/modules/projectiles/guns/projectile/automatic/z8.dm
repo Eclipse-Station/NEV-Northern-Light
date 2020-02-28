@@ -1,12 +1,12 @@
 /obj/item/weapon/gun/projectile/automatic/z8
-	name = "FS CAR 20 Rin \"Z8 Bulldog\""
+	name = "FS CAR .20 \"Z8 Bulldog\""
 	desc = "The Z8 Bulldog is an older bullpup carbine model, made by \"Frozen Star\". It includes an underbarrel grenade launcher which is compatible with most modern grenade types. Uses .20 Rifle rounds."
 	icon = 'icons/obj/guns/projectile/carabine.dmi'
 	icon_state = "z8"
 	item_state = "z8"
 	w_class = ITEM_SIZE_BULKY
 	force = WEAPON_FORCE_PAINFUL
-	caliber = "srifle"
+	caliber = CAL_SRIFLE
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_STEEL = 10)
 	price_tag = 3200 //old but gold, decent AP caliber, underbarrel GL, mild recoil and 20-round mags. Better than FS AK.
@@ -19,7 +19,9 @@
 	unload_sound 	= 'sound/weapons/guns/interact/batrifle_magout.ogg'
 	reload_sound 	= 'sound/weapons/guns/interact/batrifle_magin.ogg'
 	cocked_sound 	= 'sound/weapons/guns/interact/batrifle_cock.ogg'
-	recoil = 0.8 //it's carbine plus not 7.62
+	recoil_buildup = 6
+	penetration_multiplier = 1.1
+	damage_multiplier = 1.1
 	zoom_factor = 0.2
 
 	firemodes = list(

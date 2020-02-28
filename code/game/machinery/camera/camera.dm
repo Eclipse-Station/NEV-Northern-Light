@@ -16,6 +16,7 @@
 	var/invuln = null
 	var/bugged = 0
 	var/obj/item/weapon/camera_assembly/assembly = null
+	var/taped = 0
 
 	var/toughness = 5 //sorta fragile
 
@@ -63,6 +64,7 @@
 
 /obj/machinery/camera/Destroy()
 	deactivate(null, 0) //kick anyone viewing out
+	taped = 0
 	if(assembly)
 		qdel(assembly)
 		assembly = null
@@ -119,6 +121,12 @@
 	cameranet.updateVisibility(src, 0)
 
 /obj/machinery/camera/attack_hand(mob/living/carbon/human/user as mob)
+	if (taped == 1)
+		icon_state = "camera"
+		taped = 0
+		set_status(1)
+		to_chat(user, "You take tape from camera")
+		desc ="It's used to monitor rooms."
 	if(!istype(user))
 		return
 
@@ -173,7 +181,6 @@
 				return
 			return
 
-
 		if(ABORT_CHECK)
 			return
 
@@ -185,6 +192,13 @@
 	else if (can_use() && isliving(user) && user.a_intent != I_HURT)
 		var/mob/living/U = user
 		var/list/mob/viewers = list()
+		if(istype(I, /obj/item/weapon/ducttape )|| istype(I, /obj/item/weapon/tool/tape_roll))
+			set_status(0)
+			taped = 1
+			icon_state = "camera_taped"
+			to_chat(U, "You taped the camera")
+			desc = "It's used to monitor rooms. It's covered with something sticky."
+			return
 		if(last_shown_time < world.time)
 			to_chat(U, "You hold \a [I.name] up to the camera ...")
 			for(var/mob/O in GLOB.living_mob_list)
@@ -211,7 +225,7 @@
 
 				if(istype(I, /obj/item/weapon/paper))
 					var/obj/item/weapon/paper/X = I
-					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", X.name, X.info), text("window=[]", X.name))
+					O << browse("<HTML><HEAD><TITLE>[X.name]</TITLE></HEAD><BODY><TT>[X.info]</TT></BODY></HTML>", "window=[X.name]")
 				else
 					I.examine(O)
 			last_shown_time = world.time + 2 SECONDS
@@ -239,7 +253,7 @@
 	else
 		..()
 
-/obj/machinery/camera/proc/deactivate(user as mob, var/choice = 1)
+/obj/machinery/camera/proc/deactivate(mob/user, var/choice = 1)
 	// The only way for AI to reactivate cameras are malf abilities, this gives them different messages.
 	if(isAI(user))
 		user = null
@@ -247,23 +261,23 @@
 	if(choice != 1)
 		return
 
-	set_status(!src.status)
-	if (!(src.status))
+	set_status(!status)
+	if (!status)
 		if(user)
-			visible_message(SPAN_NOTICE(" [user] has deactivated [src]!"))
+			visible_message(SPAN_NOTICE("[user] has deactivated [src]!"))
+			add_hiddenprint(user)
 		else
-			visible_message(SPAN_NOTICE(" [src] clicks and shuts down. "))
+			visible_message(SPAN_NOTICE("[src] clicks and shuts down. "))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		icon_state = "[initial(icon_state)]1"
-		add_hiddenprint(user)
 	else
 		if(user)
-			visible_message(SPAN_NOTICE(" [user] has reactivated [src]!"))
+			visible_message(SPAN_NOTICE("[user] has reactivated [src]!"))
+			add_hiddenprint(user)
 		else
-			visible_message(SPAN_NOTICE(" [src] clicks and reactivates itself. "))
+			visible_message(SPAN_NOTICE("[src] clicks and reactivates itself. "))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		icon_state = initial(icon_state)
-		add_hiddenprint(user)
 
 /obj/machinery/camera/proc/take_damage(var/force, var/message)
 	//prob(25) gives an average of 3-4 hits
@@ -274,6 +288,7 @@
 /obj/machinery/camera/proc/destroy()
 	stat |= BROKEN
 	wires.RandomCutAll()
+	taped = 0
 
 	triggerCameraAlarm()
 	update_icon()

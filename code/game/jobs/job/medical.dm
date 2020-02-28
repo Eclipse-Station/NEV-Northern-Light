@@ -1,5 +1,5 @@
 /datum/job/cmo
-	title = "Moebius Biolab Officer"
+	title = "Chief Medical Officer"
 	flag = MBO
 	head_position = 1
 	department = DEPARTMENT_MEDICAL
@@ -58,14 +58,14 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 
 
 /datum/job/doctor
-	title = "Moebius Doctor"
+	title = "Medical Doctor"
 	flag = DOCTOR
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
 	faction = "CEV Eris"
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the Moebius Biolab Officer"
+	supervisors = "the CMO"
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
@@ -117,7 +117,7 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 
 
 /datum/job/chemist
-	title = "Moebius Chemist"
+	title = "Chemist"
 	flag = CHEMIST
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
@@ -168,7 +168,7 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 
 
 /datum/job/psychiatrist
-	title = "Moebius Psychiatrist"
+	title = "Psychiatrist"
 	flag = PSYCHIATRIST
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
@@ -204,7 +204,7 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 
 
 /datum/job/paramedic
-	title = "Moebius Paramedic"
+	title = "Paramedic"
 	flag = PARAMEDIC
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL

@@ -23,7 +23,7 @@
 	name = "chemical dart"
 	desc = "A small hardened, hollow dart."
 	icon_state = "dart"
-	caliber = "dart"
+	caliber = CAL_DART
 	projectile_type = /obj/item/projectile/bullet/chemdart
 
 /obj/item/ammo_casing/chemdart/expend()
@@ -36,23 +36,23 @@
 	item_state = "rcdammo"
 	origin_tech = list(TECH_MATERIAL = 2)
 	mag_type = MAGAZINE
-	caliber = "dart"
+	caliber = CAL_DART
 	ammo_type = /obj/item/ammo_casing/chemdart
 	max_ammo = 5
 	multiple_sprites = 1
 	mag_well = MAG_WELL_DART
 
 /obj/item/weapon/gun/projectile/dartgun
-	name = "dart gun"
+	name = "Z-H P Artemis"
 	desc = "Zeng-Hu Pharmaceutical's entry into the arms market, the Z-H P Artemis is a gas-powered dart gun capable of delivering chemical cocktails swiftly across short distances."
 	icon = 'icons/obj/guns/projectile/dartgun.dmi'
 	icon_state = "dartgun-empty"
-	item_state = null
 
-	caliber = "dart"
+	caliber = CAL_DART
 	fire_sound = 'sound/weapons/empty.ogg'
 	fire_sound_text = "a metallic click"
-	recoil = 0
+	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASTIC = 10)
+	recoil_buildup = 0
 	silenced = 1
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/chemdart
@@ -66,7 +66,7 @@
 	var/beaker_type = /obj/item/weapon/reagent_containers/glass/beaker
 	var/list/starting_chems = null
 
-/obj/item/weapon/gun/projectile/dartgun/dartgun/New()
+/obj/item/weapon/gun/projectile/dartgun/New()
 	..()
 	if(starting_chems)
 		for(var/chem in starting_chems)
@@ -78,11 +78,9 @@
 /obj/item/weapon/gun/projectile/dartgun/update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "dartgun-[round(ammo_magazine.stored_ammo.len,1)]"
-		set_item_state("-[round(ammo_magazine.stored_ammo.len,1)]")
+		icon_state = "dartgun-[round(ammo_magazine.stored_ammo.len,2)]"
 	else
 		icon_state = "dartgun-empty"
-		set_item_state("-empty")
 	return
 
 /obj/item/weapon/gun/projectile/dartgun/consume_next_projectile()
@@ -194,13 +192,3 @@
 		unload_ammo(usr)
 	src.updateUsrDialog()
 	return
-
-/obj/item/weapon/gun/projectile/dartgun/vox
-	name = "alien dart gun"
-	desc = "A small gas-powered dartgun, fitted for nonhuman hands."
-
-/obj/item/weapon/gun/projectile/dartgun/vox/medical
-	starting_chems = list("kelotane","bicaridine","anti_toxin")
-
-/obj/item/weapon/gun/projectile/dartgun/vox/raider
-	starting_chems = list("space_drugs","stoxin","impedrezene")

@@ -190,7 +190,7 @@
 	maxHealth = victim.maxHealth * 2 + 10
 	health = maxHealth
 	name = "[pick("warped", "twisted", "tortured", "tormented")] [victim.name]"
-	if(lentext(victim.desc))
+	if(length(victim.desc))
 		desc = desc + " But now silver pus oozes from open wounds and unknown mechanisms push through their deathly skin..."
 	density = victim.density
 	mob_size = victim.mob_size
@@ -644,7 +644,7 @@
 
 //animations
 //updates every life tick
-/mob/living/simple_animal/hostile/hivemind/mechiver/proc/update_icon()
+/mob/living/simple_animal/hostile/hivemind/mechiver/update_icon()
 	if(target_mob && !passenger && (get_dist(target_mob, src) <= 4) && !is_on_cooldown())
 		if(!hatch_closed)
 			return

@@ -16,6 +16,8 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 	desc = "A conveyor belt, commonly used to transport large numbers of items elsewhere quite quickly."
 	layer = BELOW_OPEN_DOOR_LAYER
 	anchored = TRUE
+	matter = list(MATERIAL_STEEL = 6, MATERIAL_PLASTIC = 4)
+
 	var/operating = FALSE	// NB: this can be TRUE while the belt doesn't go
 	var/forwards			// The direction the conveyor sends you in
 	var/backwards			// hopefully self-explanatory
@@ -57,6 +59,7 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 				if(!(stat & BROKEN))
 					var/obj/item/construct/conveyor/C = new(loc)
 					C.id = id
+					C.matter = matter
 					transfer_fingerprints_to(C)
 				to_chat(user, SPAN_NOTICE("You remove the conveyor belt."))
 				qdel(src)
@@ -84,8 +87,7 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 		id = S.id
 		to_chat(user, SPAN_NOTICE("You link [I] with [src]."))
 	else if(user.a_intent != I_HURT)
-		if(user.drop_item())
-			I.forceMove(loc)
+		user.unEquip(I, loc)
 	else
 		return ..()
 
@@ -242,6 +244,8 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 	icon = 'icons/obj/machines/conveyor.dmi'
 	icon_state = "switch-off"
 	anchored = TRUE
+	matter = list(MATERIAL_STEEL = 4)
+
 	var/position = DIRECTION_OFF
 	var/reversed = TRUE
 	var/one_way = FALSE	// Do we go in one direction?
@@ -322,6 +326,7 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 		if(QUALITY_PRYING)
 			if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY, required_stat = STAT_MEC))
 				var/obj/item/construct/conveyor_switch/C = new(loc, id)
+				C.matter = matter
 				transfer_fingerprints_to(C)
 				to_chat(user, SPAN_NOTICE("You detach the conveyor switch."))
 				qdel(src)
@@ -356,6 +361,7 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 	icon = 'icons/obj/machines/conveyor.dmi'
 	icon_state = "conveyor_loose"
 	w_class = ITEM_SIZE_BULKY
+	matter = list(MATERIAL_STEEL = 6, MATERIAL_PLASTIC = 4)
 	var/id = "" //inherited by the belt
 
 /obj/item/construct/conveyor/attackby(obj/item/I, mob/user, params)
@@ -377,6 +383,7 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 		cdir |= CB.dir
 		qdel(CB)
 	var/obj/machinery/conveyor/C = new/obj/machinery/conveyor(A, cdir, id)
+	C.matter = matter
 	transfer_fingerprints_to(C)
 	qdel(src)
 
@@ -387,6 +394,7 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 	icon = 'icons/obj/machines/conveyor.dmi'
 	icon_state = "switch"
 	w_class = ITEM_SIZE_BULKY
+	matter = list(MATERIAL_STEEL = 4)
 	var/id = "" //inherited by the switch
 
 /obj/item/construct/conveyor_switch/New(loc, new_id)
@@ -408,6 +416,7 @@ GLOBAL_LIST_INIT(conveyor_switches, list())
 		to_chat(user, SPAN_NOTICE("The conveyor switch did not detect any linked conveyor belts in range."))
 		return
 	var/obj/machinery/conveyor_switch/NC = new/obj/machinery/conveyor_switch(A, id)
+	NC.matter = matter
 	transfer_fingerprints_to(NC)
 	qdel(src)
 

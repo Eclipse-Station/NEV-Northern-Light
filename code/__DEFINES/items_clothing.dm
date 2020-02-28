@@ -1,6 +1,6 @@
 #define HUMAN_STRIP_DELAY        40   // Takes 40ds = 4s to strip someone.
 
-#define SHOES_SLOWDOWN          -1.0  // How much shoes slow you down by default. Negative values speed you up.
+#define SHOES_SLOWDOWN          -1	  // How much shoes slow you down by default. Negative values speed you up.
 
 #define CANDLE_LUM 3 // For how bright candles are.
 
@@ -78,6 +78,7 @@
 #define COVER_PREVENT_MANIPULATION 0x40 // Only clothing with this flag will prevent manipulation under it. Its for space suits and such, unlike from usual Bay12 rules of clothing manipulation.
 #define DRAG_AND_DROP_UNEQUIP      0x80 // Allow you put intems in hands with drag and drop
 #define EQUIP_SOUNDS               0x100// Play sound when equipped/unequipped
+#define ABSTRACT			       0x200//For items that don't really exist. Can't be put on tables or interacted with.
 
 // Flags for pass_flags.
 #define PASSTABLE  0x1
@@ -97,6 +98,10 @@
 #define HIDEEARS 0x2 // Headsets and such.
 #define HIDEEYES 0x4 // Glasses.
 #define HIDEFACE 0x8 // Dictates whether we appear as "Unknown".
+
+//This flag applies to gloves, uniforms, shoes, masks, ear items, glasses
+#define ALWAYSDRAW	0x16//If set, this item is always rendered even if its slot is hidden by other clothing
+//Note that the item may still not be visible if its sprite is actually covered up.
 
 #define BLOCKHEADHAIR   0x20    // Hides the user's hair overlay. Leaves facial hair.
 #define BLOCKHAIR       0x40    // Hides the user's hair, facial and otherwise.
@@ -119,7 +124,8 @@
 #define HEAD        0x1
 #define FACE        0x2
 #define EYES        0x4
-#define UPPER_TORSO 0x8
+#define EARS        0x8
+#define UPPER_TORSO 0x16
 #define LOWER_TORSO 0x10
 #define LEG_LEFT    0x20
 #define LEG_RIGHT   0x40
@@ -201,6 +207,7 @@
 #define INV_W_UNIFORM_DEF_ICON 'icons/inventory/uniform/mob.dmi'
 #define INV_ACCESSORIES_DEF_ICON 'icons/inventory/accessory/mob.dmi'
 #define INV_SUIT_DEF_ICON 'icons/inventory/suit/mob.dmi'
+#define INV_BELT_DEF_ICON 'icons/invenstory/belt/mob.dmi'
 
 
 //Defines for loot stashes

@@ -103,6 +103,6 @@
 /obj/item/projectile/energy/phoron
 	name = "phoron bolt"
 	icon_state = "energy"
-	damage = 20
+	damage = 10
 	damage_type = TOX
-	irradiate = 20
+	irradiate = 30

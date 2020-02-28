@@ -1,5 +1,5 @@
 /datum/job/chaplain
-	title = "NeoTheology Preacher"
+	title = "Chaplain"
 	flag = CHAPLAIN
 	head_position = 1
 	department = DEPARTMENT_CHURCH
@@ -67,7 +67,7 @@
 	join_tag = /datum/job/chaplain
 
 /datum/job/acolyte
-	title = "NeoTheology Acolyte"
+	title = "NOT FUCKING CANON Acolyte"
 	flag = ACOLYTE
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH
@@ -110,7 +110,7 @@
 	join_tag = /datum/job/acolyte
 
 /datum/job/hydro
-	title = "NeoTheology Agrolyte"
+	title = "NOT FUCKING CANON Agrolyte"
 	flag = BOTANIST
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH
@@ -149,7 +149,7 @@
 	join_tag = /datum/job/hydro
 
 /datum/job/janitor
-	title = "NeoTheology Custodian"
+	title = "NOT FUCKING CANON Custodian"
 	flag = JANITOR
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH
@@ -165,8 +165,9 @@
 	outfit_type = /decl/hierarchy/outfit/job/church/janitor
 
 	stat_modifiers = list(
-		STAT_ROB = 10,
+		STAT_ROB = 15,
 		STAT_BIO = 10,
+		STAT_VIG = 15
 	)
 
 	software_on_spawn = list(/datum/computer_file/program/camera_monitor)
