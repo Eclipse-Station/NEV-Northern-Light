@@ -1,8 +1,3 @@
-//used for pref.alternate_option
-#define GET_RANDOM_JOB 0
-#define BE_ASSISTANT 1
-#define RETURN_TO_LOBBY 2
-
 #define JOB_LEVEL_NEVER  4
 #define JOB_LEVEL_LOW    3
 #define JOB_LEVEL_MEDIUM 2
@@ -302,6 +297,13 @@
 	job_desc += "<tr><td style='width: 220px;overflow: hidden;display: inline-block; white-space: nowrap;'>"
 	//The mannequin and its buttons are in their own little mini table, within a fixed width 200px cell
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = job.get_job_mannequin()
+	mannequin.r_skin = 238
+	mannequin.g_skin = 206
+	mannequin.b_skin = 179
+	mannequin.update_dna()
+	mannequin.force_update_limbs()
+	mannequin.update_body(0)
+	mannequin.update_icons()
 	var/icon/job_icon = getFlatIcon(mannequin, job_icon_dir)
 	job_icon.Scale(job_icon.Width() * 2.5, job_icon.Height() * 2.5)
 	send_rsc(user, job_icon, "job_icon_[job_icon_dir].png")
@@ -498,6 +500,6 @@
 	return (job.title in player_alt_titles) ? player_alt_titles[job.title] : job.title
 
 #undef JOB_LEVEL_NEVER
-#undef SET_LEVE_LOW
+#undef JOB_LEVEL_LOW
 #undef JOB_LEVEL_MEDIUM
 #undef JOB_LEVEL_HIGH

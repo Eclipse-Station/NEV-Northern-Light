@@ -34,6 +34,9 @@
 
 	var/sanity_damage = 0
 
+/atom/proc/update_icon()
+	return
+
 /atom/New(loc, ...)
 	init_plane()
 	update_plane()
@@ -306,6 +309,7 @@ its easier to just keep the beam vertical.
 				to_chat(user, "<span class='notice'>It has [reagents.total_volume] unit\s left.</span>")
 			else
 				to_chat(user, "<span class='danger'>It's empty.</span>")
+	SEND_SIGNAL(src, COMSIG_EXAMINE, user, distance)
 
 	return distance == -1 || (get_dist(src, user) <= distance) || isobserver(user)
 

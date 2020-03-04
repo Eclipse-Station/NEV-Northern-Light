@@ -53,7 +53,8 @@
 		return
 
 	if(user)
-		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+		log_and_message_admins("primed \a [src]")
+		user.attack_log += "\[[time_stamp()]\] <font color='red'>primed \a [src]</font>"
 
 	icon_state = initial(icon_state) + "_active"
 	active = 1
@@ -84,9 +85,9 @@
 					det_time = 30
 					to_chat(user, SPAN_NOTICE("You set the [name] for 3 second detonation time."))
 				if (30)
-					det_time = 50
-					to_chat(user, SPAN_NOTICE("You set the [name] for 5 second detonation time."))
-				if (50)
+					det_time = 40
+					to_chat(user, SPAN_NOTICE("You set the [name] for 4 second detonation time."))
+				if (40)
 					det_time = 1
 					to_chat(user, SPAN_NOTICE("You set the [name] for instant detonation."))
 			add_fingerprint(user)

@@ -11,9 +11,6 @@
 
 #define listequal(A, B) (A.len == B.len && !length(A^B))
 
-//Picks from the list, with some safeties, and returns the "default" arg if it fails
-#define DEFAULTPICK(L, default) ((istype(L, /list) && L:len) ? pick(L) : default)
-
 #define LAZYINITLIST(L) if (!L) L = list()
 
 #define UNSETEMPTY(L) if (L && !L.len) L = null
@@ -37,8 +34,6 @@
 
 //Subtracts value from the existing value of a key
 #define LAZYAMINUS(L,K,V) if(L && L[K]) { L[K] -= V; if(!LAZYLEN(L[K])) { L -= K } }
-
-#define DEFAULTPICK(L, default) ((islist(L) && L:len) ? pick(L) : default)
 
 // Insert an object A into a sorted list using cmp_proc (/code/_helpers/cmp.dm) for comparison.
 #define ADD_SORTED(list, A, cmp_proc) if(!list.len) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}
@@ -770,9 +765,13 @@ Checks if a list has the same entries and values as an element of big.
 /proc/is_associative(list/L)
 	for(var/key in L)
 		// if the key is a list that means it's actually an array of lists (stupid Byond...)
-		if(isnum(key) && isnull(L[key]) && istype(key, /list))
+		if(isnum(key) || istype(key, /list))
 			return FALSE
-	return TRUE
+
+		if(!isnull(L[key]))
+			return TRUE
+
+	return FALSE
 
 /proc/group_by(list/group_list, key, value)
 	var/values = group_list[key]
@@ -798,7 +797,7 @@ Checks if a list has the same entries and values as an element of big.
 			return 1
 	return 0
 
-/proc/parse_for_paths(var/list/data)
+/proc/parse_for_paths(list/data)
 	if(!islist(data) || !data.len)
 		return list()
 	var/list/types = list()

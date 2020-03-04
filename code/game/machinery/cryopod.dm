@@ -41,9 +41,6 @@
 	storage_name = "Robotic Storage Control"
 	allow_items = 0
 
-/obj/machinery/computer/cryopod/attack_ai()
-	src.attack_hand()
-
 /obj/machinery/computer/cryopod/attack_hand(mob/user = usr)
 	if(stat & (NOPOWER|BROKEN))
 		return
@@ -187,7 +184,7 @@
 		/obj/item/clothing/suit,
 		/obj/item/clothing/shoes/magboots,
 		/obj/item/blueprints,
-		/obj/item/clothing/head/helmet/space,
+		/obj/item/clothing/head/space,
 		/obj/item/weapon/storage/internal
 	)
 

@@ -99,11 +99,11 @@
 
 
 // -----------------------------
-//          Plant bag
+//          Produce bag
 // -----------------------------
 
-/obj/item/weapon/storage/bag/plants
-	name = "plant bag"
+/obj/item/weapon/storage/bag/produce
+	name = "produce bag"
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "plantbag"
 	max_storage_space = 100
@@ -111,7 +111,9 @@
 	w_class = ITEM_SIZE_NORMAL
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/grown,
 		/obj/item/seeds,
-		/obj/item/weapon/grown)
+		/obj/item/weapon/grown,
+		/obj/item/weapon/reagent_containers/food/snacks/egg,
+		/obj/item/weapon/reagent_containers/food/snacks/meat)
 
 
 // -----------------------------
@@ -130,9 +132,6 @@
 	w_class = ITEM_SIZE_NORMAL
 	storage_slots = 7
 	allow_quick_empty = TRUE // this function is superceded
-
-/obj/item/weapon/storage/bag/sheetsnatcher/New()
-	..()
 
 /obj/item/weapon/storage/bag/sheetsnatcher/can_be_inserted(obj/item/W as obj, stop_messages = 0)
 	if(!istype(W,/obj/item/stack/material))
@@ -241,3 +240,8 @@
 	w_class = ITEM_SIZE_HUGE
 	can_hold = list(/obj/item/weapon/coin,
 		/obj/item/weapon/spacecash)
+
+/obj/item/weapon/storage/bag/money/Initialize()
+	. = ..()
+	if(prob(20))
+		icon_state = "moneybagalt"

@@ -96,16 +96,25 @@ var/global/list/organ_structure = list(
 	r_hand = list(name= "Right Hand",  parent=BP_R_ARM, children=list()),
 	l_hand = list(name= "Left Hand",  parent=BP_L_ARM, children=list()),
 	)
-
+/*
 var/global/list/organ_tag_to_name = list(
-	head  = "Head", r_arm = "Right Arm",
-	torso = "Chest", r_leg = "Right Leg",
-	l_foot = "Left Foot", r_foot = "Right Foot",
-	r_hand = "Right Hand", l_hand = "Left Hand",
-	eyes  = "Eyes", l_arm = "Left Arm",
-	groin = "Groin",l_leg = "Left Leg",
-	chest2= "Back", heart = "Heart",
-	lungs  = "Lungs", liver = "Liver"
+	head  = "head", r_arm = "right arm",
+	chest = "body", r_leg = "right leg",
+	l_foot = "left foot", r_foot = "right foot",
+	r_hand = "right hand", l_hand = "left hand",
+	eyes  = "eyes", l_arm = "left arm",
+	groin = "groin",l_leg = "left leg",
+	chest2= "back", heart = "heart",
+	lungs  = "lungs", liver = "liver"
+	)
+*/
+var/global/list/organ_tag_to_name = list(
+	head  = "head", r_arm = "Right arm",r_hand = "Right hand",
+	chest = "torso", r_leg = "Right Leg",r_foot = "Right foot",
+	eyes  = "Eyes", l_arm = "Left arm", l_hand = "Left hand",
+	groin = "Groin",l_leg = "Left Leg", l_foot = "Left foot",
+	chest2= "Back", heart = "Heart",    lungs  = "Lungs",
+	liver = "Liver"
 	)
 
 // Visual nets

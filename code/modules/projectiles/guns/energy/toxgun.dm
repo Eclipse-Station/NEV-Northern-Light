@@ -7,5 +7,6 @@
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_PHORON = 5)
+	can_dual = 1
 	price_tag = 2500
 	projectile_type = /obj/item/projectile/energy/phoron

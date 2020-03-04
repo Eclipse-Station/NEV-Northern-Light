@@ -1,6 +1,6 @@
 //Cargo
 /datum/job/merchant
-	title = "Guild Merchant"
+	title = "Free Trade Union merchant"
 	flag = MERCHANT
 	department = DEPARTMENT_GUILD
 	head_position = 1
@@ -24,7 +24,7 @@
 		STAT_MEC = 15,
 		STAT_VIG = 10
 	)
-	description = "You are the head of the local branch of Asters Merchant Guild, and Eris' guild representative<br>\
+	description = "You are the head of the local branch of Free Trade Union, and Northern Light's Union representative<br>\
 A staunch entrepreneur, you are motivated by profit, for the guild and especially for yourself. You are here firstly to make as much money as you can, and secondly to keep the crew supplied. You can order things at cargo using the local guild funds, these will not magically replenish so you will run out of money quickly if you don't charge. Take payments by card or cash, and deposit them into the guild account to enable more purchases.<br>\
 <br>\
 The guild also operates all the vendors on the ship, every credit paid into them goes to your guild account. Naturally operating is a two way street, you are expected, when necessary, to refill those vendors. Or send a technician to do it<br>\
@@ -63,7 +63,7 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 
 
 /datum/job/cargo_tech
-	title = "Guild Technician"
+	title = "Union Cargo Technician"
 	flag = GUILDTECH
 	department = DEPARTMENT_GUILD
 	department_flag = GUILD
@@ -113,7 +113,7 @@ Your main duties are to keep the local guild branch operational and profitable. 
 	join_tag = /datum/job/cargo_tech
 
 /datum/job/mining
-	title = "Guild Miner"
+	title = "Union Miner"
 	flag = MINER
 	department = DEPARTMENT_GUILD
 	department_flag = GUILD

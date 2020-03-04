@@ -1,5 +1,5 @@
 /datum/job/rd
-	title = "Moebius Expedition Overseer"
+	title = "NanoTrasen Expedition Overseer"
 	flag = MEO
 	head_position = 1
 	department = DEPARTMENT_SCIENCE
@@ -55,7 +55,7 @@ Your second loyalty is to moebius corp. In order to ensure it can continue its m
 
 
 /datum/job/scientist
-	title = "Moebius Scientist"
+	title = "NanoTrasen Scientist"
 	flag = SCIENTIST
 	department = DEPARTMENT_SCIENCE
 	department_flag = SCIENCE
@@ -113,7 +113,7 @@ Your second loyalty is to moebius corp. In order to ensure it can continue its m
 
 
 /datum/job/roboticist
-	title = "Moebius Roboticist"
+	title = "NanoTrasen Roboticist"
 	flag = ROBOTICIST
 	department = DEPARTMENT_SCIENCE
 	department_flag = SCIENCE
@@ -128,7 +128,7 @@ Your second loyalty is to moebius corp. In order to ensure it can continue its m
 	outfit_type = /decl/hierarchy/outfit/job/science/roboticist
 
 	access = list(
-		access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_moebius, access_research_equipment
+		access_robotics, access_tox, access_tox_storage, access_morgue, access_moebius, access_research_equipment
 	) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 
 	software_on_spawn = list(/datum/computer_file/program/chem_catalog)

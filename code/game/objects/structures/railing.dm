@@ -2,13 +2,14 @@
 	name = "orange railing"
 	desc = "A standard steel railing painted in copper color. Prevents stupid people from falling to their doom."
 	icon = 'icons/obj/railing.dmi'
-	density = 1
-	throwpass = 1
-	climbable = 1
+	density = TRUE
+	throwpass = TRUE
+	climbable = TRUE
 	layer = 3.2	//Just above doors
-	anchored = 1
+	anchored = TRUE
 	flags = ON_BORDER
 	icon_state = "railing0"
+	matter = list(MATERIAL_STEEL = 4)
 	var/broken = 0
 	var/health=70
 	var/maxhealth=70
@@ -211,6 +212,9 @@
 			target.damage_through_armor(8, BRUTE, BP_HEAD, ARMOR_MELEE)
 			take_damage(8)
 			visible_message(SPAN_DANGER("[user] slams [target]'s face against \the [src]!"))
+			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been slammed by [user.name] ([user.ckey] against \the [src])</font>"
+			user.attack_log += "\[[time_stamp()]\] <font color='red'>Slammed [target.name] ([target.ckey] against over \the [src])</font>"
+			msg_admin_attack("[user] slammed a [target] against \the [src].")
 			playsound(loc, 'sound/effects/grillehit.ogg', 50, 1)
 		else
 			to_chat(user, SPAN_DANGER("You need a better grip to do that!"))
@@ -222,6 +226,9 @@
 			target.forceMove(get_turf(src))
 		target.Weaken(5)
 		visible_message(SPAN_DANGER("[user] throws [target] over \the [src]!"))
+		target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been throwed by [user.name] ([user.ckey] over \the [src])</font>"
+		user.attack_log += "\[[time_stamp()]\] <font color='red'>Throwed [target.name] ([target.ckey] over \the [src])</font>"
+		msg_admin_attack("[user] throwed a [target] over \the [src].")
 	return TRUE
 
 /obj/structure/railing/attackby(obj/item/I, mob/user)
@@ -252,7 +259,7 @@
 			if(!anchored)
 				if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
 					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
-					new /obj/item/stack/material/steel(src.loc, 4)
+					drop_materials(drop_location())
 					qdel(src)
 			return
 
