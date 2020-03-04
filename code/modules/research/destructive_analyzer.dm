@@ -11,11 +11,18 @@ Note: Must be placed within 3 tiles of the R&D Console
 	icon_state = "d_analyzer"
 	var/obj/item/loaded_item = null
 	var/decon_mod = 0
+	var/busy = FALSE
 	circuit = /obj/item/weapon/circuitboard/destructive_analyzer
 
-	use_power = TRUE
 	idle_power_usage = 30
 	active_power_usage = 2500
+
+/obj/machinery/r_n_d/destructive_analyzer/Destroy()
+	if(linked_console)
+		if(linked_console.linked_destroy == src)
+			linked_console.linked_destroy = null
+		linked_console = null
+	return ..()
 
 /obj/machinery/r_n_d/destructive_analyzer/RefreshParts()
 	var/T = 0
@@ -55,7 +62,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 			var/used_sound = panel_open ? 'sound/machines/Custom_screwdriveropen.ogg' :  'sound/machines/Custom_screwdriverclose.ogg'
 			if(I.use_tool(user, src, WORKTIME_NEAR_INSTANT, tool_type, FAILCHANCE_NORMAL, required_stat = STAT_MEC, instant_finish_tier = 30, forced_sound = used_sound))
 				if(linked_console)
-					linked_console.linked_imprinter = null
+					linked_console.linked_destroy = null
 					linked_console = null
 				panel_open = !panel_open
 				to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch of \the [src] with [I]."))

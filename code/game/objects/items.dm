@@ -42,11 +42,13 @@
 	var/permeability_coefficient = 1 // for chemicals/diseases
 	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
 	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
-	var/list/armor = list(melee = 0, bullet = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	var/list/armor = list(melee = 0, bullet = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	var/list/allowed = list() //suit storage stuff.
 	var/obj/item/device/uplink/hidden/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
 	var/zoomdevicename = null //name used for message when binoculars/scope is used
 	var/zoom = 0 //1 if item is actively being used to zoom. For scoped guns and binoculars.
+
+	var/contained_sprite = FALSE //TRUE if object icon and related mob overlays are all in one dmi
 
 	var/icon_override = null  //Used to override hardcoded clothing dmis in human clothing proc.
 
@@ -67,6 +69,9 @@
 	var/embed_mult = 0.5 //Multiplier for the chance of embedding in mobs. Set to zero to completely disable embedding
 	var/structure_damage_factor = STRUCTURE_DAMAGE_NORMAL	//Multiplier applied to the damage when attacking structures and machinery
 	//Does not affect damage dealt to mobs
+
+	var/list/item_upgrades = list()
+	var/max_upgrades = 3
 
 /obj/item/Destroy()
 	QDEL_NULL(hidden_uplink)
@@ -190,6 +195,8 @@
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
 // This exists so that dropped() could exclusively be called when an item is dropped.
 /obj/item/proc/on_slotmove(var/mob/user)
+	if(wielded)
+		unwield(user)
 	if (zoom)
 		zoom(user)
 
@@ -500,6 +507,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	for(var/A in hud_actions)
 		var/obj/item/action = A
 		action.update_icon()
+
+/obj/item/proc/refresh_upgrades()
+	return
 
 
 /obj/item/device

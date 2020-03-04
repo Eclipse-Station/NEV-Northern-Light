@@ -241,13 +241,13 @@
 
 	create_bullethole(Proj)//Potentially infinite bullet holes but most walls don't last long enough for this to be a problem.
 
-	take_damage(damage)
-
 	if(Proj.damage_type == BRUTE && prob(src.damage / (material.integrity + reinf_material?.integrity) * 33))
-		var/obj/item/weapon/material_trash/metal/slug = new(get_turf(Proj))
+		var/obj/item/trash/material/metal/slug = new(get_turf(Proj))
 		slug.matter.Cut()
 		slug.matter[reinf_material ? reinf_material.name : material.name] = 0.1
 		slug.throw_at(get_turf(Proj), 0, 1)
+
+	take_damage(damage)
 
 /turf/simulated/wall/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)
 	..()
@@ -344,15 +344,14 @@
 
 	return ..()
 
-/turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product)
-
+/turf/simulated/wall/proc/dismantle_wall(devastated, explode, no_product)
 	playsound(src, 'sound/items/Welder.ogg', 100, 1)
 	if(!no_product)
 		if(reinf_material)
 			reinf_material.place_dismantled_girder(src, reinf_material)
 		else
 			material.place_dismantled_girder(src)
-		material.place_dismantled_product(src,devastated)
+		material.place_sheet(src, amount=3)
 
 	for(var/obj/O in src.contents) //Eject contents!
 		if(istype(O,/obj/item/weapon/contraband/poster))

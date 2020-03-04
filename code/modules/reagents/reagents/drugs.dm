@@ -2,6 +2,14 @@
 /datum/reagent/drug
 	reagent_type = "Drug"
 
+	var/sanity_gain
+
+/datum/reagent/drug/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+	if(sanity_gain)
+		var/mob/living/carbon/human/H = M
+		if(istype(H))
+			H.sanity.onDrug(src, effect_multiplier)
+
 
 /datum/reagent/drug/space_drugs
 	name = "Space drugs"
@@ -107,7 +115,7 @@
 	metabolism = REM * 0.5
 	addiction_chance = 10
 	nerve_system_accumulations = 40
-	reagent_type = "Drugs/Stimulator"
+	reagent_type = "Drug/Stimulator"
 	sanity_gain = 1.5
 
 /datum/reagent/drug/psilocybin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
@@ -173,7 +181,7 @@
 	taste_description = "acid"
 	reagent_state = LIQUID
 	color = "#FF3300"
-	metabolism = REM * 0.15
+	metabolism = REM * 0.2
 	overdose = REAGENTS_OVERDOSE * 0.66
 	withdrawal_threshold = 10
 	nerve_system_accumulations = 55
@@ -182,7 +190,7 @@
 /datum/reagent/drug/hyperzine/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver"))
-	M.add_chemical_effect(CE_SPEEDBOOST, 1)
+	M.add_chemical_effect(CE_SPEEDBOOST, 0.6)
 	M.add_chemical_effect(CE_PULSE, 2)
 
 /datum/reagent/drug/hyperzine/withdrawal_act(mob/living/carbon/M)

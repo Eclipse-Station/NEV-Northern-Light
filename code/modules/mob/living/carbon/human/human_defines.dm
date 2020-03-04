@@ -119,5 +119,3 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 
 	var/language_blackout = 0
 	var/suppress_communication = 0
-
-	var/flashbacks = 0

@@ -611,13 +611,11 @@ There are 9 wires.
 	set category = "Object"
 	set src in view(1)
 
-	if(!isliving(usr))
-		to_chat(usr, SPAN_WARNING("You can't do this."))
+	if(!isliving(usr) || !CanUseTopic(usr))
 		return
+
 	if(wedged_item)
-		if(usr && !wedged_item.use_tool(usr, src, WORKTIME_NEAR_INSTANT, QUALITY_PRYING, FAILCHANCE_ZERO, list(STAT_MEC, STAT_ROB)))
-			return
-		wedged_item.forceMove(loc)
+		wedged_item.forceMove(drop_location())
 		if(usr)
 			usr.put_in_hands(wedged_item)
 			to_chat(usr, SPAN_NOTICE("You took [wedged_item] out of [src]."))
@@ -864,7 +862,7 @@ There are 9 wires.
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
 			playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
-			if(!istype(H.head, /obj/item/clothing/head/helmet))
+			if(!istype(H.head, /obj/item/clothing/head/armor/helmet))
 				visible_message(SPAN_WARNING("[user] headbutts the airlock."))
 				var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 				H.Stun(8)
@@ -1389,7 +1387,7 @@ There are 9 wires.
 	user.do_attack_animation(src)
 	if(calc_damage <= 0)
 		user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \the [W] with no visible effect."))
-		quiet ? () : playsound(src.loc, hitsound, 20, 1)
+		quiet ? null : playsound(src.loc, hitsound, 20, 1)
 	else
 		user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
 		playsound(src.loc, hitsound, quiet? 3: calc_damage*2.0, 1, 3,quiet?-5 :2)

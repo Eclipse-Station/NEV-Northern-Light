@@ -1,77 +1,50 @@
-//Damage multipliers
-#define HIGH_VELOCITY_MULTIPLIER 1.2 //Determines the damage, agony, & armor_penetration values from base damage & armor_penetration.
-#define RUBBER_DAMAGE_MULTIPLIER 0.15 //Determines the damage value from base damage.
-#define RUBBER_AGONY_MULTIPLIER 0.85 //Determines the agony value from base damage.
-#define RUBBER_PENETRATION_MULTIPLIER 0 //Determines the armor_penetration value from base armor_penetration.
-#define PRACTICE_DAMAGE_MULTIPLIER 0 //Determines the damage value from base damage.
-#define PRACTICE_AGONY_MULTIPLIER 0.1 //Determines the agony value from base damage.
-#define PRACTICE_PENETRATION_MULTIPLIER 0.2 //Determines the armor_penetration value from base armor_penetration.
+/*
+IMPORTANT
 
-//Step delays //Default value is 1. Lower value makes bullet go faster, higher value makes bullet go slower.
-#define HIGH_VELOCITY_STEP_DELAY 0.75
+There are important things regarding this file:
 
-//Low-caliber pistols and SMGs
-#define ARMOR_PENETRATION_LOW_CALIBER_PISTOL 5
-#define DAMAGE_PISTOL 22
-#define DAMAGE_PISTOL 26
+ * Rubbers are non sharp, embed capable objects, with non existing armor penetration. Their agony damage is generally lower then actuall one
+ * The caliber ammont was lowered for a reason, don't add more bloat. If you need different values, use gun vars.
+ * HV exist as antag option for better ammo.
+ * Step delays - default value is 1. Lower value makes bullet go faster, higher value makes bullet go slower.
 
-//Carbines and rifles
-#define DAMAGE_SRIFLE 16
-#define ARMOR_PENETRATION_SRIFLE 25
-#define DAMAGE_CLRIFLE 18
-#define ARMOR_PENETRATION_CLRIFLE 15
-#define DAMAGE_LRIFLE 20
-#define ARMOR_PENETRATION_LRIFLE 15
-
-//Revolvers and high-caliber pistols
-#define ARMOR_PENETRATION_REVOLVER	12
-#define ARMOR_PENETRATION_HIGH_CALIBER_PISTOL 10
-#define DAMAGE_MAGNUM 45
-
-//Sniper rifles
-#define ARMOR_PENETRATION_SNIPER 80
-#define DAMAGE_ANTIM 70
-
-//Shotguns
-#define DAMAGE_SLUG 50
-#define ARMOR_PENETRATION_SLUG 12
-#define DAMAGE_BEANBAG 10
-#define AGONY_BEANBAG 60
-#define ARMOR_PENETRATION_BEANBAG 0
-
-//Low-caliber pistols and SMGs
+*/
+//Low-caliber pistols and SMGs .35
 /obj/item/projectile/bullet/pistol
-	damage = DAMAGE_PISTOL
-	armor_penetration = ARMOR_PENETRATION_LOW_CALIBER_PISTOL
+	damage = 24
+	armor_penetration = 5
 	can_ricochet = TRUE
 
 /obj/item/projectile/bullet/pistol/hv
-	damage = DAMAGE_PISTOL * HIGH_VELOCITY_MULTIPLIER
-	armor_penetration = ARMOR_PENETRATION_LOW_CALIBER_PISTOL * HIGH_VELOCITY_MULTIPLIER
+	damage = 28
+	armor_penetration = 10
 	penetrating = 1
-	step_delay = HIGH_VELOCITY_STEP_DELAY
+	step_delay = 0.75
 
 /obj/item/projectile/bullet/pistol/practice
 	name = "practice bullet"
-	damage = DAMAGE_PISTOL * PRACTICE_DAMAGE_MULTIPLIER
-	agony = DAMAGE_PISTOL * PRACTICE_AGONY_MULTIPLIER
-	armor_penetration = ARMOR_PENETRATION_LOW_CALIBER_PISTOL * PRACTICE_PENETRATION_MULTIPLIER
+	damage = 2
+	agony = 3
+	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
 	can_ricochet = FALSE
 
 /obj/item/projectile/bullet/pistol/rubber
 	name = "rubber bullet"
-	damage = DAMAGE_PISTOL * RUBBER_DAMAGE_MULTIPLIER
-	agony = DAMAGE_PISTOL * RUBBER_AGONY_MULTIPLIER
-	armor_penetration = ARMOR_PENETRATION_LOW_CALIBER_PISTOL * RUBBER_PENETRATION_MULTIPLIER
+	damage = 3
+	agony = 22
+	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
 
 //Carbines and rifles
+
+// .20 rifle
+
 /obj/item/projectile/bullet/srifle
-	damage = DAMAGE_SRIFLE
-	armor_penetration = ARMOR_PENETRATION_SRIFLE
+	damage = 25
+	armor_penetration = 25
 	penetrating = 2
 	can_ricochet = TRUE
 
@@ -80,103 +53,179 @@
 
 /obj/item/projectile/bullet/srifle/practice
 	name = "practice bullet"
-	damage = DAMAGE_SRIFLE * PRACTICE_DAMAGE_MULTIPLIER
-	agony = DAMAGE_SRIFLE * PRACTICE_AGONY_MULTIPLIER
-	armor_penetration = ARMOR_PENETRATION_SRIFLE * PRACTICE_PENETRATION_MULTIPLIER
+	damage = 2
+	agony = 2
+	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
 	can_ricochet = FALSE
 
-/obj/item/projectile/bullet/clrifle
-	damage = DAMAGE_CLRIFLE
-	armor_penetration = ARMOR_PENETRATION_SRIFLE
-	penetrating = 1
+/obj/item/projectile/bullet/srifle/hv
+	damage = 30
+	armor_penetration = 30
+	penetrating = 4
+	step_delay = 0.75
+
+/obj/item/projectile/bullet/srifle/rubber
+	name = "rubber bullet"
+	damage = 3
+	agony = 30
+	armor_penetration = 0
+	embed = FALSE
 	sharp = FALSE
+
+// .25 caseless rifle
+
+/obj/item/projectile/bullet/clrifle
+	damage = 27
+	armor_penetration = 15
+	penetrating = 1
+	sharp = TRUE
+	can_ricochet = FALSE //to reduce collateral damage and FF, since IH use it in their primary firearm
+
+/obj/item/projectile/bullet/clrifle/practice
+	name = "practice bullet"
+	damage = 2
+	agony = 2
+	armor_penetration = 0
+	embed = FALSE
+	sharp = FALSE
+	can_ricochet = FALSE
+
+/obj/item/projectile/bullet/clrifle/hv
+	damage = 32
+	armor_penetration = 20
+	penetrating = 2
+	step_delay = 0.75
 	can_ricochet = TRUE
 
 /obj/item/projectile/bullet/clrifle/rubber
 	name = "rubber bullet"
-	damage = DAMAGE_CLRIFLE * RUBBER_DAMAGE_MULTIPLIER
-	agony = DAMAGE_CLRIFLE * RUBBER_AGONY_MULTIPLIER
-	armor_penetration = ARMOR_PENETRATION_SRIFLE * RUBBER_PENETRATION_MULTIPLIER
+	damage = 3
+	agony = 16
+	armor_penetration = 0
+	embed = FALSE
+	sharp = FALSE
+	can_ricochet = TRUE
+
+// .30 rifle
+
+/obj/item/projectile/bullet/lrifle
+	damage = 28
+	armor_penetration = 20
+	penetrating = 1
+	can_ricochet = TRUE
+
+/obj/item/projectile/bullet/lrifle/practice
+	name = "practice bullet"
+	damage = 2
+	agony = 2
+	armor_penetration = 0
+	embed = FALSE
+	sharp = FALSE
+	can_ricochet = FALSE
+
+/obj/item/projectile/bullet/lrifle/hv
+	damage = 30
+	armor_penetration = 30
+	penetrating = 2
+	step_delay = 0.75
+
+/obj/item/projectile/bullet/lrifle/rubber
+	name = "rubber bullet"
+	damage = 3
+	agony = 25
+	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
 
-/obj/item/projectile/bullet/lrile
-	damage = DAMAGE_LRIFLE
-	armor_penetration = ARMOR_PENETRATION_LRIFLE
-	penetrating = 1
-	can_ricochet = TRUE
-
-/obj/item/projectile/bullet/lrifle/hv
-	damage = DAMAGE_LRIFLE * HIGH_VELOCITY_MULTIPLIER
-	armor_penetration = ARMOR_PENETRATION_LRIFLE * HIGH_VELOCITY_MULTIPLIER
-	penetrating = 2
-	step_delay = HIGH_VELOCITY_STEP_DELAY
-
-//Revolvers and high-caliber pistols
+//Revolvers and high-caliber pistols .40
 /obj/item/projectile/bullet/magnum
-	damage = DAMAGE_MAGNUM
-	armor_penetration = ARMOR_PENETRATION_HIGH_CALIBER_PISTOL
+	damage = 32
+	armor_penetration = 15
 	can_ricochet = TRUE
+
+/obj/item/projectile/bullet/magnum/practice
+	name = "practice bullet"
+	damage = 2
+	agony = 3
+	armor_penetration = 0
+	embed = FALSE
+	sharp = FALSE
+	can_ricochet = FALSE
 
 /obj/item/projectile/bullet/magnum/hv
-	damage = DAMAGE_MAGNUM * HIGH_VELOCITY_MULTIPLIER
-	armor_penetration = ARMOR_PENETRATION_REVOLVER * HIGH_VELOCITY_MULTIPLIER
+	damage = 35
+	armor_penetration = 20
 	penetrating = 1
-	step_delay = HIGH_VELOCITY_STEP_DELAY
+	step_delay = 0.75
 
 /obj/item/projectile/bullet/magnum/rubber
 	name = "rubber bullet"
-	damage = DAMAGE_MAGNUM * RUBBER_DAMAGE_MULTIPLIER
-	agony = DAMAGE_MAGNUM * RUBBER_AGONY_MULTIPLIER
-	armor_penetration = ARMOR_PENETRATION_HIGH_CALIBER_PISTOL * RUBBER_PENETRATION_MULTIPLIER
+	damage = 8
+	agony = 32
+	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
 
-
-//Sniper rifles
+//Sniper rifles .60
 /obj/item/projectile/bullet/antim
-	damage = DAMAGE_ANTIM
-	armor_penetration = ARMOR_PENETRATION_SNIPER
+	damage = 70
+	armor_penetration = 50
 	stun = 3
 	weaken = 3
 	penetrating = 5
 	hitscan = TRUE //so the PTR isn't useless as a sniper weapon
 
-//Shotguns
+//Shotguns .50
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	icon_state = "slug"
-	damage = DAMAGE_SLUG
-	armor_penetration = ARMOR_PENETRATION_SLUG
+	damage = 54
+	armor_penetration = 10
 	knockback = 1
+	step_delay = 1.65
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
 	icon_state = "buckshot"
 	check_armour = ARMOR_MELEE
-	damage = DAMAGE_BEANBAG
-	agony = AGONY_BEANBAG
-	armor_penetration = ARMOR_PENETRATION_BEANBAG
+	damage = 10
+	agony = 60
+	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
 
 /obj/item/projectile/bullet/shotgun/practice
 	name = "practice slug"
-	damage = DAMAGE_SLUG * PRACTICE_DAMAGE_MULTIPLIER
-	agony = DAMAGE_SLUG * PRACTICE_AGONY_MULTIPLIER
-	armor_penetration = ARMOR_PENETRATION_SLUG * PRACTICE_PENETRATION_MULTIPLIER
+	damage = 1
+	agony = 5
+	armor_penetration = 0
 	embed = FALSE
 	knockback = 0
+
+/obj/item/projectile/bullet/shotgun/incendiary
+	damage = 10
+	agony = 5
+	armor_penetration = 0
+	embed = FALSE
+	knockback = 0
+	var/fire_stacks = 4
+
+/obj/item/projectile/bullet/shotgun/incendiary/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(iscarbon(target))
+		var/mob/living/carbon/M = target
+		M.adjust_fire_stacks(fire_stacks)
+		M.IgniteMob()
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
 /obj/item/projectile/bullet/pellet/shotgun
 	name = "shrapnel"
 	icon_state = "birdshot-1"
-	damage = 12
-	pellets = 6
+	damage = 10
+	pellets = 8
 	range_step = 1
 	spread_step = 10
 	knockback = 1
@@ -198,34 +247,3 @@
 	damage = 0
 	embed = FALSE
 	sharp = FALSE
-
-#undef HIGH_VELOCITY_MULTIPLIER
-#undef RUBBER_DAMAGE_MULTIPLIER
-#undef RUBBER_AGONY_MULTIPLIER
-#undef RUBBER_PENETRATION_MULTIPLIER
-#undef PRACTICE_DAMAGE_MULTIPLIER
-#undef PRACTICE_AGONY_MULTIPLIER
-#undef PRACTICE_PENETRATION_MULTIPLIER
-#undef HIGH_VELOCITY_STEP_DELAY
-#undef ARMOR_PENETRATION_LOW_CALIBER_PISTOL
-#undef DAMAGE_30A
-#undef DAMAGE_35A
-#undef DAMAGE_10X24
-#undef ARMOR_PENETRATION_10X24
-#undef DAMAGE_20R
-#undef ARMOR_PENETRATION_20R
-#undef DAMAGE_225R
-#undef ARMOR_PENETRATION_225R
-#undef DAMAGE_25R
-#undef ARMOR_PENETRATION_25R
-#undef ARMOR_PENETRATION_REVOLVER
-#undef DAMAGE_375SPL
-#undef ARMOR_PENETRATION_HIGH_CALIBER_PISTOL
-#undef DAMAGE_40M
-#undef ARMOR_PENETRATION_SNIPER
-#undef DAMAGE_50AM
-#undef DAMAGE_SLUG
-#undef ARMOR_PENETRATION_SLUG
-#undef DAMAGE_BEANBAG
-#undef AGONY_BEANBAG
-#undef ARMOR_PENETRATION_BEANBAG

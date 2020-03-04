@@ -11,7 +11,6 @@
 		"a functional AI" = /obj/item/device/aicard,
 		"the Chief Engineer's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
 		"the station blueprints" = /obj/item/blueprints,
-		"a nasa voidsuit" = /obj/item/clothing/suit/space/void,
 		"28 moles of phoron (full tank)" = /obj/item/weapon/tank,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
@@ -23,7 +22,7 @@
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"an Ironhammer hardsuit control module" = /obj/item/weapon/rig/ihs_combat
+		"an Ironhammer hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
 	)
 
 	var/global/possible_items_special[] = list(

@@ -39,8 +39,13 @@
 
 /datum/uplink_item/item/tools/heavy_vest
 	name = "Heavy Armor Vest"
-	item_cost = 4
+	item_cost = 6
 	path = /obj/item/clothing/suit/storage/vest/merc
+
+/datum/uplink_item/item/tools/heavy_helmet
+	name = "Heavy Armor Helmet"
+	item_cost = 4
+	path = /obj/item/clothing/head/armor/helmet/merchelm
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
@@ -66,7 +71,7 @@
 			This device will also be able to immediately access the last 6 to 8 hacked airlocks."
 
 /datum/uplink_item/item/tools/space_suit
-	name = "Space Suit"
+	name = "Mercenary Voidsuit"
 	item_cost = 6
 	path = /obj/item/weapon/storage/box/syndie_kit/space
 
@@ -106,8 +111,11 @@
 
 /datum/uplink_item/item/tools/mind_fryer
 	name = "Mind Fryer"
+	desc = "When activated, attacks the minds of people nearby, causing sanity loss and inducing mental breakdowns. \
+			The device owner is immune to this effect."
 	item_cost = 3
 	path = /obj/item/device/mind_fryer
+	antag_roles = list()
 
 /datum/uplink_item/item/tools/mind_fryer/buy(obj/item/device/uplink/U)
 	. = ..()
@@ -117,9 +125,11 @@
 
 /datum/uplink_item/item/tools/spy_sensor
 	name = "Spying Sensor (4x)"
+	desc = "A set of sensor packages designed to collect some information for your client. \
+			Place the sensors in target area, make sure to activate each one and do not move or otherwise disturb them."
 	item_cost = 1
 	path = /obj/item/weapon/storage/box/syndie_kit/spy_sensor
-	antag_roles = list(ROLE_TRAITOR)
+	antag_roles = ROLES_CONTRACT
 
 /datum/uplink_item/item/tools/spy_sensor/buy(obj/item/device/uplink/U)
 	. = ..()
@@ -132,7 +142,7 @@
 	name = "Blue Space Direct Mail Unit"
 	item_cost = 1
 	path = /obj/item/weapon/storage/bsdm
-	antag_roles = list(ROLE_TRAITOR)
+	antag_roles = ROLES_CONTRACT
 
 /datum/uplink_item/item/tools/bsdm/can_view(obj/item/device/uplink/U)
 	return ..() && (U.bsdm_time > world.time)
@@ -147,7 +157,7 @@
 	name = "Blue Space Direct Mail Unit"
 	item_cost = 0
 	path = /obj/item/weapon/storage/bsdm
-	antag_roles = list(ROLE_TRAITOR)
+	antag_roles = ROLES_CONTRACT
 
 /datum/uplink_item/item/tools/bsdm_free/can_view(obj/item/device/uplink/U)
 	return ..() && (U.bsdm_time <= world.time)
@@ -158,3 +168,8 @@
 		var/obj/item/weapon/storage/bsdm/B = .
 		B.owner = U.uplink_owner
 		U.bsdm_time = world.time + 10 MINUTES
+
+/datum/uplink_item/item/tools/mental_imprinter
+	name = "Mental Imprinter"
+	item_cost = 5
+	path = /obj/item/device/mental_imprinter

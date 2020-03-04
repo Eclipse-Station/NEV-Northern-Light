@@ -34,8 +34,6 @@
 	var/p_x = 16
 	var/p_y = 16 // the pixel location of the tile that the player clicked. Default is the center
 
-	var/dispersion = 0.0
-
 	var/can_ricochet = FALSE // defines if projectile can or cannot ricochet.
 	var/ricochet_id = 0 // if the projectile ricochets, it gets its unique id in order to process iteractions with adjacent walls correctly.
 
@@ -68,6 +66,8 @@
 	var/tracer_type
 	var/impact_type
 
+	var/proj_color //If defined, is used to change the muzzle, tracer, and impact icon colors through Blend()
+
 	var/datum/plot_vector/trajectory	// used to plot the path of the projectile
 	var/datum/vector_loc/location		// current location of the projectile in pixel space
 	var/matrix/effect_transform			// matrix to rotate and scale projectile effects - putting it here so it doesn't
@@ -80,11 +80,14 @@
 /obj/item/projectile/multiply_projectile_damage(newmult)
 	damage = initial(damage) * newmult
 
+/obj/item/projectile/multiply_projectile_penetration(newmult)
+	armor_penetration = initial(armor_penetration) * newmult
+
 /obj/item/projectile/proc/on_hit(atom/target, def_zone = null)
 	if(!isliving(target))	return 0
 	if(isanimal(target))	return 0
 	var/mob/living/L = target
-	L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy, agony)
+	L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy)
 	return TRUE
 
 // generate impact effect
@@ -121,12 +124,6 @@
 	if(mouse_control["icon-y"])
 		p_y = text2num(mouse_control["icon-y"])
 
-	//randomize clickpoint a bit based on dispersion
-	if(dispersion)
-		var/radius = round((dispersion*0.443)*world.icon_size*0.8) //0.443 = sqrt(pi)/4 = 2a, where a is the side length of a square that shares the same area as a circle with diameter = dispersion
-		p_x = between(0, p_x + rand(-radius, radius), world.icon_size)
-		p_y = between(0, p_y + rand(-radius, radius), world.icon_size)
-
 //called to launch a projectile
 /obj/item/projectile/proc/launch(atom/target, target_zone, x_offset=0, y_offset=0, angle_offset=0)
 	var/turf/curloc = get_turf(src)
@@ -150,7 +147,7 @@
 	return FALSE
 
 //called to launch a projectile from a gun
-/obj/item/projectile/proc/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, target_zone, x_offset=0, y_offset=0)
+/obj/item/projectile/proc/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, target_zone, x_offset=0, y_offset=0, angle_offset)
 	if(user == target) //Shooting yourself
 		user.bullet_act(src, target_zone)
 		qdel(src)
@@ -162,7 +159,7 @@
 	shot_from = launcher.name
 	silenced = launcher.item_flags & SILENT
 
-	return launch(target, target_zone, x_offset, y_offset)
+	return launch(target, target_zone, x_offset, y_offset, angle_offset)
 
 //Used to change the direction of the projectile in flight.
 /obj/item/projectile/proc/redirect(new_x, new_y, atom/starting_loc, mob/new_firer=null)
@@ -557,10 +554,10 @@
 	if (result == PROJECTILE_CONTINUE)
 		return FALSE
 
-	if(isliving(target_mob))
+	if(target_mob.mob_classification & CLASSIFICATION_ORGANIC)
 		var/turf/target_loca = get_turf(target_mob)
 		var/mob/living/L = target_mob
-		if(damage && damage_type == BRUTE)
+		if(damage > 10 && damage_type == BRUTE)
 			var/splatter_dir = dir
 			if(starting)
 				splatter_dir = get_dir(starting, target_loca)
@@ -670,6 +667,8 @@
 
 		before_move()
 		Move(location.return_turf())
+		pixel_x = location.pixel_x
+		pixel_y = location.pixel_y
 
 		if(!bumped && !isturf(original))
 			if(loc == get_turf(original))
@@ -689,22 +688,16 @@
 /obj/item/projectile/proc/before_move()
 	return FALSE
 
-/obj/item/projectile/proc/setup_trajectory(turf/startloc, turf/targloc, var/x_offset = 0, var/y_offset = 0)
+/obj/item/projectile/proc/setup_trajectory(turf/startloc, turf/targloc, x_offset = 0, y_offset = 0, angle_offset)
 	// setup projectile state
 	starting = startloc
 	current = startloc
 	yo = targloc.y - startloc.y + y_offset
 	xo = targloc.x - startloc.x + x_offset
 
-	// trajectory dispersion
-	var/offset = 0
-	if(dispersion)
-		var/radius = round(dispersion*9, 1)
-		offset = rand(-radius, radius)
-
 	// plot the initial trajectory
 	trajectory = new()
-	trajectory.setup(starting, original, pixel_x, pixel_y, angle_offset=offset)
+	trajectory.setup(starting, original, pixel_x, pixel_y, angle_offset)
 
 	// generate this now since all visual effects the projectile makes can use it
 	effect_transform = new()
@@ -725,6 +718,10 @@
 		var/obj/effect/projectile/M = new muzzle_type(get_turf(src))
 
 		if(istype(M))
+			if(proj_color)
+				var/icon/I = new(M.icon, M.icon_state)
+				I.Blend(proj_color)
+				M.icon = I
 			M.set_transform(T)
 			M.pixel_x = location.pixel_x
 			M.pixel_y = location.pixel_y
@@ -740,6 +737,10 @@
 		var/obj/effect/projectile/P = new tracer_type(location.loc)
 
 		if(istype(P))
+			if(proj_color)
+				var/icon/I = new(P.icon, P.icon_state)
+				I.Blend(proj_color)
+				P.icon = I
 			P.set_transform(M)
 			P.pixel_x = location.pixel_x
 			P.pixel_y = location.pixel_y
@@ -753,14 +754,18 @@
 	if (!location)
 		return
 
-	if(ispath(tracer_type))
+	if(ispath(impact_type))
 		var/obj/effect/projectile/P = new impact_type(location.loc)
 
 		if(istype(P))
+			if(proj_color)
+				var/icon/I = new(P.icon, P.icon_state)
+				I.Blend(proj_color)
+				P.icon = I
 			P.set_transform(M)
 			P.pixel_x = location.pixel_x
 			P.pixel_y = location.pixel_y
-			P.activate()
+			P.activate(P.lifetime)
 
 //"Tracing" projectile
 /obj/item/projectile/test //Used to see if you can hit them.
@@ -828,3 +833,8 @@
 	var/output = trace.launch(target) //Test it!
 	qdel(trace) //No need for it anymore
 	return output //Send it back to the gun!
+
+/proc/get_proj_icon_by_color(var/obj/item/projectile/P, var/color)
+	var/icon/I = new(P.icon, P.icon_state)
+	I.Blend(color)
+	return I

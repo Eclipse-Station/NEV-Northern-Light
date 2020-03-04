@@ -1,5 +1,6 @@
 //wrapper macros for easier grepping
 #define DIRECT_OUTPUT(A, B) A << B
+#define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 #define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
 //print an error message to world.log
 
@@ -28,6 +29,7 @@
 
 /proc/log_admin(text)
 	admin_log.Add(text)
+	lobby_message(message = text, color = "#FFA500")
 	if (config.log_admin)
 		game_log("ADMIN", text)
 

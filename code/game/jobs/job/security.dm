@@ -1,5 +1,5 @@
 /datum/job/ihc
-	title = "Ironhammer Commander"
+	title = "Cobalt Commander"
 	flag = IHC
 	head_position = 1
 	department = DEPARTMENT_SECURITY
@@ -52,13 +52,13 @@
 		Your third loyalty is to the crew. As the strongest military force on the ship, any mutiny attempt is likely at your mercy, and if unjustified, it will fall to you to put it down. If the captain has gone mad and a mutiny is justified, your support will be the difference between a peaceful arrest and a bloody civil war in the halls. Without your guns, an insane captain will usually be forced to surrender."
 
 /obj/landmark/join/start/ihc
-	name = "Ironhammer Commander"
+	name = "Cobalt Commander"
 	icon_state = "player-blue-officer"
 	join_tag = /datum/job/ihc
 
 
 /datum/job/gunserg
-	title = "Ironhammer Gunnery Sergeant"
+	title = "Cobalt Gunnery Sergeant"
 	flag = GUNSERG
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
@@ -109,7 +109,7 @@
 
 
 /datum/job/inspector
-	title = "Ironhammer Inspector"
+	title = "Cobalt Inspector"
 	flag = INSPECTOR
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
@@ -163,7 +163,7 @@
 
 
 /datum/job/medspec
-	title = "Ironhammer Medical Specialist"
+	title = "Cobalt Medical Specialist"
 	flag = MEDSPEC
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
@@ -213,7 +213,7 @@
 
 
 /datum/job/ihoper
-	title = "Ironhammer Operative"
+	title = "Cobalt Operative"
 	flag = IHOPER
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER

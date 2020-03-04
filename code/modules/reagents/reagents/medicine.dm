@@ -46,7 +46,7 @@
 /datum/reagent/medicine/meralyne/affect_blood(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
 	M.heal_organ_damage(1.2 * effect_multiplier, 0, 5 * effect_multiplier)
 	M.add_chemical_effect(CE_BLOODCLOT, 0.30)
-	
+
 /datum/reagent/medicine/kelotane
 	name = "Kelotane"
 	id = "kelotane"
@@ -89,6 +89,7 @@
 	M.adjustToxLoss(-((0.4 + (M.getToxLoss() * 0.05)) * effect_multiplier))
 	M.add_chemical_effect(CE_ANTITOX, 1)
 	holder.remove_reagent("pararein", 0.2 * effect_multiplier)
+	holder.remove_reagent("blattedin", 0.2 * effect_multiplier)
 
 /datum/reagent/medicine/dexalin
 	name = "Dexalin"
@@ -339,6 +340,24 @@
 		var/mob/living/carbon/human/H = M
 		H.update_mutations()
 
+/datum/reagent/medicine/negative_ling
+	name = "Negative Paragenetic Marker"
+	id = "negativeling"
+	description = "A marker compound that turns positive when put in contact with morphogenic mutant blood."
+	taste_description = "acid"
+	reagent_state = SOLID
+	color = "#022000"
+	
+
+/datum/reagent/medicine/positive_ling
+	name = "Positive Paragenetic Marker"
+	id = "positiveling"
+	description = "This marker compound has come in contact with morphogenic mutant blood."
+	taste_description = "acid"
+	reagent_state = SOLID
+	color = "#910000"
+
+
 /datum/reagent/medicine/ethylredoxrazine
 	name = "Ethylredoxrazine"
 	id = "ethylredoxrazine"
@@ -550,7 +569,7 @@
 /datum/reagent/medicine/quickclot/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_chemical_effect(CE_BLOODCLOT, min(1, 0.20))
 
-/datum/reagent/ossisine   
+/datum/reagent/medicine/ossisine
 	name = "Ossisine"
 	id = "ossisine"
 	description = "Paralyses user and restores broken bones. Medicate in critical conditions only."
@@ -592,7 +611,7 @@
 	M.make_jittery(-50)
 
 
-/datum/reagent/medicine/kyphotorin 
+/datum/reagent/medicine/kyphotorin
 	name = "Kyphotorin"
 	id = "kyphotorin"
 	description = "Allows patient to grow back limbs. Extremely painful to user and needs constant medical attention when applied."
@@ -651,19 +670,19 @@
 	metabolism = REM/2
 
 /datum/reagent/medicine/detox/affect_blood(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
-	if(M.nsa_threshold == initial(M.nsa_threshold))
-		M.nsa_threshold += rand(20, 60)
+	if(M.metabolism_effects.nsa_threshold == initial(M.metabolism_effects.nsa_threshold))
+		M.metabolism_effects.nsa_threshold += rand(20, 60)
 
 /datum/reagent/medicine/detox/on_mob_delete(mob/living/L)
 	..()
 	var/mob/living/carbon/C = L
 	if(istype(C))
-		C.nsa_threshold = initial(C.nsa_threshold)
+		C.metabolism_effects.nsa_threshold = initial(C.metabolism_effects.nsa_threshold)
 
 /datum/reagent/medicine/detox/overdose(var/mob/living/carbon/M, var/alien)
 	var/mob/living/carbon/C = M
 	if(istype(C))
-		C.nsa_threshold = initial(C.nsa_threshold) - rand(20, 40)
+		C.metabolism_effects.nsa_threshold = initial(C.metabolism_effects.nsa_threshold) - rand(20, 40)
 
 /datum/reagent/medicine/purger
 	name = "Purger"
@@ -752,28 +771,9 @@
 		M.sleeping = max(M.sleeping, 20)
 		M.drowsyness = max(M.drowsyness, 60)
 	M.add_chemical_effect(CE_PULSE, -1)
-	
-
 
 /datum/reagent/medicine/haloperidol/overdose(var/mob/living/carbon/M, var/alien)
 	M.adjustToxLoss(6)
-
-/datum/reagent/medicine/haloperidol/on_mob_add(mob/living/L)
-	..()
-	var/mob/living/carbon/C = L
-	if(istype(C))
-		for (var/tag in C.nerve_system_accumulations)
-			var/nsa_value = C.get_nsa_value(tag)/2
-				C.adjust_nsa(nsa_value, tag)
-
-/datum/reagent/medicine/haloperidol/on_mob_delete(mob/living/L)
-	..()
-	var/mob/living/carbon/C = L
-	if(istype(C))
-		for (var/tag in C.nerve_system_accumulations)
-			var/nsa_value = C.get_nsa_value(tag)*2
-				C.adjust_nsa(nsa_value, tag)
-
 
 /datum/reagent/medicine/vomitol
 	name = "Vomitol"

@@ -23,7 +23,8 @@ meteor_act
 		else
 			P.on_hit(src, def_zone)
 			return 2
-	//Checking abosrb for spawning shrapnel
+
+	//Checking absorb for spawning shrapnel
 	.=..(P , def_zone)
 
 	var/check_absorb = .
@@ -135,7 +136,7 @@ meteor_act
 	return (armorval/max(total, 1))
 
 //this proc returns the Siemens coefficient of electrical resistivity for a particular external organ.
-/mob/living/carbon/human/proc/get_siemens_coefficient_organ(var/obj/item/organ/external/def_zone)
+/mob/living/carbon/human/proc/get_siemens_coefficient_organ(obj/item/organ/external/def_zone)
 	if (!def_zone)
 		return 1.0
 
@@ -143,7 +144,7 @@ meteor_act
 
 	var/list/clothing_items = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes) // What all are we checking?
 	for(var/obj/item/clothing/C in clothing_items)
-		if(istype(C) && (C.body_parts_covered & def_zone.body_part)) // Is that body part being targeted covered?
+		if((C.body_parts_covered & def_zone.body_part)) // Is that body part being targeted covered?
 			siemens_coefficient *= C.siemens_coefficient
 
 	return siemens_coefficient
@@ -228,7 +229,7 @@ meteor_act
 	// Handle striking to cripple.
 	if(user.a_intent == I_DISARM)
 		effective_force /= 2 //half the effective force
-		if(!..(I, effective_force, hit_zone))
+		if(!..(I, user, effective_force, hit_zone))
 			return FALSE
 
 		attack_joint(affecting, I) //but can dislocate joints
@@ -443,7 +444,8 @@ meteor_act
 	if(!istype(wear_suit,/obj/item/clothing/suit/space)) return
 	var/obj/item/clothing/suit/space/SS = wear_suit
 	var/penetrated_dam = max(0,(damage - SS.breach_threshold))
-	if(penetrated_dam) SS.create_breaches(damtype, penetrated_dam)
+	if(prob(20(penetrated_dam * SS.resilience))) SS.create_breaches(damtype, penetrated_dam) // changed into a probability calculation based on the degree of penetration by Plasmatik. you can tune resilience to drastically change breaching chances.
+																			// at maximum penetration, breaches are always created, at 1 penetration, they have a 20% chance to form
 
 /mob/living/carbon/human/reagent_permeability()
 	var/perm = 0

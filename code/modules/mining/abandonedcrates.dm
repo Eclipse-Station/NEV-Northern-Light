@@ -30,7 +30,7 @@
 			new/obj/item/weapon/tool/pickaxe/drill(src)
 			new/obj/item/device/taperecorder(src)
 			new/obj/item/clothing/suit/space(src)
-			new/obj/item/clothing/head/helmet/space(src)
+			new/obj/item/clothing/head/space(src)
 		if(11 to 15)
 			new/obj/item/weapon/reagent_containers/glass/beaker/bluespace(src)
 		if(16 to 20)
@@ -94,7 +94,7 @@
 		if(90)
 			new/obj/item/organ/internal/heart(src)
 		if(91)
-			new/obj/item/weapon/material/sword/katana(src)
+			new/obj/item/weapon/tool/sword/katana(src)
 		if(92)
 			new/obj/item/weapon/dnainjector/xraymut(src) // Probably the least OP
 		if(93) // Why the hell not

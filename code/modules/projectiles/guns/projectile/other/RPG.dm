@@ -10,7 +10,7 @@
 	force = WEAPON_FORCE_PAINFUL
 	flags =  CONDUCT
 	slot_flags = SLOT_BACK
-	caliber = "rocket"
+	caliber = CAL_ROCKET
 	fire_sound = 'sound/effects/bang.ogg' //placeholder, needs new sound
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 5)
 	matter = list(MATERIAL_PLASTEEL = 30, MATERIAL_PLASTIC = 5, MATERIAL_SILVER = 5)
@@ -19,6 +19,6 @@
 	load_method = SINGLE_CASING
 	handle_casings = EJECT_CASINGS
 	max_shells = 1
-	recoil = 0.2 //with new system it gives slight chance to miss but not really
+	recoil_buildup = 0.2 //with new system it gives slight chance to miss but not really
 	fire_sound = 'sound/effects/bang.ogg'
 	bulletinsert_sound = 'sound/weapons/guns/interact/batrifle_magin.ogg' //placeholder, needs new sound
