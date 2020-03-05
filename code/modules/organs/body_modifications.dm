@@ -120,10 +120,8 @@ var/global/list/modifications_types = list(
 /datum/body_modification/limb/prosthesis/create_organ(var/mob/living/carbon/holder, var/datum/organ_description/OD, var/color)
 	var/obj/item/organ/external/robotic/placeholder 
 	if(replace_limb)
-		to_chat(world, "Did 1")
 		placeholder = new replace_limb(holder,OD)
 	else
-		to_chat(world, "Did 2")
 		placeholder = new OD.default_type(holder,OD)
 
 	placeholder.overlays.Cut()

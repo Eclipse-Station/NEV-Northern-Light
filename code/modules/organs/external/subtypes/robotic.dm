@@ -1,6 +1,7 @@
 /obj/item/organ/external/robotic
 	name = "robotic"
 	force_icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'
+	icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
 	dislocated = -1
 	cannot_break = 1
@@ -16,7 +17,8 @@
     var/gender = "m"
     if(owner)
         gender = owner.gender == FEMALE ? "f" : "m"
-    if(gendered)
+    if(gendered || force_icon == 'icons/mob/human_races/cyberlimbs/generic.dmi')
+	
         icon_state = "[organ_tag]_[gender]"
     else
         icon_state = "[organ_tag]"
@@ -78,3 +80,9 @@
 
 /obj/item/organ/external/robotic/groin
 	default_description = /datum/organ_description/groin
+
+/obj/item/organ/external/robotic/head
+	default_description = /datum/organ_description/head
+
+/obj/item/organ/external/robotic/chest
+	default_description = /datum/organ_description/chest
