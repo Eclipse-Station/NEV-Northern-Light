@@ -55,9 +55,10 @@ var/global/list/modifications_types = list(
 		var/parent_organ = organ_data["parent"]
 		if(parent_organ)
 			var/datum/body_modification/parent = P.get_modification(parent_organ)
-			if(parent.nature > nature)
+			if(parent.nature == MODIFICATION_REMOVED)
 				to_chat(usr, "[name] can't be attached to [parent.name]")
 				return FALSE
+				
 
 	if(!allow_nt)
 		if(H?.mind?.assigned_job.department == DEPARTMENT_CHURCH)
@@ -108,44 +109,32 @@ var/global/list/modifications_types = list(
 	name = "Unbranded prosthesis"
 	id = "prosthesis_basic"
 	desc = "Simple, brutal and reliable prosthesis"
-	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, \
-		BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
+	body_parts = list(BP_HEAD, BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, \
+		BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT) //
 	replace_limb = /obj/item/organ/external/robotic
 	icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 	var/prosthetic_model
 
-/datum/body_modification/limb/prosthesis/create_organ(var/mob/living/carbon/holder, var/datum/organ_description/OD, var/color)//
+/datum/body_modification/limb/prosthesis/create_organ(var/mob/living/carbon/holder, var/datum/organ_description/OD, var/color)
+	var/obj/item/organ/external/robotic/placeholder 
 	if(replace_limb)
 		to_chat(world, "Did 1")
-		var/obj/item/organ/external/robotic/placeholder = new replace_limb(holder,OD)
-		//var/obj/item/organ/external/robotic/placeholder //=  new replace_limb
-		placeholder.overlays.Cut()
-		placeholder.name = name
-		placeholder.force_icon = icon
-		placeholder.icon = icon
-		placeholder.desc = desc
-		placeholder.model = prosthetic_model
-		placeholder.mob_icon = null
-		placeholder.update_icon()
-		//return new placeholder(holder,OD)
-		/*if(ishuman(holder))
-			var/mob/living/carbon/human/H = holder
-			H.update_body()
-			H.update_icons()*/
-		return placeholder
+		placeholder = new replace_limb(holder,OD)
 	else
 		to_chat(world, "Did 2")
-		var/obj/item/organ/external/robotic/placeholder = new OD.default_type(holder,OD)
-		placeholder.name = name
-		placeholder.force_icon = icon
-		placeholder.icon = icon
-		placeholder.desc = desc
-		placeholder.model = prosthetic_model
-		placeholder.update_icon()//May break things
+		placeholder = new OD.default_type(holder,OD)
 
-		//return new OD.default_type(holder,OD)
+	placeholder.overlays.Cut()
+	placeholder.name = name
+	placeholder.force_icon = icon
+	placeholder.icon = icon
+	placeholder.desc = desc
+	placeholder.model = prosthetic_model
+	placeholder.mob_icon = null
+	placeholder.update_icon()
+	return placeholder
 
 /datum/body_modification/limb/prosthesis/New()
 	/*var/obj/item/organ/external/robotic/R = replace_limb
