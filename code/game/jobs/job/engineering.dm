@@ -7,7 +7,7 @@
 	faction = "CEV Eris"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Captain"
+	supervisors = "the Captain and NanoTrasen"
 	selection_color = "#c7b97b"
 	req_admin_notify = 1
 	also_known_languages = list(LANGUAGE_CYRILLIC = 100, LANGUAGE_SERBIAN = 25)
@@ -42,12 +42,12 @@
 							 /datum/computer_file/program/shield_control,
 							 /datum/computer_file/program/reports)
 
-	description = "You are a Chief Engineer, the head of a small clan of spacefaring engineers. You and your clan have taken up residence on Eris, it is your work, your home, and your pride. <br>\
+	description = "You are the Chief Engineer, the head of the ship's maintenance crew. You and your crew work on the Northern Light, it is your work, and your pride. <br>\
 You are to keep the ship running and constantly improve it as much as you are able. Let none question the efficacy of your labours."
 
-	loyalties = "Your first loyalty is to your pride. The engineering department is your territory, and machinery across the station are your responsibility. Do not tolerate others interfering with them, intruding on your space, or questioning your competence. You don't need inspections, oversight or micromanagement. Outsiders should only enter your spaces by invitation, or out of necessity. Even the captain and other command staff are no exception.<br>\
+	loyalties = "Your first loyalty is to NanoTrasen. The engineering department is your territory, and machinery across the station are your responsibility. Do not tolerate others interfering with them, intruding on your space, or questioning your competence. You don't need inspections, oversight or micromanagement. Outsiders should only enter your spaces by invitation, or out of necessity. Even the captain and other command staff are no exception.<br>\
 
-Your second loyalty is to your clan. Ensure they are paid, fed and safe. Don't risk their lives unnecessarily. If an area is infested with monsters, there's no reason to risk lives trying to repair anything inside there. If one of your people is imprisoned, endangered or accused, you should fight for them. Treat every engineer like your family"
+Your second loyalty is to your workers. Ensure they are paid, fed and safe. Don't risk their lives unnecessarily. If an area is infested with monsters, there's no reason to risk lives trying to repair anything inside there. If one of your people is imprisoned, endangered or accused, you should fight for them. Treat every engineer like your family"
 
 	perks = list(/datum/perk/inspiration)
 
@@ -62,7 +62,7 @@ Your second loyalty is to your clan. Ensure they are paid, fed and safe. Don't r
 	flag = TECHNOMANCER
 	department = DEPARTMENT_ENGINEERING
 	department_flag = ENGINEERING
-	faction = "CEV Eris"
+	faction = "CEV Northern Light"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the Chief Engineer"
