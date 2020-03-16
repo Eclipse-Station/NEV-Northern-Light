@@ -8,7 +8,7 @@
 		desc = "Allows the construction of [initial(C.autorecharging) ? "microreactor" : "power"] cells that can hold [initial(C.maxcharge)] units of energy."
 
 /datum/design/research/item/powercell/large/basic
-	name = "Power-Geyser 2000L\"
+	name = "Power-Geyser 2000L"
 	build_type = PROTOLATHE | MECHFAB
 	build_path = /obj/item/weapon/cell/large/moebius
 	sort_string = "DAAAA"
