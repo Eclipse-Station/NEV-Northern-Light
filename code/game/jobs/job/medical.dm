@@ -7,7 +7,7 @@
 	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Captain, NanoTrasen"
+	supervisors = "the Captain and NanoTrasen"
 	selection_color = "#94a87f"
 	req_admin_notify = 1
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10, LANGUAGE_SERBIAN = 5)
