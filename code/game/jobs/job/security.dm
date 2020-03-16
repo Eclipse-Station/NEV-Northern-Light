@@ -4,7 +4,7 @@
 	head_position = 1
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER | COMMAND
-	faction = "CEV Eris"
+	faction = "CEV Northern Cross"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Captain"
@@ -34,22 +34,22 @@
 							 /datum/computer_file/program/camera_monitor,
 							 /datum/computer_file/program/reports)
 
-	description = "You are the commander of the local regiment of the Ironhammer Mercenary company, contracted to protect and serve aboard the CEV Eris. Ironhammer serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
+	description = "You are the head of the Cobalt Security contracted to protect and serve aboard the CEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
+	<br>\<br>\
 	<br>\
 	Your goal is to keep everyone aboard the ship as safe as possible, and to eliminate any threats to safety.<br>\
-	The Gunnery Sergeant is your second in command, and any of your duties can be delegated to him at your discretion"
-
+	
 	duties = "		Coordinate operatives in the field, assigning them to threats and distress calls as needed.<br>\
 		Allocate department funds for necessary supplies, equipment, armor, weapons, upgrades, etc. Spend your money as required to ensure your troops are at peak combat performance<br>\
 		Plan assaults on entrenched threats, ensure each operative knows their roles and carries them out precisely.<br>\
 		Oversee performance of the operatives under your command, and punish any that are insubordinate or incompetent<br>\
 		Advise the captain on threats to ship security, and counsel him towards choices that will minimise exposure to threats."
 
-	loyalties = "		As commander, your first loyalty is to the safety of the troops under your command. They are elite professional soldiers, not cannon fodder. Do not allow them to be sent on suicide missions. Any killings of your men should be repaid in blood<br>\
+	loyalties = "		As Security, your first loyalty is to the safety and security of the ship and to keep the peace, and you are often the primary tool in keeping order on the ship.<br>\
 		<br>\
-		Your second loyalty is to the name and reputation of the ironhammer company. You are often the captain's primary tool in keeping order and you must pride yourself on ensuring commands are carried out, threats extinguished and safety preserved. You may need to carry out unsavory orders like executions, and must balance your professional pride versus your conscience.<br>\
+		Your second loyalty is to the prortection and safety of the Command Heirarchy. You're the sword and shield of Command, and one of your utmost duties is to protect Command, oftentimes this and your first loyalty are one and the same.<br>\
 		<br>\
-		Your third loyalty is to the crew. As the strongest military force on the ship, any mutiny attempt is likely at your mercy, and if unjustified, it will fall to you to put it down. If the captain has gone mad and a mutiny is justified, your support will be the difference between a peaceful arrest and a bloody civil war in the halls. Without your guns, an insane captain will usually be forced to surrender."
+		Your third loyalty is to the crew. As the strongest armed force on the ship, any violent actions commited against the ship fall to you to protect against, external or otherwise."
 
 /obj/landmark/join/start/ihc
 	name = "Cobalt Commander"
@@ -154,10 +154,10 @@
 
 	loyalties = "		As a detective, your loyalty is firstly, to the truth. Seek to uncover the true events of any crime.<br>\
 		<br>\
-		Secondly, you are loyal to ironhammer and to the commander. Follow the chain of command"
+		Secondly, you are loyal to Cobalt and to the commander. Follow the chain of command."
 
 /obj/landmark/join/start/inspector
-	name = "Ironhammer Inspector"
+	name = "Cobalt Inspector"
 	icon_state = "player-blue"
 	join_tag = /datum/job/inspector
 
@@ -170,7 +170,7 @@
 	faction = "CEV Eris"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Ironhammer Commander"
+	supervisors = "the Cobalt Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 5)
@@ -207,7 +207,7 @@
 	Solving crimes often requires scientific analysis, and expert rulings from a trusted source within Ironhammer. You will often be expected to analyze blood, chemicals and fingerprints, conduct autopsies, and submit your findings to help track down elusive culprits. In this task, you will work closely with the inspector, and if necessary, he often has the talents to perform these tasks. But his time is better spent questioning and interrogating people"
 
 /obj/landmark/join/start/medspec
-	name = "Ironhammer Medical Specialist"
+	name = "Cobalt Medical Specialist"
 	icon_state = "player-blue"
 	join_tag = /datum/job/medspec
 
@@ -220,7 +220,7 @@
 	faction = "CEV Eris"
 	total_positions = 6
 	spawn_positions = 6
-	supervisors = "the Ironhammer Commander"
+	supervisors = "the Cobalt Commander"
 	//alt_titles = list("Ironhammer Junior Operative")
 	selection_color = "#a7bbc6"
 	wage = WAGE_LABOUR_HAZARD
@@ -265,7 +265,7 @@
 		Your third loyalty is to humanity. You are still human under all that armour. If you're being ordered to slaughter civilians en masse, it may be time to start thinking for yourself."
 
 /obj/landmark/join/start/ihoper
-	name = "Ironhammer Operative"
+	name = "Cobalt Operative"
 	icon_state = "player-blue"
 	join_tag = /datum/job/ihoper
 
