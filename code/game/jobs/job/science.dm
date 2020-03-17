@@ -43,9 +43,9 @@
 Use department funds to purchase scientific curios, artefacts, and anything of interesting research value. As well as any equipment and supplies that would be useful for these ends<br>\
 Organise away missions to gather artefacts and research interesting environments. You have the right to request support from other departments as required"
 
-	loyalties = "Your first loyalty is to NanoTrasen. In order to ensure it can continue its mission of research, it must remain profitable. Ensure its interests are farthered, and take care of your colleagues in both the research and medical wings"
-<br>\
-As a scientist, your first loyalty is to knowledge and Discovery, the ultimate good in the universe. Learning and developing new technologies is the greatest goal humanity can pursue, and no sacrifice is too great to achieve that end. Even the lives of others or yourself.<br>\
+	loyalties = "Your first loyalty is to NanoTrasen. In order to ensure it can continue its mission of research, it must remain profitable. Ensure its interests are farthered, and take care of your colleagues in both the research and medical wings.<br>\
+
+As a scientist, your first loyalty is to knowledge and Discovery, the ultimate good in the universe. Learning and developing new technologies is the greatest goal humanity can pursue, and no sacrifice is too great to achieve that end. Even the lives of others or yourself."
 /obj/landmark/join/start/rd
 	name = "Chief Science Officer"
 	icon_state = "player-purple-officer"
@@ -93,15 +93,15 @@ There are a few specialist branches within the research wing that you may delve 
 	Xenobiology: A wing full of cells, for the study of alien life forms. Primarily slimes<br>\
 	Xenoarchaeology: A facility for analysing artefacts and finds brought back from expeditions.<br>\
 	<br>\
-	The Vasily Dokuchaev is the Expedition shuttle, and is intended for going on adventures down to strange sites, and recovering items of value. <br>\
-	<br>\
-
-	duties = "	Create unusual things and experiment with them<br>\
-	Explore, learn and adventure, do anything to advance the cause of knowledge"
+	The Vasily Dokuchaev is the Expedition shuttle, and is intended for going on adventures down to strange sites, and recovering items of value."
+	
+	duties = "Create unusual things and experiment with them<br>\
+Explore, learn and adventure, do anything to advance the cause of knowledge"
+	
 
 	loyalties = "As a scientist, your first loyalty is to knowledge, the ultimate good in the universe. Learning and developing new technologies is the greatest goal humanity can pursue, and no sacrifice is too great to achieve that end. Even the lives of others or yourself.<br>\
 
-Your second loyalty is to NanoTrasen. In order to ensure it can continue its mission of research, it must remain profitable. Ensure its interests are farthered, and take care of your colleagues in both the research and medical wings"
+	Your second loyalty is to NanoTrasen. In order to ensure it can continue its mission of research, it must remain profitable. Ensure its interests are farthered, and take care of your colleagues in both the research and medical wings"
 
 /obj/landmark/join/start/scientist
 	name = "Scientist"
@@ -153,6 +153,8 @@ Lastly, though they're not commonly used, you have the facilities to construct m
 	Maintain and implant new bionics in crewmembers<br>\
 	Advertise bionics for sale and run a commercial cybernetic clinic<br>\
 	Construct large mechas for specialised use in departments"
+	
+
 
 /obj/landmark/join/start/roboticist
 	name = "Roboticist"
