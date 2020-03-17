@@ -28,14 +28,14 @@
 	body_parts_covered = NONE
 
 /obj/item/clothing/under/rank/security
-	name = "Ironhammer Operative's jumpsuit"
+	name = "Cobalt Operative's jumpsuit"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
 	icon_state = "security"
 	item_state = "ba_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/security/skirt
-	name = "Ironhammer Operative's jumpskirt"
+	name = "Cobalt Operative's jumpskirt"
 	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for robust protection."
 	icon_state = "security_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
