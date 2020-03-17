@@ -106,7 +106,7 @@
 
 /obj/item/clothing/head/helmet/riot
 	name = "riot helmet"
-	desc = "Standard-issue Ironhammer helmet with a basic HUD and targeting system included."
+	desc = "Standard-issue Cobalt helmet with a basic HUD and targeting system included."
 	icon_state = "light_riot"
 	body_parts_covered = HEAD|FACE
 	armor = list(melee = 60, bullet = 35, energy = 25, bomb = 5, bio = 2, rad = 0)
