@@ -62,7 +62,7 @@
 	flag = GUNSERG
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Eris"
+	faction = "CEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Ironhammer Commander"
@@ -113,7 +113,7 @@
 	flag = INSPECTOR
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Eris"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Ironhammer Commander"
@@ -167,7 +167,7 @@
 	flag = MEDSPEC
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Eris"
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Cobalt Commander"
@@ -217,7 +217,7 @@
 	flag = IHOPER
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Eris"
+	faction = "CEV Northern Light"
 	total_positions = 6
 	spawn_positions = 6
 	supervisors = "the Cobalt Commander"
