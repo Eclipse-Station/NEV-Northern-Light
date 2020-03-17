@@ -357,7 +357,7 @@
 
 // Ironhammer
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/security
-	disk_name = "Ironhammer Miscellaneous Pack"
+	disk_name = "Cobalt Miscellaneous Pack"
 	icon_state = "ironhammer"
 
 	license = 20
