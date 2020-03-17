@@ -49,7 +49,7 @@
 	name = "Preacher's locker"
 
 /obj/structure/closet/secure_closet/reinforced/hos
-	name = "Ironhammer Commander locker"
+	name = "Cobalt Commander locker"
 	req_access = list(access_hos)
 	icon_state = "hos"
 
@@ -112,7 +112,7 @@
 	new /obj/item/weapon/storage/pouch/baton_holster(src)
 
 /obj/structure/closet/secure_closet/personal/security
-	name = "Ironhammer Operative locker"
+	name = "Cobalt Operative locker"
 	req_access = list(access_hos)
 	access_occupy = list(access_brig)
 	icon_state = "sec"
@@ -137,7 +137,7 @@
 	new /obj/item/weapon/storage/pouch/baton_holster(src)
 
 /obj/structure/closet/secure_closet/medspec
-	name = "Ironhammer Medical Specialist locker"
+	name = "Cobalt Medical Specialist locker"
 	req_access = list(access_medspec)
 	icon_state = "sec"
 
@@ -158,7 +158,7 @@
 	new /obj/item/weapon/storage/briefcase/crimekit(src)
 
 /obj/structure/closet/secure_closet/detective
-	name = "Ironhammer Inspector locker"
+	name = "Cobalt Inspector locker"
 	req_access = list(access_forensics_lockers)
 	icon_state = "cabinetdetective"
 
