@@ -18,7 +18,7 @@
 	new /obj/item/clothing/mask/gas(src)
 
 /obj/structure/closet/secure_closet/reinforced/RD
-	name = "Moebius Expedition Overseer locker"
+	name = "Chief Science Officer"
 	req_access = list(access_rd)
 	icon_state = "rd"
 
