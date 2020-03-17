@@ -301,12 +301,12 @@
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
 
 /area/eris/command/meo
-	name = "\improper Research - MEO's Office"
+	name = "\improper Research - CSO's Office"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 
 /area/eris/command/meo/quarters
-	name = "\improper Research - MEO's Quarters"
+	name = "\improper Research - CSO's Quarters"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
@@ -323,24 +323,24 @@
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
 
 /area/eris/command/mbo
-	name = "\improper Medbay - MBO's Office"
+	name = "\improper Medbay - CMO's Office"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 
 /area/eris/command/mbo/quarters
-	name = "\improper Medbay - MBO's Quarters"
+	name = "\improper Medbay - CMO's Quarters"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
 
 /area/eris/command/commander
-	name = "Ironhammer Commander's Office"
+	name = "Cobalt Commander's Office"
 	icon_state = "hammerred"
 	sound_env = SMALL_SOFTFLOOR
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
 
 /area/eris/command/merchant
-	name = "\improper Cargo - Merchant Office"
+	name = "\improper Cargo - Guild Office"
 	icon_state = "quart"
 	sound_env = SMALL_SOFTFLOOR
 
