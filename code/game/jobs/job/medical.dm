@@ -158,9 +158,8 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 		Fill chemical requests for moebius staff<br>\
 		Sell chemicals and chem grenades to outsiders"
 
-	loyalties = "Your second loyalty is to your career with NanoTrasen, and to your coworkers in both Medical and Research. Help out your scientific colleagues, and aid in their pursuit of knowledge."
-"
-
+	loyalties = "Your loyalty is to your career with Moebius corp, and to your coworkers in both branches of moebius. Help out your scientific colleagues, and aid in their pursuit of knowledge."
+	
 
 /obj/landmark/join/start/chemist
 	name = "Pharmacist"
@@ -262,11 +261,10 @@ Remember that you are a noncombatant. Any weapons you carry should be used for b
 
 	loyalties = "	As a medical specialist, your first loyalty is to save lives, you swore an oath to do no harm. When in any dangerous situation, do your best to ensure as many as possible come out of it alive. A martyr complex is not uncommon in paramedics<br>\
 	<br>\
-	Your second loyalty is to your immediate superior, the Chief Medical Officer. Follow their instructions and policies.<br>\
-	<br>\
+	Your second loyalty is to your immediate superior, the Chief Medical Officer. Follow their instructions and policies."
 
 /obj/landmark/join/start/paramedic
-	name = "Paramedic"
+	name = "Moebius Paramedic"
 	icon_state = "player-green"
 	join_tag = /datum/job/paramedic
 
