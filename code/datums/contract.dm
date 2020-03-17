@@ -236,7 +236,7 @@ GLOBAL_LIST_EMPTY(all_antag_contracts)
 /datum/antag_contract/item/dump/New()
 	..()
 	sum = rand(30, 40) * 500
-	desc = "Extract a sum of [sum] credits from Eris economy and send it via BSDM."
+	desc = "Extract a sum of [sum] credits from Northern Light economy and send it via BSDM."
 
 /datum/antag_contract/item/dump/check_contents(list/contents)
 	var/received = 0
