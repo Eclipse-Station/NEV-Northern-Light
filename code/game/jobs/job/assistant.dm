@@ -3,14 +3,14 @@
 	flag = ASSISTANT
 	department = DEPARTMENT_CIVILIAN
 	department_flag = CIVILIAN
-	faction = "CEV Eris"
+	faction = "CEV Northern Light"
 	total_positions = -1
 	spawn_positions = -1
 	supervisors = "anyone who pays you"
 	selection_color = "#dddddd"
 	initial_balance	= 800
 	wage = WAGE_NONE //Get a job ya lazy bum
-	//alt_titles = list("Technomancer Assistant","Moebius Medical Intern","Moebius Research Assistant")
+	//alt_titles = list("Technomancer Assistant","Medical Intern","Research Assistant")
 	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_SERBIAN = 5)
 
 	access = list(access_maint_tunnels)
