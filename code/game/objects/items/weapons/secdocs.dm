@@ -27,9 +27,10 @@
 				"The Door phenomenon",
 				"Paralell world related mutations",
 				"Mass hallucinations or a breach from another world?",
-				"Ironhammer budget: evidence of S.A.U. overfund",
+				"Cobalt budget: evidence of S.A.U. overfund",
 				"Real reason of One Star fall",
 				"Connection between One Star and dead alien civilizations, are we next?",
+				"The real secret behind awoo.",
 				"Unknown device blueprints")
 	. = ..()
 	var/mob/living/carbon/human/owner = loc
