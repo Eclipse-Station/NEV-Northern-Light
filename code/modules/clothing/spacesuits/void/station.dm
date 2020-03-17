@@ -126,7 +126,7 @@
 
 	//Security
 /obj/item/clothing/head/space/void/security
-	name = "ironhammer voidsuit helmet"
+	name = "Cobalt voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
 	icon_state = "ihsvoidhelm"
 	item_state = "ihsvoidhelm"
@@ -147,7 +147,7 @@
 	light_overlay = "helmet_light_ihs"
 
 /obj/item/clothing/suit/space/void/security
-	name = "ironhammer voidsuit"
+	name = "Cobalt voidsuit"
 	icon_state = "ihvoidsuit"
 	desc = "A bulky suit that protects against hazardous, low pressure environments. Sacrifices mobility for protection."
 	item_state = "ihvoidsuit"
