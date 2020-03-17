@@ -35,9 +35,8 @@
 							 /datum/computer_file/program/reports)
 
 	description = "You are the head of the Cobalt Security contracted to protect and serve aboard the CEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
-	<br>\<br>\
 	<br>\
-	Your goal is to keep everyone aboard the ship as safe as possible, and to eliminate any threats to safety.<br>\
+	Your goal is to keep everyone aboard the ship as safe as possible, and to eliminate any threats to safety."
 	
 	duties = "		Coordinate operatives in the field, assigning them to threats and distress calls as needed.<br>\
 		Allocate department funds for necessary supplies, equipment, armor, weapons, upgrades, etc. Spend your money as required to ensure your troops are at peak combat performance<br>\
