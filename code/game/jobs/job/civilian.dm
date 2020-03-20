@@ -109,7 +109,7 @@
 	faction = "CEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Head of Personel"
+	supervisors = "the Head of Personnel"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Hydroponicist")
 	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
@@ -145,7 +145,7 @@
 	faction = "CEV Eris"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the NeoTheology Preacher"
+	supervisors = "the Head of Personnel"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Custodian","Sanitation Technician")
 	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
@@ -171,4 +171,5 @@
 	name = "Custodian"
 	icon_state = "player-black"
 	join_tag = /datum/job/janitor
+
 
