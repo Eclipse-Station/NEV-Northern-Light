@@ -1,6 +1,6 @@
 /datum/job/ihc
 	title = "Cobalt Commander"
-	flag = IHC
+	flag = CC
 	head_position = 1
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER | COMMAND
