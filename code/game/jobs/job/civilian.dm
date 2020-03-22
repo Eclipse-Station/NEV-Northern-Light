@@ -140,14 +140,14 @@
 /datum/job/janitor
 	title = "Custodian"
 	flag = JANITOR
-	department = DEPARTMENT_CHURCH
-	department_flag = CHURCH
-	faction = "CEV Eris"
+	department = DEPARTMENT_CIVILIAN
+	department_flag = SERVICE
+	faction = "CEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Personnel"
 	selection_color = "#ecd37d"
-	//alt_titles = list("Custodian","Sanitation Technician")
+	//alt_titles = list("Janitor","Sanitation Technician")
 	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
 	cruciform_access = list(access_janitor, access_maint_tunnels)
 	wage = WAGE_PROFESSIONAL
