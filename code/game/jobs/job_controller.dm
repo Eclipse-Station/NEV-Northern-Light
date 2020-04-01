@@ -14,7 +14,7 @@ var/global/datum/controller/occupations/job_master
 	var/list/job_debug = list()
 
 
-	proc/SetupOccupations(var/faction = "CEV Eris")
+	proc/SetupOccupations(var/faction = "CEV Northern Light")
 		occupations.Cut()
 		occupations_by_name.Cut()
 		for(var/J in subtypesof(/datum/job))
