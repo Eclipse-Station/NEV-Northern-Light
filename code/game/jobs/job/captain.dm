@@ -72,7 +72,7 @@ Your second loyalty is to your command officers. The heads of each faction. List
 	department = DEPARTMENT_COMMAND
 	head_position = 1
 	department_flag = COMMAND
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
