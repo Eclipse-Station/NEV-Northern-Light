@@ -4,7 +4,7 @@
 	head_position = 1
 	department = DEPARTMENT_SCIENCE
 	department_flag = SCIENCE | COMMAND
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "The Captain and NanoTrasen"
@@ -58,7 +58,7 @@ As a scientist, your first loyalty is to knowledge and Discovery, the ultimate g
 	flag = SCIENTIST
 	department = DEPARTMENT_SCIENCE
 	department_flag = SCIENCE
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the Chief Science Officer"
@@ -114,7 +114,7 @@ Explore, learn and adventure, do anything to advance the cause of knowledge"
 	flag = ROBOTICIST
 	department = DEPARTMENT_SCIENCE
 	department_flag = SCIENCE
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Chief Science Officer"
