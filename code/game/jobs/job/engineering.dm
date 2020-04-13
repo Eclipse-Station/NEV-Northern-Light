@@ -114,7 +114,7 @@ Eris is your home, your life, and your livelihood. Take pride in it, and in your
 	-Respond to distress calls and patch breaches in the hull.<br>\
 	-Keep every part of the ship powered, oxygenated, and ready to use"
 
-	loyalties = "	As an engineer, your first loyalty is to your fellow engineers. Ensure they are safe and well supplied, defend them, assist them, and share everything with them. If problems arise between you, ask the Chief Engineer to rule on it. Don't snitch on your fellow clanmates by calling Ironhammer. The Chief Engineer is the head of your clan, and in many ways a father figure. Trust in their wisdom and follow their instructions above anyone else's.<br>\
+	loyalties = "	As an engineer, your first loyalty is to your fellow engineers. Ensure they are safe and well supplied, defend them, assist them, and share everything with them. If problems arise between you, ask the Chief Engineer to rule on it. Don't snitch on your fellow clanmates by calling Aegis. The Chief Engineer is the head of your clan, and in many ways a father figure. Trust in their wisdom and follow their instructions above anyone else's.<br>\
 	<br>\
 	Your second loyalty is to your ship. Unlike most of your crew, who would simply go home, Eris IS your home. Avoid abandoning ship at all costs. This is where you live and it's worth sacrificing for. Take pride in your work, and make Eris something to be cherished."
 
