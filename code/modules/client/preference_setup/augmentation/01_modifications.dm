@@ -133,7 +133,7 @@
 	var/datum/body_modification/mod = get_modification(organ)
 	for(var/child_organ in organ_data["children"])
 		var/datum/body_modification/child_mod = get_modification(child_organ)
-		if(child_mod.nature < mod.nature)
+		if(child_mod.nature < mod.nature && mod.nature == MODIFICATION_REMOVED)
 			if(mod.is_allowed(child_organ, src))
 				modifications_data[child_organ] = mod
 			else

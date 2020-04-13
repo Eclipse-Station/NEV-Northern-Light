@@ -1,6 +1,7 @@
 /obj/item/organ/external/robotic
 	name = "robotic"
 	force_icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'
+	icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
 	dislocated = -1
 	cannot_break = 1
@@ -8,19 +9,22 @@
 	brute_mod = 0.8
 	burn_mod = 0.8
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2) // Multiplied by w_class
-	var/list/forced_children = null
 
 /obj/item/organ/external/robotic/get_cache_key()
 	return "Robotic[model]"
 
 /obj/item/organ/external/robotic/update_icon()
-	var/gender = "m"
-	if(owner)
-		gender = owner.gender == FEMALE ? "f" : "m"
-	icon_state = "[organ_tag]_[gender]"
-	mob_icon = icon(force_icon, icon_state)
-	icon = mob_icon
-	return mob_icon
+    var/gender = "m"
+    if(owner)
+        gender = owner.gender == FEMALE ? "f" : "m"
+    if(gendered || force_icon == 'icons/mob/human_races/cyberlimbs/generic.dmi')
+	
+        icon_state = "[organ_tag]_[gender]"
+    else
+        icon_state = "[organ_tag]"
+    mob_icon = icon(force_icon, icon_state)
+    icon = mob_icon
+    return mob_icon
 
 /obj/item/organ/external/robotic/set_description(datum/organ_description/desc)
 	..()
@@ -76,3 +80,9 @@
 
 /obj/item/organ/external/robotic/groin
 	default_description = /datum/organ_description/groin
+
+/obj/item/organ/external/robotic/head
+	default_description = /datum/organ_description/head
+
+/obj/item/organ/external/robotic/chest
+	default_description = /datum/organ_description/chest

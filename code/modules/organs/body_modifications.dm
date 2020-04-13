@@ -55,9 +55,10 @@ var/global/list/modifications_types = list(
 		var/parent_organ = organ_data["parent"]
 		if(parent_organ)
 			var/datum/body_modification/parent = P.get_modification(parent_organ)
-			if(parent.nature > nature)
+			if(parent.nature == MODIFICATION_REMOVED)
 				to_chat(usr, "[name] can't be attached to [parent.name]")
 				return FALSE
+				
 
 	if(!allow_nt)
 		if(H?.mind?.assigned_job.department == DEPARTMENT_CHURCH)
@@ -105,21 +106,39 @@ var/global/list/modifications_types = list(
 	return null
 
 /datum/body_modification/limb/prosthesis
-	name = "Unbranded"
+	name = "Unbranded prosthesis"
 	id = "prosthesis_basic"
 	desc = "Simple, brutal and reliable prosthesis"
-	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, \
-		BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
+	body_parts = list(BP_HEAD, BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, \
+		BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT) //
 	replace_limb = /obj/item/organ/external/robotic
 	icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
+	var/prosthetic_model
+
+/datum/body_modification/limb/prosthesis/create_organ(var/mob/living/carbon/holder, var/datum/organ_description/OD, var/color)
+	var/obj/item/organ/external/robotic/placeholder 
+	if(replace_limb)
+		placeholder = new replace_limb(holder,OD)
+	else
+		placeholder = new OD.default_type(holder,OD)
+
+	placeholder.overlays.Cut()
+	placeholder.name = name
+	placeholder.force_icon = icon
+	placeholder.icon = icon
+	placeholder.desc = desc
+	placeholder.model = prosthetic_model
+	placeholder.mob_icon = null
+	placeholder.update_icon()
+	return placeholder
 
 /datum/body_modification/limb/prosthesis/New()
-	var/obj/item/organ/external/robotic/R = replace_limb
+	/*var/obj/item/organ/external/robotic/R = replace_limb
 	name = initial(R.name)
 	icon = initial(R.force_icon)
-	desc = initial(R.desc)
+	desc = initial(R.desc)*/
 	short_name = "P: [name]"
 	name = "Prosthesis: [name]"
 
@@ -128,23 +147,35 @@ var/global/list/modifications_types = list(
 
 /datum/body_modification/limb/prosthesis/bishop
 	id = "prosthesis_bishop"
-	replace_limb = /obj/item/organ/external/robotic/bishop
-	icon = 'icons/mob/human_races/cyberlimbs/bishop.dmi'
+	replace_limb = /obj/item/organ/external/robotic
+	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_main.dmi'
+	name = "Bishop"
+	desc = "Prosthesis with white polymer casing with blue holo-displays."
+	prosthetic_model = "bishop"
 
 /datum/body_modification/limb/prosthesis/hesphaistos
 	id = "prosthesis_hesphaistos"
-	replace_limb = /obj/item/organ/external/robotic/hesphaistos
-	icon = 'icons/mob/human_races/cyberlimbs/hesphaistos.dmi'
+	replace_limb = /obj/item/organ/external/robotic
+	icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_main.dmi'
+	name = "Hesphaistos"
+	desc = "Prosthesis with militaristic black and green casing with gold stripes."
+	prosthetic_model = "hesphaistos"
 
 /datum/body_modification/limb/prosthesis/zenghu
 	id = "prosthesis_zenghu"
-	replace_limb = /obj/item/organ/external/robotic/zenghu
-	icon = 'icons/mob/human_races/cyberlimbs/zenghu.dmi'
+	replace_limb = /obj/item/organ/external/robotic
+	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_main.dmi'
+	name = "Zeng-Hu"
+	desc = "Prosthesis with rubbery fleshtone covering with visible seams."
+	prosthetic_model = "zenghu"
 
 /datum/body_modification/limb/prosthesis/xion
 	id = "prosthesis_xion"
-	replace_limb = /obj/item/organ/external/robotic/xion
+	replace_limb = /obj/item/organ/external/robotic
 	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_main.dmi'
+	name = "Xion"
+	desc = "Prosthesis with minimalist black and red casing."
+	prosthetic_model = "xion"
 
 /datum/body_modification/limb/mutation/New()
 	short_name = "M: [name]"
