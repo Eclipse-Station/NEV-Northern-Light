@@ -260,10 +260,10 @@
 //Trust me I'm an engineer
 //I think we'll put this shit right here
 var/list/rank_prefix = list(\
-	"Cobalt Operative" = "Operative",\
-	"Cobalt Inspector" = "Inspector",\
-	"Cobalt Gunnery Sergeant" = "Sergeant",\
-	"Cobalt Commander" = "Lieutenant",\
+	"Aegis Operative" = "Operative",\
+	"Aegis Inspector" = "Inspector",\
+	"Aegis Gunnery Sergeant" = "Sergeant",\
+	"Aegis Commander" = "Lieutenant",\
 	"Captain" = "Captain",\
 	)
 
