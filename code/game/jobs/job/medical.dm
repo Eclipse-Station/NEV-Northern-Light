@@ -4,7 +4,7 @@
 	head_position = 1
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL | COMMAND
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Captain and NanoTrasen"
@@ -62,7 +62,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	flag = DOCTOR
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the CMO"
@@ -87,7 +87,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 							/datum/computer_file/program/camera_monitor)
 
 
-	description = "You are a highly educated professional doctor, working a placement aboard the CEV Northern Light to treat the injured.<br>\
+	description = "You are a highly educated professional doctor, working a placement aboard the NEV Northern Light to treat the injured.<br>\
 Your tasks will primarily keep you inside medbay, the place needs to have a doctor onsite at all times to treat incoming wounded. As a general rule, you should not leave medbay if you're the only one in it, make sure someone is covering for you if you go elsewhere.<br>\
 
 As a doctor, a broad range of medical procedures fall under your potential purview. You are not expected to be able to perform all of these yourself, being a specialist is fine. <br>\
@@ -121,7 +121,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	flag = CHEMIST
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the CMO"
@@ -172,7 +172,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	flag = PSYCHIATRIST
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	wage = WAGE_PROFESSIONAL
@@ -208,7 +208,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	flag = PARAMEDIC
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the CMO"
@@ -264,7 +264,7 @@ Remember that you are a noncombatant. Any weapons you carry should be used for b
 	Your second loyalty is to your immediate superior, the Chief Medical Officer. Follow their instructions and policies."
 
 /obj/landmark/join/start/paramedic
-	name = "Moebius Paramedic"
+	name = "Paramedic"
 	icon_state = "player-green"
 	join_tag = /datum/job/paramedic
 
