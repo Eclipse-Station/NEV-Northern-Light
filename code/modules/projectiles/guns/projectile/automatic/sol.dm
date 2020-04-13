@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/automatic/sol
 	name = "FS CAR .25 CS \"Sol\""
-	desc = "A standard-issue weapon used by Cobalt operatives. Compact and reliable. Uses .25 Caseless rounds."
+	desc = "A standard-issue weapon used by Aegis operatives. Compact and reliable. Uses .25 Caseless rounds."
 	icon = 'icons/obj/guns/projectile/sol.dmi'
 	icon_state = "sol-para"
 	item_state = "sol"
