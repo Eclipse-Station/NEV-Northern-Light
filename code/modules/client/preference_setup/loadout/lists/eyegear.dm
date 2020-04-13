@@ -43,7 +43,7 @@
 /datum/gear/eyes/shades
 	display_name = "Sunglasses, fat"
 	path = /obj/item/clothing/glasses/sunglasses/big
-	allowed_roles = list("Ironhammer Operative","Ironhammer Commander","Ironhammer Gunnery Sergeant","Captain","Head of Personnel","Quartermaster","Ironhammer Inspector")
+	allowed_roles = list("Aegis Operative","Aegis Commander","Aegis Gunnery Sergeant","Captain","Head of Personnel","Quartermaster","Aegis Inspector")
 
 /datum/gear/eyes/shades/prescriptionsun
 	display_name = "sunglasses, presciption"
