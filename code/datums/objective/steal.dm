@@ -17,12 +17,12 @@
 		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
 		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
 		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
-		"a Cobalt commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
+		"a Cobalt Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
 		"a Head of Personnel's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"a Cobalt hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
+		"a Cobalt Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
 	)
 
 	var/global/possible_items_special[] = list(
