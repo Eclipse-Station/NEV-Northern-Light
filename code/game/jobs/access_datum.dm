@@ -326,7 +326,7 @@
 /var/const/access_hos = 58
 /datum/access/hos
 	id = access_hos
-	desc = "Cobalt Commander"
+	desc = "Aegis Commander"
 	region = ACCESS_REGION_SECURITY
 
 /var/const/access_RC_announce = 59 //Request console announcements
