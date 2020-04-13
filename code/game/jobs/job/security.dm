@@ -1,10 +1,10 @@
 /datum/job/ihc
-	title = "Cobalt Commander"
+	title = "Aegis Commander"
 	flag = CC
 	head_position = 1
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER | COMMAND
-	faction = "CEV Northern Cross"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Captain"
@@ -34,7 +34,7 @@
 							 /datum/computer_file/program/camera_monitor,
 							 /datum/computer_file/program/reports)
 
-	description = "You are the head of the Cobalt Security contracted to protect and serve aboard the CEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
+	description = "You are the head of the Coblat Aegis Security division contracted to protect and serve aboard the CEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
 	<br>\
 	Your goal is to keep everyone aboard the ship as safe as possible, and to eliminate any threats to safety."
 	
@@ -51,20 +51,20 @@
 		Your third loyalty is to the crew. As the strongest armed force on the ship, any violent actions commited against the ship fall to you to protect against, external or otherwise."
 
 /obj/landmark/join/start/ihc
-	name = "Cobalt Commander"
+	name = "Aegis Commander"
 	icon_state = "player-blue-officer"
 	join_tag = /datum/job/ihc
 
 
 /datum/job/gunserg
-	title = "Cobalt Gunnery Sergeant"
+	title = "Aegis Gunnery Sergeant"
 	flag = GUNSERG
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Cobalt Commander"
+	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	department_account_access = TRUE
 	wage = WAGE_LABOUR_HAZARD
@@ -87,7 +87,7 @@
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)
 
-	description = "You are the Second-in-Command of the local Cobalt regiment, and the defacto leader if the commander isn't around. <br>\
+	description = "You are the Second-in-Command of the local Cobalt Aegis Security regiment, and the defacto leader if the commander isn't around. <br>\
 	Within Cobalt you largely hold a desk job, your duties will rarely take you outside of the Cobalt security wing, and you are not expected to interact with civilians. You have enough to deal with as is, and are probably the hardest working member of Cobalt.<br>\
 	<br>\
 	You have several core duties:<br>\
@@ -102,20 +102,20 @@
 	loyalties = "You're a military man through and through. As such, your first loyalty is to the Commander, and thusly to the chain of command"
 
 /obj/landmark/join/start/gunserg
-	name = "Cobalt Gunnery Sergeant"
+	name = "Aegis Gunnery Sergeant"
 	icon_state = "player-blue"
 	join_tag = /datum/job/gunserg
 
 
 /datum/job/inspector
-	title = "Cobalt Inspector"
+	title = "Aegis Inspector"
 	flag = INSPECTOR
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Cobalt Commander"
+	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 50, LANGUAGE_SERBIAN = 50)
@@ -153,23 +153,23 @@
 
 	loyalties = "		As a detective, your loyalty is firstly, to the truth. Seek to uncover the true events of any crime.<br>\
 		<br>\
-		Secondly, you are loyal to Cobalt and to the commander. Follow the chain of command."
+		Secondly, you are loyal to Aegis and to the commander. Follow the chain of command."
 
 /obj/landmark/join/start/inspector
-	name = "Cobalt Inspector"
+	name = "Aegis Inspector"
 	icon_state = "player-blue"
 	join_tag = /datum/job/inspector
 
 
 /datum/job/medspec
-	title = "Cobalt Medical Specialist"
+	title = "Aegis Medical Specialist"
 	flag = MEDSPEC
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Cobalt Commander"
+	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 5)
@@ -191,9 +191,9 @@
 							 /datum/computer_file/program/chem_catalog,
 							 /datum/computer_file/program/camera_monitor)
 
-	description = "You are a highly trained specialist within Ironhammer. You were probably a medical student or inexperienced doctor when you joined Ironhammer, and you thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated IH operative, but strike a balance inbetween. Balance is the nature of your existence.<br>\
+	description = "You are a highly trained specialist within Aegis. You were probably a medical student or inexperienced doctor when you joined Ironhammer, and you thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated IH operative, but strike a balance inbetween. Balance is the nature of your existence.<br>\
 	<br>\
-	Within Ironhammer, you have three roles to undertake. All of your roles can be delegated to others when needed - Moebius Medical for roles 1 and 2, the Ironhammer Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
+	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - Moebius Medical for roles 1 and 2, the Ironhammer Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
 	<br>\
 	1. Field Medic. <br>\
 	You may be expected to serve on the backlines in a combat situation, treating and stabilising the wounded, making the call as to whether they can return to combat or leave by medivac. You may need to perform emergency trauma surgery in undesireable conditions. <br>\
@@ -206,21 +206,21 @@
 	Solving crimes often requires scientific analysis, and expert rulings from a trusted source within Ironhammer. You will often be expected to analyze blood, chemicals and fingerprints, conduct autopsies, and submit your findings to help track down elusive culprits. In this task, you will work closely with the inspector, and if necessary, he often has the talents to perform these tasks. But his time is better spent questioning and interrogating people"
 
 /obj/landmark/join/start/medspec
-	name = "Cobalt Medical Specialist"
+	name = "Aegis Medical Specialist"
 	icon_state = "player-blue"
 	join_tag = /datum/job/medspec
 
 
 /datum/job/ihoper
-	title = "Cobalt Operative"
+	title = "Aegis Operative"
 	flag = IHOPER
 	department = DEPARTMENT_SECURITY
 	department_flag = IRONHAMMER
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 6
 	spawn_positions = 6
-	supervisors = "the Cobalt Commander"
-	//alt_titles = list("Ironhammer Junior Operative")
+	supervisors = "the Aegis Commander"
+	//alt_titles = list("Aegis Junior Operative")
 	selection_color = "#a7bbc6"
 	wage = WAGE_LABOUR_HAZARD
 	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25)
@@ -259,7 +259,7 @@
 
 	loyalties = "		As a soldier, your first loyalty is to the chain of command, which ends with the Cobalt Commander. Their orders are supreme over all, even if they're currently leading a mutiny against the captain.<br>\
 		<br>\
-		Your second loyalty is to your fellow Cobalt brothers in arms. As long as the company takes care of you, you should follow orders. But if you start being sent on suicide missions and treated as expendable fodder, that should change.<br>\
+		Your second loyalty is to your fellow Aegis brothers in arms. As long as the company takes care of you, you should follow orders. But if you start being sent on suicide missions and treated as expendable fodder, that should change.<br>\
 		<br>\
 		Your third loyalty is to humanity. You are still human under all that armour. If you're being ordered to slaughter civilians en masse, it may be time to start thinking for yourself."
 
