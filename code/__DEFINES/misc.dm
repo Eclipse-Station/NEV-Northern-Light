@@ -168,7 +168,7 @@
 #define TOGGLE_INVENTORY_FLAG 2 //0010
 
 // Default name for announsment system
-#define ANNOUNSER_NAME "CEV Northern Light System Announcer"
+#define ANNOUNSER_NAME "NEV Northern Light System Announcer"
 
 
 #define LIST_OF_CONSONANT list("b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "á", "â", "ã", "ä", "æ", "ç", "é", "ê", "ë", "ì", "í", "ï", "ð", "ñ", "ò", "ô", "õ", "ö", "÷", "ø", "ù")
