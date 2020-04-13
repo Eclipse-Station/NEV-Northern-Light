@@ -33,7 +33,7 @@
 	title = "Robot"
 	flag = CYBORG
 	department_flag = MISC
-	faction = "CEV Northern Light"
+	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
 	alt_titles = list("Drone", "Cyborg")
