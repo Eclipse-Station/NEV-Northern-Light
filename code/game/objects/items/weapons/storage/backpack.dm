@@ -159,7 +159,7 @@
 //Faction-specific backpacks
 /obj/item/weapon/storage/backpack/ironhammer
 	name = "operator's backpack"
-	desc = "Done in a complementing shade for IronHammer Security forces, a staple for military contractors everywhere."
+	desc = "Done in a complementing shade for Aegis Cobalt Security forces, a staple for military contractors everywhere."
 	icon_state = "backpack_ironhammer"
 
 /obj/item/weapon/storage/backpack/neotheology
@@ -210,7 +210,7 @@
 //Faction-specific backsports
 /obj/item/weapon/storage/backpack/sport/ironhammer
 	name = "operator's sport backpack"
-	desc = "Done in a complementing shade for IronHammer Security forces. It looks as if it belongs on a kindergartener rather than a operative, which is why in actuality this style makes perfect sense."
+	desc = "Done in a complementing shade for Aegis Cobalt Security forces. It looks as if it belongs on a kindergartener rather than a operative, which is why in actuality this style makes perfect sense."
 	icon_state = "backsport_ironhammer"
 
 /obj/item/weapon/storage/backpack/sport/neotheology
@@ -300,7 +300,7 @@
 //Faction-specific satchels
 /obj/item/weapon/storage/backpack/satchel/ironhammer
 	name = "operator's satchel"
-	desc = "Done in a complementing shade for IronHammer Security forces, for the itinerant military contractor."
+	desc = "Done in a complementing shade for Aegis Cobalt Security forces, for the itinerant military contractor."
 	icon_state = "satchel_ironhammer"
 
 /obj/item/weapon/storage/backpack/satchel/neotheology
