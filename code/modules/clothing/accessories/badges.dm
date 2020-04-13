@@ -6,7 +6,7 @@
 
 /obj/item/clothing/accessory/badge
 	name = "Inspector's badge"
-	desc = "A Cobalt Security badge, made from gold and set on false leather."
+	desc = "A Aegis Security badge, made from gold and set on false leather."
 	icon_state = "badge"
 	item_state = "marshalbadge"
 	slot_flags = SLOT_BELT | SLOT_ACCESSORY_BUFFER
@@ -104,12 +104,12 @@
 
 /obj/item/clothing/accessory/badge/hos
 	name = "Commander's badge"
-	desc = "An immaculately polished gold Cobalt Security badge. Labeled 'Commander.'"
+	desc = "An immaculately polished gold Aegis Cobalt Security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
 
 /obj/item/clothing/accessory/badge/marshal
 	name = "Marshal's badge"
-	desc = "A leather-backed gold badge displaying the crest of the Cobalt Marshals."
+	desc = "A leather-backed gold badge displaying the crest of the Aegis Marshals."
 	icon_state = "marshalbadge"
 	badge_string = "Ironhammer Marshal Bureau"
