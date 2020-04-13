@@ -39,7 +39,7 @@
 	update_charge()
 
 /obj/item/weapon/gun/projectile/automatic/sol/rds
-	desc = "A standard-issue weapon used by Cobalt operatives. Compact and reliable. Uses .25 Caseless Rifle rounds. This one comes with red dot sight."
+	desc = "A standard-issue weapon used by Aegis operatives. Compact and reliable. Uses .25 Caseless Rifle rounds. This one comes with red dot sight."
 	icon_state = "sol-eot"
 	price_tag = 2350
 	zoom_factor = 0.2
