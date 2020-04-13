@@ -76,7 +76,7 @@
 	id = DEPARTMENT_ENGINEERING
 
 /datum/department/ironhammer
-	name = "Cobalt Mercenary Company"
+	name = "Cobalt Aegis Security Mercenary Company"
 	id = DEPARTMENT_SECURITY
 
 /datum/department/civilian
