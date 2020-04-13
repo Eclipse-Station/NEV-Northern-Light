@@ -34,7 +34,7 @@
 							 /datum/computer_file/program/camera_monitor,
 							 /datum/computer_file/program/reports)
 
-	description = "You are the head of the Coblat Aegis Security division contracted to protect and serve aboard the CEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
+	description = "You are the head of the Coblat Aegis Security division contracted to protect and serve aboard the NEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
 	<br>\
 	Your goal is to keep everyone aboard the ship as safe as possible, and to eliminate any threats to safety."
 	
