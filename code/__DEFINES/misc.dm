@@ -1,6 +1,7 @@
 #define DEBUG
 // Turf-only flags.
 #define NOJAUNT 1 // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define TURF_FLAG_NORUINS 2
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 
@@ -286,3 +287,9 @@
 
 //Misc text define. Does 4 spaces. Used as a makeshift tabulator.
 #define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
+
+
+//Planet habitability class
+#define HABITABILITY_IDEAL  1
+#define HABITABILITY_OKAY  2
+#define HABITABILITY_BAD  3

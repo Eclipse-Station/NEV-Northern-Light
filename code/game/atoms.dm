@@ -714,3 +714,9 @@ its easier to just keep the beam vertical.
 	if(!L)
 		return null
 	return L.AllowDrop() ? L : L.drop_location()
+
+/atom/proc/lava_act()
+	visible_message("<span class='danger'>\The [src] sizzles and melts away, consumed by the lava!</span>")
+	playsound(src, 'sound/effects/flare.ogg', 100, 3)
+	qdel(src)
+	. = TRUE
