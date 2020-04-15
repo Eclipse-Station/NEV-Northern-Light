@@ -18,7 +18,7 @@
 	new /obj/item/clothing/mask/gas(src)
 
 /obj/structure/closet/secure_closet/reinforced/RD
-	name = "Chief Science Officer"
+	name = "Chief Science Officer's locker"
 	req_access = list(access_rd)
 	icon_state = "rd"
 
