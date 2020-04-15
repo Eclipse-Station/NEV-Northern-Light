@@ -72,7 +72,7 @@
 
 //Eclipse Edit: Engineering - moved in-house
 /datum/department/technomancers
-	name = "NEV Eris Engineering"
+	name = "NEV Northern Light Engineering"
 	id = DEPARTMENT_ENGINEERING
 
 /datum/department/ironhammer
