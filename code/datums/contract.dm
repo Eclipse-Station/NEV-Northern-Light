@@ -191,15 +191,15 @@ GLOBAL_LIST_EMPTY(all_antag_contracts)
 		"the station blueprints" = /obj/item/blueprints,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
-		"a Moebius expedition overseer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
+		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
 		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
-		"a Moebius biolab officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
-		"a Ironhammer commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
+		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
+		"a Cobalt Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
 		"a Head of Personnel's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"an Ironhammer hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
+		"a Cobalt Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
 	)
 
 /datum/antag_contract/item/steal/New()
@@ -236,7 +236,7 @@ GLOBAL_LIST_EMPTY(all_antag_contracts)
 /datum/antag_contract/item/dump/New()
 	..()
 	sum = rand(30, 40) * 500
-	desc = "Extract a sum of [sum] credits from Eris economy and send it via BSDM."
+	desc = "Extract a sum of [sum] credits from Northern Light economy and send it via BSDM."
 
 /datum/antag_contract/item/dump/check_contents(list/contents)
 	var/received = 0

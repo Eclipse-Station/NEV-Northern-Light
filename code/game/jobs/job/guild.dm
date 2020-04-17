@@ -5,7 +5,7 @@
 	department = DEPARTMENT_GUILD
 	head_position = 1
 	department_flag = GUILD | COMMAND
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "your greed"
@@ -67,7 +67,7 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 	flag = GUILDTECH
 	department = DEPARTMENT_GUILD
 	department_flag = GUILD
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = "the Guild Merchant"
@@ -117,7 +117,7 @@ Your main duties are to keep the local guild branch operational and profitable. 
 	flag = MINER
 	department = DEPARTMENT_GUILD
 	department_flag = GUILD
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the Guild Merchant"

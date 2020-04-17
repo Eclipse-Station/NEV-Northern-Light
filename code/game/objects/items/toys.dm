@@ -581,8 +581,8 @@
 	icon_state = "hop"
 
 /obj/item/toy/figure/hos
-	name = "Ironhammer Commander action figure"
-	desc = "A \"Space Life\" brand Ironhammer Commander action figure."
+	name = "Cobalt Aegis Commander action figure"
+	desc = "A \"Space Life\" brand Cobalt Aegis Commander action figure."
 	icon_state = "hos"
 
 /obj/item/toy/figure/qm
@@ -651,8 +651,8 @@
 	icon_state = "syndie"
 
 /obj/item/toy/figure/secofficer
-	name = "Ironhammer Operative action figure"
-	desc = "A \"Space Life\" brand Ironhammer Operative action figure."
+	name = "Cobalt Aegis Operative action figure"
+	desc = "A \"Space Life\" brand Cobalt Aegis Operative action figure."
 	icon_state = "secofficer"
 
 /obj/item/toy/figure/warden

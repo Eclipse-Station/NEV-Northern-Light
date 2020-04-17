@@ -6,7 +6,7 @@
 
 /obj/item/clothing/accessory/badge
 	name = "Inspector's badge"
-	desc = "A Ironhammer Security badge, made from gold and set on false leather."
+	desc = "A Aegis Security badge, made from gold and set on false leather."
 	icon_state = "badge"
 	item_state = "marshalbadge"
 	slot_flags = SLOT_BELT | SLOT_ACCESSORY_BUFFER
@@ -44,7 +44,7 @@
 //.Holobadges.
 /obj/item/clothing/accessory/badge/holo
 	name = "holobadge"
-	desc = "This glowing blue badge marks the holder as a member of Ironhammer Security."
+	desc = "This glowing blue badge marks the holder as a member of Cobalt Security."
 	icon_state = "holobadge"
 	item_state = "holobadge"
 	var/emagged //Emagging removes Sec check.
@@ -97,19 +97,19 @@
 
 /obj/item/clothing/accessory/badge/warden
 	name = "Gunnery Sergeant badge"
-	desc = "A silver Ironhammer Security badge. Stamped with the words 'Sergeant.'"
+	desc = "A silver Cobalt Security badge. Stamped with the words 'Sergeant.'"
 	icon_state = "silverbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
 
 
 /obj/item/clothing/accessory/badge/hos
 	name = "Commander's badge"
-	desc = "An immaculately polished gold Ironhammer Security badge. Labeled 'Commander.'"
+	desc = "An immaculately polished gold Aegis Cobalt Security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
 
 /obj/item/clothing/accessory/badge/marshal
 	name = "Marshal's badge"
-	desc = "A leather-backed gold badge displaying the crest of the Ironhammer Marshals."
+	desc = "A leather-backed gold badge displaying the crest of the Aegis Marshals."
 	icon_state = "marshalbadge"
 	badge_string = "Ironhammer Marshal Bureau"

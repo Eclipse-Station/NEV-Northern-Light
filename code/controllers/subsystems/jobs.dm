@@ -19,7 +19,7 @@ SUBSYSTEM_DEF(job)
 		LoadJobs("config/jobs.txt")
 	return ..()
 
-/datum/controller/subsystem/job/proc/SetupOccupations(faction = "CEV Eris")
+/datum/controller/subsystem/job/proc/SetupOccupations(faction = "NEV Northern Light")
 	occupations.Cut()
 	occupations_by_name.Cut()
 	for(var/J in subtypesof(/datum/job))

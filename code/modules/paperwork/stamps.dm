@@ -20,7 +20,7 @@
 	icon_state = "stamp-hop"
 
 /obj/item/weapon/stamp/hos
-	name = "ironhammer commander's rubber stamp"
+	name = "aegis commander's rubber stamp"
 	icon_state = "stamp-hos"
 
 /obj/item/weapon/stamp/ce
@@ -28,11 +28,11 @@
 	icon_state = "stamp-ce"
 
 /obj/item/weapon/stamp/rd
-	name = "moebius expedition overseer's rubber stamp"
+	name = "chief science officer's rubber stamp"
 	icon_state = "stamp-rd"
 
 /obj/item/weapon/stamp/cmo
-	name = "moebius biolab officer's rubber stamp"
+	name = "chief medical officer's rubber stamp"
 	icon_state = "stamp-cmo"
 
 /obj/item/weapon/stamp/denied

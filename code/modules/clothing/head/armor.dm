@@ -60,7 +60,7 @@
 
 /obj/item/clothing/head/armor/helmet/ironhammer
 	name = "operator helmet"
-	desc = "Ironhammer Security gear. Protects the head from impacts."
+	desc = "Aegis Security gear. Protects the head from impacts."
 	icon_state = "helmet_ironhammer"
 
 /obj/item/clothing/head/armor/helmet/handmade
@@ -234,7 +234,7 @@
 
 /obj/item/clothing/head/armor/ironhammer_full
 	name = "ballistic helmet"
-	desc = "Standard-issue Ironhammer ballistic helmet with a basic HUD included, covers the user's entire face."
+	desc = "Standard-issue Aegis ballistic helmet with a basic HUD included, covers the user's entire face."
 	icon_state = "ironhammer_full"
 	body_parts_covered = HEAD|FACE|EARS
 	armor = list(
@@ -309,7 +309,7 @@
  */
 /obj/item/clothing/head/armor/riot_hud
 	name = "riot helmet"
-	desc = "Standard-issue Ironhammer helmet with a basic HUD and targeting system included."
+	desc = "Standard-issue Aegis helmet with a basic HUD and targeting system included."
 	icon_state = "light_riot"
 	body_parts_covered = HEAD|FACE|EARS
 	armor = list(

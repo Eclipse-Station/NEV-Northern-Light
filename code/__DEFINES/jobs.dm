@@ -1,14 +1,15 @@
 #define ASSISTANT_TITLE "Vagabond"
 
 //Jobs depatment lists for use in constant expressions
-#define JOBS_SECURITY "Ironhammer Commander","Ironhammer Gunnery Sergeant","Ironhammer Inspector","Ironhammer Medical Specialist","Ironhammer Operative"
-#define JOBS_COMMAND "Captain","Head of Personnel","Ironhammer Commander","Guild Merchant","Chief Engineer","Moebius Biolab Officer","Moebius Expedition Overseer","NeoTheology Preacher"
+#define JOBS_SECURITY "Aegis Commander","Gunnery Sergeant","Aegis Inspector","Brig Physician","Aegis Operative"
+#define JOBS_COMMAND "Captain","Head of Personnel","Aegis Commander","Supply Manager","Chief Engineer","Chief Medical Officer","Chief Science Officer","Lazarus Representive"
 #define JOBS_ENGINEERING "Chief Engineer","Ship Engineer"
-#define JOBS_MEDICAL "Moebius Biolab Officer",	"Moebius Doctor","Moebius Psychiatrist","Moebius Chemist","Moebius Paramedic"
-#define JOBS_SCIENCE "Moebius Expedition Overseer","Moebius Scientist","Moebius Roboticist"
-#define JOBS_CARGO "Guild Merchant","Guild Technician","Guild Miner"
-#define JOBS_CIVILIAN "Club Manager","Club Worker",ASSISTANT_TITLE
-#define JOBS_CHURCH	"NeoTheology Preacher","NeoTheology Acolyte","NeoTheology Agrolyte","NeoTheology Custodian"
+#define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Pharmacist","Paramedic"
+#define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist"
+#define JOBS_CARGO "Supply Manager","Supply Technician","Miner"
+#define JOBS_CIVILIAN "Club Manager","Club Worker","Custodian","Botanist",ASSISTANT_TITLE
+#define JOBS_LAZARUS "Lazarus Representive","Geneticist","Research Associate",
+#define JOBS_CHURCH "NeoTheology Magos","NeoTheology Enginseer","NeoTheology Acolyte",
 #define JOBS_NONHUMAN "AI","Robot","pAI"
 
 #define CREDITS "&cent;"

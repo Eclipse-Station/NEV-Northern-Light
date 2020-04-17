@@ -45,7 +45,7 @@
 
 /obj/item/clothing/suit/armor/vest/ironhammer
 	name = "operator armor"
-	desc = "An armored vest that protects against some damage. This one has been done in Ironhammer Security colors. Not designed for serious operations."
+	desc = "An armored vest that protects against some damage. This one has been done in Aegis Security colors. Not designed for serious operations."
 	icon_state = "armor_ironhammer"
 
 /obj/item/clothing/suit/armor/vest/handmade

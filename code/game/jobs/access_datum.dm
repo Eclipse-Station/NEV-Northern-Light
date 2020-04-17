@@ -37,7 +37,7 @@
 /var/const/access_moebius = 5
 /datum/access/moebius
 	id = access_moebius
-	desc = "Moebius General"
+	desc = "NanoTrasen General"
 	region = ACCESS_REGION_RESEARCH
 
 /var/const/access_morgue = 6
@@ -187,7 +187,7 @@
 /var/const/access_rd = 30
 /datum/access/rd
 	id = access_rd
-	desc = "Moebius Expedition Overseer"
+	desc = "Chief Science Officer"
 	region = ACCESS_REGION_RESEARCH
 
 /var/const/access_cargo = 31
@@ -239,7 +239,7 @@
 /var/const/access_cmo = 40
 /datum/access/cmo
 	id = access_cmo
-	desc = "Moebius Biolab Officer"
+	desc = "Chief Medical Officer"
 	region = ACCESS_REGION_COMMAND
 
 /var/const/access_merchant = 41
@@ -326,7 +326,7 @@
 /var/const/access_hos = 58
 /datum/access/hos
 	id = access_hos
-	desc = "Ironhammer Commander"
+	desc = "Aegis Commander"
 	region = ACCESS_REGION_SECURITY
 
 /var/const/access_RC_announce = 59 //Request console announcements

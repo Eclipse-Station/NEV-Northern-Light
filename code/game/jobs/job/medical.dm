@@ -1,13 +1,13 @@
 /datum/job/cmo
 	title = "Chief Medical Officer"
-	flag = MBO
+	flag = CMO
 	head_position = 1
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL | COMMAND
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Moebius Expedition Overseer"
+	supervisors = "the Captain and NanoTrasen"
 	selection_color = "#94a87f"
 	req_admin_notify = 1
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10, LANGUAGE_SERBIAN = 5)
@@ -35,7 +35,7 @@
 							 /datum/computer_file/program/chem_catalog,
 							 /datum/computer_file/program/reports)
 
-	description = "You are the head of the Moebius Medical branch, contracted by the captain to provide medical services to the crew.<br>\
+	description = "You are the head of the Medical Bay on the NEV Northern Light and provide medical services to the crew.<br>\
 You are here to keep everyone alive and ideally, at work. You should make choices that preserve life as much as possible.<br>\
 
 The handling of the medbay is your domain, although remember that both medical and science are branches of Moebius corp, so your colleagues have free access to your resources, and vice versa"
@@ -49,10 +49,10 @@ In times of crisis, lock down the medbay to protect those within, from outside t
 
 	loyalties = "As a doctor, your first loyalty is to your conscience. You swore an oath to save lives and do no harm. It falls on you to be the ethical and moral core of the crew. You should speak up for prisoners, captured lifeforms, and test subjects. Nobody else will.<br>\
 
-Your second loyalty is to your career with Moebius corp, and to your coworkers in both branches of moebius. Help out your scientific colleagues, and aid in their pursuit of knowledge."
+Your second loyalty is to your career with NanoTrasen, and to your coworkers in both Medical and Research. Help out your scientific colleagues, and aid in their pursuit of knowledge."
 
 /obj/landmark/join/start/cmo
-	name = "Moebius Biolab Officer"
+	name = "Chief Medical Officer"
 	icon_state = "player-green-officer"
 	join_tag = /datum/job/cmo
 
@@ -62,10 +62,10 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 	flag = DOCTOR
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the CMO"
+	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
@@ -87,7 +87,7 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 							/datum/computer_file/program/camera_monitor)
 
 
-	description = "You are a highly educated professional doctor, working a placement aboard Eris to treat the injured.<br>\
+	description = "You are a highly educated professional doctor, working a placement aboard the NEV Northern Light to treat the injured.<br>\
 Your tasks will primarily keep you inside medbay, the place needs to have a doctor onsite at all times to treat incoming wounded. As a general rule, you should not leave medbay if you're the only one in it, make sure someone is covering for you if you go elsewhere.<br>\
 
 As a doctor, a broad range of medical procedures fall under your potential purview. You are not expected to be able to perform all of these yourself, being a specialist is fine. <br>\
@@ -107,10 +107,10 @@ You are expected to be knowledgeable and competent in at least basic treatment, 
 
 	loyalties = "As a doctor, your first loyalty is to your conscience. You swore an oath to save lives and do no harm. It falls on you to be the ethical and moral core of the crew. You should speak up for prisoners, captured lifeforms, and test subjects. Nobody else will.<br>\
 
-Your second loyalty is to your career with Moebius corp, and to your coworkers in both branches of moebius. Help out your scientific colleagues, and aid in their pursuit of knowledge."
+Your second loyalty is to your career with NanoTrasen, and to your coworkers in both Medical and Research. Help out your scientific colleagues, and aid in their pursuit of knowledge."
 
 /obj/landmark/join/start/doctor
-	name = "Moebius Doctor"
+	name = "Medical Doctor"
 	icon_state = "player-green"
 	join_tag = /datum/job/doctor
 
@@ -121,10 +121,10 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 	flag = CHEMIST
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Moebius Biolab Officer"
+	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
@@ -159,10 +159,10 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 		Sell chemicals and chem grenades to outsiders"
 
 	loyalties = "Your loyalty is to your career with Moebius corp, and to your coworkers in both branches of moebius. Help out your scientific colleagues, and aid in their pursuit of knowledge."
-
+	
 
 /obj/landmark/join/start/chemist
-	name = "Moebius Chemist"
+	name = "Pharmacist"
 	icon_state = "player-green"
 	join_tag = /datum/job/chemist
 
@@ -172,11 +172,11 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 	flag = PSYCHIATRIST
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
 	wage = WAGE_PROFESSIONAL
-	supervisors = "the Moebius Biolab Officer"
+	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
 
@@ -198,7 +198,7 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 
 
 /obj/landmark/join/start/psychiatrist
-	name = "Moebius Psychiatrist"
+	name = "Psychiatrist"
 	icon_state = "player-green"
 	join_tag = /datum/job/psychiatrist
 
@@ -208,10 +208,10 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 	flag = PARAMEDIC
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Moebius Biolab Officer"
+	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_LABOUR_HAZARD
 	also_known_languages = list(LANGUAGE_CYRILLIC = 20, LANGUAGE_SERBIAN = 15)
@@ -243,7 +243,7 @@ When the wounded are inside medbay, you will often act as a porter, transporting
 <br>\
 Once your duty to the living is dispensed, your secondary duty is to the dead. You are the designated corpse recovery staff, and you will often need to retrieve bodies from where they died, bring them back and store them in the morgue. This gives a reduction in that player's respawn time.<br>\
 <br>\
-This is the most dangerous part of your job, and recovery should only be attempted if you can reasonably do so without endangering yourself. If there are hostile creatures preventing recovery, call ironhammer to deal with them.<br>\
+This is the most dangerous part of your job, and recovery should only be attempted if you can reasonably do so without endangering yourself. If there are hostile creatures preventing recovery, call Security to deal with them.<br>\
 <br>\
 On a lighter note, since you're so fit and agile, you will often be called upon to run errands. When there's no wounded or dead, a paramedic's duties often involve fetching lunch and coffee for the rest of the medical staff.<br>\
 <br>\
@@ -261,12 +261,10 @@ Remember that you are a noncombatant. Any weapons you carry should be used for b
 
 	loyalties = "	As a medical specialist, your first loyalty is to save lives, you swore an oath to do no harm. When in any dangerous situation, do your best to ensure as many as possible come out of it alive. A martyr complex is not uncommon in paramedics<br>\
 	<br>\
-	Your second loyalty is to your immediate superior, the Moebius Biolab Officer. Follow their instructions and policies.<br>\
-	<br>\
-	Your third loyalty is to your fellow colleagues in Moebius, especially those in Moebius medical. You are the lowest ranked personnel in the medbay, and you take orders from everyone else working there."
+	Your second loyalty is to your immediate superior, the Chief Medical Officer. Follow their instructions and policies."
 
 /obj/landmark/join/start/paramedic
-	name = "Moebius Paramedic"
+	name = "Paramedic"
 	icon_state = "player-green"
 	join_tag = /datum/job/paramedic
 
