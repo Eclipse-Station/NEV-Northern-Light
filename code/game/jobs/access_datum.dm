@@ -239,7 +239,7 @@
 /var/const/access_cmo = 40
 /datum/access/cmo
 	id = access_cmo
-	desc = "Chief Medical OFficer"
+	desc = "Chief Medical Officer"
 	region = ACCESS_REGION_COMMAND
 
 /var/const/access_merchant = 41
