@@ -65,7 +65,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	faction = "NEV Northern Light"
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the CMO"
+	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
@@ -124,7 +124,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the CMO"
+	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
@@ -176,7 +176,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	total_positions = 1
 	spawn_positions = 1
 	wage = WAGE_PROFESSIONAL
-	supervisors = "the CMO"
+	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
 
@@ -211,7 +211,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	faction = "NEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the CMO"
+	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_LABOUR_HAZARD
 	also_known_languages = list(LANGUAGE_CYRILLIC = 20, LANGUAGE_SERBIAN = 15)
