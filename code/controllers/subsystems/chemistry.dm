@@ -35,4 +35,6 @@ SUBSYSTEM_DEF(chemistry)
 			continue
 		if(get_prototype(type, temperature)) //returns truthy if it's valid for the given temperature
 			return type*/
-	return pick(typesof(/datum/reagent))
+	var/datum/reagent/random_type = pick(typesof(/datum/reagent))
+	var/datum/reagent/random_r = new random_type(src)
+	return random_r.id

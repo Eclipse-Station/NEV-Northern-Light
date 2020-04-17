@@ -7,6 +7,7 @@
 	footstep_type = /decl/footsteps/asteroid
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
+	initial_flooring = /decl/flooring/asteroid
 /*
 /turf/simulated/floor/exoplanet/can_engrave()
 	return FALSE
@@ -22,7 +23,6 @@
 				initial_gas = list()
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(E.lightlevel, 0.1, 2)
 			if(E.planetary_area && istype(loc, world.area))
 				ChangeArea(src, E.planetary_area)
 	..()

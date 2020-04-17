@@ -111,7 +111,8 @@
 		return
 	name = "\improper [mineral.display_name] deposit"
 	var/obj/effect/mineral/M = new /obj/effect/mineral(src, mineral)
-	M.color = color
+	spawn(1)
+		M.color = color
 
 //Not even going to touch this pile of spaghetti
 /turf/simulated/mineral/attackby(obj/item/I, mob/living/user)

@@ -10,12 +10,6 @@
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
-	var/lightlevel = 1 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
-	var/night = TRUE
-	var/daycycle //How often do we change day and night
-	var/daycolumn = 0 //Which column's light needs to be updated next?
-	var/daycycle_column_delay = 10 SECONDS
-
 	var/maxx
 	var/maxy
 	var/landmark_type = /obj/effect/shuttle_landmark/automatic
@@ -40,7 +34,7 @@
 
 	//Flags deciding what features to pick
 	var/ruin_tags_whitelist
-	var///ruin_tags_blacklist
+	var/ruin_tags_blacklist
 	var/features_budget = 4
 	var/list/possible_features = list()
 	var/list/spawned_features
@@ -77,15 +71,15 @@
 	if(LAZYLEN(possible_themes))
 		var/datum/exoplanet_theme/T = pick(possible_themes)
 		themes += new T
-/*
+
 	for(var/T in subtypesof(/datum/map_template/ruin/exoplanet))
 		var/datum/map_template/ruin/exoplanet/ruin = T
 		if(ruin_tags_whitelist && !(ruin_tags_whitelist & initial(ruin.ruin_tags)))
 			continue
-		if(//ruin_tags_blacklist & initial(ruin.ruin_tags))
+		if(ruin_tags_blacklist & initial(ruin.ruin_tags))
 			continue
 		possible_features += new ruin
-	*/
+
 	..()
 
 /obj/effect/overmap/sector/exoplanet/proc/build_level()
@@ -95,7 +89,6 @@
 	generate_features()
 	generate_landing(2)
 	update_biome()
-	generate_daycycle()
 	generate_planet_image()
 	START_PROCESSING(SSobj, src)
 
@@ -145,22 +138,6 @@
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
 
-	if(daycycle)
-		if(tick % round(daycycle / wait) == 0)
-			night = !night
-			daycolumn = 1
-		if(daycolumn && tick % round(daycycle_column_delay / wait) == 0)
-			update_daynight()
-
-/obj/effect/overmap/sector/exoplanet/proc/update_daynight()
-	var/light = 0.1
-	if(!night)
-		light = lightlevel
-	for(var/turf/simulated/floor/exoplanet/T in block(locate(daycolumn,1,min(map_z)),locate(daycolumn,maxy,max(map_z))))
-		T.set_light(light, 0.1, 2)
-	daycolumn++
-	if(daycolumn > maxx)
-		daycolumn = 0
 
 /obj/effect/overmap/sector/exoplanet/proc/remove_animal(var/mob/M)
 	animals -= M
@@ -193,7 +170,7 @@
 				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1)
 
 /obj/effect/overmap/sector/exoplanet/proc/generate_features()
-//	spawned_features = seedRuins(map_z, features_budget, /area/exoplanet, possible_features, maxx, maxy)
+	spawned_features = seedRuins(map_z, features_budget, /area/exoplanet, possible_features, maxx, maxy)
 	return
 
 /obj/effect/overmap/sector/exoplanet/proc/get_biostuff(var/datum/random_map/noise/exoplanet/random_map)
@@ -216,16 +193,10 @@
 	for(var/mob/living/simple_animal/A in animals)
 		adapt_animal(A)
 
-/obj/effect/overmap/sector/exoplanet/proc/generate_daycycle()
-	if(lightlevel)
-		night = FALSE //we start with a day if we have light.
-
-		//When you set daycycle ensure that the minimum is larger than [maxx * daycycle_column_delay].
-		//Otherwise the right side of the exoplanet can get stuck in a forever day.
-		daycycle = rand(10 MINUTES, 40 MINUTES)
 
 /obj/effect/overmap/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
-	S.set_trait(TRAIT_PLANT_ICON, "bush5")
+	S.set_trait(TRAIT_PRODUCT_ICON, pick("chili", "berry", "nettles", "tomato", "eggplant"))
+	S.set_trait(TRAIT_PLANT_ICON, pick("bush3", "bush4", "bush5"))
 	S.set_trait(TRAIT_IDEAL_HEAT,          atmosphere.temperature + rand(-5,5),800,70)
 	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
 	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
@@ -241,9 +212,9 @@
 	if(prob(50))
 		var/chem_type = SSchemistry.get_random_chem(TRUE, atmosphere ? atmosphere.temperature : T0C)
 		if(chem_type)
-			var/nutriment = S.chems[/datum/reagent/organic/nutriment]
+			var/nutriment = S.chems["nutriment"]
 			S.chems.Cut()
-			S.chems[/datum/reagent/organic/nutriment] = nutriment
+			S.chems["nutriment"] = nutriment
 			S.chems[chem_type] = list(rand(1,10),rand(10,20))
 
 /obj/effect/overmap/sector/exoplanet/proc/adapt_animal(var/mob/living/simple_animal/A)

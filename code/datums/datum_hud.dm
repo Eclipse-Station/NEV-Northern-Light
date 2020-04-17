@@ -37,11 +37,6 @@
 	old_z = z
 
 	var/datum/level_data/LD = z_levels[z]
-	testing(LD)
-	testing(z_levels)
-	testing(z)
-	testing("ATTENTIONL:")
-	testing(z_levels[z - 1])
 
 	for(var/pmaster in plane_masters)
 		var/obj/screen/plane_master/instance = plane_masters[pmaster]

@@ -7,7 +7,7 @@
 	plant_colors = list("#a23c05","#3f1f0d","#662929","#ba6222","#7a5b3a","#120309")
 	possible_themes = list()
 	map_generators = list(/datum/random_map/automata/cave_system/mountains/volcanic, /datum/random_map/noise/exoplanet/volcanic, /datum/random_map/noise/ore/filthy_rich)
-	//ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
+	ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
 	surface_color = "#261e19"
 	water_color = "#c74d00"
 
@@ -65,7 +65,7 @@
 				map[current_cell] = 1
 
 /area/exoplanet/volcanic
-//	forced_ambience = list('sound/ambience/magma.ogg')
+	forced_ambience = list('sound/ambience/magma.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/volcanic
 
 /turf/simulated/floor/exoplanet/volcanic

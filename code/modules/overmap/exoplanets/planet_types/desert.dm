@@ -9,10 +9,6 @@
 	surface_color = "#d6cca4"
 	water_color = null
 
-/obj/effect/overmap/sector/exoplanet/desert/generate_map()
-	if(prob(70))
-		lightlevel = rand(5,10)/10	//deserts are usually :lit:
-	..()
 
 /obj/effect/overmap/sector/exoplanet/desert/generate_atmosphere()
 	..()
@@ -59,7 +55,7 @@
 			new/obj/structure/quicksand(T)
 
 /area/exoplanet/desert
-//	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
+	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/desert
 
 /turf/simulated/floor/exoplanet/desert

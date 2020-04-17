@@ -116,7 +116,7 @@
 			S.set_trait(TRAIT_PLANT_ICON,"tree")
 			S.set_trait(TRAIT_SPREAD,0)
 			S.set_trait(TRAIT_HARVEST_REPEAT,1)
-//			S.set_trait(TRAIT_LARGE,1)
+			S.set_trait(TRAIT_LARGE,1)
 			var/color = pick(plantcolors)
 			if(color == "RANDOM")
 				color = get_random_colour(0,75,190)

@@ -4,15 +4,11 @@
 	color = "#a5a18b"
 	planetary_area = /area/exoplanet/garbage
 	map_generators = list(/datum/random_map/noise/exoplanet/garbage, /datum/random_map/noise/ore/poor)
-//	ruin_tags_whitelist = RUIN_ALIEN|RUIN_NATURAL|RUIN_WRECK
+	ruin_tags_whitelist = RUIN_ALIEN|RUIN_NATURAL|RUIN_WRECK
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#120309")
 	surface_color = "#a5a18b"
 	water_color = null
 
-/obj/effect/overmap/sector/exoplanet/garbage/generate_map()
-	if(prob(50))
-		lightlevel = rand(5,10)/10	//deserts are usually :lit:
-	..()
 
 /obj/effect/overmap/sector/exoplanet/garbage/generate_atmosphere()
 	..()
@@ -91,7 +87,7 @@
 	return land_type
 
 /area/exoplanet/garbage
-//	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
+	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
 	base_turf = /turf/simulated/floor/exoplanet/desert
 
 /turf/simulated/floor/exoplanet/concrete

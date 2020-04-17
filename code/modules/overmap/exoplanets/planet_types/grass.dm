@@ -7,11 +7,6 @@
 	plant_colors = list("#0e1e14","#1a3e38","#5a7467","#9eab88","#6e7248", "RANDOM")
 	map_generators = list(/datum/random_map/noise/exoplanet/grass)
 
-/obj/effect/overmap/sector/exoplanet/grass/generate_map()
-	if(prob(40))
-		lightlevel = rand(1,7)/10	//give a chance of twilight jungle
-	..()
-
 /obj/effect/overmap/sector/exoplanet/grass/generate_atmosphere()
 	..()
 	if(atmosphere)
@@ -47,7 +42,7 @@
 
 /area/exoplanet/grass
 	base_turf = /turf/simulated/floor/exoplanet/grass
-//	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/ambience/eeriejungle2.ogg','sound/ambience/eeriejungle1.ogg')
+	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg','sound/ambience/eeriejungle2.ogg','sound/ambience/eeriejungle1.ogg')
 
 /area/exoplanet/grass/play_ambience(var/mob/living/L)
 	..()

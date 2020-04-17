@@ -112,6 +112,8 @@
 	for(var/turf/T in range(radius, src))
 		if(T.density)
 			T.ChangeTurf(get_base_turf_by_area(T))
+	for(var/obj/effect/mineral/M in range(radius, src))
+		qdel(M)
 
 /obj/item/device/spaceflare
 	name = "bluespace flare"
