@@ -159,7 +159,7 @@
 //Faction-specific backpacks
 /obj/item/weapon/storage/backpack/ironhammer
 	name = "operator's backpack"
-	desc = "Done in a complementing shade for Aegis Cobal Security forces, a staple for military contractors everywhere."
+	desc = "Done in a complementing shade for Cobalt Aegis Security forces, a staple for military contractors everywhere."
 	icon_state = "backpack_ironhammer"
 
 /obj/item/weapon/storage/backpack/neotheology
