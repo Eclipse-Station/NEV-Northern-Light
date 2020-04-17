@@ -83,7 +83,7 @@
 	channels = list("Science" = 1, "Command" = 1)
 
 /obj/item/device/encryptionkey/heads/moebius
-	name = "/improper NanoTrasen command encryption key"
+	name = "\improper NanoTrasen command encryption key"
 	icon_state = "rd_cypherkey"
 	channels = list("Science" = 1, "Medical" = 1, "Command" = 1)
 
