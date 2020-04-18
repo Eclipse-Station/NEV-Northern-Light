@@ -66,6 +66,7 @@
 #define LANGUAGE_CULT "Cult"
 #define LANGUAGE_OCCULT "Occult"
 #define LANGUAGE_CHANGELING "Changeling"
+#define LANGUAGE_YUELDISCH "Yueldisch"
 #define LANGUAGE_VOX "Vox-Pidgin"
 #define LANGUAGE_TERMINUS "Terminus"
 #define LANGUAGE_SKRELLIANFAR "High Skrellian"
