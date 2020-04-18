@@ -4,6 +4,7 @@
 	signlang_verb = list("gestures", "signs", "signals", "motions")
 	colour = "jive"
 	key = "s"
+	flags = WHITELISTED
 	flags = SIGNLANG | NO_STUTTER | NONVERBAL
 	shorthand = "JI"
 
