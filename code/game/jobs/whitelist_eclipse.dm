@@ -17,12 +17,12 @@ var/list/job_whitelist = list()
 	var/datum/job/job = SSjob.GetJob(rank)
 	// // // BEGIN ECLIPSE EDIT // // //
 	// Allows config option to disable job restrictions. Allows admins to bypass
-	if(!config.wl_admins_too && check_rights(R_ADMIN, 0, M))		//They're admins.
+	if(!config.wl_admins_too && check_rights(R_ADMIN, 0))		//They're admins.
 		return 1
 	if(!config.usejobwhitelist)			//Whitelist disabled.
 		return 1
-	if(job.wl_admin_only && check_rights(R_ADMIN, 0, M))		//Admin only ranks
-		return 1
+	if(job.wl_admin_only && !check_rights(R_ADMIN, 0))		//Admin only ranks
+		return 0
 	// // // END ECLIPSE EDIT // // //
 	if(!job.whitelist_only)
 		return 1
@@ -41,4 +41,3 @@ var/list/job_whitelist = list()
 			if(findtext(s,"[M.ckey] - All"))
 				return 1
 	return 0
-

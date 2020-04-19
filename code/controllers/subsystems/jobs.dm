@@ -31,21 +31,27 @@ SUBSYSTEM_DEF(job)
 		occupations_by_name[job.title] = job
 		// // // BEGIN ECLIPSE EDITS // // //
 		//Rationale: Job whitelisting setup.
-		//i woulf habve pteferted to have this up zthwere buz its' vuasing co pile ettotds whtn i zty
+		//I would have preferred to have this before var/J got filtered into job.* but it was causing compiler errors. Alas.
 		//wgatever it workys
-		if(job.manual_whitelist == TRUE)			//Admin wants this whitelisted for whatever reason.
-			job.whitelist_only = TRUE
-			whitelisted_jobs |= job
-		//Whitelist job based on configuration files.
-		if(job.wl_config_heads && config.wl_heads)		//Heads of Staff
-			job.whitelist_only = TRUE
-			whitelisted_jobs |= job
-		if(job.wl_config_sec && config.wl_security)		//Security
-			job.whitelist_only = TRUE
-			whitelisted_jobs |= job
-		if(job.wl_config_borgs && config.wl_silicons)		//Silicons
-			job.whitelist_only = TRUE
-			whitelisted_jobs |= job
+		if(job.manual_whitelist != WHITELIST_MANUAL_OFF)		//if we don't have the whitelist manually disabled for this job, we run through the checks.
+			if(job.manual_whitelist == WHITELIST_MANUAL_ON)			//Admin wants this whitelisted for whatever reason.
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			//Whitelist job based on configuration files.
+			if(job.wl_config_heads && config.wl_heads)		//Heads of Staff
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			if(job.wl_config_sec && config.wl_security)		//Security
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			if(job.wl_config_borgs && config.wl_silicons)		//Silicons
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			/*		//Uncomment in event of admin-only rank failure.
+			if(job.wl_admin_only)		//Admin-only jobs.
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			*/
 		// // // END ECLIPSE EDITS // // //
 
 	if(!occupations.len)

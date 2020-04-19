@@ -1,6 +1,6 @@
 //
 // Loader for Eclipse-specific configuration options.
-// RSpitzer 2020-02-12
+// RSpitzer 2020-04-18
 //
 
 /datum/configuration
@@ -9,8 +9,6 @@
 	var/eclipse_config_loaded = FALSE
 	
 //job whitelisting.
-//Do note that the "President" job is not considered a job for the purposes of
-//our whitelisting system due to hardcoding elsewhere.
 	var/usejobwhitelist = FALSE		//master job whitelisting enable
 	var/wl_heads = FALSE			//Whitelist Heads of Staff?
 	var/wl_security = FALSE			//Whitelist Security?
