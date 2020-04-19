@@ -29,7 +29,7 @@ var/global/datum/controller/occupations/job_master
 				J.whitelist_only = TRUE
 			if(J.wl_config_borgs && config.wl_silicons)		//Silicons
 				J.whitelist_only = TRUE
-			// // // END ECLIPSE EDITS
+			// // // END ECLIPSE EDITS // // //
 			var/datum/job/job = new J()
 			if(job.faction != faction)
 				continue

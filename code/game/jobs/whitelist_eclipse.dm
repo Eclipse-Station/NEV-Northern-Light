@@ -14,7 +14,7 @@ var/list/job_whitelist = list()
 		job_whitelist = splittext(text, "\n")
 
 /proc/is_job_whitelisted(mob/M, var/rank)
-	var/datum/job/job = job_master.GetJob(rank)
+	var/datum/job/job = SSjob.GetJob(rank)
 	// // // BEGIN ECLIPSE EDIT // // //
 	// Allows config option to disable job restrictions. Allows admins to bypass
 	if(!config.wl_admins_too && check_rights(R_ADMIN, 0, M))		//They're admins.
@@ -26,7 +26,7 @@ var/list/job_whitelist = list()
 	// // // END ECLIPSE EDIT // // //
 	if(!job.whitelist_only)
 		return 1
-	if(rank == USELESS_JOB) //VOREStation Edit - Visitor not Assistant
+	if(rank == ASSISTANT_TITLE) //VOREStation Edit - Visitor not Assistant //It's apparently "Vagabond" now ^Spitzer
 		return 1
 	/* Eclipse Removal - moved above in the edit
 	if(check_rights(R_ADMIN, 0))
