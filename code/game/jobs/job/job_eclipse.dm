@@ -18,4 +18,4 @@
 	var/wl_config_borgs = FALSE		//silicons
 
 	//Is this job intended for admins only?
-	var/wl_admin_only = FALSE 
+	var/wl_admin_only = FALSE
