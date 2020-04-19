@@ -1,6 +1,12 @@
 var/global/datum/controller/occupations/job_master
 var/global/list/whitelisted_jobs = ()	//Eclipse var - used in debug proc
 
+//OR AT LEAST IT WOULD BE IF THIS FILE WERE INCLUDED! AH HAHAHAHAHA
+//THERE GOES TWO FUCKING HOURS DEBUGGING THE JOB CONTROLLER
+//AH HAHAHAHAHAHA I DON'T KNOW IF IT'S THE LIQUOR TALKING OR ME TALKING BUT THAT'S ACTUALLY FUCKING HILARIOUS THAT I SPENT TWO ENTIRE HOURS TRYING TO FIGURE OUT WHY THIS WASN'T WORKING ONLY FOR THIS FILE TO NOT BE CALLED AT ALL IN THE COMPILER
+
+//don't repeat my mistake, leave this file well alone, it won't do you any good			^spitzer
+
 #define GET_RANDOM_JOB 0
 #define BE_ASSISTANT 1
 #define RETURN_TO_LOBBY 2
