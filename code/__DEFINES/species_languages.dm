@@ -75,6 +75,8 @@
 #define LANGUAGE_LANIUS "Scraptalk"
 #define LANGUAGE_AKHANI "Akhani"
 #define LANGUAGE_ALAI "Alai"
+#define LANGUAGE_BIRDSONG "Birdsong"
+#define LANGUAGE_SAGARU "Sagaru"
 
 // Species flags.
 #define SPECIES_FLAG_NO_MINOR_CUT               0x0001  // Can step on broken glass with no ill-effects. Either thick skin (diona/vox), cut resistant (slimes) or incorporeal (shadows)
