@@ -130,6 +130,11 @@
 		/*else if(!job.player_old_enough(user.client))
 			var/available_in_days = job.available_in_days(user.client)
 			bad_message = "\[IN [(available_in_days)] DAYS]"*/
+		// // // BEGIN ECLIPSE EDIT // // //
+		//Rationale: Job whitelisting framework.
+		else if(!is_job_whitelisted(user, rank))
+			bad_message = "<b> \[NOT WHITELISTED]</b>"
+		// // // END ECLIPSE EDIT // // //
 		else if(job.minimum_character_age && user.client && (user.client.prefs.age < job.minimum_character_age))
 			bad_message = "\[MINIMUM CHARACTER AGE: [job.minimum_character_age]]"
 		else if(user.client && job.is_setup_restricted(user.client.prefs.setup_options))

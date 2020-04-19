@@ -18,6 +18,18 @@ var/global/datum/controller/occupations/job_master
 		occupations.Cut()
 		occupations_by_name.Cut()
 		for(var/J in subtypesof(/datum/job))
+			// // // BEGIN ECLIPSE EDITS // // //
+			//Rationale: Job whitelisting setup.
+			if(J.manual_whitelist)			//Admin wants this whitelisted for whatever reason.
+				J.whitelist_only = TRUE
+			//Whitelist job based on configuration files.
+			if(J.wl_config_heads && config.wl_heads)		//Heads of Staff
+				J.whitelist_only = TRUE
+			if(J.wl_config_sec && config.wl_security)		//Security
+				J.whitelist_only = TRUE
+			if(J.wl_config_borgs && config.wl_silicons)		//Silicons
+				J.whitelist_only = TRUE
+			// // // END ECLIPSE EDITS
 			var/datum/job/job = new J()
 			if(job.faction != faction)
 				continue
