@@ -221,30 +221,6 @@
 	else
 		return ..()
 
-/datum/language/machine
-	name = LANGUAGE_EAL
-	desc = "An efficient language of encoded tones developed by positronics."
-	speech_verb = "whistles"
-	ask_verb = "chirps"
-	exclaim_verb = "whistles loudly"
-	colour = "changeling"
-	key = "6"
-	flags = NO_STUTTER
-	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz","shh","shk")
-	space_chance = 10
-
-/datum/language/machine/can_speak_special(var/mob/speaker)
-	var/obj/item/organ/internal/voicebox/V = locate() in speaker
-
-	if(V.robotic >= 1)
-		return 1
-
-/datum/language/machine/get_random_name()
-	if(prob(70))
-		return "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
-	else
-		return pick(ai_names)
-
 /datum/language/vulpkanin
 	name = LANGUAGE_YUELDISCH
 	desc = "The guttural language spoken and utilized by the inhabitants of the Vazzend system, composed of growls, barks, yaps, and heavy utilization of ears and tail movements."
