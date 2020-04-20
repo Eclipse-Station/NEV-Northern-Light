@@ -1,6 +1,6 @@
 /datum/language/common
 	name = LANGUAGE_COMMON
-	desc = "Most popular language in Canis Majoris constellation, thanks to many USA colonial ships arrived there in distant past."
+	desc = "The common galactic tongue, engineered for cross-species communication."
 	key = "0"
 	flags = RESTRICTED
 	shorthand = "CO"
