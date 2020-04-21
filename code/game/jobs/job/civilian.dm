@@ -12,7 +12,6 @@
 	spawn_positions = 1
 	supervisors = "the Head of Personnel"
 	selection_color = "#dddddd"
-	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 15, LANGUAGE_JIVE = 80)
 	access = list(access_bar, access_kitchen)
 	initial_balance = 3000
 	wage = WAGE_NONE // Makes his own money
@@ -47,7 +46,6 @@
 	spawn_positions = 2
 	supervisors = "the Club Manager"
 	selection_color = "#dddddd"
-	also_known_languages = list(LANGUAGE_CYRILLIC = 10, LANGUAGE_JIVE = 60)
 	access = list(access_bar, access_kitchen)
 	initial_balance = 750
 	wage = WAGE_NONE //They should get paid by the club owner, otherwise you know what to do.
@@ -85,7 +83,6 @@
 	spawn_positions = 2
 	supervisors = "the Head of Personnel"
 	selection_color = "#dddddd"
-	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_SERBIAN = 5, LANGUAGE_JIVE = 80)
 	access = list(access_maint_tunnels, access_theatre)
 
 	outfit_type = /decl/hierarchy/outfit/job/service/actor/clown
@@ -112,7 +109,6 @@
 	supervisors = "the Head of Personnel"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Hydroponicist")
-	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
 	cruciform_access = list(access_hydroponics)
 	wage = WAGE_PROFESSIONAL
 
@@ -148,7 +144,6 @@
 	supervisors = "the Head of Personnel"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Janitor","Sanitation Technician")
-	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
 	cruciform_access = list(access_janitor, access_maint_tunnels)
 	wage = WAGE_PROFESSIONAL
 	outfit_type = /decl/hierarchy/outfit/job/church/janitor
