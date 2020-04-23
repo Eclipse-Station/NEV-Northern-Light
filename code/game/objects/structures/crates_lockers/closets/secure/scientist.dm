@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/personal/scientist
-	name = "moebius scientist's locker"
+	name = "nanotrasen scientist's locker"
 	req_access = list(access_rd)
 	access_occupy = list(access_tox_storage)
 	icon_state = "science"
