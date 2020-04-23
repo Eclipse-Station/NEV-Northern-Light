@@ -331,7 +331,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_boards
-	disk_name = "Lazarus Circuit Pack"
+	disk_name = "NanoTrasen Circuit Pack"
 	icon_state = "neotheology"
 
 	license = -1
