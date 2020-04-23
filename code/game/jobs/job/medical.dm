@@ -37,7 +37,7 @@
 	description = "You are the head of the Medical Bay on the NEV Northern Light and provide medical services to the crew.<br>\
 You are here to keep everyone alive and ideally, at work. You should make choices that preserve life as much as possible.<br>\
 
-The handling of the medbay is your domain, although remember that both medical and science are branches of Moebius corp, so your colleagues have free access to your resources, and vice versa"
+The handling of the medbay is your domain, although remember that both medical and science are branches of NanoTrasen, so your colleagues have free access to your resources, and vice versa"
 
 	duties = "Organise the doctors under your command to help save lives. Assign patients, and check on their progress periodically<br>\
 Dispatch your paramedics to distress calls, and corpse recoveries as needed<br>\
@@ -143,17 +143,17 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	<br>\
 	Your primary responsibility is working as a pharmacist. Prepare medicines for use by the medical staff, so that they can capably treat a broad variety of conditions. It's good to keep a stock of bicaridine, dexalin, peridaxon, and alkysine.<br>\
 	<br>\
-	Your secondary responsibility is as a chemical manufacturer for moebius generally. You may be requested to make non-medical chemicals for your colleagues in science, or even for other medical staff. Anyone within moebius should be freely and quickly provided with anything they request. Don't question why, it's above your paygrade.<br>\
+	Your secondary responsibility is as a chemical manufacturer for NanoTrasen generally. You may be requested to make non-medical chemicals for your colleagues in science, or even for other medical staff. Anyone within moebius should be freely and quickly provided with anything they request. Don't question why, it's above your paygrade.<br>\
 	<br>\
 	Your third duty is to run a chemical sales outlet. You may get requests from other crewmembers to make acid, chemical grenades, smoke, cleaning products, napalm, or perhaps even just to make medicines. You are fully licensed to sell any and all chemicals to those outside moebius. Sell being the operative word here. If someone isn't an employee of Moebius corp, charge them for their chemicals.<br>\
 	<br>\
 	Its worth noting that you don't always have everything you need on hand. Some recipes will require external ingredients. Bicaridine, most notably, requires the roach toxin blattedin, so you should gather up roach corpses to hack apart for their chemicals. Pay assistants to do this if necessary"
 
 	duties = "		Mix medicines for doctors<br>\
-		Fill chemical requests for moebius staff<br>\
+		Fill chemical requests for NanoTrasen staff<br>\
 		Sell chemicals and chem grenades to outsiders"
 
-	loyalties = "Your loyalty is to your career with Moebius corp, and to your coworkers in both branches of moebius. Help out your scientific colleagues, and aid in their pursuit of knowledge."
+	loyalties = "Your loyalty is to your career with NanoTrasen corp, and to your coworkers in both branches of NanoTrasen. Help out your scientific colleagues, and aid in their pursuit of knowledge."
 	
 
 /obj/landmark/join/start/chemist
@@ -224,7 +224,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 							/datum/computer_file/program/chem_catalog,
 							 /datum/computer_file/program/camera_monitor)
 
-	description = "You are a Moebius Paramedic, The hero of the hour! While doctors largely spend their time cloistered away in medbay, your job is to be out there on the frontlines. You work in the field, sometimes treating people on the spot, sometimes bringing them back to medical for specialist treatment. <br>\
+	description = "You are a NanoTrasen Paramedic, The hero of the hour! While doctors largely spend their time cloistered away in medbay, your job is to be out there on the frontlines. You work in the field, sometimes treating people on the spot, sometimes bringing them back to medical for specialist treatment. <br>\
 
 You have significant medical training, but typically you are not a doctor, and will lack a medical degree. The actual doctors have seniority, and you should follow their orders, especially concerning treatment and diagnosis of a patient<br>\
 <br>\
