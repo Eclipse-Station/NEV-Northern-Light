@@ -164,7 +164,7 @@
 
 /tipsAndTricks/jobs/chem_app
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist, /datum/job/cmo, /datum/job/doctor, /datum/job/paramedic)
-    tipText = "There is program in your PDA called MIRC (Moebious Internal Reagent Catalogue) that can help you with chemistry."
+    tipText = "There is program in your PDA called NIRC (NanoTrasen Internal Reagent Catalogue) that can help you with chemistry."
 
 /tipsAndTricks/jobs/drink_app
     jobs_list = list(/datum/job/clubworker, /datum/job/clubmanager)
