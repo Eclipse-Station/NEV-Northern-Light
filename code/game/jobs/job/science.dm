@@ -11,8 +11,6 @@
 	selection_color = "#b39aaf"
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
-	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25)
-
 	outfit_type = /decl/hierarchy/outfit/job/science/rd
 
 	access = list(
@@ -64,8 +62,6 @@ As a scientist, your first loyalty is to knowledge and Discovery, the ultimate g
 	supervisors = "the Chief Science Officer"
 	selection_color = "#bdb1bb"
 	wage = WAGE_PROFESSIONAL
-	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
-
 	//alt_titles = list("Xenobiologist")
 	outfit_type = /decl/hierarchy/outfit/job/science/scientist
 
@@ -120,8 +116,6 @@ Explore, learn and adventure, do anything to advance the cause of knowledge"
 	supervisors = "the Chief Science Officer"
 	selection_color = "#bdb1bb"
 	wage = WAGE_PROFESSIONAL
-	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
-
 	outfit_type = /decl/hierarchy/outfit/job/science/roboticist
 
 	access = list(
