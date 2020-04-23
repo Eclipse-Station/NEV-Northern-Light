@@ -10,7 +10,6 @@
 	supervisors = "the Captain and NanoTrasen"
 	selection_color = "#94a87f"
 	req_admin_notify = 1
-	also_known_languages = list(LANGUAGE_CYRILLIC = 10, LANGUAGE_SERBIAN = 5)
 	wage = WAGE_COMMAND
 	outfit_type = /decl/hierarchy/outfit/job/medical/cmo
 
@@ -68,8 +67,6 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
-	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
-
 	outfit_type = /decl/hierarchy/outfit/job/medical/doctor
 
 	access = list(
@@ -127,8 +124,6 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
-	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
-
 	outfit_type = /decl/hierarchy/outfit/job/medical/chemist
 
 	access = list(
@@ -178,8 +173,6 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	wage = WAGE_PROFESSIONAL
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
-	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
-
 	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist
 
 	access = list(
@@ -214,8 +207,6 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_LABOUR_HAZARD
-	also_known_languages = list(LANGUAGE_CYRILLIC = 20, LANGUAGE_SERBIAN = 15)
-
 	outfit_type = /decl/hierarchy/outfit/job/medical/paramedic
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_surgery, access_paramedic,
