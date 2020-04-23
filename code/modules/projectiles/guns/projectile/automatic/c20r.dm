@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/automatic/c20r
 	name = "C-20r"
 	desc = "The C-20r is a lightweight and robust bullpup SMG of ancient design, for when you REALLY need someone dead. \
-			Famous as most used SMG by criminal organizations of various sorts. Was recently reverse-engineered by Moebius \
+			Famous as most used SMG by criminal organizations of various sorts. Was recently reverse-engineered by NanoTrasen \
 			almost completely from the scratch, introducing gun to the broad masses of customers. \
 			Has a '\"Scarborough Arms\" - Per falcis, per pravitas' buttstock stamp. Uses .35 Auto rounds."
 	icon = 'icons/obj/guns/projectile/cr20.dmi'
