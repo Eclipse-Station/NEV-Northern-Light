@@ -32,7 +32,7 @@
 
 /obj/item/weapon/gun/energy/plasma/destroyer
 	name = "NT PR \"Purger\""
-	desc = "A more recent \"NeoTheology\" brand plasma rifle, developed in direct response to compete against the highly successful \"Cassad\" design."
+	desc = "A more recent \"NanoTrasen\" brand plasma rifle, developed in direct response to compete against the highly successful \"Cassad\" design."
 	icon = 'icons/obj/guns/energy/destroyer.dmi'
 	fire_sound = 'sound/weapons/pulse.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 10, MATERIAL_URANIUM = 5)

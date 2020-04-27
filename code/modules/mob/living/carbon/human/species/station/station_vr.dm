@@ -236,8 +236,8 @@
 	deform = 'icons/mob/human_races/r_vulpkanin.dmi'
 //	path = /mob/living/carbon/human/vulpkanin
 //	default_language = "Sol Common"
-//	secondary_langs = list(LANGUAGE_CANILUNZT)
-//	name_language = LANGUAGE_CANILUNZT
+	secondary_langs = list(LANGUAGE_YUELDISCH)
+	name_language = LANGUAGE_YUELDISCH
 	primitive_form = "Wolpin"
 	tail = "vulptail"
 	tail_animation = 'icons/mob/species/vulpkanin/tail.dmi' // probably need more than just one of each, but w/e
@@ -248,11 +248,11 @@
 	//color_mult = 1
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
 
-	blurb = "Vulpkanin are a species of sharp-witted canine-pideds residing on the planet Altam just barely within the \
-	dual-star Vazzend system. Their politically de-centralized society and independent natures have led them to become a species and \
-	culture both feared and respected for their scientific breakthroughs. Discovery, loyalty, and utilitarianism dominates their lifestyles \
-	to the degree it can cause conflict with more rigorous and strict authorities. They speak a guttural language known as 'Canilunzt' \
-    which has a heavy emphasis on utilizing tail positioning and ear twitches to communicate intent."
+	blurb = "Vulpkanin (Commonly called Vulps or Vulpa for short) are a race of Canids from the planet of Altam in the Binary Vazzend system. \
+	Vulpkanin have a long history of religious and philosophical conflicts, ended by the current government the Vulpkanin nation,\
+	 an isolationist nation led by the ideas of utilitarianism with harsh criminal policies,\
+	including the generational exile of criminal and dissidents. However, a close working relationship with NanoTrasen means that while most Vulp characters are descendants or exiles\
+	themselves from Vulpkanin Space, some characters are citizens of the Vulp nation."
 
 	primitive_form = "Wolpin"
 
@@ -315,6 +315,11 @@
 	deform = 'icons/mob/human_races/r_seromi_vr.dmi'
 	//color_mult = 1
 	min_age = 18
+	
+	blurb = "A race of feathered raptors who developed alongside the Skrell, inhabiting \
+	the polar tundral regions outside of Skrell territory. Extremely fragile, they developed \
+	hunting skills that emphasized taking out their prey without themselves getting hit. They \
+	are only recently becoming known on human stations after reaching space with Skrell assistance."
 	push_flags = ~HEAVY //Allows them to use micro step code.
 	swap_flags = ~HEAVY
 
@@ -343,6 +348,14 @@
 	icobase = 'icons/mob/human_races/r_vox_old.dmi'
 	deform = 'icons/mob/human_races/r_def_vox_old.dmi'
 	//inherent_verbs = list(/mob/living/proc/shred_limb, /mob/living/proc/eat_trash)
+	
+	blurb = "The Vox are the broken remnants of a once-proud race, now reduced to little more than \
+	scavenging vermin who prey on isolated stations, ships or planets to keep their own ancient arkships \
+	alive. They are four to five feet tall, reptillian, beaked, tailed and quilled; human crews often \
+	refer to them as 'shitbirds' for their violent and offensive nature, as well as their horrible \
+	smell.<br/><br/>Most humans will never meet a Vox raider, instead learning of this insular species through \
+	dealing with their traders and merchants; those that do rarely enjoy the experience."
+
 
 /datum/species/human/vatgrown
 	spawn_flags = SPECIES_IS_RESTRICTED

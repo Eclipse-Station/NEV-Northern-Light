@@ -1272,7 +1272,7 @@
 	glass_center_of_mass = list("x"=15, "y"=7)
 
 /datum/reagent/ethanol/ntcahors
-	name = "NeoTheology Cahors Wine"
+	name = "NanoTrasen Cahors Wine"
 	id = "ntcahors"
 	description = "Fortified dessert wine made from cabernet sauvignon, saperavi and other grapes."
 	taste_description = "sweet charcoal"

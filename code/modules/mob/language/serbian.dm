@@ -4,6 +4,7 @@
 	desc = "Language popular among Serbian mercenaries, pirates and habitants of Predstraza planet."
 	colour = "serbian"
 	key = "x"
+	flags = WHITELISTED
 	space_chance = 80
 	shorthand = "SB"
 	syllables = list("zena", "rob", "macka", "tvoj", "ruke", "jebote", "placenik", "tsatsh", "da", "zivim", "cich", "jovan", "be", "ot", \
@@ -268,7 +269,7 @@
 "Cubrilovic",
 "Cvijic",
 "Cvijovic",
-"–ajic",
+"ƒêajic",
 "Damjenic",
 "Davidovic",
 "Djapic",
@@ -288,7 +289,7 @@
 "Gracanin",
 "Grba",
 "Grlic",
-"Grmuöa",
+"Grmu≈°a",
 "Grol",
 "Grujicic",
 "Horvat",
@@ -302,7 +303,7 @@
 "Jerkov",
 "Jigovic",
 "Jorgic",
-"Karadûic",
+"Karad≈æic",
 "Kadijevic",
 "Kajosevic",
 "Kalicanin",
