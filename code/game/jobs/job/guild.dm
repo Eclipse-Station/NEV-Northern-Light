@@ -1,6 +1,6 @@
 //Cargo
 /datum/job/merchant
-	title = "Free Trade Union merchant"
+	title = "Free Trade Union Merchant"
 	flag = MERCHANT
 	department = DEPARTMENT_GUILD
 	head_position = 1
@@ -92,7 +92,7 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 							 /datum/computer_file/program/reports)
 
 
-	description = "You are a low ranking member of the Asters' Merchant Guild, and an apprentice to the local merchant.  You may one day take over his position. You are equal parts scavenger, loader, shopkeeper and salesman. Remember the guild's core role here. To keep everyone supplied with everything they could need, and to profit from this endeavour<br>\
+	description = "You are a low ranking member of the Free Trade Union, and an apprentice to the local merchant.  You may one day take over his position. You are equal parts scavenger, loader, shopkeeper and salesman. Remember the guild's core role here. To keep everyone supplied with everything they could need, and to profit from this endeavour<br>\
 <br>\
 Your main duties are to keep the local guild branch operational and profitable. To that end you should look out for all of the following tasks:"
 
@@ -123,7 +123,7 @@ Your main duties are to keep the local guild branch operational and profitable. 
 	wage = WAGE_LABOUR_HAZARD //The miners union is stubborn
 	outfit_type = /decl/hierarchy/outfit/job/cargo/mining
 
-	description = "You are an asteroid miner, working in resource Procurement for the local branch of Asters' Merchant Guild.<br>\
+	description = "You are an asteroid miner, working in resource Procurement for the local branch of the Free Trade Union.<br>\
 Your primary responsibility is to head out on the Mining Barge, and dig up as much ore as you can on an asteroid. The barge contains all the facilities to process that ore too, and allows you to deliver refined materials ready for use.<br>\
 <br>\
 All the stuff you dig up goes to the guild, and from then on it's the merchant's responsibility to sell it to other departments. <br>\
