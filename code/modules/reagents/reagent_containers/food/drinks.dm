@@ -348,7 +348,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/mug/moebius
 	name = "\improper NanoTrasen mug"
-	desc = "A NanoTrasen logo, scribbled to have an M on it. Not even your morning coffee is safe from corporate advertising."
+	desc = "A mug with a NanoTrasen logo, scribbled to have an M on it. Not even your morning coffee is safe from corporate advertising."
 	icon_state = "mug_moebius"
 
 /obj/item/weapon/reagent_containers/food/drinks/mug/teacup
