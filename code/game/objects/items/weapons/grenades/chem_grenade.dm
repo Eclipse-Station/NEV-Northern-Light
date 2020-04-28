@@ -192,7 +192,7 @@
 	matter = list(MATERIAL_STEEL = 5)
 
 /obj/item/weapon/grenade/chem_grenade/metalfoam
-	name = "Asters \"Stop-Space\""
+	name = "\"Stop-Space\""
 	icon_state = "foam"
 	desc = "Used for emergency sealing of air breaches."
 	can_be_modified = FALSE
@@ -238,7 +238,7 @@
 	beakers += B2
 
 /obj/item/weapon/grenade/chem_grenade/antiweed
-	name = "Asters \"Flora Armageddon\""
+	name = "\"Flora Armageddon\""
 	desc = "Used for purging large areas of invasive plant species. Contents under pressure. Do not directly inhale contents."
 	icon_state = "foam"
 	can_be_modified = FALSE
@@ -262,7 +262,7 @@
 	icon_state = "grenade"
 
 /obj/item/weapon/grenade/chem_grenade/cleaner
-	name = "Asters \"Shit-Be-Gone\""
+	name = "\"Shit-Be-Gone\""
 	icon_state = "foam"
 	desc = "Dirt? Grime? Blood and criminal evidence? Say good-fucking-bye to all of those things with one simple throw!"
 	can_be_modified = FALSE
