@@ -31,7 +31,7 @@
 
 // Asters
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/tools
-	disk_name = "Asters Basic Tool Pack"
+	disk_name = "Basic Tool Pack"
 	icon_state = "guild"
 
 	license = -1
@@ -60,7 +60,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/misc
-	disk_name = "Asters Miscellaneous Pack"
+	disk_name = "Miscellaneous Pack"
 	icon_state = "guild"
 
 	license = -1
@@ -89,7 +89,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/devices
-	disk_name = "Asters Devices and Instruments"
+	disk_name = "Devices and Instruments"
 	icon_state = "guild"
 
 	license = 10
@@ -114,7 +114,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells
-	disk_name = "Asters Robustcells"
+	disk_name = "Robustcells"
 	icon_state = "guild"
 
 	license = 8
