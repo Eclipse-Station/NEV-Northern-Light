@@ -117,7 +117,7 @@
 *******************/
 //Self funds and pays wages out of its earnings
 /datum/department/guild
-	name = "Asters Merchant Guild"
+	name = "Free Trade Union"
 	id = DEPARTMENT_GUILD
 
 	/*
