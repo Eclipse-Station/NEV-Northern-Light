@@ -187,19 +187,19 @@
 							 /datum/computer_file/program/chem_catalog,
 							 /datum/computer_file/program/camera_monitor)
 
-	description = "You are a highly trained specialist within Aegis. You were probably a medical student or inexperienced doctor when you joined Ironhammer, and you thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated IH operative, but strike a balance inbetween. Balance is the nature of your existence.<br>\
+	description = "You are a highly trained specialist within Aegis. You were probably a medical student or inexperienced doctor when you joined Aegis, and you thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated Aegis operative, but strike a balance inbetween. Balance is the nature of your existence.<br>\
 	<br>\
 	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - Moebius Medical for roles 1 and 2, the Ironhammer Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
 	<br>\
 	1. Field Medic. <br>\
 	You may be expected to serve on the backlines in a combat situation, treating and stabilising the wounded, making the call as to whether they can return to combat or leave by medivac. You may need to perform emergency trauma surgery in undesireable conditions. <br>\
-	You are allowed to be armed, but remember that saving lives, not taking them, is your first duty. Don't be afraid to send patients to moebius medical for proper specialist care.<br>\
+	You are allowed to be armed, but remember that saving lives, not taking them, is your first duty. Don't be afraid to send patients to NanoTrasen medical for proper specialist care.<br>\
 	<br>\
 	2. Prison Doctor.<br>\
 	During quiet times, when inmates are serving in the brig, you will often be required to treat prisoners, criminal suspects, and the condemned. Suicide attempts are common in prison, and you will often be treating a patient against their will, who is attempting to escape. When serving in this role, stay on guard, work closely with the gunnery sergeant, and keep control of the situation<br>\
 	<br>\
 	3. Forensic Specialist.<br>\
-	Solving crimes often requires scientific analysis, and expert rulings from a trusted source within Ironhammer. You will often be expected to analyze blood, chemicals and fingerprints, conduct autopsies, and submit your findings to help track down elusive culprits. In this task, you will work closely with the inspector, and if necessary, he often has the talents to perform these tasks. But his time is better spent questioning and interrogating people"
+	Solving crimes often requires scientific analysis, and expert rulings from a trusted source within Aegis. You will often be expected to analyze blood, chemicals and fingerprints, conduct autopsies, and submit your findings to help track down elusive culprits. In this task, you will work closely with the inspector, and if necessary, he often has the talents to perform these tasks. But his time is better spent questioning and interrogating people"
 
 /obj/landmark/join/start/medspec
 	name = "Aegis Medical Specialist"
