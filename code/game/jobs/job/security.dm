@@ -189,7 +189,7 @@
 
 	description = "You are a highly trained specialist within Aegis. You were probably a medical student or inexperienced doctor when you joined Aegis, and you thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated Aegis operative, but strike a balance inbetween. Balance is the nature of your existence.<br>\
 	<br>\
-	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - Moebius Medical for roles 1 and 2, the Ironhammer Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
+	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - NanoTrasen Medical for roles 1 and 2, the Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
 	<br>\
 	1. Field Medic. <br>\
 	You may be expected to serve on the backlines in a combat situation, treating and stabilising the wounded, making the call as to whether they can return to combat or leave by medivac. You may need to perform emergency trauma surgery in undesireable conditions. <br>\
