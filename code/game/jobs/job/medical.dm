@@ -236,8 +236,6 @@ Once your duty to the living is dispensed, your secondary duty is to the dead. Y
 <br>\
 This is the most dangerous part of your job, and recovery should only be attempted if you can reasonably do so without endangering yourself. If there are hostile creatures preventing recovery, call Security to deal with them.<br>\
 <br>\
-On a lighter note, since you're so fit and agile, you will often be called upon to run errands. When there's no wounded or dead, a paramedic's duties often involve fetching lunch and coffee for the rest of the medical staff.<br>\
-<br>\
 Character Expectations:<br>\
 Paramedic is a physically demanding job, your character must be fit and strong. No fat bodies allowed<br>\
 EVA training is expected, you should be confident in a medical Voidsuit, and optionally in driving an odysseus mech<br>\
