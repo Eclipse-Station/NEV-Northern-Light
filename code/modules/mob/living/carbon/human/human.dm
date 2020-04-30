@@ -1170,7 +1170,7 @@ var/list/rank_prefix = list(\
 			BM = Pref.get_modification(tag)
 			var/datum/organ_description/OD = species.has_limbs[tag]
 			var/datum/body_modification/PBM = Pref.get_modification(OD.parent_organ)
-			if(PBM && (PBM.nature == MODIFICATION_SILICON || PBM.nature == MODIFICATION_REMOVED))
+			if(PBM && (PBM.nature == MODIFICATION_REMOVED))
 				BM = PBM
 			if(BM.is_allowed(tag, Pref, src))
 				BM.create_organ(src, OD, Pref.modifications_colors[tag])

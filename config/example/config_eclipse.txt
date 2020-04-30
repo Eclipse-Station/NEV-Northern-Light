@@ -1,0 +1,33 @@
+# Eclipse-specific configurations, for downstream servers and dev environments.
+
+#########
+# WHITELISTING
+#########
+
+## MASTER ENABLE
+## Uses the jobwhitelist.txt file to whitelist specific jobs.
+## WARNING: Disabling this will also disable whitelisting for the president!
+## Comment to disable.
+#USE_JOB_WHITELISTING
+
+## INCLUDE ADMINS
+## Should admins be required to be whitelisted as a job in order to play it? 
+## This will not stop them from spawning in a character using the admin tools,
+## only the game preferences.
+## Uncomment to require them to be whitelisted.
+#ADMINS_RESTRICTED_BY_WHITELIST
+
+## WHITELIST HEADS OF STAFF
+## Should heads of staff be whitelisted?
+## Uncomment to whitelist.
+#WHITELIST_HEADS
+
+## WHITELIST SECURITY DEPARTMENT
+## Should the Security department be whitelisted?
+## Uncomment to whitelist.
+#WHITELIST_SECURITY
+
+## WHITELIST AI/CYBORG
+## Should silicons be whitelisted? This will not affect pAIs, only AI and borgs.
+## Uncomment to whitelist.
+#WHITELIST_SILICONS

@@ -122,7 +122,11 @@
 			to_chat(user, SPAN_WARNING("You're pretty sure [owner.species.name_plural] don't normally have [o_a][organ_tag_to_name[limb.organ_tag]]."))
 			return FALSE
 
+		if(istype(I, /obj/item/organ/external/robotic))
+			return TRUE
+
 		var/obj/item/organ/external/existing_limb = owner.get_organ(limb.organ_tag)
+
 		if(existing_limb && !existing_limb.is_stump())
 			to_chat(user, SPAN_WARNING("\The [owner] already has [o_a][organ_tag_to_name[limb.organ_tag]]."))
 			return FALSE
@@ -186,13 +190,20 @@
 		// Remove existing limb (usually a limb stump)
 		if(existing_limb)
 			// Prevent the new limb from being deleted along with the old one
-			limb.loc = null
+			if(istype(I, /obj/item/organ/external/robotic))
+				var/obj/item/organ/external/robotic/r_limb = I
+				existing_limb.augment_organ(r_limb, saved_owner)
 
-			// Remove and delete the old limb
-			existing_limb.removed(null, FALSE)
-			qdel(existing_limb)
+				existing_limb.loc = null
+				qdel(existing_limb)
+			else
+				limb.loc = null
 
-		limb.replaced(saved_owner)
+				// Remove and delete the old limb
+				existing_limb.removed(null, FALSE)
+				qdel(existing_limb)
+
+				limb.replaced(saved_owner)
 
 		saved_owner.update_body()
 		saved_owner.updatehealth()

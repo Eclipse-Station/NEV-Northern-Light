@@ -223,6 +223,58 @@
 	SSnano.update_uis(src)
 
 
+/obj/item/organ/external/proc/augment_organ(obj/item/organ/external/new_organ, mob/user)
+	var/mob/living/carbon/human/H = user
+	if(!H || !istype(H))
+		return
+
+	H.organs -= src
+	H.organs += new_organ
+
+	H.organs_by_name -= src.organ_tag
+	H.organs_by_name += new_organ.organ_tag
+
+	if(H.bad_external_organs[src])
+		H.bad_external_organs -= src
+
+	for(var/atom/movable/implant in implants)
+		var/obj/item/I = implant
+		if(istype(I))
+			implant.forceMove(get_turf(H))
+
+	implants.Cut()
+
+	release_restraints()
+
+	var/obj/item/dropped = null
+	for(var/slot in drop_on_remove)
+		dropped = H.get_equipped_item(slot)
+		H.drop_from_inventory(dropped)
+
+	if(parent)
+		parent.children -= src
+		parent.children += new_organ
+		new_organ.parent = parent
+		parent = null
+
+	if(children)
+		for(var/obj/item/organ/child in children)
+			child.parent = new_organ
+			new_organ.children += child
+			child.loc = new_organ//HERE
+			children -= child
+
+	if(internal_organs)
+		for(var/obj/item/organ/internal/int_organ in internal_organs)
+			int_organ.parent_organ = new_organ.organ_tag
+
+			src.internal_organs -= int_organ
+			new_organ.internal_organs += int_organ
+
+	H.update_body()
+
+	SSnano.update_uis(src)
+
 /obj/item/organ/external/proc/update_bionics_hud()
 	switch(organ_tag)
 		if(BP_L_ARM)

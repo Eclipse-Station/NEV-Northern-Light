@@ -19,6 +19,12 @@
 /datum/design/research/item/mechfab/prosthesis/groin
 	build_path = /obj/item/organ/external/robotic/groin
 
+/datum/design/research/item/mechfab/prosthesis/chest
+	build_path = /obj/item/organ/external/robotic/chest
+
+/datum/design/research/item/mechfab/prosthesis/head
+	build_path = /obj/item/organ/external/robotic/head
+
 //Modules ====================================
 
 /datum/design/research/item/mechfab/modules
