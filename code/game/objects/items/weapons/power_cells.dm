@@ -131,7 +131,7 @@
 
 /obj/item/weapon/cell/medium/moebius
 	name = "\"Power-Geyser 700M\""
-	desc = "An Experimental rechargeable M-standardized power cell. This one is cheap, yet better than Aster model for same price."
+	desc = "An Experimental rechargeable M-standardized power cell. This one is cheap, yet better than the normal model for the same price."
 	icon_state = "meb_m_st"
 	maxcharge = 700
 
