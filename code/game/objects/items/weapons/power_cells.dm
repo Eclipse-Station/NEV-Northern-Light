@@ -52,7 +52,7 @@
 /obj/item/weapon/cell/large/moebius/hyper
 	name = "\"Power-Geyser 18000L\""
 	desc = "An Experimental rechargeable L-standardized power cell. Looks like this is rare and powerful prototype."
-  	icon_state = "meb_b_hy"
+	icon_state = "meb_b_hy"
 	origin_tech = list(TECH_POWER = 6)
 	maxcharge = 18000
 
