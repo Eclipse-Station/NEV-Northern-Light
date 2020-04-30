@@ -51,22 +51,22 @@
 /datum/gear/uniform/security_skirt
 	display_name = "jumpskirt, operative"
 	path = /obj/item/clothing/under/rank/security/skirt
-	allowed_roles = list("Ironhammer Operative")
+	allowed_roles = list("Aegis Operative")
 
 /datum/gear/uniform/medspec_skirt
 	display_name = "jumpskirt, medical specialist"
 	path = /obj/item/clothing/under/rank/medspec/skirt
-	allowed_roles = list("Ironhammer Medical Specialist")
+	allowed_roles = list("Aegis Medical Specialist")
 
 /datum/gear/uniform/warden_skirt
 	display_name = "jumpskirt, warden"
 	path = /obj/item/clothing/under/rank/warden/skirt
-	allowed_roles = list("Ironhammer Gunnery Sergeant")
+	allowed_roles = list("Gunnery Sergeant")
 
 /datum/gear/uniform/hos_skirt
 	display_name = "jumpskirt, commander"
 	path = /obj/item/clothing/under/rank/ih_commander/skirt
-	allowed_roles = list("Ironhammer Commander")
+	allowed_roles = list("Aegis Commander")
 
 /*/datum/gear/uniform/skirt
 	display_name = "plaid skirt, blue"

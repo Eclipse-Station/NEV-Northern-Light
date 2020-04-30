@@ -23,7 +23,7 @@
 #define HAS_HAIR_COLOR    0x20   // Hair colour selectable in chargen. (RGB)
 
 // Languages.
-#define LANGUAGE_COMMON "English Common"
+#define LANGUAGE_COMMON "Galactic Common"
 #define LANGUAGE_CYRILLIC "Techno-Russian"
 #define LANGUAGE_SERBIAN "Serbian"
 #define LANGUAGE_JIVE	"Jive"
@@ -66,6 +66,7 @@
 #define LANGUAGE_CULT "Cult"
 #define LANGUAGE_OCCULT "Occult"
 #define LANGUAGE_CHANGELING "Changeling"
+#define LANGUAGE_YUELDISCH "Yueldisch"
 #define LANGUAGE_VOX "Vox-Pidgin"
 #define LANGUAGE_TERMINUS "Terminus"
 #define LANGUAGE_SKRELLIANFAR "High Skrellian"
@@ -74,6 +75,8 @@
 #define LANGUAGE_LANIUS "Scraptalk"
 #define LANGUAGE_AKHANI "Akhani"
 #define LANGUAGE_ALAI "Alai"
+#define LANGUAGE_BIRDSONG "Birdsong"
+#define LANGUAGE_SAGARU "Sagaru"
 
 // Species flags.
 #define SPECIES_FLAG_NO_MINOR_CUT               0x0001  // Can step on broken glass with no ill-effects. Either thick skin (diona/vox), cut resistant (slimes) or incorporeal (shadows)

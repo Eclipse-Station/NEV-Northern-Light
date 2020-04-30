@@ -211,9 +211,9 @@
 	)
 
 
-// Moebius
+// NanoTrasen
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/medical
-	disk_name = "Moebius Medical Designs"
+	disk_name = "NanoTrasen Medical Designs"
 	icon_state = "moebius"
 
 	license = 20
@@ -238,7 +238,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/computer
-	disk_name = "Moebius Computer Parts"
+	disk_name = "NanoTrasen Computer Parts"
 	icon_state = "moebius"
 
 	license = 20
@@ -271,7 +271,7 @@
 
 // NeoTheology
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
-	disk_name = "NeoTheology Bioprinter Production"
+	disk_name = "NanoTrasen Bioprinter Production"
 	icon_state = "neotheology"
 
 	license = -1
@@ -304,7 +304,7 @@
 
 // Same as the other NT disk, minus the medical designs. Spawns in public access bioprinters.
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_public
-	disk_name = "NeoTheology Bioprinter Pack"
+	disk_name = "NanoTrasen Bioprinter Pack"
 	icon_state = "neotheology"
 
 	license = -1
@@ -331,7 +331,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_boards
-	disk_name = "NeoTheology Circuit Pack"
+	disk_name = "NanoTrasen Circuit Pack"
 	icon_state = "neotheology"
 
 	license = -1
@@ -357,7 +357,7 @@
 
 // Ironhammer
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/security
-	disk_name = "Ironhammer Miscellaneous Pack"
+	disk_name = "Cobalt Miscellaneous Pack"
 	icon_state = "ironhammer"
 
 	license = 20
@@ -898,7 +898,7 @@
 // Heavy
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_heavysniper
-	disk_name = "NeoTheology Armory - .60 Penetrator AMR"
+	disk_name = "NanoTrasen Armory - .60 Penetrator AMR"
 	icon_state = "neotheology"
 
 	license = 8
@@ -922,7 +922,7 @@
 // Grenade Launchers
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_protector
-	disk_name = "NeoTheology Armory - Protector Grenade Launcher"
+	disk_name = "NanoTrasen Armory - Protector Grenade Launcher"
 	icon_state = "neotheology"
 
 	license = 8
@@ -942,7 +942,7 @@
 // ENERGY SMALL ARMS
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_counselor
-	disk_name = "NeoTheology Armory - Councelor PDW E"
+	disk_name = "NanoTrasen Armory - Councelor PDW E"
 	icon_state = "neotheology"
 
 	license = 8
@@ -974,7 +974,7 @@
 // ENERGY ARMS
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
-	disk_name = "NeoTheology Armory - Nemesis Energy Crossbow"
+	disk_name = "NanoTrasen Armory - Nemesis Energy Crossbow"
 	icon_state = "neotheology"
 
 	license = 8
@@ -983,7 +983,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_themis
-	disk_name = "NeoTheology Armory - Themis Energy Crossbow"
+	disk_name = "NanoTrasen Armory - Themis Energy Crossbow"
 	icon_state = "neotheology"
 
 	license = 8
@@ -992,7 +992,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_lightfall
-	disk_name = "NeoTheology Armory - Lightfall Laser Gun"
+	disk_name = "NanoTrasen Armory - Lightfall Laser Gun"
 	icon_state = "neotheology"
 
 	license = 8
@@ -1002,7 +1002,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_valkirye
-	disk_name = "NeoTheology Armory - Valkyrie Energy Rifle"
+	disk_name = "NanoTrasen Armory - Valkyrie Energy Rifle"
 	icon_state = "neotheology"
 
 	license = 8
@@ -1012,7 +1012,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_halicon
-	disk_name = "NeoTheology Armory - Halicon Ion Rifle"
+	disk_name = "NanoTrasen Armory - Halicon Ion Rifle"
 	icon_state = "neotheology"
 
 	license = 8
@@ -1024,7 +1024,7 @@
 // PLASMA ARMS
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_dominion
-	disk_name = "NeoTheology Armory - Dominion Plasma Rifle"
+	disk_name = "NanoTrasen Armory - Dominion Plasma Rifle"
 	icon_state = "neotheology"
 
 	license = 8
@@ -1034,7 +1034,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_purger
-	disk_name = "NeoTheology Armory - Purger Plasma Rifle"
+	disk_name = "NanoTrasen Armory - Purger Plasma Rifle"
 	icon_state = "neotheology"
 
 	license = 8
@@ -1056,7 +1056,7 @@
 // SPECIAL
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/ms_dartgun
-	disk_name = "Moebius Scientifica - Z-H P Artemis Dartgun"
+	disk_name = "NanoTrasen Scientifica - Z-H P Artemis Dartgun"
 	icon_state = "moebius"
 
 	license = 8

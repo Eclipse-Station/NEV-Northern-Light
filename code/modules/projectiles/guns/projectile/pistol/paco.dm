@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/paco
 	name = "FS HG \"Paco\""
-	desc = "A modern and reliable sidearm for the soldier in the field. Commonly issued as a sidearm to Ironhammer Operatives. Uses standard .35 Auto mags."
+	desc = "A modern and reliable sidearm for the soldier in the field. Commonly issued as a sidearm to Aegis Operatives. Uses standard .35 Auto mags."
 	icon = 'icons/obj/guns/projectile/paco.dmi'
 	icon_state = "paco"
 	item_state = "paco"

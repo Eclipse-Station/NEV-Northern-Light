@@ -6,7 +6,7 @@ var/list/dreams = list(
 	"a hat","the Luna","a ruined station","a planet","phoron","air","the medical bay","the bridge","blinking lights",
 	"a blue light","an abandoned laboratory","NanoTrasen","mercenaries","blood","healing","power","respect",
 	"riches","space","a crash","happiness","pride","a fall","water","flames","ice","melons","flying","the eggs","money",
-	"the Head of Personnel","the Ironhammer Commander","the Chief Engineer","a Moebius Expedition Overseer","a Moebius Biolab Officer",
+	"the Head of Personnel","the Aegis Commander","the Chief Engineer","a Chief Science Officer","a Chief Medical Officer",
 	"the inspector","the gunnery sergeant","a member of the internal affairs","a ship engineer","the janitor","atmospheric technician",
 	"the guild merchant","a guild technician","the botanist","a guild miner","the psychologist","the chemist","the geneticist",
 	"the virologist","the roboticist","the chef","the bartender","the preacher","the librarian","a mouse",
