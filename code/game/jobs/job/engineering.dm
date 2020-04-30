@@ -105,7 +105,7 @@ You should carry materials too for field repair work, but don't steal entire sta
  <br>\
 Most importantly, be ready to respond to emergency calls at any time. Parts of the ship may be breached or explode, and its your job to fix it. No matter the cost, no matter the danger, you have the equipment and skills to march into places that would be death to most mortals. It is your responsibility to keep the ship more-or-less in one piece and still able to fly.<br>\
 <br>\
-Eris is your home, your life, and your livelihood. Take pride in it, and in your responsibilities. You should be hesitant to abandon ship, and try your hardest to prevent that becoming necessary. The engineering department is your sovereign territory, and you should be very wary of outsiders entering uninvited. Your fellow engineers are your family. Take care of them, treat them well, share everything with them, and solve your problems internally."
+The Northern Light is your home, your life, and your livelihood. Take pride in it, and in your responsibilities. You should be hesitant to abandon ship, and try your hardest to prevent that becoming necessary. The engineering department is your sovereign territory, and you should be very wary of outsiders entering uninvited. Your fellow engineers are your family. Take care of them, treat them well, share everything with them, and solve your problems internally."
 
 	duties = "	-Start up the supermatter<br>\
 	-Fuel the thrusters<br>\
@@ -116,7 +116,7 @@ Eris is your home, your life, and your livelihood. Take pride in it, and in your
 
 	loyalties = "	As an engineer, your first loyalty is to your fellow engineers. Ensure they are safe and well supplied, defend them, assist them, and share everything with them. If problems arise between you, ask the Chief Engineer to rule on it. Don't snitch on your fellow clanmates by calling Aegis. The Chief Engineer is the head of your clan, and in many ways a father figure. Trust in their wisdom and follow their instructions above anyone else's.<br>\
 	<br>\
-	Your second loyalty is to your ship. Unlike most of your crew, who would simply go home, Eris IS your home. Avoid abandoning ship at all costs. This is where you live and it's worth sacrificing for. Take pride in your work, and make Eris something to be cherished."
+	Your second loyalty is to your ship. Unlike most of your crew, who would simply go home, the Northern Lgiht IS your home. Avoid abandoning ship at all costs. This is where you live and it's worth sacrificing for. Take pride in your work, and make the Northern Light something to be cherished."
 
 	perks = list(/datum/perk/inspiration)
 
