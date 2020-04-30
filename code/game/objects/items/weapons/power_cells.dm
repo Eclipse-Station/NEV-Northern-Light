@@ -38,8 +38,6 @@
 /obj/item/weapon/cell/large/moebius/high
 	name = "\"Power-Geyser 7000L\""
 	desc = "An experimental rechargeable L-standardized power cell. Popular and reliable version."
-	name = "Moebius \"Power-Geyser 7000L\""
-	desc = "NanoTrasen Laboratories branded rechargeable L-standardized power cell. Popular and reliable version."
 	icon_state = "meb_b_hi"
 	origin_tech = list(TECH_POWER = 2)
 	maxcharge = 7000
@@ -54,7 +52,7 @@
 /obj/item/weapon/cell/large/moebius/hyper
 	name = "\"Power-Geyser 18000L\""
 	desc = "An Experimental rechargeable L-standardized power cell. Looks like this is rare and powerful prototype."
-  icon_state = "meb_b_hy"
+  	icon_state = "meb_b_hy"
 	origin_tech = list(TECH_POWER = 6)
 	maxcharge = 18000
 
