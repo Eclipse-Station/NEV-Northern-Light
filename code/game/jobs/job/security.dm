@@ -240,7 +240,7 @@
 	<br>\
 	You are a professional soldier and a hardened mercenary, no stranger to violence. You are required to employ your talents in order to bring an end to threats and conflict situations. As a consummate professional, you're often expected to put your pride aside, and work with others. Tactics and teamwork are vital.<br>\
 	<br>\
-	You are paid to act, not to think. When in doubt, follow orders, and leave the hard choices to someone else. Trust in your chain of command. Remember that you are the lowest rank in Aegis, and you report to everyone else in your organisation. Inspector, Medspec, gunnery sergeant and Commander, are all your superior officers, their orders should be obeyed.<br>\
+	You are paid to act, not to think. When in doubt, follow orders, and leave the hard choices to someone else. Trust in your chain of command. Remember that you are the lowest rank in Aegis, and you report to everyone else in your organisation. The Inspector, Medspec, gunnery sergeant and Commander, are all your superior officers, their orders should be obeyed.<br>\
 	<br>\
 	When there are no standing orders, your ongoing task is to patrol the ship and be on the lookout for threats. Check in at departments, ask if there are any concerns, break up fights and do your best to prevent trouble before it spirals out of control. Wipe out roaches and other dangerous creatures wherever you encounter them.<br>\
 	<br>\
