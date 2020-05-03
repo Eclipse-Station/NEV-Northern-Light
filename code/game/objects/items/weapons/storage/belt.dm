@@ -69,7 +69,7 @@
 	new /obj/item/stack/cable_coil/random(src)
 
 /obj/item/weapon/storage/belt/utility/neotheology
-	name = "neotheologian utility belt"
+	name = "mekhanite utility belt"
 	desc = "Waist-held holy items."
 	icon_state = "utility_neotheology"
 	can_hold_extra = list(
