@@ -93,7 +93,7 @@
 	<br>\
 	Though more may be required of you, should your Preacher so chose."
 
-	duties = "\Serve the Preacher's will."
+	duties = "Serve the Preacher's will."
 
 	setup_restricted = TRUE
 
