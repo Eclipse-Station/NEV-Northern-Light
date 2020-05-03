@@ -1396,7 +1396,8 @@
 					/obj/item/weapon/circuitboard/autolathe_disk_cloner = 1000,
 					/obj/item/weapon/circuitboard/vending = 500,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/lethal_ammo = 1200,)
-
+					
+/* //Eclipse removal - moved to vending_eclipse.dm 
 /obj/machinery/vending/serbomat
 	name = "From Serbia with love"
 	desc = "How did this end up here?"
@@ -1421,6 +1422,7 @@
 	idle_power_usage = 211
 	auto_price = FALSE
 	vendor_department = DEPARTMENT_CIVILIAN
+*/
 
 /obj/machinery/vending/custom
 	name = "Custom Vendomat"
