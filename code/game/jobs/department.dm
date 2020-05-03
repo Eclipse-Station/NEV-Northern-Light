@@ -105,7 +105,7 @@
 	funding_source = "NanoTrasen."
 
 /datum/department/church
-	name = "Church of NeoTheology"
+	name = "Children of Mekhane"
 	id = DEPARTMENT_CHURCH
 	funding_type = FUNDING_EXTERNAL
 	funding_source = "Church of NeoTheology"
