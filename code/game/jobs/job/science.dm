@@ -143,7 +143,7 @@ In addition, your department contains the manufacturing facilities for prostheti
 <br>\
 Lastly, though they're not commonly used, you have the facilities to construct massive and powerful mechanised vehicles. These have powerful capabilities in mining and rescue, as well as obvious military applications"
 
-	duties = "	Repair, maintain and upgrade robots aboard Eris<br>\
+	duties = "	Repair, maintain and upgrade robots aboard the NEV Northern Light<br>\
 	Maintain and implant new bionics in crewmembers<br>\
 	Advertise bionics for sale and run a commercial cybernetic clinic<br>\
 	Construct large mechas for specialised use in departments"

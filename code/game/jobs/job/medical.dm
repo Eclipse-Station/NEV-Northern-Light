@@ -226,7 +226,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 
 	description = "You are a NanoTrasen Paramedic, The hero of the hour! While doctors largely spend their time cloistered away in medbay, your job is to be out there on the frontlines. You work in the field, sometimes treating people on the spot, sometimes bringing them back to medical for specialist treatment. <br>\
 
-You have significant medical training, but typically you are not a doctor, and will lack a medical degree. The actual doctors have seniority, and you should follow their orders, especially concerning treatment and diagnosis of a patient<br>\
+You have significant medical training, but typically you are not a doctor, and will most likely lack a medical degree. The actual doctors have seniority, and you should follow their orders, especially concerning treatment and diagnosis of a patient<br>\
 <br>\
 You need to be ready to run at a moment's notice, and as such you should take careful care of your gear. Pack as many medicines, treatments, rollerbeds and other equipment as you can. Be sure to bring along some kind of heavy tool for breaching sealed areas.<br>\
 <br>\
@@ -235,8 +235,6 @@ When the wounded are inside medbay, you will often act as a porter, transporting
 Once your duty to the living is dispensed, your secondary duty is to the dead. You are the designated corpse recovery staff, and you will often need to retrieve bodies from where they died, bring them back and store them in the morgue. This gives a reduction in that player's respawn time.<br>\
 <br>\
 This is the most dangerous part of your job, and recovery should only be attempted if you can reasonably do so without endangering yourself. If there are hostile creatures preventing recovery, call Security to deal with them.<br>\
-<br>\
-On a lighter note, since you're so fit and agile, you will often be called upon to run errands. When there's no wounded or dead, a paramedic's duties often involve fetching lunch and coffee for the rest of the medical staff.<br>\
 <br>\
 Character Expectations:<br>\
 Paramedic is a physically demanding job, your character must be fit and strong. No fat bodies allowed<br>\

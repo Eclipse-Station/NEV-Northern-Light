@@ -2,7 +2,7 @@
 #define CAT_HIDDEN 2  // also used in corresponding wires/vending.dm
 #define CAT_COIN   4
 
-#define CUSTOM_VENDOMAT_MODELS list("Generic" = "generic", "Security" = "sec", "Electronics" = "cart", "Research" = "robotics", "Medical" = "med", "Engineering" = "engivend", "Engineering 2" = "engi", "Tools" = "tool", "Shady" = "sovietsoda", "Fridge" = "smartfridge", "Alcohol" = "boozeomat", "Frozen Star" = "weapon", "NeoTheo" = "teomat", "Asters Power Cells" = "powermat", "Asters Disks" = "discomat")
+#define CUSTOM_VENDOMAT_MODELS list("Generic" = "generic", "Security" = "sec", "Electronics" = "cart", "Research" = "robotics", "Medical" = "med", "Engineering" = "engivend", "Engineering 2" = "engi", "Tools" = "tool", "Shady" = "sovietsoda", "Fridge" = "smartfridge", "Alcohol" = "boozeomat", "Frozen Star" = "weapon", "NeoTheo" = "teomat", "Power Cells" = "powermat", "Disks" = "discomat")
 
 /**
  *  Datum used to hold information about a product in a vending machine
@@ -1344,7 +1344,7 @@
 	prices = list(/obj/item/weapon/book/ritual/cruciform = 500, /obj/item/weapon/storage/fancy/candle_box = 200, /obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors = 250, /obj/item/weapon/implant/core_implant/cruciform = 1000)
 
 /obj/machinery/vending/powermat
-	name = "Asters Guild Power-Mat"
+	name = "Power-Mat"
 	desc = "Trust is power, and there's no power you can trust like Robustcell."
 	product_slogans = "Trust is power, and there's no cell you can trust like Robustcell.;No battery is stronger nor lasts longer.;One that Lasts!;You can't top the copper top!"
 	product_ads = "Robust!;Trustworthy!;Durable!"
@@ -1355,7 +1355,7 @@
 				/obj/item/weapon/cell/large/super = 1200, /obj/item/weapon/cell/medium/super = 700, /obj/item/weapon/cell/small/super = 350)
 
 /obj/machinery/vending/printomat
-	name = "Asters Guild Print-o-Mat"
+	name = "Print-o-Mat"
 	desc = "Everything you can imagine (not really) on a disc! Print your own gun TODAY."
 	product_slogans = "Print your own gun TODAY!;The future is NOW!;Can't stop the industrial revolution!"
 	product_ads = "Almost free!;Print it yourself!;Don't copy that floppy!"

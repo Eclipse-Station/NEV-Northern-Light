@@ -1,6 +1,6 @@
 //Cargo
 /datum/job/merchant
-	title = "Free Trade Union merchant"
+	title = "Free Trade Union Merchant"
 	flag = MERCHANT
 	department = DEPARTMENT_GUILD
 	head_position = 1
@@ -32,7 +32,7 @@ You do not recieve a salary, but the local guild funds are yours to use. You may
 <br>\
 Things to bear in mind:<br>\
 	-Nobody has a right to free stuff. You are well within your rights to charge for anything you distribute, and you won't make a penny if you don't.<br>\
-	-Eris has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
+	-CEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
 	-Loyalty is a priceless resource, yet cheap to maintain. Don't screw over the miners and technicians working under you. <br>\
 	-Charity is a weapon. Used correctly, it can do wonders for your public image.  A few gifts spread around makes for good returning customers"
 
@@ -42,7 +42,7 @@ Deploy your mining staff to harvest matter and materials<br>\
 Counsel the captain on directing the ship towards profitable opportunities"
 
 	loyalties = "As a merchant, your first loyalty is to money. You should be unscrupulous, willing to sell anything to anyone if they can pay your prices. Direct the ship towards profitable endeavours, and press the captain to make choices that will be financially lucrative<br>\
-Your second loyalty is to the guild. Ensure it retains good relations with privateers like the captain of Eris, and don't embarass it. This means limiting your price gouging to only moderate levels. If you make an enemy of everyone, it may prove a costly mistake"
+Your second loyalty is to the guild. Ensure it retains good relations with privateers like the captain of the Northern Light, and don't embarass it. This means limiting your price gouging to only moderate levels. If you make an enemy of everyone, it may prove a costly mistake"
 
 	software_on_spawn = list(///datum/computer_file/program/supply,
 							 ///datum/computer_file/program/deck_management,
@@ -92,7 +92,7 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 							 /datum/computer_file/program/reports)
 
 
-	description = "You are a low ranking member of the Asters' Merchant Guild, and an apprentice to the local merchant.  You may one day take over his position. You are equal parts scavenger, loader, shopkeeper and salesman. Remember the guild's core role here. To keep everyone supplied with everything they could need, and to profit from this endeavour<br>\
+	description = "You are a low ranking member of the Free Trade Union, and an apprentice to the local merchant.  You may one day take over his position. You are equal parts scavenger, loader, shopkeeper and salesman. Remember the guild's core role here. To keep everyone supplied with everything they could need, and to profit from this endeavour<br>\
 <br>\
 Your main duties are to keep the local guild branch operational and profitable. To that end you should look out for all of the following tasks:"
 
@@ -123,7 +123,7 @@ Your main duties are to keep the local guild branch operational and profitable. 
 	wage = WAGE_LABOUR_HAZARD //The miners union is stubborn
 	outfit_type = /decl/hierarchy/outfit/job/cargo/mining
 
-	description = "You are an asteroid miner, working in resource Procurement for the local branch of Asters' Merchant Guild.<br>\
+	description = "You are an asteroid miner, working in resource Procurement for the local branch of the Free Trade Union.<br>\
 Your primary responsibility is to head out on the Mining Barge, and dig up as much ore as you can on an asteroid. The barge contains all the facilities to process that ore too, and allows you to deliver refined materials ready for use.<br>\
 <br>\
 All the stuff you dig up goes to the guild, and from then on it's the merchant's responsibility to sell it to other departments. <br>\

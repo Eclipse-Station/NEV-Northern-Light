@@ -32,7 +32,7 @@
 	new /obj/item/weapon/tool/wrench(src)
 
 /obj/structure/closet/secure_closet/personal/doctor
-	name = "moebius doctor's locker"
+	name = "doctor's locker"
 	req_access = list(access_cmo)
 	access_occupy = list(access_medical_equip)
 	icon_state = "med"
