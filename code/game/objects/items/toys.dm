@@ -486,8 +486,8 @@
 	icon = 'icons/obj/toy.dmi'
 
 /obj/item/toy/figure/cmo
-	name = "Biolab Officer action figure"
-	desc = "A \"Space Life\" brand Biolab Officer action figure."
+	name = "Chief Medical Officer action figure"
+	desc = "A \"Space Life\" brand Chief Medical Officer action figure."
 	icon_state = "cmo"
 
 /obj/item/toy/figure/assistant
@@ -521,12 +521,12 @@
 	icon_state = "captain"
 
 /obj/item/toy/figure/cargotech
-	name = "Unio Technician action figure"
+	name = "Union Technician action figure"
 	desc = "A \"Space Life\" brand Union Technician action figure."
 	icon_state = "cargotech"
 
 /obj/item/toy/figure/ce
-	name = "Technomancer Exultant action figure"
+	name = "Chief Engineer action figure"
 	desc = "A \"Space Life\" brand Chief Engineer action figure."
 	icon_state = "ce"
 
@@ -631,8 +631,8 @@
 	icon_state = "wizard"
 
 /obj/item/toy/figure/rd
-	name = "Expedition Overseer action figure"
-	desc = "A \"Space Life\" brand Expedition Overseer action figure."
+	name = "Chief Science Officer action figure"
+	desc = "A \"Space Life\" brand Chief Science Officer action figure."
 	icon_state = "rd"
 
 /obj/item/toy/figure/roboticist
