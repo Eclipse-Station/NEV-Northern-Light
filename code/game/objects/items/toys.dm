@@ -521,8 +521,8 @@
 	icon_state = "captain"
 
 /obj/item/toy/figure/cargotech
-	name = "Guild Technician action figure"
-	desc = "A \"Space Life\" brand Guild Technician action figure."
+	name = "Unio Technician action figure"
+	desc = "A \"Space Life\" brand Union Technician action figure."
 	icon_state = "cargotech"
 
 /obj/item/toy/figure/ce
@@ -586,8 +586,8 @@
 	icon_state = "hos"
 
 /obj/item/toy/figure/qm
-	name = "Guild Merchant action figure"
-	desc = "A \"Space Life\" brand Guild Merchant action figure."
+	name = "Union Merchant action figure"
+	desc = "A \"Space Life\" brand Union Merchant action figure."
 	icon_state = "qm"
 
 /obj/item/toy/figure/janitor
@@ -616,8 +616,8 @@
 	icon_state = "mime"
 
 /obj/item/toy/figure/miner
-	name = "Guild Miner action figure"
-	desc = "A \"Space Life\" brand Guild Miner action figure."
+	name = "Union Miner action figure"
+	desc = "A \"Space Life\" brand Union Miner action figure."
 	icon_state = "miner"
 
 /obj/item/toy/figure/ninja
