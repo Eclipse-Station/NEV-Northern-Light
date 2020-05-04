@@ -578,6 +578,7 @@
 #include "code\game\jobs\access_datum.dm"
 #include "code\game\jobs\department.dm"
 #include "code\game\jobs\jobs.dm"
+#include "code\game\jobs\manifest_controller.dm"
 #include "code\game\jobs\wages.dm"
 #include "code\game\jobs\whitelist.dm"
 #include "code\game\jobs\whitelist_eclipse.dm"
