@@ -55,7 +55,7 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 	perks = list(/datum/perk/timeismoney)
 
 /obj/landmark/join/start/merchant
-	name = "Guild Merchant"
+	name = "Trade Union Merchant"
 	icon_state = "player-beige-officer"
 	join_tag = /datum/job/merchant
 
@@ -69,7 +69,7 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 	faction = "NEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Guild Merchant"
+	supervisors = "the Free Trade Union Merchant"
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_DUMB
 	outfit_type = /decl/hierarchy/outfit/job/cargo/cargo_tech
