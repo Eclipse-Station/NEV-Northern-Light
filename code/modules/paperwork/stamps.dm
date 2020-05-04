@@ -44,7 +44,7 @@
 	icon_state = "stamp-clown"
 
 /obj/item/weapon/stamp/qm
-	name = "guild merchant's stamp"
+	name = "union merchant's stamp"
 	icon_state = "stamp-qm"
 
 // Syndicate stamp to forge documents.
