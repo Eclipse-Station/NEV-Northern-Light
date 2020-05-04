@@ -7,7 +7,7 @@
 //For things that require delaying until the config loads for things (e.g. the
 //Reginald spawn code on Eclipase Station code). Will be set TRUE after load.
 	var/eclipse_config_loaded = FALSE
-	
+
 //job whitelisting.
 	var/usejobwhitelist = FALSE		//master job whitelisting enable
 	var/wl_heads = FALSE			//Whitelist Heads of Staff?
@@ -29,7 +29,7 @@
 		var/pos = findtext(t, " ")
 		var/name = null
 		var/value = null
-
+		value = value
 		if (pos)
 			name = lowertext(copytext(t, 1, pos))
 			value = copytext(t, pos + 1)
@@ -53,4 +53,5 @@
 				config.wl_admins_too = TRUE
 
 	config.eclipse_config_loaded = TRUE		//config is loaded
+
 	return 1

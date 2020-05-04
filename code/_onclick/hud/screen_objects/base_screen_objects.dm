@@ -186,57 +186,60 @@
 	var/list/PL = params2list(params)
 	var/icon_x = text2num(PL["icon-x"])
 	var/icon_y = text2num(PL["icon-y"])
-	var/selecting
+	var/new_selecting
 
 	switch(icon_y)
 		if(1 to 3) //Feet
 			switch(icon_x)
 				if(10 to 15)
-					parentmob.targeted_organ = BP_R_FOOT
+					new_selecting = BP_R_FOOT
 				if(17 to 22)
-					parentmob.targeted_organ = BP_L_FOOT
+					new_selecting = BP_L_FOOT
 				else
-					return TRUE
+					return 1
 		if(4 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
-					parentmob.targeted_organ = BP_R_LEG
+					new_selecting = BP_R_LEG
 				if(17 to 22)
-					selecting = BP_L_LEG
+					new_selecting = BP_L_LEG
 				else
-					return TRUE
+					return 1
 		if(10 to 13) //Hands and groin
 			switch(icon_x)
 				if(8 to 11)
-					parentmob.targeted_organ = BP_R_HAND
+					new_selecting = BP_R_HAND
 				if(12 to 20)
-					selecting = BP_GROIN
+					new_selecting = BP_GROIN
 				if(21 to 24)
-					parentmob.targeted_organ = BP_L_HAND
+					new_selecting = BP_L_HAND
 				else
-					return TRUE
+					return 1
 		if(14 to 22) //Chest and arms to shoulders
 			switch(icon_x)
 				if(8 to 11)
-					selecting = BP_R_ARM
+					new_selecting = BP_R_ARM
 				if(12 to 20)
-					selecting = BP_CHEST
+					new_selecting = BP_CHEST
 				if(21 to 24)
-					selecting = BP_L_ARM
+					new_selecting = BP_L_ARM
 				else
-					return TRUE
+					return 1
 		if(23 to 30) //Head, but we need to check for eye or mouth
 			if(icon_x in 12 to 20)
-				selecting = BP_HEAD
+				new_selecting = BP_HEAD
 				switch(icon_y)
 					if(23 to 24)
 						if(icon_x in 15 to 17)
-							selecting = BP_MOUTH
-					if(25 to 27)
+							new_selecting = BP_MOUTH
+					if(26) //Eyeline, eyes are on 15 and 17
 						if(icon_x in 14 to 18)
-							selecting = BP_EYES
+							new_selecting = BP_EYES
+					if(25 to 27)
+						if(icon_x in 15 to 17)
+							new_selecting = BP_EYES
 
-	set_selected_zone(selecting)
+	set_selected_zone(new_selecting)
 	return TRUE
 
 /obj/screen/zone_sel/New()
@@ -249,6 +252,8 @@
 
 /obj/screen/zone_sel/proc/set_selected_zone(bodypart)
 	var/old_selecting = parentmob.targeted_organ
+	testing("[bodypart] - - [old_selecting]")
+
 	if(old_selecting != bodypart)
 		parentmob.targeted_organ = bodypart
 		update_icon()
