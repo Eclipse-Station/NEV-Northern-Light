@@ -25,7 +25,7 @@
 	icobase = 'icons/mob/human_races/r_lizard_vr.dmi'		//Eclipse edit.
 	deform = 'icons/mob/human_races/r_def_lizard_vr.dmi'		//Eclipse edit.
 	tail = "sogtail"
-	tail_animation = 'icons/mob/species/unathi/unathi_tail.dmi'
+	tail_animation = 'icons/mob/species/unathi/tail_vr.dmi'		//Eclipse edit.
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	primitive_form = SPECIES_MONKEY_UNATHI
 	darksight = 3
