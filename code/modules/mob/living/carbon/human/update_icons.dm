@@ -1123,7 +1123,7 @@ var/global/list/damage_icon_parts = list()
 
 	if(update_icons) update_icons()
 
-
+// // // BEGIN ECLIPSE EDITS // // //
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 	overlays_standing[TAIL_LAYER] = null
 
@@ -1143,6 +1143,8 @@ var/global/list/damage_icon_parts = list()
 
 	if(update_icons)
 		update_icons()
+
+// // // END ECLIPSE EDITS // // //
 
 /mob/living/carbon/human/proc/get_tail_icon()
 	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin]"
