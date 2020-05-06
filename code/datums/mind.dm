@@ -126,7 +126,7 @@
 			output += "<br><b>Your [A.role_text] objectives:</b>"
 		output += "[A.print_objectives(FALSE)]"
 
-	recipient << browse(russian_to_utf8(output), "window=memory")
+	recipient << browse(output, "window=memory")
 
 /datum/mind/proc/edit_memory()
 	if(SSticker.current_state != GAME_STATE_PLAYING)
@@ -162,7 +162,7 @@
 		if(antag)
 			var/ok = FALSE
 			if(antag.outer && active)
-				var/answer = alert("[antag.role_text] is outer antagonist. [name] will be taken from the current mob and spawned as antagonist. Continue?","No","Yes")
+				var/answer = alert("[antag.role_text] is an outer antagonist. [name] will be taken from the current mob and spawned as antagonist. Continue?","Confirmation", "No","Yes")
 				ok = (answer == "Yes")
 			else
 				var/answer = alert("Are you sure you want to make [name] the [antag.role_text]","Confirmation","No","Yes")

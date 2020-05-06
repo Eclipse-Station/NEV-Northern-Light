@@ -711,7 +711,7 @@
 	var/mob/living/carbon/C = M
 	if(istype(C) && C.metabolism_effects.addiction_list.len)
 		if(prob(5 * effect_multiplier + dose))
-			var/list/datum/reagent/R = pick(C.metabolism_effects.addiction_list)
+			var/datum/reagent/R = pick(C.metabolism_effects.addiction_list)
 			to_chat(C, SPAN_NOTICE("You dont crave for [R.name] anymore."))
 			C.metabolism_effects.addiction_list.Remove(R)
 			qdel(R)
@@ -783,6 +783,8 @@
 	reagent_state = LIQUID
 	color = "#a6b85b"
 	overdose = REAGENTS_OVERDOSE
+	heating_point = 683.15
+	heating_products = list("carbon", "hclacid", "acetone")
 
 /datum/reagent/medicine/vomitol/affect_blood(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
 	if(prob(10 * effect_multiplier))

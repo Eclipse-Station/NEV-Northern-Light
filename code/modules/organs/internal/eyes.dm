@@ -18,8 +18,8 @@
 /obj/item/organ/internal/eyes/proc/get_cache_key()
 	return "[cache_key][BP_IS_ROBOTIC(src) ? robo_color : eyes_color]"
 
-/obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
-
+/obj/item/organ/internal/eyes/replaced_mob(mob/living/carbon/human/target)
+	..()
 	// Apply our eye colour to the target.
 	if(istype(target) && eyes_color)
 		var/list/eyecolors = ReadRGB(eyes_color)
