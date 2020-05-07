@@ -14,14 +14,6 @@
 #define CAN_JOIN          0x2    // Species is selectable in chargen.
 #define IS_RESTRICTED     0x4    // Is not a core/normally playable species. (castes, mutantraces)
 
-// Species appearance flags
-#define HAS_SKIN_TONE     0x1    // Skin tone selectable in chargen. (0-255)
-#define HAS_SKIN_COLOR    0x2    // Skin colour selectable in chargen. (RGB)
-#define HAS_LIPS          0x4    // Lips are drawn onto the mob icon. (lipstick)
-#define HAS_UNDERWEAR     0x8    // Underwear is drawn onto the mob icon.
-#define HAS_EYE_COLOR     0x10   // Eye colour selectable in chargen. (RGB)
-#define HAS_HAIR_COLOR    0x20   // Hair colour selectable in chargen. (RGB)
-
 // Languages.
 #define LANGUAGE_COMMON "Galactic Common"
 #define LANGUAGE_CYRILLIC "Techno-Russian"
@@ -38,6 +30,7 @@
 #define LANGUAGE_CORTICAL "Cortical Link"
 #define LANGUAGE_CULT "Cult"
 #define LANGUAGE_OCCULT "Occult"
+#define LANGUAGE_BLITZ "Blitzshell Communique"
 
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.
@@ -63,9 +56,6 @@
 #define LANGUAGE_SCHECHI "Schechi"
 #define LANGUAGE_ROOTLOCAL "Local Rootspeak"
 #define LANGUAGE_ROOTGLOBAL "Global Rootspeak"
-#define LANGUAGE_CULT "Cult"
-#define LANGUAGE_OCCULT "Occult"
-#define LANGUAGE_CHANGELING "Changeling"
 #define LANGUAGE_YUELDISCH "Yueldisch"
 #define LANGUAGE_VOX "Vox-Pidgin"
 #define LANGUAGE_TERMINUS "Terminus"
@@ -102,6 +92,7 @@
 
 // Species appearance flags
 #define HAS_SKIN_TONE_NORMAL                                                      0x1    // Skin tone selectable in chargen for baseline humans (0-220)
+#define HAS_SKIN_TONE		                                                      0x1    // Skin tone selectable in chargen for baseline humans (0-220)
 #define HAS_SKIN_COLOR                                                            0x2    // Skin colour selectable in chargen. (RGB)
 #define HAS_LIPS                                                                  0x4    // Lips are drawn onto the mob icon. (lipstick)
 #define HAS_UNDERWEAR                                                             0x8    // Underwear is drawn onto the mob icon.
@@ -113,6 +104,8 @@
 #define HAS_SKIN_TONE_TRITON                                                      0x200
 #define HAS_BASE_SKIN_COLOURS                                                     0x400  // Has multiple base skin sprites to go off of
 #define HAS_A_SKIN_TONE (HAS_SKIN_TONE_NORMAL | HAS_SKIN_TONE_GRAV | HAS_SKIN_TONE_SPCR | HAS_SKIN_TONE_TRITON) // Species has a numeric skintone
+
+
 
 // Skin Defines
 #define SKIN_NORMAL 0

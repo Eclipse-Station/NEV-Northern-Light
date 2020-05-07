@@ -72,6 +72,7 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 	supervisors = "the Guild Merchant"
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_DUMB
+	department_account_access = TRUE
 	outfit_type = /decl/hierarchy/outfit/job/cargo/cargo_tech
 
 	access = list(
