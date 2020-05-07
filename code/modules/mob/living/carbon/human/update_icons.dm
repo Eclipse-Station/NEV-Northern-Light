@@ -1123,7 +1123,7 @@ var/global/list/damage_icon_parts = list()
 
 	if(update_icons) update_icons()
 
-// // // BEGIN ECLIPSE EDITS // // //
+
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 	overlays_standing[TAIL_LAYER] = null
 
@@ -1137,14 +1137,11 @@ var/global/list/damage_icon_parts = list()
 
 	if(species_tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-		tail_s.layer = (-100)+TAIL_LAYER
 		overlays_standing[TAIL_LAYER] = image(tail_s, icon_state = "[species_tail]_s")
 		animate_tail_reset(0)
 
 	if(update_icons)
 		update_icons()
-
-// // // END ECLIPSE EDITS // // //
 
 /mob/living/carbon/human/proc/get_tail_icon()
 	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin]"
