@@ -288,13 +288,12 @@ var/global/list/modifications_types = list(
 
 
 // Special heads
-/datum/body_modification/limb/tvhead
+/datum/body_modification/limb/prosthesis/tvhead
 	name = "Unbranded TV-head"
-	id = "prosthesis_basic"
+	id = "tvhead"
 	desc = "A knock-off unbranded tv-shaped head."
 	body_parts = list(BP_HEAD)
 	replace_limb = /obj/item/organ/external/robotic
 	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_monitor.dmi'
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
-	var/prosthetic_model

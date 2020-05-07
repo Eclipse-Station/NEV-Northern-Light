@@ -1,7 +1,3 @@
-#define CAT_NORMAL 1
-#define CAT_HIDDEN 2  // also used in corresponding wires/vending.dm
-#define CAT_COIN   4
-
 #define CUSTOM_VENDOMAT_MODELS list("Generic" = "generic", "Security" = "sec", "Electronics" = "cart", "Research" = "robotics", "Medical" = "med", "Engineering" = "engivend", "Engineering 2" = "engi", "Tools" = "tool", "Shady" = "sovietsoda", "Fridge" = "smartfridge", "Alcohol" = "boozeomat", "Frozen Star" = "weapon", "NeoTheo" = "teomat", "Power Cells" = "powermat", "Disks" = "discomat")
 
 /**
@@ -1439,8 +1435,8 @@
 					/obj/item/weapon/circuitboard/autolathe_disk_cloner = 1000,
 					/obj/item/weapon/circuitboard/vending = 500,
 					/obj/item/weapon/computer_hardware/hard_drive/portable/design/lethal_ammo = 1200,)
-					
-/* //Eclipse removal - moved to vending_eclipse.dm 
+
+/* //Eclipse removal - moved to vending_eclipse.dm
 /obj/machinery/vending/serbomat
 	name = "From Serbia with love"
 	desc = "How did this end up here?"
