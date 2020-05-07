@@ -6,7 +6,7 @@
 #define JOBS_ENGINEERING "Chief Engineer","Ship Engineer"
 #define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Pharmacist","Paramedic"
 #define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist"
-#define JOBS_CARGO "Supply Manager","Supply Technician","Miner"
+#define JOBS_CARGO "Free Trade Union Merchant","Union Cargo Technician","Union Miner"
 #define JOBS_CIVILIAN "Club Manager","Club Worker","Custodian","Botanist",ASSISTANT_TITLE
 #define JOBS_LAZARUS "Lazarus Representive","Geneticist","Research Associate",
 #define JOBS_CHURCH "NeoTheology Magos","NeoTheology Enginseer","NeoTheology Acolyte",

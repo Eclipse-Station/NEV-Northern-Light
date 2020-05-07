@@ -13,7 +13,7 @@
 
 /tipsAndTricks/jobs/guild_resale_profit
     jobs_list = list(/datum/job/merchant, /datum/job/cargo_tech)
-    tipText = "As a guild merchant, you should be buying up valuable things from scavengers and reselling them for a profit. Buy anything of value that's brought to you."
+    tipText = "As a Union Merchant, you should be buying up valuable things from scavengers and reselling them for a profit. Buy anything of value that's brought to you."
 
 /tipsAndTricks/jobs/guild_price_scanner
     jobs_list = list(/datum/job/merchant, /datum/job/cargo_tech)

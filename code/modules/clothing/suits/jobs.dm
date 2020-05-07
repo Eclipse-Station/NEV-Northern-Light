@@ -21,7 +21,7 @@
 
 //Guild Technician
 /obj/item/clothing/suit/storage/cargo_jacket
-	name = "guild technician jacket"
+	name = "union technician jacket"
 	desc = "Stylish jacket lined with pockets. It seems have a little protection from physical harm."
 	icon_state = "cargo_jacket"
 	item_state = "cargo_jacket"
@@ -38,7 +38,7 @@
 
 //Quartermaster
 /obj/item/clothing/suit/storage/qm_coat
-	name = "guild merchant coat"
+	name = "union merchant coat"
 	desc = "An ideal choice for a smuggler. This coat seems have good impact resistance, and is made from resistant and expensive materials."
 	icon_state = "qm_coat"
 	item_state = "qm_coat"

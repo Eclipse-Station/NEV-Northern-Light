@@ -5,6 +5,8 @@
 	welcome = "Today will be a glorious day!"
 	description = "A storyteller with a focus on player vs player combat. Spawns lots of antagonists, but fewer random events."
 
+	votable = FALSE
+
 	gain_mult_mundane = 0.8
 	gain_mult_moderate = 0.8
 	gain_mult_major = 0.8

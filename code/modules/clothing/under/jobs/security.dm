@@ -2,7 +2,7 @@
  * Contains:
  *		Security
  *		Detective
- *		Ironhammer Commander
+ *		Aegis Commander
  */
 
 /*
@@ -101,7 +101,7 @@
 
 
 /*
- * Ironhammer Commander
+ * Aegis Commander
  */
 /obj/item/clothing/under/rank/ih_commander
 	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Aegis Commander\"."

@@ -109,8 +109,8 @@ var/global/list/organ_tag_to_name = list(
 	)
 */
 var/global/list/organ_tag_to_name = list(
-	head  = "head", r_arm = "Right arm",r_hand = "Right hand",
-	chest = "torso", r_leg = "Right Leg",r_foot = "Right foot",
+	head  = "Head", r_arm = "Right arm",r_hand = "Right hand",
+	torso = "Torso", r_leg = "Right Leg",r_foot = "Right foot",
 	eyes  = "Eyes", l_arm = "Left arm", l_hand = "Left hand",
 	groin = "Groin",l_leg = "Left Leg", l_foot = "Left foot",
 	chest2= "Back", heart = "Heart",    lungs  = "Lungs",

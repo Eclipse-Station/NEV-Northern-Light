@@ -127,12 +127,12 @@
 	path = /obj/item/clothing/head/ushanka
 
 /datum/gear/head/cap/secfield
-	display_name = "cap, IH field"
+	display_name = "cap, Aegis field"
 	path = /obj/item/clothing/head/soft/sec2soft
 	allowed_roles = list("Aegis Operative","Aegis Commander","Gunnery Sergeant", "Inspector")
 
 /datum/gear/head/cap/sarge
-	display_name = "cap, IH sergeant"
+	display_name = "cap, Aegis sergeant"
 	path = /obj/item/clothing/head/soft/sarge2soft
 	allowed_roles = list("Aegis Commander","Gunnery Sergeant")
 

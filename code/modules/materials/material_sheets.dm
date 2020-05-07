@@ -281,7 +281,7 @@
 	name = "borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
-	icon_state = "sheet-phoronglass"
+	icon_state = "sheet-plasmaglass"
 	default_type = MATERIAL_PHORONGLASS
 	price_tag = 10
 
@@ -293,7 +293,7 @@
 	name = "reinforced borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
-	icon_state = "sheet-phoronrglass"
+	icon_state = "sheet-plasmaglass"
 	default_type = MATERIAL_RPHORONGLASS
 	price_tag = 12
 
