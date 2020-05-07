@@ -1,5 +1,5 @@
 /obj/machinery/power/nt_obelisk
-	name = "NeoTheology's obelisk"
+	name = "Mekhane obelisk"
 	desc = "The obelisk."
 	icon = 'icons/obj/neotheology_machinery.dmi'
 	icon_state = "nt_obelisk"
