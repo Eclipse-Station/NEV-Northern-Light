@@ -207,7 +207,7 @@
 		list(QUALITY_WELDING, 10, "time" = 30), //Weld the plasteel to the head
 		list(/obj/item/rocket_engine, 1, "time" = 30),	//Attach a rocket engine
 		list(QUALITY_WELDING, 10, "time" = 30),//Weld it on
-		list(CRAFT_MATERIAL, 2, MATERIAL_PLASMA),//Fuel it up
+		list(CRAFT_MATERIAL, 2, MATERIAL_PHORON),//Fuel it up
 		list(/obj/item/weapon/tool_upgrade/augment/cell_mount, 1, "time" = 30),//Attach a cell-mount
 		list(QUALITY_SCREW_DRIVING, 10, "time" = 50), //Secure it
 		list(/obj/item/stack/cable_coil, 2, "time" = 10), //Wire it up

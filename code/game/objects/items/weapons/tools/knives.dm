@@ -102,7 +102,7 @@
 	desc = "A teleportation matrix attached to a dagger, for sending things you stab it into very far away."
 	icon_state = "bluespace_dagger"
 	item_state = "bluespace_dagger"
-	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PLASMA = 20)
+	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PHORON = 20)
 	force = WEAPON_FORCE_NORMAL+1
 	embed_mult = 25 //You WANT it to embed
 	suitable_cell = /obj/item/weapon/cell/small

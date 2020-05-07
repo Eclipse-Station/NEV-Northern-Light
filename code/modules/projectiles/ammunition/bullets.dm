@@ -204,7 +204,7 @@
 	icon_state = "ishell"
 	spent_icon = "ishell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
-	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASMA = 0.5)
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PHORON = 0.5)
 
 /obj/item/ammo_casing/shotgun/incendiary/prespawned
 	amount = 5

@@ -126,9 +126,8 @@
 	cost = 5000
 
 	unlocks_designs = list(	/datum/design/research/item/weapon/decloner,
-							/datum/design/research/item/weapon/phoronpistol
-							/datum/design/research/item/weapon_upgrade/penetrator
-						)
+							/datum/design/research/item/weapon/phoronpistol,
+							/datum/design/research/item/weapon_upgrade/penetrator)
 
 /datum/technology/temp
 	name = "Basic Temperature Ammunition"

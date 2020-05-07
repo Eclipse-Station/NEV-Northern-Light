@@ -174,7 +174,6 @@
 		var/obj/item/organ/external/limb = I
 
 		var/obj/item/organ/external/existing_limb = owner.get_organ(limb.organ_tag)
-		var/obj/item/organ/external/target_limb = owner.get_organ(limb.parent_organ)
 
 		// Save the owner before removing limb stump, as it may null the owner
 		// if the operation is performed on the stump itself
@@ -190,11 +189,12 @@
 				existing_limb.loc = null
 				qdel(existing_limb)
 			else
-				limb.loc = null
-
-		limb.replaced(target_limb)
-
+				// Remove and delete the old limb
+				existing_limb.removed(null, FALSE)
+				qdel(existing_limb)
 				limb.replaced(saved_owner)
+
+
 
 		saved_owner.update_body()
 		saved_owner.updatehealth()
