@@ -12,7 +12,7 @@ set -f # disable pathname expansion
 set -C # noclobber
 
 readonly BASE_BRANCH_NAME="upstream-merge-"
-readonly BASE_PULL_URL="https://api.github.com/repos/tgstation/tgstation/pulls"
+readonly BASE_PULL_URL="https://api.github.com/repos/discordia-space/CEV-Eris/pulls"
 
 # Ensure the current directory is a git directory
 if [ ! -d .git ]; then
@@ -40,8 +40,8 @@ containsElement () {
 }
 
 # Make sure we have our upstream remote
-if ! git remote | grep tgstation > /dev/null; then
-   git remote add tgstation https://github.com/tgstation/tgstation.git
+if ! git remote | grep CEV-Eris > /dev/null; then
+   git remote add CEV-Eris https://github.com/discordia-space/CEV-Eris.git
 fi
 
 curl -v \
@@ -49,7 +49,7 @@ curl -v \
 -H "User-Agent: myBotThing (http://some.url, v0.1)" \
 -H "Content-Type: application/json" \
 -X POST \
--d "{\"content\":\"Mirroring [$1] from /tg/ to Hippie\"}" \
+-d "{\"content\":\"Mirroring [$1] from Eris to Eclipse\"}" \
 https://discordapp.com/api/channels/$CHANNELID/messages
 
 # We need to make sure we are always on a clean master when creating the new branch.
