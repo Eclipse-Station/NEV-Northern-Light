@@ -9,8 +9,8 @@
 #define ANIM_CLOSE -1
 
 /obj/machinery/neotheology/cloner
-	name = "NeoTheology's clonepod"
-	desc = "The newest design and God's gift from NeoTheology, this automatic machine will return the flesh to the spirit in no time."
+	name = "Lazarus clonepod"
+	desc = "The newest design from Lazarus, this automatic machine will return the flesh to the spirit in no time."
 	icon = 'icons/obj/neotheology_pod.dmi'
 	icon_state = "preview"
 	density = TRUE
@@ -356,8 +356,8 @@
 /////////////////////
 
 /obj/machinery/neotheology/biomass_container
-	name = "NeoTheology's biomass container"
-	desc = "Making strange noises barrel, filled with a substance which at any time may become someone else's body."
+	name = "Lazarus' biomass container"
+	desc = "A barrel that makes strange noises, filled with a substance which at any time may become someone else's body."
 	icon_state = "biocan"
 	density = TRUE
 	anchored = TRUE
@@ -443,8 +443,8 @@
 /////////////////////
 
 /obj/machinery/neotheology/reader
-	name = "NeoTheology's cruciform reader"
-	desc = "The altar for scanning genetic information from medium of soul - the cruciform."
+	name = "Lazarus' cruciform reader"
+	desc = "How can a soul fit inside of this?"
 	icon_state = "reader_off"
 	density = TRUE
 	anchored = TRUE

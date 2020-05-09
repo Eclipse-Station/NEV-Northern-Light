@@ -197,7 +197,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Security"
 
 /datum/supply_pack/armor
-	name = "IH Surplus Armor"
+	name = "AC Surplus Armor"
 	contains = list(/obj/item/clothing/suit/armor/vest,
 					/obj/item/clothing/suit/armor/vest/security,
 					/obj/item/clothing/suit/armor/vest/detective,
@@ -206,11 +206,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/head/armor/helmet)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "IH Surplus Amor"
+	crate_name = "AC Surplus Amor"
 	group = "Security"
 
 /datum/supply_pack/riot
-	name = "IH Riot gear crate"
+	name = "AC Riot gear crate"
 	contains = list(/obj/item/weapon/melee/baton,
 					/obj/item/weapon/melee/baton,
 					/obj/item/weapon/melee/baton,
@@ -231,7 +231,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/suit/armor/heavy/riot)
 	cost = 6100
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "IH Riot gear crate"
+	crate_name = "AC Riot gear crate"
 	group = "Security"
 /*
 /datum/supply_pack/loyalty
@@ -243,7 +243,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Security"
 */
 /datum/supply_pack/ballisticarmor
-	name = "IH Ballistic Armor"
+	name = "AC Ballistic Armor"
 	contains = list(/obj/item/clothing/suit/armor/bulletproof,
 					/obj/item/clothing/suit/armor/bulletproof,
 					/obj/item/clothing/head/armor/helmet,
@@ -290,25 +290,25 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 
 /datum/supply_pack/energyarmor
-	name = "IH Ablative Armor"
+	name = "AC Ablative Armor"
 	contains = list(/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/clothing/head/armor/helmet,
 					/obj/item/clothing/head/armor/helmet)
 	cost = 3500
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "IH Ablative Armor crate"
+	crate_name = "AC Ablative Armor crate"
 	group = "Security"
 
 /datum/supply_pack/securitybarriers
-	name = "IH Security Barrier crate"
+	name = "AC Security Barrier crate"
 	contains = list(/obj/machinery/deployable/barrier,
 					/obj/machinery/deployable/barrier,
 					/obj/machinery/deployable/barrier,
 					/obj/machinery/deployable/barrier)
 	cost = 2000
 	containertype = /obj/structure/closet/crate/secure/gear
-	crate_name = "IH Security Barrier crate"
+	crate_name = "AC Security Barrier crate"
 	group = "Security"
 
 /datum/supply_pack/securitywallshield

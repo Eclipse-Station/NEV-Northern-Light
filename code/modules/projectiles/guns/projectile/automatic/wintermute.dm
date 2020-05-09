@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/automatic/wintermute
 	name = "FS AR .20 \"Wintermute\""
-	desc = "A high end military grade assault rifle, designed as a modern ballistic infantry weapon. Primarily used by and produced for IH troops. Uses IH .20 Rifle magazines."
+	desc = "A high end military grade assault rifle, designed as a modern ballistic infantry weapon. Primarily used by and produced for soldiers. Uses .20 Rifle magazines."
 	icon = 'icons/obj/guns/projectile/wintermute.dmi'
 	icon_state = "wintermute"
 	item_state = "wintermute"

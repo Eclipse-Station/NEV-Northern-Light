@@ -24,11 +24,11 @@
 		STAT_VIG = 10
 	)
 	description = "You are the head of the local branch of Free Trade Union, and Northern Light's Union representative<br>\
-A staunch entrepreneur, you are motivated by profit, for the guild and especially for yourself. You are here firstly to make as much money as you can, and secondly to keep the crew supplied. You can order things at cargo using the local guild funds, these will not magically replenish so you will run out of money quickly if you don't charge. Take payments by card or cash, and deposit them into the guild account to enable more purchases.<br>\
+A staunch entrepreneur, you are motivated by profit, for the Union and especially for yourself. You are here firstly to make as much money as you can, and secondly to keep the crew supplied. You can order things at cargo using the local Union funds, these will not magically replenish so you will run out of money quickly if you don't charge. Take payments by card or cash, and deposit them into the Union account to enable more purchases.<br>\
 <br>\
-The guild also operates all the vendors on the ship, every credit paid into them goes to your guild account. Naturally operating is a two way street, you are expected, when necessary, to refill those vendors. Or send a technician to do it<br>\
+The Union also operates all the vendors on the ship, every credit paid into them goes to your Union account. Naturally operating is a two way street, you are expected, when necessary, to refill those vendors. Or send a technician to do it<br>\
 <br>\
-You do not recieve a salary, but the local guild funds are yours to use. You may pay yourself as much as you like from that account, take the funds and use them for any purpose.  Bribery is a good one, you can get people to do a lot of things if you flash some cash, and its a good idea to keep a few thousand credits on hand in-cash to bribe your way through potentially difficult situations.<br>\
+You do not recieve a salary, but the local Union funds are yours to use. You may pay yourself as much as you like from that account, take the funds and use them for any purpose.  Bribery is a good one, you can get people to do a lot of things if you flash some cash, and its a good idea to keep a few thousand credits on hand in-cash to bribe your way through potentially difficult situations.<br>\
 <br>\
 Things to bear in mind:<br>\
 	-Nobody has a right to free stuff. You are well within your rights to charge for anything you distribute, and you won't make a penny if you don't.<br>\
@@ -42,7 +42,7 @@ Deploy your mining staff to harvest matter and materials<br>\
 Counsel the captain on directing the ship towards profitable opportunities"
 
 	loyalties = "As a merchant, your first loyalty is to money. You should be unscrupulous, willing to sell anything to anyone if they can pay your prices. Direct the ship towards profitable endeavours, and press the captain to make choices that will be financially lucrative<br>\
-Your second loyalty is to the guild. Ensure it retains good relations with privateers like the captain of the Northern Light, and don't embarass it. This means limiting your price gouging to only moderate levels. If you make an enemy of everyone, it may prove a costly mistake"
+Your second loyalty is to the Union. Ensure it retains good relations with privateers like the captain of the Northern Light, and don't embarass it. This means limiting your price gouging to only moderate levels. If you make an enemy of everyone, it may prove a costly mistake"
 
 	software_on_spawn = list(///datum/computer_file/program/supply,
 							 ///datum/computer_file/program/deck_management,
@@ -55,7 +55,7 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 	perks = list(/datum/perk/timeismoney)
 
 /obj/landmark/join/start/merchant
-	name = "Guild Merchant"
+	name = "Trade Union Merchant"
 	icon_state = "player-beige-officer"
 	join_tag = /datum/job/merchant
 
@@ -69,7 +69,7 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 	faction = "NEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Guild Merchant"
+	supervisors = "the Free Trade Union Merchant"
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_DUMB
 	department_account_access = TRUE
@@ -95,19 +95,19 @@ Your second loyalty is to the guild. Ensure it retains good relations with priva
 
 	description = "You are a low ranking member of the Free Trade Union, and an apprentice to the local merchant.  You may one day take over his position. You are equal parts scavenger, loader, shopkeeper and salesman. Remember the guild's core role here. To keep everyone supplied with everything they could need, and to profit from this endeavour<br>\
 <br>\
-Your main duties are to keep the local guild branch operational and profitable. To that end you should look out for all of the following tasks:"
+Your main duties are to keep the local Union branch operational and profitable. To that end you should look out for all of the following tasks:"
 
 	duties = "	-Delivering goods to persons or departments that ordered them<br>\
 	-Staffing the front desk, taking payments and orders, buying up items from scavengers that come to sell things.<br>\
 	-Visiting departments to take orders in person, ask if there's anything they need, and try to sell them unusual items that may aid their efforts.<br>\
-	-Providing lesser services. Busted lights? Broken vendors? The guild can be there to help, for a small fee.<br>\
+	-Providing lesser services. Busted lights? Broken vendors? The Union can be there to help, for a small fee.<br>\
 	-In quieter times, head into maintenance areas and scavenge for useful goods to resell"
 
 	loyalties = "		Your first loyalty is to yourself and survival. This ship is mostly just a paycheck to you<br>\
 		Your second loyalty is to the merchant, he ensures you're well paid and respected, in a universe where workers are often treated as interchangeable parts."
 
 /obj/landmark/join/start/cargo_tech
-	name = "Guild Technician"
+	name = "Union Technician"
 	icon_state = "player-beige"
 	join_tag = /datum/job/cargo_tech
 
@@ -119,7 +119,7 @@ Your main duties are to keep the local guild branch operational and profitable. 
 	faction = "NEV Northern Light"
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "the Guild Merchant"
+	supervisors = "the Free Trade Union Merchant"
 	selection_color = "#c3b9a6"
 	wage = WAGE_LABOUR_HAZARD //The miners union is stubborn
 	outfit_type = /decl/hierarchy/outfit/job/cargo/mining
@@ -127,11 +127,11 @@ Your main duties are to keep the local guild branch operational and profitable. 
 	description = "You are an asteroid miner, working in resource Procurement for the local branch of the Free Trade Union.<br>\
 Your primary responsibility is to head out on the Mining Barge, and dig up as much ore as you can on an asteroid. The barge contains all the facilities to process that ore too, and allows you to deliver refined materials ready for use.<br>\
 <br>\
-All the stuff you dig up goes to the guild, and from then on it's the merchant's responsibility to sell it to other departments. <br>\
+All the stuff you dig up goes to the Union, and from then on it's the merchant's responsibility to sell it to other departments. <br>\
 <br>\
 Your second responsibility is to help out aboard ship, while waiting to reach an asteroid. Quite notably, the roaches infesting the ship make heavy use of burrows to get around. You have the tools and expertise to effectively deal with these burrows, and you should try to destroy them wherever you find them<br>\
 <br>\
-Your third responsibility is as an unofficial security guard. The guild is a popular target for thieves, and one of the unspoken reasons for keeping rough, sturdy people like you on the payroll is to deter those thieves, and punish them with a swift beating for attempting to steal from the merchant. Try to keep the beatings nonlethal though, murder generates too much bad publicity<br>\
+Your third responsibility is as an unofficial security guard. The Union is a popular target for thieves, and one of the unspoken reasons for keeping rough, sturdy people like you on the payroll is to deter those thieves, and punish them with a swift beating for attempting to steal from the merchant. Try to keep the beatings nonlethal though, murder generates too much bad publicity<br>\
 <br>\
 Character Expectations:<br>\
 	Miners should be tough and physically strong. Unafraid to get their hands dirty.<br>\
@@ -140,7 +140,7 @@ Character Expectations:<br>\
 
 	duties = "Dig up ores and minerals, process them into useable material.<br>\
 	Collapse burrows around the ship to help fight off the roach infestation<br>\
-	Protect the Guild wing and the merchant, from thieves and intruders."
+	Protect the Union wing and the mMrchant, from thieves and intruders."
 
 	loyalties = "	Your first loyalty is to yourself and survival. This ship is mostly just a paycheck to you<br>\
 	Your second loyalty is to the merchant, he ensures you're well paid and respected, in a universe where workers are often treated as interchangeable parts.	"
@@ -164,6 +164,6 @@ Character Expectations:<br>\
 							 /datum/computer_file/program/reports)
 
 /obj/landmark/join/start/mining
-	name = "Guild Miner"
+	name = "Union Miner"
 	icon_state = "player-beige"
 	join_tag = /datum/job/mining
