@@ -183,6 +183,7 @@ While it would be entirely possible to check the mob's move handlers list for th
 	var/list/HUDfrippery = list()//flavor
 	var/list/HUDprocess = list() //What HUD object need process
 	var/list/HUDtech = list()
+	var/hud_override = FALSE //Override so a mob no longer calls their own HUD
 	var/defaultHUD = "" //Default mob hud
 
 	var/list/progressbars = null
@@ -193,3 +194,5 @@ While it would be entirely possible to check the mob's move handlers list for th
 	var/datum/stat_holder/stats
 
 	var/mob_classification = 0 //Bitfield. Uses TYPE_XXXX defines in defines/mobs.dm.
+
+	var/can_be_fed = 1 //Can be feeded by reagent_container or other things

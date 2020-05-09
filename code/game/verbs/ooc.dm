@@ -145,7 +145,7 @@
 					listening |= M.client
 					continue
 
-			if(M.loc && M.locs[1] in hearturfs)
+			if(M.loc && (M.locs[1] in hearturfs))
 				listening |= M.client
 
 

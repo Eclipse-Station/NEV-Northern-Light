@@ -65,7 +65,7 @@
 	var/list/unsuitable_materials = list(MATERIAL_BIOMATTER)
 
 	var/global/list/error_messages = list(
-		ERR_NOLICENSE = "Disk licenses have been exhausted.",
+		ERR_NOLICENSE = "Not enough license points left.",
 		ERR_NOTFOUND = "Design data not found.",
 		ERR_NOMATERIAL = "Not enough materials.",
 		ERR_NOREAGENT = "Not enough reagents.",
@@ -212,7 +212,7 @@
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
 		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "autolathe.tmpl", capitalize(name), 550, 655)
+		ui = new(user, src, ui_key, "autolathe.tmpl", capitalize(name), 600, 700)
 
 		// template keys starting with _ are not appended to the UI automatically and have to be called manually
 		ui.add_template("_materials", "autolathe_materials.tmpl")
@@ -863,6 +863,20 @@
 #undef ERR_NOREAGENT
 #undef ERR_NOLICENSE
 #undef SANITIZE_LATHE_COST
+
+
+// A version with some materials already loaded, to be used on map spawn
+/obj/machinery/autolathe/loaded
+	stored_material = list(
+		MATERIAL_STEEL = 60,
+		MATERIAL_PLASTIC = 60,
+		MATERIAL_GLASS = 60,
+		)
+
+/obj/machinery/autolathe/loaded/Initialize()
+	. = ..()
+	container = new /obj/item/weapon/reagent_containers/glass/beaker(src)
+
 
 // You (still) can't flicker overlays in BYOND, and this is a vis_contents hack to provide the same functionality.
 // Used for materials loading animation.
