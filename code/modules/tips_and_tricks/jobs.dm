@@ -42,7 +42,7 @@
 /tipsAndTricks/jobs/captain_mutiny
     jobs_list = list(/datum/job/captain)
     tipText = "When do you break out the lash and airlock the ringleaders? Black. Bloody. Mutiny."
-	
+
 /*		//Eclipse removal - moved inhouse
 /tipsAndTricks/jobs/engies_tribe
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
@@ -51,7 +51,7 @@
 
 /tipsAndTricks/jobs/engies_suppermatter_one
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "The Supreme Matter is a fickle mistress, and each Chief Engineer has their own unique ritual. No ritual is strictly wrong; such a poor lover would be dead by now, surely..."
+    tipText = "The Supreme Matter is a fickle mistress, and each Chief Engineer has their own unique setup. No setup is strictly wrong; a poor Engineer would be dead by now, surely..."
 
 /tipsAndTricks/jobs/engies_suppermatter_two
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
@@ -75,11 +75,11 @@
 
 /tipsAndTricks/jobs/engies_glass_fire
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "In case of fire, break glass."
+    tipText = "Fire extinguishers are incredibly effective for both braining vermin and stopping flames."
 
 /tipsAndTricks/jobs/engies_firespacesuit
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "No engineer lives long without learning that firesuits are not space suits, and vice versa."
+    tipText = "No engineer lives long without learning that firesuits are not space suits. The opposite is sometimes true. Sometimes."
 
 /tipsAndTricks/jobs/tric
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
@@ -95,7 +95,7 @@
 
 /tipsAndTricks/jobs/gas_scanner_pda
     jobs_list = list(/datum/job/cmo, /datum/job/technomancer)
-    tipText = "Inside of your PDA is installed gas scanner."
+    tipText = "Your PDA has an integrated gas sensor."
 
 /tipsAndTricks/jobs/carbonPills
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
@@ -103,11 +103,11 @@
 
 /tipsAndTricks/jobs/inaprov
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
-    tipText = "Inaprovaline stabilize a patient in many ways and a must to chemical for critical patients."
+    tipText = "Inaprovaline will stabilize a dying patient, restoring some oxygen loss. Be careful to not inject Dylovene and turn that life-saving medicine into tricordrazine."
 
 /tipsAndTricks/jobs/lid_draw
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
-    tipText = "You can draw a reagents from bottles with syringe through the lid."
+    tipText = "You can draw reagents from bottles with syringe through the lid."
 
 /tipsAndTricks/jobs/quick_clot_internal
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
@@ -115,11 +115,11 @@
 
 /tipsAndTricks/jobs/crewMonitorHelp
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/paramedic)
-    tipText = "You can use the crew monitoring program on computers to locate injured crew members. It can be downloaded on tablets or laptops for a portable solution. Medical storage always has one tablet for this purpose on roundstart."
+    tipText = "You can use the crew monitoring program on computers to locate injured crew members. It can be downloaded on tablets or laptops for a portable solution. Medical storage always has one tablet for this purpose."
 
 /tipsAndTricks/jobs/thermite
     jobs_list = list(/datum/job/chemist)
-    tipText = "Thermite is a great way to take down walls."
+    tipText = "Thermite is a great way to take down walls. Or people."
 
 /tipsAndTricks/jobs/grenades
     jobs_list = list(/datum/job/chemist)
@@ -127,7 +127,7 @@
 
 /tipsAndTricks/jobs/cyborgsDontBreathe
     jobs_list = list(/datum/job/cyborg)
-    tipText = "As a cyborg, you don't need oxygen/pressure to survive. You're also quite resistant to heat. Use it to your advantage."
+    tipText = "As a cyborg, you don't need oxygen or pressure to survive. You're also quite resistant to heat; anything but the hottest fires are a joke. Use it to your advantage."
 
 /tipsAndTricks/jobs/siliconRemoteControl
     jobs_list = list(/datum/job/cyborg, /datum/job/ai)
@@ -173,7 +173,6 @@
 /tipsAndTricks/jobs/bots
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
     tipText = "Bots are tireless servants that you can create. No janitor? CleanBot to the rescue! Not enough medical staff? MedBot will solve that."
-
 /tipsAndTricks/jobs/ripley
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
     tipText = "The Ripley mech is an universal tool for a variety of tasks, be it mining, building, or deconstructing. It also has a rather strong melee attack."
@@ -184,7 +183,7 @@
 
 /tipsAndTricks/jobs/gygax
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
-    tipText = "The Gygax is a combat mech. It is a lighly armored, but rather mobile, threat to any antagonist."
+    tipText = "The Gygax is a combat mech. It is a lightly armored, but mobile threat."
 
 /tipsAndTricks/jobs/durand
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
@@ -192,4 +191,4 @@
 
 /tipsAndTricks/jobs/phazon
     jobs_list = list(/datum/job/rd, /datum/job/scientist, /datum/job/roboticist)
-    tipText = "The Phazon is a combat mech. It has the highest base movespeed, good armor, and can phase through anything thanks to bluespace technology."
+    tipText = "The Phazon is a rare combat mech. It has the highest base movespeed of any mech, good armor, and can phase through anything thanks to bluespace technology. Use responsibly."

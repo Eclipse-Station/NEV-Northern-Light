@@ -6,7 +6,7 @@
     tipText = "Did you know? You can click on the turf tile where an airlock is located instead of the actual airlock to toggle it."
 
 /tipsAndTricks/gameplay/fightBlob
-    tipText = "If you're trying to take on a blob, a flamethrower is your best weapon."
+    tipText = "If you're trying to take on a blob, a flamethrower or welder is your best weapon."
 
 /tipsAndTricks/gameplay/fuhrerRoachReinforcement
     tipText = "The Fuhrer roach can call for an entire battalion of reinforcement roaches. If you hear it scream, RUN!"
@@ -37,3 +37,12 @@
 
 /tipsAndTricks/gameplay/cuffHardsuit
     tipText = "People in RIG/Hardsuits need to be cuffed using zipties or cable cuffs. Normal cuffs are not large enough to cover their gauntlets."
+
+/tipsAndTricks/gameplay/backRooms
+    tipText = "There are some parts of the ship so remote and deep that it feels like you can only find them by accident. Were these rooms here before...?"
+
+/tipsAndTricks/gameplay/dangRoaches
+    tipText = "Roaches commonly make their nests in lockers. If you hear a group of them but can't see anything, that rusty locker in the corner may be your suspect."
+
+/tipsAndTricks/gameplay/hotKeyBoys
+    tipText = "In hotkey mode, Shift+X will grab what you are weilding in both hands, increasing the damage from melee attacks and stabilizing guns."
