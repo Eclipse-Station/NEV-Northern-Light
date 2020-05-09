@@ -109,7 +109,7 @@
 	supervisors = "the Head of Personnel"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Hydroponicist")
-	cruciform_access = list(access_hydroponics)
+	access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
 	wage = WAGE_PROFESSIONAL
 
 	outfit_type = /decl/hierarchy/outfit/job/church/gardener
