@@ -1,0 +1,4 @@
+author: drexample
+delete-after: true
+changes:
+  - bugfix: fixed angry changelog generator after it gets no changelog
