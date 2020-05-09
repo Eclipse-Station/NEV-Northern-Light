@@ -40,7 +40,7 @@ try:
     cl_list = CL_SPLIT.findall(cl.group(2))
 except AttributeError:
     print("No CL found!")
-    exit(1)
+    exit(0)
 
 
 if cl.group(1) is not None:
