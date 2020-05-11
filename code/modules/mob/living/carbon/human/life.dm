@@ -543,6 +543,14 @@
 			. += THERMAL_PROTECTION_ARM_LEFT
 		if(flags & ARM_RIGHT)
 			. += THERMAL_PROTECTION_ARM_RIGHT
+		if(flags & FOOT_LEFT)
+			. += THERMAL_PROTECTION_FOOT_LEFT
+		if(flags & FOOT_RIGHT)
+			. += THERMAL_PROTECTION_FOOT_RIGHT
+		if(flags & HAND_LEFT)
+			. += THERMAL_PROTECTION_HAND_LEFT
+		if(flags & HAND_RIGHT)
+			. += THERMAL_PROTECTION_HAND_RIGHT
 	return min(1,.)
 
 /mob/living/carbon/human/handle_chemicals_in_body()
@@ -951,7 +959,7 @@
 		holder.icon_state = "hudblank"
 		if(mind && mind.antagonist.len != 0)
 			var/datum/antagonist/antag = mind.antagonist[1]	//only display the first antagonist role
-			if(hud_icon_reference[antag.role_text]) 
+			if(hud_icon_reference[antag.role_text])
 				holder.icon_state = hud_icon_reference[antag.role_text]
 			else
 				holder.icon_state = "hudsyndicate"
