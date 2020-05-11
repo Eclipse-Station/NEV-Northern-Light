@@ -1,0 +1,9 @@
+author: drexample
+delete-after: true
+changes:
+  - bugfix: Fixes consumables sticking around in your hands after being used or destroyed
+  - bugfix: Fixes hadcuffs ignoring your lack of palms
+  - bugfix: Fixes generic post-roundstart made prosthetics having wrong sprites
+  - bugfix: Adds missing limbs to mechfab
+  - bugfix: Fixes surgery on robolimbs and limb attachment issues
+  - bugfix: Restores phoron ore icon
