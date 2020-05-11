@@ -41,7 +41,7 @@
 	permeability_coefficient = 0.05
 	price_tag = 100
 
-	cold_protection = ARMS
+	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = ARMS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -53,7 +53,7 @@
 	item_state = "combat"
 	siemens_coefficient = 0.5
 	permeability_coefficient = 0.05
-	cold_protection = ARMS
+	heat_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = ARMS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE

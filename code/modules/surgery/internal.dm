@@ -174,6 +174,7 @@
 		var/obj/item/organ/external/limb = I
 
 		var/obj/item/organ/external/existing_limb = owner.get_organ(limb.organ_tag)
+		var/obj/item/organ/external/target_limb = owner.get_organ(limb.parent_organ)
 
 		// Save the owner before removing limb stump, as it may null the owner
 		// if the operation is performed on the stump itself
@@ -182,18 +183,17 @@
 		// Remove existing limb (usually a limb stump)
 		if(existing_limb)
 			// Prevent the new limb from being deleted along with the old one
-			if(istype(I, /obj/item/organ/external/robotic))
-				var/obj/item/organ/external/robotic/r_limb = I
-				existing_limb.augment_organ(r_limb, saved_owner)
+			limb.loc = null
 
-				existing_limb.loc = null
-				qdel(existing_limb)
-			else
-				// Remove and delete the old limb
-				existing_limb.removed(null, FALSE)
-				qdel(existing_limb)
-				limb.replaced(saved_owner)
+			// Remove and delete the old limb
+			existing_limb.removed(null, FALSE)
+			qdel(existing_limb)
 
+		limb.replaced(target_limb)
+
+		saved_owner.update_body()
+		saved_owner.updatehealth()
+		saved_owner.UpdateDamageIcon()
 
 
 		saved_owner.update_body()

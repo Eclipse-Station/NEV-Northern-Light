@@ -87,6 +87,8 @@
 			qdel(action)
 		hud_actions = null
 
+	screen_loc = null
+
 	return ..()
 
 /obj/item/get_fall_damage()
