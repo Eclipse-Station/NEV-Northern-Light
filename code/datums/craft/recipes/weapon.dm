@@ -24,6 +24,15 @@
 		list(CRAFT_MATERIAL, 1, MATERIAL_STEEL)
 	)
 
+/datum/craft_recipe/weapon/crudespear //put it near the top since it's a classic
+	name = "glass spear"
+	result = /obj/item/weapon/material/spear
+	steps = list (
+		list(/obj/item/stack/rods, 2, "time" = 5,) //get ye olde rod
+		list(/obj/item/weapon/material/shard, 1, "time" = 10), //get ye olde stabbe
+		list(obj/item/stack/cable_coil, 5, "time" = 20) //secure together
+	)
+
 /datum/craft_recipe/weapon/knife
 	name = "steel knife"
 	result = /obj/item/weapon/tool/knife
@@ -213,3 +222,4 @@
 		list(/obj/item/stack/cable_coil, 2, "time" = 10), //Wire it up
 		list(QUALITY_WIRE_CUTTING, 30, "time" = 50), //Fix the wires
 	)
+
