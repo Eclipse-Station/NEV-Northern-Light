@@ -28,6 +28,8 @@
 		STAT_COG = 25
 	)
 
+	perks = list(/datum/perk/selfmedicated)
+
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/camera_monitor,
@@ -78,6 +80,8 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 		STAT_BIO = 40,
 		STAT_COG = 10
 	)
+
+	perks = list(/datum/perk/selfmedicated)
 
 	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
 							/datum/computer_file/program/chem_catalog,
@@ -136,6 +140,8 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 		STAT_BIO = 30
 	)
 
+	perks = list(/datum/perk/selfmedicated)
+
 	software_on_spawn = list(/datum/computer_file/program/chem_catalog,
 							/datum/computer_file/program/scanner)
 
@@ -185,6 +191,8 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 		STAT_VIG = 5
 	)
 
+	perks = list(/datum/perk/selfmedicated)
+
 	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
 							/datum/computer_file/program/chem_catalog,
 							/datum/computer_file/program/camera_monitor)
@@ -219,6 +227,8 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 		STAT_TGH = 10,
 		STAT_VIG = 10,
 	)
+
+	perks = list(/datum/perk/selfmedicated)
 
 	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
 							/datum/computer_file/program/chem_catalog,
