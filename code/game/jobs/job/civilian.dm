@@ -12,7 +12,12 @@
 	spawn_positions = 1
 	supervisors = "the Head of Personnel"
 	selection_color = "#dddddd"
+<<<<<<< HEAD
 	access = list(access_bar, access_kitchen)
+=======
+	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 15, LANGUAGE_JIVE = 80)
+	access = list(access_bar, access_kitchen, access_maint_tunnels)
+>>>>>>> 5822cfd... Half helmets and wig fix, CM access to maintenance. (#4889)
 	initial_balance = 3000
 	wage = WAGE_NONE // Makes his own money
 	stat_modifiers = list(
