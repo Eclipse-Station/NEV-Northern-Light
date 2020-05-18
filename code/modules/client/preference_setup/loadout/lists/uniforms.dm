@@ -68,7 +68,7 @@
 	path = /obj/item/clothing/under/rank/ih_commander/skirt
 	allowed_roles = list("Aegis Commander")
 
-/*/datum/gear/uniform/skirt
+/datum/gear/uniform/skirt
 	display_name = "plaid skirt, blue"
 	path = /obj/item/clothing/under/dress/plaid_blue
 
@@ -80,7 +80,7 @@
 	display_name = "plaid skirt, red"
 	path = /obj/item/clothing/under/dress/plaid_red*/
 
-/*/datum/gear/uniform/suit  //amish
+/datum/gear/uniform/suit  //amish
 	display_name = "suit, amish"
 	path = /obj/item/clothing/under/sl_suit*/
 
@@ -97,7 +97,7 @@
 	)
 	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
 
-/*/datum/gear/uniform/uniform_hop
+/datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP's dress"
 	path = /obj/item/clothing/under/dress/dress_hop
 	allowed_roles = list("Head of Personnel")*/
