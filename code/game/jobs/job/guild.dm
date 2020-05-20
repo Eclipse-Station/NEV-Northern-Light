@@ -23,16 +23,8 @@
 		STAT_MEC = 15,
 		STAT_VIG = 10
 	)
-<<<<<<< HEAD
 	description = "You are the head of the local branch of Free Trade Union, and Northern Light's Union representative<br>\
 A staunch entrepreneur, you are motivated by profit, for the Union and especially for yourself. You are here firstly to make as much money as you can, and secondly to keep the crew supplied. You can order things at cargo using the local Union funds, these will not magically replenish so you will run out of money quickly if you don't charge. Take payments by card or cash, and deposit them into the Union account to enable more purchases.<br>\
-=======
-
-	perks = list(/datum/perk/merchant, /datum/perk/deep_connection)
-
-	description = "You are the head of the local branch of Asters Merchant Guild, and eris' guild representative<br>\
-A staunch entrepreneur, you are motivated by profit, for the guild and especially for yourself. You are here firstly to make as much money as you can, and secondly to keep the crew supplied. You can order things at cargo using the local guild funds, these will not magically replenish so you will run out of money quickly if you don't charge. Take payments by card or cash, and deposit them into the guild account to enable more purchases.<br>\
->>>>>>> 91d3c09... Initial perk system redesign (#4868)
 <br>\
 The Union also operates all the vendors on the ship, every credit paid into them goes to your Union account. Naturally operating is a two way street, you are expected, when necessary, to refill those vendors. Or send a technician to do it<br>\
 <br>\
@@ -43,7 +35,8 @@ Things to bear in mind:<br>\
 	-CEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
 	-Loyalty is a priceless resource, yet cheap to maintain. Don't screw over the miners and technicians working under you. <br>\
 	-Charity is a weapon. Used correctly, it can do wonders for your public image.  A few gifts spread around makes for good returning customers"
-
+	perks = list(/datum/perk/merchant, /datum/perk/deep_connection)
+	
 	duties = "Keep the crew supplied with anything they might need, at a healthy profit to you of course<br>\
 Buy up valueable items from scavengers, and make a profit reselling them<br>\
 Deploy your mining staff to harvest matter and materials<br>\
