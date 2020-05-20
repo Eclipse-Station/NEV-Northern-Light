@@ -81,13 +81,7 @@ As a scientist, your first loyalty is to knowledge and Discovery, the ultimate g
 		STAT_BIO = 20,
 	)
 
-<<<<<<< HEAD
 	description = "You are a scientist, standing at the frontier of human advancement. Working for NanoTrasen to find new research opportunities in deep space. The science wing is located in the second section, starboard side, opposite medical, and your medical colleagues should be fast friends. The medical wing is part of NanoTrasen too, and so you fully share access with each other, and are free to use each others' supplies. (Just remember to ask first! They're probaly using it!)<br>\
-=======
-	perks = list(/datum/perk/selfmedicated)
-
-	description = "You are a scientist, standing at the frontier of human advancement. Here representing Moebius corp, to find new research opportunities in deep space. The science wing is located in the second section, starboard side, opposite medical, and your medical colleagues should be fast friends. The medical wing is part of Moebius too, and so you fully share access with each other, and are free to use each others' supplies.<br>\
->>>>>>> 91d3c09... Initial perk system redesign (#4868)
 <br>\
 As a scientist, your primary purpose is research, testing, and the advancement of knowledge. You can justify almost anything if its done for the purpose of science, and people have no reason to be suspicious if you stomp around wearing strange devices and carrying stranger weapons still. You should craft, lathe and print anything you can, toy around with it, and figure out how it works in detail. Deeply explore everything you can.<br>\
 <br>\
@@ -102,7 +96,7 @@ There are a few specialist branches within the research wing that you may delve 
 	
 	duties = "Create unusual things and experiment with them<br>\
 Explore, learn and adventure, do anything to advance the cause of knowledge"
-	
+	perks = list(/datum/perk/selfmedicated)
 
 	loyalties = "As a scientist, your first loyalty is to knowledge, the ultimate good in the universe. Learning and developing new technologies is the greatest goal humanity can pursue, and no sacrifice is too great to achieve that end. Even the lives of others or yourself.<br>\
 
