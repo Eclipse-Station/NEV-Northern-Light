@@ -290,6 +290,7 @@
 #define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
 
 
+
 //Planet habitability class
 #define HABITABILITY_IDEAL  1
 #define HABITABILITY_OKAY  2
