@@ -12,7 +12,7 @@
 	spawn_positions = 1
 	supervisors = "the Head of Personnel"
 	selection_color = "#dddddd"
-	access = list(access_bar, access_kitchen)
+	access = list(access_bar, access_kitchen, access_maint_tunnels)
 	initial_balance = 3000
 	wage = WAGE_NONE // Makes his own money
 	stat_modifiers = list(
