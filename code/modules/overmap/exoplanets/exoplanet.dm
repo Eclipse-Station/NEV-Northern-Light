@@ -9,10 +9,12 @@
 	var/datum/gas_mixture/atmosphere
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
-	var/lightlevel = 0 //Lightlevel on the planet
+	var/lightlevel = 1 //Lightlevel on the planet
 	var/maxx
 	var/maxy
 	var/landmark_type = /obj/effect/shuttle_landmark/automatic
+
+	var/list/planet_colors = list()
 
 	var/list/rock_colors = list(COLOR_ASTEROID_ROCK)
 	var/list/plant_colors = list("RANDOM")
@@ -91,7 +93,7 @@
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
-	for(var/turf/simulated/floor/exoplanet/T in block(locate(1,1, z), locate(maxx, maxy, z)))
+	for(var/turf/simulated/floor/exoplanet/T in block(locate(1,1, map_z[map_z.len]), locate(maxx, maxy, map_z[map_z.len])))
 		planet_turfs += T
 	START_PROCESSING(SSobj, src)
 	update_lighting()
@@ -414,6 +416,8 @@
 
 /obj/effect/overmap/sector/exoplanet/proc/get_atmosphere_color()
 	var/list/colors = list(COLOR_DEEP_SKY_BLUE, COLOR_PURPLE)
+	if(planet_colors.len)
+		colors = planet_colors
 	/*for(var/g in atmosphere.gas)
 		if(gas_data.tile_overlay_color[g])
 			colors += gas_data.tile_overlay_color[g]*/

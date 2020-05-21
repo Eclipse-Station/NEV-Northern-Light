@@ -8,6 +8,7 @@
 	possible_themes = list()
 	map_generators = list(/datum/random_map/automata/cave_system/mountains/volcanic, /datum/random_map/noise/exoplanet/volcanic, /datum/random_map/noise/ore/filthy_rich)
 	ruin_tags_blacklist = RUIN_HABITAT|RUIN_WATER
+	planet_colors = list("#8e3900", COLOR_RED)
 	surface_color = "#261e19"
 	water_color = "#c74d00"
 

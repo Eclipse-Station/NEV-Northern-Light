@@ -5,6 +5,7 @@
 	planetary_area = /area/exoplanet/grass
 	rock_colors = list(COLOR_ASTEROID_ROCK, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#0e1e14","#1a3e38","#5a7467","#9eab88","#6e7248", "RANDOM")
+	planet_colors = list(COLOR_TEAL, COLOR_PALE_GREEN_GRAY)
 	map_generators = list(/datum/random_map/noise/exoplanet/grass)
 
 /obj/effect/overmap/sector/exoplanet/grass/generate_atmosphere()
