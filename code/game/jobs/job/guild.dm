@@ -35,7 +35,8 @@ Things to bear in mind:<br>\
 	-CEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
 	-Loyalty is a priceless resource, yet cheap to maintain. Don't screw over the miners and technicians working under you. <br>\
 	-Charity is a weapon. Used correctly, it can do wonders for your public image.  A few gifts spread around makes for good returning customers"
-
+	perks = list(/datum/perk/merchant, /datum/perk/deep_connection)
+	
 	duties = "Keep the crew supplied with anything they might need, at a healthy profit to you of course<br>\
 Buy up valueable items from scavengers, and make a profit reselling them<br>\
 Deploy your mining staff to harvest matter and materials<br>\
@@ -51,8 +52,6 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 							 /datum/computer_file/program/reports)
 
 	outfit_type = /decl/hierarchy/outfit/job/cargo/merchant
-
-	perks = list(/datum/perk/timeismoney)
 
 /obj/landmark/join/start/merchant
 	name = "Trade Union Merchant"
@@ -85,6 +84,8 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 		STAT_TGH = 10,
 		STAT_VIG = 10,
 	)
+
+	perks = list(/datum/perk/deep_connection)
 
 	software_on_spawn = list(///datum/computer_file/program/supply,
 							 ///datum/computer_file/program/deck_management,
@@ -157,6 +158,8 @@ Character Expectations:<br>\
 		STAT_VIG = 15,
 		STAT_MEC = 15
 	)
+
+	perks = list(/datum/perk/deep_connection)
 
 	software_on_spawn = list(///datum/computer_file/program/supply,
 							 ///datum/computer_file/program/deck_management,
