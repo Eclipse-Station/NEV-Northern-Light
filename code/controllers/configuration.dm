@@ -130,6 +130,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 	var/admin_legacy_system = 0	//Defines whether the server uses the legacy admin system with admins.txt or the SQL system. Config option in config.txt
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
+	var/admin_memo_system = 0
 
 	var/simultaneous_pm_warning_timeout = 100
 
@@ -208,6 +209,8 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 	var/emojis = 0
 
+	var/paper_input = TRUE
+
 	var/random_submap_orientation = FALSE // If true, submaps loaded automatically can be rotated.
 
 	var/webhook_url
@@ -263,6 +266,9 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if ("ban_legacy_system")
 					config.ban_legacy_system = 1
+
+				if ("admin_memo_system")
+					config.admin_memo_system = 1
 
 				if ("use_recursive_explosions")
 					use_recursive_explosions = 1
@@ -670,6 +676,9 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if("emojis")
 					config.emojis = 1
+
+				if("paper_input")
+					config.paper_input = text2num(value)
 
 				if("enable_mob_sleep")
 					config.enable_mob_sleep = 1

@@ -58,7 +58,7 @@ var/global/list/modifications_types = list(
 			if(parent.nature == MODIFICATION_REMOVED)
 				to_chat(usr, "[name] can't be attached to [parent.name]")
 				return FALSE
-				
+
 
 	if(!allow_nt)
 		if(H?.mind?.assigned_job.department == DEPARTMENT_CHURCH)
@@ -112,13 +112,13 @@ var/global/list/modifications_types = list(
 	body_parts = list(BP_HEAD, BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, \
 		BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT) //
 	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'
+	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_alt1.dmi'
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 	var/prosthetic_model
 
 /datum/body_modification/limb/prosthesis/create_organ(var/mob/living/carbon/holder, var/datum/organ_description/OD, var/color)
-	var/obj/item/organ/external/robotic/placeholder 
+	var/obj/item/organ/external/robotic/placeholder
 	if(replace_limb)
 		placeholder = new replace_limb(holder,OD)
 	else
@@ -285,3 +285,15 @@ var/global/list/modifications_types = list(
 	var/obj/item/organ/internal/eyes/heterohromia/E = new(holder,organ_type,color)
 	E.second_color = color
 	return E
+
+
+// Special heads
+/datum/body_modification/limb/prosthesis/tvhead
+	name = "Unbranded TV-head"
+	id = "tvhead"
+	desc = "A knock-off unbranded tv-shaped head."
+	body_parts = list(BP_HEAD)
+	replace_limb = /obj/item/organ/external/robotic
+	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_monitor.dmi'
+	nature = MODIFICATION_SILICON
+	allow_nt = FALSE

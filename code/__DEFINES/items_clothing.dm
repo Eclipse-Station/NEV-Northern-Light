@@ -124,8 +124,7 @@
 #define HEAD        0x1
 #define FACE        0x2
 #define EYES        0x4
-#define EARS        0x8
-#define UPPER_TORSO 0x16
+#define UPPER_TORSO 0x8
 #define LOWER_TORSO 0x10
 #define LEG_LEFT    0x20
 #define LEG_RIGHT   0x40
@@ -139,6 +138,7 @@
 #define HAND_LEFT   0x800
 #define HAND_RIGHT  0x1000
 #define HANDS       0x1800 // HAND_LEFT | HAND_RIGHT
+#define EARS		0x3000
 #define FULL_BODY   0xFFFF
 
 // Bitflags for the percentual amount of protection a piece of clothing which covers the body part offers.
@@ -147,11 +147,14 @@
 #define THERMAL_PROTECTION_HEAD        0.3
 #define THERMAL_PROTECTION_UPPER_TORSO 0.15
 #define THERMAL_PROTECTION_LOWER_TORSO 0.15
-#define THERMAL_PROTECTION_LEG_LEFT    0.1
-#define THERMAL_PROTECTION_LEG_RIGHT   0.1
-#define THERMAL_PROTECTION_ARM_LEFT    0.1
-#define THERMAL_PROTECTION_ARM_RIGHT   0.1
-
+#define THERMAL_PROTECTION_LEG_LEFT    0.075
+#define THERMAL_PROTECTION_LEG_RIGHT   0.075
+#define THERMAL_PROTECTION_FOOT_LEFT   0.025
+#define THERMAL_PROTECTION_FOOT_RIGHT  0.025
+#define THERMAL_PROTECTION_ARM_LEFT    0.075
+#define THERMAL_PROTECTION_ARM_RIGHT   0.075
+#define THERMAL_PROTECTION_HAND_LEFT   0.025
+#define THERMAL_PROTECTION_HAND_RIGHT  0.025
 // Pressure limits.
 #define  HAZARD_HIGH_PRESSURE 550 // This determines at what pressure the ultra-high pressure red icon is displayed. (This one is set as a constant)
 #define WARNING_HIGH_PRESSURE 325 // This determines when the orange pressure icon is displayed (it is 0.7 * HAZARD_HIGH_PRESSURE)

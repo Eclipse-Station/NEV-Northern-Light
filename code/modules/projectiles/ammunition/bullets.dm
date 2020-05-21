@@ -204,10 +204,40 @@
 	icon_state = "ishell"
 	spent_icon = "ishell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
-	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASMA = 0.5)
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PHORON = 0.5)
 
 /obj/item/ammo_casing/shotgun/incendiary/prespawned
 	amount = 5
+
+//// Grenade Shells ////
+
+/obj/item/ammo_casing/grenade
+	name = "baton round"
+	desc = "A less-lethal rubber round, designed to be fired from grenade launchers"
+	icon_state = "baton-round"
+	spent_icon = "grenadeshell"
+	projectile_type = /obj/item/projectile/bullet/batonround
+	w_class = ITEM_SIZE_SMALL
+	caliber = CAL_GRENADE
+	maxamount = 1
+
+/obj/item/ammo_casing/grenade/blast
+	name = "blast grenade shell"
+	desc = "An explosive grenade shell, designed to be fired from grenade launchers"
+	icon_state = "blast"
+	projectile_type = /obj/item/projectile/bullet/grenade
+
+/obj/item/ammo_casing/grenade/frag
+	name = "frag grenade shell"
+	desc = "A frag grenade shell, designed to be fired from grenade launchers"
+	icon_state = "frag"
+	projectile_type = /obj/item/projectile/bullet/grenade/frag
+
+/obj/item/ammo_casing/grenade/emp
+	name = "emp grenade shell"
+	desc = "An EMP grenade shell, designed to be fired from grenade launchers"
+	icon_state = "emp"
+	projectile_type = /obj/item/projectile/bullet/grenade/emp
 
 //// Other ////
 

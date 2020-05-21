@@ -124,7 +124,7 @@
 	var/atom/movable/A = get_toplevel_atom() //Get what this jetpack is attached to, usually a mob or object
 	if (A)
 		//This is a hack. Future todo: Make mechas not utilize anchored
-		if (istype(A, /obj/mecha))
+		if (istype(A, /mob/living/exosuit))
 			A.anchored = FALSE
 
 		var/turf/T = get_turf(A)
@@ -297,6 +297,7 @@
 	These functions provide a generic interface for different kinds of tanks
 */
 /obj/item/weapon/tank/jetpack/proc/get_gas()
+	RETURN_TYPE(/datum/gas_mixture)
 	if (istype(gastank, /obj/item/weapon/tank))
 		return gastank.air_contents
 
@@ -307,11 +308,6 @@
 
 	//Unknown type? Create and return an empty gas mixture to prevent runtime errors
 	return new /datum/gas_mixture(0)
-
-
-
-
-
 
 /*****************************
 	Checks
@@ -354,20 +350,6 @@
 		return FALSE
 	return TRUE
 
-
-/****************************
-	MECHA JETPACK
-*****************************/
-//Mecha jetpack uses the giant internal gas canister inside mechs
-/obj/item/weapon/tank/jetpack/mecha
-	name = "gas thruster system"
-	gastank = null //Starts off null, will be connected once installed
-	thrust_cost = JETPACK_MOVE_COST*10 //A mecha is much, much heavier than a human, and requires more gas to move
-
-/obj/item/weapon/tank/jetpack/mecha/operational_safety(var/mob/living/user)
-	if (gastank)
-		return TRUE
-	return FALSE
 
 
 

@@ -197,7 +197,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Security"
 
 /datum/supply_pack/armor
-	name = "IH Surplus Armor"
+	name = "AC Surplus Armor"
 	contains = list(/obj/item/clothing/suit/armor/vest,
 					/obj/item/clothing/suit/armor/vest/security,
 					/obj/item/clothing/suit/armor/vest/detective,
@@ -206,11 +206,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/head/armor/helmet)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "IH Surplus Amor"
+	crate_name = "AC Surplus Amor"
 	group = "Security"
 
 /datum/supply_pack/riot
-	name = "IH Riot gear crate"
+	name = "AC Riot gear crate"
 	contains = list(/obj/item/weapon/melee/baton,
 					/obj/item/weapon/melee/baton,
 					/obj/item/weapon/melee/baton,
@@ -231,7 +231,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/suit/armor/heavy/riot)
 	cost = 6100
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "IH Riot gear crate"
+	crate_name = "AC Riot gear crate"
 	group = "Security"
 /*
 /datum/supply_pack/loyalty
@@ -243,7 +243,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Security"
 */
 /datum/supply_pack/ballisticarmor
-	name = "IH Ballistic Armor"
+	name = "AC Ballistic Armor"
 	contains = list(/obj/item/clothing/suit/armor/bulletproof,
 					/obj/item/clothing/suit/armor/bulletproof,
 					/obj/item/clothing/head/armor/helmet,
@@ -290,25 +290,25 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 
 /datum/supply_pack/energyarmor
-	name = "IH Ablative Armor"
+	name = "AC Ablative Armor"
 	contains = list(/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/clothing/head/armor/helmet,
 					/obj/item/clothing/head/armor/helmet)
 	cost = 3500
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "IH Ablative Armor crate"
+	crate_name = "AC Ablative Armor crate"
 	group = "Security"
 
 /datum/supply_pack/securitybarriers
-	name = "IH Security Barrier crate"
+	name = "AC Security Barrier crate"
 	contains = list(/obj/machinery/deployable/barrier,
 					/obj/machinery/deployable/barrier,
 					/obj/machinery/deployable/barrier,
 					/obj/machinery/deployable/barrier)
 	cost = 2000
 	containertype = /obj/structure/closet/crate/secure/gear
-	crate_name = "IH Security Barrier crate"
+	crate_name = "AC Security Barrier crate"
 	group = "Security"
 
 /datum/supply_pack/securitywallshield
@@ -671,43 +671,22 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containertype = /obj/structure/closet/crate/secure
 	crate_name = "Particle Accelerator crate"
 
-/datum/supply_pack/mecha_ripley
+/datum/supply_pack/mech_ripley
 	name = "exosuit assembly crate (\"Ripley\" APLU)"
 	contains = list(
-		/obj/item/mecha_parts/mecha_equipment/tool/drill,
-		/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
-		/obj/item/weapon/circuitboard/mecha/main,
-		/obj/item/weapon/circuitboard/mecha/peripherals,
-		/obj/item/mecha_parts/chassis/ripley,
-		/obj/item/mecha_parts/part/ripley_torso,
-		/obj/item/mecha_parts/part/ripley_left_arm,
-		/obj/item/mecha_parts/part/ripley_right_arm,
-		/obj/item/mecha_parts/part/ripley_left_leg,
-		/obj/item/mecha_parts/part/ripley_right_leg
+		/obj/item/mech_equipment/drill,
+		/obj/item/mech_equipment/clamp,
+		/obj/item/mech_equipment/light,
+		/obj/item/mech_component/sensors,
+		/obj/item/mech_component/control_module,
+		/obj/item/mech_component/chassis,
+		/obj/item/mech_component/manipulators/powerloader,
+		/obj/item/mech_component/propulsion/powerloader,
+		/obj/item/robot_parts/robot_component/armour/exosuit
 	)
 	cost = 3000
 	containertype = /obj/structure/closet/crate/secure/scisecurecrate
-	crate_name = "APLU \"Ripley\" exosuit assembly crate"
-	group = "Engineering"
-
-/datum/supply_pack/mecha_odysseus
-	name = "exosuit assembly crate (\"Odysseus\")"
-	contains = list(
-		/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun,
-		/obj/item/mecha_parts/mecha_equipment/tool/sleeper,
-		/obj/item/weapon/circuitboard/mecha/main,
-		/obj/item/weapon/circuitboard/mecha/peripherals,
-		/obj/item/mecha_parts/chassis/odysseus,
-		/obj/item/mecha_parts/part/odysseus_head,
-		/obj/item/mecha_parts/part/odysseus_torso,
-		/obj/item/mecha_parts/part/odysseus_left_arm,
-		/obj/item/mecha_parts/part/odysseus_right_arm,
-		/obj/item/mecha_parts/part/odysseus_left_leg,
-		/obj/item/mecha_parts/part/odysseus_right_leg
-	)
-	cost = 3000
-	containertype = /obj/structure/closet/crate/secure/scisecurecrate
-	crate_name = "\"Odysseus\" exosuit assembly crate"
+	crate_name = "standart exosuit assembly crate"
 	group = "Engineering"
 
 /datum/supply_pack/robotics
@@ -1374,8 +1353,19 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Operations"
 
 
+/datum/supply_pack/randomised/holsters
+	num_contained = 4
+	contains = list(/obj/random/cloth/holster,
+					/obj/random/cloth/holster,
+					/obj/random/cloth/holster,
+					/obj/random/cloth/holster)
+	name = "Surplus Unform Holsters"
+	cost = 1000
+	crate_name = "Surplus Uniform Holsters Crate"
+	containertype = /obj/structure/closet/crate
+	group = "Operations"
 
-datum/supply_pack/randomised/voidsuit
+/datum/supply_pack/randomised/voidsuit
 	num_contained = 1
 	contains = list(/obj/random/voidsuit,
 					/obj/random/voidsuit/damaged)
@@ -1385,7 +1375,7 @@ datum/supply_pack/randomised/voidsuit
 	containertype = /obj/structure/closet/crate
 	group = "Operations"
 
-datum/supply_pack/randomised/rig
+/datum/supply_pack/randomised/rig
 	num_contained = 1
 	contains = list(/obj/random/rig,
 					/obj/random/rig/damaged)
@@ -1395,7 +1385,7 @@ datum/supply_pack/randomised/rig
 	containertype = /obj/structure/closet/crate
 	group = "Operations"
 
-datum/supply_pack/randomised/rigmods
+/datum/supply_pack/randomised/rigmods
 	num_contained = 2
 	contains = list(/obj/random/rig_module,
 				/obj/random/rig_module)

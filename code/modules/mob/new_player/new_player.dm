@@ -97,6 +97,9 @@
 		return 1
 
 	if(href_list["ready"])
+		if(!is_player_whitelisted(src))
+			discord_redirect(usr)//AEIOU addition
+			return 0
 		if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 			ready = text2num(href_list["ready"])
 		else
@@ -228,6 +231,9 @@
 		return 0
 	if(SSticker.current_state != GAME_STATE_PLAYING)
 		to_chat(usr, "\red The round is either not ready, or has already finished...")
+		return 0
+	if(!is_player_whitelisted(src))
+		discord_redirect(src)//Aeiou addition
 		return 0
 	if(!config.enter_allowed)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")

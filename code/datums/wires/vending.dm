@@ -1,4 +1,6 @@
-#define CAT_HIDDEN 2   // Also in code/game/machinery/vending.dm
+#define CAT_NORMAL 1
+#define CAT_HIDDEN 2
+#define CAT_COIN   4
 
 /datum/wires/vending
 	holder_type = /obj/machinery/vending

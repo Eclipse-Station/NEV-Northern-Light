@@ -149,12 +149,12 @@
 //parses the message mode code (e.g. :h, :w) from text, such as that supplied to say.
 //returns the message mode string or null for no message mode.
 //standard mode is the mode returned for the special ';' radio code.
-/mob/proc/parse_message_mode(var/message, var/standard_mode="headset")
-	if(length(message) >= 1 && copytext(message,1,2) == get_prefix_key(/decl/prefix/radio_main_channel))
+/mob/proc/parse_message_mode(var/message, var/standard_mode = "headset")
+	if(length(message) >= 1 && lowertext(copytext(message,1,2)) == get_prefix_key(/decl/prefix/radio_main_channel))
 		return standard_mode
 
-	if(length(message) >= 2 && copytext(message,1,2) == get_prefix_key(/decl/prefix/radio_channel_selection))
-		var/channel_prefix =  sanitize_key(copytext(message, 2, 3))
+	if(length(message) >= 2 && lowertext(copytext(message,1,2)) == get_prefix_key(/decl/prefix/radio_channel_selection))
+		var/channel_prefix = lowertext(copytext(message, 2, 3))
 		return department_radio_keys[channel_prefix]
 
 	return null
@@ -167,7 +167,7 @@
 		return all_languages["Noise"]
 
 	if(length(message) >= 2 && is_language_prefix(prefix))
-		var/language_prefix = sanitize_key(copytext(message, 2, 3))
+		var/language_prefix = copytext(message, 2, 3)
 		var/datum/language/L = language_keys[language_prefix]
 		if(can_speak(L))
 			return L

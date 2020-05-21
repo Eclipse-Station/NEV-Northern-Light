@@ -360,11 +360,12 @@
 			bodytemperature -= temperature_loss
 	else
 		var/loc_temp = T0C
-		if(istype(loc, /obj/mecha))
-			var/obj/mecha/M = loc
+		if(istype(loc, /mob/living/exosuit))
+			var/mob/living/exosuit/M = loc
 			loc_temp =  M.return_temperature()
 		else if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			loc_temp = loc:air_contents.temperature
+			var/obj/machinery/atmospherics/unary/cryo_cell/M = loc
+			loc_temp = M.air_contents.temperature
 		else
 			loc_temp = environment.temperature
 
@@ -542,6 +543,14 @@
 			. += THERMAL_PROTECTION_ARM_LEFT
 		if(flags & ARM_RIGHT)
 			. += THERMAL_PROTECTION_ARM_RIGHT
+		if(flags & FOOT_LEFT)
+			. += THERMAL_PROTECTION_FOOT_LEFT
+		if(flags & FOOT_RIGHT)
+			. += THERMAL_PROTECTION_FOOT_RIGHT
+		if(flags & HAND_LEFT)
+			. += THERMAL_PROTECTION_HAND_LEFT
+		if(flags & HAND_RIGHT)
+			. += THERMAL_PROTECTION_HAND_RIGHT
 	return min(1,.)
 
 /mob/living/carbon/human/handle_chemicals_in_body()
@@ -559,8 +568,8 @@
 
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]
-		if(!(CE_ALCOHOL in chem_effects))
-			stats.getPerk(/datum/perk/inspiration)?.deactivate()
+		if(!(CE_ALCOHOL in chem_effects) && stats.getPerk(/datum/perk/inspiration))
+			stats.removePerk(/datum/perk/active_inspiration)
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
@@ -949,8 +958,9 @@
 		var/image/holder = hud_list[SPECIALROLE_HUD]
 		holder.icon_state = "hudblank"
 		if(mind && mind.antagonist.len != 0)
-			if(hud_icon_reference[mind.antagonist[1].role_text]) //only display the first antagonist role
-				holder.icon_state = hud_icon_reference[mind.antagonist[1].role_text]
+			var/datum/antagonist/antag = mind.antagonist[1]	//only display the first antagonist role
+			if(hud_icon_reference[antag.role_text])
+				holder.icon_state = hud_icon_reference[antag.role_text]
 			else
 				holder.icon_state = "hudsyndicate"
 			hud_list[SPECIALROLE_HUD] = holder

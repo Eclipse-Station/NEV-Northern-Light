@@ -55,6 +55,12 @@
 /datum/design/autolathe/tool/wrench
 	build_path = /obj/item/weapon/tool/wrench
 
+/datum/design/autolathe/tool/hammer
+	build_path = /obj/item/weapon/tool/hammer
+
+/datum/design/autolathe/tool/powered_hammer
+	build_path = /obj/item/weapon/tool/hammer/powered_hammer
+
 /datum/design/autolathe/tool/big_wrench
 	build_path = /obj/item/weapon/tool/wrench/big_wrench
 
@@ -143,3 +149,7 @@
 
 /datum/design/autolathe/tool/pneumatic_crowbar
 	build_path = /obj/item/weapon/tool/crowbar/pneumatic
+
+/datum/design/autolathe/tool/rpd
+	name = "rapid piping device"
+	build_path = /obj/item/weapon/rpd

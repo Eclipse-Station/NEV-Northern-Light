@@ -57,8 +57,6 @@
 	switch(name)
 
 		if("equip")
-			if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-				return TRUE
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
 				H.quick_equip()
@@ -186,57 +184,60 @@
 	var/list/PL = params2list(params)
 	var/icon_x = text2num(PL["icon-x"])
 	var/icon_y = text2num(PL["icon-y"])
-	var/selecting
+	var/new_selecting
 
 	switch(icon_y)
 		if(1 to 3) //Feet
 			switch(icon_x)
 				if(10 to 15)
-					parentmob.targeted_organ = BP_R_FOOT
+					new_selecting = BP_R_FOOT
 				if(17 to 22)
-					parentmob.targeted_organ = BP_L_FOOT
+					new_selecting = BP_L_FOOT
 				else
-					return TRUE
+					return 1
 		if(4 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
-					parentmob.targeted_organ = BP_R_LEG
+					new_selecting = BP_R_LEG
 				if(17 to 22)
-					selecting = BP_L_LEG
+					new_selecting = BP_L_LEG
 				else
-					return TRUE
+					return 1
 		if(10 to 13) //Hands and groin
 			switch(icon_x)
 				if(8 to 11)
-					parentmob.targeted_organ = BP_R_HAND
+					new_selecting = BP_R_HAND
 				if(12 to 20)
-					selecting = BP_GROIN
+					new_selecting = BP_GROIN
 				if(21 to 24)
-					parentmob.targeted_organ = BP_L_HAND
+					new_selecting = BP_L_HAND
 				else
-					return TRUE
+					return 1
 		if(14 to 22) //Chest and arms to shoulders
 			switch(icon_x)
 				if(8 to 11)
-					selecting = BP_R_ARM
+					new_selecting = BP_R_ARM
 				if(12 to 20)
-					selecting = BP_CHEST
+					new_selecting = BP_CHEST
 				if(21 to 24)
-					selecting = BP_L_ARM
+					new_selecting = BP_L_ARM
 				else
-					return TRUE
+					return 1
 		if(23 to 30) //Head, but we need to check for eye or mouth
 			if(icon_x in 12 to 20)
-				selecting = BP_HEAD
+				new_selecting = BP_HEAD
 				switch(icon_y)
 					if(23 to 24)
 						if(icon_x in 15 to 17)
-							selecting = BP_MOUTH
-					if(25 to 27)
+							new_selecting = BP_MOUTH
+					if(26) //Eyeline, eyes are on 15 and 17
 						if(icon_x in 14 to 18)
-							selecting = BP_EYES
+							new_selecting = BP_EYES
+					if(25 to 27)
+						if(icon_x in 15 to 17)
+							new_selecting = BP_EYES
 
-	set_selected_zone(selecting)
+	set_selected_zone(new_selecting)
 	return TRUE
 
 /obj/screen/zone_sel/New()
@@ -249,6 +250,8 @@
 
 /obj/screen/zone_sel/proc/set_selected_zone(bodypart)
 	var/old_selecting = parentmob.targeted_organ
+	testing("[bodypart] - - [old_selecting]")
+
 	if(old_selecting != bodypart)
 		parentmob.targeted_organ = bodypart
 		update_icon()
@@ -273,8 +276,6 @@
 		return TRUE
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
 		return TRUE
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-		return TRUE
 	if(master)
 		var/obj/item/I = usr.get_active_hand()
 		if(I)
@@ -289,27 +290,21 @@
 	plane = HUD_PLANE
 
 /obj/screen/inventory/New(_name = "unnamed", _slot_id = null, _icon = null, _icon_state = null, _parentmob = null)//(_name = "unnamed", _screen_loc = "7,7", _slot_id = null, _icon = null, _icon_state = null, _parentmob = null)
-	src.name = _name
-//	src.screen_loc = _screen_loc
-	src.icon = _icon
-	src.slot_id = _slot_id
-	src.icon_state = _icon_state
-	src.parentmob = _parentmob
+	name = _name
+//	screen_loc = _screen_loc
+	icon = _icon
+	slot_id = _slot_id
+	icon_state = _icon_state
+	parentmob = _parentmob
 
 /obj/screen/inventory/Click()
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
 	// We don't even know if it's a middle click
-	if(!usr.can_click())
-		return TRUE
-	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
-		return TRUE
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-		return TRUE
+	if(!usr.can_click()) return TRUE
+	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened) return TRUE
 	switch(name)
-		if("hand")
-			usr:swap_hand()
-		else
-			usr.attack_ui(slot_id)
+		if("hand") usr:swap_hand()
+		else usr.attack_ui(slot_id)
 	return TRUE
 
 /obj/screen/inventory/hand
@@ -317,24 +312,22 @@
 
 /obj/screen/inventory/hand/New()
 	..()
-	ovrls["act_hand"] += new /image/no_recolor (icon = src.icon, icon_state ="act_hand[src.slot_id==slot_l_hand ? "-l" : "-r"]")
+	ovrls["act_hand"] += new /image/no_recolor (icon = icon, icon_state ="act_hand[slot_id==slot_l_hand ? "-l" : "-r"]")
 	update_icon()
 
 /obj/screen/inventory/hand/Click()
 	var/mob/living/carbon/C = parentmob
-	if (src.slot_id == slot_l_hand)
-		C.activate_hand("l")
-	else
-		C.activate_hand("r")
+	if (slot_id == slot_l_hand) C.activate_hand("l")
+	else C.activate_hand("r")
 
 /obj/screen/inventory/hand/update_icon()
-	src.overlays -= ovrls["act_hand"]
-	if (src.slot_id == (parentmob.hand ? slot_l_hand : slot_r_hand))
-		src.overlays += ovrls["act_hand"]
-/*	if (src.slot_id == (parentmob.hand ? slot_l_hand : slot_r_hand)) // if display left
-		src.icon_state = "act_hand[src.slot_id==slot_l_hand ? "-l" : "-r"]"
+	overlays -= ovrls["act_hand"]
+	if (slot_id == (parentmob.hand ? slot_l_hand : slot_r_hand))
+		overlays += ovrls["act_hand"]
+/*	if (slot_id == (parentmob.hand ? slot_l_hand : slot_r_hand)) // if display left
+		icon_state = "act_hand[slot_id==slot_l_hand ? "-l" : "-r"]"
 	else
-		src.icon_state = "hand[src.slot_id==slot_l_hand ? "-l" : "-r"]"*/
+		icon_state = "hand[slot_id==slot_l_hand ? "-l" : "-r"]"*/
 //--------------------------------------------------inventory end---------------------------------------------------------
 
 //--------------------------------------------------health---------------------------------------------------------
@@ -347,18 +340,17 @@
 
 /obj/screen/health/New()
 	..()
-	ovrls["health0"] += new /image (icon = src.icon, icon_state ="health0")
-	ovrls["health1"] += new /image/no_recolor(icon = src.icon, icon_state ="health1")
-	ovrls["health2"] += new /image/no_recolor(icon = src.icon, icon_state ="health2")
-	ovrls["health3"] += new /image/no_recolor(icon = src.icon, icon_state ="health3")
-	ovrls["health4"] += new /image/no_recolor(icon = src.icon, icon_state ="health4")
-	ovrls["health5"] += new /image/no_recolor(icon = src.icon, icon_state ="health5")
-	ovrls["health6"] += new /image/no_recolor(icon = src.icon, icon_state ="health6")
-	ovrls["health7"] += new /image(icon = src.icon, icon_state ="health7")
+	ovrls["health0"] += new/image(icon = icon, icon_state ="health0")
+	ovrls["health1"] += new/image/no_recolor(icon = icon, icon_state ="health1")
+	ovrls["health2"] += new/image/no_recolor(icon = icon, icon_state ="health2")
+	ovrls["health3"] += new/image/no_recolor(icon = icon, icon_state ="health3")
+	ovrls["health4"] += new/image/no_recolor(icon = icon, icon_state ="health4")
+	ovrls["health5"] += new/image/no_recolor(icon = icon, icon_state ="health5")
+	ovrls["health6"] += new/image/no_recolor(icon = icon, icon_state ="health6")
+	ovrls["health7"] += new/image(icon = icon, icon_state ="health7")
 	update_icon()
 
 /obj/screen/health/Process()
-	//var/mob/living/carbon/human/H = parentmob
 	update_icon()
 
 /obj/screen/health/update_icon()
@@ -368,7 +360,8 @@
 //			icon_state = "health_numb"
 			overlays += ovrls["health0"]
 		else
-			switch(100 - ((parentmob:species.flags & NO_PAIN) ? 0 : parentmob:traumatic_shock))
+			var/mob/living/carbon/parentmobC = parentmob	// same parent mob but in correct type for accessing to species
+			switch(100 - ((parentmobC.species.flags & NO_PAIN) ? 0 : parentmob.traumatic_shock))
 				if(100 to INFINITY)		overlays += ovrls["health0"]
 				if(80 to 100)			overlays += ovrls["health1"]
 				if(60 to 80)			overlays += ovrls["health2"]
@@ -572,16 +565,17 @@
 
 /obj/screen/bodytemp/update_icon()
 	//TODO: precalculate all of this stuff when the species datum is created
-	var/base_temperature = parentmob:species.body_temperature
+	var/mob/living/carbon/parentmobC = parentmob	// same parent mob but in correct type for accessing to species
+	var/base_temperature = parentmobC.species.body_temperature
 	if(base_temperature == null) //some species don't have a set metabolic temperature
-		base_temperature = (parentmob:species.heat_level_1 + parentmob:species.cold_level_1)/2
+		base_temperature = (parentmobC.species.heat_level_1 + parentmobC.species.cold_level_1)/2
 
 	var/temp_step
 	overlays.Cut()
 	if (parentmob:bodytemperature >= base_temperature)
-		temp_step = (parentmob:species.heat_level_1 - base_temperature)/4
+		temp_step = (parentmobC.species.heat_level_1 - base_temperature)/4
 
-		if (parentmob:bodytemperature >= parentmob:species.heat_level_1)
+		if (parentmob:bodytemperature >= parentmobC.species.heat_level_1)
 			overlays += ovrls["temp4"]//icon_state = "temp4"
 		else if (parentmob:bodytemperature >= base_temperature + temp_step*3)
 			overlays += ovrls["temp3"]
@@ -593,9 +587,9 @@
 			overlays += ovrls["temp0"]
 
 	else if (parentmob:bodytemperature < base_temperature)
-		temp_step = (base_temperature - parentmob:species.cold_level_1)/4
+		temp_step = (base_temperature - parentmobC.species.cold_level_1)/4
 
-		if (parentmob:bodytemperature <= parentmob:species.cold_level_1)
+		if (parentmob:bodytemperature <= parentmobC.species.cold_level_1)
 			overlays += ovrls["temp-4"]
 		else if (parentmob:bodytemperature <= base_temperature - temp_step*3)
 			overlays += ovrls["temp-3"]
@@ -1020,8 +1014,6 @@ obj/screen/fire/DEADelize()
 	screen_loc = "8,2"
 
 /obj/screen/equip/Click()
-	if (istype(parentmob.loc,/obj/mecha)) // stops inventory actions in a mech
-		return TRUE
 	if(ishuman(parentmob))
 		var/mob/living/carbon/human/H = parentmob
 		H.quick_equip()

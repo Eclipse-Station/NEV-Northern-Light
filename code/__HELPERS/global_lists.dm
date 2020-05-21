@@ -109,12 +109,12 @@ var/global/list/organ_tag_to_name = list(
 	)
 */
 var/global/list/organ_tag_to_name = list(
-	head  = "head", r_arm = "Right arm",r_hand = "Right hand",
-	chest = "torso", r_leg = "Right Leg",r_foot = "Right foot",
-	eyes  = "Eyes", l_arm = "Left arm", l_hand = "Left hand",
-	groin = "Groin",l_leg = "Left Leg", l_foot = "Left foot",
-	chest2= "Back", heart = "Heart",    lungs  = "Lungs",
-	liver = "Liver"
+	head  = "head", r_arm = "right arm",r_hand = "right hand",
+	torso = "torso", r_leg = "right Leg",r_foot = "right foot",
+	eyes  = "eyes", l_arm = "left arm", l_hand = "left hand",
+	groin = "groin",l_leg = "left leg", l_foot = "left foot",
+	chest2= "back", heart = "heart",    lungs  = "lungs",
+	liver = "liver"
 	)
 
 // Visual nets
@@ -131,7 +131,9 @@ var/global/list/string_part_flags = list(
 	"upper body" = UPPER_TORSO,
 	"lower body" = LOWER_TORSO,
 	"legs" = LEGS,
-	"arms" = ARMS
+	"arms" = ARMS,
+	"feet" = FEET,
+	"hands" = HANDS
 )
 
 // Strings which corraspond to slot flags, useful for outputting what slot something is.
