@@ -51,7 +51,7 @@
 	Command
 **************/
 /datum/department/command
-	name = "CEV Eris Command"
+	name = "NEV Northern Light Command"
 	id = DEPARTMENT_COMMAND
 	/*
 	The command account is the ship account. It is the master account that retainer departments are paid from,
@@ -72,15 +72,15 @@
 
 //Eclipse Edit: Engineering - moved in-house
 /datum/department/technomancers
-	name = "CEV Eris Engineering"
+	name = "NEV Northern Light Engineering"
 	id = DEPARTMENT_ENGINEERING
 
 /datum/department/ironhammer
-	name = "Ironhammer Mercenary Company"
+	name = "Cobalt Aegis Security Mercenary Company"
 	id = DEPARTMENT_SECURITY
 
 /datum/department/civilian
-	name = "CEV Eris Civic"
+	name = "NEV Northern Light Civic"
 	id = DEPARTMENT_CIVILIAN
 	account_budget = 0
 	account_initial_balance = 0
@@ -92,17 +92,17 @@
 *******************/
 //Departments subsidised by an external organisation. These pay their own employees
 /datum/department/moebius_medical
-	name = "Moebius Corp: Medical Division"
+	name = "NanoTrasen: Medical Division"
 	id = DEPARTMENT_MEDICAL
 	funding_type = FUNDING_EXTERNAL
-	funding_source = "Moebius Corp."
+	funding_source = "NanoTrasen."
 
 /datum/department/moebius_research
-	name = "Moebius Corp: Research Division"
+	name = "NanoTrasen: Research Division"
 	id = DEPARTMENT_SCIENCE
 	account_budget = 5000 //For buying materials and components and things of scientific value
 	funding_type = FUNDING_EXTERNAL
-	funding_source = "Moebius Corp."
+	funding_source = "NanoTrasen."
 
 /datum/department/church
 	name = "Church of NeoTheology"
@@ -117,7 +117,7 @@
 *******************/
 //Self funds and pays wages out of its earnings
 /datum/department/guild
-	name = "Asters Merchant Guild"
+	name = "Free Trade Union"
 	id = DEPARTMENT_GUILD
 
 	/*

@@ -9,7 +9,7 @@
 	var/datum/gas_mixture/atmosphere
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
-
+	var/lightlevel = 0 //Lightlevel on the planet
 	var/maxx
 	var/maxy
 	var/landmark_type = /obj/effect/shuttle_landmark/automatic
@@ -31,6 +31,7 @@
 	var/list/themes = list()
 
 	var/list/map_generators = list()
+	var/list/planet_turfs = list()
 
 	//Flags deciding what features to pick
 	var/ruin_tags_whitelist
@@ -90,7 +91,10 @@
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
+	for(var/turf/simulated/floor/exoplanet/T in block(locate(1,1, z), locate(maxx, maxy, z)))
+		planet_turfs += T
 	START_PROCESSING(SSobj, src)
+	update_lighting()
 
 //attempt at more consistent history generation for xenoarch finds.
 /obj/effect/overmap/sector/exoplanet/proc/get_engravings()
@@ -346,38 +350,6 @@
 			total_moles = max(total_moles - part, 0)
 			i++
 
-/*/obj/effect/overmap/sector/exoplanet/get_scan_data(mob/user)
-	. = ..()
-	var/list/extra_data = list("<hr>")
-	if(atmosphere)
-		if(user.skill_check(SKILL_SCIENCE, SKILL_EXPERT))
-			var/list/gases = list()
-			for(var/g in atmosphere.gas)
-				if(atmosphere.gas[g] > atmosphere.total_moles * 0.05)
-					gases += gas_data.name[g]
-			extra_data += "Atmosphere composition: [english_list(gases)]"
-			var/inaccuracy = rand(8,12)/10
-			extra_data += "Atmosphere pressure [atmosphere.return_pressure()*inaccuracy] kPa, temperature [atmosphere.temperature*inaccuracy] K"
-		else if(user.skill_check(SKILL_SCIENCE, SKILL_BASIC))
-			extra_data += "Atmosphere present"
-		extra_data += "<hr>"
-
-	if(seeds.len && user.skill_check(SKILL_SCIENCE, SKILL_BASIC))
-		extra_data += "Xenoflora detected"
-
-	if(animals.len && user.skill_check(SKILL_SCIENCE, SKILL_BASIC))
-		extra_data += "Life traces detected"
-
-	if(LAZYLEN(spawned_features) && user.skill_check(SKILL_SCIENCE, SKILL_ADEPT))
-		var/ruin_num = 0
-		for(var/datum/map_template/ruin/exoplanet/R in spawned_features)
-			if(!(R.ruin_tags & RUIN_NATURAL))
-				ruin_num++
-		if(ruin_num)
-			extra_data += "<hr>[ruin_num] possible artificial structure\s detected."
-
-	. += jointext(extra_data, "<br>")*/
-
 /obj/effect/overmap/sector/exoplanet/get_skybox_representation()
 	return skybox_image
 
@@ -447,6 +419,32 @@
 			colors += gas_data.tile_overlay_color[g]*/
 	if(colors.len)
 		return MixColors(colors)
+
+/obj/effect/overmap/sector/exoplanet/proc/update_lighting()
+	if(!lightlevel)
+		return 0
+	var/list/sunlit_corners = list()
+	var/new_brightness = lightlevel
+	var/new_color = get_atmosphere_color()
+	var/lum_r = new_brightness * GetRedPart  (new_color) / 255
+	var/lum_g = new_brightness * GetGreenPart(new_color) / 255
+	var/lum_b = new_brightness * GetBluePart (new_color) / 255
+	var/static/update_gen = -1 // Used to prevent double-processing corners. Otherwise would happen when looping over adjacent turfs.
+	for(var/turf/simulated/floor/exoplanet/T in planet_turfs)
+		if(!T.lighting_corners_initialised)
+			T.generate_missing_corners()
+		for(var/C in T.get_corners())
+			var/datum/lighting_corner/LC = C
+			if(LC.update_gen != update_gen && LC.active)
+				sunlit_corners += LC
+				LC.update_gen = update_gen
+				LC.update_lumcount(lum_r, lum_g, lum_b)
+		CHECK_TICK
+	update_gen--
+
+
+
+
 
 /area/exoplanet
 	name = "\improper Planetary surface"

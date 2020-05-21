@@ -12,6 +12,7 @@ SUBSYSTEM_DEF(job)
 	var/list/unassigned = list()			//Players who need jobs
 	var/list/job_debug = list()				//Debug info
 	var/list/job_mannequins = list()				//Cache of icons for job info window
+	var/list/whitelisted_jobs = list()		//eclipse addition - whitelisted jobs
 
 /datum/controller/subsystem/job/Initialize(start_timeofday)
 	if(!occupations.len)
@@ -19,7 +20,7 @@ SUBSYSTEM_DEF(job)
 		LoadJobs("config/jobs.txt")
 	return ..()
 
-/datum/controller/subsystem/job/proc/SetupOccupations(faction = "CEV Eris")
+/datum/controller/subsystem/job/proc/SetupOccupations(faction = "NEV Northern Light")
 	occupations.Cut()
 	occupations_by_name.Cut()
 	for(var/J in subtypesof(/datum/job))
@@ -28,6 +29,30 @@ SUBSYSTEM_DEF(job)
 			continue
 		occupations += job
 		occupations_by_name[job.title] = job
+		// // // BEGIN ECLIPSE EDITS // // //
+		//Rationale: Job whitelisting setup.
+		//I would have preferred to have this before var/J got filtered into job.* but it was causing compiler errors. Alas.
+		//wgatever it workys
+		if(job.manual_whitelist != WHITELIST_MANUAL_OFF)		//if we don't have the whitelist manually disabled for this job, we run through the checks.
+			if(job.manual_whitelist == WHITELIST_MANUAL_ON)			//Admin wants this whitelisted for whatever reason.
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			//Whitelist job based on configuration files.
+			if(job.wl_config_heads && config.wl_heads)		//Heads of Staff
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			if(job.wl_config_sec && config.wl_security)		//Security
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			if(job.wl_config_borgs && config.wl_silicons)		//Silicons
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			/*		//Uncomment in event of admin-only rank failure.
+			if(job.wl_admin_only)		//Admin-only jobs.
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			*/
+		// // // END ECLIPSE EDITS // // //
 
 	if(!occupations.len)
 		to_chat(world, SPAN_WARNING("Error setting up jobs, no job datums found!"))
@@ -54,6 +79,10 @@ SUBSYSTEM_DEF(job)
 			return FALSE
 		if(jobban_isbanned(player, rank))
 			return FALSE
+		// // // eclipse edit: job whitelisting // // //
+		if(!is_job_whitelisted(player, rank))
+			return FALSE
+		//v // //end eclipse edit // // //
 
 		var/position_limit = job.total_positions
 		if(!latejoin)
@@ -79,6 +108,9 @@ SUBSYSTEM_DEF(job)
 	Debug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
 	var/list/candidates = list()
 	for(var/mob/new_player/player in unassigned)
+		if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
+			Debug("FOC whitelist failed, Player: [player]")
+			continue
 		if(jobban_isbanned(player, job.title))
 			Debug("FOC isbanned failed, Player: [player]")
 			continue
@@ -106,6 +138,10 @@ SUBSYSTEM_DEF(job)
 			continue
 
 		if(job in command_positions) //If you want a command position, select it!
+			continue
+
+		if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
+			Debug("GRJ whitelist failed, Player: [player], Job: [job.title]")
 			continue
 
 		if(jobban_isbanned(player, job.title))
@@ -183,6 +219,8 @@ SUBSYSTEM_DEF(job)
 			continue
 		var/mob/new_player/candidate = pick(candidates)
 		AssignRole(candidate, command_position)
+		
+		//eclipse todo: add a whitelist sanity check in here somewhere
 
 
 /** Proc DivideOccupations
@@ -254,6 +292,10 @@ SUBSYSTEM_DEF(job)
 				/*if(!job || SSticker.mode.disabled_jobs.Find(job.title) )
 					continue
 				*/
+				if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
+					Debug("DO whitelist failed, Player: [player], Job:[job.title]")
+					continue
+
 				if(jobban_isbanned(player, job.title))
 					Debug("DO isbanned failed, Player: [player], Job:[job.title]")
 					continue
@@ -484,9 +526,13 @@ proc/EquipCustomLoadout(var/mob/living/carbon/human/H, var/datum/job/job)
 		var/level4 = 0 //never
 		var/level5 = 0 //banned
 		var/level6 = 0 //account too young
+		var/level7 = 0 //not whitelisted <--eclipse add
 		for(var/mob/new_player/player in GLOB.player_list)
 			if(!(player.ready && player.mind && !player.mind.assigned_role))
 				continue //This player is not ready
+			if(jobban_isbanned(player, job.title))		//eclipse edit this iteration: whitelist
+				level7++
+				continue
 			if(jobban_isbanned(player, job.title))
 				level5++
 				continue
@@ -498,7 +544,7 @@ proc/EquipCustomLoadout(var/mob/living/carbon/human/H, var/datum/job/job)
 				level3++
 			else level4++ //not selected
 
-		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|YOUNG=[level6]|-"
+		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|YOUNG=[level6]|WHITELIST=[level7]|-"		//eclipse edit: whitelist
 
 
 /**

@@ -206,8 +206,8 @@
 	<BR>\n2. Assist others.
 	<BR>\n3. Repair structural problems.
 	<BR>\n
-	<BR>\n<B>Ironhammer Commander</B> 4>5-2-2
-	<BR>\n\tPeople assigned as Ironhammer Commander should issue orders to the security staff. They should\nalso carefully moderate the usage of all security equipment. All security matters should be reported to this person.
+	<BR>\n<B>Cobalt Commander</B> 4>5-2-2
+	<BR>\n\tPeople assigned as Cobalt Commander should issue orders to the security staff. They should\nalso carefully moderate the usage of all security equipment. All security matters should be reported to this person.
 	<BR>\n1. Oversee security.
 	<BR>\n2. Assign patrol duties.
 	<BR>\n3. Protect the station and staff.

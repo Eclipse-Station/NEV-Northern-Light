@@ -4,8 +4,8 @@
 #define SKILL_BASIC   1
 var/list/exoplanet_map_data = list()
 
-/atom/proc/skill_check()
-	return
+
+//TODO - sort this into their own files
 
 /datum/map_template/ruin/exoplanet
 
@@ -133,10 +133,6 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 /obj/effect/landmark/New()
 	..()
 	tag = "landmark*[name]"
-
-
-
-
 
 
 /obj/effect/landmark/ruin

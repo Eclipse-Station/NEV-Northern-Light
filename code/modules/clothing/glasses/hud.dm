@@ -55,7 +55,7 @@
 		return
 
 /obj/item/clothing/glasses/sunglasses/sechud/tactical
-	name = "Ironhammer tactical HUD"
+	name = "Cobalt tactical HUD"
 	desc = "Flash-resistant goggles with inbuilt combat and security information."
 	icon_state = "swatgoggles"
 

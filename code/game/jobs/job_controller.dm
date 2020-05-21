@@ -1,4 +1,11 @@
 var/global/datum/controller/occupations/job_master
+var/global/list/whitelisted_jobs = ()	//Eclipse var - used in debug proc
+
+//OR AT LEAST IT WOULD BE IF THIS FILE WERE INCLUDED! AH HAHAHAHAHA
+//THERE GOES TWO FUCKING HOURS DEBUGGING THE JOB CONTROLLER
+//AH HAHAHAHAHAHA I DON'T KNOW IF IT'S THE LIQUOR TALKING OR ME TALKING BUT THAT'S ACTUALLY FUCKING HILARIOUS THAT I SPENT TWO ENTIRE HOURS TRYING TO FIGURE OUT WHY THIS WASN'T WORKING ONLY FOR THIS FILE TO NOT BE CALLED AT ALL IN THE COMPILER
+
+//don't repeat my mistake, leave this file well alone, it won't do you any good			^spitzer
 
 #define GET_RANDOM_JOB 0
 #define BE_ASSISTANT 1
@@ -14,10 +21,27 @@ var/global/datum/controller/occupations/job_master
 	var/list/job_debug = list()
 
 
-	proc/SetupOccupations(var/faction = "CEV Eris")
+	proc/SetupOccupations(var/faction = "NEV Northern Light")
 		occupations.Cut()
 		occupations_by_name.Cut()
 		for(var/J in subtypesof(/datum/job))
+			// // // BEGIN ECLIPSE EDITS // // //
+			//Rationale: Job whitelisting setup.
+			if(J.manual_whitelist)			//Admin wants this whitelisted for whatever reason.
+				J.whitelist_only = TRUE
+				whitelisted_jobs += J
+			//Whitelist job based on configuration files.
+			if(J.wl_config_heads && config.wl_heads)		//Heads of Staff
+				J.whitelist_only = TRUE
+				whitelisted_jobs += J
+			if(J.wl_config_sec && config.wl_security)		//Security
+				J.whitelist_only = TRUE
+				whitelisted_jobs += J
+			if(J.wl_config_borgs && config.wl_silicons)		//Silicons
+				J.whitelist_only = TRUE
+				whitelisted_jobs += J
+			// // // END ECLIPSE EDITS // // //
+			
 			var/datum/job/job = new J()
 			if(job.faction != faction)
 				continue
@@ -47,6 +71,8 @@ var/global/datum/controller/occupations/job_master
 				return 0
 			if(job.minimum_character_age && (player.client.prefs.age < job.minimum_character_age))
 				return 0
+			if(!is_job_whitelisted(player, rank))		//eclipse addition this iteration
+				return 0
 			if(jobban_isbanned(player, rank))
 				return 0
 
@@ -74,6 +100,9 @@ var/global/datum/controller/occupations/job_master
 		Debug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
 		var/list/candidates = list()
 		for(var/mob/new_player/player in unassigned)
+			if(!is_job_whitelisted(player, job.title))		//Eclipse addition this iteration - whitelisting
+				Debug("FOC is_job_whitelisted failed, Player: [player]")
+				continue
 			if(jobban_isbanned(player, job.title))
 				Debug("FOC isbanned failed, Player: [player]")
 				continue
@@ -101,6 +130,10 @@ var/global/datum/controller/occupations/job_master
 				continue
 
 			if(job in command_positions) //If you want a command position, select it!
+				continue
+
+			if(!is_job_whitelisted(player, job.title))		//Eclipse Addition this iteration - whitelisting
+				Debug("GRJ is_job_whitelisted failed, Player: [player], Job: [job.title]")
 				continue
 
 			if(jobban_isbanned(player, job.title))
@@ -245,6 +278,11 @@ var/global/datum/controller/occupations/job_master
 					/*if(!job || ticker.mode.disabled_jobs.Find(job.title) )
 						continue
 					*/
+					
+					if(!is_job_whitelisted(player, job.title))		//Eclipse addition this iteration - whitelisting
+						Debug("DO is_job_whitelisted failed, Player: [player], Job:[job.title]")
+						continue
+
 					if(jobban_isbanned(player, job.title))
 						Debug("DO isbanned failed, Player: [player], Job:[job.title]")
 						continue
@@ -528,11 +566,15 @@ var/global/datum/controller/occupations/job_master
 			var/level4 = 0 //never
 			var/level5 = 0 //banned
 			var/level6 = 0 //account too young
+			var/level7 = 0 //whitelist - eclipse edit
 			for(var/mob/new_player/player in player_list)
 				if(!(player.ready && player.mind && !player.mind.assigned_role))
 					continue //This player is not ready
 				if(jobban_isbanned(player, job.title))
 					level5++
+					continue
+				if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration
+					level7++
 					continue
 				if(player.client.prefs.GetJobDepartment(job, 1) & job.flag)
 					level1++
@@ -542,7 +584,7 @@ var/global/datum/controller/occupations/job_master
 					level3++
 				else level4++ //not selected
 
-			tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|YOUNG=[level6]|-"
+			tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|YOUNG=[level6]|WHITELIST=[level7]-"		//eclipse edit
 
 
 /datum/controller/occupations/proc/LateSpawn(var/client/C, var/rank, var/return_location = 0)
@@ -577,3 +619,7 @@ var/global/datum/controller/occupations/job_master
 			if(H)
 				H.forceMove(pickSpawnLocation())
 			return "has arrived on the station"
+			
+/datum/controller/occupations/proc/print_whitelisted_jobs(mob/user)		//Eclipse Addition for debug purposes.
+	user = usr
+	return whitelisted_jobs

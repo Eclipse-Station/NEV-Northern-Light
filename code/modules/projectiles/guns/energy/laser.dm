@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/laser
 	name = "NT LG \"Lightfall\""
-	desc = "\"NeoTheology\" brand laser carbine. Deadly and radiant, like the ire of God it represents."
+	desc = "\"NanoTrasen\" brand laser carbine. Deadly and radiant, like the ire of Capitalism it represents."
 	icon = 'icons/obj/guns/energy/laser.dmi'
 	icon_state = "laser"
 	item_state = "laser"
@@ -25,7 +25,7 @@
 
 /obj/item/weapon/gun/energy/laser/practice
 	name = "NT LG \"Lightfall\" - P"
-	desc = "A modified version of \"NeoTheology\" brand laser carbine, this one fires less concentrated energy bolts, designed for target practice."
+	desc = "A modified version of \"NanoTrasen\" brand laser carbine, this one fires less concentrated energy bolts, designed for target practice."
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 2)
 	price_tag = 1000
 	projectile_type = /obj/item/projectile/beam/practice
@@ -55,7 +55,7 @@ obj/item/weapon/gun/energy/retro
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	item_charge_meter = TRUE
-	desc = "This weapon is old, yet still robust and reliable. It's marked with old Nanotrasen brand, a distant reminder of what this corporation was, before the Church took control of everything."
+	desc = "This weapon is old, yet still robust and reliable. it's strangly weathered despite the NanoTrasen logo."
 	force = WEAPON_FORCE_PAINFUL
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT

@@ -123,7 +123,12 @@
 		lastJob = job
 		. += "<a href='?src=\ref[src];job_info=[rank]'>\[?\]</a>"
 		var/bad_message = ""
-		if(job.total_positions == 0 && job.spawn_positions == 0)
+		// // // BEGIN ECLIPSE EDIT // // //
+		//Rationale: Job whitelisting framework.
+		if(!is_job_whitelisted(user, rank))
+			bad_message = "<b> \[NOT WHITELISTED]</b>"
+		// // // END ECLIPSE EDIT // // //
+		else if(job.total_positions == 0 && job.spawn_positions == 0)
 			bad_message = "<b> \[UNAVAILABLE]</b>"
 		else if(jobban_isbanned(user, rank))
 			bad_message = "<b> \[BANNED]</b>"

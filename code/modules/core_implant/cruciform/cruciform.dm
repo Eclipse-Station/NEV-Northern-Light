@@ -1,9 +1,9 @@
 var/list/disciples = list()
 
 /obj/item/weapon/implant/core_implant/cruciform
-	name = "cruciform"
+	name = "core implant"
 	icon_state = "cruciform_green"
-	desc = "Soul holder for every disciple. With the proper rituals, this can be implanted to induct a new believer into NeoTheology."
+	desc = "Soul holder for anyone who can afford it. With the proper flair, this can be implanted to induct a new believer into Transhumanism."
 	allowed_organs = list(BP_CHEST)
 	implant_type = /obj/item/weapon/implant/core_implant/cruciform
 	layer = ABOVE_MOB_LAYER

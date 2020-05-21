@@ -120,7 +120,7 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 	var/shuttle_called_message = "Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	var/shuttle_recall_message = "Jump sequence aborted, return to normal operating conditions."
 
-	var/list/usable_email_tlds = list("cev_eris.org","eris.scg","eris.net")
+	var/list/usable_email_tlds = list("nev_northern_light.org","northern_light.scg","northern_light.net")
 	var/path = "eris"
 
 	var/access_modify_region = list(

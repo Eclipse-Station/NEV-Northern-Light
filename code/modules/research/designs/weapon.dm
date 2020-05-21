@@ -63,7 +63,7 @@
 	sort_string = "TBAAB"
 
 /datum/design/research/item/weapon/hatton
-	name = "Moebius BT \"Q-del\""
+	name = "NanoTrasen BT \"Q-del\""
 	desc = "This breaching tool was reverse engineered from the \"Hatton\" design.\
 			Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,\
 			this device suffers from a wide number of reliability issues stemming from it being lathe printed."
@@ -78,7 +78,7 @@
 	category = CAT_WEAPON
 
 /datum/design/research/item/ammo/hatton
-	name = "Moebius BT \"Q-del\" gas tube"
+	name = "NanoTrasen BT \"Q-del\" gas tube"
 	build_path = /obj/item/weapon/hatton_magazine/moebius
 	sort_string = "TAACC"
 

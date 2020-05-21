@@ -1,6 +1,6 @@
 /obj/machinery/autolathe/bioprinter
-	name = "NeoTheology Bioprinter"
-	desc = "NeoTheology machine for printing things using biomass."
+	name = "NanoTrasen Bioprinter"
+	desc = "NanoTrasen machine for printing things using biomass."
 	icon_state = "bioprinter"
 	circuit = /obj/item/weapon/circuitboard/neotheology/bioprinter
 

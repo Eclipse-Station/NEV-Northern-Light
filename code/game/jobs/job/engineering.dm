@@ -4,10 +4,10 @@
 	head_position = 1
 	department = DEPARTMENT_ENGINEERING
 	department_flag = ENGINEERING | COMMAND
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Captain"
+	supervisors = "the Captain and NanoTrasen"
 	selection_color = "#c7b97b"
 	req_admin_notify = 1
 	also_known_languages = list(LANGUAGE_CYRILLIC = 100, LANGUAGE_SERBIAN = 25)
@@ -42,12 +42,12 @@
 							 /datum/computer_file/program/shield_control,
 							 /datum/computer_file/program/reports)
 
-	description = "You are a Chief Engineer, the head of a small clan of spacefaring engineers. You and your clan have taken up residence on Eris, it is your work, your home, and your pride. <br>\
+	description = "You are the Chief Engineer, the head of the ship's maintenance crew. You and your crew work on the Northern Light, it is your work, and your pride. <br>\
 You are to keep the ship running and constantly improve it as much as you are able. Let none question the efficacy of your labours."
 
-	loyalties = "Your first loyalty is to your pride. The engineering department is your territory, and machinery across the station are your responsibility. Do not tolerate others interfering with them, intruding on your space, or questioning your competence. You don't need inspections, oversight or micromanagement. Outsiders should only enter your spaces by invitation, or out of necessity. Even the captain and other command staff are no exception.<br>\
+	loyalties = "Your first loyalty is to NanoTrasen. The engineering department is your territory, and machinery across the station are your responsibility. Do not tolerate others interfering with them, intruding on your space, or questioning your competence. You don't need inspections, oversight or micromanagement. Outsiders should only enter your spaces by invitation, or out of necessity. Even the captain and other command staff are no exception.<br>\
 
-Your second loyalty is to your clan. Ensure they are paid, fed and safe. Don't risk their lives unnecessarily. If an area is infested with monsters, there's no reason to risk lives trying to repair anything inside there. If one of your people is imprisoned, endangered or accused, you should fight for them. Treat every engineer like your family"
+Your second loyalty is to your workers. Ensure they are paid, fed and safe. Don't risk their lives unnecessarily. If an area is infested with monsters, there's no reason to risk lives trying to repair anything inside there. If one of your people is imprisoned, endangered or accused, you should fight for them. Treat every engineer like your family"
 
 	perks = list(/datum/perk/inspiration)
 
@@ -62,7 +62,7 @@ Your second loyalty is to your clan. Ensure they are paid, fed and safe. Don't r
 	flag = TECHNOMANCER
 	department = DEPARTMENT_ENGINEERING
 	department_flag = ENGINEERING
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the Chief Engineer"
@@ -105,7 +105,7 @@ You should carry materials too for field repair work, but don't steal entire sta
  <br>\
 Most importantly, be ready to respond to emergency calls at any time. Parts of the ship may be breached or explode, and its your job to fix it. No matter the cost, no matter the danger, you have the equipment and skills to march into places that would be death to most mortals. It is your responsibility to keep the ship more-or-less in one piece and still able to fly.<br>\
 <br>\
-Eris is your home, your life, and your livelihood. Take pride in it, and in your responsibilities. You should be hesitant to abandon ship, and try your hardest to prevent that becoming necessary. The engineering department is your sovereign territory, and you should be very wary of outsiders entering uninvited. Your fellow engineers are your family. Take care of them, treat them well, share everything with them, and solve your problems internally."
+The Northern Light is your home, your life, and your livelihood. Take pride in it, and in your responsibilities. You should be hesitant to abandon ship, and try your hardest to prevent that becoming necessary. The engineering department is your sovereign territory, and you should be very wary of outsiders entering uninvited. Your fellow engineers are your family. Take care of them, treat them well, share everything with them, and solve your problems internally."
 
 	duties = "	-Start up the supermatter<br>\
 	-Fuel the thrusters<br>\
@@ -114,9 +114,9 @@ Eris is your home, your life, and your livelihood. Take pride in it, and in your
 	-Respond to distress calls and patch breaches in the hull.<br>\
 	-Keep every part of the ship powered, oxygenated, and ready to use"
 
-	loyalties = "	As an engineer, your first loyalty is to your fellow engineers. Ensure they are safe and well supplied, defend them, assist them, and share everything with them. If problems arise between you, ask the Chief Engineer to rule on it. Don't snitch on your fellow clanmates by calling Ironhammer. The Chief Engineer is the head of your clan, and in many ways a father figure. Trust in their wisdom and follow their instructions above anyone else's.<br>\
+	loyalties = "	As an engineer, your first loyalty is to your fellow engineers. Ensure they are safe and well supplied, defend them, assist them, and share everything with them. If problems arise between you, ask the Chief Engineer to rule on it. Don't snitch on your fellow clanmates by calling Aegis. The Chief Engineer is the head of your clan, and in many ways a father figure. Trust in their wisdom and follow their instructions above anyone else's.<br>\
 	<br>\
-	Your second loyalty is to your ship. Unlike most of your crew, who would simply go home, Eris IS your home. Avoid abandoning ship at all costs. This is where you live and it's worth sacrificing for. Take pride in your work, and make Eris something to be cherished."
+	Your second loyalty is to your ship. Unlike most of your crew, who would simply go home, the Northern Light IS your home. Avoid abandoning ship at all costs. This is where you live and it's worth sacrificing for. Take pride in your work, and make the Northern Light something to be cherished."
 
 	perks = list(/datum/perk/inspiration)
 
