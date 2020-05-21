@@ -90,7 +90,7 @@
 	if(prob(80))
 		M.adjustBrainLoss(2)
 	if(strength)
-		if(issmall(M)) 
+		if(issmall(M))
 			M.adjustToxLoss(strength)
 		else
 			M.adjustToxLoss(strength)
@@ -259,7 +259,7 @@
 	color = "#8E18A9"
 	power = 10
 	meltdose = 4
-	
+
 
 /datum/reagent/toxin/lexorin
 	name = "Lexorin"
@@ -493,7 +493,7 @@
 	var/obj/item/organ/internal/liver/L = H.internal_organs_by_name[BP_LIVER]
 	if (istype(L))
 		L.take_damage(strength, 0)
-	if(issmall(M)) 
+	if(issmall(M))
 		M.adjustToxLoss(strength * 2)
 	else
 		M.adjustToxLoss(strength)
@@ -580,7 +580,7 @@
 
 /datum/reagent/toxin/gewaltine/overdose(var/mob/living/carbon/M, var/alien)
 	M.adjustCloneLoss(2)
-		
+
 /datum/reagent/toxin/fuhrerole
 	name = "Fuhrerole"
 	id = "fuhrerole"
@@ -642,3 +642,28 @@
 			spill_biomass(T)
 		remove_self(volume)
 		return TRUE
+
+/datum/reagent/toxin/biomatter
+	name = "Biomatter"
+	id = "biomatter"
+	description = "A goo of unknown to you origin. Its better to stay that way."
+	taste_description = "vomit"
+	reagent_state = LIQUID
+	color = "#527f4f"
+	strength = 0.3
+
+/datum/reagent/toxin/chlorine
+	name = "Chlorine"
+	description = "A highly poisonous liquid. Smells strongly of bleach."
+	reagent_state = LIQUID
+	taste_description = "bleach"
+	color = "#707c13"
+	strength = 15
+
+/datum/reagent/toxin/tar
+	name = "Tar"
+	description = "A dark, viscous liquid."
+	taste_description = "petroleum"
+	color = "#140b30"
+	reagent_state = LIQUID
+	strength = 4
