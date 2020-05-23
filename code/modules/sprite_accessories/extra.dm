@@ -98,48 +98,33 @@
 
 	una_spines_long
 		name = "Long Unathi Spines"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_longspines"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN) //Xenochimera get most hairstyles since they're abominations.
 
 	una_spines_short
 		name = "Short Unathi Spines"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_shortspines"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 
 	una_frills_long
 		name = "Long Unathi Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_longfrills"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	una_frills_short
 		name = "Short Unathi Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_shortfrills"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	una_horns
 		name = "Unathi Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_horns"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-
-	una_bighorns
-		name = "Unathi Big Horns"
-		icon_state = "unathi_bighorn"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-
-	una_smallhorns
-		name = "Unathi Small Horns"
-		icon_state = "unathi_smallhorn"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-
-	una_ramhorns
-		name = "Unathi Ram Horns"
-		icon_state = "unathi_ramhorn"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-
-	una_sidefrills
-		name = "Unathi Side Frills"
-		icon_state = "unathi_sidefrills"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	una_doublehorns
@@ -149,8 +134,81 @@
 		icon_state = "soghun_dubhorns"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
+	una_bighorns
+		name = "Unathi Big Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_bighorn"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_smallhorns
+		name = "Unathi Small Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_smallhorn"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_ramhorns
+		name = "Unathi Ram Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_ramhorn"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_curved_ramhorn
+		name = "Unathi Curved Ram Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_curved_ramhorn"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_facial_hornadorns
+		name = "Unathi Horn Adorns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "facial_hornadorns"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_facial_spikes
+		name = "Unathi Spikes"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "facial_spikes"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_facial_chinhorns
+		name = "Unathi Chin Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "facial_chinhorns"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_facial_dorsalfrill
+		name = "Unathi Dorsal Frill"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "facial_dorsalfrill"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_sidefrills
+		name = "Unathi Side Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_sidefrills"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_m_frills_simple
+		name = "Unathi Simple Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "m_frills_simple"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_m_frills_short
+		name = "Unathi Short Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "m_frills_short"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_m_frills_aqua
+		name = "Unathi Aquatic Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "m_frills_aqua"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
 	taj_ears
 		name = "Tajaran Ears"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "ears_plain"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
