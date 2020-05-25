@@ -386,6 +386,101 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "tesharilowinner"
 
+/datum/sprite_accessory/ears/soghun_longspines // Unathi extras START. Delete this comment after testing.
+	name = "Unathi Long Spines"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "soghun_longspines"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/soghun_shortspines
+	name = "Unathi Short Spines"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "soghun_shortspines"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/soghun_horns
+	name = "Unathi Horns"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "soghun_horns"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/soghun_dubhorns
+	name = "Unathi Double Horns"
+	desc = ""
+	icon = 'icons/mob/human_face_vr.dmi'
+	icon_state = "soghun_dubhorns"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/unathi_bighorn
+	name = "Unathi Horns Big"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "unathi_bighorn"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/unathi_smallhorn
+	name = "Unathi Horns Small"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "unathi_smallhorn"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/unathi_ramhorn
+	name = "Unathi Ram Horns"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "unathi_ramhorn"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/unathi_curved_ramhorn
+	name = "Unathi Curved Ram Horns"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "unathi_curved_ramhorn"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/facial_hornadorns
+	name = "Unathi Horn Adorns"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "facial_hornadorns"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/facial_spikes
+	name = "Unathi Spikes"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "facial_spikes"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/facial_chinhorns
+	name = "Unathi Chin Horns"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "facial_chinhorns"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
+
+/datum/sprite_accessory/ears/facial_dorsalfrill
+	name = "Unathi Dorsal Frill"
+	desc = ""
+	icon = "icons/mob/unathi_extras.dmi"
+	icon_state = "facial_dorsalfrill"
+	do_colouration = 1
+	color_blend_mode = ICON_ADD
 
 // Special snowflake ears go below here.
 
@@ -527,7 +622,7 @@
 	desc = ""
 	icon_state = "dragonfly"
 	color_blend_mode = ICON_MULTIPLY
-	
+
 /datum/sprite_accessory/wing/citheroniamoth
 	name = "citheronia wings"
 	desc = ""

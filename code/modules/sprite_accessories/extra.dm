@@ -100,7 +100,7 @@
 		name = "Long Unathi Spines"
 		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_longspines"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN) //Xenochimera get most hairstyles since they're abominations.
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	una_spines_short
 		name = "Short Unathi Spines"
@@ -114,6 +114,7 @@
 		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_longfrills"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		blend = ICON_MULTIPLY
 
 	una_frills_short
 		name = "Short Unathi Frills"
