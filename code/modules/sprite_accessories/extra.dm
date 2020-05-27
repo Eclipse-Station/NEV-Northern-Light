@@ -114,13 +114,13 @@
 		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_longfrills"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-		blend = ICON_MULTIPLY
 
 	una_frills_short
 		name = "Short Unathi Frills"
 		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_shortfrills"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		blend = ICON_MULTIPLY
 
 	una_horns
 		name = "Unathi Horns"
@@ -194,18 +194,21 @@
 		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "m_frills_simple"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		blend = ICON_MULTIPLY
 
 	una_m_frills_short
 		name = "Unathi Short Frills"
 		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "m_frills_short"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		blend = ICON_MULTIPLY
 
 	una_m_frills_aqua
 		name = "Unathi Aquatic Frills"
 		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "m_frills_aqua"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		blend = ICON_MULTIPLY
 
 	taj_ears
 		name = "Tajaran Ears"
