@@ -123,7 +123,7 @@
 
 	if(!config.guests_allowed && IsGuestKey(key))
 		alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
-		del(src)
+		qdel(src)
 		return
 
 	// Change the way they should download resources.
@@ -277,6 +277,10 @@
 
 
 /client/proc/register_in_db()
+	// Prevents the crash if the DB isn't connected.
+	if(!dbcon.IsConnected())
+		return
+	
 	registration_date = src.get_registration_date()
 	src.get_country()
 
@@ -321,7 +325,46 @@
 
 				if(!query_update.Execute())
 					log_world("Failed to update players table for user with id [src.id]. Error message: [query_update.ErrorMsg()].")
+<<<<<<< HEAD
 					return
+=======
+		
+		//Panic bunker - player not in DB, so they get kicked
+		else if(config.panic_bunker && !holder && !deadmin_holder)
+			log_adminwarn("Failed Login: [key] - New account attempting to connect during panic bunker")
+			message_admins("<span class='adminnotice'>Failed Login: [key] - New account attempting to connect during panic bunker</span>")
+			to_chat(src, "<span class='warning'>Sorry but the server is currently not accepting connections from never before seen players.</span>")
+			qdel(src)
+			return 0
+
+	src.get_byond_age() // Get days since byond join
+	src.get_player_age() // Get days since first seen
+
+	// IP Reputation Check
+	if(config.ip_reputation)
+		if(config.ipr_allow_existing && first_seen_days_ago >= config.ipr_minimum_age)
+			log_admin("Skipping IP reputation check on [key] with [address] because of player age")
+		else if(holder)
+			log_admin("Skipping IP reputation check on [key] with [address] because they have a staff rank")
+		else if(update_ip_reputation()) //It is set now
+			if(ip_reputation >= config.ipr_bad_score) //It's bad
+
+				//Log it
+				if(config.paranoia_logging) //We don't block, but we want paranoia log messages
+					log_and_message_admins("[key] at [address] has bad IP reputation: [ip_reputation]. Will be kicked if enabled in config.")
+				else //We just log it
+					log_admin("[key] at [address] has bad IP reputation: [ip_reputation]. Will be kicked if enabled in config.")
+
+				//Take action if required
+				if(config.ipr_block_bad_ips && config.ipr_allow_existing) //We allow players of an age, but you don't meet it
+					to_chat(src, "Sorry, we only allow VPN/Proxy/Tor usage for players who have spent at least [config.ipr_minimum_age] days on the server. If you are unable to use the internet without your VPN/Proxy/Tor, please contact an admin out-of-game to let them know so we can accommodate this.")
+					qdel(src)
+					return 0
+				else if(config.ipr_block_bad_ips) //We don't allow players of any particular age
+					to_chat(src, "Sorry, we do not accept connections from users via VPN/Proxy/Tor connections. If you think this is in error, contact an administrator out of game.")
+					qdel(src)
+					return 0
+>>>>>>> 6365029... Fixes private servers CTDing themselves (#4936)
 		else
 			src.register_in_db()
 
