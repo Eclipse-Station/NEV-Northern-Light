@@ -386,7 +386,7 @@
 	color_blend_mode = ICON_MULTIPLY
 	extra_overlay = "tesharilowinner"
 
-/datum/sprite_accessory/ears/soghun_longspines // Unathi extras START. Delete this comment after testing.
+/datum/sprite_accessory/ears/soghun_longspines 		// Begin Eclipse edit.
 	name = "Unathi Long Spines"
 	desc = ""
 	icon = "icons/mob/unathi_extras.dmi"
@@ -480,7 +480,7 @@
 	icon = "icons/mob/unathi_extras.dmi"
 	icon_state = "facial_dorsalfrill"
 	do_colouration = 1
-	color_blend_mode = ICON_ADD
+	color_blend_mode = ICON_ADD 		// End Eclipse edit.
 
 // Special snowflake ears go below here.
 

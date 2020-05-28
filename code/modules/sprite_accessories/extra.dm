@@ -96,11 +96,11 @@
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
 		icon_state = "soghun_hood"
 
-	una_spines_long
+	una_spines_long 		//Begin Eclipse edit.
 		name = "Long Unathi Spines"
 		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_longspines"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN) //Xenochimera get most hairstyles since they're abominations.
 
 	una_spines_short
 		name = "Short Unathi Spines"
@@ -128,7 +128,7 @@
 		icon_state = "soghun_horns"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
-	una_doublehorns
+	una_doublehorns 	// This one doesn't work.
 		name = "Double Unathi Horns"
 		icon = 'icons/mob/human_face_vr.dmi'
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
@@ -208,7 +208,7 @@
 		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "m_frills_aqua"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-		blend = ICON_MULTIPLY
+		blend = ICON_MULTIPLY 		// End Eclipse edit.
 
 	taj_ears
 		name = "Tajaran Ears"
