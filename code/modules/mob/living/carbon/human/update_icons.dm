@@ -123,17 +123,17 @@ Please contact me on #coderbus IRC. ~Carn x
 #define BACK_LAYER			15
 #define SUIT_STORE_LAYER	16
 #define HAIR_LAYER			17		//TODO: make part of head layer?
-#define L_EAR_LAYER			18
-#define R_EAR_LAYER			19
-#define FACEMASK_LAYER		20
-#define HEAD_LAYER			21
-#define COLLAR_LAYER		22
-#define HANDCUFF_LAYER		23
-#define LEGCUFF_LAYER		24
-#define L_HAND_LAYER		25
-#define R_HAND_LAYER		26
-#define FIRE_LAYER			27		//If you're on fire
-#define WING_LAYER			28
+#define WING_LAYER			18		//Eclipse edit.
+#define L_EAR_LAYER			19
+#define R_EAR_LAYER			10
+#define FACEMASK_LAYER		21
+#define HEAD_LAYER			22
+#define COLLAR_LAYER		23
+#define HANDCUFF_LAYER		24
+#define LEGCUFF_LAYER		25
+#define L_HAND_LAYER		26
+#define R_HAND_LAYER		27
+#define FIRE_LAYER			28		//If you're on fire
 #define TOTAL_LAYERS		28
 //////////////////////////////////
 
@@ -370,7 +370,7 @@ var/global/list/damage_icon_parts = list()
 	if(h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)))
 		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[h_style]
 		if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
-			var/icon/hair_s 
+			var/icon/hair_s
 			if((hair_style.icon == 'icons/mob/human_face.dmi') || (hair_style.icon == 'icons/mob/human_face_vr.dmi'))
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
 			else
@@ -1129,7 +1129,7 @@ var/global/list/damage_icon_parts = list()
 
 	var/image/vr_tail_image = get_tail_image()
 	if(vr_tail_image)
-		vr_tail_image.layer = (-100)+TAIL_LAYER
+		vr_tail_image.layer = TAIL_LAYER		//Eclipse edit.
 		overlays_standing[TAIL_LAYER] = vr_tail_image
 		return
 
@@ -1258,7 +1258,7 @@ var/global/list/damage_icon_parts = list()
 
 	var/image/vr_wing_image = get_wing_image()
 	if(vr_wing_image)
-		vr_wing_image.layer = (-100)+WING_LAYER
+		vr_wing_image.layer = WING_LAYER 		//Eclipse edit.
 		overlays_standing[WING_LAYER] = vr_wing_image
 
 
