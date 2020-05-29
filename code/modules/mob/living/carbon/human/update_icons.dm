@@ -125,7 +125,7 @@ Please contact me on #coderbus IRC. ~Carn x
 #define HAIR_LAYER			17		//TODO: make part of head layer?
 #define WING_LAYER			18		//Eclipse edit.
 #define L_EAR_LAYER			19
-#define R_EAR_LAYER			10
+#define R_EAR_LAYER			20
 #define FACEMASK_LAYER		21
 #define HEAD_LAYER			22
 #define COLLAR_LAYER		23
