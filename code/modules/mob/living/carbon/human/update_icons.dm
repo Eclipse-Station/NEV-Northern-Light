@@ -1124,24 +1124,25 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons) update_icons()
 
 
+// // // BEGIN ECLIPSE EDITS // // //
+//Minor refactor to fix render issues. ^Spitzer
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 	overlays_standing[TAIL_LAYER] = null
+	var/standing = null
 
 	var/image/vr_tail_image = get_tail_image()
-	if(vr_tail_image)
-		vr_tail_image.layer = TAIL_LAYER		//Eclipse edit.
-		overlays_standing[TAIL_LAYER] = vr_tail_image
-		return
+	if(vr_tail_image && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+		standing = vr_tail_image
+	else
+		var/species_tail = species.get_tail(src)
+		if(species_tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+			var/icon/tail_s = get_tail_icon()
+			standing = image(tail_s, icon_state = "[species_tail]_s")
+			animate_tail_reset(0)
 
-	var/species_tail = species.get_tail(src)
-
-	if(species_tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
-		var/icon/tail_s = get_tail_icon()
-		overlays_standing[TAIL_LAYER] = image(tail_s, icon_state = "[species_tail]_s")
-		animate_tail_reset(0)
-
-	if(update_icons)
-		update_icons()
+	overlays_standing[TAIL_LAYER] = standing
+	if(update_icons)   update_icons()
+// // // END ECLIPSE EDITS // // //
 
 /mob/living/carbon/human/proc/get_tail_icon()
 	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin]"
@@ -1250,17 +1251,27 @@ var/global/list/damage_icon_parts = list()
 	overlays_standing[SURGERY_LAYER] = total
 	if(update_icons)   update_icons()
 
-/mob/living/carbon/human/proc/update_wing_showing()
+// // // BEGIN ECLIPSE EDITS // // //
+//Minor refactor to fix render issues. ^Spitzer
+/mob/living/carbon/human/proc/update_wing_showing(var/update_icons=1)
 	if(QDESTROYING(src))
 		return
 
 	overlays_standing[WING_LAYER] = null
 
 	var/image/vr_wing_image = get_wing_image()
+	// // // BEGIN ECLIPSE REMOVAL // // //
+	//Rationale: Causing malfunctions in render code - specifically naming layer
+	//				is causing wings to render over chairs, sheets, et cetera
+	/*
+
 	if(vr_wing_image)
 		vr_wing_image.layer = WING_LAYER 		//Eclipse edit.
-		overlays_standing[WING_LAYER] = vr_wing_image
+	*/	// // // END ECLIPSE REMOVAL // // //
+	overlays_standing[WING_LAYER] = vr_wing_image
+	if(update_icons)   update_icons()
 
+// // // END ECLIPSE EDITS // // //
 
 
 //Drawcheck functions
