@@ -277,6 +277,13 @@
 
 
 /client/proc/register_in_db()
+<<<<<<< HEAD
+=======
+	// Prevents the crash if the DB isn't connected.
+	if(!dbcon.IsConnected())
+		return
+
+>>>>>>> 99ce3d0... Fixes a runtime in log_client_to_db (#4945)
 	registration_date = src.get_registration_date()
 	src.get_country()
 
@@ -290,13 +297,43 @@
 		get_player_id.Execute()
 		if(get_player_id.NextRow())
 			src.id = get_player_id.item[1]
+<<<<<<< HEAD
 
+=======
+			src.first_seen = get_player_id.item[2]
+
+//Not actually age, but rather time since first seen in days
+/client/proc/get_player_age()
+	if(first_seen && dbcon.IsConnected())
+		var/dateSQL = sanitizeSQL(first_seen)
+		var/DBQuery/query_datediff = dbcon.NewQuery("SELECT DATEDIFF(Now(),'[dateSQL]')")
+		if(query_datediff.Execute() && query_datediff.NextRow())
+			src.first_seen_days_ago = text2num(query_datediff.item[1])
+
+	if(config.paranoia_logging && isnum(src.first_seen_days_ago) && src.first_seen_days_ago == 0)
+		log_and_message_admins("PARANOIA: [key_name(src)] has connected here for the first time.")
+	return src.first_seen_days_ago
+
+//Days since they signed up for their byond account
+/client/proc/get_byond_age()
+	if(!registration_date)
+		get_registration_date()
+	if(registration_date && dbcon.IsConnected())
+		var/dateSQL = sanitizeSQL(registration_date)
+		var/DBQuery/query_datediff = dbcon.NewQuery("SELECT DATEDIFF(Now(),'[dateSQL]')")
+		if(query_datediff.Execute() && query_datediff.NextRow())
+			src.account_age_in_days = text2num(query_datediff.item[1])
+	if(config.paranoia_logging && isnum(src.account_age_in_days) && src.account_age_in_days <= 2)
+		log_and_message_admins("PARANOIA: [key_name(src)] has a very new Byond account. ([src.account_age_in_days] days old)")
+	return src.account_age_in_days
+>>>>>>> 99ce3d0... Fixes a runtime in log_client_to_db (#4945)
 
 /client/proc/log_client_to_db()
 	if(IsGuestKey(src.key))
 		return
 
 	establish_db_connection()
+<<<<<<< HEAD
 	if(!dbcon.IsConnected())
 		return
 
@@ -308,6 +345,16 @@
 		return
 	else
 		if(query.NextRow())
+=======
+	if(dbcon.IsConnected())
+		// Get existing player from DB
+		var/DBQuery/query = dbcon.NewQuery("SELECT id from players WHERE ckey = '[src.ckey]'")
+		if(!query.Execute())
+			log_world("Failed to get player record for user with ckey '[src.ckey]'. Error message: [query.ErrorMsg()].")
+
+		// Not their first time here
+		else if(query.NextRow())
+>>>>>>> 99ce3d0... Fixes a runtime in log_client_to_db (#4945)
 			// client already registered so we fetch all needed data
 			query = dbcon.NewQuery("SELECT id, registered FROM players WHERE id = [query.item[1]]")
 			query.Execute()
@@ -321,9 +368,53 @@
 
 				if(!query_update.Execute())
 					log_world("Failed to update players table for user with id [src.id]. Error message: [query_update.ErrorMsg()].")
+<<<<<<< HEAD
 					return
 		else
 			src.register_in_db()
+=======
+
+		//Panic bunker - player not in DB, so they get kicked
+		else if(config.panic_bunker && !holder && !deadmin_holder)
+			log_adminwarn("Failed Login: [key] - New account attempting to connect during panic bunker")
+			message_admins("<span class='adminnotice'>Failed Login: [key] - New account attempting to connect during panic bunker</span>")
+			to_chat(src, "<span class='warning'>Sorry but the server is currently not accepting connections from never before seen players.</span>")
+			del(src) // Hard del the client. This terminates the connection.
+			return 0
+
+	src.get_byond_age() // Get days since byond join
+	src.get_player_age() // Get days since first seen
+
+	// IP Reputation Check
+	if(config.ip_reputation)
+		if(config.ipr_allow_existing && first_seen_days_ago >= config.ipr_minimum_age)
+			log_admin("Skipping IP reputation check on [key] with [address] because of player age")
+		else if(holder)
+			log_admin("Skipping IP reputation check on [key] with [address] because they have a staff rank")
+		else if(update_ip_reputation()) //It is set now
+			if(ip_reputation >= config.ipr_bad_score) //It's bad
+
+				//Log it
+				if(config.paranoia_logging) //We don't block, but we want paranoia log messages
+					log_and_message_admins("[key] at [address] has bad IP reputation: [ip_reputation]. Will be kicked if enabled in config.")
+				else //We just log it
+					log_admin("[key] at [address] has bad IP reputation: [ip_reputation]. Will be kicked if enabled in config.")
+
+				//Take action if required
+				if(config.ipr_block_bad_ips && config.ipr_allow_existing) //We allow players of an age, but you don't meet it
+					to_chat(src, "Sorry, we only allow VPN/Proxy/Tor usage for players who have spent at least [config.ipr_minimum_age] days on the server. If you are unable to use the internet without your VPN/Proxy/Tor, please contact an admin out-of-game to let them know so we can accommodate this.")
+					del(src) // Hard del the client. This terminates the connection.
+					return 0
+				else if(config.ipr_block_bad_ips) //We don't allow players of any particular age
+					to_chat(src, "Sorry, we do not accept connections from users via VPN/Proxy/Tor connections. If you think this is in error, contact an administrator out of game.")
+					del(src) // Hard del the client. This terminates the connection.
+					return 0
+		else
+			log_admin("Couldn't perform IP check on [key] with [address]")
+
+	if(text2num(id) < 0)
+		src.register_in_db()
+>>>>>>> 99ce3d0... Fixes a runtime in log_client_to_db (#4945)
 
 #undef UPLOAD_LIMIT
 
