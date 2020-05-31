@@ -123,17 +123,17 @@ Please contact me on #coderbus IRC. ~Carn x
 #define BACK_LAYER			15
 #define SUIT_STORE_LAYER	16
 #define HAIR_LAYER			17		//TODO: make part of head layer?
-#define L_EAR_LAYER			18
-#define R_EAR_LAYER			19
-#define FACEMASK_LAYER		20
-#define HEAD_LAYER			21
-#define COLLAR_LAYER		22
-#define HANDCUFF_LAYER		23
-#define LEGCUFF_LAYER		24
-#define L_HAND_LAYER		25
-#define R_HAND_LAYER		26
-#define FIRE_LAYER			27		//If you're on fire
-#define WING_LAYER			28
+#define WING_LAYER			18		//Eclipse edit.
+#define L_EAR_LAYER			19
+#define R_EAR_LAYER			20
+#define FACEMASK_LAYER		21
+#define HEAD_LAYER			22
+#define COLLAR_LAYER		23
+#define HANDCUFF_LAYER		24
+#define LEGCUFF_LAYER		25
+#define L_HAND_LAYER		26
+#define R_HAND_LAYER		27
+#define FIRE_LAYER			28		//If you're on fire
 #define TOTAL_LAYERS		28
 //////////////////////////////////
 
@@ -370,7 +370,7 @@ var/global/list/damage_icon_parts = list()
 	if(h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)))
 		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[h_style]
 		if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
-			var/icon/hair_s 
+			var/icon/hair_s
 			if((hair_style.icon == 'icons/mob/human_face.dmi') || (hair_style.icon == 'icons/mob/human_face_vr.dmi'))
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
 			else
@@ -1124,24 +1124,25 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons) update_icons()
 
 
+// // // BEGIN ECLIPSE EDITS // // //
+//Minor refactor to fix render issues. ^Spitzer
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 	overlays_standing[TAIL_LAYER] = null
+	var/standing = null
 
 	var/image/vr_tail_image = get_tail_image()
-	if(vr_tail_image)
-		vr_tail_image.layer = (-100)+TAIL_LAYER
-		overlays_standing[TAIL_LAYER] = vr_tail_image
-		return
+	if(vr_tail_image && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+		standing = vr_tail_image
+	else
+		var/species_tail = species.get_tail(src)
+		if(species_tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+			var/icon/tail_s = get_tail_icon()
+			standing = image(tail_s, icon_state = "[species_tail]_s")
+			animate_tail_reset(0)
 
-	var/species_tail = species.get_tail(src)
-
-	if(species_tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
-		var/icon/tail_s = get_tail_icon()
-		overlays_standing[TAIL_LAYER] = image(tail_s, icon_state = "[species_tail]_s")
-		animate_tail_reset(0)
-
-	if(update_icons)
-		update_icons()
+	overlays_standing[TAIL_LAYER] = standing
+	if(update_icons)   update_icons()
+// // // END ECLIPSE EDITS // // //
 
 /mob/living/carbon/human/proc/get_tail_icon()
 	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin]"
@@ -1250,17 +1251,27 @@ var/global/list/damage_icon_parts = list()
 	overlays_standing[SURGERY_LAYER] = total
 	if(update_icons)   update_icons()
 
-/mob/living/carbon/human/proc/update_wing_showing()
+// // // BEGIN ECLIPSE EDITS // // //
+//Minor refactor to fix render issues. ^Spitzer
+/mob/living/carbon/human/proc/update_wing_showing(var/update_icons=1)
 	if(QDESTROYING(src))
 		return
 
 	overlays_standing[WING_LAYER] = null
 
 	var/image/vr_wing_image = get_wing_image()
-	if(vr_wing_image)
-		vr_wing_image.layer = (-100)+WING_LAYER
-		overlays_standing[WING_LAYER] = vr_wing_image
+	// // // BEGIN ECLIPSE REMOVAL // // //
+	//Rationale: Causing malfunctions in render code - specifically naming layer
+	//				is causing wings to render over chairs, sheets, et cetera
+	/*
 
+	if(vr_wing_image)
+		vr_wing_image.layer = WING_LAYER 		//Eclipse edit.
+	*/	// // // END ECLIPSE REMOVAL // // //
+	overlays_standing[WING_LAYER] = vr_wing_image
+	if(update_icons)   update_icons()
+
+// // // END ECLIPSE EDITS // // //
 
 
 //Drawcheck functions
