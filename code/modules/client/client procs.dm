@@ -323,14 +323,10 @@
 					log_world("Failed to update players table for user with id [src.id]. Error message: [query_update.ErrorMsg()].")
 					return
 		else
-<<<<<<< HEAD
-			src.register_in_db()
-=======
 			log_admin("Couldn't perform IP check on [key] with [address]")
 	
 	if(text2num(id) < 0)
 		src.register_in_db()
->>>>>>> d1120fc... Update client procs.dm (#4930)
 
 #undef UPLOAD_LIMIT
 
