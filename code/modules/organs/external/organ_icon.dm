@@ -108,7 +108,7 @@ var/global/list/limb_icon_cache = list()
 			if(hair_style && (species.get_bodytype() in hair_style.species_allowed))
 				var/icon/hair = new/icon(hair_style.icon, hair_style.icon_state)
 				if(hair_style.do_colouration)
-					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_ADD)
+					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_MULTIPLY)	//Eclipse edit.
 				overlays |= hair
 
 	return mob_icon
