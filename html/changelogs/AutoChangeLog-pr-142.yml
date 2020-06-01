@@ -1,4 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - code_imp: more cell.give and cell.check_charge
