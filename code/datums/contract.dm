@@ -343,3 +343,132 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		if(!D.copy_protected && (D.design in targets))
 			return TRUE
 	return FALSE
+<<<<<<< HEAD
+=======
+
+// Excelsior contracts
+
+/datum/antag_contract/excel
+
+/datum/antag_contract/excel/place()
+	GLOB.excel_antag_contracts += src
+
+/datum/antag_contract/excel/remove()
+	GLOB.excel_antag_contracts -= src
+
+/datum/antag_contract/excel/complete(user)
+	if(completed)
+		warning("Mandate completed twice: [name] [desc]")
+	completed = TRUE
+
+	if(user)
+		to_chat(user, SPAN_NOTICE("Mandate completed: [name] ([reward] energy)"))
+
+	excelsior_energy += reward
+	for (var/obj/machinery/complant_teleporter/t in excelsior_teleporters)
+		t.update_nano_data()
+	
+/datum/antag_contract/excel/appropriate
+	name = "Appropriate"
+	reward = 400
+	var/target_desc
+	var/target_type
+
+/datum/antag_contract/excel/appropriate/New()
+	..()
+	if(!target_type)
+		var/list/candidates = GLOB.excel_item_targets.Copy()
+		for(var/datum/antag_contract/excel/appropriate/C in GLOB.excel_antag_contracts)
+			candidates.Remove(C.target_desc)
+		if(candidates.len)
+			target_desc = pick(candidates)
+			target_type = candidates[target_desc]
+			desc = "Appropriate [target_desc] by sending it in the teleporter."
+
+/datum/antag_contract/excel/appropriate/can_place()
+	return ..() && target_type
+
+
+// Mandates that target specific crew members
+/datum/antag_contract/excel/targeted  //Base targeted contract is mobilize
+	name = "Mobilize"
+	reward = 1200
+	var/datum/mind/target_mind
+	var/cruciform_check = FALSE
+	var/desc_text = "by stuffing them alive in the teleporter" // Text for the end of desc, a bit hacky
+	var/command_bias = 15 //Bonus chance for targeting heads and IH
+
+/datum/antag_contract/excel/targeted/New()
+	..()
+	var/list/candidates = SSticker.minds.Copy()
+	var/targets_command = prob(command_bias)
+	for(var/datum/antag_contract/excel/targeted/M in GLOB.excel_antag_contracts)
+		candidates -= M.target_mind
+	
+	while(candidates.len)
+		var/datum/mind/candidate_mind = pick(candidates)
+		candidates -= candidate_mind
+		
+		if(player_is_antag_id(candidate_mind, ROLE_EXCELSIOR_REV))
+			continue
+
+		var/mob/living/carbon/human/H = candidate_mind.current
+		if(!istype(H) || H.stat == DEAD || !isOnStationLevel(H))
+			continue
+		
+		if (targets_command)
+			if(!(candidate_mind.assigned_role in list(JOBS_COMMAND + JOBS_SECURITY)))
+				continue
+		
+		if (cruciform_check)
+			var/cruciform = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+			if(cruciform)
+				continue
+		
+		target_mind = candidate_mind
+		desc = "[name] [target_mind.current.real_name] [desc_text]"
+		break
+
+/datum/antag_contract/excel/targeted/can_place()
+	return ..() && target_mind
+
+/datum/antag_contract/excel/targeted/on_mob_despawned(datum/mind/M)
+	if(M == target_mind)
+		remove()
+
+//Cheks for theses mandates are in /datum/controller/subsystem/ticker/proc/excel_check()
+/datum/antag_contract/excel/targeted/overthrow  //Base targeted contract is mobilize
+	name = "Overthrow"
+	reward = 1000
+	command_bias = 100 //Also a bit hacky
+	desc_text = "and destabilize the ship by either killing or converting them."
+
+/datum/antag_contract/excel/targeted/liberate
+	name = "Liberate"
+	reward = 800
+	cruciform_check = TRUE
+	desc_text = "by converting them to excelsior."
+
+/datum/antag_contract/excel/propaganda
+	name = "Propaganda"
+	reward = 600
+	var/list/area/targets = list()
+	
+/datum/antag_contract/excel/propaganda/New()
+	var/list/candidates = ship_areas.Copy()
+	for(var/datum/antag_contract/excel/propaganda/M in GLOB.excel_antag_contracts)
+		if(M.completed)
+			continue
+		candidates -= M.targets
+	while(candidates.len && targets.len < 4) //3 out of 4 locations needed
+		var/area/target = pick(candidates)
+		if(target.is_maintenance)
+			candidates -= target
+			continue
+		targets += target
+	desc = "Activate propaganda chips in 3 different areas: [english_list(targets, and_text = " or ")] and let them spread the revolution!."
+	..()
+
+/datum/antag_contract/excel/propaganda/can_place()
+	return ..() && targets.len
+>>>>>>> 2e66945... typos (#4953)
