@@ -1,15 +1,3 @@
-var/list/global/map_templates = list()
-
-// Called when the world starts, in world.dm
-/proc/load_map_templates()
-	for(var/T in subtypesof(/datum/map_template))
-		var/datum/map_template/template = T
-		if(!(initial(template.mappath))) // If it's missing the actual path its probably a base type or being used for inheritence.
-			continue
-		template = new T()
-		map_templates[template.name] = template
-	return TRUE
-
 /datum/map_template
 	var/name = "Default Template Name"
 	var/desc = "Some text should go here. Maybe."
@@ -27,9 +15,12 @@ var/list/global/map_templates = list()
 	var/allow_duplicates = FALSE // If false, only one map template will be spawned by the game. Doesn't affect admins spawning then manually.
 	var/discard_prob = 0 // If non-zero, there is a chance that the map seeding algorithm will skip this template when selecting potential templates to use.
 
+<<<<<<< HEAD
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
 	var/static/dmm_suite/maploader = new
+=======
+>>>>>>> bdcb400... New configurable procedural generator + Deep Maintenance  (#4815)
 
 /datum/map_template/New(path = null, rename = null)
 	if(path)
@@ -41,7 +32,7 @@ var/list/global/map_templates = list()
 		name = rename
 
 /datum/map_template/proc/preload_size(path, orientation = SOUTH)
-	var/bounds = maploader.load_map(file(path), 1, 1, 1, cropMap=FALSE, measureOnly=TRUE, orientation=orientation)
+	var/bounds = SSmapping.maploader.load_map(file(path), 1, 1, 1, cropMap=FALSE, measureOnly=TRUE, orientation=orientation)
 	if(bounds)
 		if(orientation & (90 | 270))
 			width = bounds[MAP_MAXY]
@@ -54,6 +45,8 @@ var/list/global/map_templates = list()
 /datum/map_template/proc/initTemplateBounds(var/list/bounds)
 	if (SSatoms.initialized == INITIALIZATION_INSSATOMS)
 		return // let proper initialisation handle it later
+
+	var/machinery_was_awake = SSmachines.suspend() // Suspend machinery (if it was not already suspended)
 
 	var/list/atom/atoms = list()
 	var/list/area/areas = list()
@@ -87,6 +80,9 @@ var/list/global/map_templates = list()
 		var/area/A = I
 		A.power_change()
 
+	if(machinery_was_awake)
+		SSmachines.wake() // Wake only if it was awake before we tried to suspended it.
+
 	//admin_notice("<span class='danger'>Submap initializations finished.</span>", R_DEBUG)
 
 /datum/map_template/proc/load_new_z(var/centered = FALSE, var/orientation = SOUTH)
@@ -97,7 +93,7 @@ var/list/global/map_templates = list()
 		x = round((world.maxx - width)/2)
 		y = round((world.maxy - height)/2)
 
-	var/list/bounds = maploader.load_map(file(mappath), x, y, no_changeturf = TRUE, orientation=orientation)
+	var/list/bounds = SSmapping.maploader.load_map(file(mappath), x, y, no_changeturf = TRUE, orientation=orientation)
 	if(!bounds)
 		return FALSE
 
@@ -122,7 +118,7 @@ var/list/global/map_templates = list()
 	if(annihilate)
 		annihilate_bounds(old_T, centered, orientation)
 
-	var/list/bounds = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE, orientation = orientation)
+	var/list/bounds = SSmapping.maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE, orientation = orientation)
 	if(!bounds)
 		return
 
@@ -182,8 +178,8 @@ var/list/global/map_templates = list()
 	var/list/priority_submaps = list() // Submaps that will always be placed.
 
 	// Lets go find some submaps to make.
-	for(var/map in map_templates)
-		var/datum/map_template/MT = map_templates[map]
+	for(var/map in SSmapping.map_templates)
+		var/datum/map_template/MT = SSmapping.map_templates[map]
 		if(!MT.allow_duplicates && MT.loaded > 0) // This probably won't be an issue but we might as well.
 			continue
 		if(!istype(MT, desired_map_template_type)) // Not the type wanted.
