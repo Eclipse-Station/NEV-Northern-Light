@@ -20,6 +20,31 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
 		"an Ironhammer hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
 	))
+<<<<<<< HEAD
+=======
+GLOBAL_LIST_INIT(excel_item_targets,list(
+		"a Miller revolver" = /obj/item/weapon/gun/projectile/revolver,
+		"a Consul revolver" = /obj/item/weapon/gun/projectile/revolver/consul,
+		"a Gladstone shotgun" = /obj/item/weapon/gun/projectile/shotgun/pump/gladstone,
+		"a Kammerer shotgun" = /obj/item/weapon/gun/projectile/shotgun/pump,
+		"a Cassad plasma rifle" = /obj/item/weapon/gun/energy/plasma/cassad,
+		"a Spider Rose energy gun" = /obj/item/weapon/gun/energy/gun,
+		"a Molly machine pistol" = /obj/item/weapon/gun/projectile/automatic/molly,
+		"an Atreides sub machine gun" = /obj/item/weapon/gun/projectile/automatic/atreides,
+		"a Straylight sub machine gun" = /obj/item/weapon/gun/projectile/automatic/straylight,
+		"a Sol carbine" = /obj/item/weapon/gun/projectile/automatic/sol,
+		"a Colt handgun" = /obj/item/weapon/gun/projectile/colt,
+		"a Lenar granade launcher" = /obj/item/weapon/gun/launcher/grenade/lenar,
+		"an RCD" = /obj/item/weapon/rcd,
+		"a cruciform" = /obj/item/weapon/implant/core_implant/cruciform,
+		"the station blueprints" = /obj/item/blueprints,
+		"a hand teleporter" = /obj/item/weapon/hand_tele,
+		"a bluespace Harpoon" = /obj/item/weapon/bluespace_harpoon,
+		"a rocket-powered charge hammer" = /obj/item/weapon/tool/hammer/charge,
+		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
+
+	))
+>>>>>>> 6644dd9... Excel rework part 2 - Items (#4977)
 /datum/antag_contract
 	var/name
 	var/desc
