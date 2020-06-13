@@ -825,6 +825,7 @@
 		minlength=minLongPathLength
 		long = TRUE
 
+
 	//We exclude all other border turfs of other rooms, minus our targets, and where we start
 	var/list/borders=list()
 	borders.Add(border_turfs)
@@ -838,11 +839,13 @@
 	var/list/turf/cost = list("\ref[start]"=0)
 
 	if(minlength<=0)
+
 		if(start in region2.getBorder()) //We've somehow managed to link the two rooms in a single turf
 			out_numPaths++
 			if(long) out_numLongPaths++
 			end = start
 			return retPath(end, previous, pathWidth, start, end)
+
 
 	next-=borders
 	for(var/turf/t in next)
@@ -850,7 +853,9 @@
 		previous["\ref[t]"] = start
 		cost["\ref[t]"]=1
 
+
 	if(!next.len) return list() //We've somehow found a route that can not be continued.
+
 
 	while(1)
 		var/turf/min
@@ -861,12 +866,15 @@
 				min = t
 				mincost=cost["\ref[t]"]
 
+
 		if(!min) return list() //We've managed to outgrow our cost
+
 
 		done += min
 		next -= min
 
 		if(min in region2.getBorder()) //We've reached our destination
+
 			if(mincost>minlength && prob(pathEndChance))
 				out_numPaths++
 				if(long) out_numLongPaths++
@@ -891,6 +899,7 @@
 	return retPath(end, previous, pathWidth, start, end)
 
 /obj/procedural/jp_DungeonGenerator/proc/retPath(var/list/end, var/list/previous, var/pathWidth, var/turf/start, var/turf/end)
+
 	var/list/ret = list()
 	ret += GetSquare(end, pathWidth)
 	var/turf/last = end
