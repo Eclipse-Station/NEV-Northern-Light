@@ -291,8 +291,7 @@
 		rad = 0
 	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-<<<<<<< HEAD
-=======
+
 
 
 /obj/item/clothing/suit/storage/cyberpunksleek_long/green
@@ -342,4 +341,4 @@
 	icon_state = "violet_jacket"
 	item_state = "violet_jacket"
 	body_parts_covered = UPPER_TORSO|ARMS
->>>>>>> 410bb87... Colored Cyberpunk Coats and tunnelsnake jackets (#4967)
+
