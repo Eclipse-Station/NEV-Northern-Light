@@ -74,9 +74,6 @@
 		SSnano.update_uis(src)
 
 /obj/item/weapon/storage/bsdm/permanent
-<<<<<<< HEAD
-	del_on_send = FALSE
-=======
 	del_on_send = FALSE
 
 /obj/item/weapon/storage/bsdm/permanent/attackby(obj/item/W as obj, mob/user as mob)
@@ -90,4 +87,4 @@
 			trans = syringe_blitzshell.reagents.trans_to(vial_blitzshell, syringe_blitzshell.reagents.total_volume)
 			to_chat(user ,SPAN_NOTICE("You transfer [trans] units of the solution from [syringe_blitzshell] to [src]"))
 			return handle_item_insertion(vial_blitzshell)
->>>>>>> 18f21a2... Blitzshell fast fix. (#4964)
+
