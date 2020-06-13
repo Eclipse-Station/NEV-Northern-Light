@@ -27,8 +27,7 @@
 	reagents.add_reagent("water", 2)
 
 	qdel(src)
-<<<<<<< HEAD
-=======
+
 
 /obj/item/weapon/arrow/neotheo/weedkiller/throw_impact()
 	..()
@@ -38,4 +37,6 @@
 	reagents.add_reagent("water", 2)
 
 	qdel(src)
->>>>>>> 29f6545... fixes the NT spray altfire (#4978)
+
+
+
