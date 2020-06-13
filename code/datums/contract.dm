@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Straylight sub machine gun" = /obj/item/weapon/gun/projectile/automatic/straylight,
 		"a Sol carbine" = /obj/item/weapon/gun/projectile/automatic/sol,
 		"a Colt handgun" = /obj/item/weapon/gun/projectile/colt,
-		"a Lenar granade launcher" = /datum/design/autolathe/gun/grenade_launcher_lenar,
+		"a Lenar granade launcher" = /obj/item/weapon/gun/launcher/grenade/lenar,
 		"an RCD" = /obj/item/weapon/rcd,
 		"a cruciform" = /obj/item/weapon/implant/core_implant/cruciform,
 		"the station blueprints" = /obj/item/blueprints,
@@ -281,7 +281,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 /datum/antag_contract/item/dump/New()
 	..()
 	sum = rand(30, 40) * 500
-	desc = "Extract a sum of [sum] credits from Northern Light economy and send it via BSDM."
+	desc = "Extract a sum of [sum] credits from Eris economy and send it via BSDM."
 
 /datum/antag_contract/item/dump/check_contents(list/contents)
 	var/received = 0
