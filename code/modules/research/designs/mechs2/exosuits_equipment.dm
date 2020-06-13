@@ -68,12 +68,6 @@
 
 //ENGINEERING
 /datum/design/research/item/exosuit/rcd
-<<<<<<< HEAD
-	name = "RCD"
-	time = 90
-	materials = list(MATERIAL_STEEL = 30, MATERIAL_PHORON = 25, MATERIAL_GOLD = 15)
-	build_path = /obj/item/mech_equipment/mounted_system/rcd
-=======
 	name = "mounted RCD"
 	build_path = /obj/item/mech_equipment/mounted_system/rcd
->>>>>>> 91f87c6... Exosuit fixes, tweaks, improvements and other kinds of bullshit (#4946)
+
