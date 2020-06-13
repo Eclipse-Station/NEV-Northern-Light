@@ -40,13 +40,18 @@
 /mob/living/silicon/robot/drone/blitzshell/get_scooped()
 	return
 
+/mob/living/silicon/robot/drone/blitzshell/allowed()
+	return FALSE
+
 /obj/item/weapon/robot_module/blitzshell
 	networks = list()
-	health = 35
+	health = 90 //Able to take 3-4 bullets
+	speed_factor = 1.2
 	hide_on_manifest = TRUE
 
+
 /obj/item/weapon/robot_module/blitzshell/New()
-	//modules += new /obj/item/weapon/gun/energy/laser/mounted/blitz(src) //Deemed too strong
+	//modules += new /obj/item/weapon/gun/energy/laser/mounted/blitz(src) //Deemed too strong for initial loadout
 	modules += new /obj/item/weapon/gun/energy/plasma/mounted/blitz(src)
 	modules += new /obj/item/weapon/tool/knife/tacknife(src) //For claiming heads for assassination missions
 	//Objective stuff
@@ -61,6 +66,7 @@
 
 /obj/item/weapon/gripper/antag
 	name = "Objective Gripper"
+	desc = "A special grasping tool specialized in 'dirty' work. Can rip someone's head off if you need it."
 	can_hold = list(
 		/obj/item/weapon/implanter,
 		/obj/item/device/spy_sensor,
@@ -72,7 +78,6 @@
 		/obj/item/weapon/oddity/secdocs,
 		/obj/item/stack/telecrystal //To reload the uplink
 		)
-
 
 /obj/item/weapon/gripper/antag/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 	..()
@@ -92,7 +97,6 @@
 				to_chat(user, SPAN_DANGER("[H] missing his head!"))
 		else
 			to_chat(user, SPAN_DANGER("You cannot rip someone head while they alive!"))
-
 
 /obj/item/weapon/gripper/antag/New()
 	..()
@@ -156,7 +160,7 @@
 
 /obj/item/device/drone_uplink/New()
 	..()
-	hidden_uplink = new(src, telecrystals = 0)
+	hidden_uplink = new(src, telecrystals = 25)
 
 /obj/item/device/drone_uplink/attack_self(mob/user)
 	if(hidden_uplink)
