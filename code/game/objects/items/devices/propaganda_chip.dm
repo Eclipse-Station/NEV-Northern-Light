@@ -71,7 +71,9 @@ obj/item/device/propaganda_chip/Destroy()
 		if (crew_target_mind)
 			break
 	var/datum/mind/crew_name
+
 	if (!crew_target_mind || !(crew_target_mind?.current))
+
 		crew_name = "Unknown"
 	else
 		crew_name = crew_target_mind.current.real_name
@@ -94,4 +96,5 @@ obj/item/device/propaganda_chip/Destroy()
 	for (var/mob/living/M in viewers(src))
 		to_chat(M, "[message]")
 	last_talk_time = world.time
-		
+
+
