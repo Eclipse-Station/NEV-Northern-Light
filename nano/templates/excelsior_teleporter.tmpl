@@ -1,20 +1,17 @@
 <!-- 
 Used In File(s): code/game/machinery/excelsior/ex_teleporter.dm
  -->
-<div class="item">
-	<div class="itemLabel">
-		Energy:
+{{:helper.excelsiorMode()}} 
+<h2>Welcome Comrade</h2>
+{{if data.menu == 0}}
+	<div class="item">
+		<div class="itemLabel">
+			Energy:
+		</div>
+		<div class="itemContent">
+			{{:helper.displayBar(data.energy, 0, data.maxEnergy, 'good', data.energy + ' Power')}}
+		</div>
 	</div>
-<<<<<<< HEAD
-	<div class="itemContent">
-		{{:helper.displayBar(data.energy, 0, data.maxEnergy, 'good', data.energy + ' Units')}}
-	</div>
-</div>
-<hr>
-<div class="item">
-	<div class="itemLabel" style="width: 100%;">
-		Order List:
-=======
 	<hr>
 	{{if data.excel_user}}
 		<div class="item">
@@ -78,20 +75,29 @@ Used In File(s): code/game/machinery/excelsior/ex_teleporter.dm
 		<div class="itemContent">
 			{{:helper.link('Close', 'radiation', {'close_menu' : 1}, null, 'fixedLeft')}}
 		</div>
->>>>>>> 6644dd9... Excel rework part 2 - Items (#4977)
 	</div>
-</div>
-<table class='itemContent' style="width: 100%;">
+	<table style="width:100%">
 	<tr>
-		<td><b>Name</b></td>
-		<td><b>Amount</b></td>
-		<td><b>Energy Cost</b></td>
+	<td>Title</td>
+	<th style="width:50%">Description</th>
+	<th style="width:12%">Reward</th>
+	<th style="width:12%">Status</th>
 	</tr>
-	{{for data.buy_list}}
-		<tr>
-		<td>{{:value.title}}</td>
-		<td>{{:value.amount}}</td>
-		<td>{{:helper.link(value.price, 'circle-arrow-s', value.commands, null, null)}}</td>
+	{{for data.available_mandates}}
+		<tr class="candystripe">
+		<td style="background-color: #198eea;">{{:value.name}}</td>
+		<td style="background-color: #198eea;">{{:value.desc}}</td>
+		<td style="background-color: #198eea;">{{:value.reward}}</td>
+		<td style="background-color: #198eea;">{{:value.status}}</td>
 		</tr>
 	{{/for}}
-</table>
+	{{for data.completed_mandates}}
+		<tr class="candystripe">
+		<td style="background-color: #e16701 ;">{{:value.name}}</td>
+		<td style="background-color: #e16701 ;">{{:value.desc}}</td>
+		<td style="background-color: #e16701 ;">{{:value.reward}}</td>
+		<td style="background-color: #e16701 ;">{{:value.status}}</td>
+		</tr>
+	{{/for}}
+	</table>
+{{/if}}
