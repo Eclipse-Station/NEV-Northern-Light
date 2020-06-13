@@ -50,13 +50,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/list/forced_ambience = null
 	var/sound_env = STANDARD_STATION
 	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
-<<<<<<< HEAD
-
 	var/vessel = "NEV Northern Light" //The ship or station this area is on. This is so far just for the benefit of shield generators
-=======
 	var/holomap_color // Color of this area on station holomap
-	var/vessel = "CEV Eris" //The ship or station this area is on. This is so far just for the benefit of shield generators
->>>>>>> 95b00a7... Port Station Holomap (#4942)
+
 	//Consoles can only control shields on the same vessel as them
 
 /*Adding a wizard area teleport list because motherfucking lag -- Urist*/
