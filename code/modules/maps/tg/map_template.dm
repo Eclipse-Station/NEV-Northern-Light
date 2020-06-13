@@ -15,7 +15,7 @@
 	var/allow_duplicates = FALSE // If false, only one map template will be spawned by the game. Doesn't affect admins spawning then manually.
 	var/discard_prob = 0 // If non-zero, there is a chance that the map seeding algorithm will skip this template when selecting potential templates to use.
 
-
+	 var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
 /datum/map_template/New(path = null, rename = null)
 	if(path)
