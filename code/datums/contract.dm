@@ -1,4 +1,5 @@
-GLOBAL_LIST_EMPTY(all_antag_contracts)
+GLOBAL_LIST_EMPTY(various_antag_contracts)	//Contracts from "Various" emloyers, currently used by Traitors, Changelings and Blitzshells
+GLOBAL_LIST_EMPTY(excel_antag_contracts)	//Excelsior contracts
 GLOBAL_LIST_INIT(antag_item_targets,list(
 		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
 		"a hand teleporter" = /obj/item/weapon/hand_tele,
@@ -20,6 +21,28 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
 		"an Ironhammer hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
 	))
+GLOBAL_LIST_INIT(excel_item_targets,list(
+		"a Miller revolver" = /obj/item/weapon/gun/projectile/revolver,
+		"a Consul revolver" = /obj/item/weapon/gun/projectile/revolver/consul,
+		"a Gladstone shotgun" = /obj/item/weapon/gun/projectile/shotgun/pump/gladstone,
+		"a Kammerer shotgun" = /obj/item/weapon/gun/projectile/shotgun/pump,
+		"a Cassad plasma rifle" = /obj/item/weapon/gun/energy/plasma/cassad,
+		"a Spider Rose energy gun" = /obj/item/weapon/gun/energy/gun,
+		"a Molly machine pistol" = /obj/item/weapon/gun/projectile/automatic/molly,
+		"an Atreides sub machine gun" = /obj/item/weapon/gun/projectile/automatic/atreides,
+		"a Straylight sub machine gun" = /obj/item/weapon/gun/projectile/automatic/straylight,
+		"a Sol carbine" = /obj/item/weapon/gun/projectile/automatic/sol,
+		"a Colt handgun" = /obj/item/weapon/gun/projectile/colt,
+		"a Lenar granade launcher" = /datum/design/autolathe/gun/grenade_launcher_lenar,
+		"an RCD" = /obj/item/weapon/rcd,
+		"a cruciform" = /obj/item/weapon/implant/core_implant/cruciform,
+		"the station blueprints" = /obj/item/blueprints,
+		"a hand teleporter" = /obj/item/weapon/hand_tele,
+		"a bluespace Harpoon" = /obj/item/weapon/bluespace_harpoon,
+		"a rocket-powered charge hammer" = /obj/item/weapon/tool/hammer/charge,
+		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
+
+	))
 /datum/antag_contract
 	var/name
 	var/desc
@@ -30,16 +53,16 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 
 /datum/antag_contract/proc/can_place()
 	if(unique)
-		for(var/datum/antag_contract/C in GLOB.all_antag_contracts)
+		for(var/datum/antag_contract/C in GLOB.various_antag_contracts)
 			if(istype(C, type) && !C.completed)
 				return FALSE
 	return !!name
 
 /datum/antag_contract/proc/place()
-	GLOB.all_antag_contracts += src
+	GLOB.various_antag_contracts += src
 
 /datum/antag_contract/proc/remove()
-	GLOB.all_antag_contracts -= src
+	GLOB.various_antag_contracts -= src
 
 // Called on every contract when a mob is despawned - currently, this can only happen when someone cryos
 /datum/antag_contract/proc/on_mob_despawned(datum/mind/M)
@@ -101,7 +124,7 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 	var/list/candidates = SSticker.minds.Copy()
 
 	// Don't target the same player twice
-	for(var/datum/antag_contract/implant/C in GLOB.all_antag_contracts)
+	for(var/datum/antag_contract/implant/C in GLOB.various_antag_contracts)
 		candidates -= C.target_mind
 
 	while(candidates.len)
@@ -144,7 +167,7 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 
 /datum/antag_contract/recon/New()
 	var/list/candidates = ship_areas.Copy()
-	for(var/datum/antag_contract/recon/C in GLOB.all_antag_contracts)
+	for(var/datum/antag_contract/recon/C in GLOB.various_antag_contracts)
 		if(C.completed)
 			continue
 		candidates -= C.targets
@@ -193,7 +216,7 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 /datum/antag_contract/item/assasinate/New()
 	..()
 	var/list/candidates = SSticker.minds.Copy()
-	for(var/datum/antag_contract/item/assasinate/C in GLOB.all_antag_contracts)
+	for(var/datum/antag_contract/item/assasinate/C in GLOB.various_antag_contracts)
 		candidates -= C.target_mind
 	while(candidates.len)
 		target_mind = pick(candidates)
@@ -224,33 +247,11 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 	var/target_desc
 	var/target_type
 
-	var/static/list/possible_items = list(
-		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
-		"a hand teleporter" = /obj/item/weapon/hand_tele,
-		"an RCD" = /obj/item/weapon/rcd,
-		"a jetpack" = /obj/item/weapon/tank/jetpack,
-		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
-		"a functional AI" = /obj/item/device/aicard,
-		"the Chief Engineer's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
-		"the station blueprints" = /obj/item/blueprints,
-		"a sample of slime extract" = /obj/item/slime_extract,
-		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
-		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
-		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
-		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
-		"a Cobalt Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
-		"a Head of Personnel's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
-		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
-		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"a Cobalt Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
-	)
-
 /datum/antag_contract/item/steal/New()
 	..()
 	if(!target_type)
 		var/list/candidates = GLOB.antag_item_targets.Copy()
-		for(var/datum/antag_contract/item/steal/C in GLOB.all_antag_contracts)
+		for(var/datum/antag_contract/item/steal/C in GLOB.various_antag_contracts)
 			candidates.Remove(C.target_desc)
 		if(candidates.len)
 			target_desc = pick(candidates)
@@ -280,7 +281,7 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 /datum/antag_contract/item/dump/New()
 	..()
 	sum = rand(30, 40) * 500
-	desc = "Extract a sum of [sum] credits from Northern Light economy and send it via BSDM."
+	desc = "Extract a sum of [sum] credits from Eris economy and send it via BSDM."
 
 /datum/antag_contract/item/dump/check_contents(list/contents)
 	var/received = 0
@@ -323,7 +324,7 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 /datum/antag_contract/item/file/research/New()
 	..()
 	var/list/candidates = SSresearch.all_designs.Copy()
-	for(var/datum/antag_contract/item/file/research/C in GLOB.all_antag_contracts)
+	for(var/datum/antag_contract/item/file/research/C in GLOB.various_antag_contracts)
 		candidates -= C.targets
 	while(candidates.len && targets.len < 8)
 		var/datum/design/D = pick(candidates)
@@ -343,8 +344,6 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		if(!D.copy_protected && (D.design in targets))
 			return TRUE
 	return FALSE
-<<<<<<< HEAD
-=======
 
 // Excelsior contracts
 
@@ -471,4 +470,3 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 
 /datum/antag_contract/excel/propaganda/can_place()
 	return ..() && targets.len
->>>>>>> 2e66945... typos (#4953)
