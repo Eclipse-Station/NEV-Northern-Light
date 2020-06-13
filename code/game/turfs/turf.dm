@@ -272,16 +272,13 @@ var/const/enterloopsanity = 100
 	sound =  footstep_sound("floor")
 	if(catwalk)
 		sound = footstep_sound("catwalk")
-<<<<<<< HEAD
-	else if (flooring)
-		sound =  footstep_sound(flooring.footstep_sound)
-=======
+
 	else if(flooring)
 		sound = footstep_sound(flooring.footstep_sound)
 	else if(initial_flooring)
 		var/decl/flooring/floor = initial_flooring
 		sound = footstep_sound(floor.footstep_sound)
->>>>>>> e4af4c8... Fixes the runtime with floor sound (#4882)
+
 
 	return sound
 
