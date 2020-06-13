@@ -67,7 +67,6 @@
 /datum/gear/suit/longcoat
 	display_name = "Modern long overcoat"
 	path = /obj/item/clothing/suit/storage/cyberpunksleek_long
-
 	cost = 2
 
 /datum/gear/suit/longcoat/New()
@@ -84,4 +83,3 @@
 	display_name = "old leather coat"
 	path = /obj/item/clothing/suit/storage/bladerunner
 	cost = 2
-	

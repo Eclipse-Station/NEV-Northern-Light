@@ -91,6 +91,8 @@
 				/obj/item/clothing/suit/storage/hazardvest = 10,
 				/obj/item/clothing/suit/storage/detective/ironhammer  = 3,
 				/obj/item/clothing/suit/storage/leather_jacket = 3,
+				/obj/item/clothing/suit/storage/drive_jacket = 3,
+				/obj/item/clothing/suit/storage/violet_jacket = 3,
 				/obj/item/clothing/suit/storage/robotech_jacket = 10,
 				/obj/item/clothing/suit/storage/toggle/bomber = 5,
 				/obj/item/clothing/suit/storage/toggle/hoodie = 5,
@@ -107,6 +109,7 @@
 				/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake=2,
 				/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake_snake=2,
 				/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake_jager=2))
+
 
 /obj/random/cloth/suit/low_chance
 	name = "low chance random suit"
