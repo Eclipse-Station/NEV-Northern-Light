@@ -96,118 +96,191 @@
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
 		icon_state = "soghun_hood"
 
-	una_spines_long
+	una_spines_long 		//Begin Eclipse edit.
 		name = "Long Unathi Spines"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_longspines"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN) //Xenochimera get most hairstyles since they're abominations.
 
 	una_spines_short
 		name = "Short Unathi Spines"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_shortspines"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 
 	una_frills_long
 		name = "Long Unathi Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_longfrills"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	una_frills_short
 		name = "Short Unathi Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_shortfrills"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		blend = ICON_MULTIPLY
 
 	una_horns
 		name = "Unathi Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
 		icon_state = "soghun_horns"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
-	una_bighorns
-		name = "Unathi Big Horns"
-		icon_state = "unathi_bighorn"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-
-	una_smallhorns
-		name = "Unathi Small Horns"
-		icon_state = "unathi_smallhorn"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-
-	una_ramhorns
-		name = "Unathi Ram Horns"
-		icon_state = "unathi_ramhorn"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-
-	una_sidefrills
-		name = "Unathi Side Frills"
-		icon_state = "unathi_sidefrills"
-		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-
-	una_doublehorns
+	una_doublehorns 	// This one doesn't work.
 		name = "Double Unathi Horns"
 		icon = 'icons/mob/human_face_vr.dmi'
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
 		icon_state = "soghun_dubhorns"
 		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
+	una_bighorns
+		name = "Unathi Big Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_bighorn"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_smallhorns
+		name = "Unathi Small Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_smallhorn"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_ramhorns
+		name = "Unathi Ram Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_ramhorn"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_curved_ramhorn
+		name = "Unathi Curved Ram Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_curved_ramhorn"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_facial_hornadorns
+		name = "Unathi Horn Adorns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "facial_hornadorns"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_facial_spikes
+		name = "Unathi Spikes"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "facial_spikes"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_facial_chinhorns
+		name = "Unathi Chin Horns"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "facial_chinhorns"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_facial_dorsalfrill
+		name = "Unathi Dorsal Frill"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "facial_dorsalfrill"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_sidefrills
+		name = "Unathi Side Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "unathi_sidefrills"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+
+	una_m_frills_simple
+		name = "Unathi Simple Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "m_frills_simple"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		blend = ICON_MULTIPLY
+
+	una_m_frills_short
+		name = "Unathi Short Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "m_frills_short"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		blend = ICON_MULTIPLY
+
+	una_m_frills_aqua
+		name = "Unathi Aquatic Frills"
+		icon = 'icons/mob/unathi_extras.dmi'
+		icon_state = "m_frills_aqua"
+		species_allowed = list(SPECIES_UNATHI, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		blend = ICON_MULTIPLY
+
 	taj_ears
 		name = "Tajaran Ears"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "ears_plain"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_clean
 		name = "Tajara Clean"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_clean"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_bangs
 		name = "Tajara Bangs"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_bangs"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_braid
 		name = "Tajara Braid"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_tbraid"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_shaggy
 		name = "Tajara Shaggy"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_shaggy"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_mohawk
 		name = "Tajaran Mohawk"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_mohawk"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_plait
 		name = "Tajara Plait"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_plait"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_straight
 		name = "Tajara Straight"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_straight"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_long
 		name = "Tajara Long"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_long"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_rattail
 		name = "Tajara Rat Tail"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_rattail"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_spiky
 		name = "Tajara Spiky"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_tajspiky"
 		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	taj_ears_messy
 		name = "Tajara Messy"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "hair_messy"
-		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
+		species_allowed = list(SPECIES_TAJ, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)		// End Eclipse edit.
 
 	teshari_fluffymohawk
 		name = "Teshari Fluffy Mohawk"
@@ -260,27 +333,31 @@
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
 
 //Skrell 'hairstyles' - these were requested for a chimera and screw it, if one wants to eat seafood, go nuts
-	skr_tentacle_veryshort
+	skr_tentacle_veryshort			//Begin Eclipse edit.
 		name = "Skrell Very Short Tentacles"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "skrell_hair_veryshort"
 		species_allowed = list(SPECIES_SKRELL, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 		gender = MALE
 
 	skr_tentacle_short
 		name = "Skrell Short Tentacles"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "skrell_hair_short"
 		species_allowed = list(SPECIES_SKRELL, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	skr_tentacle_average
 		name = "Skrell Average Tentacles"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "skrell_hair_average"
 		species_allowed = list(SPECIES_SKRELL, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
 
 	skr_tentacle_verylong
 		name = "Skrell Long Tentacles"
+		icon = 'icons/mob/human_face.dmi'
 		icon_state = "skrell_hair_verylong"
 		species_allowed = list(SPECIES_SKRELL, SPECIES_XENOCHIMERA, SPECIES_PROTEAN)
-		gender = FEMALE
+		gender = FEMALE				//End Eclipse edit.
 
 // Vulpa stuffs
 
