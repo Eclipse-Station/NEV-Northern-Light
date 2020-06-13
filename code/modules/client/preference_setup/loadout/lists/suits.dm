@@ -16,14 +16,11 @@
 	var/jacket = list(
 		"Bomber"		=	/obj/item/clothing/suit/storage/toggle/bomber,
 		"Leather"		=	/obj/item/clothing/suit/storage/leather_jacket,
-<<<<<<< HEAD
-=======
 		"White"			=	/obj/item/clothing/suit/storage/drive_jacket,
 		"Violet"		=	/obj/item/clothing/suit/storage/violet_jacket,
 		"Tunnelsnake"	=	/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake_snake,
 		"Sleek"			=	/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake,
 		"Jaeger"		=	/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake_jager
->>>>>>> 410bb87... Colored Cyberpunk Coats and tunnelsnake jackets (#4967)
 	)
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
@@ -70,8 +67,7 @@
 /datum/gear/suit/longcoat
 	display_name = "Modern long overcoat"
 	path = /obj/item/clothing/suit/storage/cyberpunksleek_long
-<<<<<<< HEAD
-=======
+
 	cost = 2
 
 /datum/gear/suit/longcoat/New()
@@ -87,5 +83,5 @@
 /datum/gear/suit/bladerunner
 	display_name = "old leather coat"
 	path = /obj/item/clothing/suit/storage/bladerunner
->>>>>>> 410bb87... Colored Cyberpunk Coats and tunnelsnake jackets (#4967)
 	cost = 2
+	
