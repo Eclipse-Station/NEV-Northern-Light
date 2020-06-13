@@ -11888,7 +11888,7 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/maintenance/section3deck2starboard)
 "aAW" = (
-/obj/machinery/atmospherics/pipe/tank/plasma{
+/obj/machinery/atmospherics/pipe/tank/phoron{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/brown_platform,
@@ -13240,11 +13240,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section4deck5starboard)
 "aEr" = (
-/turf/simulated/floor/reinforced/plasma,
+/turf/simulated/floor/reinforced/phoron,
 /area/eris/engineering/atmos)
 "aEs" = (
 /obj/machinery/camera/network/engineering,
-/turf/simulated/floor/reinforced/plasma,
+/turf/simulated/floor/reinforced/phoron,
 /area/eris/engineering/atmos)
 "aEt" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -13262,7 +13262,7 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced/plasma,
+/turf/simulated/floor/reinforced/phoron,
 /area/eris/engineering/atmos)
 "aEu" = (
 /obj/machinery/door/airlock/engineering{
@@ -13516,11 +13516,11 @@
 	frequency = 1441;
 	id_tag = "tox_sensor"
 	},
-/turf/simulated/floor/reinforced/plasma,
+/turf/simulated/floor/reinforced/phoron,
 /area/eris/engineering/atmos)
 "aEZ" = (
-/obj/machinery/portable_atmospherics/canister/plasma,
-/turf/simulated/floor/reinforced/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor/reinforced/phoron,
 /area/eris/engineering/atmos)
 "aFa" = (
 /obj/random/junk,
@@ -13553,7 +13553,7 @@
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
 "aFg" = (
-/obj/structure/dispenser/plasma,
+/obj/structure/dispenser/phoron,
 /obj/structure/sign/faction/technomancers{
 	pixel_y = 32
 	},
@@ -13749,7 +13749,7 @@
 	pixel_y = 1;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced/plasma,
+/turf/simulated/floor/reinforced/phoron,
 /area/eris/engineering/atmos)
 "aFG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
@@ -18498,7 +18498,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/atmos)
 "aRe" = (
@@ -18778,7 +18778,7 @@
 /area/eris/rnd/lab)
 "aRL" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/atmos)
 "aRM" = (
@@ -18862,7 +18862,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/atmos)
 "aRV" = (
@@ -19624,7 +19624,7 @@
 	tag = "icon-intact (EAST)"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/atmos)
 "aTE" = (
@@ -19964,7 +19964,7 @@
 /area/eris/hallway/side/eschangara)
 "aUu" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/disposal)
 "aUv" = (
@@ -20115,7 +20115,7 @@
 	tag = "icon-intact (EAST)"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/atmos)
 "aUJ" = (
@@ -20265,7 +20265,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/disposal)
 "aUZ" = (
@@ -21391,7 +21391,7 @@
 "aXx" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/atmos)
 "aXy" = (
@@ -21410,7 +21410,7 @@
 "aXz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/atmos)
 "aXA" = (
@@ -25833,7 +25833,7 @@
 "bfO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/disposal)
 "bfP" = (
@@ -26570,7 +26570,7 @@
 /area/eris/rnd/podbay)
 "bhz" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/disposal)
 "bhA" = (
@@ -27436,7 +27436,7 @@
 "bju" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/disposal)
 "bjv" = (
@@ -29394,7 +29394,7 @@
 /area/eris/maintenance/section2deck4central)
 "bnt" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/disposal)
@@ -41861,7 +41861,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/structure/sign/atmos_plasma{
+/obj/structure/sign/atmos_phoron{
 	pixel_y = 32
 	},
 /obj/structure/railing{
@@ -42940,7 +42940,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/structure/sign/atmos_plasma{
+/obj/structure/sign/atmos_phoron{
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating/under,
@@ -44548,7 +44548,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section3deck5port)
 "bUn" = (
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/sleep/cryo)
@@ -48014,7 +48014,7 @@
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/engine_room)
 "cch" = (
@@ -48126,7 +48126,7 @@
 	},
 /area/eris/command/tcommsat/chamber)
 "ccu" = (
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/neotheology/bioreactor)
 "ccv" = (
@@ -48229,7 +48229,7 @@
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/crew_quarters/clothingstorage)
 "ccI" = (
-/obj/machinery/vending/plasmaresearch,
+/obj/machinery/vending/phoronresearch,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/mixing)
 "ccJ" = (
@@ -53908,7 +53908,7 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cpG" = (
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cpH" = (
@@ -56503,7 +56503,7 @@
 	name = "Reactor Blast Door";
 	opacity = 0
 	},
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/engine_room)
 "cwk" = (
@@ -56534,7 +56534,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/engine_room)
 "cwn" = (
@@ -57704,7 +57704,7 @@
 	icon_state = "intact";
 	tag = "icon-intact (EAST)"
 	},
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/engine_room)
 "cyP" = (
@@ -61149,11 +61149,11 @@
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/command/exultant/quarters)
 "cGe" = (
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/rnd/storage)
 "cGf" = (
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -67784,7 +67784,7 @@
 /area/eris/rnd/storage)
 "cWg" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/plasma,
+/obj/effect/window_lwall_spawn/phoron,
 /turf/simulated/floor/plating,
 /area/eris/command/captain)
 "cWh" = (
@@ -69827,7 +69827,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/table/rack,
-/obj/item/stack/material/plasma{
+/obj/item/stack/material/phoron{
 	amount = 25
 	},
 /turf/simulated/floor,
@@ -69872,7 +69872,7 @@
 /area/shuttle/mining/station)
 "daN" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/rnd/mixing)
 "daO" = (
@@ -70030,7 +70030,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/structure/sign/atmos_plasma{
+/obj/structure/sign/atmos_phoron{
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating/under,
@@ -72352,7 +72352,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/rnd/mixing)
 "dgq" = (
@@ -73141,7 +73141,7 @@
 "dhV" = (
 /obj/structure/table/standard,
 /obj/structure/disposalpipe/segment,
-/obj/item/stack/material/plasma,
+/obj/item/stack/material/phoron,
 /obj/item/weapon/hand_labeler,
 /obj/item/weapon/packageWrap,
 /obj/machinery/light{
@@ -74192,16 +74192,16 @@
 /area/eris/rnd/research)
 "dke" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/material/plasma{
+/obj/item/stack/material/phoron{
 	layer = 2.9
 	},
-/obj/item/stack/material/plasma{
+/obj/item/stack/material/phoron{
 	layer = 2.9
 	},
-/obj/item/stack/material/plasma{
+/obj/item/stack/material/phoron{
 	layer = 2.9
 	},
-/obj/item/stack/material/plasma{
+/obj/item/stack/material/phoron{
 	layer = 2.9
 	},
 /obj/item/weapon/reagent_containers/spray/cleaner,
@@ -78030,7 +78030,7 @@
 /area/eris/maintenance/section3deck4starboard)
 "dsx" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
 	},
@@ -79585,7 +79585,7 @@
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/rnd/mixing)
 "dvY" = (
@@ -82161,7 +82161,7 @@
 /area/eris/medical/medbay)
 "dBK" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/eris/rnd/mixing)
@@ -82172,7 +82172,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/rnd/mixing)
 "dBM" = (
@@ -82622,7 +82622,7 @@
 /area/eris/medical/reception)
 "dCL" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 9
 	},
@@ -82635,7 +82635,7 @@
 	dir = 5
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/rnd/mixing)
 "dCN" = (
@@ -82939,7 +82939,7 @@
 	},
 /obj/machinery/meter,
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/rnd/mixing)
 "dDw" = (
@@ -86216,7 +86216,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 2
 	},
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/propulsion/left)
 "dKF" = (
@@ -86694,7 +86694,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 2
 	},
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/propulsion/right)
 "dLE" = (
@@ -87444,7 +87444,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/propulsion/left)
 "dNh" = (
@@ -87554,7 +87554,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/propulsion/right)
 "dNs" = (
@@ -88987,7 +88987,7 @@
 /area/eris/engineering/engine_room)
 "dQL" = (
 /obj/structure/closet/crate,
-/obj/item/stack/material/plasma{
+/obj/item/stack/material/phoron{
 	amount = 25
 	},
 /turf/simulated/floor/plating,
@@ -89714,7 +89714,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/structure/sign/atmos_plasma{
+/obj/structure/sign/atmos_phoron{
 	pixel_y = -32
 	},
 /obj/random/junk/low_chance,
@@ -90127,7 +90127,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/structure/sign/atmos_plasma{
+/obj/structure/sign/atmos_phoron{
 	pixel_y = -32
 	},
 /turf/simulated/floor/plating/under,
@@ -96007,7 +96007,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 9
 	},
-/obj/structure/sign/atmos_plasma{
+/obj/structure/sign/atmos_phoron{
 	pixel_y = -32
 	},
 /turf/simulated/floor/plating/under,
@@ -97242,7 +97242,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck1central)
 "ejA" = (
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
@@ -98604,7 +98604,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/structure/sign/atmos_plasma{
+/obj/structure/sign/atmos_phoron{
 	pixel_y = 32
 	},
 /obj/structure/railing{
@@ -98645,7 +98645,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/structure/sign/atmos_plasma{
+/obj/structure/sign/atmos_phoron{
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating/under,
@@ -98866,7 +98866,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/item/stack/material/plasma{
+/obj/item/stack/material/phoron{
 	amount = 25
 	},
 /turf/simulated/shuttle/floor/science{
@@ -106745,7 +106745,7 @@
 	dir = 10
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/left)
 "eDU" = (
@@ -106753,7 +106753,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/left)
 "eDV" = (
@@ -106761,12 +106761,12 @@
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/left)
 "eDW" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/left)
 "eDX" = (
@@ -106774,7 +106774,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/right)
 "eDY" = (
@@ -106782,7 +106782,7 @@
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/right)
 "eDZ" = (
@@ -106799,7 +106799,7 @@
 /area/eris/medical/medbay/uppercor)
 "eEa" = (
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/right)
 "eEb" = (
@@ -106807,19 +106807,19 @@
 	dir = 10
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/right)
 "eEc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/left)
 "eEd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawnplasma,
+/obj/effect/window_lwall_spawn/smartspawnphoron,
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/right)
 "eEe" = (
@@ -108926,7 +108926,7 @@
 /area/eris/command/meo)
 "pkU" = (
 /obj/machinery/light/small,
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "ptL" = (
