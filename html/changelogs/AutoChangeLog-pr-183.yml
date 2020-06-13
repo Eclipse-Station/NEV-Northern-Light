@@ -1,0 +1,4 @@
+author: drexample
+delete-after: true
+changes:
+  - rscadd: Adds a weedkiller firemode to the NT BCR
