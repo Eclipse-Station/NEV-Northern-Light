@@ -73,8 +73,7 @@
 		/obj/item/stack/telecrystal //To reload the uplink
 		)
 
-<<<<<<< HEAD
-=======
+
 /obj/item/weapon/gripper/antag/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 	..()
 	if(istype(target, /mob/living/carbon/human))
@@ -94,7 +93,7 @@
 		else
 			to_chat(user, SPAN_DANGER("You cannot rip someone head while they alive!"))
 
->>>>>>> 18f21a2... Blitzshell fast fix. (#4964)
+
 /obj/item/weapon/gripper/antag/New()
 	..()
 	for(var/i in GLOB.antag_item_targets)
