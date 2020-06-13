@@ -1,0 +1,52 @@
+# This list auto requests reviews from the specified org members
+# when a PR that modifies the file in question is opened.
+# This list is alphabetized by User -> Filename KEEP IT THAT WAY.
+# In the event that multiple org members are to be informed of changes
+# to the same file or dir, add them to the end under Multiple Owners.
+
+# DrExample / Nestor
+###############
+
+/.github/ @DrExample
+/code/controllers/ @DrExample
+/code/game/gamemodes/ @DrExample
+/code/unit_tests/ @DrExample
+/code/world.dm @DrExample
+/code/hub.dm @DrExample
+/.gitattributes @DrExample
+/.gitconfig @DrExample
+/.gitignore @DrExample
+/.travis.yml @DrExample
+/libbyond-extools.so @DrExample
+/schema.sql @DrExample
+
+
+
+
+
+# EvilJackCarver / Spitzer
+###############
+
+/code/ZAS/ @EvilJackCarver
+/code/ATMOSPHERICS/ @EvilJackCarver
+/code/modules/power/ @EvilJackCarver
+/tools/ @EvilJackCarver
+
+
+
+
+
+# Multiple Owners
+###############
+
+# Mapping related
+
+maps/CEVEris/ @DrExample @EvilJackCarver
+maps/submaps/ @DrExample @EvilJackCarver
+*.dmm @DrExample @EvilJackCarver
+
+# Controllers
+
+/code/controllers/configuration_eclipse.dm @DrExample @EvilJackCarver
+/code/controllers/failsafe.dm @DrExample @EvilJackCarver
+/code/controllers/master.dm @DrExample @EvilJackCarver
