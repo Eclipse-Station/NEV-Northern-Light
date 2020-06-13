@@ -494,6 +494,7 @@
 	if(UI)
 		qdel(UI)
 		UI = null
+
 //Uses a couple different services
 /client/proc/update_ip_reputation()
 	var/list/scores = list("GII" = ipr_getipintel())
