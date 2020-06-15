@@ -110,31 +110,32 @@ Please contact me on #coderbus IRC. ~Carn x
 #define DAMAGE_LAYER		2
 #define SURGERY_LAYER		3
 #define IMPLANTS_LAYER		4
-#define UNDERWEAR_LAYER 	5
-#define UNIFORM_LAYER		6
-#define ID_LAYER			7
-#define SHOES_LAYER			8
-#define GLOVES_LAYER		9
-#define BELT_LAYER			10
-#define SUIT_LAYER			11
-#define TAIL_LAYER			12		//bs12 specific. this hack is probably gonna come back to haunt me
-#define GLASSES_LAYER		13
-#define BELT_LAYER_ALT		14
-#define BACK_LAYER			15
-#define SUIT_STORE_LAYER	16
-#define HAIR_LAYER			17		//TODO: make part of head layer?
-#define WING_LAYER			18		//Eclipse edit.
-#define L_EAR_LAYER			19
-#define R_EAR_LAYER			20
-#define FACEMASK_LAYER		21
-#define HEAD_LAYER			22
-#define COLLAR_LAYER		23
-#define HANDCUFF_LAYER		24
-#define LEGCUFF_LAYER		25
-#define L_HAND_LAYER		26
-#define R_HAND_LAYER		27
-#define FIRE_LAYER			28		//If you're on fire
-#define TOTAL_LAYERS		28
+#define MARKINGS_LAYER		5
+#define UNDERWEAR_LAYER 	6
+#define UNIFORM_LAYER		7
+#define ID_LAYER			8
+#define SHOES_LAYER			9
+#define GLOVES_LAYER		10
+#define BELT_LAYER			11
+#define SUIT_LAYER			12
+#define TAIL_LAYER			13		//bs12 specific. this hack is probably gonna come back to haunt me
+#define GLASSES_LAYER		14
+#define BELT_LAYER_ALT		15
+#define BACK_LAYER			16
+#define SUIT_STORE_LAYER	17
+#define HAIR_LAYER			18		//TODO: make part of head layer?
+#define WING_LAYER			19		//Eclipse edit.
+#define L_EAR_LAYER			20
+#define R_EAR_LAYER			21
+#define FACEMASK_LAYER		22
+#define HEAD_LAYER			23
+#define COLLAR_LAYER		24
+#define HANDCUFF_LAYER		25
+#define LEGCUFF_LAYER		26
+#define L_HAND_LAYER		27
+#define R_HAND_LAYER		28
+#define FIRE_LAYER			29		//If you're on fire
+#define TOTAL_LAYERS		29
 //////////////////////////////////
 
 /mob/living/carbon/human
@@ -313,10 +314,39 @@ var/global/list/damage_icon_parts = list()
 	//tail
 	update_tail_showing(0)
 	update_wing_showing()
+	update_markings_showing(0)
 
 	appearance_test.Log("EXIT update_body()")
 	if(update_icons)
 		update_icons()
+
+//Markings
+/mob/living/carbon/human/proc/update_markings_showing(var/update_icons = 1)
+	if(QDESTROYING(src))
+		return
+
+	overlays_standing[MARKINGS_LAYER] = null
+
+	var/marking_image = get_marking_image()
+	if(marking_image)
+		overlays_standing[MARKINGS_LAYER] = marking_image
+		if(update_icons) update_icons()
+
+/mob/living/carbon/human/proc/get_marking_image()
+	if(!body_markings) return
+	var/mutable_appearance/marking_icon = new(null)
+	for(var/markname in body_markings)
+		var/datum/sprite_accessory/marking/real_marking = body_marking_styles_list[markname]
+		var/icon/specific_marking_icon = new()
+		for(var/part in real_marking.body_parts)
+			var/valid = (part in organs_by_name) && organs_by_name[part] && ((part in BP_BASE_PARTS) || organs_by_name[part].dislocated >= 0)
+			if(valid && ("[real_marking.icon_state]-[part]" in icon_states(real_marking.icon)))
+				var/icon/specific_marking_subicon = icon(real_marking.icon, "[real_marking.icon_state]-[part]")
+				specific_marking_subicon.Blend(specific_marking_icon, ICON_OVERLAY)
+				specific_marking_icon = specific_marking_subicon
+		specific_marking_icon.Blend(body_markings[markname], real_marking.color_blend_mode) //This should be a colour.
+		marking_icon.add_overlay(specific_marking_icon)
+	return image(marking_icon)
 
 //UNDERWEAR OVERLAY
 
@@ -432,6 +462,8 @@ var/global/list/damage_icon_parts = list()
 		overlays_standing[IMPLANTS_LAYER] = null
 
 	if(update_icons) update_icons()
+
+
 
 /* --------------------------------------- */
 //For legacy support.
@@ -1160,9 +1192,10 @@ var/global/list/damage_icon_parts = list()
 	if(!tail_icon)
 		//generate a new one
 		var/species_tail_anim = species.get_tail_animation(src)
+		if(!species_tail_anim && species.icobase_tail) species_tail_anim = species.icobase //VOREStation Code - Allow override of file for non-animated tails
 		if(!species_tail_anim) species_tail_anim = 'icons/effects/species.dmi'
 		tail_icon = new/icon(species_tail_anim)
-		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.tail_blend)
+		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.color_mult ? ICON_MULTIPLY : ICON_ADD) // VOREStation edit
 		// The following will not work with animated tails.
 /*		var/use_species_tail = species.get_tail_hair(src)
 		if(use_species_tail)
@@ -1372,6 +1405,7 @@ var/global/list/damage_icon_parts = list()
 #undef DAMAGE_LAYER
 #undef SURGERY_LAYER
 #undef UNDERWEAR_LAYER
+#undef MARKINGS_LAYER
 #undef IMPLANTS_LAYER
 #undef UNIFORM_LAYER
 #undef ID_LAYER

@@ -1129,3 +1129,13 @@
 		icon_state = "shortbeak"
 		color_blend_mode = ICON_MULTIPLY
 		body_parts = list(BP_HEAD)
+
+	frog_head
+		name = "Frog head"
+		icon_state = "froghead"
+		body_parts = list(BP_HEAD)
+
+	mantis_eyes
+		name = "Mantis eyes"
+		icon_state = "mantis_eyes"
+		body_parts = list(BP_HEAD)

@@ -59,7 +59,6 @@
 	name = "blob"
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob"
-	var/icon_scale = 1.0
 	light_range = 3
 	desc = "Some blob creature thingy"
 	density = FALSE //Normal blobs can be walked over, but it's not a good idea

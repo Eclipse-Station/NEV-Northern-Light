@@ -32,3 +32,8 @@
 		return TRUE
 	return FALSE
 
+/image/proc/add_overlay(x)
+	overlays += x
+
+/image/proc/cut_overlay(x)
+	overlays -= x

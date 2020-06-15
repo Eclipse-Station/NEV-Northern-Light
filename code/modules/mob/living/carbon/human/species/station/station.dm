@@ -36,6 +36,7 @@
 	total_health = 125
 	brute_mod = 0.85
 	burn_mod = 0.85
+	color_mult = 1
 //	metabolic_rate = 0.85
 //	item_slowdown_mod = 0.25
 	mob_size = MOB_LARGE

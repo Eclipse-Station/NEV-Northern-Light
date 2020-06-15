@@ -66,6 +66,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	from_file(S["facial_red"], pref.r_facial)
 	from_file(S["facial_green"], pref.g_facial)
 	from_file(S["facial_blue"], pref.b_facial)
+	from_file(S["body_markings"], pref.body_markings)
 
 
 /datum/category_item/player_setup_item/physical/body/save_character(var/savefile/S)
@@ -90,6 +91,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	to_file(S["facial_red"], pref.r_facial)
 	to_file(S["facial_green"], pref.g_facial)
 	to_file(S["facial_blue"], pref.b_facial)
+	to_file(S["body_markings"], pref.body_markings)
 
 /datum/category_item/player_setup_item/physical/body/sanitize_character(var/savefile/S)
 	pref.h_style		= sanitize_inlist(pref.h_style, GLOB.hair_styles_list, initial(pref.h_style))
@@ -114,6 +116,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	sanitize_integer(pref.s_tone, -185, 34, initial(pref.s_tone))
 
 	pref.s_base = ""
+
+	if(!pref.body_markings) pref.body_markings = list()
+	else pref.body_markings &= body_marking_styles_list
 
 	pref.disabilities	= sanitize_integer(pref.disabilities, 0, 65535, initial(pref.disabilities))
 
@@ -160,6 +165,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(has_flag(mob_species, HAS_SKIN_COLOR))
 		. += "<br><b>Body Color</b><br>"
 		. += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_skin, 2)][num2hex(pref.g_skin, 2)][num2hex(pref.b_skin, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_skin, 2)][num2hex(pref.g_skin, 2)][num2hex(pref.b_skin)]'><tr><td>__</td></tr></table></font><br>"
+
+	. += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
+	for(var/M in pref.body_markings)
+		. += "[M] [pref.body_markings.len > 1 ? "<a href='?src=\ref[src];marking_up=[M]'>&#708;</a> <a href='?src=\ref[src];marking_down=[M]'>&#709;</a> " : ""]<a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
+		. += "<font face='fixedsys' size='3' color='[pref.body_markings[M]]'><table style='display:inline;' bgcolor='[pref.body_markings[M]]'><tr><td>__</td></tr></table></font>"
+		. += "<br>"
+
+
 
 	. += "</td><td style = 'text-align:center;' width = 35%><b>Preview</b><br>"
 	. += "<div style ='padding-bottom:-2px;' class='statusDisplay'><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></div>"
@@ -242,7 +255,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.age = max(min(pref.age, mob_species.max_age), mob_species.min_age)
 
 			reset_limbs() // Safety for species with incompatible manufacturers; easier than trying to do it case by case.
-			//pref.body_markings.Cut() // Basically same as above.//TODO-NESTOR
+			pref.body_markings.Cut() // Basically same as above.//TODO-NESTOR
 
 			//prune_occupation_prefs()
 			//pref.skills_allocated = pref.sanitize_skills(pref.skills_allocated)//TODO-NESTOR
@@ -326,6 +339,46 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(new_f_style && CanUseTopic(user) && mob_species.get_facial_hair_styles(pref.gender))
 			pref.f_style = new_f_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+
+	else if(href_list["marking_style"])
+		var/list/usable_markings = pref.body_markings.Copy() ^ body_marking_styles_list.Copy()
+		var/new_marking = input(user, "Choose a body marking:", "Character Preference")  as null|anything in usable_markings
+		if(new_marking && CanUseTopic(user))
+			pref.body_markings[new_marking] = "#000000" //New markings start black
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+
+	else if(href_list["marking_up"])
+		var/M = href_list["marking_up"]
+		var/start = pref.body_markings.Find(M)
+		if(start != 1) //If we're not the beginning of the list, swap with the previous element.
+			moveElement(pref.body_markings, start, start-1)
+		else //But if we ARE, become the final element -ahead- of everything else.
+			moveElement(pref.body_markings, start, pref.body_markings.len+1)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["marking_down"])
+		var/M = href_list["marking_down"]
+		var/start = pref.body_markings.Find(M)
+		if(start != pref.body_markings.len) //If we're not the end of the list, swap with the next element.
+			moveElement(pref.body_markings, start, start+2)
+		else //But if we ARE, become the first element -behind- everything else.
+			moveElement(pref.body_markings, start, 1)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["marking_remove"])
+		var/M = href_list["marking_remove"]
+		pref.body_markings -= M
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["marking_color"])
+		var/M = href_list["marking_color"]
+		var/mark_color = input(user, "Choose the [M] color: ", "Character Preference", pref.body_markings[M]) as color|null
+		if(mark_color && CanUseTopic(user))
+			pref.body_markings[M] = "[mark_color]"
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
 
 	else if(href_list["disabilities"])
 		var/disability_flag = text2num(href_list["disabilities"])

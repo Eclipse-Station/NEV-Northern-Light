@@ -10,7 +10,9 @@
 	var/thrower
 	var/turf/throw_source = null
 	var/throw_speed = 2
+	var/icon_scale = 1 // Used to scale icons up or down in update_transform().
 	var/throw_range = 7
+	var/icon_rotation = 0 // Used to rotate icons in update_transform()
 	var/moved_recently = 0
 	var/mob/pulledby = null
 	var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -388,3 +390,20 @@
 // if this returns true, interaction to turf will be redirected to src instead
 /atom/movable/proc/preventsTurfInteractions()
 	return FALSE
+
+
+
+/atom/movable/proc/update_transform()
+	var/matrix/M = matrix()
+	M.Scale(icon_scale)
+	M.Turn(icon_rotation)
+	src.transform = M
+
+// Use this to set the object's scale.
+/atom/movable/proc/adjust_scale(new_scale)
+	icon_scale = new_scale
+	update_transform()
+
+/atom/movable/proc/adjust_rotation(new_rotation)
+	icon_rotation = new_rotation
+	update_transform()

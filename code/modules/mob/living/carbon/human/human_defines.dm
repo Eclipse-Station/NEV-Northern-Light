@@ -1,18 +1,3 @@
-//these aren't defines so they can stay in this file
-var/const/RESIZE_HUGE = 1.5
-var/const/RESIZE_BIG = 1.25
-var/const/RESIZE_NORMAL = 1
-var/const/RESIZE_SMALL = 0.75
-var/const/RESIZE_TINY = 0.5
-//Eclipse edits ^^^^ Size
-//average
-var/const/RESIZE_A_HUGEBIG = (RESIZE_HUGE + RESIZE_BIG) / 2
-var/const/RESIZE_A_BIGNORMAL = (RESIZE_BIG + RESIZE_NORMAL) / 2
-var/const/RESIZE_A_NORMALSMALL = (RESIZE_NORMAL + RESIZE_SMALL) / 2
-var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
-
-
-
 /mob/living/carbon/human
 	//Hair colour and style
 	var/r_hair = 0
@@ -42,9 +27,10 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 	var/g_skin = 0
 	var/b_skin = 0
 
-	var/size_multiplier = 1 //multiplier for the mob's icon size
 	var/damage_multiplier = 1 //multiplies melee combat damage
 	var/icon_update = 1 //whether icon updating shall take place
+
+	var/list/body_markings = list()
 
 	var/lip_style = null	//no lipstick by default- arguably misleading, as it could be used for general makeup
 
