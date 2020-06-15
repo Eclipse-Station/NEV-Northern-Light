@@ -2633,6 +2633,7 @@
 #include "maps\CEVEris\_map_data_Eris.dm"
 #include "maps\CEVEris\datums\reports.dm"
 #include "maps\dungeons\crawler\crawler.dm"
+#include "maps\dungeons\deepmaint\deepmaint.dm"
 #include "maps\encounters\asteroid\asteroid.dm"
 #include "maps\encounters\spacefortress\spacefortress.dm"
 #include "maps\encounters\spaceruins\spaceruins.dm"
