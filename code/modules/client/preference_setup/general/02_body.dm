@@ -117,8 +117,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	pref.s_base = ""
 
-	if(!pref.body_markings) pref.body_markings = list()
-	else pref.body_markings &= body_marking_styles_list
+	if(!pref.body_markings)
+		pref.body_markings = list()
+	else
+		pref.body_markings &= body_marking_styles_list
 
 	pref.disabilities	= sanitize_integer(pref.disabilities, 0, 65535, initial(pref.disabilities))
 

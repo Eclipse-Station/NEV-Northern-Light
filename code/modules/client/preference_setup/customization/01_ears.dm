@@ -283,8 +283,8 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["size_multiplier"])
-		var/new_size = input(user, "Choose your character's size, ranging from  75% to 125%", "Set Size") as num|null
-		if (!IsInRange(new_size, 75,125))
+		var/new_size = input(user, "Choose your character's size, ranging from  80% to 120%", "Set Size") as num|null
+		if (!IsInRange(new_size, 80, 120))
 			pref.size_multiplier = 1
 			to_chat(user, "<span class='notice'>Invalid size.</span>")
 			return TOPIC_REFRESH_UPDATE_PREVIEW

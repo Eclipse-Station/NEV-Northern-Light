@@ -1,10 +1,10 @@
 
 //these aren't defines so they can stay in this file
-var/const/RESIZE_HUGE = 1.25
+var/const/RESIZE_HUGE = 1.2
 var/const/RESIZE_BIG = 1.1
 var/const/RESIZE_NORMAL = 1
 var/const/RESIZE_SMALL = 0.9
-var/const/RESIZE_TINY = 0.75
+var/const/RESIZE_TINY = 0.8
 //Eclipse edits ^^^^ Size
 //average
 var/const/RESIZE_A_HUGEBIG = (RESIZE_HUGE + RESIZE_BIG) / 2
@@ -98,9 +98,9 @@ var/const/RESIZE_A_SMALLTINY = (RESIZE_SMALL + RESIZE_TINY) / 2
 	set name = "Adjust Mass"
 	set category = "Abilities" //Seeing as prometheans have an IC reason to be changing mass.
 
-	var/nagmessage = "Adjust your mass to be a size between 75% and 125% (DO NOT ABUSE)"
+	var/nagmessage = "Adjust your mass to be a size between 80% and 120% (DO NOT ABUSE)"
 	var/new_size = input(nagmessage, "Pick a Size") as num|null
-	if(new_size && IsInRange(new_size, 75, 125))
+	if(new_size && IsInRange(new_size, 80, 120))
 		src.resize(new_size/100)
 		message_admins("[key_name(src)] used the resize command in-game to be [new_size]% size. \
 			([src ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>" : "null"])")
