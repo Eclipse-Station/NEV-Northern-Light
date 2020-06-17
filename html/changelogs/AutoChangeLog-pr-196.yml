@@ -1,0 +1,8 @@
+author: drexample
+delete-after: true
+changes:
+  - rscadd: Added Mothpeople
+  - rscadd: Ported Markings, including ones from Eclipse
+  - rscadd: Added resizing mechanics for loadout
+  - rscadd: Added Custom Species naming for all your customization needs
+  - bugfix: Fixed tail layering and coloring issues
