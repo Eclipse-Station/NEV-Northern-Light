@@ -66,3 +66,39 @@
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
+
+/obj/machinery/multistructure/bioreactor_part/console/CanUseTopic(var/mob/user)
+	if(issilicon(user) && !Adjacent(user))
+		return STATUS_UPDATE
+	return ..()
+
+/obj/machinery/multistructure/bioreactor_part/console/Topic(href, href_list)
+	if(..())
+		return 1
+
+	if(href_list["pump_solution"])
+
+
+		if(!MS_bioreactor.chamber_closed)
+			visible_message(SPAN_DANGER("[src] states, 'Unable to engage solution pumps - chamber doors open.'"))
+			playsound(src, 'sound/machines/buzz-two.ogg', 100, 1)
+			return 1
+
+		MS_bioreactor.pump_solution()
+		visible_message(SPAN_NOTICE("[src] states, 'Solution pumps engaged. Solution pumping [MS_bioreactor.chamber_solution ? "in" : "out"].'"))
+		playsound(src, 'sound/machines/synth_yes.ogg', 100, 1)
+		. = 1
+
+	if(href_list["toggle_chamber_doors"])
+
+		if(MS_bioreactor.chamber_solution)
+			visible_message(SPAN_DANGER("[src] states, 'Unable to open doors - solution detected in chamber.'"))
+			playsound(src, 'sound/machines/buzz-two.ogg', 100, 1)
+			return 1
+
+		MS_bioreactor.toggle_platform_door()
+		visible_message(SPAN_NOTICE("[src] states, 'Chamber doors now [MS_bioreactor.chamber_closed ? "closed" : "opened"].'"))
+		playsound(src, 'sound/machines/synth_yes.ogg', 100, 1)
+		. = 1
+
+	ui_interact(usr)

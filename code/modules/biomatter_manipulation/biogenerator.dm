@@ -34,6 +34,8 @@
 	screen 		= locate() in elements
 	port 		= locate() in elements
 	generator	= locate() in elements
+	for(var/obj/machinery/multistructure/biogenerator_part/part in elements)
+		part.MS_biogenerator = src
 
 
 /datum/multistructure/biogenerator/is_operational()
@@ -120,6 +122,7 @@
 	anchored = TRUE
 	density = TRUE
 	MS_type = /datum/multistructure/biogenerator
+	var/datum/multistructure/biogenerator/MS_biogenerator
 
 
 //Our console. Displays metrics
@@ -194,6 +197,25 @@
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
+
+/obj/machinery/multistructure/biogenerator_part/console/CanUseTopic(var/mob/user)
+	if(issilicon(user) && !Adjacent(user))
+		return STATUS_UPDATE
+	return ..()
+
+/obj/machinery/multistructure/biogenerator_part/console/Topic(href, href_list)
+	if(..())
+		return 1
+
+	if(href_list["activate"])
+
+		if(MS_biogenerator.working)
+			MS_biogenerator.activate()
+		else
+			MS_biogenerator.deactivate()
+		visible_message(SPAN_NOTICE("[src] states, 'Biogenerator now [MS_biogenerator.working ? "active" : "inactive"].'"))
+		. = 1
+
 
 
 //Port. Here we connect any biomatter tanks

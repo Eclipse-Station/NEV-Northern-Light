@@ -115,7 +115,7 @@
 			to_chat(M, SPAN_NOTICE("Your remains have been dissolved and reused. Your crew respawn time is reduced by 10 minutes."))
 			M << 'sound/effects/magic/blind.ogg'  //Play this sound to a player whenever their respawn time gets reduced
 			M.set_respawn_bonus("CORPSE_DISSOLVING", 10 MINUTES)
-		
+
 	qdel(object)
 	//now let's add some dirt to the glass
 	for(var/obj/structure/window/reinforced/bioreactor/glass in loc)
@@ -195,17 +195,17 @@
 	..()
 	switch(contamination_level)
 		if(1)
-			to_chat(user, SPAN_NOTICE("There are a few stains on it. Except this, [src] looks pretty clean."))
+			to_chat(user, SPAN_NOTICE("There are a few stains on it. Except that, [src] looks pretty clean."))
 		if(2)
-			to_chat(user, SPAN_NOTICE("You see a sign of biomatter on this [src]. Better to clean it up."))
+			to_chat(user, SPAN_NOTICE("You can see some biomatter on [src]. Should be cleaned soon."))
 		if(3)
-			to_chat(user, SPAN_WARNING("This [src] has clear signs and stains of biomatter."))
+			to_chat(user, SPAN_WARNING("The [src] is pretty dirty, with many signs of biomass and a number of stains."))
 		if(4)
-			to_chat(user, SPAN_WARNING("You see a high amount of biomatter on \the [src]. It's dirty as hell."))
+			to_chat(user, SPAN_WARNING("You see a large amount of biomatter clinging on \the [src]. It's dirty as hell."))
 		if(5)
-			to_chat(user, SPAN_WARNING("Now it's hard to see what's inside. Better to clean this [src]."))
+			to_chat(user, SPAN_WARNING("There's enough biomass clinging on to block your view of the inside of[src]."))
 		else
-			to_chat(user, SPAN_NOTICE("This [src] is so clean, that you can see your reflection. Is that something green at your teeth?"))
+			to_chat(user, SPAN_NOTICE("This [src] is so clean, that you can see your reflection. Is that something green in your teeth?"))
 
 
 /obj/structure/window/reinforced/bioreactor/update_icon()

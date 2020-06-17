@@ -137,7 +137,7 @@
 //#####################################
 /obj/structure/reagent_dispensers/biomatter
 	name = "medium biomatter canister"
-	desc = "A biomatter canister. It is used to store high amounts of biomatter."
+	desc = "A biomatter canister. It is used to store large amounts of biomatter."
 	icon = 'icons/obj/bioreactor_misc.dmi'
 	icon_state = "biomatter_tank_medium"
 	amount_per_transfer_from_this = 50
