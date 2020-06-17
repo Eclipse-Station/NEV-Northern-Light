@@ -39,7 +39,10 @@
 
 	msg += "<EM>[src.name]</EM>"
 	if(species.name != "Human")
-		msg += ", a <b><font color='[species.flesh_color]'>[species.name]</font></b>"
+		if(custom_species)
+			msg += ", a <b><font color='[species.flesh_color]'>[custom_species]</font></b>"
+		else
+			msg += ", a <b><font color='[species.flesh_color]'>[species.name]</font></b>"
 	msg += "!\n"
 
 	//uniform

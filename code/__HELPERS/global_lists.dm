@@ -178,6 +178,13 @@ var/global/list/unworn_slots = list(slot_l_hand,slot_r_hand, slot_l_store, slot_
 		GLOB.facial_hair_styles_list[H.name] = H
 
 
+	//Body markings - Initialise all /datum/sprite_accessory/marking into an list indexed by marking name
+	paths = typesof(/datum/sprite_accessory/marking) - /datum/sprite_accessory/marking
+	for(var/path in paths)
+		var/datum/sprite_accessory/marking/M = new path()
+		body_marking_styles_list[M.name] = M
+
+
 	//Surgery Steps - Initialize all /datum/surgery_step into a list
 	paths = subtypesof(/datum/surgery_step)
 	for(var/path in paths)
@@ -402,3 +409,6 @@ var/global/list/player_sizes_list = list(
 		custom_species_bases += species_name
 
 	return 1 // Hooks must return 1
+
+//Markings
+var/global/list/body_marking_styles_list = list()

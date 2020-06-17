@@ -54,6 +54,8 @@
 
 	var/list/drop_on_remove = null
 
+	var/list/markings = list()         // Markings (body_markings) to apply to the icon
+
 	var/obj/item/organ_module/active/module = null
 
 	// Joint/state stuff.

@@ -40,3 +40,9 @@
 			return 1
 
 	return 0
+
+/mob/living/proc/switch_scaling()
+	set name = "Switch scaling mode"
+	set category = "Preferences"
+	set desc = "Switch sharp/fuzzy scaling for current mob."
+	appearance_flags ^= PIXEL_SCALE
