@@ -195,15 +195,15 @@
 	..()
 	switch(contamination_level)
 		if(1)
-			to_chat(user, SPAN_NOTICE("There are a few stains on it. Except that, [src] looks pretty clean."))
+			to_chat(user, SPAN_NOTICE("There are a few stains on it. Otherwise, [src] looks pretty clean."))
 		if(2)
-			to_chat(user, SPAN_NOTICE("You can see some biomatter on [src]. Should be cleaned soon."))
+			to_chat(user, SPAN_NOTICE("You can see some biomatter on [src]. It should probably be cleaned soon."))
 		if(3)
 			to_chat(user, SPAN_WARNING("The [src] is pretty dirty, with many signs of biomass and a number of stains."))
 		if(4)
 			to_chat(user, SPAN_WARNING("You see a large amount of biomatter clinging on \the [src]. It's dirty as hell."))
 		if(5)
-			to_chat(user, SPAN_WARNING("There's enough biomass clinging on to block your view of the inside of[src]."))
+			to_chat(user, SPAN_WARNING("There's enough biomass clinging on to block your view of the inside of [src]."))
 		else
 			to_chat(user, SPAN_NOTICE("This [src] is so clean, that you can see your reflection. Is that something green in your teeth?"))
 
