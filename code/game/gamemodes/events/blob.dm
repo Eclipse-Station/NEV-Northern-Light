@@ -64,7 +64,7 @@
 	density = FALSE //Normal blobs can be walked over, but it's not a good idea
 
 	opacity = 0
-	anchored = 1
+	anchored = TRUE
 	mouse_opacity = 2
 
 	var/maxHealth = 20
