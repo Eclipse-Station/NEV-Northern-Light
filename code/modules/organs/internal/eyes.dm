@@ -8,6 +8,8 @@
 	var/eyes_color = "#000000"
 	var/robo_color = "#000000"
 	var/cache_key = BP_EYES
+	var/list/colourmatrix = null
+	var/list/colourblind_matrix = MATRIX_GREYSCALE //Special colourblindness parameters. By default, it's black-and-white.
 
 /obj/item/organ/internal/eyes/proc/get_icon()
 	var/icon/eyes_icon = new/icon('icons/mob/human_face.dmi', "eye_l")
@@ -21,6 +23,7 @@
 /obj/item/organ/internal/eyes/replaced_mob(mob/living/carbon/human/target)
 	..()
 	// Apply our eye colour to the target.
+<<<<<<< HEAD
 	if(istype(target) && eyes_color)
 		var/list/eyecolors = ReadRGB(eyes_color)
 		target.r_eyes = eyecolors[1]
@@ -28,12 +31,24 @@
 		target.b_eyes = eyecolors[3]
 		target.update_eyes()
 	..()
+=======
+	if(eyes_color)
+		owner.eyes_color = eyes_color
+		owner.update_eyes()
+	owner.update_client_colour() 
+>>>>>>> 1685f4a... Fate perks (#4989)
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
 		return
+<<<<<<< HEAD
 	eyes_color = rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
 /obj/item/organ/internal/eyes/take_damage(amount, var/silent=0)
+=======
+	eyes_color = owner.eyes_color
+
+/obj/item/organ/internal/eyes/take_damage(amount, silent=0)
+>>>>>>> 1685f4a... Fate perks (#4989)
 	var/oldbroken = is_broken()
 	..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)
@@ -48,7 +63,11 @@
 	if(is_broken())
 		owner.eye_blind = 20
 
-
+/obj/item/organ/internal/eyes/proc/get_colourmatrix() //Returns a special colour matrix if the eyes are organic and the mob is colourblind, otherwise it uses the current one.
+	if(!(BP_IS_ROBOTIC(src)) && owner.stats.getPerk(PERK_OBORIN_SYNDROME))
+		return colourblind_matrix
+	else
+		return colourmatrix
 
 //Subtypes
 /obj/item/organ/internal/eyes/oneeye
@@ -81,4 +100,3 @@
 	eyes_icon.Blend(right_eye)
 
 	return eyes_icon
-

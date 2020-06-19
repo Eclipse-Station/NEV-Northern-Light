@@ -315,3 +315,8 @@
 #define RUIN_WATER 		32		//ruin depending on planet having water accessible
 
 #define NEWorINITIAL(variable, newvalue) variable = newvalue ? newvalue : initial(variable)
+
+//Matricies
+#define MATRIX_GREYSCALE list(0.33, 0.33, 0.33,\
+                              0.33, 0.33, 0.33,\
+                              0.33, 0.33, 0.33)
