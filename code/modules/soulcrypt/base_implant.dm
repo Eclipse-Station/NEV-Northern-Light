@@ -1,6 +1,6 @@
 /*
 Soulcrypt base implant. All base functions are held here.
-This also contains the basic functions of the modules.
+The module base code is held in module.dm
 */
 
 /obj/item/weapon/implant/soulcrypt
@@ -23,6 +23,7 @@ This also contains the basic functions of the modules.
 	var/next_energy_warning //In deciseconds.
 	var/next_integrity_warning //In deciseconds.
 	var/host_death_time //What time did our host die - if null, our host has not yet died, or the revive notice has been sent.
+	var/max_programs = 5 //Maximum amount of programs a soulcrypt can have. add_programs ignores this, but it's only called when the soulcrypt is created.
 
 	var/nutrition_usage_setting = NUTRITION_USAGE_LOW //These can be found in soulcrypt.dm, under DEFINES.
 
@@ -33,7 +34,7 @@ This also contains the basic functions of the modules.
 	var/low_energy_input_message = "Warning: Current energy usage exceeds fuel cell input. Reduce usage to avoid module shutdown."
 	var/integrity_warning_message = "Warning: system integrity low. Service required soon."
 
-	var/list/starting_modules = list()
+	var/list/starting_modules = list(/datum/soulcrypt_module/file_browser)
 	var/list/modules = list()
 	var/list/access = list()
 
@@ -77,6 +78,8 @@ This also contains the basic functions of the modules.
 	deactivate_modules()
 
 /obj/item/weapon/implant/soulcrypt/Process()
+	if(!wearer)
+		return
 	heartbeat()
 	handle_energy()
 	handle_integrity()
@@ -146,6 +149,10 @@ This also contains the basic functions of the modules.
 	if(energy >= max_energy)
 		return
 
+	if(wearer.stat == DEAD)
+		deactivate_modules()
+		return
+
 	for(var/datum/soulcrypt_module/M in modules) //Loop through modules that are active and have an upkeep cost, figure out how much the active drain will take from the energy we have.
 		if(M.active && M.has_energy_upkeep)
 			active_module_drain += M.energy_cost
@@ -192,7 +199,6 @@ This also contains the basic functions of the modules.
 	integrity -= integrity_loss
 	integrity = CLAMP(integrity, 0, 100)
 
-
 /obj/item/weapon/implant/soulcrypt/proc/send_host_message(var/message, var/message_type = MESSAGE_NOTICE)
 	switch(message_type)
 		if(MESSAGE_NOTICE)
@@ -207,61 +213,5 @@ This also contains the basic functions of the modules.
 
 
 
-/datum/soulcrypt_module
-	var/name = "soulcrypt module"
-	var/description = "A module for a soulcrypt."
 
-	var/cooldown_time = 0 //Time in deciseconds
-	var/cooldown_delay = 0 //Time in deciseconds.
-
-	var/energy_cost = 0 //One time, or over time.
-	var/wear_cause_amount = 0 //How much wear does this cause on the soulcrypt? Should be rather low - something like 0.02.
-
-	var/has_cooldown = FALSE //Do we have a cooldown?
-	var/uses_energy = FALSE //Do we use energy from the soulcrypt?
-	var/active = FALSE //Are we even being used right now?
-	var/has_energy_upkeep = FALSE //Do we use energy per tick to stay active?
-	var/causes_wear = FALSE //Does this cause wear on the soulcrypt's systems?
-
-	var/deactivation_message = "Module deactivated."
-	var/activation_message = "Module activated."
-
-	var/list/req_access = list()
-	var/list/req_one_access = list()
-
-	var/obj/item/weapon/implant/soulcrypt/owner //The soulcrypt that owns us.
-
-/datum/soulcrypt_module/proc/message_user(var/message, var/message_type = MESSAGE_NOTICE)
-	owner.send_host_message(message, message_type)
-
-/datum/soulcrypt_module/proc/check_can_activate() //Can we activate? Do we have enough energy, is our cooldown over, and does our user have access to this?
-	if(has_cooldown && (cooldown_time > world.time + cooldown_delay))
-		return FALSE
-
-	if(req_access)
-		if(!owner.check_access(req_access, req_one_access, owner.GetAccess()))
-			return FALSE
-
-	if(uses_energy && (owner.energy < energy_cost))
-		return FALSE
-
-	if(owner.wearer.incapacitated())
-		return FALSE
-
-	return TRUE
-
-/datum/soulcrypt_module/proc/activate()
-	if(!check_can_activate())
-		return
-	active = TRUE
-	var/activation_msg = "<b>[name]:</b> [activation_message]"
-	owner.send_host_message(activation_msg, MESSAGE_NOTICE)
-
-/datum/soulcrypt_module/proc/deactivate()
-	active = FALSE
-	var/deactivation_msg = "<b>[name]:</b> [deactivation_message]"
-	owner.send_host_message(deactivation_msg, MESSAGE_NOTICE)
-
-/datum/soulcrypt_module/proc/handle_effects() //What do we do when the soulcrypt itself calls handle_modules()?
-	return
 

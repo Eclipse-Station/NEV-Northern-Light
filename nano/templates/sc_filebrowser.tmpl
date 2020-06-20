@@ -1,0 +1,9 @@
+<h2>File Browser</h2>
+<table>
+{{for data.modules}}
+	<tr><td>{{:helper.link(value.desc, {'activate' : value.name, 'disk' : data.hard_drive.ref})}}
+	{{if value.running}}
+	<td>{{:helper.link('X', null, {'deactivate' : value.name, 'disk' : data.hard_drive.ref})}} 
+	{{/if}}
+{{/for}}
+</table>
