@@ -3,6 +3,7 @@
 	description = "The internal file browser for your soulcrypt, acessible with just a thought."
 	activation_message = "File browser opened."
 	deactivation_message = "Filebrowser closed."
+	nanomodule_path = /datum/nano_module/soulcrypt/file_browser
 
 /datum/nano_module/soulcrypt/file_browser
 	name = "File Browser"

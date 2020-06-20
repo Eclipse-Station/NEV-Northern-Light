@@ -36,10 +36,11 @@
 	owner.send_host_message(message, message_type)
 
 /datum/soulcrypt_module/proc/check_can_activate() //Can we activate? Do we have enough energy, is our cooldown over, and does our user have access to this?
+	/*
 	if(has_cooldown && (cooldown_time > world.time + cooldown_delay))
 		return FALSE
 
-	if(req_access)
+	if(req_access.len)
 		if(!owner.check_access(req_access, req_one_access, owner.GetAccess()))
 			return FALSE
 
@@ -48,7 +49,7 @@
 
 	if(owner.wearer.incapacitated())
 		return FALSE
-
+	*/
 	return TRUE
 
 /datum/soulcrypt_module/proc/activate(var/mob/user)
@@ -60,7 +61,7 @@
 	if(!nanomodule)
 		nanomodule = new nanomodule_path
 		nanomodule.host = src
-	ui_interact()
+	ui_interact(user)
 
 /datum/soulcrypt_module/proc/deactivate(var/force_close = FALSE)
 	active = FALSE

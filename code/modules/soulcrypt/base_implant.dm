@@ -47,6 +47,7 @@ The module base code is held in module.dm
 /obj/item/weapon/implant/soulcrypt/Initialize()
 	. = ..()
 	add_modules(starting_modules)
+	update_icon()
 
 /obj/item/weapon/implant/soulcrypt/update_icon()
 	overlays.Cut()
@@ -55,9 +56,9 @@ The module base code is held in module.dm
 	else
 		overlays += image('icons/obj/soulcrypt.dmi', "soulcrypt_inactive")
 
-/obj/item/weapon/implant/soulcrypt/install(mob/living/target, organ, mob/user)
-	. = ..()
+/obj/item/weapon/implant/soulcrypt/on_install()
 	activate()
+	check_filemanager_verb()
 
 /obj/item/weapon/implant/soulcrypt/activate()
 	if(!host_mind)
@@ -210,6 +211,26 @@ The module base code is held in module.dm
 		if(MESSAGE_DANGER)
 			to_chat(wearer, SPAN_DANGER("\icon[src] transmits urgently, '[message]'"))
 			wearer << very_bad_sound
+
+/obj/item/weapon/implant/soulcrypt/proc/check_filemanager_verb() //basically, we need to give the host mob the verb to use the file manager!
+	var/filemanager
+	for(var/datum/soulcrypt_module/M in modules)
+		if(istype(M, /datum/soulcrypt_module/file_browser))
+			filemanager = M
+	if(filemanager)
+		verbs |= /mob/living/carbon/human/proc/open_filemanager
+
+
+/mob/living/carbon/human/proc/open_filemanager()
+	set name = "Open Filemanager"
+	set desc = "Opens the Soulcrypt's filemanager."
+	set category = "Soulcrypt"
+
+	var/obj/item/weapon/implant/soulcrypt/crypt = locate() in contents
+	var/datum/soulcrypt_module/FM = locate(/datum/soulcrypt_module/file_browser) in crypt?.contents
+	FM?.activate(src)
+
+
 
 
 
