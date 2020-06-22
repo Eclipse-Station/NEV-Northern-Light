@@ -28,6 +28,7 @@
 			oddity_stats[stat] = rand(1, oddity_stats[stat])
 	AddComponent(/datum/component/inspiration, oddity_stats)
 
+<<<<<<< HEAD
 
 /obj/item/weapon/oddity/examine(user)
 	..()
@@ -47,6 +48,8 @@
 		to_chat(user, SPAN_NOTICE("This item has [aspect] aspect of [stat]"))
 
 
+=======
+>>>>>>> 4511f61... Buffs noble (#5028)
 //Oddities are separated into categories depending on their origin. They are meant to be used both in maints and derelicts, so this is important
 //This is done by subtypes, because this way even densiest code monkey will not able to misuse them
 //They are meant to be put in appropriate random spawners
