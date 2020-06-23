@@ -2506,6 +2506,7 @@
 #include "code\modules\shuttles\shuttle_supply.dm"
 #include "code\modules\shuttles\shuttles_multi.dm"
 #include "code\modules\size\size.dm"
+#include "code\modules\soulcrypt\_overwrites.dm"
 #include "code\modules\soulcrypt\base_implant.dm"
 #include "code\modules\soulcrypt\debug.dm"
 #include "code\modules\soulcrypt\helpers.dm"

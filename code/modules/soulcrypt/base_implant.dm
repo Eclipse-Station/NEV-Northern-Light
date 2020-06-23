@@ -29,6 +29,7 @@ The module base code is held in module.dm
 
 	var/datum/dna/host_dna
 	var/datum/mind/host_mind
+	var/datum/soulcrypt_module/filemanager
 
 	var/low_nutrition_message = "Host malnutrition detected; fuel cell disengaged. Running on internal reserves. Disengage modules to preserve reserves."
 	var/low_energy_input_message = "Warning: Current energy usage exceeds fuel cell input. Reduce usage to avoid module shutdown."
@@ -59,6 +60,11 @@ The module base code is held in module.dm
 /obj/item/weapon/implant/soulcrypt/on_install()
 	activate()
 	check_filemanager_verb()
+	wearer.crypt = src
+
+/obj/item/weapon/implant/soulcrypt/on_uninstall()
+	. = ..()
+	wearer.crypt = null
 
 /obj/item/weapon/implant/soulcrypt/activate()
 	if(!host_mind)
@@ -203,13 +209,13 @@ The module base code is held in module.dm
 /obj/item/weapon/implant/soulcrypt/proc/send_host_message(var/message, var/message_type = MESSAGE_NOTICE)
 	switch(message_type)
 		if(MESSAGE_NOTICE)
-			to_chat(wearer, SPAN_NOTICE("\icon[src] transmits calmly, '[message]'"))
+			to_chat(wearer, SPAN_NOTICE("\icon[src] [src] transmits calmly, '[message]'"))
 			wearer << good_sound
 		if(MESSAGE_WARNING)
-			to_chat(wearer, SPAN_WARNING("\icon[src] transmits urgently, '[message]'"))
+			to_chat(wearer, SPAN_WARNING("\icon[src] [src] transmits urgently, '[message]'"))
 			wearer << bad_sound
 		if(MESSAGE_DANGER)
-			to_chat(wearer, SPAN_DANGER("\icon[src] transmits urgently, '[message]'"))
+			to_chat(wearer, SPAN_DANGER("\icon[src] [src] transmits urgently, '[message]'"))
 			wearer << very_bad_sound
 
 /obj/item/weapon/implant/soulcrypt/proc/check_filemanager_verb() //basically, we need to give the host mob the verb to use the file manager!
@@ -220,15 +226,27 @@ The module base code is held in module.dm
 	if(filemanager)
 		verbs |= /mob/living/carbon/human/proc/open_filemanager
 
+/obj/item/weapon/implant/soulcrypt/proc/find_filemanager()
+	for(var/datum/soulcrypt_module/FM in modules)
+		if(istype(FM, /datum/soulcrypt_module/file_browser))
+			filemanager = FM
+
 
 /mob/living/carbon/human/proc/open_filemanager()
 	set name = "Open Filemanager"
 	set desc = "Opens the Soulcrypt's filemanager."
 	set category = "Soulcrypt"
 
-	var/obj/item/weapon/implant/soulcrypt/crypt = locate() in contents
-	var/datum/soulcrypt_module/FM = locate(/datum/soulcrypt_module/file_browser) in crypt?.contents
-	FM?.activate(src)
+	var/obj/item/weapon/implant/soulcrypt/SC = locate(/obj/item/weapon/implant/soulcrypt) in src.contents
+
+	if(!SC)
+		to_chat(src, SPAN_WARNING("You don't have a soulcrypt, somehow."))
+
+	if(SC.filemanager)
+		SC.filemanager.activate(src)
+	else
+		SC.find_filemanager()
+
 
 
 
