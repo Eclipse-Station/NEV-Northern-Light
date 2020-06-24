@@ -35,7 +35,7 @@ The module base code is held in module.dm
 	var/low_energy_input_message = "Warning: Current energy usage exceeds fuel cell input. Reduce usage to avoid module shutdown."
 	var/integrity_warning_message = "Warning: system integrity low. Service required soon."
 
-	var/list/starting_modules = list(/datum/soulcrypt_module/file_browser)
+	var/list/starting_modules = list(/datum/soulcrypt_module/file_browser, /datum/soulcrypt_module/prosthetic_debug)
 	var/list/modules = list()
 	var/list/access = list()
 
@@ -65,6 +65,7 @@ The module base code is held in module.dm
 /obj/item/weapon/implant/soulcrypt/on_uninstall()
 	. = ..()
 	wearer.crypt = null
+	wearer.verbs -= /mob/living/carbon/human/verb/open_filemanager
 
 /obj/item/weapon/implant/soulcrypt/activate()
 	if(!host_mind)
@@ -224,15 +225,19 @@ The module base code is held in module.dm
 		if(istype(M, /datum/soulcrypt_module/file_browser))
 			filemanager = M
 	if(filemanager)
-		verbs |= /mob/living/carbon/human/proc/open_filemanager
+		verbs |= /mob/living/carbon/human/verb/open_filemanager
 
 /obj/item/weapon/implant/soulcrypt/proc/find_filemanager()
 	for(var/datum/soulcrypt_module/FM in modules)
 		if(istype(FM, /datum/soulcrypt_module/file_browser))
 			filemanager = FM
 
+/obj/item/weapon/implant/soulcrypt/proc/find_module_by_name(var/name)
+	for(var/datum/soulcrypt_module/M in modules)
+		if(M.name == name)
+			return M
 
-/mob/living/carbon/human/proc/open_filemanager()
+/mob/living/carbon/human/verb/open_filemanager()
 	set name = "Open Filemanager"
 	set desc = "Opens the Soulcrypt's filemanager."
 	set category = "Soulcrypt"
@@ -246,6 +251,7 @@ The module base code is held in module.dm
 		SC.filemanager.activate(src)
 	else
 		SC.find_filemanager()
+
 
 
 

@@ -39,3 +39,16 @@
 	disk_data["programs"] = programs
 
 	return disk_data
+
+/datum/nano_module/soulcrypt/file_browser/Topic(href, href_list)
+	var/datum/soulcrypt_module/hostmodule = host
+
+	if(href_list["activate"])
+		var/mob/user = usr
+		var/datum/soulcrypt_module/mod = hostmodule.owner.find_module_by_name(href_list["activate"])
+		mod.activate(user)
+
+	if(href_list["deactivate"])
+		var/mob/user = usr
+		var/datum/soulcrypt_module/mod = hostmodule.owner.find_module_by_name(href_list["deactivate"])
+		mod.activate(user)

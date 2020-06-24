@@ -58,10 +58,11 @@
 	active = TRUE
 	var/activation_msg = "<b>[name]:</b> [activation_message]"
 	owner.send_host_message(activation_msg, MESSAGE_NOTICE)
-	if(!nanomodule)
+	if(!nanomodule && nanomodule_path)
 		nanomodule = new nanomodule_path
 		nanomodule.host = src
-	ui_interact(user)
+	if(nanomodule)
+		ui_interact(user)
 
 /datum/soulcrypt_module/proc/deactivate(var/force_close = FALSE)
 	active = FALSE
