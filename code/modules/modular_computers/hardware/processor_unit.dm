@@ -13,7 +13,7 @@
 	malfunction_probability = 1
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
 
-	var/max_idle_programs = 2 // 2 idle, + 1 active = 3 as said in description.
+	var/max_programs = 3
 
 /obj/item/weapon/computer_hardware/processor_unit/small
 	name = "standard microprocessor"
@@ -22,7 +22,7 @@
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
 	hardware_size = 1
 	power_usage = 25
-	max_idle_programs = 1
+	max_programs = 2
 
 
 /obj/item/weapon/computer_hardware/processor_unit/adv
@@ -32,7 +32,7 @@
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2)
 	matter_reagents = list("silicon" = 30)
 	power_usage = 100
-	max_idle_programs = 3
+	max_programs = 4
 	price_tag = 80
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3)
 
@@ -43,18 +43,18 @@
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 1)
 	hardware_size = 1
 	power_usage = 40
-	max_idle_programs = 2
+	max_programs = 3
 
 
 /obj/item/weapon/computer_hardware/processor_unit/super
 	name = "photonic processor board"
 	desc = "A photonic CPU board prototype. It can run up to five programs simultaneously, but uses a lot of power."
 	icon_state = "cpuboard_super"
-	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 2, MATERIAL_PLASMA = 2)
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 2, MATERIAL_PHORON = 2)
 	matter_reagents = list("silicon" = 40)
 	hardware_size = 2
 	power_usage = 250
-	max_idle_programs = 4
+	max_programs = 5
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 4)
 	price_tag = 200
 
@@ -62,7 +62,7 @@
 	name = "photonic microprocessor"
 	desc = "A photonic CPU prototype for portable devices. It can run up to four programs simultaneously."
 	icon_state = "cpu_super"
-	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 2, MATERIAL_PLASMA = 2)
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 2, MATERIAL_PHORON = 2)
 	hardware_size = 1
 	power_usage = 75
-	max_idle_programs = 3
+	max_programs = 4

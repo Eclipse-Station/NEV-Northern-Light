@@ -21,7 +21,7 @@
 	var/obj/machinery/multistructure/bioreactor_part/console/metrics_screen
 
 
-	var/list/platforms = list()
+	var/list/obj/machinery/multistructure/bioreactor_part/platform/platforms = list()
 	var/platform_enter_side = WEST		//this one represent 'door' side, used by various checks
 	var/chamber_closed = TRUE
 	var/chamber_solution = FALSE
@@ -137,7 +137,7 @@
 //#####################################
 /obj/structure/reagent_dispensers/biomatter
 	name = "medium biomatter canister"
-	desc = "A biomatter canister. It is used to store high amounts of biomatter."
+	desc = "A biomatter canister. It is used to store large amounts of biomatter."
 	icon = 'icons/obj/bioreactor_misc.dmi'
 	icon_state = "biomatter_tank_medium"
 	amount_per_transfer_from_this = 50

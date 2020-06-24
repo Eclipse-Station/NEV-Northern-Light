@@ -46,7 +46,6 @@
 #define GEAR_EVA 15
 
 
-// TODO: make niggas poor after implementation
 /var/list/economic_species_modifier = list(/datum/species/human	= 10)
 
 //---- The following corporations are friendly with NanoTrasen and loosely enable trade and travel:

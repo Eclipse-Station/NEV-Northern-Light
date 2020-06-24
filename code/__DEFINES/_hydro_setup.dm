@@ -47,7 +47,7 @@
 #define TRAIT_WEED_TOLERANCE       	27
 #define TRAIT_ENDURANCE            	28
 #define TRAIT_YIELD                	29
-#define TRAIT_SPREAD               	30 //This define is duplicated in subsystems/migration.dm
+#define TRAIT_SPREAD               	30
 #define TRAIT_MATURATION           	31
 #define TRAIT_PRODUCTION           	32
 #define TRAIT_TELEPORTING          	33
@@ -60,5 +60,6 @@
 #define TRAIT_CHEM_SPRAYER         	40
 #define TRAIT_WALL_HUGGER			41
 #define TRAIT_INVASIVE				42//Allows to invade already seeded tiles
+#define TRAIT_LARGE            	    43
 
 #define WALL_HUG_OFFSET 			12 //How many pixels a wallhugging plant is offset towards a wall

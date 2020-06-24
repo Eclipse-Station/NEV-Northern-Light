@@ -14,7 +14,7 @@
 	num_alternate_languages = 3
 //	secondary_langs = list(LANGUAGE_SAGARU)
 //	name_language = LANGUAGE_SAGARU
-	//color_mult = 1
+	color_mult = 1
 
 	min_age = 18
 	max_age = 80
@@ -76,7 +76,7 @@
 	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = LANGUAGE_SKRELLIAN
 //	assisted_langs = list(LANGUAGE_EAL, LANGUAGE_TERMINUS, LANGUAGE_SKRELLIANFAR, LANGUAGE_ROOTLOCAL, LANGUAGE_ROOTGLOBAL, LANGUAGE_VOX)	//Eclipse edit: Removes Skrellian from assisted languages as a patch
-	//color_mult = 1
+	color_mult = 1
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
 
 	min_age = 18
@@ -120,7 +120,7 @@
 	num_alternate_languages = 3
 //	secondary_langs = list(LANGUAGE_BIRDSONG)
 //	name_language = LANGUAGE_BIRDSONG
-	//color_mult = 1
+	color_mult = 1
 	//inherent_verbs = list(/mob/living/proc/shred_limb,/mob/living/proc/flying_toggle,/mob/living/proc/start_wings_hovering)
 
 	min_age = 18
@@ -179,7 +179,7 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 	blood_color = "#240bc4"
-	//color_mult = 1
+	color_mult = 1
 
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
@@ -219,7 +219,7 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 	blood_color = "#240bc4"
-	//color_mult = 1
+	color_mult = 1
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
 
 	heat_discomfort_strings = list(
@@ -241,11 +241,12 @@
 	primitive_form = "Wolpin"
 	tail = "vulptail"
 	tail_animation = 'icons/mob/species/vulpkanin/tail.dmi' // probably need more than just one of each, but w/e
+	tail_blend = ICON_MULTIPLY								//Eclipse edit.
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	darksight = 5 //worse than cats, but better than lizards. -- Poojawa
 //	gluttonous = 1
 	num_alternate_languages = 3
-	//color_mult = 1
+	color_mult = 1
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
 
 	blurb = "Vulpkanin (Commonly called Vulps or Vulpa for short) are a race of Canids from the planet of Altam in the Binary Vazzend system. \
@@ -280,7 +281,7 @@
 	icobase = 'icons/mob/human_races/r_lizard_vr.dmi'
 	deform = 'icons/mob/human_races/r_def_lizard_vr.dmi'
 	tail_animation = 'icons/mob/species/unathi/tail_vr.dmi'
-//	//color_mult = 1
+	color_mult
 	min_age = 18
 	gluttonous = 0
 //	//inherent_verbs = list(/mob/living/proc/shred_limb)
@@ -290,7 +291,7 @@
 	icobase = 'icons/mob/human_races/r_tajaran_vr.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran_vr.dmi'
 	tail_animation = 'icons/mob/species/tajaran/tail_vr.dmi'
-	//color_mult = 1
+	color_mult = 1
 	min_age = 18
 	gluttonous = 0 //Moving this here so I don't have to fix this conflict every time polaris glances at station.dm
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
@@ -300,7 +301,7 @@
 	spawn_flags = SPECIES_CAN_JOIN
 	icobase = 'icons/mob/human_races/r_skrell_vr.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell_vr.dmi'
-	//color_mult = 1
+	color_mult = 1
 	min_age = 18
 	reagent_tag = null
 
@@ -313,9 +314,9 @@
 	spawn_flags = SPECIES_CAN_JOIN
 	icobase = 'icons/mob/human_races/r_seromi_vr.dmi'
 	deform = 'icons/mob/human_races/r_seromi_vr.dmi'
-	//color_mult = 1
+	color_mult = 1
 	min_age = 18
-	
+
 	blurb = "A race of feathered raptors who developed alongside the Skrell, inhabiting \
 	the polar tundral regions outside of Skrell territory. Extremely fragile, they developed \
 	hunting skills that emphasized taking out their prey without themselves getting hit. They \
@@ -334,7 +335,7 @@
 	spawn_flags = SPECIES_CAN_JOIN
 
 /datum/species/human
-//	//color_mult = 1
+	color_mult = 1
 	icobase = 'icons/mob/human_races/r_human_vr.dmi'
 	deform = 'icons/mob/human_races/r_def_human_vr.dmi'
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
@@ -348,7 +349,7 @@
 	icobase = 'icons/mob/human_races/r_vox_old.dmi'
 	deform = 'icons/mob/human_races/r_def_vox_old.dmi'
 	//inherent_verbs = list(/mob/living/proc/shred_limb, /mob/living/proc/eat_trash)
-	
+
 	blurb = "The Vox are the broken remnants of a once-proud race, now reduced to little more than \
 	scavenging vermin who prey on isolated stations, ships or planets to keep their own ancient arkships \
 	alive. They are four to five feet tall, reptillian, beaked, tailed and quilled; human crews often \

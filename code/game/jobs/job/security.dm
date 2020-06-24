@@ -28,6 +28,8 @@
 		STAT_VIG = 40,
 	)
 
+	perks = list(/datum/perk/survivor)
+
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor,
@@ -36,7 +38,7 @@
 	description = "You are the head of the Coblat Aegis Security division contracted to protect and serve aboard the NEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
 	<br>\
 	Your goal is to keep everyone aboard the ship as safe as possible, and to eliminate any threats to safety."
-	
+
 	duties = "		Coordinate operatives in the field, assigning them to threats and distress calls as needed.<br>\
 		Allocate department funds for necessary supplies, equipment, armor, weapons, upgrades, etc. Spend your money as required to ensure your troops are at peak combat performance<br>\
 		Plan assaults on entrenched threats, ensure each operative knows their roles and carries them out precisely.<br>\
@@ -81,6 +83,8 @@
 		STAT_TGH = 25,
 		STAT_VIG = 25,
 	)
+
+	perks = list(/datum/perk/survivor)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)
@@ -132,6 +136,8 @@
 		STAT_VIG = 25,
 	)
 
+	perks = list(/datum/perk/survivor)
+
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/audio,
 							 /datum/computer_file/program/camera_monitor)
@@ -141,7 +147,7 @@
 	<br>\
 	You are a higher ranking Cobalt officer, and you can give commands to operatives.  But this doesn't mean you should be commanding assaults. You're not any kind of tactical commander<br>\
 	<br>\
-	When there are no outstanding cases, your job is to go look for them. Mingle with civilians, interact and converse, sniff out leads about potential criminal activity. The ironhammer budget can often include stipends to pay informers for any useful info"
+	When there are no outstanding cases, your job is to go look for them. Mingle with civilians, interact and converse, sniff out leads about potential criminal activity. The Aegis budget can often include stipends to pay informers for any useful info"
 
 	duties = "		Interview suspects and witnesses after a crime. Record important details of their statements, and look for inconsistencies.<br>\
 		Gather evidence and bring it back for processing<br>\
@@ -182,6 +188,8 @@
 		STAT_VIG = 15,
 	)
 
+	perks = list(/datum/perk/survivor)
+
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/chem_catalog,
@@ -189,7 +197,7 @@
 
 	description = "You are a highly trained specialist within Aegis. You were probably a medical student or inexperienced doctor when you joined Aegis, and you thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated Aegis operative, but strike a balance inbetween. Balance is the nature of your existence.<br>\
 	<br>\
-	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - NanoTrasen Medical for roles 1 and 2, the Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
+	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - NanoTrasen Medical for roles 1 and 2, the Aegis Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
 	<br>\
 	1. Field Medic. <br>\
 	You may be expected to serve on the backlines in a combat situation, treating and stabilising the wounded, making the call as to whether they can return to combat or leave by medivac. You may need to perform emergency trauma surgery in undesireable conditions. <br>\
@@ -232,6 +240,8 @@
 		STAT_TGH = 20,
 		STAT_VIG = 25,
 	)
+
+	perks = list(/datum/perk/survivor)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)

@@ -2,7 +2,7 @@
  * Contains:
  *		Security
  *		Detective
- *		Ironhammer Commander
+ *		Aegis Commander
  */
 
 /*
@@ -58,7 +58,7 @@
  */
 /obj/item/clothing/under/rank/inspector
 	name = "inspector's suit"
-	desc = "Casual turtleneck and jeans, civilian clothes of Ironhammer Inspector."
+	desc = "Casual turtleneck and jeans, civilian clothes of the Aegis Inspector."
 	icon_state = "insp_under"
 	item_state = "insp_under"
 	siemens_coefficient = 0.8
@@ -101,7 +101,7 @@
 
 
 /*
- * Ironhammer Commander
+ * Aegis Commander
  */
 /obj/item/clothing/under/rank/ih_commander
 	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Aegis Commander\"."

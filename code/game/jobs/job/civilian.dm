@@ -12,7 +12,7 @@
 	spawn_positions = 1
 	supervisors = "the Head of Personnel"
 	selection_color = "#dddddd"
-	access = list(access_bar, access_kitchen)
+	access = list(access_bar, access_kitchen, access_maint_tunnels)
 	initial_balance = 3000
 	wage = WAGE_NONE // Makes his own money
 	stat_modifiers = list(
@@ -109,7 +109,7 @@
 	supervisors = "the Head of Personnel"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Hydroponicist")
-	cruciform_access = list(access_hydroponics)
+	access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
 	wage = WAGE_PROFESSIONAL
 
 	outfit_type = /decl/hierarchy/outfit/job/church/gardener
@@ -144,7 +144,7 @@
 	supervisors = "the Head of Personnel"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Janitor","Sanitation Technician")
-	cruciform_access = list(access_janitor, access_maint_tunnels)
+	access = list(access_janitor, access_maint_tunnels, access_crematorium, access_morgue)
 	wage = WAGE_PROFESSIONAL
 	outfit_type = /decl/hierarchy/outfit/job/church/janitor
 

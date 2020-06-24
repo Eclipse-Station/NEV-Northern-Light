@@ -22,10 +22,11 @@
 /datum/species/unathi
 	name = SPECIES_UNATHI
 	name_plural = "Unathi"
-	icobase = 'icons/mob/human_races/r_lizard.dmi'
-	deform = 'icons/mob/human_races/r_def_lizard.dmi'
+	icobase = 'icons/mob/human_races/r_lizard_vr.dmi'		//Eclipse edit.
+	deform = 'icons/mob/human_races/r_def_lizard_vr.dmi'		//Eclipse edit.
 	tail = "sogtail"
-	tail_animation = 'icons/mob/species/unathi/unathi_tail.dmi'
+	tail_animation = 'icons/mob/species/unathi/tail_vr.dmi'		//Eclipse edit.
+	tail_blend = ICON_MULTIPLY								//Eclipse edit.
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	primitive_form = SPECIES_MONKEY_UNATHI
 	darksight = 3
@@ -35,6 +36,7 @@
 	total_health = 125
 	brute_mod = 0.85
 	burn_mod = 0.85
+	color_mult = 1
 //	metabolic_rate = 0.85
 //	item_slowdown_mod = 0.25
 	mob_size = MOB_LARGE
@@ -144,6 +146,7 @@
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
 	tail = "tajtail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
+	tail_blend = ICON_MULTIPLY								//Eclipse edit.
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	darksight = 8
 	slowdown = -0.5

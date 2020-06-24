@@ -14,21 +14,21 @@
 /datum/ritual/cruciform/priest/epiphany
 	name = "Epiphany"
 	phrase = "In nomine Patris et Filii et Spiritus sancti"
-	desc = "NeoTheology's principal sacrament is a ritual of baptism and merging with cruciform. A body, relieved of clothes should be placed on NeoTheology's special altar."
+	desc = "Mekhane's principal sacrament is a ritual of baptism and merging with the Core Implant. A body, relieved of clothes should be placed on NeoTheology's special altar."
 
 /datum/ritual/cruciform/priest/epiphany/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
 
 	if(!CI)
-		fail("There is no cruciform on this one.", user, C)
+		fail("There is no Core Implant on this one.", user, C)
 		return FALSE
 
 	if(!CI.wearer)
-		fail("Cruciform is not installed.", user, C)
+		fail("Core Implant is not installed.", user, C)
 		return FALSE
 
 	if(CI.activated || CI.active)
-		fail("This cruciform already has a soul inside.", user, C)
+		fail("This Core Implant already has a soul inside.", user, C)
 		return FALSE
 
 	if (CI.wearer.stat == DEAD)
@@ -36,7 +36,7 @@
 		return FALSE
 
 	log_and_message_admins("successfully baptized [CI.wearer]")
-	to_chat(CI.wearer, "<span class='info'>Your cruciform vibrates and warms up.</span>")
+	to_chat(CI.wearer, "<span class='info'>Your Core Implant vibrates and warms up.</span>")
 
 	CI.activate()
 
@@ -54,27 +54,27 @@
 /datum/ritual/cruciform/priest/reincarnation
 	name = "Reincarnation"
 	phrase = "Vetus moritur et onus hoc levaverit"
-	desc = "A reunion of a spirit with it's new body, ritual of activation of a crucifrom, lying on the body. The process requires NeoTheology's special altar on which a body stripped of clothes is to be placed."
+	desc = "A reunion of a spirit with it's new body, ritual of activation of a Core Implant, lying on the body. The process requires a child of Mekhane's special altar on which a body stripped of clothes is to be placed."
 
 /datum/ritual/cruciform/priest/reincarnation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
 
 	if(!CI)
-		fail("There is no cruciform on this one", user, C)
+		fail("There is no Core Implant on this one", user, C)
 		return FALSE
 
 	var/datum/core_module/cruciform/cloning/data = CI.get_module(CRUCIFORM_CLONING)
 
 	if(!CI.wearer)
-		fail("Cruciform is not installed.", user, C)
+		fail("Core Implant is not installed.", user, C)
 		return FALSE
 
 	if(!CI.activated)
-		fail("This cruciform doesn't have soul inside.", user, C)
+		fail("This Core Implant doesn't have a soul inside.", user, C)
 		return FALSE
 
 	if(CI.active)
-		fail("This cruciform already activated.", user, C)
+		fail("This Core Implant is already activated.", user, C)
 		return FALSE
 
 	if(CI.wearer.stat == DEAD)
@@ -106,13 +106,13 @@
 /datum/ritual/cruciform/priest/install
 	name = "Commitment"
 	phrase = "Unde ipse Dominus dabit vobis signum"
-	desc = "This litany will command cruciform attach to person, so you can perform Reincarnation or Epiphany. Cruciform must lay near them."
+	desc = "This litany will command a Core Implant to attach to a person, so you can perform Reincarnation or Epiphany. The Core Implant must lay near them."
 
 /datum/ritual/cruciform/priest/install/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/mob/living/carbon/human/H = get_victim(user)
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
 	if(CI)
-		fail("[H] already have a cruciform installed.", user, C)
+		fail("[H] already have a Core Implant installed.", user, C)
 		return FALSE
 
 	var/list/L = get_front(user)
@@ -120,7 +120,7 @@
 	CI = locate(/obj/item/weapon/implant/core_implant/cruciform) in L
 
 	if(!CI)
-		fail("There is no cruciform on this one", user, C)
+		fail("There is no Core Implant on this one", user, C)
 		return FALSE
 
 	if (H.stat == DEAD)
@@ -128,11 +128,11 @@
 		return FALSE
 
 	if(!(H in L))
-		fail("Cruciform is too far from [H].", user, C)
+		fail("Core Implant is too far from [H].", user, C)
 		return FALSE
 
 	if(CI.active)
-		fail("Cruciform already active.", user, C)
+		fail("Core Implant already active.", user, C)
 		return FALSE
 
 	if(!H.lying || !locate(/obj/machinery/optable/altar) in L)
@@ -168,17 +168,17 @@
 /datum/ritual/cruciform/priest/ejection
 	name = "Deprivation"
 	phrase = "Et revertatur pulvis in terram suam unde erat et spiritus redeat ad Deum qui dedit illum"
-	desc = "This litany will command cruciform to detach from bearer, if the one bearing it is dead. You will be able to use it in scanner for Resurrection."
+	desc = "This litany will command the Core Implant to detach from bearer, if the one bearing it is dead. You will be able to use it in scanner for Resurrection."
 
 /datum/ritual/cruciform/priest/ejection/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)
 
 	if(!CI)
-		fail("There is no cruciform on this one", user, C)
+		fail("There is no Core Implant on this one", user, C)
 		return FALSE
 
 	if(!CI.wearer)
-		fail("Cruciform is not installed.", user, C)
+		fail("Core Implant is not installed.", user, C)
 		return FALSE
 
 	var/mob/M = CI.wearer
@@ -193,7 +193,7 @@
 		return TRUE
 
 	else if(ismob(M) && M.is_dead()) //Cruciforms can't normally be placed on non-humans, but this is still here for sanity purposes.
-		CI.name = "[M]'s Cruciform"
+		CI.name = "[M]'s Core Implant"
 		CI.uninstall()
 		return TRUE
 
@@ -205,17 +205,17 @@
 /datum/ritual/cruciform/priest/unupgrade
 	name = "Asacris"
 	phrase = "A caelo usque ad centrum"
-	desc = "This litany will remove any upgrade from the target's Cruciform implant"
+	desc = "This litany will remove any upgrade from the target's Core Implant"
 
 /datum/ritual/cruciform/priest/unupgrade/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform)
 
 	if(!CI)
-		fail("There is no cruciform on this one.", user, C)
+		fail("There is no Core Implant on this one.", user, C)
 		return FALSE
 
 	if(!CI.wearer)
-		fail("Cruciform is not installed.", user, C)
+		fail("Core Implant is not installed.", user, C)
 		return FALSE
 
 	if(!istype(CI.upgrades) || length(CI.upgrades) <= 0)
@@ -224,7 +224,7 @@
 
 	for(var/obj/item/weapon/coreimplant_upgrade/CU in CI.upgrades)
 		CU.remove()
-		log_and_message_admins("removed upgrade from [C] cruciform with asacris litany")
+		log_and_message_admins("removed upgrade from [C] Core Implant with asacris litany")
 
 	return TRUE
 
@@ -263,7 +263,7 @@
 		set_global_cooldown()
 		return TRUE
 	else
-		fail("Your cruciform sings, alone, unto the void.", user, C)
+		fail("Your Core Implant sings, alone, unto the void.", user, C)
 		return FALSE
 
 
@@ -277,8 +277,11 @@
 
 
 /datum/ritual/cruciform/priest/short_boost/proc/take_boost(mob/living/carbon/human/participant, stat, amount)
-	participant.stats.changeStat(stat, -amount)
-	to_chat(participant, SPAN_WARNING("Your knowledge of [get_stats_to_text()] feels lessened."))
+	// take_boost is automatically triggered by a callback function when the boost ends but the participant 
+	// may have been deleted during the duration of the boost
+	if (participant) // check if participant still exists otherwise we cannot read null.stats
+		participant.stats.changeStat(stat, -amount)
+		to_chat(participant, SPAN_WARNING("Your knowledge of [get_stats_to_text()] feels lessened."))
 
 /datum/ritual/cruciform/priest/short_boost/proc/get_stats_to_text()
 	if(stats_to_boost.len == 1)
@@ -341,7 +344,7 @@
 
 	var/mob/living/M = CI.wearer
 	log_and_message_admins("inflicted pain on [C] with atonement litany")
-	to_chat(M, SPAN_DANGER("A wave of agony washes over you, the cruciform in your chest searing like a star for a few moments of eternity."))
+	to_chat(M, SPAN_DANGER("A wave of agony washes over you, the Core Implant in your chest searing like a star for a few moments of eternity."))
 
 
 	var/datum/effect/effect/system/spark_spread/s = new
@@ -355,7 +358,7 @@
 /datum/ritual/targeted/cruciform/priest/atonement/process_target(var/index, var/obj/item/weapon/implant/core_implant/target, var/text)
 	target.update_address()
 	if(index == 1 && target.address == text)
-		if(target.wearer && (target.loc && target.locs[1] in view()))
+		if(target.wearer && (target.loc && (target.locs[1] in view())))
 			return target
 
 /datum/ritual/cruciform/priest/records

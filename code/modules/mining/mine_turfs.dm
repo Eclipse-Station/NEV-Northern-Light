@@ -87,10 +87,11 @@
 			if(QUALITY_DIGGING in I.tool_qualities)
 				attackby(I,R)
 
-	else if(istype(AM,/obj/mecha))
-		var/obj/mecha/M = AM
-		if(istype(M.selected,/obj/item/mecha_parts/mecha_equipment/tool/drill))
-			M.selected.action(src)
+	else if(istype(AM,/mob/living/exosuit))
+		var/mob/living/exosuit/M = AM
+		if(istype(M.selected_hardpoint, /obj/item/mech_equipment/drill))
+			var/obj/item/mech_equipment/drill/D = M.selected_hardpoint
+			D.afterattack(src)
 
 /turf/simulated/mineral/proc/MineralSpread()
 	if(mineral && mineral.spread)
@@ -110,7 +111,9 @@
 		icon_state = "rock"
 		return
 	name = "\improper [mineral.display_name] deposit"
-	new /obj/effect/mineral(src, mineral)
+	var/obj/effect/mineral/M = new /obj/effect/mineral(src, mineral)
+	spawn(1)
+		M.color = color
 
 //Not even going to touch this pile of spaghetti
 /turf/simulated/mineral/attackby(obj/item/I, mob/living/user)

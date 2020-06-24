@@ -91,6 +91,8 @@
 				/obj/item/clothing/suit/storage/hazardvest = 10,
 				/obj/item/clothing/suit/storage/detective/ironhammer  = 3,
 				/obj/item/clothing/suit/storage/leather_jacket = 3,
+				/obj/item/clothing/suit/storage/drive_jacket = 3,
+				/obj/item/clothing/suit/storage/violet_jacket = 3,
 				/obj/item/clothing/suit/storage/robotech_jacket = 10,
 				/obj/item/clothing/suit/storage/toggle/bomber = 5,
 				/obj/item/clothing/suit/storage/toggle/hoodie = 5,
@@ -102,7 +104,12 @@
 				/obj/item/clothing/suit/storage/toggle/labcoat/science = 3,
 				/obj/item/clothing/suit/storage/toggle/labcoat/virologist = 3,
 				/obj/item/clothing/suit/storage/qm_coat = 2,
-				/obj/item/clothing/suit/storage/cyberpunksleek = 8))
+				/obj/item/clothing/suit/storage/cyberpunksleek = 8,
+				/obj/item/clothing/suit/storage/bladerunner=8,
+				/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake=2,
+				/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake_snake=2,
+				/obj/item/clothing/suit/storage/leather_jacket/tunnelsnake_jager=2))
+
 
 /obj/random/cloth/suit/low_chance
 	name = "low chance random suit"
@@ -195,7 +202,7 @@
 /obj/random/cloth/helmet/item_to_spawn()
 	return pickweight(list(/obj/item/clothing/head/armor/helmet = 20,
 				/obj/item/clothing/head/armor/helmet/visor = 15,
-				/obj/item/clothing/head/armor/bulletproof/ironhammer = 10,
+				/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg = 10,
 				/obj/item/clothing/head/armor/helmet/dermal = 2,
 				/obj/item/clothing/head/armor/helmet/ironhammer = 2,
 				/obj/item/clothing/head/armor/bulletproof = 10,
@@ -402,28 +409,46 @@
 				/obj/item/weapon/storage/backpack/satchel/security = 6,
 				/obj/item/weapon/storage/backpack/satchel/leather/withwallet = 12,
 				/obj/item/weapon/storage/backpack/satchel/ironhammer = 4,
-				/obj/item/weapon/storage/backpack/satchel/neotheology = 4))
+				/obj/item/weapon/storage/backpack/satchel/neotheology = 4,
+				/obj/item/weapon/storage/backpack/satchel/military = 6,
+				/obj/item/weapon/storage/backpack/duffelbag = 24))
 
 /obj/random/cloth/backpack/low_chance
 	name = "low chance random backpack"
 	icon_state = "armor-grey-low"
 	spawn_nothing_percentage = 60
 
-
-
-
 /obj/random/cloth/belt
 	name = "random belt"
-	desc = "This is a random belt"
+	desc = "This is a random belt."
 	icon_state = "armor-grey"
 
 /obj/random/cloth/belt/item_to_spawn()
 	return pickweight(list(/obj/item/weapon/storage/belt/medical = 8,
 				/obj/item/weapon/storage/belt/medical/emt = 8,
-				/obj/item/weapon/storage/belt/security = 4,
-				/obj/item/weapon/storage/belt/utility = 8,))
+				/obj/item/weapon/storage/belt/tactical = 4,
+				/obj/item/weapon/storage/belt/tactical/neotheology = 2,
+				/obj/item/weapon/storage/belt/utility = 8,
+				/obj/item/weapon/storage/belt/utility/neotheology = 4))
 
 /obj/random/cloth/belt/low_chance
 	name = "low chance random belt"
+	icon_state = "armor-grey-low"
+	spawn_nothing_percentage = 60
+
+/obj/random/cloth/holster
+	name = "random holster"
+	desc = "This is a random holster."
+	icon_state = "armor-grey"
+
+/obj/random/cloth/holster/item_to_spawn()
+	return pickweight(list(/obj/item/clothing/accessory/holster = 1,
+				/obj/item/clothing/accessory/holster/armpit = 1,
+				/obj/item/clothing/accessory/holster/waist = 1,
+				/obj/item/clothing/accessory/holster/hip = 1,))
+
+/obj/random/cloth/holster/low_chance
+	name = "low chance random holster"
+	desc = "This is a random holster."
 	icon_state = "armor-grey-low"
 	spawn_nothing_percentage = 60

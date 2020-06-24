@@ -67,10 +67,10 @@
 				open()
 				sleep(50)
 				close()
-		else if(istype(AM, /obj/mecha))
-			var/obj/mecha/mecha = AM
+		else if(istype(AM, /mob/living/exosuit))
+			var/mob/living/exosuit/exosuit = AM
 			if(density)
-				if(mecha.occupant && src.allowed(mecha.occupant))
+				if(exosuit.pilots.len && allowed(exosuit.pilots[1]))
 					open()
 					sleep(50)
 					close()

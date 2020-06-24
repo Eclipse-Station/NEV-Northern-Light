@@ -5,8 +5,8 @@
 		regenerate_icons()
 
 /mob/living/carbon/var/list/internal_organs = list()
-/mob/living/carbon/human/var/list/organs = list()
-/mob/living/carbon/human/var/list/organs_by_name = list() // map organ names to organs
+/mob/living/carbon/human/var/list/obj/item/organ/organs = list()
+/mob/living/carbon/human/var/list/obj/item/organ/external/organs_by_name = list() // map organ names to organs
 /mob/living/carbon/human/var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
 
 // Takes care of organ related updates, such as broken and missing limbs
@@ -199,9 +199,8 @@
 /mob/living/carbon/human/proc/restore_organ(organ_type, var/show_message = FALSE, var/heal = FALSE,)
 	var/obj/item/organ/E = organs_by_name[organ_type]
 	if(E && E.organ_tag != BP_HEAD && !E.vital && !E.is_usable())	//Skips heads and vital bits...
-		E.removed()//...because no one wants their head to explode to make way for a new one.
-		qdel(E)
-		E= null
+		QDEL_NULL(E) //...because no one wants their head to explode to make way for a new one.
+
 	if(!E)
 		if(organ_type in BP_ALL_LIMBS)
 			var/datum/organ_description/organ_data = species.has_limbs[organ_type]

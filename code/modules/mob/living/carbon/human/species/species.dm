@@ -14,6 +14,14 @@
 	var/deform = 'icons/mob/human_races/r_def_human.dmi' // Mutated icon set.
 	var/faceicobase = 'icons/mob/human_face.dmi'
 
+	//This is for overriding tail rendering with a specific icon in icobase, for static
+	//tails only, since tails would wag when dead if you used this
+	var/icobase_tail = 0
+
+	//This is used in character setup preview generation (prefences_setup.dm) and human mob
+	//rendering (update_icons.dm)
+	var/color_mult = 0
+
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
@@ -147,6 +155,7 @@
 		)
 	var/vision_organ              // If set, this organ is required for vision. Defaults to "eyes" if the species has them.
 
+	// The order is important!
 	var/list/has_limbs = list(
 		BP_CHEST =  new /datum/organ_description/chest,
 		BP_GROIN =  new /datum/organ_description/groin,
