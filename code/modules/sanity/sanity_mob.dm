@@ -96,6 +96,14 @@
 		if(A.sanity_damage)
 			. += SANITY_DAMAGE_VIEW(A.sanity_damage, vig, get_dist(owner, A))
 
+<<<<<<< HEAD
+=======
+		if(owner.stats.getPerk(PERK_MORALIST) && ishuman(A)) //Moralists react negatively to people in distress
+			var/mob/living/carbon/human/H = A
+			if(H.sanity.level < 30 || H.health < 50)
+				. += SANITY_DAMAGE_VIEW(0.1, vig, get_dist(owner, A))
+
+>>>>>>> 2b24681... Fix Fate Perks v1. (#5026)
 /datum/sanity/proc/handle_area()
 	var/area/my_area = get_area(owner)
 	if(!my_area)
@@ -110,7 +118,17 @@
 			breakdowns -= B
 
 /datum/sanity/proc/handle_insight()
+<<<<<<< HEAD
 	insight += INSIGHT_GAIN(level_change)
+=======
+	var/moralist_factor = 1
+	if(owner.stats.getPerk(PERK_MORALIST))
+		for(var/mob/living/carbon/human/H in view(owner))
+			if(H)
+				if(H.sanity.level > 60)
+					moralist_factor += 0.02
+	insight += INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier * moralist_factor
+>>>>>>> 2b24681... Fix Fate Perks v1. (#5026)
 	while(insight >= 100)
 		to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? null : " Now you need to rest and rethink your life choices."]"))
 		++resting
@@ -237,6 +255,20 @@
 /datum/sanity/proc/onSeeDeath(mob/M)
 	if(ishuman(M))
 		var/penalty = -SANITY_DAMAGE_DEATH(owner.stats.getStat(STAT_VIG))
+<<<<<<< HEAD
+=======
+		if(owner.stats.getPerk(PERK_NIHILIST))
+			var/effect_prob = rand(1, 100)
+			switch(effect_prob)
+				if(1 to 25)
+					M.stats.addTempStat(STAT_COG, 5, INFINITY, "Fate Nihilist")
+				if(26 to 50)
+					M.stats.removeTempStat(STAT_COG, "Fate Nihilist")
+				if(51 to 75)
+					penalty *= -1
+				if(76 to 100)
+					penalty *= 0
+>>>>>>> 2b24681... Fix Fate Perks v1. (#5026)
 		changeLevel(penalty*death_view_multiplier)
 
 /datum/sanity/proc/onShock(amount)
