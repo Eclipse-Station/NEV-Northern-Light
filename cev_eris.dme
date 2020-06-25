@@ -2579,4 +2579,5 @@
 #include "maps\submaps\dungeon_rooms\entrances\entrance_templates.dm"
 #include "maps\submaps\dungeon_rooms\exits\exit_templates.dm"
 #include "maps\submaps\dungeon_rooms\rooms\room_templates.dm"
+#include "zzz_modular_eclipse\evac_sign\evacsign.dm"
 // END_INCLUDE
