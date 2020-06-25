@@ -14,6 +14,7 @@
 	var/has_energy_upkeep = FALSE //Do we use energy per tick to stay active?
 	var/causes_wear = FALSE //Does this cause wear on the soulcrypt's systems?
 	var/viewable_by_file_broswer = FALSE //Can the file broswer see us? Used ... for the file browser, ironically. And for programs that don't have a UI function.
+	var/activates = FALSE
 
 	var/deactivation_message = "Module deactivated."
 	var/activation_message = "Module activated."
@@ -23,12 +24,12 @@
 
 	var/obj/item/weapon/implant/soulcrypt/owner //The soulcrypt that owns us.
 
-	var/datum/nano_module/soulcrypt/nanomodule //Our nanomodule, used for proper interaction and such.
-	var/nanomodule_path
+	var/obj/effect/crypt_stat/stat_line
+
+/datum/soulcrypt_module/New()
+	stat_line = new(src)
 
 /datum/soulcrypt_module/Destroy()
-	if(nanomodule)
-		QDEL_NULL(nanomodule)
 	owner = null
 	. = ..()
 
@@ -58,17 +59,10 @@
 	active = TRUE
 	var/activation_msg = "<b>[name]:</b> [activation_message]"
 	owner.send_host_message(activation_msg, MESSAGE_NOTICE)
-	if(!nanomodule && nanomodule_path)
-		nanomodule = new nanomodule_path
-		nanomodule.host = src
-	if(nanomodule)
-		ui_interact(user)
 
 /datum/soulcrypt_module/proc/deactivate(var/force_close = FALSE)
 	active = FALSE
 	var/deactivation_msg = "<b>[name]:</b> [deactivation_message]"
-	if(nanomodule)
-		QDEL_NULL(nanomodule)
 
 	if(force_close)
 		owner.send_host_message(deactivation_msg, MESSAGE_WARNING)
@@ -78,19 +72,13 @@
 /datum/soulcrypt_module/proc/handle_effects() //What do we do when the soulcrypt itself calls handle_modules()? This is run on a by tick basis, so this is for effects that should be handled in process().
 	return
 
-/datum/soulcrypt_module/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
-	if(!active) // Our program was closed. Close the ui if it exists.
-		return 1
-	if(istype(nanomodule))
-		nanomodule.ui_interact(user, ui_key, null, force_open)
-		nanomodule.using_access = owner.GetAccess(user)
-		return 0
-	return 1
+/datum/soulcrypt_module/proc/stat_text()
+	if(activates)
+		return "[active ? "Active" : "Disabled"]"
 
-//Nanomodule subtype.
+	return "Always On"
 
-/datum/nano_module/soulcrypt
-	available_to_ai = FALSE
-
-/datum/soulcrypt_module/nano_host()
-	return owner
+/datum/soulcrypt_module/proc/uninstall()
+	qdel(stat_line)
+	stat_line = null
+	qdel(src)

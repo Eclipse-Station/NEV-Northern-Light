@@ -27,6 +27,8 @@ The module base code is held in module.dm
 
 	var/nutrition_usage_setting = NUTRITION_USAGE_LOW //These can be found in soulcrypt.dm, under DEFINES.
 
+	var/stat//Status.
+
 	var/datum/dna/host_dna
 	var/datum/mind/host_mind
 	var/datum/soulcrypt_module/filemanager
@@ -35,7 +37,7 @@ The module base code is held in module.dm
 	var/low_energy_input_message = "Warning: Current energy usage exceeds fuel cell input. Reduce usage to avoid module shutdown."
 	var/integrity_warning_message = "Warning: system integrity low. Service required soon."
 
-	var/list/starting_modules = list(/datum/soulcrypt_module/file_browser, /datum/soulcrypt_module/prosthetic_debug)
+	var/list/starting_modules = list(/datum/soulcrypt_module/prosthetic_debug)
 	var/list/modules = list()
 	var/list/access = list()
 
@@ -59,13 +61,11 @@ The module base code is held in module.dm
 
 /obj/item/weapon/implant/soulcrypt/on_install()
 	activate()
-	check_filemanager_verb()
 	wearer.crypt = src
 
 /obj/item/weapon/implant/soulcrypt/on_uninstall()
 	. = ..()
 	wearer.crypt = null
-	wearer.verbs -= /mob/living/carbon/human/verb/open_filemanager
 
 /obj/item/weapon/implant/soulcrypt/activate()
 	if(!host_mind)
@@ -74,6 +74,7 @@ The module base code is held in module.dm
 		host_dna = wearer.dna.Clone()
 	if(!is_processing)
 		START_PROCESSING(SSobj, src)
+	stat = SOULCRYPT_ONLINE
 
 /obj/item/weapon/implant/soulcrypt/deactivate()
 	STOP_PROCESSING(SSobj, src)
@@ -219,24 +220,11 @@ The module base code is held in module.dm
 			to_chat(wearer, SPAN_DANGER("\icon[src] [src] transmits urgently, '[message]'"))
 			wearer << very_bad_sound
 
-/obj/item/weapon/implant/soulcrypt/proc/check_filemanager_verb() //basically, we need to give the host mob the verb to use the file manager!
-	var/filemanager
-	for(var/datum/soulcrypt_module/M in modules)
-		if(istype(M, /datum/soulcrypt_module/file_browser))
-			filemanager = M
-	if(filemanager)
-		verbs |= /mob/living/carbon/human/verb/open_filemanager
-
-/obj/item/weapon/implant/soulcrypt/proc/find_filemanager()
-	for(var/datum/soulcrypt_module/FM in modules)
-		if(istype(FM, /datum/soulcrypt_module/file_browser))
-			filemanager = FM
-
 /obj/item/weapon/implant/soulcrypt/proc/find_module_by_name(var/name)
 	for(var/datum/soulcrypt_module/M in modules)
 		if(M.name == name)
 			return M
-
+/*
 /mob/living/carbon/human/verb/open_filemanager()
 	set name = "Open Filemanager"
 	set desc = "Opens the Soulcrypt's filemanager."
@@ -251,7 +239,7 @@ The module base code is held in module.dm
 		SC.filemanager.activate(src)
 	else
 		SC.find_filemanager()
-
+*/
 
 
 

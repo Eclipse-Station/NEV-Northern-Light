@@ -2511,7 +2511,7 @@
 #include "code\modules\soulcrypt\debug.dm"
 #include "code\modules\soulcrypt\helpers.dm"
 #include "code\modules\soulcrypt\module.dm"
-#include "code\modules\soulcrypt\modules\file_browser.dm"
+#include "code\modules\soulcrypt\statpanel.dm"
 #include "code\modules\soulcrypt\modules\prosthetic_diag.dm"
 #include "code\modules\sprite_accessories\_accessory.dm"
 #include "code\modules\sprite_accessories\_accessory_facial.dm"
