@@ -157,10 +157,12 @@
 	if(hunger_enabled)
 		if (!nutrition)
 			to_chat(user, SPAN_DANGER("It looks starving!"))
-		else if (nutrition < max_nutrition *0.5)
+		else if (nutrition < max_nutrition *0.49)
 			to_chat(user, SPAN_NOTICE("It looks hungry."))
-		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
-			to_chat(user, "It looks full and contented.")
+		else if (nutrition > max_nutrition *0.5)
+			to_chat(user, "It looks satisfied.")
+		else if (nutrition > max_nutrition *0.8)
+			to_chat(user, "It looks full!")
 	if (health < maxHealth * 0.5)
 		to_chat(user, SPAN_DANGER("It looks badly wounded!"))
 	else if (health < maxHealth)
@@ -324,7 +326,7 @@
 	if(!Proj || Proj.nodamage)
 		return
 
-	adjustBruteLoss(Proj.damage)
+	adjustBruteLoss(Proj.get_total_damage())
 	return 0
 
 /mob/living/simple_animal/rejuvenate()
@@ -440,20 +442,22 @@
 
 
 
-/mob/living/simple_animal/proc/SA_attackable(target_mob)
-	if (isliving(target_mob))
-		var/mob/living/L = target_mob
-		if(!L.stat || L.health >= (ishuman(L) ? HEALTH_THRESHOLD_CRIT : 0))
-			return (0)
-	if (istype(target_mob,/obj/mecha))
-		var/obj/mecha/M = target_mob
-		if (M.occupant)
-			return (0)
-	if (istype(target_mob,/obj/machinery/bot))
-		var/obj/machinery/bot/B = target_mob
+/mob/living/simple_animal/proc/SA_attackable(_target_mob)
+	. = TRUE
+
+	if(isliving(_target_mob))
+		var/mob/living/L = _target_mob
+		if(istype(_target_mob, /mob/living/exosuit))
+			var/mob/living/exosuit/M = _target_mob
+			if(length(M.pilots))
+				return FALSE
+		else if(!L.stat || L.health >= (ishuman(L) ? HEALTH_THRESHOLD_CRIT : 0))
+			return FALSE
+
+	if(istype(_target_mob, /obj/machinery/bot))
+		var/obj/machinery/bot/B = _target_mob
 		if(B.health > 0)
-			return (0)
-	return 1
+			return FALSE
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb

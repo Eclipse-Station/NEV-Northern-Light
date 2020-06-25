@@ -32,6 +32,9 @@
 	var/t_sl_gas = null
 	var/t_n2 = null
 
+
+	var/fuzzy = 1	//Sprite scaling Fuzzy/Sharp toggle
+
 	var/now_pushing = null
 	var/mob_bump_flag = 0
 	var/mob_swap_flags = 0

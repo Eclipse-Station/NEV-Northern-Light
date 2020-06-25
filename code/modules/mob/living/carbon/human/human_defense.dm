@@ -16,7 +16,7 @@ meteor_act
 	var/obj/item/organ/external/organ = get_organ()
 
 	//Shields
-	var/shield_check = check_shields(P.damage, P, null, def_zone, "the [P.name]")
+	var/shield_check = check_shields(P.get_structure_damage(), P, null, def_zone, "the [P.name]")
 	if(shield_check)
 		if(shield_check < 0)
 			return shield_check
@@ -31,7 +31,7 @@ meteor_act
 	//Shrapnel
 	if(P.can_embed() && (check_absorb < 2))
 		var/armor = getarmor_organ(organ, ARMOR_BULLET)
-		if(prob(20 + max(P.damage - armor, -10)))
+		if(prob(20 + max(P.damage_types[BRUTE] - armor, -10)))
 			var/obj/item/weapon/material/shard/shrapnel/SP = new()
 			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
 			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
@@ -44,6 +44,9 @@ meteor_act
 		return
 	if(damage < stats.getStat(STAT_TGH))
 		..()
+		return
+
+	if(!dir) // Same turf as the source
 		return
 
 	var/r_dir = reverse_dir[dir]
@@ -444,7 +447,7 @@ meteor_act
 	if(!istype(wear_suit,/obj/item/clothing/suit/space)) return
 	var/obj/item/clothing/suit/space/SS = wear_suit
 	var/penetrated_dam = max(0,(damage - SS.breach_threshold))
-	if(prob(20(penetrated_dam * SS.resilience))) SS.create_breaches(damtype, penetrated_dam) // changed into a probability calculation based on the degree of penetration by Plasmatik. you can tune resilience to drastically change breaching chances.
+	if(prob(20 + (penetrated_dam * SS.resilience))) SS.create_breaches(damtype, penetrated_dam) // changed into a probability calculation based on the degree of penetration by Plasmatik. you can tune resilience to drastically change breaching chances.
 																			// at maximum penetration, breaches are always created, at 1 penetration, they have a 20% chance to form
 
 /mob/living/carbon/human/reagent_permeability()
@@ -456,6 +459,8 @@ meteor_act
 		"lower_torso" = THERMAL_PROTECTION_LOWER_TORSO,
 		"legs" = THERMAL_PROTECTION_LEG_LEFT + THERMAL_PROTECTION_LEG_RIGHT,
 		"arms" = THERMAL_PROTECTION_ARM_LEFT + THERMAL_PROTECTION_ARM_RIGHT,
+		"feet" = THERMAL_PROTECTION_FOOT_LEFT + THERMAL_PROTECTION_FOOT_RIGHT,
+		"hands" = THERMAL_PROTECTION_HAND_LEFT + THERMAL_PROTECTION_HAND_RIGHT
 		)
 
 	for(var/obj/item/clothing/C in src.get_equipped_items())
@@ -471,6 +476,10 @@ meteor_act
 			perm_by_part["legs"] *= C.permeability_coefficient
 		if(C.body_parts_covered & ARMS)
 			perm_by_part["arms"] *= C.permeability_coefficient
+		if(C.body_parts_covered & HANDS)
+			perm_by_part["hands"] *= C.permeability_coefficient
+		if(C.body_parts_covered & FEET)
+			perm_by_part["feet"] *= C.permeability_coefficient
 
 	for(var/part in perm_by_part)
 		perm += perm_by_part[part]

@@ -24,7 +24,9 @@
 	var/r_wing = 30		// Wing color
 	var/g_wing = 30		// Wing color
 	var/b_wing = 30		// Wing color
+	var/size_multiplier = RESIZE_NORMAL
 	var/dress_mob = TRUE
+	var/fuzzy = FALSE
 
 // Definition of the stuff for Ears
 /datum/category_item/player_setup_item/vore/ears
@@ -50,6 +52,10 @@
 	S["r_wing"]			>> pref.r_wing
 	S["g_wing"]			>> pref.g_wing
 	S["b_wing"]			>> pref.b_wing
+	S["custom_species"]	>> pref.custom_species
+	S["size_multiplier"]>> pref.size_multiplier
+	S["fuzzy"]>> pref.fuzzy
+
 
 /datum/category_item/player_setup_item/vore/ears/save_character(var/savefile/S)
 	S["ear_style"]		<< pref.ear_style
@@ -70,6 +76,10 @@
 	S["r_wing"]			<< pref.r_wing
 	S["g_wing"]			<< pref.g_wing
 	S["b_wing"]			<< pref.b_wing
+	S["custom_species"]	<< pref.custom_species
+	S["size_multiplier"]<< pref.size_multiplier
+	S["fuzzy"]<< pref.fuzzy
+
 
 /datum/category_item/player_setup_item/vore/ears/sanitize_character()
 	pref.r_ears		= sanitize_integer(pref.r_ears, 0, 255, initial(pref.r_ears))
@@ -94,6 +104,10 @@
 	if(pref.wing_style)
 		pref.wing_style	= sanitize_inlist(pref.wing_style, wing_styles_list, initial(pref.wing_style))
 
+	if(pref.size_multiplier == null || pref.size_multiplier < RESIZE_TINY || pref.size_multiplier > RESIZE_HUGE)
+		pref.size_multiplier = initial(pref.size_multiplier)
+
+	pref.fuzzy				= sanitize_integer(pref.fuzzy, 0, 1, initial(pref.fuzzy))
 
 
 /datum/category_item/player_setup_item/vore/ears/content(var/mob/user)
@@ -106,6 +120,16 @@
 	. += "<b>Preview</b><br>"
 	. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
 	. += "<br><a href='?src=\ref[src];toggle_clothing=1'>[pref.dress_mob ? "Hide equipment" : "Show equipment"]</a><br>"
+
+	. += "<br>"
+	. += "<b>Custom Species</b> "
+	. += "<a href='?src=\ref[src];custom_species=1'>[pref.custom_species ? pref.custom_species : "-Input Name-"]</a><br>"
+
+
+	. += "<br>"
+	. += "<b>Scale:</b> <a href='?src=\ref[src];size_multiplier=1'>[round(pref.size_multiplier*100)]%</a><br>"
+	. += "<b>Scaled Appearance:</b> <a [pref.fuzzy ? "" : ""] href='?src=\ref[src];toggle_fuzzy=1'><b>[pref.fuzzy ? "Fuzzy" : "Sharp"]</b></a><br>"
+	. += "<br>"
 
 	var/ear_display = "Normal"
 	if(pref.ear_style && (pref.ear_style in ear_styles_list))
@@ -250,5 +274,27 @@
 	else if(href_list["toggle_clothing"])
 		pref.dress_mob = !pref.dress_mob
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["custom_species"])
+		var/raw_choice = sanitize(input(user, "Input your custom species name:",
+			"Character Preference", pref.custom_species) as null|text, MAX_NAME_LEN)
+		if (CanUseTopic(user))
+			pref.custom_species = raw_choice
+		return TOPIC_REFRESH
+
+	else if(href_list["size_multiplier"])
+		var/new_size = input(user, "Choose your character's size, ranging from  80% to 120%", "Set Size") as num|null
+		if (!IsInRange(new_size, 80, 120))
+			pref.size_multiplier = 1
+			to_chat(user, "<span class='notice'>Invalid size.</span>")
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+		else if(new_size)
+			pref.size_multiplier = (new_size/100)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["toggle_fuzzy"])
+		pref.fuzzy = pref.fuzzy ? 0 : 1;
+		return TOPIC_REFRESH
+
 
 	return ..()

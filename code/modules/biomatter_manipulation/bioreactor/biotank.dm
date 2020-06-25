@@ -49,13 +49,13 @@
 		return
 	switch(get_dirtiness_level())
 		if(DIRT_LVL_LOW)
-			to_chat(user, SPAN_NOTICE("Pipes are weared a bit, it's slightly dirty. You see a signs of biomass inside these pipes."))
+			to_chat(user, SPAN_NOTICE("The pipes are slightly dirty, you can see signs of biomass clinging to the walls of the pipes."))
 		if(DIRT_LVL_MEDIUM)
-			to_chat(user, SPAN_WARNING("It's very dirty. Solid biomass block atleast half of space inside the pipes. Better to clean it up."))
+			to_chat(user, SPAN_WARNING("You can see solid chunks of biomass blocking a significant part of the pipes."))
 		if(DIRT_LVL_HIGH)
-			to_chat(user, SPAN_WARNING("You see a high amount of biomass. Pipes are fully blocked. You need to clean this first if you want bioreactor to work."))
+			to_chat(user, SPAN_WARNING("The pipes are completely blocked by biomass. It'd be a bad idea to try and run the bioreactor without cleaning them."))
 		else
-			to_chat(user, SPAN_NOTICE("Pipes looks clean."))
+			to_chat(user, SPAN_NOTICE("The pipes look clean."))
 
 
 /obj/machinery/multistructure/bioreactor_part/biotank_platform/update_icon()
@@ -123,7 +123,7 @@
 	density = TRUE
 	layer = ABOVE_MOB_LAYER + 0.05
 	pixel_y = 16
-	var/max_capacity = 1000
+	var/max_capacity = 10000
 	var/obj/machinery/multistructure/bioreactor_part/biotank_platform/platform
 	var/obj/structure/reagent_dispensers/biomatter/canister
 	var/default_position = 16

@@ -73,13 +73,12 @@
 	name = "egg cluster"
 	desc = "They seem to pulse slightly with an inner life"
 	icon_state = "eggs"
-	var/amount_grown = 0
-	New()
-		pixel_x = rand(3,-3)
-		pixel_y = rand(3,-3)
-		START_PROCESSING(SSobj, src)
+	var/amount_grown = 0		
 
 /obj/effect/spider/eggcluster/New(var/location, var/atom/parent)
+	pixel_x = rand(3,-3)
+	pixel_y = rand(3,-3)
+	START_PROCESSING(SSobj, src)
 	get_light_and_color(parent)
 	..()
 
@@ -229,7 +228,7 @@
 			src.loc = O.owner ? O.owner.loc : O.loc
 			src.visible_message("<span class='warning'>\A [src] makes its way out of [O.owner ? "[O.owner]'s [O.name]" : "\the [O]"]!</span>")
 			if(O.owner)
-				O.owner.apply_damage(1, BRUTE, O.organ_tag)
+				O.owner.apply_damage(1, BRUTE, O.organ_tag, used_weapon = src)
 		else if(prob(1))
 			O.owner.apply_damage(1, TOX, O.organ_tag)
 			if(world.time > last_itch + 30 SECONDS)

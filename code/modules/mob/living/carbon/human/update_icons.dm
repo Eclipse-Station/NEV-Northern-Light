@@ -110,31 +110,32 @@ Please contact me on #coderbus IRC. ~Carn x
 #define DAMAGE_LAYER		2
 #define SURGERY_LAYER		3
 #define IMPLANTS_LAYER		4
-#define UNDERWEAR_LAYER 	5
-#define UNIFORM_LAYER		6
-#define ID_LAYER			7
-#define SHOES_LAYER			8
-#define GLOVES_LAYER		9
-#define BELT_LAYER			10
-#define SUIT_LAYER			11
-#define TAIL_LAYER			12		//bs12 specific. this hack is probably gonna come back to haunt me
-#define GLASSES_LAYER		13
-#define BELT_LAYER_ALT		14
-#define BACK_LAYER			15
-#define SUIT_STORE_LAYER	16
-#define HAIR_LAYER			17		//TODO: make part of head layer?
-#define L_EAR_LAYER			18
-#define R_EAR_LAYER			19
-#define FACEMASK_LAYER		20
-#define HEAD_LAYER			21
-#define COLLAR_LAYER		22
-#define HANDCUFF_LAYER		23
-#define LEGCUFF_LAYER		24
-#define L_HAND_LAYER		25
-#define R_HAND_LAYER		26
-#define FIRE_LAYER			27		//If you're on fire
-#define WING_LAYER			28
-#define TOTAL_LAYERS		28
+#define MARKINGS_LAYER		5
+#define UNDERWEAR_LAYER 	6
+#define UNIFORM_LAYER		7
+#define ID_LAYER			8
+#define SHOES_LAYER			9
+#define GLOVES_LAYER		10
+#define BELT_LAYER			11
+#define SUIT_LAYER			12
+#define TAIL_LAYER			13		//bs12 specific. this hack is probably gonna come back to haunt me
+#define GLASSES_LAYER		14
+#define BELT_LAYER_ALT		15
+#define BACK_LAYER			16
+#define SUIT_STORE_LAYER	17
+#define HAIR_LAYER			18		//TODO: make part of head layer?
+#define WING_LAYER			19		//Eclipse edit.
+#define L_EAR_LAYER			20
+#define R_EAR_LAYER			21
+#define FACEMASK_LAYER		22
+#define HEAD_LAYER			23
+#define COLLAR_LAYER		24
+#define HANDCUFF_LAYER		25
+#define LEGCUFF_LAYER		26
+#define L_HAND_LAYER		27
+#define R_HAND_LAYER		28
+#define FIRE_LAYER			29		//If you're on fire
+#define TOTAL_LAYERS		29
 //////////////////////////////////
 
 /mob/living/carbon/human
@@ -267,6 +268,9 @@ var/global/list/damage_icon_parts = list()
 
 			for(var/obj/item/organ/external/part in organs)
 				var/icon/temp = part.get_icon(skeleton)
+				if(!temp)
+					continue
+
 				//That part makes left and right legs drawn topmost and lowermost when human looks WEST or EAST
 				//And no change in rendering for other parts (they icon_position is 0, so goes to 'else' part)
 				if(part.icon_position&(LEFT|RIGHT))
@@ -310,10 +314,39 @@ var/global/list/damage_icon_parts = list()
 	//tail
 	update_tail_showing(0)
 	update_wing_showing()
+	update_markings_showing(0)
 
 	appearance_test.Log("EXIT update_body()")
 	if(update_icons)
 		update_icons()
+
+//Markings
+/mob/living/carbon/human/proc/update_markings_showing(var/update_icons = 1)
+	if(QDESTROYING(src))
+		return
+
+	overlays_standing[MARKINGS_LAYER] = null
+
+	var/marking_image = get_marking_image()
+	if(marking_image)
+		overlays_standing[MARKINGS_LAYER] = marking_image
+		if(update_icons) update_icons()
+
+/mob/living/carbon/human/proc/get_marking_image()
+	if(!body_markings) return
+	var/mutable_appearance/marking_icon = new(null)
+	for(var/markname in body_markings)
+		var/datum/sprite_accessory/marking/real_marking = body_marking_styles_list[markname]
+		var/icon/specific_marking_icon = new()
+		for(var/part in real_marking.body_parts)
+			var/valid = (part in organs_by_name) && organs_by_name[part] && ((part in BP_BASE_PARTS) || organs_by_name[part].dislocated >= 0)
+			if(valid && ("[real_marking.icon_state]-[part]" in icon_states(real_marking.icon)))
+				var/icon/specific_marking_subicon = icon(real_marking.icon, "[real_marking.icon_state]-[part]")
+				specific_marking_subicon.Blend(specific_marking_icon, ICON_OVERLAY)
+				specific_marking_icon = specific_marking_subicon
+		specific_marking_icon.Blend(body_markings[markname], real_marking.color_blend_mode) //This should be a colour.
+		marking_icon.add_overlay(specific_marking_icon)
+	return image(marking_icon)
 
 //UNDERWEAR OVERLAY
 
@@ -367,7 +400,7 @@ var/global/list/damage_icon_parts = list()
 	if(h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)))
 		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[h_style]
 		if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
-			var/icon/hair_s 
+			var/icon/hair_s
 			if((hair_style.icon == 'icons/mob/human_face.dmi') || (hair_style.icon == 'icons/mob/human_face_vr.dmi'))
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
 			else
@@ -429,6 +462,8 @@ var/global/list/damage_icon_parts = list()
 		overlays_standing[IMPLANTS_LAYER] = null
 
 	if(update_icons) update_icons()
+
+
 
 /* --------------------------------------- */
 //For legacy support.
@@ -726,30 +761,40 @@ var/global/list/damage_icon_parts = list()
 
 /mob/living/carbon/human/update_inv_s_store(var/update_icons=1)
 	if(s_store)
-		//Determine the state to use
-		var/t_state
-		if(s_store.item_state_slots && s_store.item_state_slots[slot_s_store_str])
-			t_state = s_store.item_state_slots[slot_s_store_str]
-		else if(s_store.item_state)
-			t_state = s_store.item_state
+		if(s_store.contained_sprite)
+			var/state = ""
+			state += "[s_store.item_state][WORN_SSTORE]"
+
+			if(s_store.icon_override)
+				overlays_standing[SUIT_STORE_LAYER] = image(icon = s_store.icon_override, icon_state = state)
+			else
+				overlays_standing[SUIT_STORE_LAYER] = image(icon = s_store.icon, icon_state = state)
+
 		else
-			t_state = s_store.icon_state
+			//Determine the state to use
+			var/t_state
+			if(s_store.item_state_slots && s_store.item_state_slots[slot_s_store_str])
+				t_state = s_store.item_state_slots[slot_s_store_str]
+			else if(s_store.item_state)
+				t_state = s_store.item_state
+			else
+				t_state = s_store.icon_state
 
-		//Determine the icon to use
-		var/t_icon
-		if(s_store.item_icons && (slot_s_store_str in s_store.item_icons))
-			t_icon = s_store.item_icons[slot_s_store_str]
-		else
-			t_icon = get_gender_icon(gender, "s_store")
+			//Determine the icon to use
+			var/t_icon
+			if(s_store.item_icons && (slot_s_store_str in s_store.item_icons))
+				t_icon = s_store.item_icons[slot_s_store_str]
+			else
+				t_icon = get_gender_icon(gender, "s_store")
 
-		//Special case here. We will check if the suit store icon contains our desired iconstate
-		//If not we will use the mob's back icon instead. This allows reusing back icons for shoulder-slung guns
-		var/icon/test = new (t_icon)
-		if (!(t_state in icon_states(test)))
-			t_icon = get_back_icon(s_store)
+			//Special case here. We will check if the suit store icon contains our desired iconstate
+			//If not we will use the mob's back icon instead. This allows reusing back icons for shoulder-slung guns
+			var/icon/test = new (t_icon)
+			if (!(t_state in icon_states(test)))
+				t_icon = get_back_icon(s_store)
 
 
-		overlays_standing[SUIT_STORE_LAYER]	= image(icon = t_icon, icon_state = t_state)
+			overlays_standing[SUIT_STORE_LAYER]	= image(icon = t_icon, icon_state = t_state)
 	else
 		overlays_standing[SUIT_STORE_LAYER]	= null
 
@@ -940,7 +985,6 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/proc/get_back_icon(var/obj/item/test = null)
 	if(!test && back)
 		test = back
-
 	if (test)
 		//determine the icon to use
 		var/icon/overlay_icon
@@ -956,15 +1000,13 @@ var/global/list/damage_icon_parts = list()
 		else if(test.icon_override)
 			overlay_icon = test.icon_override
 		else if(istype(test, /obj/item/weapon/rig))
-			//If this is a rig and a mob_icon is set, it will take species into account in the rig update_icon() proc.
 			var/obj/item/weapon/rig/rig = test
-			overlay_icon = rig.mob_icon
+			overlay_icon = rig.get_species_icon()
 
 		else if(test.item_icons && (slot_back_str in test.item_icons))
 			overlay_icon = test.item_icons[slot_back_str]
 		else
 			overlay_icon = get_gender_icon(gender, "backpack")
-
 		return overlay_icon
 
 	else return get_gender_icon(gender, "backpack")
@@ -977,8 +1019,9 @@ var/global/list/damage_icon_parts = list()
 	var/icon/overlay_icon = get_back_icon()
 	var/overlay_state = ""
 	if(back && overlay_icon)
+		overlay_state = back.item_state
 		if(back.contained_sprite)
-			overlay_state += "[back.item_state][WORN_BACK]"
+			overlay_state = "[back.item_state][WORN_BACK]"
 
 			if(back.icon_override)
 				overlay_icon = back.icon_override
@@ -990,7 +1033,6 @@ var/global/list/damage_icon_parts = list()
 		//determine state to use
 		if(back.item_state_slots && back.item_state_slots[slot_back_str])
 			overlay_state = back.item_state_slots[slot_back_str]
-
 		//apply color
 		var/image/standing = image(icon = overlay_icon, icon_state = overlay_state)
 		standing.color = back.color
@@ -1124,24 +1166,25 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons) update_icons()
 
 
+// // // BEGIN ECLIPSE EDITS // // //
+//Minor refactor to fix render issues. ^Spitzer
 /mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
 	overlays_standing[TAIL_LAYER] = null
+	var/standing = null
 
 	var/image/vr_tail_image = get_tail_image()
-	if(vr_tail_image)
-		vr_tail_image.layer = (-100)+TAIL_LAYER
-		overlays_standing[TAIL_LAYER] = vr_tail_image
-		return
+	if(vr_tail_image && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+		standing = vr_tail_image
+	else
+		var/species_tail = species.get_tail(src)
+		if(species_tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+			var/icon/tail_s = get_tail_icon()
+			standing = image(tail_s, icon_state = "[species_tail]_s")
+			animate_tail_reset(0)
 
-	var/species_tail = species.get_tail(src)
-
-	if(species_tail && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
-		var/icon/tail_s = get_tail_icon()
-		overlays_standing[TAIL_LAYER] = image(tail_s, icon_state = "[species_tail]_s")
-		animate_tail_reset(0)
-
-	if(update_icons)
-		update_icons()
+	overlays_standing[TAIL_LAYER] = standing
+	if(update_icons)   update_icons()
+// // // END ECLIPSE EDITS // // //
 
 /mob/living/carbon/human/proc/get_tail_icon()
 	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin]"
@@ -1149,9 +1192,10 @@ var/global/list/damage_icon_parts = list()
 	if(!tail_icon)
 		//generate a new one
 		var/species_tail_anim = species.get_tail_animation(src)
+		if(!species_tail_anim && species.icobase_tail) species_tail_anim = species.icobase //Eclipse Code Port - Allow override of file for non-animated tails
 		if(!species_tail_anim) species_tail_anim = 'icons/effects/species.dmi'
 		tail_icon = new/icon(species_tail_anim)
-		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.tail_blend)
+		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.color_mult ? ICON_MULTIPLY : ICON_ADD) // Eclipse Code Port edit
 		// The following will not work with animated tails.
 /*		var/use_species_tail = species.get_tail_hair(src)
 		if(use_species_tail)
@@ -1250,17 +1294,27 @@ var/global/list/damage_icon_parts = list()
 	overlays_standing[SURGERY_LAYER] = total
 	if(update_icons)   update_icons()
 
-/mob/living/carbon/human/proc/update_wing_showing()
+// // // BEGIN ECLIPSE EDITS // // //
+//Minor refactor to fix render issues. ^Spitzer
+/mob/living/carbon/human/proc/update_wing_showing(var/update_icons=1)
 	if(QDESTROYING(src))
 		return
 
 	overlays_standing[WING_LAYER] = null
 
 	var/image/vr_wing_image = get_wing_image()
-	if(vr_wing_image)
-		vr_wing_image.layer = (-100)+WING_LAYER
-		overlays_standing[WING_LAYER] = vr_wing_image
+	// // // BEGIN ECLIPSE REMOVAL // // //
+	//Rationale: Causing malfunctions in render code - specifically naming layer
+	//				is causing wings to render over chairs, sheets, et cetera
+	/*
 
+	if(vr_wing_image)
+		vr_wing_image.layer = WING_LAYER 		//Eclipse edit.
+	*/	// // // END ECLIPSE REMOVAL // // //
+	overlays_standing[WING_LAYER] = vr_wing_image
+	if(update_icons)   update_icons()
+
+// // // END ECLIPSE EDITS // // //
 
 
 //Drawcheck functions
@@ -1351,6 +1405,7 @@ var/global/list/damage_icon_parts = list()
 #undef DAMAGE_LAYER
 #undef SURGERY_LAYER
 #undef UNDERWEAR_LAYER
+#undef MARKINGS_LAYER
 #undef IMPLANTS_LAYER
 #undef UNIFORM_LAYER
 #undef ID_LAYER

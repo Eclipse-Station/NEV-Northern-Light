@@ -12,6 +12,8 @@
 	var/last_ip
 	var/last_id
 
+	var/custom_species = null
+
 	var/save_load_cooldown
 
 	//game-preferences
@@ -223,6 +225,12 @@
 	character.r_wing			= r_wing
 	character.b_wing			= b_wing
 	character.g_wing			= g_wing
+	character.resize(size_multiplier, animate = FALSE)
+	character.custom_species	= custom_species
+	character.fuzzy				= fuzzy
+	character.appearance_flags	-= fuzzy*PIXEL_SCALE
+
+	character.body_markings = body_markings
 
 	QDEL_NULL_LIST(character.worn_underwear)
 	character.worn_underwear = list()
@@ -238,6 +246,10 @@
 				UW.ForceEquipUnderwear(character, FALSE)
 		else
 			all_underwear -= underwear_category_name
+
+	for(var/N in character.organs_by_name)
+		var/obj/item/organ/external/O = character.organs_by_name[N]
+		O.markings.Cut()
 
 	character.backpack_setup = new(backpack, backpack_metadata["[backpack]"])
 

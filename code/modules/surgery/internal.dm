@@ -78,29 +78,21 @@
 	if(istype(I, /obj/item/organ/internal))
 		var/obj/item/organ/organ = I
 
-		// Technical limitation
-		// TODO: fix this
-		if(!owner)
-			return FALSE
-
 		var/o_a =  (organ.gender == PLURAL) ? "" : "a "
 		var/o_do = (organ.gender == PLURAL) ? "don't" : "doesn't"
 
 		if(BP_IS_ROBOTIC(src) && !BP_IS_ROBOTIC(organ))
-			to_chat(user, SPAN_DANGER("You cannot install a naked organ into a robotic body."))
-			return FALSE
-
-		if(!owner.species.has_organ[organ.organ_tag])
-			to_chat(user, SPAN_WARNING("You're pretty sure [owner.species.name_plural] don't normally have [o_a][organ.organ_tag]."))
+			to_chat(user, SPAN_DANGER("You cannot install a naked organ into a robotic body part."))
 			return FALSE
 
 		if(organ_tag != organ.parent_organ)
 			to_chat(user, SPAN_WARNING("\The [organ.organ_tag] [o_do] normally go in \the [name]."))
 			return FALSE
 
-		if(owner.internal_organs_by_name[organ.organ_tag])
-			to_chat(user, SPAN_WARNING("\The [owner] already has [o_a][organ.organ_tag]."))
-			return FALSE
+		for(var/obj/item/organ/internal/existing_organ in internal_organs)
+			if(existing_organ.organ_tag == organ.organ_tag)
+				to_chat(user, SPAN_WARNING("\The [name] already has [o_a][organ.organ_tag] in it."))
+				return FALSE
 
 		return TRUE
 
@@ -175,13 +167,14 @@
 	// Internal organs
 	else if(istype(I, /obj/item/organ/internal))
 		var/obj/item/organ/organ = I
-		organ.replaced(owner, src)
+		organ.replaced(src)
 
 	// Limbs
 	else if(istype(I, /obj/item/organ/external))
 		var/obj/item/organ/external/limb = I
 
 		var/obj/item/organ/external/existing_limb = owner.get_organ(limb.organ_tag)
+		var/obj/item/organ/external/target_limb = owner.get_organ(limb.parent_organ)
 
 		// Save the owner before removing limb stump, as it may null the owner
 		// if the operation is performed on the stump itself
@@ -190,20 +183,18 @@
 		// Remove existing limb (usually a limb stump)
 		if(existing_limb)
 			// Prevent the new limb from being deleted along with the old one
-			if(istype(I, /obj/item/organ/external/robotic))
-				var/obj/item/organ/external/robotic/r_limb = I
-				existing_limb.augment_organ(r_limb, saved_owner)
+			limb.loc = null
 
-				existing_limb.loc = null
-				qdel(existing_limb)
-			else
-				limb.loc = null
+			// Remove and delete the old limb
+			existing_limb.removed(null, FALSE)
+			qdel(existing_limb)
 
-				// Remove and delete the old limb
-				existing_limb.removed(null, FALSE)
-				qdel(existing_limb)
+		limb.replaced(target_limb)
 
-				limb.replaced(saved_owner)
+		saved_owner.update_body()
+		saved_owner.updatehealth()
+		saved_owner.UpdateDamageIcon()
+
 
 		saved_owner.update_body()
 		saved_owner.updatehealth()
@@ -240,7 +231,9 @@
 	if(I in implants)
 		implants -= I
 		embedded -= I
-
+		if(isitem(I))
+			var/obj/item/item = I
+			item.on_embed_removal(owner)
 		if(istype(I, /obj/item/weapon/implant))
 			var/obj/item/weapon/implant/implant = I
 			if(implant.wearer)

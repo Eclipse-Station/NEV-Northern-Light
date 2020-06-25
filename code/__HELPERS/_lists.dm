@@ -12,11 +12,12 @@
 #define listequal(A, B) (A.len == B.len && !length(A^B))
 
 #define LAZYINITLIST(L) if (!L) L = list()
-
+// Adds I to L, initalizing L if necessary, if I is not already in L
 #define UNSETEMPTY(L) if (L && !L.len) L = null
 #define LAZYREMOVE(L, I) if(L) { L -= I; if(!L.len) { L = null; } }
 #define LAZYADD(L, I) if(!L) { L = list(); } L += I;
 #define LAZYINSERT(L, I, X) if(!L) { L = list(); } L.Insert(X, I);
+#define LAZYDISTINCTADD(L, I) if(!L) { L = list(); } L |= I;
 #define LAZYOR(L, I) if(!L) { L = list(); } L |= I;
 #define LAZYFIND(L, V) L ? L.Find(V) : 0
 #define LAZYISIN(L, I) (L ? (I in L) : FALSE)

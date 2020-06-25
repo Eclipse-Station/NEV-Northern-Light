@@ -31,7 +31,7 @@
 	if(faction == "station")
 		return 1
 
-	for (var/obj/mecha/M in mechas_list)
+	for (var/mob/living/exosuit/M in mechas_list)
 		if (M.z == src.z && get_dist(src, M) <= dist)
 			return 1
 
@@ -40,3 +40,9 @@
 			return 1
 
 	return 0
+
+/mob/living/proc/switch_scaling()
+	set name = "Switch scaling mode"
+	set category = "Preferences"
+	set desc = "Switch sharp/fuzzy scaling for current mob."
+	appearance_flags ^= PIXEL_SCALE

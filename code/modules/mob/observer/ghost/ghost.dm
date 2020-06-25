@@ -138,7 +138,7 @@ Works together with spawning an observer, noted above.
 	return 1
 
 /mob/proc/ghostize(var/can_reenter_corpse = 1)
-	if(key)
+	if(key && client)
 		var/mob/observer/ghost/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
@@ -166,6 +166,8 @@ Works together with spawning an observer, noted above.
 		ghost.initialise_postkey()
 		if(ghost.client && !ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
 			ghost.verbs -= /mob/observer/ghost/verb/toggle_antagHUD	// Poor guys, don't know what they are missing!
+
+		ghost.client.create_UI(ghost.type)
 
 		return ghost
 
@@ -710,8 +712,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			var/timedifference_text = time2text(respawn_time  - timedifference,"mm:ss")
 			to_chat(src, "<span class='warning'>You must have been dead for [respawn_time / 600] minute\s to respawn. You have [timedifference_text] left.</span>")
 		return 0
-
-	return 1
 
 /atom/proc/extra_ghost_link()
 	return

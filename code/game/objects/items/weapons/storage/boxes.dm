@@ -214,7 +214,7 @@
 		new /obj/item/ammo_casing/shotgun/practice/prespawned(src)
 
 /obj/item/weapon/storage/box/sniperammo
-	name = "box of 14.5mm shells"
+	name = "box of .60 Anti Material shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	illustration = "ammo"
 
@@ -273,7 +273,7 @@
 
 /obj/item/weapon/storage/box/explosive/populate_contents()
 	for(var/i in 1 to 4)
-		new /obj/item/weapon/grenade/frag/explosive(src)
+		new /obj/item/weapon/grenade/explosive(src)
 
 
 /obj/item/weapon/storage/box/smokes
@@ -538,3 +538,11 @@
 /obj/item/weapon/storage/box/data_disk/basic/populate_contents()
 	for(var/i in 1 to 7)
 		new /obj/item/weapon/computer_hardware/hard_drive/portable/basic(src)
+
+/obj/item/weapon/storage/box/headset/church
+	name = "neotheology radio encryption key box"
+	illustration = "disk"
+
+/obj/item/weapon/storage/box/headset/church/populate_contents()
+	for(var/i in 1 to 7)
+		new /obj/item/device/encryptionkey/headset_church(src)

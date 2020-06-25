@@ -10,6 +10,7 @@
 	color = "#CF3600"
 	metabolism = REM * 0.05 // 0.01 by default. They last a while and slowly kill you.
 	var/strength = 0.05 // How much damage it deals per unit
+	var/sanityloss = 0
 	reagent_type = "Toxin"
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
@@ -18,6 +19,10 @@
 		if(issmall(M))  // Small bodymass, more effect from lower volume.
 			multi *= 2
 		M.adjustToxLoss(strength * multi)
+		if(sanityloss)
+			var/mob/living/carbon/human/H = M
+			if(istype(H))
+				H.sanity.onToxin(src, effect_multiplier)
 	M.add_chemical_effect(CE_TOXIN, 1)
 
 /datum/reagent/toxin/overdose(var/mob/living/carbon/M, var/alien)
@@ -85,7 +90,7 @@
 	if(prob(80))
 		M.adjustBrainLoss(2)
 	if(strength)
-		if(issmall(M)) 
+		if(issmall(M))
 			M.adjustToxLoss(strength)
 		else
 			M.adjustToxLoss(strength)
@@ -254,7 +259,7 @@
 	color = "#8E18A9"
 	power = 10
 	meltdose = 4
-	
+
 
 /datum/reagent/toxin/lexorin
 	name = "Lexorin"
@@ -452,17 +457,13 @@
 	taste_description = "sludge"
 	reagent_state = LIQUID
 	color = "#a37d9c"
+	metabolism = REM * 2
 	overdose = REAGENTS_OVERDOSE/3
-	addiction_chance = 10
 	nerve_system_accumulations = 5
-	strength = 0.1
+	strength = 0.01
+	sanityloss = 3
 	heating_point = 523
 	heating_products = list("toxin")
-
-/datum/reagent/toxin/pararein/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	..()
-	M.stats.addTempStat(STAT_ROB, -STAT_LEVEL_BASIC, STIM_TIME, "pararein")
-	M.stats.addTempStat(STAT_VIG, -STAT_LEVEL_BASIC, STIM_TIME, "pararein")
 
 /datum/reagent/toxin/diplopterum
 	name = "Diplopterum"
@@ -492,7 +493,7 @@
 	var/obj/item/organ/internal/liver/L = H.internal_organs_by_name[BP_LIVER]
 	if (istype(L))
 		L.take_damage(strength, 0)
-	if(issmall(M)) 
+	if(issmall(M))
 		M.adjustToxLoss(strength * 2)
 	else
 		M.adjustToxLoss(strength)
@@ -579,7 +580,7 @@
 
 /datum/reagent/toxin/gewaltine/overdose(var/mob/living/carbon/M, var/alien)
 	M.adjustCloneLoss(2)
-		
+
 /datum/reagent/toxin/fuhrerole
 	name = "Fuhrerole"
 	id = "fuhrerole"
@@ -641,3 +642,28 @@
 			spill_biomass(T)
 		remove_self(volume)
 		return TRUE
+
+/datum/reagent/toxin/biomatter
+	name = "Biomatter"
+	id = "biomatter"
+	description = "A goo of unknown to you origin. Its better to stay that way."
+	taste_description = "vomit"
+	reagent_state = LIQUID
+	color = "#527f4f"
+	strength = 0.3
+
+/datum/reagent/toxin/chlorine
+	name = "Chlorine"
+	description = "A highly poisonous liquid. Smells strongly of bleach."
+	reagent_state = LIQUID
+	taste_description = "bleach"
+	color = "#707c13"
+	strength = 15
+
+/datum/reagent/toxin/tar
+	name = "Tar"
+	description = "A dark, viscous liquid."
+	taste_description = "petroleum"
+	color = "#140b30"
+	reagent_state = LIQUID
+	strength = 4

@@ -28,9 +28,12 @@
 		STAT_BIO = 25,
 	)
 
+	perks = list(/datum/perk/selfmedicated)
+
 	// TODO: enable after baymed
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							///datum/computer_file/program/aidiag,
+							/datum/computer_file/program/signaller,
 							/datum/computer_file/program/camera_monitor,
 							/datum/computer_file/program/chem_catalog,
 							/datum/computer_file/program/reports)
@@ -65,7 +68,7 @@ As a scientist, your first loyalty is to knowledge and Discovery, the ultimate g
 	//alt_titles = list("Xenobiologist")
 	outfit_type = /decl/hierarchy/outfit/job/science/scientist
 
-	software_on_spawn = list(/datum/computer_file/program/chem_catalog)
+	software_on_spawn = list(/datum/computer_file/program/signaller, /datum/computer_file/program/chem_catalog)
 
 	access = list(
 		access_robotics, access_tox, access_tox_storage, access_moebius, access_xenobiology, access_xenoarch, access_research_equipment,
@@ -93,7 +96,7 @@ There are a few specialist branches within the research wing that you may delve 
 	
 	duties = "Create unusual things and experiment with them<br>\
 Explore, learn and adventure, do anything to advance the cause of knowledge"
-	
+	perks = list(/datum/perk/selfmedicated)
 
 	loyalties = "As a scientist, your first loyalty is to knowledge, the ultimate good in the universe. Learning and developing new technologies is the greatest goal humanity can pursue, and no sacrifice is too great to achieve that end. Even the lives of others or yourself.<br>\
 
@@ -130,7 +133,7 @@ Explore, learn and adventure, do anything to advance the cause of knowledge"
 		STAT_BIO = 25,
 	)
 
-
+	perks = list(/datum/perk/selfmedicated)
 
 	description = "As a roboticist, you are probably the busiest person in the research wing. For it is the only area of the department that focuses on providing services to others.<br>\
 <br>\

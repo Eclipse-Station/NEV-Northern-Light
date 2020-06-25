@@ -109,12 +109,12 @@ var/global/list/organ_tag_to_name = list(
 	)
 */
 var/global/list/organ_tag_to_name = list(
-	head  = "Head", r_arm = "Right arm",r_hand = "Right hand",
-	torso = "Torso", r_leg = "Right Leg",r_foot = "Right foot",
-	eyes  = "Eyes", l_arm = "Left arm", l_hand = "Left hand",
-	groin = "Groin",l_leg = "Left Leg", l_foot = "Left foot",
-	chest2= "Back", heart = "Heart",    lungs  = "Lungs",
-	liver = "Liver"
+	head  = "head", r_arm = "right arm",r_hand = "right hand",
+	torso = "torso", r_leg = "right Leg",r_foot = "right foot",
+	eyes  = "eyes", l_arm = "left arm", l_hand = "left hand",
+	groin = "groin",l_leg = "left leg", l_foot = "left foot",
+	chest2= "back", heart = "heart",    lungs  = "lungs",
+	liver = "liver"
 	)
 
 // Visual nets
@@ -131,7 +131,9 @@ var/global/list/string_part_flags = list(
 	"upper body" = UPPER_TORSO,
 	"lower body" = LOWER_TORSO,
 	"legs" = LEGS,
-	"arms" = ARMS
+	"arms" = ARMS,
+	"feet" = FEET,
+	"hands" = HANDS
 )
 
 // Strings which corraspond to slot flags, useful for outputting what slot something is.
@@ -174,6 +176,13 @@ var/global/list/unworn_slots = list(slot_l_hand,slot_r_hand, slot_l_store, slot_
 	for(var/path in paths)
 		var/datum/sprite_accessory/facial_hair/H = new path()
 		GLOB.facial_hair_styles_list[H.name] = H
+
+
+	//Body markings - Initialise all /datum/sprite_accessory/marking into an list indexed by marking name
+	paths = typesof(/datum/sprite_accessory/marking) - /datum/sprite_accessory/marking
+	for(var/path in paths)
+		var/datum/sprite_accessory/marking/M = new path()
+		body_marking_styles_list[M.name] = M
 
 
 	//Surgery Steps - Initialize all /datum/surgery_step into a list
@@ -400,3 +409,6 @@ var/global/list/player_sizes_list = list(
 		custom_species_bases += species_name
 
 	return 1 // Hooks must return 1
+
+//Markings
+var/global/list/body_marking_styles_list = list()

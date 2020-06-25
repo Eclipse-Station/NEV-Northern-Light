@@ -71,7 +71,7 @@ var/global/list/limb_icon_cache = list()
 	var/obj/item/organ/internal/eyes/eyes = owner.internal_organs_by_name[BP_EYES]
 	if(eyes) eyes.update_colour()
 
-/obj/item/organ/external/head/removed()
+/obj/item/organ/external/head/removed_mob()
 	update_icon(1)
 	..()
 
@@ -108,7 +108,7 @@ var/global/list/limb_icon_cache = list()
 			if(hair_style && (species.get_bodytype() in hair_style.species_allowed))
 				var/icon/hair = new/icon(hair_style.icon, hair_style.icon_state)
 				if(hair_style.do_colouration)
-					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_ADD)
+					hair.Blend(rgb(owner.r_hair, owner.g_hair, owner.b_hair), ICON_MULTIPLY)	//Eclipse edit.
 				overlays |= hair
 
 	return mob_icon

@@ -75,7 +75,7 @@ Signed your pal who isn't named Bob."
  The current protection racket for our little lemonade stand is exceeding tolerable levels.<br>\
  I have relocated to %D, just in case you'd think I made off with the lot.<br>\
  <br>\
- Send people my way if they ask, but when those Ironhammers start bitching about where I went, get it on tape, would you?"
+ Send people my way if they ask, but when Aegis starts bitching about where I went, get it on tape, would you?"
 
 
 /datum/stash/junk/guild/drop

@@ -10,7 +10,7 @@
 
 
 	var/charge_cost = 100 //How much energy is needed to fire.
-	var/obj/item/weapon/cell/cell = null
+	var/obj/item/weapon/cell/cell
 	var/suitable_cell = /obj/item/weapon/cell/medium
 	var/cell_type = /obj/item/weapon/cell/medium/high
 	var/projectile_type = /obj/item/projectile/beam/practice
@@ -24,7 +24,7 @@
 	var/use_external_power = 0 //if set, the weapon will look for an external power source to draw from, otherwise it recharges magically
 	var/recharge_time = 4
 	var/charge_tick = 0
-
+	gun_tags = list(GUN_ENERGY)
 	var/overcharge_timer //Holds ref to the timer used for overcharging
 	var/overcharge_rate = 1 //Base overcharge additive rate for the gun
 	var/overcharge_level = 0 //What our current overcharge level is. Peaks at overcharge_max
@@ -84,18 +84,7 @@
 	return new projectile_type(src)
 
 /obj/item/weapon/gun/energy/proc/get_external_cell()
-	if(isrobot(src.loc))
-		var/mob/living/silicon/robot/R = src.loc
-		return R.cell
-	if(istype(src.loc, /obj/item/rig_module))
-		var/obj/item/rig_module/module = src.loc
-		if(module.holder && module.holder.wearer)
-			var/mob/living/carbon/human/H = module.holder.wearer
-			if(istype(H) && H.back)
-				var/obj/item/weapon/rig/suit = H.back
-				if(istype(suit))
-					return suit.cell
-	return null
+	return loc.get_cell()
 
 /obj/item/weapon/gun/energy/examine(mob/user)
 	..(user)
@@ -157,3 +146,10 @@
 		data["shots_remaining"] = round(C.charge/charge_cost)
 		data["max_shots"] = round(C.maxcharge/charge_cost)
 	return data
+
+/obj/item/weapon/gun/energy/refresh_upgrades()
+	//refresh our unique variables before applying upgrades too
+	charge_cost = initial(charge_cost)
+	overcharge_max = initial(overcharge_max)
+	overcharge_rate = initial(overcharge_rate)
+	..()
