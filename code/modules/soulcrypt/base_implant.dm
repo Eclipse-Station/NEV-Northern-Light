@@ -15,6 +15,7 @@ The module base code is held in module.dm
 	var/host_dead = FALSE //Our host is dead. Or not? Binary doesn't care for philosphy.
 	var/was_emp  = FALSE//Were we emp'd? This triggers the longer memory gap message.
 	var/sent_revive_notice  = FALSE //We've sent the revive notice to our host, so we're not going to send it again. Until they die again, at least...
+	var/has_stored_info = FALSE
 
 	var/energy = 100 //How much energy do we have stored up from user nutrition?
 	var/max_energy = 100 //The maximum amount of energy we can have stored.
@@ -28,9 +29,14 @@ The module base code is held in module.dm
 	var/nutrition_usage_setting = NUTRITION_USAGE_LOW //These can be found in soulcrypt.dm, under DEFINES.
 
 	var/stat//Status.
-
+	//Host variables, stored for cloning.
 	var/datum/dna/host_dna
 	var/datum/mind/host_mind
+	var/host_age
+	var/host_flavor_text
+	var/list/host_languages = list()
+	var/host_name
+
 	var/datum/soulcrypt_module/filemanager
 
 	var/low_nutrition_message = "Host malnutrition detected; fuel cell disengaged. Running on internal reserves. Disengage modules to preserve reserves."
@@ -59,6 +65,11 @@ The module base code is held in module.dm
 	else
 		overlays += image('icons/obj/soulcrypt.dmi', "soulcrypt_inactive")
 
+/obj/item/weapon/implant/soulcrypt/examine(mob/user)
+	. = ..()
+	if(host_name)
+		to_chat(user, SPAN_NOTICE("This one appears to belong to [host_name]."))
+
 /obj/item/weapon/implant/soulcrypt/on_install()
 	activate()
 	wearer.crypt = src
@@ -68,15 +79,35 @@ The module base code is held in module.dm
 	wearer.crypt = null
 
 /obj/item/weapon/implant/soulcrypt/activate()
-	if(!host_mind)
+	if(!has_stored_info)
 		host_mind = wearer.mind
-	if(!host_dna)
 		host_dna = wearer.dna.Clone()
+		host_age = wearer.age
+		host_flavor_text = wearer.flavor_text
+		has_stored_info = TRUE
+		host_name = wearer.dna.real_name
+		store_host_languages()
+	stat = SOULCRYPT_ONLINE
+	if(!wearer.mind) //We're in a blank body.
+
+		for(var/mob/M in GLOB.player_list) //If they've respawned, we don't want to yoink them out of their current body.
+			if(M.ckey == host_mind.key)
+				if(M.stat != DEAD)
+					return
+
+		if(wearer.dna.unique_enzymes == host_dna.unique_enzymes) //It's a clone of our original.
+			host_mind.transfer_to(wearer)
+			wearer.ckey = host_mind.key
+			send_revive_notice()
+			for(var/L in host_languages)
+				wearer.add_language(L)
+
 	if(!is_processing)
 		START_PROCESSING(SSobj, src)
-	stat = SOULCRYPT_ONLINE
+	send_host_message("Soulcrypt online: neural backup completed. Welcome to SoulOS v1.53 rev 3.")
 
 /obj/item/weapon/implant/soulcrypt/deactivate()
+	deactivate_modules()
 	STOP_PROCESSING(SSobj, src)
 
 /obj/item/weapon/implant/soulcrypt/GetAccess()
@@ -106,22 +137,23 @@ The module base code is held in module.dm
 	if(wearer.stat != DEAD && host_dead)
 		host_death_time = null
 		host_dead = FALSE
+//We use hostmind.current here because the odds are, whoever it is is a ghost.
 
 /obj/item/weapon/implant/soulcrypt/proc/send_death_message() //Sends the death message whenever the person who has this dies.
-	to_chat(wearer, SPAN_NOTICE("You are dead, whatever the cause, you are dead. With luck, someone will retrieve your soulcrypt and clone you - otherwise, welcome to purgatory."))
+	to_chat(host_mind.current, SPAN_NOTICE("You are dead, whatever the cause, you are dead. With luck, someone will retrieve your soulcrypt and clone you - otherwise, welcome to purgatory."))
 	switch(was_emp)
 		if(TRUE)
-			to_chat(wearer, SPAN_WARNING("Your soulcrypt has been subjected to an electromagnetic pulse, and thus your neural engrams are unreliable. It's automatically pruning the unsalvagable memories, about five minutes worth. Perhaps more."))
+			to_chat(host_mind.current, SPAN_WARNING("Your soulcrypt has been subjected to an electromagnetic pulse, and thus your neural engrams are unreliable. It's automatically pruning the unsalvagable memories, about five minutes worth. Perhaps more."))
 		if(FALSE)
-			to_chat(wearer, SPAN_NOTICE("Luckily, your soulcrypt takes neural backups every thirty seconds. When you're cloned, you'll remember everything up to thirty seconds before your death."))
+			to_chat(host_mind.current, SPAN_NOTICE("Luckily, your soulcrypt takes neural backups every thirty seconds. When you're cloned, you'll remember everything up to thirty seconds before your death."))
 
-/obj/item/weapon/implant/soulcrypt/proc/send_revive_notice() //Triggered by the cloner.
-	to_chat(wearer, SPAN_NOTICE("Congratulations on a new lease on life, you're being cloned."))
+/obj/item/weapon/implant/soulcrypt/proc/send_revive_notice() //Triggered by implantation into a mindless mob.
+	to_chat(host_mind.current, SPAN_NOTICE("Congratulations on a new lease on life, you're being cloned."))
 	switch(was_emp)
 		if(TRUE)
-			to_chat(wearer, SPAN_WARNING("Your soulcrypt has been subjected to an electromagnetic pulse, and you're missing about five minutes of memory from before your death."))
+			to_chat(host_mind.current, SPAN_WARNING("Your soulcrypt has been subjected to an electromagnetic pulse, and you're missing about five minutes of memory from before your death."))
 		if(FALSE)
-			to_chat(wearer, SPAN_NOTICE("As your conciousness slowly emerges from the muck of resurrection, you remember everything that's occured up to about thirty seconds before your death."))
+			to_chat(host_mind.current, SPAN_NOTICE("As your conciousness slowly emerges from the muck of resurrection, you remember everything that's occured up to about thirty seconds before your death."))
 
 /obj/item/weapon/implant/soulcrypt/proc/handle_modules() //Loops through the modules in the modules list, and handles their effects.
 	for(var/datum/soulcrypt_module/M in modules)
@@ -224,6 +256,10 @@ The module base code is held in module.dm
 	for(var/datum/soulcrypt_module/M in modules)
 		if(M.name == name)
 			return M
+
+/obj/item/weapon/implant/soulcrypt/proc/store_host_languages()
+	for(var/datum/language/L in wearer.languages)
+		host_languages += L.name
 /*
 /mob/living/carbon/human/verb/open_filemanager()
 	set name = "Open Filemanager"

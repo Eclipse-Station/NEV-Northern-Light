@@ -10,6 +10,8 @@
 /mob/living/carbon/human/proc/Setup_Soulcrypt()
 	var/crypt_status = ""
 	var/crypt_percent = round((crypt.integrity/initial(crypt.max_integrity))*100)
+	var/crypt_energy_percent = round((crypt.energy/initial(crypt.max_energy))*100)
+	var/nutrition_usage_text
 	switch(crypt.stat)
 		if(SOULCRYPT_ONLINE)
 			if(crypt.integrity < 20)
@@ -22,7 +24,16 @@
 			crypt_status = "System Failure!"
 		else
 			crypt_status = "Unknown - Error"
+	switch(crypt.nutrition_usage_setting)
+		if(NUTRITION_USAGE_LOW)
+			nutrition_usage_text = "Low"
+		if(NUTRITION_USAGE_MEDIUM)
+			nutrition_usage_text = "Medium"
+		if(NUTRITION_USAGE_HIGH)
+			nutrition_usage_text = "High"
 	crypt_status += " (Integrity: [crypt_percent]%)"
+	crypt_status += " (Energy: [crypt_energy_percent]%)"
+	crypt_status += " (Internal fuel cell setting: [nutrition_usage_text])"
 	stat("Soulcrypt Status", crypt_status)
 
 	if(crypt.stat == SOULCRYPT_ONLINE)
