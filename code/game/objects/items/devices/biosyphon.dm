@@ -1,6 +1,6 @@
 /obj/item/biosyphon
-	name = "Bluespace Biosyphon"
-	desc = "Hunts on flora and fauna that sometimes populates bluespace, and use them to produce donuts endlessly."
+	name = "Lazarus Carbon Reclaimer"
+	desc = "A vat of bluespace-enriched yeast that slowly produces donuts seemingly out of nowhere. LCR was generously donated to Aegis after one of the officers was hospitalized as a result of inhaling Lazarus' macroinsect repellant."
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "biosyphon"
 	item_state = "biosyphon"
@@ -26,5 +26,5 @@
 /obj/item/biosyphon/Process()
 	if(world.time >= (last_produce + cooldown))
 		var/obj/item/weapon/storage/box/donut/D = new /obj/item/weapon/storage/box/donut(src.loc)
-		visible_message(SPAN_NOTICE("[name] drop [D]."))
+		visible_message(SPAN_NOTICE("[name] dispenses [D]."))
 		last_produce = world.time
