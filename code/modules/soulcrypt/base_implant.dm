@@ -168,6 +168,9 @@ The module base code is held in module.dm
 		add_module(M)
 
 /obj/item/weapon/implant/soulcrypt/proc/add_module(var/module_path)
+	for(var/datum/soulcrypt_module/M in modules)
+		if(M.type == module_path)
+			return //Prevent adding duplicates.
 	var/datum/soulcrypt_module/module = new module_path
 	modules += module
 	module.owner = src
