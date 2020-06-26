@@ -119,21 +119,11 @@
 
 /obj/item/device/assembly/mousetrap/on_found(mob/finder as mob)
 	if(armed)
-<<<<<<< HEAD
-		finder.visible_message(
-			SPAN_WARNING("[finder] accidentally sets off [src], breaking their fingers."),
-			SPAN_WARNING("You accidentally trigger [src]!")
-		)
-		triggered(finder, finder.hand ? BP_L_HAND : BP_R_HAND)
-		return 1	//end the search!
-	return 0
-=======
 		finder.visible_message("<span class='warning'>[finder] accidentally sets off [src], breaking their fingers.</span>", \
 							   "<span class='warning'>You accidentally trigger [src]!</span>")
 		triggered(finder, finder.hand ? "l_hand" : "r_hand")
 		return TRUE	//end the search!
 	return FALSE
->>>>>>> 1685f4a... Fate perks (#4989)
 
 
 /obj/item/device/assembly/mousetrap/hitby(A as mob|obj)
