@@ -167,7 +167,7 @@
 
 //Chief Engineer/Technomancer Exultant
 /obj/item/clothing/suit/storage/te_coat
-	name = "exultant coat"
+	name = "chief engineer coat"
 	desc = "A sturdy and proud crimson coat. Lightly armored, with some protection against radiation."
 	icon_state = "te_coat"
 	item_state = "te_coat"
