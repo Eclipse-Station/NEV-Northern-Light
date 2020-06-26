@@ -637,9 +637,6 @@ proc/is_blind(A)
 				var/obj/item/I = A
 				I.on_embed_removal(src)
 			A.tumble()
-<<<<<<< HEAD
-	embedded = list()
-=======
 	embedded = list()
 
 /mob/proc/skill_to_evade_traps(prob_catch)
@@ -650,4 +647,5 @@ proc/is_blind(A)
 		if(stats.getPerk(PERK_RAT))
 			prob_evade *= 2
 	return prob_evade
->>>>>>> ca9a493... trap logic fix (#5016)
+
+
