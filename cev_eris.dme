@@ -2648,4 +2648,5 @@
 #include "maps\submaps\planetary_ruins\drill_site\drill_site.dm"
 #include "maps\submaps\planetary_ruins\hut\hut.dm"
 #include "maps\submaps\planetary_ruins\tar_anomaly\tar_anomaly.dm"
+#include "zzz_modular_eclipse\evac_sign\evacsign.dm"
 // END_INCLUDE
