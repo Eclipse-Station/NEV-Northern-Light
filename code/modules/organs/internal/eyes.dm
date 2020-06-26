@@ -23,7 +23,6 @@
 /obj/item/organ/internal/eyes/replaced_mob(mob/living/carbon/human/target)
 	..()
 	// Apply our eye colour to the target.
-<<<<<<< HEAD
 	if(istype(target) && eyes_color)
 		var/list/eyecolors = ReadRGB(eyes_color)
 		target.r_eyes = eyecolors[1]
@@ -31,24 +30,13 @@
 		target.b_eyes = eyecolors[3]
 		target.update_eyes()
 	..()
-=======
-	if(eyes_color)
-		owner.eyes_color = eyes_color
-		owner.update_eyes()
-	owner.update_client_colour() 
->>>>>>> 1685f4a... Fate perks (#4989)
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
 		return
-<<<<<<< HEAD
 	eyes_color = rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
-/obj/item/organ/internal/eyes/take_damage(amount, var/silent=0)
-=======
-	eyes_color = owner.eyes_color
-
+	
 /obj/item/organ/internal/eyes/take_damage(amount, silent=0)
->>>>>>> 1685f4a... Fate perks (#4989)
 	var/oldbroken = is_broken()
 	..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)
