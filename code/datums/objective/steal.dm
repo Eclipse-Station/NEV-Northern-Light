@@ -22,13 +22,10 @@
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-<<<<<<< HEAD
 		"a Cobalt Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
-=======
 		"an Ironhammer hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer,
-		"a Bluespace Biosyphon" = /obj/item/biosyphon,
+		"a Lazarus Carbon Reclaimer" = /obj/item/biosyphon,
 		"a S REV .35 Auto \"Sky Driver\"" = /obj/item/weapon/gun/projectile/revolver/sky_driver
->>>>>>> 15748b7... (SEC) IronHummer unique faction items update (#4979)
 	)
 
 	var/global/possible_items_special[] = list(
