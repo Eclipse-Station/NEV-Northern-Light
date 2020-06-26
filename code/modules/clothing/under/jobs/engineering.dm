@@ -1,12 +1,7 @@
 //Contains: Engineering department jumpsuits
 /obj/item/clothing/under/rank/exultant
-<<<<<<< HEAD
-	desc = "It's a blue-green jumpsuit worn by engineers. It has minor radiation shielding."
-	name = "chief engineer's jumpsuit"
-=======
 	desc = "It's a yellow-crimson jumpsuit worn by engineers. It has minor radiation shielding."
-	name = "exultant jumpsuit"
->>>>>>> c53cffa... Adds Armolitskiy's and Eluxor's sprites and items at Reere's Request (#5019)
+	name = "chief engineer's jumpsuit"
 	icon_state = "chiefengineer"
 	item_state = "g_suit"
 	armor = list(
