@@ -1362,11 +1362,8 @@
 #include "code\modules\client\preference_setup\background\02_language.dm"
 #include "code\modules\client\preference_setup\background\03_records.dm"
 #include "code\modules\client\preference_setup\background\04_origin.dm"
-<<<<<<< HEAD
 #include "code\modules\client\preference_setup\customization\01_ears.dm"
-=======
 #include "code\modules\client\preference_setup\background\05_fate.dm"
->>>>>>> 1685f4a... Fate perks (#4989)
 #include "code\modules\client\preference_setup\general\01_basic.dm"
 #include "code\modules\client\preference_setup\general\02_body.dm"
 #include "code\modules\client\preference_setup\general\03_flavor.dm"
