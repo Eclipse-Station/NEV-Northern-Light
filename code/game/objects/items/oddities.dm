@@ -213,14 +213,9 @@
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	slot_flags = SLOT_BELT
-<<<<<<< HEAD
-	sharp = 1
-	edge = 1
-
-=======
 	sharp = TRUE
 	edge = TRUE
->>>>>>> 1685f4a... Fate perks (#4989)
+
 	oddity_stats = list(
 		STAT_ROB = 5,
 		STAT_TGH = 5,
