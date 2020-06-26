@@ -350,11 +350,8 @@ This function restores all organs.
 		zone = BP_HEAD
 	return organs_by_name[zone]
 
-<<<<<<< HEAD
-/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/sharp = 0, var/edge = 0, var/obj/used_weapon = null)
-=======
+
 /mob/living/carbon/human/apply_damage(damage = 0, damagetype = BRUTE, def_zone = null, sharp = FALSE, edge = FALSE, obj/used_weapon = null)
->>>>>>> 1685f4a... Fate perks (#4989)
 
 	//visible_message("Hit debug. [damage] | [damagetype] | [def_zone] | [blocked] | [sharp] | [used_weapon]")
 
