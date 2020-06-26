@@ -1,0 +1,5 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - imageadd: Evac signs now glow in the dark.
+  - refactor: Added in a modular folder for later use.
