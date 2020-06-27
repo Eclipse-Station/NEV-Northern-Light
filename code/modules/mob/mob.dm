@@ -749,6 +749,8 @@ All Canmove setting in this proc is temporary. This var should not be set from h
 	else if( lying != lying_prev )
 		update_icons()
 
+	update_transform()
+
 /mob/proc/reset_layer()
 	if(lying)
 		set_plane(LYING_MOB_PLANE)

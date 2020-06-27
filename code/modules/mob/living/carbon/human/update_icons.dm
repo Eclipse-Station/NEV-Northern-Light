@@ -157,19 +157,6 @@ Please contact me on #coderbus IRC. ~Carn x
 		if(species.has_floating_eyes)
 			overlays |= species.get_eyes(src)
 
-	if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
-		var/matrix/M = matrix()
-		M.Turn(90)
-		M.Scale(size_multiplier)
-		M.Translate(1,-6)
-		src.transform = M
-	else
-		var/matrix/M = matrix()
-		M.Scale(size_multiplier)
-		M.Translate(0, 16*(size_multiplier-1))
-		src.transform = M
-	..()
-
 var/global/list/damage_icon_parts = list()
 
 //DAMAGE OVERLAYS
@@ -1387,6 +1374,31 @@ var/global/list/damage_icon_parts = list()
 		return 0
 	else
 		return 1
+
+
+/mob/living/carbon/human/update_transform()
+	var/desired_scale_x = size_multiplier
+	var/desired_scale_y = size_multiplier
+
+	// Regular stuff again.
+	var/matrix/M = matrix()
+	var/anim_time = 3
+
+	//Due to some involuntary means, you're laying now
+	if(lying && !resting && !sleeping)
+		anim_time = 1 //Thud
+
+	if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
+		M.Turn(90)
+		M.Scale(desired_scale_x, desired_scale_y)
+		M.Translate(1,-6)
+		layer = MOB_LAYER -0.01 // Fix for a byond bug where turf entry order no longer matters
+	else
+		M.Scale(desired_scale_x, desired_scale_y)
+		M.Translate(0, 16*(desired_scale_y-1))
+		layer = MOB_LAYER // Fix for a byond bug where turf entry order no longer matters
+
+	animate(src, transform = M, time = anim_time)
 
 // Contained sprite defines
 #undef WORN_LHAND
