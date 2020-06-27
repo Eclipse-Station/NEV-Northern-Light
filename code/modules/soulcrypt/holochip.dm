@@ -60,4 +60,7 @@
 /obj/item/weapon/holochip/engineering
 	tag_color = COMMS_COLOR_ENGINEER
 
+/obj/item/weapon/holochip/medical/suitsensors
+	contained_modules = list(/datum/soulcrypt_module/crew_monitor)
+
 

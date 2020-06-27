@@ -13,7 +13,8 @@
 	var/active = FALSE //Are we even being used right now?
 	var/has_energy_upkeep = FALSE //Do we use energy per tick to stay active?
 	var/causes_wear = FALSE //Does this cause wear on the soulcrypt's systems?
-	var/activates = FALSE
+	var/activates = FALSE //Do we toggle on and off?
+	var/has_nanomodule = FALSE //We don't have a nanomodule for UI stuff.
 
 	var/deactivation_message = "Module deactivated."
 	var/activation_message = "Module activated."
@@ -24,6 +25,8 @@
 	var/obj/item/weapon/implant/soulcrypt/owner //The soulcrypt that owns us.
 
 	var/obj/effect/crypt_stat/stat_line
+	var/datum/nano_module/NMmodule //our nanomodule
+	var/nanomodule_type
 
 /datum/soulcrypt_module/New()
 	stat_line = new(src)
@@ -41,7 +44,7 @@
 		return FALSE
 
 	if(req_access.len)
-		if(!owner.check_access(req_access, req_one_access, owner.GetAccess()))
+		if(!has_access(req_access, req_one_access, owner.wearer.GetAccess()))
 			return FALSE
 
 	if(uses_energy && (owner.energy < energy_cost))
@@ -58,10 +61,20 @@
 	active = TRUE
 	var/_activation_msg = "<b>[name]:</b> [activation_message]"
 	owner.send_host_message(_activation_msg, MESSAGE_NOTICE)
+	if(has_nanomodule)
+		if(!NMmodule)
+			NMmodule = new nanomodule_type
+			NMmodule.host = src
+			NMmodule.ui_interact(user)
+		if(NMmodule)
+			NMmodule.ui_interact(user)
+		NMmodule.using_access = owner.wearer.GetAccess()
 
 /datum/soulcrypt_module/proc/deactivate(var/force_close = FALSE)
 	active = FALSE
 	var/_deactivation_msg = "<b>[name]:</b> [deactivation_message]"
+	if(NMmodule)
+		QDEL_NULL(NMmodule)
 
 	if(force_close)
 		owner.send_host_message(_deactivation_msg, MESSAGE_WARNING)
@@ -81,3 +94,11 @@
 	qdel(stat_line)
 	stat_line = null
 	qdel(src)
+
+/datum/soulcrypt_module/nano_host()
+	return owner
+
+/datum/soulcrypt_module/initial_data()
+	var/list/data = list()
+	return data
+

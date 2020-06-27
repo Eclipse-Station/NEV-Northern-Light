@@ -65,5 +65,5 @@
 		warning = MESSAGE_WARNING
 	message_user("[organ_name]: [dmg_message]", warning)
 
-/datum/soulcrypt_module/stat_text()
+/datum/soulcrypt_module/prosthetic_debug/stat_text()
 	return "Engage Diagnostics"
