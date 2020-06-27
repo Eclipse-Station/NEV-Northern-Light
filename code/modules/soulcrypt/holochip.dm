@@ -42,5 +42,22 @@
 		used = TRUE
 		update_icon()
 
+/obj/item/weapon/holochip/command
+	tag_color = COMMS_COLOR_COMMAND
+
+/obj/item/weapon/holochip/security
+	tag_color = COMMS_COLOR_SECURITY
+
+/obj/item/weapon/holochip/medical
+	tag_color = COLOR_OFF_WHITE
+
+/obj/item/weapon/holochip/science
+	tag_color = COMMS_COLOR_SCIENCE
+
+/obj/item/weapon/holochip/cargo
+	tag_color = COMMS_COLOR_SUPPLY
+
+/obj/item/weapon/holochip/engineering
+	tag_color = COMMS_COLOR_ENGINEER
 
 
