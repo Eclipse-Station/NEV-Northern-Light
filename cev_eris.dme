@@ -2097,7 +2097,6 @@
 #include "code\modules\nano\interaction\self.dm"
 #include "code\modules\nano\interaction\zlevel.dm"
 #include "code\modules\nano\modules\catalog_all_entries.dm"
-#include "code\modules\nano\modules\crew_monitor.dm"
 #include "code\modules\nano\modules\human_appearance.dm"
 #include "code\modules\nano\modules\law_manager.dm"
 #include "code\modules\nano\modules\nano_module.dm"
