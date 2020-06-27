@@ -1,0 +1,28 @@
+"a" = (/turf/simulated/floor/tiled,/area/deepmaint)
+"b" = (/turf/simulated/floor/tiled/dark/panels,/area/deepmaint)
+"c" = (/obj/machinery/power/nt_obelisk,/turf/simulated/floor/carpet/bcarpet,/area/deepmaint)
+"d" = (/turf/simulated/floor/carpet/bcarpet,/area/deepmaint)
+"e" = (/obj/item/remains,/turf/simulated/floor/carpet/bcarpet,/area/deepmaint)
+"f" = (/obj/structure/table/woodentable,/obj/item/weapon/gun/projectile/revolver/deckard,/turf/simulated/floor/carpet/bcarpet,/area/deepmaint)
+"g" = (/obj/structure/table/woodentable,/obj/item/weapon/book/ritual/cruciform{desc = "Contains holy litany and religious prayers. This one has the phrase 'THE SKIES ARE BURIED DEEP' scrawled all over it..."; name = "Defaced Mekhane book"},/turf/simulated/floor/carpet/bcarpet,/area/deepmaint)
+"h" = (/obj/structure/table/woodentable,/obj/random/pack/cloth/low_chance,/turf/simulated/floor/carpet/bcarpet,/area/deepmaint)
+"i" = (/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (NORTH)"; icon_state = "wooden_chair"; dir = 1},/turf/simulated/floor/tiled/dark/panels,/area/deepmaint)
+"j" = (/turf/simulated/floor/tiled/dark/golden,/area/deepmaint)
+"k" = (/obj/structure/bed/chair/wood{tag = "icon-wooden_chair (NORTH)"; icon_state = "wooden_chair"; dir = 1},/obj/item/remains,/turf/simulated/floor/tiled/dark/panels,/area/deepmaint)
+"l" = (/obj/random/powercell,/turf/simulated/floor/tiled/dark/golden,/area/deepmaint)
+"m" = (/obj/random/powercell/low_chance,/turf/simulated/floor/tiled/dark/golden,/area/deepmaint)
+"n" = (/obj/machinery/vending/theomat,/turf/simulated/floor/tiled/dark/panels,/area/deepmaint)
+
+(1,1,1) = {"
+aaaaaaaaaaa
+abbbbbbbbba
+abcddeddcba
+abddfghddba
+abdddddddba
+abiiijkiiba
+abljjjjmjba
+abikijiikba
+abjjjjjjjba
+anbbbjbbbba
+aaaaaaaaaaa
+"}
