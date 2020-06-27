@@ -13,7 +13,6 @@
 	var/active = FALSE //Are we even being used right now?
 	var/has_energy_upkeep = FALSE //Do we use energy per tick to stay active?
 	var/causes_wear = FALSE //Does this cause wear on the soulcrypt's systems?
-	var/viewable_by_file_broswer = FALSE //Can the file broswer see us? Used ... for the file browser, ironically. And for programs that don't have a UI function.
 	var/activates = FALSE
 
 	var/deactivation_message = "Module deactivated."
@@ -57,17 +56,17 @@
 	if(!check_can_activate())
 		return
 	active = TRUE
-	var/activation_msg = "<b>[name]:</b> [activation_message]"
-	owner.send_host_message(activation_msg, MESSAGE_NOTICE)
+	var/_activation_msg = "<b>[name]:</b> [activation_message]"
+	owner.send_host_message(_activation_msg, MESSAGE_NOTICE)
 
 /datum/soulcrypt_module/proc/deactivate(var/force_close = FALSE)
 	active = FALSE
-	var/deactivation_msg = "<b>[name]:</b> [deactivation_message]"
+	var/_deactivation_msg = "<b>[name]:</b> [deactivation_message]"
 
 	if(force_close)
-		owner.send_host_message(deactivation_msg, MESSAGE_WARNING)
+		owner.send_host_message(_deactivation_msg, MESSAGE_WARNING)
 	else
-		owner.send_host_message(deactivation_msg, MESSAGE_NOTICE)
+		owner.send_host_message(_deactivation_msg, MESSAGE_NOTICE)
 
 /datum/soulcrypt_module/proc/handle_effects() //What do we do when the soulcrypt itself calls handle_modules()? This is run on a by tick basis, so this is for effects that should be handled in process().
 	return

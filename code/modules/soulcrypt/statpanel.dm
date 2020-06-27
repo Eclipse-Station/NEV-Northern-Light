@@ -23,7 +23,7 @@
 		if(SOULCRYPT_DISRUPTED)
 			crypt_status = "System Failure!"
 		else
-			crypt_status = "Unknown - Error"
+			throw EXCEPTION(crypt.stat)
 	switch(crypt.nutrition_usage_setting)
 		if(NUTRITION_USAGE_LOW)
 			nutrition_usage_text = "Low"
