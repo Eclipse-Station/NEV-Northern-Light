@@ -112,7 +112,7 @@
 
 /datum/perk/noble/assign(mob/living/carbon/human/H)
 	..()
-	if(!holder.last_name)
+	if(!holder.family_name)		//Eclipse edit: Family name, not surname
 		qdel(src)
 	holder.sanity.environment_cap_coeff -= 1
 	var/turf/T = get_turf(holder)
@@ -128,7 +128,7 @@
 				/obj/item/weapon/tool/knife/butch = 2,
 				/obj/item/weapon/tool/knife/dagger/ceremonial = 0.8))
 	W = new W(T)
-	W.name = "[holder.last_name] family [W.name]"
+	W.name = "[holder.family_name] family [W.name]"		//Eclipse edit: Family name, not surname
 	holder.put_in_hands(W)
 
 /datum/perk/noble/remove()

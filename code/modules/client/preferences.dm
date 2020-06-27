@@ -51,9 +51,8 @@
 //		decls_repository.get_decl(/decl/hierarchy/skill)
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
-	real_first_name = random_first_name(gender,species)
-	real_last_name = random_last_name(species)
-	real_name = real_first_name + " " + real_last_name
+	family_name = random_last_name(species)									//Eclipse Edit
+	real_name = random_first_name(gender,species) + " " + family_name		//Re-work surname into clanname
 	b_type = RANDOM_BLOOD_TYPE
 
 	if(client && !IsGuestKey(client.key))
@@ -168,18 +167,24 @@
 	player_setup.sanitize_setup()
 	character.set_species(species)
 
+// // // BEGIN ECLIPSE EDITS // // //
+// Refactor full name system into family name system.
 	if(be_random_name)
-		real_first_name = random_first_name(gender, species)
-		real_last_name = random_last_name(gender, species)
-		real_name = real_first_name + " " + real_last_name
+		family_name = random_last_name(gender, species)
+		real_name = random_first_name(gender,species) + " " + family_name
 
 	if(config.humans_need_surnames)
-		if(!real_last_name)	//we need a surname
-			real_last_name = "[pick(GLOB.last_names)]"
-			real_name += " [real_last_name]"
+		var/firstspace = findtext(real_name, " ")
+		var/name_length = length(real_name)
+		if(!firstspace)	//we need a surname
+			real_name += " [pick(GLOB.last_names)]"
+		else if(firstspace == name_length)
+			real_name += "[pick(GLOB.last_names)]"
 	character.fully_replace_character_name(newname = real_name)
-	character.first_name = real_first_name
-	character.last_name = real_last_name
+	character.family_name = family_name
+
+// // // END ECLIPSE EDITS // // //
+
 	character.gender = gender
 	character.age = age
 	character.b_type = b_type
