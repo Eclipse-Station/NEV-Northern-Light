@@ -111,7 +111,7 @@
 
 	var/list/disk_data = list(
 		"ref" = "\ref[disk]",
-		//"name" = disk.get_disk_name(),
+		"name" = disk.get_disk_name(),
 		"autorun" = istype(autorun) ? autorun.stored_data : ""
 	)
 
