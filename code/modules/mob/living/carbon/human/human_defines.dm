@@ -1,4 +1,8 @@
 /mob/living/carbon/human
+	//first and last name
+	var/first_name
+	var/last_name
+
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0
