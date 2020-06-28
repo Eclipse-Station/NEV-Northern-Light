@@ -1,0 +1,4 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - tweak: Flavour text and robot flavour text now support multi-line input.
