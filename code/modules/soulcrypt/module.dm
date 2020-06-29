@@ -96,7 +96,7 @@
 	qdel(src)
 
 /datum/soulcrypt_module/nano_host()
-	return owner
+	return owner.wearer
 
 /datum/soulcrypt_module/initial_data()
 	var/list/data = list()

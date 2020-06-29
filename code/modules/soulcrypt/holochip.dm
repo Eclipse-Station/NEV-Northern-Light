@@ -63,4 +63,7 @@
 /obj/item/weapon/holochip/medical/suitsensors
 	contained_modules = list(/datum/soulcrypt_module/crew_monitor)
 
+/obj/item/weapon/holochip/engineering/alarm_mon
+	contained_modules = list(/datum/soulcrypt_module/alarm_monitor)
+
 
