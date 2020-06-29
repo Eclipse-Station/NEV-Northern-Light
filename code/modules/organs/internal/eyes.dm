@@ -23,6 +23,7 @@
 /obj/item/organ/internal/eyes/replaced_mob(mob/living/carbon/human/target)
 	..()
 	// Apply our eye colour to the target.
+<<<<<<< HEAD
 	if(istype(target) && eyes_color)
 		var/list/eyecolors = ReadRGB(eyes_color)
 		target.r_eyes = eyecolors[1]
@@ -30,6 +31,12 @@
 		target.b_eyes = eyecolors[3]
 		target.update_eyes()
 	..()
+=======
+	if(eyes_color)
+		owner.eyes_color = eyes_color
+		owner.update_eyes()
+	owner.update_client_colour()
+>>>>>>> 7121c11... Oddity perks (#5022)
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
@@ -50,6 +57,7 @@
 		owner.eye_blurry = 20
 	if(is_broken())
 		owner.eye_blind = 20
+	owner.update_client_colour()
 
 /obj/item/organ/internal/eyes/proc/get_colourmatrix() //Returns a special colour matrix if the eyes are organic and the mob is colourblind, otherwise it uses the current one.
 	if(!(BP_IS_ROBOTIC(src)) && owner.stats.getPerk(PERK_OBORIN_SYNDROME))
