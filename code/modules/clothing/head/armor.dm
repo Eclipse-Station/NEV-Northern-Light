@@ -63,10 +63,8 @@
 	desc = "Aegis Security gear. Protects the head from impacts."
 	icon_state = "helmet_ironhammer"
 
-<<<<<<< HEAD
-=======
 /obj/item/clothing/head/armor/helmet/technomancer
-	name = "technomancer helmet"
+	name = "engineering helmet"
 	desc = "A piece of armor used in hostile work conditions to protect the head. Comes with a built-in flashlight."
 	icon_state = "technohelmet"
 	body_parts_covered = HEAD|EARS|EYES|FACE
@@ -85,7 +83,6 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	price_tag = 500
 
->>>>>>> bef456c... Adds More Protection to TM Helmet, Patches TE Rig Cape Icon (#5030)
 /obj/item/clothing/head/armor/helmet/handmade
 	name = "handmade combat helmet"
 	desc = "It looks like it was made from a bucket and some steel. Uncomfortable and heavy but better than nothing."
