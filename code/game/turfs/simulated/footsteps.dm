@@ -35,8 +35,13 @@
 		if(!shoes)
 			volume -= 60
 			range -= 0.333
+		if(stats.getPerk(PERK_RAT))
+			volume -= 20
+			range -= 0.333
 
 		playsound(T, footsound, volume, 1, range)
 
+
 /proc/get_footstep(var/footstep_type, var/mob/caller)
 	return //todo
+

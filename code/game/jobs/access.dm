@@ -224,7 +224,7 @@ var/obj/item/weapon/card/id/all_access/ghost_all_access
 	for(var/obj/item/I in HUMAN_ID_CARDS)
 		. |= I.GetAccess()
 
-	var/obj/item/weapon/implant/core_implant/C = get_core_implant()
+	var/obj/item/weapon/implant/soulcrypt/C = get_soulcrypt()
 	if(C)
 		. |= C.GetAccess()
 

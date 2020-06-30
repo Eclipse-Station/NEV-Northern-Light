@@ -450,7 +450,7 @@
 /obj/item/rig_module/cape
 	name = "cape"
 	desc = "A cape designed to be attached to hardsuits."
-
+  
 	interface_name = "Hardsuit Cape"
 	interface_desc = "A generic cape for a hardsuit."
 
