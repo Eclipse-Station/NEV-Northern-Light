@@ -1,7 +1,9 @@
 /mob/living/carbon/human
-	//first and last name
+/*	//first and last name
 	var/first_name
 	var/last_name
+*/		//Eclipse refactor.
+	var/family_name		//Replacement.
 
 	//Hair colour and style
 	var/r_hair = 0

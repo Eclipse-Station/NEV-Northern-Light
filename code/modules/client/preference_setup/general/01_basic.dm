@@ -3,8 +3,8 @@ datum/preferences
 	var/age = 30						//age of character
 	var/spawnpoint = "Aft Cryogenic Storage" 			//where this character will spawn
 	var/real_name						//our character's name
-	var/real_first_name
-	var/real_last_name
+//	var/real_first_name					//Eclipse Removal
+	var/family_name						//Eclipse refactor: Used in some perks. Clan/family name.
 	var/be_random_name = 0				//whether we are a random name every round
 
 /datum/category_item/player_setup_item/physical/basic
@@ -15,8 +15,8 @@ datum/preferences
 	from_file(S["gender"],                pref.gender)
 	from_file(S["age"],                   pref.age)
 	from_file(S["spawnpoint"],            pref.spawnpoint)
-	from_file(S["real_first_name"],       pref.real_first_name)
-	from_file(S["real_last_name"],        pref.real_last_name)
+//	from_file(S["real_first_name"],       pref.real_first_name)		//Eclipse Removal
+	from_file(S["family_name"],           pref.family_name)		//Eclipse Edit
 	from_file(S["real_name"],             pref.real_name)
 	from_file(S["name_is_always_random"], pref.be_random_name)
 
@@ -24,8 +24,8 @@ datum/preferences
 	to_file(S["gender"],                  pref.gender)
 	to_file(S["age"],                     pref.age)
 	to_file(S["spawnpoint"],              pref.spawnpoint)
-	to_file(S["real_first_name"],         pref.real_first_name)
-	to_file(S["real_last_name"],          pref.real_last_name)
+//	to_file(S["real_first_name"],         pref.real_first_name)		//Eclipse Removal
+	to_file(S["family_name"],             pref.family_name)			//Eclipse Edit
 	to_file(S["real_name"],               pref.real_name)
 	to_file(S["name_is_always_random"],   pref.be_random_name)
 
@@ -49,10 +49,10 @@ datum/preferences
 	*/
 /datum/category_item/player_setup_item/physical/basic/content()
 	. = list()
-	. += "<b>First name:</b> "
-	. += "<a href='?src=\ref[src];fname=1'><b>[pref.real_first_name]</b></a><br>"
-	. += "<b>Last name:</b> "
-	. += "<a href='?src=\ref[src];lname=1'><b>[pref.real_last_name]</b></a><br>"
+	. += "<b>Character name:</b> "		//Begin eclipse edit
+	. += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
+	. += "<b>Family/clan name:</b> "
+	. += "<a href='?src=\ref[src];famname=1'><b>[pref.family_name]</b></a><br>"		//End eclipse edit
 	. += "<a href='?src=\ref[src];random_name=1'>Randomize Name</A><br>"
 	. += "<a href='?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
 	. += "<hr>"
@@ -65,41 +65,39 @@ datum/preferences
 /datum/category_item/player_setup_item/physical/basic/OnTopic(href, href_list, mob/user)
 	var/datum/species/S = all_species[pref.species]
 
-	if(href_list["fname"])
-		var/raw_first_name = input(user, "Choose your character's first name:", "Character First Name", pref.real_first_name)  as text|null
-		if (!isnull(raw_first_name) && CanUseTopic(user))
-			var/new_fname = sanitize_name(raw_first_name, pref.species, 14)
-			if(new_fname)
-				pref.real_first_name = new_fname
-				pref.real_name = pref.real_first_name + " " + pref.real_last_name
+// // // BEGIN PARTIAL ECLIPSE REVERT // // //
+	if(href_list["rename"])		//Eclipse Revert: Full name
+		var/raw_name = input(user, "Choose your character's name:", "Character Name", pref.real_name)  as text|null
+		if (!isnull(raw_name) && CanUseTopic(user))
+			var/new_name = sanitize_name(raw_name, pref.species)
+			if(new_name)
+				pref.real_name = new_name
 				return TOPIC_REFRESH
 			else
-				to_chat(user, SPAN_WARNING("Invalid first name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
-				return TOPIC_NOACTION
+				to_chat(user, SPAN_WARNING("Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
+			return TOPIC_NOACTION
 
-	if(href_list["lname"])
+	if(href_list["famname"])		//Eclipse Rework: Family name
 		var/last_name_max_length = 14
-		var/raw_last_name = input(user, "Choose your character's last name:", "Character Last Name", pref.real_last_name)  as text|null
+		var/raw_family_name = input(user, "Choose your character's family/clan name. (This is used in some perks for 'x family heirloom' items.)", "Character Family/Clan Name", pref.family_name)  as text|null
 		if(CanUseTopic(user))
-			if(isnull(raw_last_name) || raw_last_name == "")
-				pref.real_last_name = null
-				pref.real_name = pref.real_first_name
+			if(isnull(raw_family_name) || raw_family_name == "")
+				pref.family_name = null
 				return TOPIC_REFRESH
 			else
-				var/new_lname = sanitize_name(raw_last_name, pref.species, last_name_max_length)
-				if(new_lname)
-					pref.real_last_name = new_lname
-					pref.real_name = pref.real_first_name + " " + pref.real_last_name
+				var/new_famname = sanitize_name(raw_family_name, pref.species, last_name_max_length)
+				if(new_famname)
+					pref.family_name = new_famname
 					return TOPIC_REFRESH
 				else
-					to_chat(user, SPAN_WARNING("Invalid last name. Your name should be at least 2 and at most [last_name_max_length] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
+					to_chat(user, SPAN_WARNING("Invalid family/clan name. Your name should be at least 2 and at most [last_name_max_length] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
 					return TOPIC_NOACTION
 
 	else if(href_list["random_name"])
-		pref.real_first_name = random_first_name(pref.gender, pref.species)
-		pref.real_last_name = random_last_name(pref.gender, pref.species)
-		pref.real_name = pref.real_first_name + " " + pref.real_last_name 
+		pref.real_name = random_name(pref.gender, pref.species)
 		return TOPIC_REFRESH
+
+// // // END PARTIAL ECLIPSE REVERT // // //
 
 	else if(href_list["always_random_name"])
 		pref.be_random_name = !pref.be_random_name

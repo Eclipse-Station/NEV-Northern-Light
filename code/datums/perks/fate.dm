@@ -114,7 +114,7 @@
 
 /datum/perk/noble/assign(mob/living/carbon/human/H)
 	..()
-	if(!holder.last_name)
+	if(!holder.family_name)		//Eclipse edit: Family name, not surname
 		qdel(src)
 		return
 	holder.sanity.environment_cap_coeff -= 1
@@ -126,7 +126,7 @@
 				/obj/item/weapon/tool/knife/dagger/ceremonial = 0.8,
 				/obj/item/weapon/gun/projectile/revolver = 0.4))
 	W = new W(T)
-	W.name = "[holder.last_name] family [W.name]"
+	W.name = "[holder.family_name] family [W.name]"		//Eclipse edit: Family name, not surname
 	var/oddities = rand(2,4)
 	var/list/stats = ALL_STATS
 	var/list/final_oddity = list()
