@@ -78,19 +78,14 @@ datum/preferences
 			return TOPIC_NOACTION
 
 	if(href_list["famname"])		//Eclipse Rework: Family name
-		log_debug("famname entered")
 		var/last_name_max_length = 14
 		var/raw_family_name = input(user, "Choose your character's family/clan name. (This is used in some perks for 'x family heirloom' items.)", "Character Family/Clan Name", pref.family_name)  as text|null
 		if(CanUseTopic(user))
-			log_debug("famname canusetopic true")
 			if(isnull(raw_family_name) || raw_family_name == "")
-				log_debug("famname is null")
 				pref.family_name = null
 				return TOPIC_REFRESH
 			else
-				log_debug("famname is [raw_family_name]")
 				var/new_famname = sanitize_name(raw_family_name, pref.species, last_name_max_length)
-				log_debug("sanitised famname is [new_famname]")
 				if(new_famname)
 					pref.family_name = new_famname
 					return TOPIC_REFRESH
