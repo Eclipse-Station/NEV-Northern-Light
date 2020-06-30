@@ -77,3 +77,14 @@
 	name = "sm_core"
 	desc = "sm_core"
 	mappath = 'maps/submaps/deepmaint_rooms/normal/sm_core.dmm'
+
+/datum/map_template/deepmaint_template/room/oopsitsphoron
+	name = "oopsitsphoron"
+	desc = "oopsitsphoron"
+	mappath = 'maps/submaps/deepmaint_rooms/normal/oopsitsphoron.dmm'
+
+
+/datum/map_template/deepmaint_template/room/oldchurch
+	name = "oldchurch"
+	desc = "oldchurch"
+	mappath = 'maps/submaps/deepmaint_rooms/normal/oldchurch.dmm'
