@@ -82,7 +82,7 @@
 	set_access(access_heads, override = 0)
 
 /datum/computer_file/report/recipient/sec/investigation
-	form_name = "IR-IH-43"
+	form_name = "IR-AC-43"
 	title = "Investigation Report"
 	available_on_ntnet = 1
 
@@ -100,7 +100,7 @@
 	set_access(access_edit = access_security)
 
 /datum/computer_file/report/recipient/sec/incident
-	form_name = "SIR-IH-12"
+	form_name = "SIR-AC-12"
 	title = "Security Incident Report"
 	available_on_ntnet = 1
 
@@ -121,7 +121,7 @@
 	set_access(access_edit = access_security)
 
 /datum/computer_file/report/recipient/sec/evidence
-	form_name = "EPF-IH-02b"
+	form_name = "EPF-AC-02b"
 	title = "Evidence and Property Form"
 	available_on_ntnet = 1
 
