@@ -254,9 +254,9 @@
 
 #define any2ref(x) "\ref[x]"
 
-#define MAP_IMAGE_PATH "nano/images/[maps_data.path]/"
+#define MAP_IMAGE_PATH "nano/images/[GLOB.maps_data.path]/"
 
-#define map_image_file_name(z_level) "[maps_data.path]-[z_level].png"
+#define map_image_file_name(z_level) "[GLOB.maps_data.path]-[z_level].png"
 
 // Spawns multiple objects of the same type
 #define cast_new(type, num, args...) if((num) == 1) { new type(args) } else { for(var/i in 1 to num) { new type(args) } }
@@ -315,3 +315,8 @@
 #define RUIN_WATER 		32		//ruin depending on planet having water accessible
 
 #define NEWorINITIAL(variable, newvalue) variable = newvalue ? newvalue : initial(variable)
+
+//Matricies
+#define MATRIX_GREYSCALE list(0.33, 0.33, 0.33,\
+                              0.33, 0.33, 0.33,\
+                              0.33, 0.33, 0.33)

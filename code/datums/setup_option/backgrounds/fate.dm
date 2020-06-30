@@ -103,3 +103,4 @@
 			You did not knew your parents, and was just lucky enough to learn how to read, and that, in time, landed you on position at this ship."
 	restricted_jobs = list(/datum/job/captain, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
 	perks = list(PERK_LOWBORN)
+
