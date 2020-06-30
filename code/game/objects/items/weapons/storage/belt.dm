@@ -153,7 +153,7 @@
 	icon_state = "tactical_ironhammer"
 
 /obj/item/weapon/storage/belt/tactical/neotheology
-	name = "neotheologian tactical belt"
+	name = "mekhanite tactical belt"
 	desc = "Can hold various military and security equipment."
 	icon_state = "tactical_neotheology"
 	can_hold_extra = list(
