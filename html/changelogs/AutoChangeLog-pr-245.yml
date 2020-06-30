@@ -1,0 +1,5 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - refactor: Refactor character name system from forename/surname to full name/family
+      name.
