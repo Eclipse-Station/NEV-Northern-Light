@@ -149,7 +149,7 @@
 	)
 
 /obj/item/weapon/storage/belt/tactical/ironhammer
-	name = "ironhammer tactical belt"
+	name = "aegis tactical belt"
 	icon_state = "tactical_ironhammer"
 
 /obj/item/weapon/storage/belt/tactical/neotheology
