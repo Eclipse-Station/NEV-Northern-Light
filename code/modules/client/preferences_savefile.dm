@@ -85,7 +85,7 @@
 	loaded_character = S
 	return S
 
-/datum/preferences/proc/overwrite_character(slot)		//Eclipse edit.
+/datum/preferences/proc/overwrite_character(slot)			//Eclipse edit.
 	if(!path)				return 0
 	if(!fexists(path))		return 0
 	var/savefile/S = new /savefile(path)
