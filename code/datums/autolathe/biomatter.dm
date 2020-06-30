@@ -80,7 +80,7 @@
 	build_path = /obj/item/weapon/storage/belt/utility
 
 /datum/design/bioprinter/belt/utility/neotheology
-	name = "Neotheologian utility belt"
+	name = "Mekhane utility belt"
 	build_path = /obj/item/weapon/storage/belt/utility/neotheology
 
 /datum/design/bioprinter/belt/medical
@@ -92,7 +92,7 @@
 	build_path = /obj/item/weapon/storage/belt/tactical
 
 /datum/design/bioprinter/belt/security/neotheology
-	name = "Neotheologian tactical belt"
+	name = "Mekhane tactical belt"
 	build_path = /obj/item/weapon/storage/belt/tactical/neotheology
 
 /datum/design/bioprinter/belt/medical/emt
