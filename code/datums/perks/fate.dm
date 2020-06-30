@@ -137,8 +137,7 @@
 		final_oddity[stat] = rand(1,7)
 	W.AddComponent(/datum/component/inspiration, final_oddity)
 	W.AddComponent(/datum/component/atom_sanity, 1, "")
-	spawn(1)
-		holder.equip_to_storage_or_drop(W)
+	holder.put_in_hands(W)
 
 /datum/perk/noble/remove()
 	holder.sanity.environment_cap_coeff += 1
