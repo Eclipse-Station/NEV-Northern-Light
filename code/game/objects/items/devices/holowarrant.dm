@@ -86,7 +86,7 @@
 	if(active.fields["arrestsearch"] == "arrest")
 		var/output = {"
 		<HTML><HEAD><TITLE>[active.fields["namewarrant"]]</TITLE></HEAD>
-		<BODY bgcolor='#ffffff'><center><large><b>IH SEC Warrant Tracker System</b></large></br>
+		<BODY bgcolor='#ffffff'><center><large><b>AC SEC Warrant Tracker System</b></large></br>
 		</br>
 		Issued under the jurisdiction of the</br>
 		[boss_name]</br>
@@ -105,7 +105,7 @@
 	if(active.fields["arrestsearch"] ==  "search")
 		var/output= {"
 		<HTML><HEAD><TITLE>Search Warrant: [active.fields["namewarrant"]]</TITLE></HEAD>
-		<BODY bgcolor='#ffffff'><center><large><b>IH SEC Warrant Tracker System</b></large></br>
+		<BODY bgcolor='#ffffff'><center><large><b>AC SEC Warrant Tracker System</b></large></br>
 		</br>
 		Issued under the jurisdiction of the</br>
 		[boss_name]</br>
