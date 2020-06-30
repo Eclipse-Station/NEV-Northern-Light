@@ -333,7 +333,7 @@
 		dat += "<b>Once selected, you need to SAVE to confirm</b><hr>"
 		var/name
 		for(var/i=1, i<= config.character_slots, i++)
-			S.cd = "/character[i]"
+			S.cd = GLOB.maps_data.character_load_path(S, i)
 			S["real_name"] >> name
 			if(!name)	name = "Character[i]"
 			if(i==default_slot)
