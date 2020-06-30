@@ -2,7 +2,11 @@ name: Compile changelogs
 
 on:
   schedule:
+<<<<<<< HEAD
     - cron: "*/60 * * * *"
+=======
+    - cron: "* */12 * * *"
+>>>>>>> 3e52a29... Makes changelog actions suck a bit less (#5047)
 
 jobs:
   CompileCL:
