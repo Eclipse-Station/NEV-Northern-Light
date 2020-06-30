@@ -355,9 +355,9 @@
 		if(weapon_upgrades[GUN_UPGRADE_PIERC_MULT])
 			var/amount = weapon_upgrades[GUN_UPGRADE_PIERC_MULT]
 			if(amount > 1)
-				to_chat(user, SPAN_NOTICE("Increases projectile piercing penetration by [amount*100]%"))
+				to_chat(user, SPAN_NOTICE("Increases projectile piercing by [amount*100]%"))
 			else
-				to_chat(user, SPAN_WARNING("Decreases projectile piercing penetration by [amount*100]%"))
+				to_chat(user, SPAN_WARNING("Decreases projectile piercing by [amount*100]%"))
 
 		if(weapon_upgrades[GUN_UPGRADE_FIRE_DELAY_MULT])
 			var/amount = weapon_upgrades[GUN_UPGRADE_FIRE_DELAY_MULT]
@@ -454,9 +454,9 @@
 		if(weapon_upgrades[GUN_UPGRADE_OFFSET])
 			var/amount = weapon_upgrades[GUN_UPGRADE_OFFSET]
 			if(amount > 1)
-				to_chat(user, SPAN_WARNING("Increases weapon inaccuracy by [amount]°"))
+				to_chat(user, SPAN_WARNING("Increases weapon inaccuracy by [amount]Â°"))
 			else
-				to_chat(user, SPAN_NOTICE("Decreases weapon inaccuracy by [amount]°"))
+				to_chat(user, SPAN_NOTICE("Decreases weapon inaccuracy by [amount]Â°"))
 
 		if(weapon_upgrades[GUN_UPGRADE_HONK])
 			to_chat(user, SPAN_WARNING("Cheers up the firing sound of the weapon."))
