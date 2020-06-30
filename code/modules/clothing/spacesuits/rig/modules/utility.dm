@@ -445,8 +445,7 @@
 
 /obj/item/rig_module/autodoc/commercial
 	autodoc_type = /datum/autodoc/capitalist_autodoc
-<<<<<<< HEAD
-=======
+
 
 /obj/item/rig_module/cape
 	name = "cape"
@@ -456,12 +455,12 @@
 	interface_desc = "A generic cape for a hardsuit."
 
 /obj/item/rig_module/cape/te
-	name = "technomancer cape"
-	desc = "A tough regal cape, imprinted with the emblem of the Technomancer League."
+	name = "engineering cape"
+	desc = "A tough regal cape, imprinted with a large wrench emblem."
 	suit_overlay_active = "cape_te"
 	suit_overlay_inactive = "cape_te"
 	suit_overlay_mob_only = 1
 
-	interface_name = "Technomancer Cape"
+	interface_name = "Engineering Cape"
 	interface_desc = "A grand yet hardy cape."
->>>>>>> bef456c... Adds More Protection to TM Helmet, Patches TE Rig Cape Icon (#5030)
+
