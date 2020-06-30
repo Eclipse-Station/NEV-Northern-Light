@@ -91,7 +91,7 @@ obj/item/device/propaganda_chip/Destroy()
 		"Aegis gets more money than anyone and all they do is sit around",
 		"Medical just sits around all day in the fucking break room",
 		"NanoTrasen is unfair. The Captain is in there, standing at the concession, plotting our oppression.",
-		"The Free Trade Union keeps us weak!"
+		"Monopoly is Anti-Meritocratic"
 	)
 	var/message_text = pick(messages)
 	var/message = " <b>[crew_name]</b> says,<FONT SIZE =-2>  \"[message_text]\"</FONT>"
