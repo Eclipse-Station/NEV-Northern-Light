@@ -65,19 +65,19 @@
 /datum/design/research/item/weapon/hatton
 	name = "NanoTrasen BT \"Q-del\""
 	desc = "This breaching tool was reverse engineered from the \"Hatton\" design.\
-			Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,\
+			Despite the Excelsior \"Hatton\" being traded on the free market through illegal channels,\
 			this device suffers from a wide number of reliability issues stemming from it being lathe printed."
 	//Eclipse Note: Leaving this reference to technomancers intact since it doesn't imply that our engineering staff is contracted out ^Spitzer
 	build_path = /obj/item/weapon/hatton/moebius
 	sort_string = "TBAAD"
 
 /datum/design/research/item/weapon/katana
-	name = "Moebius \"Muramasa\" Katana"
+	name = "NanoTrasen \"Muramasa\" Katana"
 	build_path = /obj/item/weapon/tool/sword/katana/nano
 
 
 /datum/design/research/item/weapon/bluespace_dagger
-	name = "Moebius \"Displacement Dagger\""
+	name = "NanoTrasen \"Displacement Dagger\""
 	build_path = /obj/item/weapon/tool/knife/dagger/bluespace
 
 // Ammo
@@ -109,9 +109,9 @@
 	category = CAT_WEAPON
 
 /datum/design/research/item/weapon_upgrade/penetrator
-	name = "Moebius \"Penetrator\" magnetic accelerator barrel"
+	name = "NanoTrasen \"Penetrator\" magnetic accelerator barrel"
 	build_path = /obj/item/weapon/gun_upgrade/barrel/mag_accel
 
 /datum/design/research/item/weapon_upgrade/overheat
-	name = "Moebius \"Caster\" magnetic overheat barrel"
+	name = "NanoTrasen \"Caster\" magnetic overheat barrel"
 	build_path = /obj/item/weapon/gun_upgrade/barrel/overheat
