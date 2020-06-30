@@ -3,7 +3,7 @@
 
 /obj/item/weapon/tool/knife
 	name = "kitchen knife"
-	desc = "A general purpose Chef's Knife made by Asters Merchant Guild. Guaranteed to stay sharp for years to come."
+	desc = "A general purpose Chef's Knife made by the Free Trade Union. Guaranteed to stay sharp for years to come."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "knife"
 	flags = CONDUCT
@@ -98,7 +98,7 @@
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_GOLD = 1, MATERIAL_SILVER = 1)
 
 /obj/item/weapon/tool/knife/dagger/bluespace
-	name = "Moebius \"Displacement Dagger\""
+	name = "NanoTrasen \"Displacement Dagger\""
 	desc = "A teleportation matrix attached to a dagger, for sending things you stab it into very far away."
 	icon_state = "bluespace_dagger"
 	item_state = "bluespace_dagger"
