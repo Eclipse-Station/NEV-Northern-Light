@@ -10,7 +10,7 @@
 	slot_flags = SLOT_BELT
 	req_access = list(list(access_heads, access_security))
 	var/boss_name = "Aegis Security"
-	var/station_name = "CEV Northern Light"
+	var/station_name = "NEV Northern Light"
 	var/datum/computer_file/data/warrant/active
 
 //look at it
