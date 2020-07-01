@@ -2668,4 +2668,5 @@
 #include "maps\submaps\planetary_ruins\hut\hut.dm"
 #include "maps\submaps\planetary_ruins\tar_anomaly\tar_anomaly.dm"
 #include "zzz_modular_eclipse\evac_sign\evacsign.dm"
+#include "zzz_modular_eclipse\gunvendor\gunkits.dm"
 // END_INCLUDE

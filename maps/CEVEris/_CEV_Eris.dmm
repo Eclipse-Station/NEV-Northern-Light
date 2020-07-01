@@ -108350,6 +108350,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
+"ifz" = (
+/obj/machinery/vending/serbomat,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/hallway/side/cryo)
 "ijn" = (
 /obj/structure/table/bar_special,
 /obj/item/weapon/reagent_containers/food/condiment/peppermill{
@@ -109130,6 +109134,10 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+"sUR" = (
+/obj/machinery/vending/serbomat,
+/turf/simulated/floor/tiled/steel/gray_platform,
+/area/eris/hallway/main/section2)
 "sZg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -210980,7 +210988,7 @@ bZF
 bZL
 cab
 cab
-cab
+sUR
 bfn
 chy
 chy
@@ -212059,7 +212067,7 @@ cNN
 bzX
 bzX
 bzX
-cxN
+ifz
 cRE
 cZz
 cZz
