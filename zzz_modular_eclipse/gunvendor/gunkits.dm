@@ -31,5 +31,3 @@
 	new /obj/item/weapon/gun/projectile/colt(src)
 	new /obj/item/ammo_magazine/pistol(src)
 	new /obj/item/ammo_magazine/pistol(src)
-	
-	
