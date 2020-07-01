@@ -31,10 +31,26 @@
 	auto_price = FALSE
 	vendor_department = DEPARTMENT_CIVILIAN
 
-/*			//Bill validator lights are fucky, but I'm leaving this in here, in the event I try to fix it later.
+
+//all these are just to update the bill validator lights
 /obj/machinery/vending/serbomat/New()
-	. = ..()
-	update_icon()		//needed for bill validator lights
+	..()
+	update_icon()
+	
+/obj/machinery/vending/serbomat/power_change()
+	..()
+	update_icon()
+	
+/obj/machinery/vending/serbomat/malfunction()
+	spawn(20)		//2 seconds is enough time for the icon to change OK.
+		update_icon()
+	..()		//there is a return statement in ..() so we need that last
+	
+/obj/machinery/vending/serbomat/attack_hand()
+	spawn(20)
+		update_icon()
+	..()		//there is a return statement in ..() so we need that last
+//this concludes the edits to make bill validator lights work right.
 
 /obj/machinery/vending/serbomat/update_icon()		//bill validator lights
 
@@ -64,7 +80,6 @@
 	overlays += overlay		//and apply the overlay.
 
 	. = ..()	//And we go back to how things were.
-*/
 
 /* Serbomat changelog
 2020-06-30: ------
