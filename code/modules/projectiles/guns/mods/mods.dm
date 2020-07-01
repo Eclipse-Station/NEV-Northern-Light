@@ -142,7 +142,7 @@
 //Adds radiation damage to .35 rounds. Acquired through telecrystal uplink
 /obj/item/weapon/gun_upgrade/mechanism/glass_widow
 	name = "Syndicate \"Glass Widow\" infuser"
-	desc = "An illega modification, used to make formerly useless civilian-grade weaponry into something much more lethal."
+	desc = "An illegal modification, used to make formerly useless civilian-grade weaponry into something much more lethal."
 	icon_state = "Glass_Widow"
 
 /obj/item/weapon/gun_upgrade/mechanism/glass_widow/New()
