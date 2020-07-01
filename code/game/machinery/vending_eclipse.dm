@@ -31,6 +31,7 @@
 	auto_price = FALSE
 	vendor_department = DEPARTMENT_CIVILIAN
 
+/*			//Bill validator lights are fucky, but I'm leaving this in here, in the event I try to fix it later.
 /obj/machinery/vending/serbomat/New()
 	. = ..()
 	update_icon()		//needed for bill validator lights
@@ -44,8 +45,6 @@
 		bv_head = "billval-standby"
 	if(stat & NOPOWER)
 		bv_head = "billval-offline"
-
-
 
 //First, switch it to the lighting plane so we can get the lights working.
 	set_plane(ABOVE_LIGHTING_PLANE)
@@ -65,6 +64,7 @@
 	overlays += overlay		//and apply the overlay.
 
 	. = ..()	//And we go back to how things were.
+*/
 
 /* Serbomat changelog
 2020-06-30: ------
