@@ -73,7 +73,6 @@
 
 	add_fingerprint(user)
 	return
-	.=..()
 
 //Pickup paperbins with drag n drop
 obj/item/weapon/paper_bin/MouseDrop(over_object)
