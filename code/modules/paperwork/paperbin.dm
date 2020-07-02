@@ -46,7 +46,7 @@
 			add_fingerprint(user)
 			return
 
-	if(!amount==0)		//Eclipse edit
+	if(!amount==0)			//Eclipse edit
 		update_icon()
 
 		var/obj/item/weapon/paper/P
