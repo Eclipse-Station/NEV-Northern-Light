@@ -444,7 +444,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/weapon/flame/lighter/zippo
 	name = "\improper Zippo lighter"
 	desc = "The zippo."
-	icon = 'icons/obj/zippo.dmi'
+	icon = 'icons/obj/zippo.dmi'		//Eclipse edit
 	icon_state = "zippo"
 	item_state = "zippo"
 
@@ -461,8 +461,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(!lit)
 			lit = 1
 			icon = 'icons/obj/zippo.dmi'
-			icon_state = "[base_state]on"
-			item_state = "[base_state]on"
+			icon_state = "[base_state]on"		//Eclipse edit
+			item_state = "[base_state]on"		//Eclipse edit
 			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
 				playsound(src, 'sound/items/zippo.ogg', 20, 1, 1)
 				user.visible_message("<span class='rose'>Without even breaking stride, [user] flips open and lights [src] in one smooth movement.</span>")
