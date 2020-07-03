@@ -1,0 +1,7 @@
+author: ShadzFen
+delete-after: true
+changes:
+  - bugfix: Sawn-off shotgun no longer becomes invisible when held in both hands.
+      (Courtesy of Niim)
+  - imageadd: Sawn-off shotgun now has a sprite when stored in the suit slot. (Courtesy
+      of Niim)
