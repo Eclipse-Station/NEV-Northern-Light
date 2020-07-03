@@ -1,8 +1,0 @@
-author: ShadzFen
-delete-after: true
-changes:
-  - bugfix: Fixed the targeting system not targeting hands or feet.
-  - bugfix: Fixed splints not applying to hands and feet.
-  - bugfix: Fixed Chief Engineer's voidsuit not insulating its user from electrical
-      shocks.
-  - bugfix: Fixed monkey leg and arm sprites not displaying properly.
