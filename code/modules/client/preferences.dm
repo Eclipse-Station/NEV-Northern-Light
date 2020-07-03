@@ -51,9 +51,8 @@
 //		decls_repository.get_decl(/decl/hierarchy/skill)
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
-	real_first_name = random_first_name(gender,species)
-	real_last_name = random_last_name(species)
-	real_name = real_first_name + " " + real_last_name
+	family_name = random_last_name(species)									//Eclipse Edit
+	real_name = random_first_name(gender,species) + " " + family_name		//Re-work surname into clanname
 	b_type = RANDOM_BLOOD_TYPE
 
 	if(client && !IsGuestKey(client.key))
@@ -96,7 +95,8 @@
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
 		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
-		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
+		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a> - "		//Eclipse edit.
+		dat += "<a href='?src=\ref[src];copy=1'>Copy slot</a> "				//Eclipse edit.
 
 	else
 		dat += "Please create an account to save your preferences."
@@ -157,6 +157,14 @@
 			return FALSE
 		load_character(SAVE_RESET)
 		sanitize_preferences()
+	else if(href_list["copy"])			//Eclipse edit.
+		if(!IsGuestKey(usr.key))
+			open_copy_dialog(usr)
+			return 1
+	else if(href_list["overwrite"])		//Eclipse edit.
+		overwrite_character(text2num(href_list["overwrite"]))
+		sanitize_preferences()
+		close_load_dialog(usr)
 	else
 		return 0
 
@@ -168,18 +176,24 @@
 	player_setup.sanitize_setup()
 	character.set_species(species)
 
+// // // BEGIN ECLIPSE EDITS // // //
+// Refactor full name system into family name system.
 	if(be_random_name)
-		real_first_name = random_first_name(gender, species)
-		real_last_name = random_last_name(gender, species)
-		real_name = real_first_name + " " + real_last_name
+		family_name = random_last_name(gender, species)
+		real_name = random_first_name(gender,species) + " " + family_name
 
 	if(config.humans_need_surnames)
-		if(!real_last_name)	//we need a surname
-			real_last_name = "[pick(GLOB.last_names)]"
-			real_name += " [real_last_name]"
+		var/firstspace = findtext(real_name, " ")
+		var/name_length = length(real_name)
+		if(!firstspace)	//we need a surname
+			real_name += " [pick(GLOB.last_names)]"
+		else if(firstspace == name_length)
+			real_name += "[pick(GLOB.last_names)]"
 	character.fully_replace_character_name(newname = real_name)
-	character.first_name = real_first_name
-	character.last_name = real_last_name
+	character.family_name = family_name
+
+// // // END ECLIPSE EDITS // // //
+
 	character.gender = gender
 	character.age = age
 	character.b_type = b_type
@@ -313,3 +327,26 @@
 		panel.close()
 		panel = null
 	user << browse(null, "window=saves")
+
+/datum/preferences/proc/open_copy_dialog(mob/user)		//Eclipse edit.
+	var/dat = "<body>"
+	dat += "<tt><center>"
+
+	var/savefile/S = new /savefile(path)
+	if(S)
+		dat += "<b>Select a character slot to overwrite</b><br>"
+		dat += "<b>Once selected, you need to SAVE to confirm</b><hr>"
+		var/name
+		for(var/i=1, i<= config.character_slots, i++)
+			S.cd = GLOB.maps_data.character_load_path(S, i)
+			S["real_name"] >> name
+			if(!name)	name = "Character[i]"
+			if(i==default_slot)
+				name = "<b>[name]</b>"
+			dat += "<a href='?src=\ref[src];overwrite=[i]'>[name]</a><br>"
+
+	dat += "<hr>"
+	dat += "</center></tt>"
+	panel = new(user, "Character Slots", "Character Slots", 300, 390, src)
+	panel.set_content(dat)
+	panel.open()

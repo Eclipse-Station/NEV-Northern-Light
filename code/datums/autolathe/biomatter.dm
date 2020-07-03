@@ -80,7 +80,7 @@
 	build_path = /obj/item/weapon/storage/belt/utility
 
 /datum/design/bioprinter/belt/utility/neotheology
-	name = "Neotheologian utility belt"
+	name = "Mekhane utility belt"
 	build_path = /obj/item/weapon/storage/belt/utility/neotheology
 
 /datum/design/bioprinter/belt/medical
@@ -92,7 +92,7 @@
 	build_path = /obj/item/weapon/storage/belt/tactical
 
 /datum/design/bioprinter/belt/security/neotheology
-	name = "Neotheologian tactical belt"
+	name = "Mekhane tactical belt"
 	build_path = /obj/item/weapon/storage/belt/tactical/neotheology
 
 /datum/design/bioprinter/belt/medical/emt
@@ -142,4 +142,9 @@
 /datum/design/bioprinter/medical/advanced/ointment
 	name = "Advanced burn kit"
 	build_path = /obj/item/stack/medical/advanced/ointment
+
+/datum/design/bioprinter/lungs
+	name = "Extended Lungs"
+	materials = list("biomatter" = 30)
+	build_path = /obj/item/organ/internal/lungs/long
 //[/MED]

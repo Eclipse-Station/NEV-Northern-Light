@@ -40,7 +40,7 @@
 
 //Increases penetration multiplier, projectile speed. Increases fire delay. Acquired via science
 /obj/item/weapon/gun_upgrade/barrel/mag_accel
-	name = "Moebius \"Penetrator\" magnetic accelerator barrel"
+	name = "NanoTrasen \"Penetrator\" magnetic accelerator barrel"
 	desc = "Uses sympathetic magnetic coiling to increase exit velocity of a metal projectile."
 	icon_state = "Penetrator"
 
@@ -57,7 +57,7 @@
 
 //Adds +10 burn damage to a bullet, lowers armor penetration, adds a constant projectile offset, increases recoil and fire delay. Acquired via science
 /obj/item/weapon/gun_upgrade/barrel/overheat
-	name = "Moebius \"Caster\" magnetic overheat barrel"
+	name = "NanoTrasen \"Caster\" magnetic overheat barrel"
 	desc = "Uses magnetic induction to heat the projectile of a weapon. Arguable combat effectiveness, but flashy nonetheless."
 	icon_state = "Caster"
 
@@ -76,7 +76,7 @@
 
 //For energy weapons, increases the damage output, but also the charge cost. Acquired through loot spawns.
 /obj/item/weapon/gun_upgrade/barrel/excruciator
-	name = "NeoTheology \"EXCRUCIATOR\" giga lens"
+	name = "NanoTrasen \"EXCRUCIATOR\" giga lens"
 	desc = "It's time for us to shine."
 	icon_state = "Excruciator"
 
@@ -142,7 +142,7 @@
 //Adds radiation damage to .35 rounds. Acquired through telecrystal uplink
 /obj/item/weapon/gun_upgrade/mechanism/glass_widow
 	name = "Syndicate \"Glass Widow\" infuser"
-	desc = "An old technology from the Corporate Wars, used to make formerly useless civilian-grade weaponry into something much more lethal."
+	desc = "An illegal modification, used to make formerly useless civilian-grade weaponry into something much more lethal."
 	icon_state = "Glass_Widow"
 
 /obj/item/weapon/gun_upgrade/mechanism/glass_widow/New()

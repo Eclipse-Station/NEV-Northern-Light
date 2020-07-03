@@ -15,18 +15,18 @@
 	name = "gauntlets"
 	item_flags = THICKMATERIAL|COVER_PREVENT_MANIPULATION
 	overslot = 1
-	body_parts_covered = ARMS
-	heat_protection =    ARMS
-	cold_protection =    ARMS
+	body_parts_covered = ARMS|HANDS		//Eclipse edit
+	heat_protection =    ARMS|HANDS		//Eclipse edit
+	cold_protection =    ARMS|HANDS		//Eclipse edit
 	species_restricted = null
 	gender = PLURAL
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
 	item_flags = COVER_PREVENT_MANIPULATION
-	body_parts_covered = LEGS
-	cold_protection = LEGS
-	heat_protection = LEGS
+	body_parts_covered = LEGS|FEET		//Eclipse edit
+	cold_protection = LEGS|FEET			//Eclipse edit
+	heat_protection = LEGS|FEET			//Eclipse edit
 	species_restricted = null
 	gender = PLURAL
 	icon_base = null
