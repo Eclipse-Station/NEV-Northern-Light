@@ -1,0 +1,4 @@
+author: drexample
+delete-after: true
+changes:
+  - admin: new option when you ban using PP
