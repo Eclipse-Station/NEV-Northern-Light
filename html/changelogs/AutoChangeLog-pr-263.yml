@@ -1,0 +1,7 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - rscadd: Added a couple of BulletHeaven vendors to the map.
+  - rscadd: Added more stock to the BHeaven vendors.
+  - imageadd: BHeaven vendors now use the old Serbomat sprite, with the Serbian-ness
+      removed.
