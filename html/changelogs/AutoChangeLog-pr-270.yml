@@ -1,0 +1,4 @@
+author: ShadzFen
+delete-after: true
+changes:
+  - bugfix: Fixed paper bins not allowing players to take paper out of them.
