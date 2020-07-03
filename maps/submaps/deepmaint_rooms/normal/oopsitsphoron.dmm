@@ -65,7 +65,7 @@
 /area/deepmaint)
 "q" = (
 /obj/structure/inflatable/door,
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/tiled/techmaint_panels,
 /area/deepmaint)
 "r" = (
 /obj/item/weapon/inflatable_dispenser,
@@ -85,7 +85,7 @@
 /area/deepmaint)
 "u" = (
 /obj/item/weapon/storage/box/matches,
-/turf/simulated/floor/reinforced/phoron,
+/turf/simulated/floor/reinforced,
 /area/deepmaint)
 "v" = (
 /obj/structure/sign/signnew/danger,
@@ -229,9 +229,9 @@ c
 c
 a
 e
-l
-l
-l
+k
+k
+k
 x
 C
 b
