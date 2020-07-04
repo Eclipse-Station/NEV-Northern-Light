@@ -10,9 +10,21 @@
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 	if(CE_SPEEDBOOST in chem_effects)
 		tally -= chem_effects[CE_SPEEDBOOST]
+<<<<<<< HEAD
 
 
 
+=======
+	if(isturf(loc))
+		var/turf/T = loc
+		if(T.get_lumcount() < 0.6)
+			if(stats.getPerk(PERK_NIGHTCRAWLER))
+				tally -= 0.5
+			else if(see_invisible != SEE_INVISIBLE_NOLIGHTING)
+				tally += 0.5
+	if(stats.getPerk(PERK_FAST_WALKER))
+		tally -= 0.5
+>>>>>>> 3247580... Fix Noble, Nightcrwawler and Oborin Syndrome perks (#5051)
 
 	var/health_deficiency = (maxHealth - health)
 	var/hunger_deficiency = (max_nutrition - nutrition) //400 = max for humans.
