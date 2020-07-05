@@ -1,6 +1,6 @@
 /datum/perk/survivor
 	name = "Survivor"
-	desc = "After seeing the death of many acquaintances and friends, witnessing death doesn't shock you as much as before."
+	desc = "Whether from training or from traumatic experiences, seeing death just doesn't phase you as much, anymore."
 	icon_state = "survivor" // https://game-icons.net/1x1/lorc/one-eyed.html
 
 /datum/perk/survivor/assign(mob/living/carbon/human/H)
@@ -12,8 +12,8 @@
 	..()
 
 /datum/perk/selfmedicated
-	name = "Self-medicated"
-	desc = "You have very shoddy handwriting. This lets you write prescriptions to yourself!"
+	name = "Heal Thyself"
+	desc = "Heal thyself, physician! You're able to resist addictive urges better, and are slightly more resistant to overstimulation from medications."
 	icon_state = "selfmedicated" // https://game-icons.net/1x1/lorc/overdose.html
 
 /datum/perk/selfmedicated/assign(mob/living/carbon/human/H)
@@ -41,7 +41,7 @@
 
 /datum/perk/merchant
 	name = "Merchant"
-	desc = "Money is what matters for you, and it's so powerful it lets you improve your skills."
+	desc = "Money is what matters for you, and it's so powerful it lets you improve your skills. The more cash, the more gain."
 	icon_state = "merchant" // https://game-icons.net/1x1/lorc/cash.html and https://game-icons.net/1x1/delapouite/graduate-cap.html slapped on https://game-icons.net/1x1/lorc/trade.html
 
 /datum/perk/merchant/assign(mob/living/carbon/human/H)
@@ -124,11 +124,12 @@
 /// Basically a marker perk. If the user has this perk, another will be given in certain conditions.
 /datum/perk/inspiration
 	name = "Exotic Inspiration"
-	desc = "Alcohol boosts your IQ somehow."
+	desc = "Alcohol boosts your IQ. This makes sense, somehow."
 	icon_state = "inspiration" // https://game-icons.net/1x1/delapouite/booze.html
 
 /datum/perk/active_inspiration
 	name = "Exotic Inspiration (Active)"
+	desc = "...or does the alcohol just make you less likely to realize your mistakes? Naaaah..."
 	icon_state = "inspiration_active" // https://game-icons.net/1x1/lorc/enlightenment.html
 
 /datum/perk/active_inspiration/assign(mob/living/carbon/human/H)
