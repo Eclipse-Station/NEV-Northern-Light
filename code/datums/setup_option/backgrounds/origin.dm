@@ -39,7 +39,7 @@
 
 /datum/category_item/setup_option/background/origin/sich_prime
 	name = "Vagrant"
-	desc = "Miscreant. You're used to having to do what it takes to survive, patching up your own wounds to survive, and being...familiar, with how to get through locks and
+	desc = "Miscreant. You're used to having to do what it takes to survive, patching up your own wounds to survive, and being... familiar, with how to get through locks and
 
 	stat_modifiers = list(
 		STAT_ROB = 5,
@@ -84,8 +84,8 @@
 
 /datum/category_item/setup_option/background/origin/hmss_destined
 	name = "Crewman"
-	desc = "You're not unfamiliar withh working on spaceships. Maybe you've been working for NanoTrasen for some time, or maybe you used to be part of the navy.\
-			 Either way, you know the- general- ins and outs of working on a ship."
+	desc = "You're not unfamiliar with working on spaceships. Maybe you've been working for NanoTrasen for some time, or maybe you used to be part of some navy.\
+			 Either way, you know the general ins-and-outs of working on a ship."
 
 	stat_modifiers = list(
 		STAT_ROB = 7,
@@ -141,7 +141,7 @@
 
 
 /datum/category_item/setup_option/background/origin/nss_forecaster
-	name = "Nomad	"
+	name = "Nomad"
 	desc = "You used to roam the stars. Maybe you still do. Why would you miss your home when your home is all around you? There's so much to see, and you are ready for all of it! \
 			Your lack of settling down means that you don't have intimate knowledge of any particular subject, but you've always been able to get around that with your general knowledge and wit.\
 			So far, at least."
