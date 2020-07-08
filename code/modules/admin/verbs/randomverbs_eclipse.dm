@@ -1,6 +1,6 @@
 ADMIN_VERB_ADD(/client/proc/respawn_character_virgo, R_FUN, FALSE)
 /client/proc/respawn_character_virgo()
-	set category = "Debug"
+	set category = "Special Verbs"
 	set name = "Spawn Character (VR)"
 	set desc = "(Re)Spawn a client's loaded character, using Virgo's old respawn proc."
 	if(!holder)
