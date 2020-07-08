@@ -48,6 +48,9 @@ var/global/list/default_medbay_channels = list(
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
+	
+	//Eclipse-added vars
+	var/freqlock = FALSE		//Eclipse Edit: Should we lock the frequency to prevent people from changing the channel?
 
 /obj/item/device/radio
 	var/datum/radio_frequency/radio_connection
@@ -202,6 +205,8 @@ var/global/list/default_medbay_channels = list(
 		. = 1
 
 	else if (href_list["freq"])
+		if(freqlock)		//Eclipse edit: frequency locks. Used on medbay radio.
+			return FALSE
 		var/new_frequency = (frequency + text2num(href_list["freq"]))
 		if ((new_frequency < PUBLIC_LOW_FREQ || new_frequency > PUBLIC_HIGH_FREQ))
 			new_frequency = sanitize_frequency(new_frequency)
@@ -225,6 +230,8 @@ var/global/list/default_medbay_channels = list(
 				channels[chan_name] |= FREQ_LISTENING
 		. = 1
 	else if(href_list["spec_freq"])
+		if(freqlock)		//Eclipse edit: frequency locks.
+			return FALSE
 		var freq = href_list["spec_freq"]
 		if(has_channel_access(usr, freq))
 			set_frequency(text2num(freq))
