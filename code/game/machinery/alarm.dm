@@ -54,6 +54,10 @@
 	var/other_dangerlevel = 0
 
 	var/report_danger_level = 1
+	
+	// Eclipse added vars
+	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
+	var/last_sound_time = 0			//When did the audible last fire?
 
 /obj/machinery/alarm/nobreach
 	breach_detection = 0
@@ -125,6 +129,10 @@
 /obj/machinery/alarm/Process()
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
+
+	if ((alarm_area.atmosalm >= 2) && world.time > last_sound_time + alarm_audible_cooldown)
+		playsound(src.loc, 'sound/misc/airalarm.ogg', 40, 0, 5)
+		last_sound_time = world.time
 
 	var/turf/simulated/location = loc
 	if(!istype(location))
@@ -514,7 +522,7 @@
 	data["total_danger"] = danger_level
 	data["environment"] = environment_data
 	data["atmos_alarm"] = alarm_area.atmosalm
-	data["fire_alarm"] = alarm_area.fire != null
+	data["fire_alarm"] = alarm_area.fire		//Eclipse edit: Fixes an issue where an air alarm would get stuck in fire-call mode
 	data["target_temperature"] = "[target_temperature - T0C]C"
 
 /obj/machinery/alarm/proc/populate_controls(var/list/data)
@@ -1157,7 +1165,9 @@ FIRE ALARM
 	else
 		to_chat(usr, "Fire Alarm activated.")
 	update_icon()
-	//playsound(src.loc, 'sound/ambience/signal.ogg', 75, 0)
+	for(var/i in 1 to (rand(3,6)))
+		playsound(src.loc, 'sound/misc/firealarm.ogg', 75, 0)
+		sleep(4 SECONDS)
 	return
 
 

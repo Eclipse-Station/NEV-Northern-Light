@@ -4,7 +4,7 @@ var/global/list/all_radio_squelch_sounds = list('sound/effects/radio_squelch/squ
 	var/audible_squelch_enabled = TRUE
 	var/audible_squelch_type = 'sound/misc/null.ogg'		//should be overwritten on New()
 	
-/obj/item/device/radio/proc/play_squelch(var/audiofile)
+/obj/item/device/radio/proc/play_squelch_sound(var/audiofile)
 	if(audible_squelch_enabled)
 		playsound(loc, audiofile, 25, 1, 1)
 
