@@ -130,9 +130,8 @@
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
 
-	if ((alarm_area.atmosalm >= 2) && world.time > last_sound_time + alarm_audible_cooldown)
-		playsound(src.loc, 'sound/misc/airalarm.ogg', 40, 0, 5)
-		last_sound_time = world.time
+	if ((alarm_area.atmosalm >= 2) && world.time > last_sound_time + alarm_audible_cooldown)		//eclipse addition
+		play_audible()
 
 	var/turf/simulated/location = loc
 	if(!istype(location))
@@ -888,6 +887,14 @@
 		to_chat(user, "It is not wired.")
 	if (buildstage < 1)
 		to_chat(user, "The circuit is missing.")
+
+// Eclipse proc - added to reduce impact to Process() call
+/obj/machinery/alarm/proc/play_audible()
+	last_sound_time = world.time
+	for(var/i in 1 to 3)		//plays 3 times always.
+		playsound(src.loc, 'sound/misc/airalarm.ogg', 40, 0, 5)
+		sleep(4 SECONDS)
+
 /*
 AIR ALARM CIRCUIT
 Just a object used in constructing air alarms
@@ -921,6 +928,10 @@ FIRE ALARM
 	var/last_process = 0
 	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
+
+	//eclipse added vars
+	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
+	var/last_sound_time = 0			//When did the audible last fire?
 
 /obj/machinery/firealarm/update_icon()
 	overlays.Cut()
@@ -1087,6 +1098,10 @@ FIRE ALARM
 	if(locate(/obj/fire) in loc)
 		alarm()
 
+	//Eclipse Edit: alarm loops now.
+	var/area/coverage_area = get_area(src)
+	if (coverage_area.fire && world.time > last_sound_time + alarm_audible_cooldown)
+		play_audible()
 	return
 
 /obj/machinery/firealarm/power_change()
@@ -1165,9 +1180,7 @@ FIRE ALARM
 	else
 		to_chat(usr, "Fire Alarm activated.")
 	update_icon()
-	for(var/i in 1 to (rand(3,6)))
-		playsound(src.loc, 'sound/misc/firealarm.ogg', 75, 0)
-		sleep(4 SECONDS)
+	play_audible()			//Eclipse edit: beep beep beep. beep beep beep.
 	return
 
 
@@ -1186,6 +1199,17 @@ FIRE ALARM
 		wiresexposed = 1
 		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
 		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+
+
+//Eclipse proc - added to reduce overhead on Process()
+/obj/machinery/firealarm/proc/play_audible()
+	last_sound_time = world.time		//at the stert to prevent overlap
+	var/area/coverage_area = get_area(src)
+	for(var/i in 1 to rand(4,6))		//plays 4 to 6 times.
+		if (!coverage_area.fire)
+			return
+		playsound(src.loc, 'sound/misc/firealarm.ogg', 40, 0, 5)
+		sleep(4 SECONDS)
 
 /*
 FIRE ALARM CIRCUIT
