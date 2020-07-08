@@ -63,6 +63,11 @@ var/global/list/default_medbay_channels = list(
 	wires = new(src)
 	internal_channels = default_internal_channels.Copy()
 	add_hearing()
+	
+	//eclipse addition
+	if(audible_squelch_enabled)		//if it's disabled, should stay as null.ogg. Prevents it from playing squelch in the event another if-check fails.
+		audible_squelch_type = pick(all_radio_squelch_sounds)		//radios get a semi-unique radio squelch sound. granted, there's four sounds total, but if one radio keys up it should maintain the same squelch sound all the time.
+	//of course, this isn't realistic at all since each radio plays the same squelch when it receives different radios (not the other way around), but it should break the monotony.
 
 /obj/item/device/radio/Destroy()
 	remove_hearing()
@@ -519,6 +524,7 @@ var/global/list/default_medbay_channels = list(
 					break
 		if (!accept)
 			return -1
+	play_squelch_sound(audible_squelch_type)		//eclipse addition - play radio squelch.
 	return canhear_range
 
 /obj/item/device/radio/proc/send_hear(freq, level)

@@ -36,16 +36,16 @@
 /obj/machinery/vending/serbomat/New()
 	..()
 	update_icon()
-	
+
 /obj/machinery/vending/serbomat/power_change()
 	..()
 	update_icon()
-	
+
 /obj/machinery/vending/serbomat/malfunction()
 	spawn(20)		//2 seconds is enough time for the icon to change OK.
 		update_icon()
 	..()		//there is a return statement in ..() so we need that last
-	
+
 /obj/machinery/vending/serbomat/attack_hand()
 	spawn(20)
 		update_icon()
