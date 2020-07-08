@@ -61,16 +61,16 @@
 
 /datum/category_item/setup_option/background/fate/noble
 	name = "Noble"
-	desc = "You are of a prestigious family or lineage. Maybe you're self-made. Maybe you're the heir to a fortune..\
+	desc = "You are of a prestigious family or lineage. Maybe you're self-made. Maybe you're the heir to a fortune.\
 			Either way, you, like everyone else, are stuck aboard the NEV Northern Light. This is not the luxury you are used to. \
-			You're far more likely to be targeted for abduction by...unsavory types. \
+			You're far more likely to be targeted for abduction by... unsavory types. \
 			Stay safe, star-child."
 
 	perks = list(PERK_NOBLE)
 
 /datum/category_item/setup_option/background/fate/rat
 	name = "Rat"
-	desc = "You're used to acquiring things by...repurposing what others have. \
+	desc = "You're used to acquiring things by repurposing what others have. \
 			You know most tricks in the book; how to get the best loot, how to stay unseen, and how to get out. That's what's important."
 
 	perks = list(PERK_RAT)
