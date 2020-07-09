@@ -25,7 +25,7 @@
 	name = "Thug"
 	desc = "You're an unsavory sort, aren't you? \
 			Maybe you're a criminal, maybe you just got into a lot of fights. Either way, you know how to swing your weight around and how to not get caught off-guard. \
-			...all those blows to your head may have knocked a few things loose, though..."
+			...All those blows to your head may have knocked a few things loose, though..."
 
 	stat_modifiers = list(
 		STAT_ROB = 8,
