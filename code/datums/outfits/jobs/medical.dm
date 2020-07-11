@@ -46,14 +46,10 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 
 /decl/hierarchy/outfit/job/medical/paramedic
-<<<<<<< HEAD
+
 	name = OUTFIT_JOB_NAME("Paramedic")
-	uniform = /obj/item/clothing/under/rank/medical/green
-=======
-	name = OUTFIT_JOB_NAME("Moebius Paramedic")
 	uniform = /obj/item/clothing/under/rank/paramedic
 	suit = /obj/item/clothing/suit/storage/hazardvest/black
->>>>>>> 55f764e... Engineering icons (#4971)
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_hand = /obj/item/weapon/storage/firstaid/adv
 	belt = /obj/item/weapon/storage/belt/medical/emt
