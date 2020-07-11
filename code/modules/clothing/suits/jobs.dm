@@ -114,8 +114,8 @@
 	)
 
 /obj/item/clothing/suit/storage/neotheosports
-	name = "neotheology sports jacket"
-	desc = "NeoTheology styled sports jacket to keep the faithful always on their feet."
+	name = "Mekhane sports jacket"
+	desc = "Mekhane styled sports jacket to keep the faithful always on their feet."
 	icon_state = "nt_sportsjacket"
 	item_state = "nt_sportsjacket"
 	body_parts_covered = UPPER_TORSO|ARMS
