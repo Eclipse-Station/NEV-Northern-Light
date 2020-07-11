@@ -16,6 +16,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	//The ship account is his, and he's free to draw as much salary as he likes
 
 
+	perks = list(/datum/perk/sommelier)
+
 	ideal_character_age = 70 // Old geezer captains ftw
 	outfit_type = /decl/hierarchy/outfit/job/captain
 
@@ -79,6 +81,7 @@ Your second loyalty is to your command officers. The heads of each faction. List
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
 	also_known_languages = list(LANGUAGE_CYRILLIC = 20, LANGUAGE_SERBIAN = 15)
+	perks = list(/datum/perk/sommelier)
 	ideal_character_age = 50
 
 	description = "You are the captain's right hand. His second in command. Where he goes, you follow. Where he leads, you drag everyone else along. You make sure his will is done, his orders obeyed, and his laws enforced.<br>\

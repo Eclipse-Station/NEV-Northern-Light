@@ -228,7 +228,12 @@
 			occupant.age = R.host_age
 			occupant.UpdateAppearance()
 			occupant.sync_organ_dna()
+<<<<<<< HEAD
 			occupant.flavor_text = R.host_flavor_text
+=======
+			occupant.flavor_text = R.flavor
+			occupant.stats = R.stats
+>>>>>>> c399c31... Faction items update (#5065)
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
 			var/datum/effect/effect/system/spark_spread/s = new

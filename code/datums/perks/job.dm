@@ -74,7 +74,11 @@
 		if(stash.stash_location)
 			choices += CHOICE_STASHPAPER
 	// Let's see if an additional language is feasible. If the user has them all already somehow, we aren't gonna choose this.
+<<<<<<< HEAD
 	var/list/valid_languages = list(LANGUAGE_COMMON, LANGUAGE_JIVE, LANGUAGE_UNATHI, LANGUAGE_SIIK, LANGUAGE_SKRELLIAN, LANGUAGE_TRADEBAND, LANGUAGE_GUTTER, LANGUAGE_SCHECHI, LANGUAGE_BIRDSONG) // Not static, because we're gonna remove languages already known by the user
+=======
+	var/list/valid_languages = list(LANGUAGE_CYRILLIC, LANGUAGE_SERBIAN, LANGUAGE_GERMAN) // Not static, because we're gonna remove languages already known by the user
+>>>>>>> c399c31... Faction items update (#5065)
 	for(var/l in valid_languages)
 		var/datum/language/L = all_languages[l]
 		if(L in holder.languages)
@@ -141,3 +145,8 @@
 	holder.stats.removeTempStat(STAT_COG, "Exotic Inspiration")
 	holder.stats.removeTempStat(STAT_MEC, "Exotic Inspiration")
 	..()
+
+/datum/perk/sommelier
+	name = "Sommelier"
+	desc = "You know how to handle even strongest alcohol in the universe."
+	icon_state = "inspiration"
