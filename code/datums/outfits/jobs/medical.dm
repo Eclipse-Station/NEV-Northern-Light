@@ -46,7 +46,6 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 
 /decl/hierarchy/outfit/job/medical/paramedic
-
 	name = OUTFIT_JOB_NAME("Paramedic")
 	uniform = /obj/item/clothing/under/rank/paramedic
 	suit = /obj/item/clothing/suit/storage/hazardvest/black
