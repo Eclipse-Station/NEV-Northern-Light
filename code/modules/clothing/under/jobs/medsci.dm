@@ -116,8 +116,7 @@
 	name = "psychologist's turtleneck"
 	icon_state = "psychturtle"
 	item_state = "b_suit"
-<<<<<<< HEAD
-=======
+
 
 /obj/item/clothing/under/rank/paramedic
 	desc = "Jumpsuit of Moebius Medical paramedics. It's made with reinforced fiber to offer more protection for recovery operators."
@@ -133,4 +132,4 @@
 		bio = 10,
 		rad = 0
 	)
->>>>>>> c32d949... Paramedic no longer has melee/bullet/energy armor (#5045)
+
