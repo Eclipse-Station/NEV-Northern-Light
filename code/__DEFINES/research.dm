@@ -30,7 +30,7 @@
 #define RESEARCH_BLUESPACE     /datum/tech/bluespace
 #define RESEARCH_ROBOTICS      /datum/tech/robotics
 #define RESEARCH_COVERT        /datum/tech/covert
-
+  
 
 // Design categories
 #define CAT_MISC        "Misc"
