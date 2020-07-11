@@ -1,0 +1,9 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - rscadd: Fire and air alarms now have audibles that will sound when the alarm is
+      activated.
+  - rscadd: Radios now have a few different squelch sounds.
+  - imageadd: Added new radio sprites.
+  - rscadd: Changed radios on the map (in engineering, mining shuttle, and security)
+      to use the coloured variant of the new sprites.
