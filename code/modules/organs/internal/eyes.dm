@@ -23,20 +23,11 @@
 /obj/item/organ/internal/eyes/replaced_mob(mob/living/carbon/human/target)
 	..()
 	// Apply our eye colour to the target.
-<<<<<<< HEAD
-	if(istype(target) && eyes_color)
-		var/list/eyecolors = ReadRGB(eyes_color)
-		target.r_eyes = eyecolors[1]
-		target.g_eyes = eyecolors[2]
-		target.b_eyes = eyecolors[3]
-		target.update_eyes()
-	..()
-=======
 	if(eyes_color)
 		owner.eyes_color = eyes_color
 		owner.update_eyes()
 	owner.update_client_colour()
->>>>>>> 7121c11... Oddity perks (#5022)
+
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
