@@ -39,7 +39,7 @@
 
 /datum/category_item/setup_option/background/origin/sich_prime
 	name = "Vagrant"
-	desc = "Miscreant. You're used to having to do what it takes to survive, patching up your own wounds to survive, and being... familiar, with how to get through locks and
+	desc = "Miscreant. You're used to having to do what it takes to survive, patching up your own wounds to survive, and being... familiar, with how to get through locks."
 
 	stat_modifiers = list(
 		STAT_ROB = 5,
