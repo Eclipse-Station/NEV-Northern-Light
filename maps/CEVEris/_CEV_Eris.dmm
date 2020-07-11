@@ -3865,7 +3865,7 @@
 /area/eris/command/commander)
 "aiV" = (
 /obj/structure/table/woodentable,
-/obj/item/device/radio/off,
+/obj/item/device/radio/color/red,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "aiW" = (
@@ -17567,9 +17567,9 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/device/radio/color/red,
+/obj/item/device/radio/color/red,
+/obj/item/device/radio/color/red,
 /obj/item/weapon/tool/crowbar,
 /obj/item/weapon/tool/crowbar,
 /obj/item/weapon/tool/crowbar,
@@ -19478,9 +19478,9 @@
 /area/eris/rnd/robotics)
 "aTm" = (
 /obj/structure/table/reinforced,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/device/radio/color/red,
+/obj/item/device/radio/color/red,
+/obj/item/device/radio/color/red,
 /obj/item/weapon/tool/crowbar,
 /obj/item/weapon/tool/crowbar,
 /obj/item/weapon/tool/crowbar,
@@ -20440,7 +20440,7 @@
 /area/eris/security/prison)
 "aVu" = (
 /obj/structure/table/standard,
-/obj/item/device/radio/off,
+/obj/item/device/radio/color/red,
 /obj/item/weapon/tool/crowbar,
 /obj/machinery/light{
 	dir = 4;
@@ -58596,7 +58596,7 @@
 /area/eris/command/meeting_room)
 "cAE" = (
 /obj/structure/table/standard,
-/obj/item/device/radio/off,
+/obj/item/device/radio/color/navyblue,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "West APC";
@@ -62594,18 +62594,18 @@
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engeva)
 "cJB" = (
-/obj/item/device/radio/off{
+/obj/item/device/radio/color/yellow{
 	pixel_y = 6
 	},
-/obj/item/device/radio/off{
+/obj/item/device/radio/color/yellow{
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/device/radio/off{
+/obj/item/device/radio/color/yellow{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/device/radio/off,
+/obj/item/device/radio/color/yellow,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engeva)
@@ -70202,7 +70202,7 @@
 /area/eris/command/captain)
 "dbz" = (
 /obj/structure/table/steel,
-/obj/item/device/radio/off,
+/obj/item/device/radio/color/brown,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "10,2"
 	},

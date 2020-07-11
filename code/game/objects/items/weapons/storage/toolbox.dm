@@ -30,7 +30,7 @@
 		new /obj/item/device/lighting/glowstick/flare(src)
 	if (prob(40))
 		new /obj/item/weapon/tool/tape_roll(src)
-	new /obj/item/device/radio(src)
+	new /obj/item/device/radio/color(src)		//Eclipse edit
 
 /obj/item/weapon/storage/toolbox/mechanical
 	name = "mechanical toolbox"

@@ -97,7 +97,7 @@
 	new /obj/item/clothing/under/rank/paramedic(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/device/lighting/toggleable/flashlight(src)
-	new /obj/item/device/radio(src)
+	new /obj/item/device/radio/color/lightblue(src)		//eclipse edit
 	new /obj/item/weapon/tool/crowbar(src)
 	new /obj/item/weapon/extinguisher/mini(src)
 	new /obj/item/clothing/shoes/reinforced(src)
