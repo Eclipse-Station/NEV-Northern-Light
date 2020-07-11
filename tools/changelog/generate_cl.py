@@ -60,11 +60,8 @@ try:
     cl_list = CL_SPLIT.findall(cl.group(2))
 except AttributeError:
     print("No CL found!")
-<<<<<<< HEAD
+
     exit(0)
-=======
-    exit(0) # Change to '0' if you do not want the action to fail when no CL is provided
->>>>>>> 3e52a29... Makes changelog actions suck a bit less (#5047)
 
 
 if cl.group(1) is not None:
