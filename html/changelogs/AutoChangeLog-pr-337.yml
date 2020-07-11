@@ -1,0 +1,11 @@
+author: drexample
+delete-after: true
+changes:
+  - bugfix: Clonepod now operates by clicking the pod itself
+  - bugfix: Biogenerator now works
+  - bugfix: Markings now carry over with your DNA so lings and cloners should copy
+      them too
+  - tweak: Obsession is now over someone's possessions, not their organs
+  - tweak: When examined robolimbs describe what bodypart they are instead of what
+      brand they are
+  - tweak: Removed (temporarily) duplicate deepmaint layers for performance
