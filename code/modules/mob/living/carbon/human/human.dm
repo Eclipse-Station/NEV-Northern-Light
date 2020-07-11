@@ -1091,6 +1091,8 @@ var/list/rank_prefix = list(\
 
 	maxHealth = species.total_health
 
+	update_client_colour(0)
+
 	spawn(0)
 		regenerate_icons()
 		if(vessel.total_volume < species.blood_volume)
