@@ -29,7 +29,7 @@
 	siemens_coefficient = 0.3
 	item_flags = NOSLIP
 	can_hold_knife = TRUE
-
+	
 /obj/item/clothing/shoes/reinforced
 	name = "reinforced shoes"
 	desc = "Slightly reinforced shoes. Optimal for your journey into a wonderful world of maintenance."
