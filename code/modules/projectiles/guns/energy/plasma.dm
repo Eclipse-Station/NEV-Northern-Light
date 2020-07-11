@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/plasma
 	name = "NT PR \"Dominion\""
-	desc = "A \"NeoTheology\" weapon that uses advanced plasma generation technology to emit highly controllable blasts of energized matter. Due to its complexity and cost, it is rarely seen in use, except by specialists."
+	desc = "A \"NanoTrasen\" weapon that uses advanced plasma generation technology to emit highly controllable blasts of energized matter. Due to its complexity and cost, it is rarely seen in use, except by specialists."
 	icon = 'icons/obj/guns/energy/pulse.dmi'
 	icon_state = "pulse"
 	item_state = null	//so the human update icon uses the icon_state instead.
@@ -77,8 +77,8 @@
 	set_item_state(null, back = TRUE)
 
 /obj/item/weapon/gun/energy/plasma/brigador
-	name = "Moebius PP \"Brigador\""
-	desc = "\"Moebius\" brand energy pistol, for personal overprotection."
+	name = "NanoTrasen PP \"Brigador\""
+	desc = "\"NanoTrasen\" brand energy pistol, for personal overprotection."
 	icon = 'icons/obj/guns/energy/brigador.dmi'
 	icon_state = "brigador"
 	charge_meter = FALSE

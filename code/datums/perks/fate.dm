@@ -67,19 +67,21 @@
 
 /datum/perk/drug_addict/assign(mob/living/carbon/human/H)
 	..()
-	var/turf/T = get_turf(holder)
-	var/drugtype = pick(subtypesof(/datum/reagent/drug))
-	if(!(drugtype in holder.metabolism_effects.addiction_list))
-		var/datum/reagent/drug = new drugtype
-		holder.metabolism_effects.addiction_list.Add(drug)
-		var/obj/item/weapon/storage/pill_bottle/PB = new /obj/item/weapon/storage/pill_bottle(T)
-		PB.name = "bottle of happiness"
-		for(var/i=1 to 7)
-			var/obj/item/weapon/reagent_containers/pill/pill = new /obj/item/weapon/reagent_containers/pill(T)
-			pill.reagents.add_reagent(drug.id, pill.volume)
-			pill.name = "happy pill"
-			PB.handle_item_insertion(pill)
-		holder.put_in_hands(PB)
+	spawn(1)
+		var/turf/T = get_turf(holder)
+		var/drugtype = pick(subtypesof(/datum/reagent/drug))
+		if(!(drugtype in holder.metabolism_effects.addiction_list))
+			var/datum/reagent/drug = new drugtype
+			holder.metabolism_effects.addiction_list.Add(drug)
+			for(var/j= 1 to 2)
+				var/obj/item/weapon/storage/pill_bottle/PB = new /obj/item/weapon/storage/pill_bottle(T)
+				PB.name = "bottle of happiness"
+				for(var/i=1 to 7)
+					var/obj/item/weapon/reagent_containers/pill/pill = new /obj/item/weapon/reagent_containers/pill(T)
+					pill.reagents.add_reagent(drug.id, pill.volume)
+					pill.name = "happy pill"
+					PB.handle_item_insertion(pill)
+				holder.equip_to_storage_or_drop(PB)
 
 /datum/perk/alcoholic
 	name = "Alcoholic"
@@ -112,23 +114,29 @@
 
 /datum/perk/noble/assign(mob/living/carbon/human/H)
 	..()
-	if(!holder.last_name)
+	if(!holder.family_name)		//Eclipse edit: Family name, not surname
 		qdel(src)
+		return
 	holder.sanity.environment_cap_coeff -= 1
 	var/turf/T = get_turf(holder)
-	var/obj/item/W = pickweight(list(/obj/item/weapon/tool/knife/butterfly = 1,
-				/obj/item/weapon/tool/knife/switchblade = 1,
-				/obj/item/weapon/tool/knife = 1,
-				/obj/item/weapon/tool/knife/boot = 0.5,
-				/obj/item/weapon/tool/knife/hook = 2,
+	var/obj/item/W = pickweight(list(
 				/obj/item/weapon/tool/knife/ritual = 0.5,
-				/obj/item/weapon/tool/scythe = 0.3,
 				/obj/item/weapon/tool/sword = 0.2,
 				/obj/item/weapon/tool/sword/katana = 0.2,
-				/obj/item/weapon/tool/knife/butch = 2,
-				/obj/item/weapon/tool/knife/dagger/ceremonial = 0.8))
+				/obj/item/weapon/tool/knife/dagger/ceremonial = 0.8,
+				/obj/item/weapon/gun/projectile/revolver = 0.4))
 	W = new W(T)
-	W.name = "[holder.last_name] family [W.name]"
+	W.name = "[holder.family_name] family [W.name]"		//Eclipse edit: Family name, not surname
+	var/oddities = rand(2,4)
+	var/list/stats = ALL_STATS
+	var/list/final_oddity = list()
+	for(var/i = 0 to oddities)
+		var/stat = pick(stats)
+		stats.Remove(stat)
+		final_oddity += stat
+		final_oddity[stat] = rand(1,7)
+	W.AddComponent(/datum/component/inspiration, final_oddity)
+	W.AddComponent(/datum/component/atom_sanity, 1, "")
 	holder.put_in_hands(W)
 
 /datum/perk/noble/remove()
@@ -149,7 +157,7 @@
 	..()
 
 /datum/perk/rejected_genius
-	name = "Rejected genius"
+	name = "Rejected Genius"
 	desc = "Your dreams are undisturbed by reality, your search for the impossible continues regardless of your peers."
 	icon_state = "knowledge" //https://game-icons.net/
 
@@ -175,7 +183,6 @@
 /datum/perk/oborin_syndrome/assign(mob/living/carbon/human/H)
 	..()
 	holder.sanity.max_level += 20
-	holder.species.taste_sensitivity = TASTE_NUMB
 	spawn(1)
 		holder.update_client_colour() //Handle the activation of the colourblindness on the mob.
 

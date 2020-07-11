@@ -64,9 +64,12 @@
 	icon_state = "helmet_ironhammer"
 
 /obj/item/clothing/head/armor/helmet/technomancer
-	name = "technomancer helmet"
+	name = "engineering helmet"
 	desc = "A piece of armor used in hostile work conditions to protect the head. Comes with a built-in flashlight."
 	icon_state = "technohelmet"
+	body_parts_covered = HEAD|EARS|EYES|FACE
+	item_flags = THICKMATERIAL
+	flags_inv = BLOCKHEADHAIR|HIDEEARS|HIDEEYES|HIDEFACE
 	action_button_name = "Toggle Headlamp"
 	brightness_on = 4
 	armor = list(
@@ -77,6 +80,8 @@
 		bio = 15,
 		rad = 30
 	)//Mix between hardhat.dm armor values, helmet armor values in armor.dm, and armor values for TM void helmet in station.dm.
+	flash_protection = FLASH_PROTECTION_MAJOR
+	price_tag = 500
 
 /obj/item/clothing/head/armor/helmet/handmade
 	name = "handmade combat helmet"
@@ -272,26 +277,25 @@
 	desc = "It's a helmet specifically designed to protect against close range attacks."
 	icon_state = "riot"
 	body_parts_covered = HEAD|FACE|EARS
-	armor = list(
-		melee = 75,
-		bullet = 30,
-		energy = 30,
-		bomb = 25,
-		bio = 0,
-		rad = 0
-	)
+	var/list/armor_up = list(melee = 35, bullet = 25, energy = 25, bomb = 20, bio = 0, rad = 0)
+	var/list/armor_down = list(melee = 40, bullet = 40, energy = 30, bomb = 35, bio = 0, rad = 0)
 	item_flags = THICKMATERIAL | COVER_PREVENT_MANIPULATION
 	tint = TINT_MODERATE
 	flash_protection = FLASH_PROTECTION_MAJOR
 	action_button_name = "Flip Face Shield"
 	var/up = FALSE
-	var/base_state
 	price_tag = 150
 
+/obj/item/clothing/head/armor/riot/Initialize()
+	. = ..()
+	armor = up ? armor_up : armor_down
+	update_icon()
+
 /obj/item/clothing/head/armor/riot/attack_self()
-	if(!base_state)
-		base_state = icon_state
 	toggle()
+
+/obj/item/clothing/head/armor/riot/update_icon()
+	icon_state = up ? "[initial(icon_state)]_up" : initial(icon_state)
 
 /obj/item/clothing/head/armor/riot/verb/toggle()
 	set category = "Object"
@@ -299,95 +303,27 @@
 	set src in usr
 
 	if(!usr.incapacitated())
+		src.up = !src.up
+
 		if(src.up)
-			src.up = !src.up
-			body_parts_covered |= (EYES|FACE)
-			tint = initial(tint)
-			flash_protection = initial(flash_protection)
-			icon_state = base_state
-			armor = initial(armor)
-			to_chat(usr, "You flip the [src] down to protect your face.")
-		else
-			src.up = !src.up
 			body_parts_covered &= ~(EYES|FACE)
 			tint = TINT_NONE
+			flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 			flash_protection = FLASH_PROTECTION_NONE
-			icon_state = "[base_state]_up"
-			armor = list(melee = 35, bullet = 25, energy = 25, bomb = 20, bio = 0, rad = 0)
+			armor = armor_up
 			to_chat(usr, "You push the [src] up out of your face.")
-		update_wear_icon()	//so our mob-overlays
+		else
+			body_parts_covered |= (EYES|FACE)
+			tint = initial(tint)
+			flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
+			flash_protection = initial(flash_protection)
+			armor = armor_down
+			to_chat(usr, "You flip the [src] down to protect your face.")
+
+		update_icon()
+		update_wear_icon()	//update our mob overlays
 		usr.update_action_buttons()
 
-/obj/item/clothing/head/armor/ironhammer_full
-	name = "ballistic helmet"
-	desc = "Standard-issue Aegis ballistic helmet with a basic HUD included, covers the user's entire face."
-	icon_state = "ironhammer_full"
-	body_parts_covered = HEAD|FACE|EARS
-	armor = list(
-		melee = 40,
-		bullet = 60,
-		energy = 35,
-		bomb = 25,
-		bio = 0,
-		rad = 0
-	)
-	item_flags = THICKMATERIAL | COVER_PREVENT_MANIPULATION
-	flash_protection = FLASH_PROTECTION_MAJOR
-	action_button_name = "Toggle Security Hud"
-	var/obj/item/clothing/glasses/hud/security/hud
-	price_tag = 250
-
-/obj/item/clothing/head/armor/ironhammer_full/New()
-	..()
-	hud = new(src)
-	hud.canremove = FALSE
-
-/obj/item/clothing/head/armor/ironhammer_full/ui_action_click()
-	if(..())
-		return TRUE
-	toggle()
-
-/obj/item/clothing/head/armor/ironhammer_full/verb/toggle()
-	set name = "Toggle Security Hud"
-	set desc = "Shows you jobs and criminal statuses"
-	set category = "Object"
-	var/mob/user = loc
-	if(usr.stat || user.restrained())
-		return
-	if(user.get_equipped_item(slot_head) != src)
-		return
-	if(hud in src)
-		if(user.equip_to_slot_if_possible(hud, slot_glasses))
-			to_chat(user, "You enable security hud on [src].")
-			update_icon()
-	else
-		if(ismob(hud.loc))
-			var/mob/hud_loc = hud.loc
-			hud_loc.drop_from_inventory(hud, src)
-			to_chat(user, "You disable security hud on [src].")
-		hud.forceMove(src)
-		update_icon()
-	usr.update_action_buttons()
-
-/obj/item/clothing/head/armor/ironhammer_full/dropped(usr)
-	..()
-	if(hud.loc != src)
-		if(ismob(hud.loc))
-			var/mob/hud_loc = hud.loc
-			hud_loc.drop_from_inventory(hud, src)
-			to_chat(hud_loc, "[hud] automaticly retract in [src].")
-		hud.forceMove(src)
-		update_icon()
-
-/obj/item/clothing/head/armor/ironhammer_full/update_icon()
-	if(hud in src)
-		icon_state = "ironhammer_full"
-		set_light(0, 0)
-	else
-		icon_state = "ironhammer_full_on"
-		set_light(2, 2, COLOR_LIGHTING_ORANGE_MACHINERY)
-	update_wear_icon()
-	..()
 
 
 /*

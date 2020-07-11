@@ -64,6 +64,7 @@
 /datum/component/item_upgrade/proc/check_robot(var/mob/living/silicon/robot/R, var/mob/living/user)
 	if(!R.opened)
 		to_chat(user, SPAN_WARNING("You need to open [R]'s panel to access its tools."))
+		return FALSE
 	var/list/robotools = list()
 	for(var/obj/item/weapon/tool/robotool in R.module.modules)
 		robotools.Add(robotool)
@@ -232,6 +233,8 @@
 		G.damage_multiplier += weapon_upgrades[GUN_UPGRADE_DAMAGEMOD_PLUS]
 	if(weapon_upgrades[GUN_UPGRADE_PEN_MULT])
 		G.penetration_multiplier *= weapon_upgrades[GUN_UPGRADE_PEN_MULT]
+	if(weapon_upgrades[GUN_UPGRADE_PIERC_MULT])
+		G.pierce_multiplier += weapon_upgrades[GUN_UPGRADE_PIERC_MULT]
 	if(weapon_upgrades[GUN_UPGRADE_STEPDELAY_MULT])
 		G.proj_step_multiplier *= weapon_upgrades[GUN_UPGRADE_STEPDELAY_MULT]
 	if(weapon_upgrades[GUN_UPGRADE_FIRE_DELAY_MULT])
@@ -350,6 +353,13 @@
 			else
 				to_chat(user, SPAN_WARNING("Decreases projectile penetration by [amount*100]%"))
 
+		if(weapon_upgrades[GUN_UPGRADE_PIERC_MULT])
+			var/amount = weapon_upgrades[GUN_UPGRADE_PIERC_MULT]
+			if(amount > 1)
+				to_chat(user, SPAN_NOTICE("Increases projectile piercing by [amount*100]%"))
+			else
+				to_chat(user, SPAN_WARNING("Decreases projectile piercing by [amount*100]%"))
+
 		if(weapon_upgrades[GUN_UPGRADE_FIRE_DELAY_MULT])
 			var/amount = weapon_upgrades[GUN_UPGRADE_FIRE_DELAY_MULT]
 			if(amount > 1)
@@ -445,9 +455,9 @@
 		if(weapon_upgrades[GUN_UPGRADE_OFFSET])
 			var/amount = weapon_upgrades[GUN_UPGRADE_OFFSET]
 			if(amount > 1)
-				to_chat(user, SPAN_WARNING("Increases weapon inaccuracy by [amount]°"))
+				to_chat(user, SPAN_WARNING("Increases weapon inaccuracy by [amount]Â°"))
 			else
-				to_chat(user, SPAN_NOTICE("Decreases weapon inaccuracy by [amount]°"))
+				to_chat(user, SPAN_NOTICE("Decreases weapon inaccuracy by [amount]Â°"))
 
 		if(weapon_upgrades[GUN_UPGRADE_HONK])
 			to_chat(user, SPAN_WARNING("Cheers up the firing sound of the weapon."))

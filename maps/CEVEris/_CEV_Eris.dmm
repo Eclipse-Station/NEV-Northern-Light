@@ -12095,9 +12095,16 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck2starboard)
 "aBx" = (
-/obj/structure/cyberplant,
-/turf/simulated/floor/tiled/steel,
-/area/eris/security/main)
+/obj/structure/table/rack,
+/obj/item/weapon/gun/projectile/revolver/sky_driver,
+/obj/machinery/door/blast/shutters/glass{
+	id = "Sky_Driver"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel/bluecorner,
+/area/eris/security/prisoncells)
 "aBy" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -43255,6 +43262,15 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+"bRy" = (
+/obj/machinery/button/remote/blast_door/id_card{
+	id = "Sky_Driver";
+	name = "Sky Driver id lock";
+	pixel_x = -28;
+	req_access = list(58)
+	},
+/turf/simulated/floor/tiled/steel/bluecorner,
+/area/eris/security/prisoncells)
 "bRz" = (
 /obj/structure/table/rack,
 /obj/random/medical_lowcost,
@@ -47483,6 +47499,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/command/tcommsat/chamber)
+"cba" = (
+/obj/structure/multiz/stairs/enter/bottom{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/steel/bluecorner,
+/area/eris/security/prisoncells)
 "cbb" = (
 /turf/simulated/floor/tiled/steel,
 /area/eris/command/tcommsat/chamber)
@@ -49272,6 +49297,15 @@
 	},
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/storage)
+"ceK" = (
+/obj/machinery/button/remote/blast_door/id_card{
+	id = "Bluespace_Biosyphon";
+	name = "Bluespace Biosyphon id lock";
+	pixel_x = -28;
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/security/main)
 "ceL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
@@ -49434,6 +49468,18 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
+"ceZ" = (
+/obj/structure/table/rack,
+/obj/item/biosyphon,
+/obj/machinery/door/blast/shutters/glass{
+	id = "Bluespace_Biosyphon"
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/security/main)
 "cfa" = (
 /turf/simulated/floor/tiled/steel,
 /area/eris/storage/tech)
@@ -108304,6 +108350,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
+"ifz" = (
+/obj/machinery/vending/serbomat,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/hallway/side/cryo)
 "ijn" = (
 /obj/structure/table/bar_special,
 /obj/item/weapon/reagent_containers/food/condiment/peppermill{
@@ -109084,6 +109134,10 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+"sUR" = (
+/obj/machinery/vending/serbomat,
+/turf/simulated/floor/tiled/steel/gray_platform,
+/area/eris/hallway/main/section2)
 "sZg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -132931,7 +132985,7 @@ dzq
 abA
 dzn
 afs
-agb
+cba
 agb
 afs
 afP
@@ -133331,8 +133385,8 @@ acO
 adz
 aaR
 abF
-dzi
-dzi
+afs
+afs
 afs
 afD
 agd
@@ -133533,10 +133587,10 @@ acP
 aaR
 aaR
 abF
-aaa
-aaa
 afs
-afE
+aBx
+bRy
+agd
 agd
 agw
 afb
@@ -133735,8 +133789,8 @@ acQ
 adn
 abF
 abF
-aaa
-aaa
+afs
+afs
 afs
 afF
 age
@@ -167263,8 +167317,8 @@ aaa
 csS
 aIC
 aKT
-csS
-csS
+cyx
+cyx
 abH
 aVc
 aVc
@@ -167465,8 +167519,8 @@ aaa
 csS
 czd
 aKU
-csS
-aaa
+cyx
+cyx
 abH
 aVc
 aVc
@@ -167667,8 +167721,8 @@ aaA
 csS
 csS
 csS
-csS
-aaa
+aab
+aab
 abH
 aVc
 aVc
@@ -167869,8 +167923,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+aab
+ceZ
 abH
 aVc
 aVM
@@ -168071,8 +168125,8 @@ aac
 aac
 aac
 aac
-aac
 aab
+aBi
 aab
 aVt
 aVN
@@ -168273,8 +168327,8 @@ aRe
 aRe
 aXs
 aRe
-aRe
-aBx
+ceK
+aBi
 bak
 aVc
 aVO
@@ -173935,7 +173989,7 @@ aST
 aVu
 aaf
 aaf
-aaa
+abF
 abF
 csS
 csS
@@ -174136,8 +174190,8 @@ aag
 aag
 aaf
 aaf
-aaa
-aaa
+abF
+abF
 abF
 csS
 aTi
@@ -210934,7 +210988,7 @@ bZF
 bZL
 cab
 cab
-cab
+sUR
 bfn
 chy
 chy
@@ -212013,7 +212067,7 @@ cNN
 bzX
 bzX
 bzX
-cxN
+ifz
 cRE
 cZz
 cZz

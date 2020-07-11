@@ -36,23 +36,6 @@
 		var/datum/perk/oddity/OD = GLOB.all_perks[perk]
 		to_chat(user, SPAN_NOTICE("Strange words echo in your head: <span style='color:orange'>[OD]. [OD.desc]</span>."))
 
-/obj/item/weapon/oddity/examine(user)
-	..()
-	for(var/stat in oddity_stats)
-		var/aspect
-		switch(oddity_stats[stat])
-			if(10 to INFINITY)
-				aspect = "an <span style='color:#d0b050;'>overwhelming</span>"
-			if(6 to 10)
-				aspect = "a <span class='red'>strong</span>"
-			if(3 to 6)
-				aspect = "a <span class='green'>medium</span>"
-			if(1 to 3)
-				aspect = "a <span class='blue'>weak</span>"
-			else
-				continue
-		to_chat(user, SPAN_NOTICE("This item has [aspect] aspect of [stat]"))
-
 
 //Oddities are separated into categories depending on their origin. They are meant to be used both in maints and derelicts, so this is important
 //This is done by subtypes, because this way even densiest code monkey will not able to misuse them

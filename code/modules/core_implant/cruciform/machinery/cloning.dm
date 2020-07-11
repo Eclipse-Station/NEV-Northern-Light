@@ -183,7 +183,7 @@
 /obj/machinery/neotheology/cloner/Process()
 	if(stat & NOPOWER)
 		return
-	
+
 	if(time_multiplier == 0) // We dont want to start if we wont have manipulators
 		return
 
@@ -214,7 +214,7 @@
 
 
 		if(progress >= CLONING_MEAT && !occupant)
-			var/datum/core_module/cruciform/cloning/R = reader.implant.get_module(CRUCIFORM_CLONING)
+			var/obj/item/weapon/implant/soulcrypt/R = reader.implant
 			if(!R)
 				open_anim()
 				stop()
@@ -222,13 +222,13 @@
 				return
 
 			occupant = new/mob/living/carbon/human(src)
-			occupant.dna = R.dna.Clone()
+			occupant.dna = R.host_dna.Clone()
 			occupant.set_species()
-			occupant.real_name = R.dna.real_name
-			occupant.age = R.age
+			occupant.real_name = R.host_dna.real_name
+			occupant.age = R.host_age
 			occupant.UpdateAppearance()
 			occupant.sync_organ_dna()
-			occupant.flavor_text = R.flavor
+			occupant.flavor_text = R.host_flavor_text
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
 			var/datum/effect/effect/system/spark_spread/s = new
@@ -450,7 +450,7 @@
 	anchored = TRUE
 	circuit = /obj/item/weapon/circuitboard/neotheology/reader
 
-	var/obj/item/weapon/implant/core_implant/cruciform/implant
+	var/obj/item/weapon/implant/soulcrypt/implant
 	var/reading = FALSE
 
 
@@ -462,8 +462,8 @@
 	if(default_part_replacement(I, user))
 		return
 
-	if(istype(I, /obj/item/weapon/implant/core_implant/cruciform))
-		var/obj/item/weapon/implant/core_implant/cruciform/C = I
+	if(istype(I, /obj/item/weapon/implant/soulcrypt))
+		var/obj/item/weapon/implant/soulcrypt/C = I
 		user.drop_item()
 		C.forceMove(src)
 		implant = C
@@ -506,8 +506,6 @@
 
 	if(implant)
 		var/image/I = image(icon, "reader_c_green")
-		if(implant.get_module(CRUCIFORM_PRIEST))
-			I = image(icon, "reader_c_red")
 		overlays.Add(I)
 
 

@@ -45,34 +45,34 @@
 		if (response != "Regular" && response != "Carbon-Copy")
 			add_fingerprint(user)
 			return
-	if(amount >= 1)
-		amount--
-		if(amount==0)
-			update_icon()
 
-			var/obj/item/weapon/paper/P
-			if(papers.len > 0)	//If there's any custom paper on the stack, use that instead of creating a new paper.
-				P = papers[papers.len]
-				papers.Remove(P)
-			else
-				if(response == "Regular")
-					P = new /obj/item/weapon/paper
-					if(Holiday == "April Fool's Day")
-						if(prob(30))
-							P.info = "<font face=\"[P.crayonfont]\" color=\"red\"><b>HONK HONK HONK HONK HONK HONK HONK<br>HOOOOOOOOOOOOOOOOOOOOOONK<br>APRIL FOOLS</b></font>"
-							P.rigged = 1
-							P.updateinfolinks()
-				else if (response == "Carbon-Copy")
-					P = new /obj/item/weapon/paper/carbon
+	if(!amount==0)			//Eclipse edit
+		update_icon()
 
-			user.put_in_hands(P)
-			to_chat(user, SPAN_NOTICE("You take [P] out of the [src]."))
+		var/obj/item/weapon/paper/P
+		if(papers.len > 0)	//If there's any custom paper on the stack, use that instead of creating a new paper.
+			P = papers[papers.len]
+			papers.Remove(P)
 		else
-			to_chat(user, SPAN_NOTICE("[src] is empty!"))
+			if(response == "Regular")
+				P = new /obj/item/weapon/paper
+				if(Holiday == "April Fool's Day")
+					if(prob(30))
+						P.info = "<font face=\"[P.crayonfont]\" color=\"red\"><b>HONK HONK HONK HONK HONK HONK HONK<br>HOOOOOOOOOOOOOOOOOOOOOONK<br>APRIL FOOLS</b></font>"
+						P.rigged = 1
+						P.updateinfolinks()
+			else if (response == "Carbon-Copy")
+				P = new /obj/item/weapon/paper/carbon
 
-		add_fingerprint(user)
-		return
-	.=..()
+		user.put_in_hands(P)
+		to_chat(user, SPAN_NOTICE("You take [P] out of the [src]."))
+		amount--
+		update_icon()
+	else
+		to_chat(user, SPAN_NOTICE("[src] is empty!"))
+
+	add_fingerprint(user)
+	return
 
 //Pickup paperbins with drag n drop
 obj/item/weapon/paper_bin/MouseDrop(over_object)
@@ -92,8 +92,8 @@ obj/item/weapon/paper_bin/MouseDrop(over_object)
 	i.loc = src
 	to_chat(user, SPAN_NOTICE("You put [i] in [src]."))
 	papers.Add(i)
-	update_icon()
 	amount++
+	update_icon()		//Eclipse edit
 
 
 /obj/item/weapon/paper_bin/examine(mob/user)

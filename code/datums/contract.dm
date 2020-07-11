@@ -7,19 +7,19 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a jetpack" = /obj/item/weapon/tank/jetpack,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
-		"the Technomancer Exultant's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
+		"the Chief Engineer's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
 		"the station blueprints" = /obj/item/blueprints,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
-		"a Moebius expedition overseer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
-		"a exultant's jumpsuit" = /obj/item/clothing/under/rank/exultant,
-		"a Moebius biolab officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
-		"a Ironhammer commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
+		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
+		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
+		"a Chief Medical OFficer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
+		"a Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
 		"a First Officer's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"an Ironhammer hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
+		"an Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
 	))
 GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Miller revolver" = /obj/item/weapon/gun/projectile/revolver,

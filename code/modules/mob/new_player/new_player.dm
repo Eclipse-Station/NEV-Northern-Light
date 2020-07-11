@@ -361,9 +361,8 @@
 
 	if(SSticker.random_players)
 		new_character.gender = pick(MALE, FEMALE)
-		client.prefs.real_first_name = random_first_name(new_character.gender)
-		client.prefs.real_last_name = random_first_name(new_character.gender)
-		client.prefs.real_name = client.prefs.real_first_name + " " + client.prefs.real_last_name
+		client.prefs.family_name = random_last_name(gender)		//Eclipse edit: refactor full name into family name.
+		client.prefs.real_name = random_first_name(gender) + " " + client.prefs.family_name
 		client.prefs.randomize_appearance_and_body_for(new_character)
 	else
 		client.prefs.copy_to(new_character)
@@ -387,6 +386,8 @@
 	new_character.update_eyes()
 	new_character.regenerate_icons()
 	new_character.key = key//Manually transfer the key to log them in
+	if(new_character.client && new_character.client.prefs.has_soulcrypt)
+		new_character.create_soulcrypt()
 
 	return new_character
 
