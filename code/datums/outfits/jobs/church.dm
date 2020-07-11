@@ -36,7 +36,4 @@
 /decl/hierarchy/outfit/job/church/janitor
 	name = OUTFIT_JOB_NAME("Janitor")
 	uniform = /obj/item/clothing/under/rank/church
-<<<<<<< HEAD
-=======
 	shoes = /obj/item/clothing/shoes/jackboots/neotheology
->>>>>>> b60efcd... Custodian QOL changes proper (#5080)
