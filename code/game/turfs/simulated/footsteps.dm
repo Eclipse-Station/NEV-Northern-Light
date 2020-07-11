@@ -39,13 +39,4 @@
 			volume -= 20
 			range -= 0.333
 
-<<<<<<< HEAD
-		playsound(T, footsound, volume, 1, range)
-
-
-/proc/get_footstep(var/footstep_type, var/mob/caller)
-	return //todo
-
-=======
 		mob_playsound(T, footsound, volume, 1, range)
->>>>>>> 7121c11... Oddity perks (#5022)
