@@ -35,11 +35,7 @@
 	name = T_BOARD("excelsior diesel generator")
 	build_path = /obj/machinery/power/port_gen/pacman/diesel
 	board_type = "machine"
-<<<<<<< HEAD
-	origin_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_PHORON = 3, TECH_ENGINEERING = 3, TECH_ILLEGAL = 2)
-=======
-	origin_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_PLASMA = 3, TECH_ENGINEERING = 3, TECH_COVERT = 2)
->>>>>>> 6cc3eca... Illegal Tech to Covert Tech (#5076)
+	origin_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_PHORON = 3, TECH_ENGINEERING = 3, TECH_COVERT = 2)
 	req_components = list(
 		/obj/item/weapon/stock_parts/manipulator = 1,
 		/obj/item/weapon/stock_parts/console_screen = 1
