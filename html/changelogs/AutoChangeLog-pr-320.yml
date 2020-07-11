@@ -1,0 +1,4 @@
+author: drexample
+delete-after: true
+changes:
+  - rscadd: Abble to eject sleeper occupation, when there's no electricity.
