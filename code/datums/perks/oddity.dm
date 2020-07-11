@@ -106,7 +106,7 @@
 	icon_state = "robber_hand" // https://game-icons.net/1x1/darkzaitzev/robber-hand.html
 
 /datum/perk/oddity/quiet_as_mouse
-	name = "Quiet as mouse"
+	name = "Quiet as a mouse"
 	desc = "Being deadly, easy. Silent? Even easier now."
 	icon_state = "footsteps" // https://game-icons.net
 
