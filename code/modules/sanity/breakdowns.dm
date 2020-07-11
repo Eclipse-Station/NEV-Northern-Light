@@ -379,7 +379,11 @@
 		var/list/contents = H.get_contents()
 		target = locate(/obj/item/weapon/oddity) in contents
 		if(!target)
-			target = pick(H.organs - H.organs_by_name[BP_CHEST])
+			target = locate(/obj/item/clothing/shoes) in contents //Classic Clown Man stunt
+
+
+		if(!target)
+			target = locate(/obj/item/weapon/gun) in contents //Gun
 
 		if(target)
 			objectname = "[H.real_name]'s [target.name]"

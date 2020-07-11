@@ -208,12 +208,12 @@
 		return 1
 
 	if(href_list["activate"])
-
-		if(MS_biogenerator.working)
-			MS_biogenerator.activate()
+		var/datum/multistructure/biogenerator/biogenerator = MS
+		if(biogenerator.working)
+			biogenerator.deactivate()
 		else
-			MS_biogenerator.deactivate()
-		visible_message(SPAN_NOTICE("[src] states, 'Biogenerator now [MS_biogenerator.working ? "active" : "inactive"].'"))
+			biogenerator.activate()
+		visible_message(SPAN_NOTICE("[src] states, 'Biogenerator now [biogenerator.working ? "active" : "inactive"].'"))
 		. = 1
 
 
