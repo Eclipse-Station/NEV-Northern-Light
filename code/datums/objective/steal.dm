@@ -22,7 +22,9 @@
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"a Cobalt Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
+		"a Cobalt Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer,
+		"a Lazarus Carbon Reclaimer" = /obj/item/biosyphon,
+		"a S REV .35 Auto \"Sky Driver\"" = /obj/item/weapon/gun/projectile/revolver/sky_driver
 	)
 
 	var/global/possible_items_special[] = list(

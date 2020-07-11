@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-=======
 GLOBAL_LIST_EMPTY(sanity_drinks)
 GLOBAL_LIST_EMPTY(sanity_foods)
 
 /proc/init_sanity_drinks()
 	var/list/drink_types = subtypesof(/datum/reagent/ethanol)
 	for(var/candidate in drink_types)
-		if(!subtypesof(candidate).len)
+		var/list/subtypes_candidate = subtypesof(candidate)
+		if(!subtypes_candidate.len)
 			GLOB.sanity_drinks += candidate
 	return GLOB.sanity_drinks.Copy()
 
@@ -17,4 +16,3 @@ GLOBAL_LIST_EMPTY(sanity_foods)
 		if(initial(food.cooked))
 			GLOB.sanity_foods += candidate
 	return GLOB.sanity_foods.Copy()
->>>>>>> b2a9a8e... Lists always exist, you have to question if they have contents (#5046)

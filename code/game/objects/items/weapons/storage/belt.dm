@@ -72,7 +72,7 @@
 	new /obj/item/stack/cable_coil/random(src)
 
 /obj/item/weapon/storage/belt/utility/neotheology
-	name = "mekhanite utility belt"
+	name = "mekhane utility belt"
 	desc = "Waist-held holy items."
 	icon_state = "utility_neotheology"
 	can_hold_extra = list(
@@ -149,11 +149,11 @@
 	)
 
 /obj/item/weapon/storage/belt/tactical/ironhammer
-	name = "ironhammer tactical belt"
+	name = "aegis tactical belt"
 	icon_state = "tactical_ironhammer"
 
 /obj/item/weapon/storage/belt/tactical/neotheology
-	name = "neotheologian tactical belt"
+	name = "mekhane tactical belt"
 	desc = "Can hold various military and security equipment."
 	icon_state = "tactical_neotheology"
 	can_hold_extra = list(
