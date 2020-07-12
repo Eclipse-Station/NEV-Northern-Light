@@ -1,6 +1,0 @@
-author: EvilJackCarver
-delete-after: true
-changes:
-  - admin: Ported Virgo's 'spawn character' verb. It's under 'special verbs' tab.
-      It's not 1:1 because I've had to rework it a bit to work with Eris code, but
-      it's close enough that it should work for events.
