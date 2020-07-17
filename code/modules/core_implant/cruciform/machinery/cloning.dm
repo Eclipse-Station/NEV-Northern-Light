@@ -178,6 +178,20 @@
 	occupant.updatehealth()
 	stop()
 
+/obj/machinery/neotheology/cloner/attack_hand(mob/user)
+	src.add_fingerprint(user)
+	reader = find_reader()
+	if(!reader)
+		visible_message("[src]'s control panel flashes \"NO READER\" light.")
+		return
+	if(!reader.implant)
+		visible_message("[src]'s control panel flashes \"NO IMPLANT\" light.")
+		return
+	if(cloning)
+		visible_message("[src]'s control panel flashes \"OCCUPIED\" light.")
+		return
+	start()
+
 ///////////////
 
 /obj/machinery/neotheology/cloner/Process()
@@ -467,6 +481,7 @@
 		user.drop_item()
 		C.forceMove(src)
 		implant = C
+		visible_message("[I] slides smoothly into the slot.")
 
 	src.add_fingerprint(user)
 	update_icon()

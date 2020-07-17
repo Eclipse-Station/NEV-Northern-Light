@@ -34,9 +34,31 @@
 #define DNA_UI_BODYBUILD   15
 #define DNA_UI_BEARD_STYLE 16
 #define DNA_UI_HAIR_STYLE  17
-#define DNA_UI_LENGTH      17 // Update this when you add something, or you WILL break shit.
+#define DNA_UI_EAR_STYLE   17 // Eclipse snippet.
+#define DNA_UI_TAIL_STYLE  18
+#define DNA_UI_PLAYERSCALE 19
+#define DNA_UI_TAIL_R      20
+#define DNA_UI_TAIL_G      21
+#define DNA_UI_TAIL_B      22
+#define DNA_UI_TAIL2_R     23
+#define DNA_UI_TAIL2_G     24
+#define DNA_UI_TAIL2_B     25
+#define DNA_UI_EARS_R      26
+#define DNA_UI_EARS_G      27
+#define DNA_UI_EARS_B      28
+#define DNA_UI_EARS2_R     29
+#define DNA_UI_EARS2_G     30
+#define DNA_UI_EARS2_B     31
+#define DNA_UI_WING_STYLE  32
+#define DNA_UI_WING_R      33
+#define DNA_UI_WING_G      34
+#define DNA_UI_WING_B      35
+#define DNA_UI_WING2_R     36
+#define DNA_UI_WING2_G     37
+#define DNA_UI_WING2_B     38 // Eclipse snippet end.
+#define DNA_UI_LENGTH      38 // Eclipse Edit - Needs to match the highest number above.
 
-#define DNA_SE_LENGTH 27
+#define DNA_SE_LENGTH 38
 // For later:
 //#define DNA_SE_LENGTH 50 // Was STRUCDNASIZE, size 27. 15 new blocks added = 42, plus room to grow.
 
@@ -82,6 +104,10 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	// New stuff
 	var/species = "Human"
 
+	//Eclipse specific:
+	var/custom_species
+	var/list/body_markings = list()
+
 // Make a copy of this strand.
 // USE THIS WHEN COPYING STUFF OR YOU'LL GET CORRUPTION!
 /datum/dna/proc/Clone()
@@ -89,6 +115,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	new_dna.unique_enzymes=unique_enzymes
 	new_dna.b_type=b_type
 	new_dna.real_name=real_name
+	new_dna.body_markings=body_markings.Copy()//Eclipse add
 	new_dna.species=species
 	for(var/b=1;b<=DNA_SE_LENGTH;b++)
 		new_dna.SE[b]=SE[b]
@@ -148,6 +175,90 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 	SetUIValueRange(DNA_UI_HAIR_STYLE,  hair,  GLOB.hair_styles_list.len,       1)
 	SetUIValueRange(DNA_UI_BEARD_STYLE, beard, GLOB.facial_hair_styles_list.len,1)
+
+
+	// Eclipse Edit Start
+
+	// Demi Ears
+	var/ear_style = 0
+	if(character.ear_style)
+		ear_style = ear_styles_list.Find(character.ear_style.type)
+
+	// Demi Tails
+	var/tail_style = 0
+	if(character.tail_style)
+		tail_style = tail_styles_list.Find(character.tail_style.type)
+
+	// Demi Wings
+	var/wing_style = 0
+	if(character.wing_style)
+		wing_style = wing_styles_list.Find(character.wing_style.type)
+
+	// Playerscale (This assumes list is sorted big->small)
+	var/size_multiplier = player_sizes_list.len // If fail to find, take smallest
+	for(var/N in player_sizes_list)
+		if(character.size_multiplier >= player_sizes_list[N])
+			size_multiplier = player_sizes_list.Find(N)
+			break
+
+	// Technically custom_species is not part of the UI, but this place avoids merge problems.
+	src.custom_species = character.custom_species
+
+// +1 to account for the none-of-the-above possibility
+	SetUIValueRange(DNA_UI_EAR_STYLE,	ear_style + 1,     ear_styles_list.len  + 1,  1)
+	SetUIValueRange(DNA_UI_TAIL_STYLE,	tail_style + 1,    tail_styles_list.len + 1,  1)
+	SetUIValueRange(DNA_UI_PLAYERSCALE,	size_multiplier,   player_sizes_list.len,     1)
+	SetUIValueRange(DNA_UI_WING_STYLE,	wing_style + 1,    wing_styles_list.len + 1,  1)
+
+	SetUIValueRange(DNA_UI_TAIL_R,    character.r_tail,    255,    1)
+	SetUIValueRange(DNA_UI_TAIL_G,    character.g_tail,    255,    1)
+	SetUIValueRange(DNA_UI_TAIL_B,    character.b_tail,    255,    1)
+
+	SetUIValueRange(DNA_UI_TAIL2_R,   character.r_tail2,   255,    1)
+	SetUIValueRange(DNA_UI_TAIL2_G,   character.g_tail2,   255,    1)
+	SetUIValueRange(DNA_UI_TAIL2_B,   character.b_tail2,   255,    1)
+
+	SetUIValueRange(DNA_UI_WING_R,    character.r_wing,    255,    1)
+	SetUIValueRange(DNA_UI_WING_G,    character.g_wing,    255,    1)
+	SetUIValueRange(DNA_UI_WING_B,    character.b_wing,    255,    1)
+
+	SetUIValueRange(DNA_UI_EARS_R,    character.r_ears,    255,    1)
+	SetUIValueRange(DNA_UI_EARS_G,    character.g_ears,    255,    1)
+	SetUIValueRange(DNA_UI_EARS_B,    character.b_ears,    255,    1)
+
+	SetUIValueRange(DNA_UI_EARS2_R,   character.r_ears2,   255,    1)
+	SetUIValueRange(DNA_UI_EARS2_G,   character.g_ears2,   255,    1)
+	SetUIValueRange(DNA_UI_EARS2_B,   character.b_ears2,   255,    1)
+
+	// VORE Station Edit End
+
+	SetUIValueRange(DNA_UI_HAIR_R,    character.r_hair,    255,    1)
+	SetUIValueRange(DNA_UI_HAIR_G,    character.g_hair,    255,    1)
+	SetUIValueRange(DNA_UI_HAIR_B,    character.b_hair,    255,    1)
+
+	SetUIValueRange(DNA_UI_BEARD_R,   character.r_facial,  255,    1)
+	SetUIValueRange(DNA_UI_BEARD_G,   character.g_facial,  255,    1)
+	SetUIValueRange(DNA_UI_BEARD_B,   character.b_facial,  255,    1)
+
+	SetUIValueRange(DNA_UI_EYES_R,    character.r_eyes,    255,    1)
+	SetUIValueRange(DNA_UI_EYES_G,    character.g_eyes,    255,    1)
+	SetUIValueRange(DNA_UI_EYES_B,    character.b_eyes,    255,    1)
+
+	SetUIValueRange(DNA_UI_SKIN_R,    character.r_skin,    255,    1)
+	SetUIValueRange(DNA_UI_SKIN_G,    character.g_skin,    255,    1)
+	SetUIValueRange(DNA_UI_SKIN_B,    character.b_skin,    255,    1)
+
+	SetUIValueRange(DNA_UI_SKIN_TONE, 35-character.s_tone, 220,    1) // Value can be negative.
+
+	SetUIState(DNA_UI_GENDER,         character.gender!=MALE,        1)
+
+	SetUIValueRange(DNA_UI_HAIR_STYLE,  hair,  GLOB.hair_styles_list.len,       1)
+	SetUIValueRange(DNA_UI_BEARD_STYLE, beard, GLOB.facial_hair_styles_list.len,1)
+
+	body_markings.Cut()
+	body_markings = character.body_markings.Copy()
+
+	//Eclipse edit end
 
 	UpdateUI()
 

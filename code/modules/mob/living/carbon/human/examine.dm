@@ -244,10 +244,10 @@
 	for(var/obj/item/organ/external/temp in organs)
 		if(BP_IS_SILICON(temp))
 			var/part_display_name
-			if(copytext(temp.name, 1, 6) == "robot")
+			if(copytext(temp.name, 1, 6) == "robotic")
 				part_display_name = "\a [temp]"
 			else
-				part_display_name = "a robot [temp.name]"
+				part_display_name = "a robotic [temp.name]"
 
 			if(!(temp.brute_dam + temp.burn_dam))
 				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [part_display_name]!</span>\n"

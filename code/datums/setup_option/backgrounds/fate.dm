@@ -22,57 +22,56 @@
 
 /datum/category_item/setup_option/background/fate/freelancer
 	name = "Freelancer"
-	desc = "Whatever was your job, you never stayed in one place for too long or had lasting contracts. \
-			You was always on a move, looking for a greener grass on the other side. \
-			And because of that, you never specialised as much as you should, but have broader array of other skills."
+	desc = "You moved from job to job, opportunity to opportunity. \
+			Is this your final job, or just another stop-gap? You're less specialized, but a jack of all trades."
 
 	perks = list(PERK_FREELACER)
 
 /datum/category_item/setup_option/background/fate/nihilist
 	name = "Nihilist"
-	desc = "You simply run out of fucks to give at some point in your life. \
-			Putting illusion of morality to side, you decided to focus your own desires in life. \
-			But will you stay true to your beliefs when shit hits the fan?"
+	desc = "One day, something in you changed, and you just stopped caring. \
+			It's hard to debase you. It's even harder to convince you to fight for a set of ideals. \
+			How long can you go without feeling? Do you even want to, anymore?"
 
 	perks = list(PERK_NIHILIST)
 
 /datum/category_item/setup_option/background/fate/moralist
 	name = "Moralist"
 	desc = "No matter how hard it is, you faith in humanity will always be strong. \
-	Carry this torch with you, and light the way for others."
+	You become distressed from seeing others in pain, but you will heal their burdens and carry them on."
+
 	perks = list(PERK_MORALIST)
 
 
 /datum/category_item/setup_option/background/fate/drug_addict
 	name = "Drug Addict"
-	desc = "For some reason you decided to resort to major drug use, to escape from cruel realty, or to get that edge you need to fight it. \
-			And now you are suffering the consequences."
+	desc = "For some reason, you resorted to major drug use; to escape from cruel realty, or to get the edge you need to fight it. \
+			Now, you're suffering the consequences. Just one more hit..."
 
 	perks = list(PERK_DRUG_ADDICT)
 
 
 /datum/category_item/setup_option/background/fate/alcoholic
 	name = "Alcoholic"
-	desc = "You saw escape at the bottom of the bottle, but you found none. \
-			Which never stopped you from trying again and again, poisoning your mind until your pants are piss soaked, and face looks like a one of corpse. \
-			But there is a balance for you in this state."
+	desc = "You peered straight down a bottle's neck and saw escape at the bottom. When you finally drank yourself down to it, you found none. \
+			It never stopped you from trying again and again, poisoning yourself until you're pale yellow and passed out in your own vomit and piss."
 
 	stat_modifiers = list(STAT_COG = -10)
 	perks = list(PERK_ALCOHOLIC)
 
 /datum/category_item/setup_option/background/fate/noble
 	name = "Noble"
-	desc = "At some point of the past your family played important part in human history. \
-			Those were captains and bridge crew of the colony ships, a CEO of first corporations, an admirals and generals. \
-			All of them decided to entrench their accomplishments by creating noble leaninges, and here you are, a lost soul of high origin. \
-			What does it makes you?"
+	desc = "You are of a prestigious family or lineage. Maybe you're self-made. Maybe you're the heir to a fortune.\
+			Either way, you, like everyone else, are stuck aboard the NEV Northern Light. This is not the luxury you are used to. \
+			You're far more likely to be targeted for abduction by... unsavory types. \
+			Stay safe, star-child."
 
 	perks = list(PERK_NOBLE)
 
 /datum/category_item/setup_option/background/fate/rat
 	name = "Rat"
-	desc = "In your life you decided to feast upon what’s not yours, be that thief, raiding, or scavenging and exploring. It’s all the same no matter how you name it, after all. \
-			You know the ways of infiltrating, salvaging, and getting away with the loot."
+	desc = "You're used to acquiring things by repurposing what others have. \
+			You know most tricks in the book; how to get the best loot, how to stay unseen, and how to get out. That's what's important."
 
 	perks = list(PERK_RAT)
 	stat_modifiers = list(
@@ -82,25 +81,25 @@
 
 /datum/category_item/setup_option/background/fate/rejected_genius
 	name = "Rejected Genius"
-	desc = "You see the world in different shape. \
-			You know that the Truth is somewhere there, that you only need to push it further and all will be revealed. \
-			And so you pushed, far and wide, and the road did not shorten a bit. \
-			Maybe this expedition will reveal the Light."
+	desc = "You see the world in a different shade of crimson. \
+			You know that the Truth is somewhere out there, hidden in the Null Sector, or somewhere else. \
+			Your mind takes in everything it senses; every small detail, every tiny smell, every drip of blood on plating. \
+			You will find your Answer, or your mind will break trying."
 
 	perks = list(PERK_REJECTED_GENIUS)
 
 /datum/category_item/setup_option/background/fate/oborin_syndrome
 	name = "Oborin Syndrome"
-	desc = "A disease manifested at some recent point in human history. \
-			It’s origin and spread methods are unknown, but it’s speculated it’s related to psy phenomena. \
-			People affected by it are unable to see world colors, and generally disinterested in world around them."
+	desc = "A disease that manifested at some recent point in history. \
+			Its origin is unknown, but it’s speculated it’s related to psychic phenomena. \
+			People affected by it are unable to see colors, and are generally disinterested in the world around them. It's hard to disturb someone who focuses on the greys and in-betweens."
 
 	perks = list(PERK_OBORIN_SYNDROME)
 
 /datum/category_item/setup_option/background/fate/lowborn
 	name = "Lowborn"
-	desc = "Your origin is literally bottom of the society, be that a hobo gangs or underground trash communities. \
-			You did not knew your parents, and was just lucky enough to learn how to read, and that, in time, landed you on position at this ship."
+	desc = "Your origin is at the bottom of the society, be it from slums, underground trash communities, refugees, or any number of neglected communities. \
+			Maybe, unlike everyone else here, this ship is actually an improvement in living conditions for you...."
 	restricted_jobs = list(/datum/job/captain, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
 	perks = list(PERK_LOWBORN)
 

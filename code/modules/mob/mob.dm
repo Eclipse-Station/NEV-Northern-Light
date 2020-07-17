@@ -500,7 +500,7 @@
 	if(href_list["flavor_more"])
 		if(src in view(usr))
 			var/dat = {"
-				<html><head><title>[name]</title></head>
+				<html><meta charset=\"utf-8\"><head><title>[name]</title></head>
 				<body><tt>[replacetext(flavor_text, "\n", "<br>")]</tt></body>
 				</html>
 			"}
@@ -1241,12 +1241,12 @@ mob/proc/yank_out_object()
 	set name = "body-r-arm"
 	set hidden = TRUE
 	set category = "OOC"
-	toggle_zone_sel(list(BP_R_ARM))
+	toggle_zone_sel(list(BP_R_ARM, BP_R_HAND))		//Eclipse edit.
 
 /client/verb/body_l_arm()
 	set name = "body-l-arm"
 	set hidden = TRUE
-	toggle_zone_sel(list(BP_L_ARM))
+	toggle_zone_sel(list(BP_L_ARM, BP_L_HAND))		//Eclipse edit.
 
 /client/verb/body_chest()
 	set name = "body-chest"
@@ -1261,12 +1261,12 @@ mob/proc/yank_out_object()
 /client/verb/body_r_leg()
 	set name = "body-r-leg"
 	set hidden = TRUE
-	toggle_zone_sel(list(BP_R_LEG))
+	toggle_zone_sel(list(BP_R_LEG, BP_R_FOOT))		//Eclipse edit.
 
 /client/verb/body_l_leg()
 	set name = "body-l-leg"
 	set hidden = TRUE
-	toggle_zone_sel(list(BP_L_LEG))
+	toggle_zone_sel(list(BP_L_LEG, BP_L_FOOT))		//Eclipse edit.
 
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())

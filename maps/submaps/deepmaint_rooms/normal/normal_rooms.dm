@@ -83,8 +83,12 @@
 	desc = "oopsitsphoron"
 	mappath = 'maps/submaps/deepmaint_rooms/normal/oopsitsphoron.dmm'
 
-
 /datum/map_template/deepmaint_template/room/oldchurch
 	name = "oldchurch"
 	desc = "oldchurch"
 	mappath = 'maps/submaps/deepmaint_rooms/normal/oldchurch.dmm'
+
+/datum/map_template/deepmaint_template/room/oopsitsbeartraps
+	name = "oopsitsbeartraps"
+	desc = "oopsitsbeartraps"
+	mappath = 'maps/submaps/deepmaint_rooms/normal/oopsitsbeartraps.dmm'

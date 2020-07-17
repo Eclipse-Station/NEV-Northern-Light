@@ -125,6 +125,7 @@
 				/obj/item/weapon/tool/sword/katana = 0.2,
 				/obj/item/weapon/tool/knife/dagger/ceremonial = 0.8,
 				/obj/item/weapon/gun/projectile/revolver = 0.4))
+	holder.sanity.valid_inspirations += W
 	W = new W(T)
 	W.name = "[holder.family_name] family [W.name]"		//Eclipse edit: Family name, not surname
 	var/oddities = rand(2,4)
@@ -146,7 +147,7 @@
 /datum/perk/rat
 	name = "Rat"
 	desc = "Early bird gets the worm, but the second rat gets the cheese."
-	icon_state = "rat"
+	icon_state = "rat" //https://game-icons.net/
 
 /datum/perk/rat/assign(mob/living/carbon/human/H)
 	..()
@@ -159,7 +160,7 @@
 /datum/perk/rejected_genius
 	name = "Rejected Genius"
 	desc = "Your dreams are undisturbed by reality, your search for the impossible continues regardless of your peers."
-	icon_state = "knowledge"
+	icon_state = "knowledge" //https://game-icons.net/
 
 /datum/perk/rejected_genius/assign(mob/living/carbon/human/H)
 	..()
@@ -176,8 +177,8 @@
 	..()
 
 /datum/perk/oborin_syndrome
-	name = "Oborin Syndrome" //https://game-icons.net/1x1/delapouite/prism.html
-	icon_state = "prism"
+	name = "Oborin Syndrome"
+	icon_state = "prism" //https://game-icons.net/1x1/delapouite/prism.html
 	desc = "You're often told you see the world in black and whites. But they're wrong, you see the greys, you live in the greys. Not the 'colors' though, those are just venus traps for the dumb flies, you're smarter than that. Only grey."
 
 /datum/perk/oborin_syndrome/assign(mob/living/carbon/human/H)

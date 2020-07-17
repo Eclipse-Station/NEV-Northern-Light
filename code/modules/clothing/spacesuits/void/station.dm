@@ -1,7 +1,7 @@
 // Station voidsuits
 //Engineering rig
 /obj/item/clothing/head/space/void/engineering
-	name = "Technomancer voidsuit helmet"
+	name = "engineering voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
 	icon_state = "technohelmet_void"
 	item_state = "technohelmet_void"
@@ -20,7 +20,7 @@
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/space/void/engineering
-	name = "Technomancer voidsuit"
+	name = "engineering voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding and extra plating."
 	icon_state = "technosuit"
 	item_state = "technosuit"
@@ -203,3 +203,44 @@
 	)
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	helmet = /obj/item/clothing/head/space/void/atmos
+
+//Science
+/obj/item/clothing/head/space/void/science
+	name = "Lazarus Contractor Helmet"
+	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
+	icon_state = "assaulthelm"
+	item_state = "assaulthelm"
+	item_state_slots = list(
+		slot_l_hand_str = "assaulthelm",
+		slot_r_hand_str = "assaulthelm",
+		)
+
+	armor = list(
+		melee = 35,
+		bullet = 40,
+		energy = 30,
+		bomb = 25,
+		bio = 100,
+		rad = 75
+	)
+	siemens_coefficient = 0.4
+	light_overlay = "helmet_light_dual"
+
+/obj/item/clothing/suit/space/void/science
+	name = "Lazarus Contractor Power Armor"
+	icon_state = "assaultsuit"
+	desc = "A power armor designed by Moebius for contractor work. Features near impeccable armor."
+	item_state = "assaultsuit"
+	armor = list(
+		melee = 40,
+		bullet = 50,
+		energy = 40,
+		bomb = 30,
+		bio = 100,
+		rad = 75
+	)
+	siemens_coefficient = 0.4
+	helmet = /obj/item/clothing/head/space/void/science
+
+/obj/item/clothing/suit/space/void/security/equipped
+	tank = /obj/item/weapon/tank/jetpack/oxygen
