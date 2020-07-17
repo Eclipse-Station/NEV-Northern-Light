@@ -83,6 +83,10 @@
 	S["version"] << SAVEFILE_VERSION_MAX
 	player_setup.save_character(S)
 	loaded_character = S
+
+	var/mob/new_player/np = client.mob
+	np.new_player_panel_proc()			//Eclipse edit. Automatic refresh for current character.
+
 	return S
 
 /datum/preferences/proc/overwrite_character(slot)			//Eclipse edit.

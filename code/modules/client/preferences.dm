@@ -338,6 +338,9 @@
 		panel = null
 	user << browse(null, "window=saves")
 
+	var/mob/new_player/np = client.mob
+	np.new_player_panel_proc()			//Eclipse edit. Automatic refresh for current character.
+
 /datum/preferences/proc/open_copy_dialog(mob/user)		//Eclipse edit.
 	var/dat = "<body>"
 	dat += "<tt><center>"
