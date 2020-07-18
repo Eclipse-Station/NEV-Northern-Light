@@ -51078,8 +51078,15 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "ciU" = (
+<<<<<<< HEAD
 /obj/machinery/firealarm{
 	pixel_y = 28
+=======
+/obj/structure/table/rack,
+/obj/item/device/last_shelter,
+/obj/machinery/door/blast/shutters/glass{
+	id = "last_shelter"
+>>>>>>> 20c46da... Faction items fix (#5104)
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
@@ -51104,10 +51111,24 @@
 /turf/simulated/floor/tiled/white/danger,
 /area/eris/rnd/mixing)
 "ciY" = (
+<<<<<<< HEAD
 /obj/structure/table/standard,
 /obj/item/device/scanner/price,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/quartermaster/storage)
+=======
+/obj/structure/multiz/stairs/enter/bottom{
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "last_shelter";
+	name = "Last shelter lock control";
+	pixel_y = 28;
+	req_access = list(74)
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/neotheology/chapelritualroom)
+>>>>>>> 20c46da... Faction items fix (#5104)
 "ciZ" = (
 /obj/machinery/camera/network/research{
 	dir = 4
@@ -72187,9 +72208,17 @@
 /turf/simulated/floor/wood,
 /area/eris/command/bridgebar)
 "dfQ" = (
+<<<<<<< HEAD
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/eris/command/bridgebar)
+=======
+/obj/machinery/firealarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/neotheology/chapelritualroom)
+>>>>>>> 20c46da... Faction items fix (#5104)
 "dfR" = (
 /obj/machinery/camera/network/command{
 	dir = 1
@@ -164348,7 +164377,7 @@ ccU
 ccU
 bQd
 ccU
-bQy
+dfQ
 cBo
 bQE
 bQy
