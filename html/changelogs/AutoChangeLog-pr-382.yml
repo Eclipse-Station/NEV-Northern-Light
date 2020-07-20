@@ -1,5 +1,0 @@
-author: ShadzFen
-delete-after: true
-changes:
-  - rscadd: Currently selected character and their occupation is now displayed on
-      the main menu.
