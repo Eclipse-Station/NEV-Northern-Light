@@ -1,6 +1,0 @@
-author: EvilJackCarver
-delete-after: true
-changes:
-  - config: Adds configuration entries. Update config_eclipse.txt as necessary.
-  - rscadd: Implements whitelists.
-  - bugfix: Aegis name prefixes should now play nice(r) with single-barrel names.
