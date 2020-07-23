@@ -31,3 +31,20 @@
 ## Should silicons be whitelisted? This will not affect pAIs, only AI and borgs.
 ## Uncomment to whitelist.
 #WHITELIST_SILICONS
+
+#########
+# ROUNDSTART REQUIREMENTS
+#########
+
+## REQUIRE A HEAD OF STAFF
+## Should a head of staff be required for the round to start? By default, a head
+## of staff is required to start the round.
+## Uncomment to bypass this requirement.
+#BYPASS_HEAD_OF_STAFF_REQUIREMENT
+
+## HEAD OF STAFF AND ENGINEER LOWPOP THRESHOLD
+## When should we stop bypassing the requirements for an engineer and a head of
+## staff? This is done automatically to allow rounds with low population to be
+## played normally.
+## Default: 10
+STAFF_REQUIREMENT_LOWPOP_THRESHOLD 10
