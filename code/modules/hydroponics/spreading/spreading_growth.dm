@@ -130,7 +130,7 @@
 		return
 
 	if(is_mature() && neighbors.len && prob(spread_chance))
-		if(seed.name == "fungoartiglieria"
+		if(seed.name == "fungoartiglieria")
 			SSmigration.last_fungus_growth = world.time			//Set our last growth time to world time.
 	// // // END ECLIPSE EDITS // // //
 		spawn()
