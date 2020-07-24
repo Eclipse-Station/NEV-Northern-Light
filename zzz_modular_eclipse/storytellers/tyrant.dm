@@ -11,7 +11,7 @@
 
 	tag_weight_mults = list(TAG_COMBAT = 1.6, TAG_DESTRUCTIVE = 1.2)
 
-	repetition_multiplier = .75 //We want a variety of things to happen. The default setting causes infestation to gain a hilariously high weight over time
+	repetition_multiplier = 0.75 //We want a variety of things to happen. The default setting causes infestation to gain a hilariously high weight over time
 
 	//Tyrant generates a LOT of events, but never creates antagonists
 	points = list(
