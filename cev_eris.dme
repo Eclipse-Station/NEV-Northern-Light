@@ -206,6 +206,8 @@
 #include "code\controllers\subsystems\chemistry.dm"
 #include "code\controllers\subsystems\craft.dm"
 #include "code\controllers\subsystems\dcs.dm"
+#include "code\controllers\subsystems\dispatcher.dm"
+#include "code\controllers\subsystems\dispatcher_debug.dm"
 #include "code\controllers\subsystems\economy.dm"
 #include "code\controllers\subsystems\evac.dm"
 #include "code\controllers\subsystems\event.dm"

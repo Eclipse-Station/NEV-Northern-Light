@@ -8,6 +8,9 @@
 //Reginald spawn code on Eclipase Station code). Will be set TRUE after load.
 	var/eclipse_config_loaded = FALSE
 
+//If you add stuff here, please use a consistent prefix so it will all group
+//together in the variable editor. Easier for diag that way.
+
 //job whitelisting. Prefix: "WhiteList"
 	var/usejobwhitelist = FALSE		//master job whitelisting enable
 	var/wl_heads = FALSE			//Whitelist Heads of Staff?
@@ -18,6 +21,15 @@
 //Jobs required to start the round. Prefix: "Staff Requirement"
 	var/sr_bypass_command_requirement = FALSE		//Should we allow the round to start without a Head of Staff?
 	var/sr_lowpop_threshold = 10					//At what point are we no longer lowpop for the purposes of staff requirements?
+	
+//Dispatcher-related variables. Predix: "NanoTrasen Department Alarm Dispatcher"
+	var/ntdad_enabled = FALSE			//should it be enabled?
+	var/ntdad_debug = 1					//debug the dispatcher
+	var/ntdad_bot_token = ""			//bot token for dispatcher
+	var/ntdad_channel_id = ""			//Channel identifier for dispatcher
+	var/ntdad_cooldown = 600			//Cooldown between calls
+	var/ntdad_max_oper = 5				//maximum concurrent operations, intended to reduce lag while flushing lists
+
 
 /hook/startup/proc/read_eclipse_config()
 	var/list/Lines = file2list("config/config_eclipse.txt")		//We don't want to add shit to the main config when we update this (merge conflicts)
@@ -59,6 +71,18 @@
 				config.sr_bypass_command_requirement = TRUE
 			if("staff_requirement_lowpop_threshold")
 				config.sr_lowpop_threshold = text2num(value)
+			if("enable_dispatcher")
+				config.ntdad_enabled = TRUE
+			if("debug_dispatcher")
+				config.ntdad_debug = text2num(value)
+			if("dispatch_bot_token")
+				config.ntdad_bot_token = value
+			if("dispatch_channel_id")
+				config.ntdad_channel_id = value
+			if("dispatcher_cooldown")
+				config.ntdad_cooldown = 10 * text2num(value)
+			if("maximum_concurrent_operations")
+				config.ntdad_max_oper = text2num(value)
 
 	config.eclipse_config_loaded = TRUE		//config is loaded
 
