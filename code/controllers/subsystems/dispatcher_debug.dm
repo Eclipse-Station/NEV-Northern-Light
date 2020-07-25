@@ -151,7 +151,8 @@ var/global/ptrack_dump_in_progress = FALSE
 		iterations++				//we do NOT reset our iterations between each auxiliary list.
 		if(!(iterations % config.ntdad_max_oper))
 			sleep 1
-		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")		continue
+		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")
+		continue
 		
 	WRITE_LOG(dump_log, " -- Security --")
 	for(var/mob/M in SSdispatcher.tracked_players_sec)
