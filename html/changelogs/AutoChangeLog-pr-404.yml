@@ -1,0 +1,4 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - tweak: Maintenance mushrooms should no longer overwhelm the crew.
