@@ -1,0 +1,5 @@
+author: Chatter42
+delete-after: true
+changes:
+  - tweak: tyrant storyteller's event spawning should be more consistently aggressive
+      over the course of a round
