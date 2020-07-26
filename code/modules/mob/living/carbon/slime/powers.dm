@@ -66,7 +66,10 @@
 					if (!(C.species && (C.species.flags & NO_PAIN)))
 						to_chat(M, SPAN_DANGER("[painMes]"))
 
-			gain_nutrition(rand(20,25))
+			if(Victim.isMonkey()) //eclipse edit
+				gain_nutrition(rand(20,25)) //eclipse edit
+			else
+				gain_nutrition(rand(20,25) * 0.1) //eclipse edit
 
 			adjustOxyLoss(-8) //Heal yourself
 			adjustBruteLoss(-8)
@@ -117,7 +120,7 @@
 	if(!is_adult)
 		if(amount_grown >= 10)
 			is_adult = 1
-			maxHealth = 150
+			maxHealth = 80 //eclipse edit, used to be 150
 			amount_grown = 0
 			regenerate_icons()
 			name = text("[colour] [is_adult ? "adult" : "baby"] slime ([number])")
