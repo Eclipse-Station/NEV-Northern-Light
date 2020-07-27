@@ -26,3 +26,9 @@
 	name = "AI core"
 	desc = " I'm sorry, Dave."
 	mappath = 'maps/submaps/deepmaint_rooms/core/ai_core.dmm'
+
+
+/datum/map_template/deepmaint_template/big/improbability //eclipse-added map
+	name =  "improbability"
+	desc = "It is tempting to linger in this moment, where all possibilities still exist. But unless they are collapsed by an observer, they will never be more than possibilities."
+	mappath = 'maps/submaps/deepmaint_rooms/core/improbability.dmm'

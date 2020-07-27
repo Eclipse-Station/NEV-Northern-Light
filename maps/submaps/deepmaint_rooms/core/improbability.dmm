@@ -1,0 +1,751 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"ab" = (
+/turf/simulated/wall,
+/area/deepmaint)
+"ac" = (
+/obj/machinery/porta_turret/One_star{
+	desc = "A turret of unrecognizable make. There's a picture of a cloud and a shovel carved into the metal by knife.";
+	name = "foreign turret"
+	},
+/turf/simulated/floor/greengrid,
+/area/deepmaint)
+"ad" = (
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"ae" = (
+/turf/simulated/floor/bluegrid,
+/area/deepmaint)
+"af" = (
+/turf/simulated/floor/tiled/steel/bar_dance,
+/area/deepmaint)
+"ag" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"ah" = (
+/turf/simulated/wall/r_wall,
+/area/deepmaint)
+"ai" = (
+/obj/random/cloth/holster/low_chance,
+/turf/simulated/floor/tiled/steel/bar_dance,
+/area/deepmaint)
+"aj" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/tool/multitool,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"ak" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/tool/screwdriver/electric,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"al" = (
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"am" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"an" = (
+/obj/machinery/porta_turret/One_star{
+	desc = "A turret of unrecognizable make. There's a picture of a cloud and a shovel carved into the metal by knife.";
+	name = "foreign turret"
+	},
+/turf/simulated/floor/bluegrid,
+/area/deepmaint)
+"ao" = (
+/turf/simulated/wall/untinted/onestar_reinforced,
+/area/deepmaint)
+"ap" = (
+/obj/random/gun_cheap/low_chance,
+/obj/random/firstaid/low_chance,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"aq" = (
+/obj/effect/window_lwall_spawn/smartspawnphoron,
+/turf/simulated/floor/bluegrid,
+/area/deepmaint)
+"ar" = (
+/obj/machinery/door/airlock/maintenance_common,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"as" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"at" = (
+/obj/machinery/door/airlock/vault,
+/turf/simulated/floor/bluegrid,
+/area/deepmaint)
+"au" = (
+/obj/machinery/door/airlock/maintenance_common,
+/turf/space,
+/area/deepmaint)
+"av" = (
+/turf/simulated/floor/greengrid,
+/area/deepmaint)
+"aw" = (
+/obj/machinery/porta_turret/One_star{
+	desc = "A turret of unrecognizable make. There's a picture of a cloud and a shovel carved into the metal by knife.";
+	name = "foreign turret"
+	},
+/turf/simulated/floor/tiled/steel/bar_dance,
+/area/deepmaint)
+"ax" = (
+/obj/effect/window_lwall_spawn/smartspawnphoron,
+/turf/simulated/floor/tiled/steel/bar_dance,
+/area/deepmaint)
+"ay" = (
+/obj/effect/window_lwall_spawn/smartspawnphoron,
+/turf/simulated/floor/greengrid,
+/area/deepmaint)
+"az" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"aA" = (
+/obj/structure/table/reinforced,
+/obj/random/pack/tech_loot/onestar,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"aB" = (
+/obj/random/ammo/low_chance,
+/obj/random/ammo_ihs/low_chance,
+/obj/structure/table/onestar,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"aC" = (
+/obj/structure/barricade,
+/turf/simulated/floor/tiled/steel/bar_dance,
+/area/deepmaint)
+"aD" = (
+/obj/structure/barricade,
+/turf/simulated/floor/bluegrid,
+/area/deepmaint)
+"aE" = (
+/obj/random/cloth/armor/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"aF" = (
+/obj/random/gun_cheap/low_chance,
+/obj/random/firstaid/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"aG" = (
+/obj/effect/decal/cleanable/ash,
+/obj/structure/barricade,
+/turf/simulated/floor/bluegrid,
+/area/deepmaint)
+"aH" = (
+/obj/random/gun_cheap/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"aI" = (
+/obj/structure/sign/signnew/laserhazard,
+/turf/simulated/wall,
+/area/deepmaint)
+"aJ" = (
+/obj/structure/sign/signnew/secure,
+/turf/simulated/wall,
+/area/deepmaint)
+"aK" = (
+/obj/structure/table/onestar,
+/obj/item/rig_module/teleporter,
+/obj/random/pack/tech_loot/onestar,
+/obj/random/pack/tech_loot/onestar,
+/obj/random/tool/advanced/onestar/low_chance,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aL" = (
+/obj/structure/sign/faction/one_star_old{
+	desc = "One-Star's eye on a banner. Underneath is the phrase: 'THE SKIES ARE BURIED DEEP'. /red The words hurt to look at!";
+	name = "foreign banner";
+	pixel_z = 24
+	},
+/turf/simulated/floor/bluegrid,
+/area/deepmaint)
+"aM" = (
+/obj/structure/table/onestar,
+/obj/random/pack/tech_loot/onestar,
+/obj/random/pack/tech_loot/onestar,
+/obj/random/tool/advanced/onestar/low_chance,
+/obj/random/tool/advanced/onestar/low_chance,
+/obj/random/gun_upgrade,
+/obj/random/gun_normal,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aN" = (
+/obj/structure/closet/onestar/tier3,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aO" = (
+/obj/structure/sign/faction/one_star{
+	desc = "One Star's all-seeing eye. Do you remember going to sleep? Do you remember dreaming? Or do you only remember waking up?";
+	pixel_z = 24
+	},
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aP" = (
+/obj/machinery/teleport/hub,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aQ" = (
+/obj/structure/table/onestar,
+/obj/random/pack/tech_loot/onestar,
+/obj/random/tool/advanced/onestar/low_chance,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aR" = (
+/obj/structure/table/onestar,
+/obj/random/pack/tech_loot/onestar,
+/obj/random/tool/advanced/onestar/low_chance,
+/obj/random/gun_normal,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aS" = (
+/obj/structure/table/rack,
+/obj/item/weapon/circuitboard/teleporter,
+/obj/random/pack/tech_loot/onestar,
+/obj/random/tool/advanced/onestar/low_chance,
+/obj/random/gun_upgrade,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aT" = (
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aU" = (
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/onestar,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aV" = (
+/obj/structure/table/rack,
+/obj/structure/sign/faction/one_star{
+	desc = "One Star's all-seeing eye. What happened on 2320-06-12?"
+	},
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aW" = (
+/obj/structure/table/onestar,
+/obj/random/pack/tech_loot/onestar,
+/obj/random/pack/tech_loot/onestar,
+/obj/random/tool/advanced/onestar/low_chance,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aX" = (
+/mob/living/simple_animal/hostile/roomba,
+/turf/simulated/floor/plating,
+/area/deepmaint)
+"aY" = (
+/mob/living/simple_animal/hostile/roomba,
+/turf/simulated/floor/bluegrid,
+/area/deepmaint)
+"aZ" = (
+/obj/random/mob/roaches/low_chance,
+/turf/simulated/floor/tiled/dark,
+/area/deepmaint)
+"ba" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/scrap/dense_weighted,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"bb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/mob/roaches,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+"bc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/mob/roaches/low_chance,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/deepmaint)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aZ
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+az
+ad
+ad
+ad
+ad
+ad
+ad
+"}
+(2,1,1) = {"
+ag
+ah
+ah
+ah
+ah
+ah
+ah
+ab
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+aj
+ap
+aH
+ad
+"}
+(3,1,1) = {"
+aa
+ah
+an
+ae
+ae
+ae
+aq
+ae
+ae
+ae
+ae
+ae
+aq
+ae
+ae
+aw
+ah
+ak
+ap
+bc
+az
+"}
+(4,1,1) = {"
+aa
+ah
+ae
+ao
+ao
+ao
+ao
+aw
+af
+af
+af
+aw
+ao
+ao
+ae
+ai
+ah
+am
+aF
+aH
+az
+"}
+(5,1,1) = {"
+aa
+ah
+ae
+aq
+ac
+av
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+aw
+ae
+af
+ah
+aA
+aF
+az
+az
+"}
+(6,1,1) = {"
+al
+ah
+an
+ao
+av
+ac
+ay
+av
+av
+av
+ay
+ac
+ax
+af
+aY
+af
+ah
+ab
+ab
+ab
+ag
+"}
+(7,1,1) = {"
+aa
+ah
+ae
+aq
+av
+av
+ao
+ao
+ao
+ao
+ao
+av
+ax
+af
+ae
+af
+ah
+aB
+az
+ar
+aa
+"}
+(8,1,1) = {"
+ag
+ah
+ae
+aq
+ac
+av
+ao
+aK
+aS
+aW
+ao
+av
+ao
+aw
+ae
+af
+ah
+az
+ad
+as
+aa
+"}
+(9,1,1) = {"
+aZ
+ah
+ae
+aq
+av
+av
+ao
+aM
+aT
+aQ
+ao
+av
+ax
+af
+ae
+af
+ah
+ah
+ah
+ah
+aa
+"}
+(10,1,1) = {"
+aa
+ah
+an
+ao
+av
+av
+ao
+aN
+aU
+aT
+ao
+ac
+ax
+af
+ae
+af
+ax
+aC
+aD
+aI
+aa
+"}
+(11,1,1) = {"
+aa
+ah
+ae
+aq
+ac
+av
+ao
+aO
+aT
+aT
+ao
+av
+ao
+aL
+ae
+ae
+aq
+aD
+aD
+at
+aa
+"}
+(12,1,1) = {"
+aa
+ah
+an
+ao
+av
+av
+ao
+aP
+aT
+aX
+ao
+ac
+ax
+af
+ae
+af
+ax
+aC
+aG
+aJ
+aa
+"}
+(13,1,1) = {"
+aa
+ah
+ae
+aq
+av
+av
+ao
+aQ
+aT
+aQ
+ao
+av
+ax
+af
+ae
+af
+ah
+ah
+ah
+ah
+aa
+"}
+(14,1,1) = {"
+aa
+ah
+ae
+aq
+ac
+av
+ao
+aR
+aV
+aR
+ao
+av
+ao
+aw
+ae
+af
+ah
+ba
+ad
+as
+aa
+"}
+(15,1,1) = {"
+ag
+ah
+ae
+aq
+av
+av
+ao
+ao
+ao
+ao
+ao
+av
+ax
+af
+ae
+af
+ah
+aE
+az
+au
+aa
+"}
+(16,1,1) = {"
+ag
+ah
+an
+ao
+av
+ac
+ay
+av
+av
+av
+ay
+ac
+ax
+af
+ae
+af
+ah
+ab
+ab
+ab
+aa
+"}
+(17,1,1) = {"
+ag
+ah
+ae
+aq
+ac
+av
+ao
+ao
+ao
+ao
+ao
+ao
+ao
+aw
+ae
+af
+ah
+az
+az
+az
+ad
+"}
+(18,1,1) = {"
+ag
+ah
+ae
+ao
+ao
+ao
+ao
+aw
+af
+af
+af
+aw
+ao
+ao
+ae
+af
+ah
+bb
+bb
+az
+ad
+"}
+(19,1,1) = {"
+ag
+ah
+an
+ae
+ae
+ae
+aq
+ae
+ae
+aY
+ae
+ae
+aq
+ae
+ae
+aw
+ah
+bc
+az
+ad
+ad
+"}
+(20,1,1) = {"
+aa
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ad
+ad
+az
+ad
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+"}
