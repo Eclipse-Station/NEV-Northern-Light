@@ -110,7 +110,7 @@ SUBSYSTEM_DEF(dispatcher)
 	var/iterations = 0		//used in rate limiting to know how many concurrent operations we have running. We don't want to do everything all at once, after all.
 	
 	//let's start by rebuilding the master list...
-	for(var/mob/living/M in player_list)
+	for(var/mob/living/M in GLOB.player_list)
 		iterations++
 		if(!M)
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
