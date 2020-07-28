@@ -111,11 +111,11 @@ SUBSYSTEM_DEF(dispatcher)
 			return		//Nobody's home. Go back to sleep.
 		if(!M.mind)
 			if(!(iterations % config.ntdad_max_oper))
-				sleep 1
+				sleep(1)
 			continue	//Mindless body.
 		if(!M.mind.assigned_role)
 			if(!(iterations % config.ntdad_max_oper))
-				sleep 1
+				sleep(1)
 			continue	//No assigned role.
 		
 		tracked_players_all += M
@@ -133,17 +133,17 @@ SUBSYSTEM_DEF(dispatcher)
 				log_debug("DISPATCHER: Sub-list population failure: No players in master list. This indicates that a 'return' is failing to end the flush proc.")
 		if(!M.mind)
 			if(!(iterations % config.ntdad_max_oper))
-				sleep 1
+				sleep(1)
 			continue		//Mindless body.
 		if(!M.mind.assigned_role)
 			tracked_players_all -= M		//Don't track a role-less man.
 			if(!(iterations % config.ntdad_max_oper))
-				sleep 1
+				sleep(1)
 			continue
 		else		//We add them to all positions that we need, in case someone's a head of staff (which has two position flags)
 			addToTracking(M)
 			if(!(iterations % config.ntdad_max_oper))
-				sleep 1
+				sleep(1)
 			continue		//We're done adding here.
 
 /datum/controller/subsystem/dispatcher/proc/addToTracking(mob/M)

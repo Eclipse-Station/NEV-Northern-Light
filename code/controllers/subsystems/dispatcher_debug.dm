@@ -62,7 +62,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in world)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		if(!M.ckey)
 			continue
 
@@ -94,7 +94,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in GLOB.player_list)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		var/mob_assoc = ""
 		if(isnewplayer(M))
 			mob_assoc += "NP "
@@ -123,7 +123,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in SSdispatcher.tracked_players_all)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		WRITE_LOG(dump_log, " [key_name(M)] - [M.mind.assigned_role]")
 		continue
 	timer2 = round((world.time - stopwatch2) / 10,0.1)		//seconds
@@ -142,7 +142,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in SSdispatcher.tracked_players_cmd)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")
 		continue
 		
@@ -150,7 +150,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in SSdispatcher.tracked_players_eng)
 		iterations++				//we do NOT reset our iterations between each auxiliary list.
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")
 		continue
 		
@@ -158,7 +158,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in SSdispatcher.tracked_players_sec)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")
 		continue
 		
@@ -166,7 +166,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in SSdispatcher.tracked_players_med)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")
 		continue
 		
@@ -174,7 +174,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in SSdispatcher.tracked_players_sci)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")
 		continue
 		
@@ -182,7 +182,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in SSdispatcher.tracked_players_crg)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")
 		continue
 	
@@ -190,7 +190,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	for(var/mob/M in SSdispatcher.tracked_players_svc)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
-			sleep 1
+			sleep(1)
 		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")
 		continue
 	
