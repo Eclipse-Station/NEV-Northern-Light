@@ -172,14 +172,13 @@ SUBSYSTEM_DEF(dispatcher)
 	if(M.mind.assigned_role in science_positions)
 		tracked_players_sci += M
 	if(M.mind.assigned_role in command_positions)
-		if(M.mind.assigned_role != "Command Secretary")		//We don't count the secretary.
-			tracked_players_cmd += M
+		tracked_players_cmd += M
 	if(M.mind.assigned_role in cargo_positions)
 		tracked_players_crg += M
 	if(M.mind.assigned_role in engineering_positions)
 		tracked_players_eng += M
 	if(M.mind.assigned_role in civilian_positions)
-		if(M.mind.assigned_role != (USELESS_JOB || "Intern"))		//visitors are not staff, and interns have no access.
+		if(M.mind.assigned_role != (ASSISTANT_TITLE))		//vagabonds are not staff
 			tracked_players_svc += M
 	
 	if(DEBUGLEVEL_VERBOSE <= debug_level)

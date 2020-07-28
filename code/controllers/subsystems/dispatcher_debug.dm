@@ -29,7 +29,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	
 	ptrack_dump_in_progress = TRUE
 	
-	var/dump_log = start_log("[log_path]-ptrack.[time2text(world.realtime, "YYYYMMDDhhmmss")].log")		//let's one logfile per dump
+	var/dump_log = file("data/logs/ptrack.[time2text(world.realtime, "YYYYMMDDhhmmss")].log")		//let's one logfile per dump
 	sleep(10)		//one second delay to make sure it worked.
 	try
 		ASSERT(dump_log)		//if it don't exist, well, shit's fucked anyway and this isn't going to work.
@@ -91,7 +91,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	WRITE_LOG(dump_log, " keyname - Type (NP = lobby, OB = observer, SI = silicon, HU = humanoid, SA = simpleanimal)")
 	to_chat(usr, "<span class='danger'>Beginning PTrack dump - iteration 2 (player_list dump)...</span>")
 	
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
 			sleep 1
