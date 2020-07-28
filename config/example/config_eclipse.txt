@@ -68,20 +68,6 @@ STAFF_REQUIREMENT_LOWPOP_THRESHOLD 10
 # Default is 1.
 DEBUG_DISPATCHER 1
 
-## DISPATCHER BOT TOKEN
-## For anonymity, it is recommended that the discord bot token is set here rather
-## than hardcoded. Parses as a string.
-## Default is unset.
-## Example: DISPATCH_BOT_TOKEN 1a2b3c
-DISPATCH_BOT_TOKEN
-
-## DISPATCHER CHANNEL IDENTIFIER
-## For anonymity, it is recommended that the discord channel is set here rather
-## than hardcoded. Parses as a string.
-## Default is unset.
-## Example: DISPATCH_CHANNEL_ID 123456
-DISPATCH_CHANNEL_ID
-
 ## DISPATCHER COOLDOWN
 ## After a message is sent, how long should the global cooldown be before another
 ## can be sent to the dispatcher? 
@@ -95,3 +81,14 @@ DISPATCHER_COOLDOWN 180
 ## prevent a server chug condition while lists populate.
 ## Default: 5
 MAXIMUM_CONCURRENT_OPERATIONS 5
+
+## DISPATCHER ROLE IDENTIFIERS
+## This is the role IDs used for role-specific pings from the dispatcher system.
+## Parses as a string.
+ROLE_PING_COMMAND 
+ROLE_PING_ENGINEER 
+ROLE_PING_MEDICAL 
+ROLE_PING_RESEARCH 
+ROLE_PING_SECURITY 
+ROLE_PING_SERVICE 
+ROLE_PING_SUPPLY 

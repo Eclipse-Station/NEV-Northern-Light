@@ -25,10 +25,16 @@
 //Dispatcher-related variables. Predix: "NanoTrasen Department Alarm Dispatcher"
 	var/ntdad_enabled = FALSE			//should it be enabled?
 	var/ntdad_debug = 1					//debug the dispatcher
-	var/ntdad_bot_token = ""			//bot token for dispatcher
-	var/ntdad_channel_id = ""			//Channel identifier for dispatcher
 	var/ntdad_cooldown = 600			//Cooldown between calls
 	var/ntdad_max_oper = 5				//maximum concurrent operations, intended to reduce lag while flushing lists
+		//role pings
+	var/ntdad_role_command = ""
+	var/ntdad_role_engineering = ""
+	var/ntdad_role_medical = ""
+	var/ntdad_role_research = ""
+	var/ntdad_role_security = ""
+	var/ntdad_role_service = ""
+	var/ntdad_role_supply = ""
 
 
 /hook/startup/proc/read_eclipse_config()
@@ -83,6 +89,21 @@
 				config.ntdad_cooldown = 10 * text2num(value)
 			if("maximum_concurrent_operations")
 				config.ntdad_max_oper = text2num(value)
+			if("role_ping_command")
+				config.ntdad_role_command = value
+			if("role_ping_engineering")
+				config.ntdad_role_engineering = value
+			if("role_ping_medical")
+				config.ntdad_role_medical = value
+			if("role_ping_research")
+				config.ntdad_role_research = value
+			if("role_ping_security")
+				config.ntdad_role_security = value
+			if("role_ping_service")
+				config.ntdad_role_service = value
+			if("role_ping_supply")
+				config.ntdad_role_supply = value
+
 
 	config.eclipse_config_loaded = TRUE		//config is loaded
 
