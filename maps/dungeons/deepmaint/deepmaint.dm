@@ -1,14 +1,8 @@
 #include "deepmaint-1.dmm"
-<<<<<<< HEAD
 /*#include "deepmaint-2.dmm"
 #include "deepmaint-3.dmm"*/
-/obj/map_data/deepmaint/lvl1
-=======
-#include "deepmaint-2.dmm"
-#include "deepmaint-3.dmm"
 
 /obj/map_data/deepmaint
->>>>>>> 8958f86... Redoes a shitton of GPS stuff (#5118)
 	name = "Deep Dark Marvelous"
 	is_player_level = TRUE
 	height = 1
