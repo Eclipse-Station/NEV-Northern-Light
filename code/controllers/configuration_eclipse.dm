@@ -81,10 +81,6 @@
 				config.ntdad_enabled = TRUE
 			if("debug_dispatcher")
 				config.ntdad_debug = text2num(value)
-			if("dispatch_bot_token")
-				config.ntdad_bot_token = value
-			if("dispatch_channel_id")
-				config.ntdad_channel_id = value
 			if("dispatcher_cooldown")
 				config.ntdad_cooldown = 10 * text2num(value)
 			if("maximum_concurrent_operations")
