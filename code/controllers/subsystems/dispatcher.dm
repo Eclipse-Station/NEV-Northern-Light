@@ -40,13 +40,6 @@ SUBSYSTEM_DEF(dispatcher)
 		flushTracking()
 	if(!config.ntdad_enabled)
 		log_debug("DISPATCHER/FATAL: System disabled by config. Only the tracking system will be in use.")
-	if(!config.ntdad_bot_token)
-		if(DEBUGLEVEL_WARNING <= debug_level)
-			log_debug("DISPATCHER: Bot token not found in config.")
-	else
-		bot_token = config.ntdad_bot_token
-		if(DEBUGLEVEL_VERBOSE <= debug_level)
-			log_debug("DISPATCHER: Copied bot token from config successfully.")
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Initialized!")
 	..()
