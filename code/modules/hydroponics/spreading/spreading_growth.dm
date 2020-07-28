@@ -122,7 +122,17 @@
 		if(prob(chance))
 			sampled = 0
 
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Maintenance fungus spread nerfs.
+	
+	//If the seed is our favourite maintenance fungus and the world time is less than 60 seconds after our last growth, abort
+	if(seed.name == "fungoartiglieria" && (world.time < SSmigration.last_fungus_growth + 60 SECONDS))	//this gives us up to 60 growths per hour.
+		return
+
 	if(is_mature() && neighbors.len && prob(spread_chance))
+		if(seed.name == "fungoartiglieria")
+			SSmigration.last_fungus_growth = world.time			//Set our last growth time to world time.
+	// // // END ECLIPSE EDITS // // //
 		spawn()
 			spread()
 

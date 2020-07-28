@@ -1066,6 +1066,7 @@
 #include "code\game\objects\random\exosuit.dm"
 #include "code\game\objects\random\flora.dm"
 #include "code\game\objects\random\food.dm"
+#include "code\game\objects\random\gun_upgrade.dm"
 #include "code\game\objects\random\guns.dm"
 #include "code\game\objects\random\junk.dm"
 #include "code\game\objects\random\lathe_disks.dm"
@@ -2675,4 +2676,6 @@
 #include "zzz_modular_eclipse\gunvendor\gunkits.dm"
 #include "zzz_modular_eclipse\radio_sprites\radios.dm"
 #include "zzz_modular_eclipse\radio_squelch\radios.dm"
+#include "zzz_modular_eclipse\sawnoff\sawnoff.dm"
+#include "zzz_modular_eclipse\storytellers\tyrant.dm"
 // END_INCLUDE

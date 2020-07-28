@@ -88,19 +88,19 @@ GLOBAL_DATUM(storyteller, /datum/storyteller)
 				return TRUE
 
 	var/tcol = "red"
-	if(GLOB.player_list.len <= 10)
+	if(GLOB.player_list.len <= config.sr_lowpop_threshold)		//Eclipse edit: Config-based lowpop thresholds
 		tcol = "black"
 
 	if(announce)
-		if(!engineer && !command)
+		if(!engineer && (!command && !config.sr_bypass_command_requirement))		//Eclipse edit: config-based command requirement
 			to_chat(world, "<b><font color='[tcol]'>A command officer and engineer are required to start round.</font></b>")
 		else if(!engineer)
 			to_chat(world, "<b><font color='[tcol]'>An engineer is required to start round.</font></b>")
-		else if(!command)
+		else if(!command && !config.sr_bypass_command_requirement)		//Eclipse edit: Config-based command requirement
 			to_chat(world, "<b><font color='[tcol]'>A command officer is required to start round.</font></b>")
 
-	if(GLOB.player_list.len <= 10)
-		to_chat(world, "<i>But there's less than 10 players, so this requirement will be ignored.</i>")
+	if(GLOB.player_list.len <= config.sr_lowpop_threshold)		//Eclipse edit: Config-based lowpop thresholds.
+		to_chat(world, "<i>But there's less than [config.sr_lowpop_threshold] players, so this requirement will be ignored.</i>")
 		return TRUE
 
 	return FALSE
