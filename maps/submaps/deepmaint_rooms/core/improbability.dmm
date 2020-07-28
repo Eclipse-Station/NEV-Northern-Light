@@ -227,7 +227,7 @@
 "aV" = (
 /obj/structure/table/rack,
 /obj/structure/sign/faction/one_star{
-	desc = "One Star's all-seeing eye. What happened on 2320-06-12?"
+	desc = "One Star's all-seeing eye. What happened on the seventh of January, 2320?"
 	},
 /turf/simulated/floor/plating,
 /area/deepmaint)
