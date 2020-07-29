@@ -52,6 +52,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/priority = -1 ; //Priority of the message being sent
 	light_range = 0
 	var/datum/announcement/announcement = new
+	
+	// // // ECLIPSE ADDED VARS // // //
+	var/verifyName = ""
+	var/verifyRank = ""
+	var/stampName = ""
 
 /obj/machinery/requests_console/power_change()
 	..()
@@ -167,7 +172,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		screen = RCS_SENTFAIL
 		for (var/obj/machinery/message_server/MS in world)
 			if(!MS.active) continue
-			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority)
+			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority,verifyName,verifyRank,stampName)		//Eclipse edit: Added last 3 params for NTDAD
 			pass = 1
 		if(pass)
 			screen = RCS_SENTPASS
@@ -204,7 +209,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if (istype(O, /obj/item/weapon/card/id))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
+			// // // BEGIN ECLIPSE EDITS // // //
+			// NT Department Alarm Dispatcher
 			var/obj/item/weapon/card/id/T = O
+			verifyName = T.registered_name
+			verifyRank = T.assignment
+			// // // END ECLIPSE EDITS // // //
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>")
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
@@ -220,6 +230,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/weapon/stamp/T = O
+			stampName = T.name		//Eclipse Edit
 			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
 			updateUsrDialog()
 	return

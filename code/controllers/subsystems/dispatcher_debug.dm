@@ -1,6 +1,7 @@
 // Debugging code relating to player tracking system (dispatcher.dm)
 
 ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
+/client/proc/dump_tracking()		//Dumps player tracking information to a file.
 	set category = "Debug"
 	set name = "Dump tracking data"
 	set desc = "Dumps debugging information from the player tracking subsystem to a file."
