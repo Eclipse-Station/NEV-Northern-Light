@@ -167,7 +167,7 @@ ADMIN_VERB_ADD(/client/proc/respawn_character_virgo, R_FUN, FALSE)
 
 	//If desired, add them to the PTrack system
 	if(ptrack)
-		SSdispatcher.addToTracking(new_character)
+		SSdispatcher.add_to_tracking(new_character)
 
 	//If desired, add records.
 	if(records)

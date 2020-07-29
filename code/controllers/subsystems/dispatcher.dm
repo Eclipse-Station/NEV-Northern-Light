@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(dispatcher)
 	if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len)
 		if(DEBUGLEVEL_WARNING <= debug_level)
 			log_debug("DISPATCHER: One or more lists still had data, flushing...")
-		flushTracking()
+		flush_tracking()
 	if(!config.ntdad_enabled)
 		log_debug("DISPATCHER/FATAL: System disabled by config. Only the tracking system will be in use.")
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
@@ -57,16 +57,16 @@ SUBSYSTEM_DEF(dispatcher)
 	sleep(2 SECONDS)
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Game is running (well, running enough for our standards). Beginning initial flush.")
-	flushTracking()		//roundstart shenanigans will prevent it from flushing properly.
+	flush_tracking()		//roundstart shenanigans will prevent it from flushing properly.
 	flags |= SS_NO_FIRE
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Initial flush completed. Subsystem will now go offline (this will not affect player tracking).")
 
 /datum/controller/subsystem/dispatcher/Recover()
 	flags |= SS_NO_INIT // We don't want to init twice.
-	flushTracking()
+	flush_tracking()
 
-/datum/controller/subsystem/dispatcher/proc/flushTracking()
+/datum/controller/subsystem/dispatcher/proc/flush_tracking()
 	//First, we reset all the lists.
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Flushing lists.")
@@ -143,12 +143,12 @@ SUBSYSTEM_DEF(dispatcher)
 				sleep(1)
 			continue
 		else		//We add them to all positions that we need, in case someone's a head of staff (which has two position flags)
-			addToTracking(M)
+			add_to_tracking(M)
 			if(!(iterations % config.ntdad_max_oper))
 				sleep(1)
 			continue		//We're done adding here.
 
-/datum/controller/subsystem/dispatcher/proc/addToTracking(mob/M)
+/datum/controller/subsystem/dispatcher/proc/add_to_tracking(mob/M)
 	if(!M)
 		CRASH("no mob specified.")
 	if(!M.mind)
@@ -180,7 +180,7 @@ SUBSYSTEM_DEF(dispatcher)
 		log_debug("DISPATCHER: Added [M.name] to tracked players.")
 	return 1
 
-/datum/controller/subsystem/dispatcher/proc/removeFromTracking(mob/M)		//we don't need the precision here, since we may be removing dead players
+/datum/controller/subsystem/dispatcher/proc/remove_from_tracking(mob/M)		//we don't need the precision here, since we may be removing dead players
 	if(!M)
 		CRASH("no mob specified.")
 	if(!M.mind)
@@ -212,7 +212,7 @@ SUBSYSTEM_DEF(dispatcher)
 		log_debug("DISPATCHER: Removed [M] from tracked players.")
 	return 1
 
-/datum/controller/subsystem/dispatcher/proc/handleRequest(department = "", priority = FALSE, message, sender = "Unknown", sender_role = "Unassigned", stamped)
+/datum/controller/subsystem/dispatcher/proc/handle_request(department = "", priority = FALSE, message, sender = "Unknown", sender_role = "Unassigned", stamped)
 //return statement should be whether or not the handler handled it.
 //0 if it is kicking it back to the RC due to players being on,
 //1 if it sent to Discord.
@@ -235,8 +235,8 @@ SUBSYSTEM_DEF(dispatcher)
 				log_debug("DISPATCHER: Request sent to Engineering.")
 			if(!tracked_players_eng.len)
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
-					log_debug("DISPATCHER: No players in [department], calling sendDiscordRequest...")
-				sendDiscordRequest("engineering",priority, message, sender, sender_role, stamped)
+					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
+				send_discord_request("engineering",priority, message, sender, sender_role, stamped)
 				return 1
 			else
 				return 0
@@ -245,8 +245,8 @@ SUBSYSTEM_DEF(dispatcher)
 				log_debug("DISPATCHER: Request sent to Science.")
 			if(!tracked_players_sci.len)
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
-					log_debug("DISPATCHER: No players in [department], calling sendDiscordRequest...")
-				sendDiscordRequest("research",priority, message, sender, sender_role, stamped)
+					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
+				send_discord_request("research",priority, message, sender, sender_role, stamped)
 				return 1
 			else
 				return 0
@@ -255,8 +255,8 @@ SUBSYSTEM_DEF(dispatcher)
 				log_debug("DISPATCHER: Request sent to Security.")
 			if(!tracked_players_sec.len)
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
-					log_debug("DISPATCHER: No players in [department], calling sendDiscordRequest...")
-				sendDiscordRequest("security",priority, message, sender, sender_role, stamped)
+					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
+				send_discord_request("security",priority, message, sender, sender_role, stamped)
 				return 1
 			else
 				return 0
@@ -265,8 +265,8 @@ SUBSYSTEM_DEF(dispatcher)
 				log_debug("DISPATCHER: Request sent to Supply.")
 			if(!tracked_players_crg.len)
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
-					log_debug("DISPATCHER: No players in [department], calling sendDiscordRequest...")
-				sendDiscordRequest("supply",priority, message, sender, sender_role, stamped)
+					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
+				send_discord_request("supply",priority, message, sender, sender_role, stamped)
 				return 1
 			else
 				return 0
@@ -275,8 +275,8 @@ SUBSYSTEM_DEF(dispatcher)
 				log_debug("DISPATCHER: Request sent to Service.")
 			if(!tracked_players_svc.len)
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
-					log_debug("DISPATCHER: No players in [department], calling sendDiscordRequest...")
-				sendDiscordRequest("service",priority, message, sender, sender_role, stamped)
+					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
+				send_discord_request("service",priority, message, sender, sender_role, stamped)
 				return 1
 			else
 				return 0
@@ -285,8 +285,8 @@ SUBSYSTEM_DEF(dispatcher)
 				log_debug("DISPATCHER: Request sent to Medical.")
 			if(!tracked_players_med.len)
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
-					log_debug("DISPATCHER: No players in [department], calling sendDiscordRequest...")
-				sendDiscordRequest("medical",priority, message, sender, sender_role, stamped)
+					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
+				send_discord_request("medical",priority, message, sender, sender_role, stamped)
 				return 1
 			else
 				return 0
@@ -295,8 +295,8 @@ SUBSYSTEM_DEF(dispatcher)
 				log_debug("DISPATCHER: Request sent to Command.")
 			if(!tracked_players_cmd.len)
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
-					log_debug("DISPATCHER: No players in [department], calling sendDiscordRequest...")
-				sendDiscordRequest("command",priority, message, sender, sender_role, stamped)
+					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
+				send_discord_request("command",priority, message, sender, sender_role, stamped)
 				return 1
 			else
 				return 0
@@ -305,7 +305,7 @@ SUBSYSTEM_DEF(dispatcher)
 				log_debug("DISPATCHER: Unimplemented department [department].")
 			return 0
 
-/datum/controller/subsystem/dispatcher/proc/sendDiscordRequest(department = "", priority = FALSE, message, sender, sender_role, stamped)
+/datum/controller/subsystem/dispatcher/proc/send_discord_request(department = "", priority = FALSE, message, sender, sender_role, stamped)
 	if(!config.ntdad_enabled)		//don't do shit if it's not enabled
 		return 0
 
@@ -347,13 +347,20 @@ SUBSYSTEM_DEF(dispatcher)
 		log_debug("DISPATCHER: Message prints as follows:")
 		log_debug("DISPATCHER: [msg]")
 	
-
-	throw EXCEPTION("Unimplemented. Department '[department]', priority '[priority]', message '[message]', sender '[sender]', sender role '[sender_role]', stamped '[stamped]'.")
-	return
+	push_to_discord(msg)
 	
-/datum/controller/subsystem/dispatcher/proc/sendDiscordTest()
+/datum/controller/subsystem/dispatcher/proc/send_discord_test()
 	var/msg = "This is a test of the Nanotrasen Department Alarm Dispatcher. This is only a test."
-	CRASH("Unimplemented.")
+	push_to_discord(msg)
+
+/datum/controller/subsystem/dispatcher/proc/push_to_discord(var/msg = "" as text)
+	if(!msg)
+		if(DEBUGLEVEL_WARNING <= debug_level)
+			log_debug("DISPATCHER: No message to push.")
+		return		//We need a message to pass along, damnit!
+	
+	CRASH("Unimplemented. Message var is as follows: \"[msg]\"")		//NESTOR: This part's what you need to take care of.
+
 
 /datum/controller/subsystem/dispatcher/Shutdown()
 	//clear all lists
