@@ -119,7 +119,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	if(world.time >= SSdispatcher.cooldown)		//If we're not in cooldown, pass it along
 		SSdispatcher.handle_request(recipient, priority, message, id_name, id_rank, stamp_name)
 	else		//we're still in cooldown, log it and carry on.
-		var/cooldown_left = round((dispatcher.cooldown - world.time) / 10, 0.1)		//round it to tenth-seconds
+		var/cooldown_left = round((SSdispatcher.cooldown - world.time) / 10, 0.1)		//round it to tenth-seconds
 		if(SSdispatcher.debug_level > 2)		//if debugging is on
 			log_debug("DISPATCHER/message_server.dm: Messaging server still in dispatch cooldown for [cooldown_left] seconds.")
 	// // // END ECLIPSE EDIT // // //
