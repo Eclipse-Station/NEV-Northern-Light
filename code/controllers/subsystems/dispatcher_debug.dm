@@ -1,14 +1,11 @@
-// Debugging code relating to player tracking system (dispatcher_eclipse.dm)
-var/global/ptrack_dump_in_progress = FALSE
+// Debugging code relating to player tracking system (dispatcher.dm)
 
-/client/proc/dump_tracking()		//Dumps player tracking information to a file.
+ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 	set category = "Debug"
 	set name = "Dump tracking data"
 	set desc = "Dumps debugging information from the player tracking subsystem to a file."
-
-	if(!check_rights(R_DEBUG)) return
 	
-	if(ptrack_dump_in_progress)
+	if(SSdispatcher.ptrack_dump_in_progress)
 		to_chat(usr, "<span class='danger'> A player tracking dump is already in progress. You should wait until it is completed before you start another.</span>")
 		return
 
@@ -27,7 +24,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	message_admins("[key_name(src)] began a player tracking data dump.")
 	log_admin("[key_name(src)] began a player tracking data dump.")
 	
-	ptrack_dump_in_progress = TRUE
+	SSdispatcher.ptrack_dump_in_progress = TRUE
 	
 	var/dump_log = file("data/logs/ptrack.[time2text(world.realtime, "YYYYMMDDhhmmss")].log")		//let's one logfile per dump
 	sleep(10)		//one second delay to make sure it worked.
@@ -206,7 +203,7 @@ var/global/ptrack_dump_in_progress = FALSE
 	WRITE_LOG(dump_log, " Tracking dump completed [time2text(world.realtime, "YYYY-MM-DD T hh:mm:ss")] in [timer] seconds.")
 	WRITE_LOG(dump_log, " # END OF CONTENT")
 	
-	ptrack_dump_in_progress = FALSE
+	SSdispatcher.ptrack_dump_in_progress = FALSE
 	to_chat(usr, "<span class='danger'>PTrack dump completed in [timer] seconds. Saved to server as '[dump_log]'.</span>")
 	message_admins("Player tracking data dump completed in [timer] seconds. Saved as '[dump_log]'.")
 	log_admin("Player tracking data dump completed.")

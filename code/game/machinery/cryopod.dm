@@ -360,6 +360,9 @@
 				//Going safely to cryo will allow the patient to respawn more quickly
 				M.set_respawn_bonus("CRYOSLEEP", CRYOPOD_SPAWN_BONUS)
 
+	// This removes them from player tracking
+	SSdispatcher.removeFromTracking(occupant)		//Eclipse edit
+	
 	// This despawn is not a gib() in this sense, it is used to remove objectives tied on these despawned mobs in cryos
 	occupant.despawn()
 	set_occupant(null)

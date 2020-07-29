@@ -19,6 +19,8 @@ SUBSYSTEM_DEF(dispatcher)
 	var/bot_token = ""
 	var/cooldown = 0
 	
+	var/ptrack_dump_in_progress = FALSE		//used in debugging
+	
 	//used in player tracking system
 	var/list/tracked_players_all = list()		//All tracked players
 	var/list/tracked_players_sec = list()		//Security
@@ -306,11 +308,13 @@ SUBSYSTEM_DEF(dispatcher)
 /datum/controller/subsystem/dispatcher/proc/sendDiscordRequest(department = "", priority = FALSE, message, sender, sender_role, stamped)
 	if(!config.ntdad_enabled)		//don't do shit if it's not enabled
 		return 0
-	
+
+/*				//Handled in request console code.
 	if(cooldown > world.time)		//not done with the cooldown yet.
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Cooldown still in progress. [round(cooldown - world.time,1)] ticks left.")
 		return 0
+*/
 
 	var/department_ping = ""
 	switch(department)
