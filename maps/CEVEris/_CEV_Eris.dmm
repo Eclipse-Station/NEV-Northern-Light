@@ -3590,9 +3590,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Ironhammer Commander's Desk";
+	department = "Aegis Commander's Desk";
 	departmentType = 4;
-	name = "Ironhammer Commander RC";
+	name = "Aegis Commander RC";
 	pixel_x = -30;
 	pixel_y = 0
 	},
@@ -13820,6 +13820,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aFP" = (
@@ -15298,6 +15302,7 @@
 	pixel_x = -25;
 	pixel_y = 25
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/maintenance/junk)
 "aJH" = (
@@ -32649,6 +32654,14 @@
 /obj/machinery/camera/network/engineering{
 	dir = 1
 	},
+/obj/machinery/requests_console{
+	announcementConsole = 0;
+	department = "Engineering";
+	departmentType = 3;
+	dir = 1;
+	name = "Engineering RC";
+	pixel_y = -25
+	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/atmoscontrol)
 "bvf" = (
@@ -40413,6 +40426,7 @@
 /area/eris/security/inspectors_office)
 "bLv" = (
 /obj/machinery/requests_console{
+	department = "Aegis Inspector's Office";
 	pixel_x = 30
 	},
 /obj/machinery/camera/network/security{
@@ -43430,12 +43444,22 @@
 "bRL" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/donut,
+/obj/machinery/requests_console{
+	department = "Cryo Storage";
+	dir = 8;
+	pixel_x = 25;
+	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/sleep/cryo)
 "bRM" = (
 /obj/structure/table/standard,
 /obj/random/medical,
 /obj/random/medical,
+/obj/machinery/requests_console{
+	department = "Cryo Storage";
+	dir = 4;
+	pixel_x = -25;
+	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/sleep/cryo)
 "bRN" = (
@@ -49521,9 +49545,9 @@
 "cff" = (
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "First Officer's Desk";
+	department = "Head of Personnel's Desk";
 	departmentType = 4;
-	name = "First Officer RC";
+	name = "Head of Personnel's RC";
 	pixel_x = 30;
 	pixel_y = 0
 	},
@@ -52875,6 +52899,13 @@
 /obj/machinery/meter,
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
+/obj/machinery/requests_console{
+	department = "Science";
+	departmentType = 3;
+	dir = 1;
+	name = "Toxins Requests Console";
+	pixel_y = -25
+	},
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
 "cnq" = (
@@ -55325,6 +55356,14 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/machinery/requests_console{
+	announcementConsole = 0;
+	department = "Medbay";
+	departmentType = 3;
+	dir = 1;
+	name = "Operating Room RC";
+	pixel_y = -25;
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/surgery)
 "csZ" = (
@@ -55930,9 +55969,9 @@
 "cuD" = (
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Moebius Expedition Overseer's Desk";
+	department = "Chief Science Officer's Desk";
 	departmentType = 4;
-	name = "Moebius Expedition Overseer RC";
+	name = "Chief Science Officer's RC";
 	pixel_x = -30;
 	pixel_y = 0
 	},
@@ -58049,6 +58088,10 @@
 "czt" = (
 /obj/structure/table/bar_special,
 /obj/machinery/chemical_dispenser/soda,
+/obj/machinery/requests_console{
+	name = "Bar Requests Console";
+	pixel_x = -30
+	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "czu" = (
@@ -75106,6 +75149,13 @@
 /area/eris/rnd/research)
 "dlV" = (
 /obj/structure/cyberplant,
+/obj/machinery/requests_console{
+	department = "Science";
+	departmentType = 3;
+	dir = 1;
+	name = "Science Requests Console";
+	pixel_y = -25
+	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/research)
 "dlW" = (
@@ -76834,6 +76884,13 @@
 /area/eris/maintenance/junk)
 "dpF" = (
 /obj/machinery/chemical_dispenser,
+/obj/machinery/requests_console{
+	announcementConsole = 0;
+	department = "Medbay";
+	departmentType = 3;
+	name = "Medbay RC";
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
 "dpG" = (
@@ -78764,6 +78821,10 @@
 	icon_state = "tube1";
 	dir = 4
 	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/checkpoint/supply)
 "due" = (
@@ -79114,6 +79175,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/camera/network/medbay,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
 "duP" = (
@@ -80918,9 +80980,9 @@
 "dyS" = (
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Moebius Biolab Officer's Desk";
+	department = "Chief Medical Officer's Desk";
 	departmentType = 4;
-	name = "Moebius Biolab Officer RC";
+	name = "Chief Medical Officer RC";
 	pixel_x = 0;
 	pixel_y = 32
 	},
@@ -97707,6 +97769,11 @@
 /area/eris/maintenance/section4deck1central)
 "ekk" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ekl" = (
@@ -97738,6 +97805,10 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/anomaly,
 /obj/item/clothing/head/space/anomaly,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "ekp" = (
@@ -105063,6 +105134,9 @@
 	dir = 1
 	},
 /obj/item/modular_computer/laptop/preset/atmos,
+/obj/machinery/firealarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "eAn" = (
@@ -108277,6 +108351,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
+"fKF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	tag = "icon-intact (EAST)";
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/engine_room)
 "fMl" = (
 /obj/effect/shuttle_landmark/merc/sec3east4,
 /turf/space,
@@ -108324,6 +108415,10 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
 "hqB" = (
@@ -108350,6 +108445,16 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
+"hSx" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
+/turf/simulated/floor/tiled/steel/danger,
+/area/eris/engineering/engine_room)
 "ifz" = (
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -108677,6 +108782,17 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/storage)
+"lHM" = (
+/obj/machinery/requests_console{
+	announcementConsole = 0;
+	department = "Medbay";
+	departmentType = 3;
+	dir = 1;
+	name = "Morgue RC";
+	pixel_y = -25;
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/medical/morgue)
 "lIn" = (
 /obj/effect/shuttle_landmark/merc/junk,
 /turf/space,
@@ -108877,9 +108993,9 @@
 "owS" = (
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Technomancer Exultant's Desk";
+	department = "Chief Engineer's Desk";
 	departmentType = 4;
-	name = "Technomancer Exultant RC";
+	name = "Chief Engineer RC";
 	pixel_x = 30;
 	pixel_y = 0
 	},
@@ -109047,6 +109163,14 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
+"raJ" = (
+/obj/structure/catwalk,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/open,
+/area/eris/engineering/engeva)
 "rhQ" = (
 /obj/machinery/camera/network/engineering{
 	dir = 8
@@ -109340,6 +109464,11 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"vsW" = (
+/obj/structure/closet/crate/trashcart,
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/maintenance/junk)
 "vIB" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -109425,6 +109554,13 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/medical/chemstor)
+"wWW" = (
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/engineering/engine_room)
 "wXf" = (
 /obj/structure/closet/secure_closet/medicine,
 /obj/machinery/light/small{
@@ -109433,6 +109569,13 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/medical/chemstor)
+"wXV" = (
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/steel/orangecorner,
+/area/eris/hallway/side/atmosphericshallway)
 "wYD" = (
 /obj/random/medical/low_chance,
 /obj/random/medical/low_chance,
@@ -135883,8 +136026,8 @@ aIS
 aJI
 aZI
 aJI
-aJI
 aZI
+aJI
 aJI
 aMK
 aOB
@@ -136086,7 +136229,7 @@ aFo
 aFo
 aFo
 aFo
-aFo
+aIU
 aFo
 bdH
 aNW
@@ -136283,13 +136426,13 @@ azq
 aCX
 aEJ
 ayZ
-aIU
 aFo
-aFo
-aIU
 aFo
 aFo
 aIU
+aFo
+aFo
+aFo
 aMK
 aSd
 aaa
@@ -136486,12 +136629,12 @@ azq
 azq
 azq
 aFv
+aKm
 aKf
 aKf
 aKf
 aKf
-aKf
-aFo
+aIU
 aMK
 aSd
 aaa
@@ -136685,16 +136828,16 @@ ctu
 aBK
 ayZ
 aDK
-aFk
+aFm
+aIU
 aFo
-aFo
+aKf
+aKf
 aKf
 aKm
 aKf
-aKm
-aKf
 aFo
-bdH
+aMK
 aNW
 aaa
 aaa
@@ -136886,17 +137029,17 @@ aBu
 aFD
 aBK
 ayZ
-aDK
+vsW
 aFm
 aFo
-aIU
+aFo
 aKf
-aKf
+aKm
 aKK
 aKf
 aKf
-aIU
-aMK
+aFo
+bdH
 aSd
 aaa
 aaa
@@ -137089,14 +137232,14 @@ aFD
 aBK
 ayZ
 aDK
-aFk
+aFm
 aFo
-aFo
+aIU
+aKf
+aKf
+aKf
 aKf
 aKm
-aKf
-aKm
-aKf
 aFo
 aMK
 aSd
@@ -137291,12 +137434,12 @@ aFD
 aBK
 ayZ
 aDK
-aFm
+aFk
 aFo
 aFo
 aKf
 aKf
-aKf
+aKm
 aKf
 aKf
 aFo
@@ -137495,10 +137638,10 @@ azq
 azq
 azq
 aFv
+aFo
 aIU
 aFo
 aFo
-aIU
 aFo
 aFo
 aIU
@@ -137701,8 +137844,8 @@ aFN
 aFN
 aUX
 aFN
-aFN
 aUX
+aFN
 aFN
 bhh
 aOW
@@ -163356,7 +163499,7 @@ cFv
 abF
 aCM
 aDb
-aDb
+wXV
 aNy
 aDb
 aOn
@@ -167168,7 +167311,7 @@ boi
 bpl
 boi
 boi
-boi
+lHM
 bmx
 aaa
 aaa
@@ -203169,7 +203312,7 @@ cnM
 ccg
 coG
 coG
-coG
+wWW
 coG
 coG
 coG
@@ -203573,7 +203716,7 @@ cnT
 cnw
 eEt
 cQL
-cpA
+hSx
 cSP
 bIP
 bIP
@@ -244176,7 +244319,7 @@ cwj
 cyO
 dLW
 dPB
-tdm
+fKF
 bIP
 bIP
 bIP
@@ -248021,7 +248164,7 @@ aaa
 dRV
 dRL
 dRZ
-dRI
+raJ
 dSS
 dFl
 dID
