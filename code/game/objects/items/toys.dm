@@ -9,8 +9,6 @@
  *      Toy mechs
  *		Snap pops
  *		Water flower
- *      Therapy dolls
- *      Toddler doll
  *      Inflatable duck
  *		Action figures
  *		Plushies
@@ -19,10 +17,10 @@
 
 
 /obj/item/toy
-	throwforce = 0
+	throwforce = NONE
 	throw_speed = 4
 	throw_range = 20
-	force = 0
+	force = NONE
 
 
 /*
@@ -480,11 +478,12 @@
  */
 
 /obj/item/toy/figure
-	name = "Completely Glitched action figure"
-	desc = "A \"Space Life\" brand... wait, what the hell is this thing? It seems to be requesting the sweet release of death."
-	icon_state = "assistant"
+	name = "generic figurine"
+	desc = "It seems to be almost glitched through reality."
+	icon_state = "figure"
 	icon = 'icons/obj/toy.dmi'
 
+<<<<<<< HEAD
 /obj/item/toy/figure/cmo
 	name = "Chief Medical Officer action figure"
 	desc = "A \"Space Life\" brand Chief Medical Officer action figure."
@@ -717,6 +716,75 @@
 	icon_state = "therapygreen"
 	item_state = "egg3" // It's the green egg in items_left/righthand
 	w_class = ITEM_SIZE_TINY
+=======
+/obj/item/toy/figure/excelsior
+	name = "\"Excelsior\" figurine"
+	desc = "A curiously unbranded figurine of a Space Soviet, adorned in their iconic armor. There is still a price tag on the back of the base, six-hundred credits, people collect these things? \
+	\"Ever Upward!\""
+	icon_state = "excelsior"
+
+/obj/item/toy/figure/serbian
+	name = "mercenary figurine"
+	desc = "A curiously unbranded figurine, the olive drab a popular pick for many independent Serbian mercenary outfits. Rocket launcher not included."
+	icon_state = "serbian"
+
+/obj/item/toy/figure/acolyte
+	name = "acolyte figurine"
+	desc = "Church of NeoTheology \"New Faith Life\" brand figurine of an acolyte, hooded both physically and spiritually from that which would lead them astray."
+	icon_state = "acolyte"
+
+/obj/item/toy/figure/carrion
+	name = "carrion figurine"
+	desc = "A curiously unbranded figurine depicting a grotesque head of flesh, the Human features seem almost underdeveloped, its skull bulging outwards, mouth agape with torn flesh. \
+	Whoever made this certainly knew how to thin their paints."
+	icon_state = "carrion"
+
+/obj/item/toy/figure/roach
+	name = "roach figurine"
+	desc = "Upon the base is an erected \"Roachman\", its arms outstretched, with more additional roach hands besides them. This is likely the one thing most universally recognized in popular media. \
+	The plaque is covered in hundreds of scratch marks, eliminating any further knowledge of it or its brand."
+	icon_state = "roach"
+
+/obj/item/toy/figure/vagabond
+	name = "vagabond figurine"
+	desc = "An Aster's \"Space Life\" brand figurine showcasing the form of a random deplorable, wearing one of the ship's uniforms, and an orange bandana. \
+	Must of been custom-made to commemorate the Eris' doomed voyage."
+	icon_state = "vagabond"
+
+/obj/item/toy/figure/rooster
+	name = "rooster figurine"
+	desc = "\"Space Vice\" brand figurine, there is no further manufacturer information. It's a man wearing a rooster mask, and a varsity jacket with the letter \"B\" emblazoned on the front. \
+	\"Do you like hurting other people?\""
+	icon_state = "rooster"
+
+/obj/item/toy/figure/barking_dog
+	name = "barking dog figurine"
+	desc = "A metal soldier with the mask of a hound stands upon the base, the plaque seems smeared with caked grime, but despite this you make out a rare double-quote. \
+	\"A dog barks on its master's orders, lest its pack runs astray.\" \"Whatever the task, the grim dog mask would tell you that your life was done.\""
+	icon_state = "barking_dog"
+
+/obj/item/toy/figure/red_soldier
+	name = "red soldier figurine"
+	desc = "A curiously unbranded figurine of a red soldier fighting in the tides of war, their humanity hidden by a gas mask. \"Why do we fight? To win the war, of course.\""
+	icon_state = "red_soldier"
+
+/obj/item/toy/figure/metacat
+	name = "meta-cat figurine"
+	desc = "A curiously unbranded figurine depicting an anthropomorphic cat in a voidsuit, the small plaque claims this to be one of two. \"Always in silent pair, through distance or unlikelihood.\""
+	icon_state = "metacat"
+
+/obj/item/toy/figure/shitcurity
+	name = "shitcurity officer figurine"
+	desc = "An Aster's \"Space Life\" brand figurine of a classic redshirt of \"Nanotrasen's finest\". Their belly distends out into an obvious beer gut, revealing no form of manufacturer bias what-so-ever. \
+	\"I joined just to kill people.\""
+	icon_state = "shitcurity"
+
+/obj/item/toy/figure/metro_patrolman
+	name = "metro patrolman figurine"
+	desc = "The plaque seems flaked with rust residue, \"London Metro\" brand it reads. The man wears some kind of enforcer's uniform, with the acronym \"VPP\" on their left shoulder and cap. \
+	\"Abandoned for Escalation, the patrolman grumbles.\""
+	icon_state = "metro_patrolman"
+>>>>>>> 36ad435... Adds new toy figures (#5192)
 
 /*
  * Plushies
@@ -803,11 +871,6 @@
 	name = "spider plush"
 	desc = "A plushie of a fuzzy spider! It has eight legs - all the better to hug you with."
 	icon_state = "spiderplushie"
-
-/obj/item/toy/plushie/farwa
-	name = "farwa plush"
-	desc = "A farwa plush doll. It's soft and comforting!"
-	icon_state = "farwaplushie"
 
 //Toy cult sword
 /obj/item/toy/cultsword
