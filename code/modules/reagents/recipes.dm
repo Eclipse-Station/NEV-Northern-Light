@@ -1827,7 +1827,13 @@
 
 /datum/chemical_reaction/noexcutite
 	result = "noexcutite"
+<<<<<<< HEAD
 	required_reagents = list("oxycodone" = 1, "anti_toxin" = 1)
+=======
+	required_reagents = list("tramadol" = 1, "anti_toxin" = 1)
+	maximum_temperature = 150
+	minimum_temperature = 120
+>>>>>>> b65d5ab... noexcutite now can be made again (#5191)
 	result_amount = 2
 
 /datum/chemical_reaction/violence
