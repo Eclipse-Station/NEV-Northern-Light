@@ -341,6 +341,13 @@
 		if(job && IsJobAvailable(job.title))
 			if(job.is_restricted(client.prefs))
 				continue
+			// // // BEGIN ECLIPSE EDITS // // //
+			//Jobban/job whitelist fixes
+			if(job.whitelist_only && !is_job_whitelisted(client, job.title))	//do they not pass whitelist?
+				continue
+			if(jobban_isbanned(client, job.title))			//are they banned?
+				continue
+			// // // END ECLIPSE EDITS // // //
 			var/active = 0
 			// Only players with the job assigned and AFK for less than 10 minutes count as active
 			for(var/mob/M in GLOB.player_list) if(M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)
