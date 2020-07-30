@@ -240,7 +240,7 @@ SUBSYSTEM_DEF(dispatcher)
 				return 1
 			else
 				return 0
-		if("science", "research", "research department")
+		if("science", "research", "research department","robotics")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Science.")
 			if(!tracked_players_sci.len)
@@ -280,7 +280,7 @@ SUBSYSTEM_DEF(dispatcher)
 				return 1
 			else
 				return 0
-		if("medical", "medical department")
+		if("medical", "medical department","medbay","virology")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Medical.")
 			if(!tracked_players_med.len)
@@ -319,28 +319,28 @@ SUBSYSTEM_DEF(dispatcher)
 	var/department_ping = ""
 	switch(department)
 		if("command")
-			department_ping = ""	//Replace this with the relevant role ping IDs.
+			department_ping = config.ntdad_role_command
 		if("engineering")
-			department_ping = ""
+			department_ping = config.ntdad_role_engineering
 		if("research")
-			department_ping = ""
+			department_ping = config.ntdad_role_research
 		if("security")
-			department_ping = ""
+			department_ping = config.ntdad_role_security
 		if("supply")
-			department_ping = ""
+			department_ping = config.ntdad_role_supply
 		if("service")
-			department_ping = ""
+			department_ping = config.ntdad_role_service
 		if("medical")
-			department_ping = ""
+			department_ping = config.ntdad_role_medical
 		else
 			if(DEBUGLEVEL_WARNING <= debug_level)
 				log_debug("DISPATCHER: Undefined department '[department]'.")
 		
 	var/msg = ""		//This is the string intended to be sent to the bot.
 	if(stamped)
-		msg = "[priority ? "**HIGH PRIORITY** a" : "A"]ssistance request for [department_ping], stamped by [stamped][sender ? ", from [sender] ([sender_role])" : "" ]: '[message]'"
+		msg = "[priority > 1 ? "**HIGH PRIORITY** a" : "A"]ssistance request for [department_ping], stamped by [stamped][sender ? ", from [sender] ([sender_role])" : "" ]: '[message]'"
 	else
-		msg = "[priority ? "**HIGH PRIORITY** a" : "A"]ssistance request for [department_ping], from [sender] ([sender_role]): '[message]'"
+		msg = "[priority > 1 ? "**HIGH PRIORITY** a" : "A"]ssistance request for [department_ping], from [sender] ([sender_role]): '[message]'"
 	
 	cooldown = (world.time + config.ntdad_cooldown)
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
@@ -373,23 +373,21 @@ SUBSYSTEM_DEF(dispatcher)
 	tracked_players_eng = list()		//I'm SPITZER! Spitzer! Spitzer. Spitzer...
 	tracked_players_svc = list()
 
-	//I'm sure Nestor will want to do something here with the Discord bot he has planned, later
-	
 /datum/controller/subsystem/dispatcher/stat_entry(msg_prefix)
 	var/list/msg = list(msg_prefix)
 	msg += "T:[tracked_players_all.len]"		//Total
 	msg += "{"
-	msg += "CMD [tracked_players_cmd.len] | "		//Heads
-	msg += "ENG [tracked_players_eng.len] | "		//Engi
-	msg += "SEC [tracked_players_sec.len] | "		//Sec
-	msg += "MED [tracked_players_med.len] | "		//Med
-	msg += "SCI [tracked_players_sci.len] | "		//Research
-	msg += "CRG [tracked_players_crg.len] | "		//Cargo
-	msg += "??? [tracked_players_svc.len]"		//Other
+	msg += "C [tracked_players_cmd.len] | "		//Heads
+	msg += "E [tracked_players_eng.len] | "		//Engi
+	msg += "S [tracked_players_sec.len] | "		//Sec
+	msg += "M [tracked_players_med.len] | "		//Med
+	msg += "N [tracked_players_sci.len] | "		//Research
+	msg += "U [tracked_players_crg.len] | "		//Cargo
+	msg += "? [tracked_players_svc.len]"		//Other
 	msg += "}"
 	..(msg.Join())
 	
-	//sample T:28{H 6|E 3|S 4|M 4|R 5|C 5|O 12}
+	//sample T:28{C 6|E 3|S 4|M 4|N 5|U 5|? 12}
 
 #undef DEBUGLEVEL_FATAL_ONLY
 #undef DEBUGLEVEL_SEVERE

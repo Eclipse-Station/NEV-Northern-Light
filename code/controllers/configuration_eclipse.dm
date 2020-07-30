@@ -26,7 +26,7 @@
 	var/ntdad_enabled = FALSE			//should it be enabled?
 	var/ntdad_debug = 1					//debug the dispatcher
 	var/ntdad_cooldown = 600			//Cooldown between calls
-	var/ntdad_max_oper = 5				//maximum concurrent operations, intended to reduce lag while flushing lists
+	var/ntdad_max_oper = 10				//maximum concurrent operations, intended to reduce lag while flushing lists
 		//role pings
 	var/ntdad_role_command = ""
 	var/ntdad_role_engineering = ""

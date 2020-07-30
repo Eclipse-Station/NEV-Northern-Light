@@ -245,3 +245,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	announcement.announcer = ""
 	if(mainmenu)
 		screen = RCS_MAINMENU
+	
+	//Eclipse edits below - reset everything
+	verifyName = ""
+	verifyRank = ""
+	stampName = ""
