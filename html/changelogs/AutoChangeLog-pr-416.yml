@@ -1,0 +1,5 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - bugfix: Fixed an issue where players could join as a job they weren't whitelisted
+      for, albeit with vagabond-level access.
