@@ -3,9 +3,9 @@
 	name_plural = "Humans"
 	primitive_form = "Monkey"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
-	blurb = "Humanity originated in the Sol system, and over the last five centuries has spread \
+	blurb = "Humanity originated in the Sol system, and over the last two centuries has spread \
 	colonies across a wide swathe of space. They hold a wide range of forms and creeds.<br/><br/> \
-	While the central Sol government maintains control of its far-flung people, powerful corporate \
+	While the central Sol government acts as a United Front for humanity, powerful corporate \
 	interests, rampant cyber and bio-augmentation and secretive factions make life on most human \
 	worlds tumultous at best."
 	num_alternate_languages = 2
@@ -53,11 +53,11 @@
 
 //	economic_modifier = 7
 
-	blurb = "A heavily reptillian species, Unathi hail from the \
-	Uuosa-Eso system, which roughly translates to 'burning mother'.<br/><br/>Coming from a harsh, inhospitable \
-	planet, they mostly hold ideals of honesty, virtue, proficiency and bravery above all \
-	else, frequently even their own lives. They prefer warmer temperatures than most species and \
-	their native tongue is a heavy hissing laungage called Sinta'Unathi."
+	blurb = "A reptillian species from the Uuosa-Eso system that speaks the hissing Sinta'Unathi language \
+	most Unathi are guided by a complex Ethnoreligion called the Unity,, \
+	which stresses perfection of one's craft, honesty and bravery \
+	discovered less then a generation ago by SolGov,\
+	an ensuring war against SolGov over the colony of Abel’s Rest has led to cross-migration between the two powers.  "
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200
@@ -167,11 +167,11 @@
 
 //	economic_modifier = 7
 
-	blurb = "The Tajaran are a mammalian species resembling roughly felines, hailing from Meralar in the Rarkajar system. \
-	While reaching to the stars independently from outside influences, the humans engaged them in peaceful trade contact \
-	and have accelerated the fledgling culture into the interstellar age. Their history is full of war and highly fractious \
-	governments, something that permeates even to today's times. They prefer colder, tundra-like climates, much like their \
-	home worlds and speak a variety of languages, especially Siik and Akhani."
+	blurb = "The Tajaran are a feliform species, from Meralar in the Rarkajar system \
+	with a rich cultural history influenced by three great ethnic groups \
+	the Hharar who are the most populous and with noble lineages. The great explorers of the Njarir'Akhan and the barbarians of the Zhan-Khazan. \
+	Unlike many other species, the Tajaran homeworld is still not fully united and \
+	even now Tajara speak a variety of languages, including Siik and Akhani."
 
 	body_temperature = 320.15	//Even more cold resistant, even more flammable
 
@@ -234,11 +234,11 @@
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch)
-	blurb = "An amphibious species, Skrell come from the star system known as Qerr'Vallis, which translates to 'Star of \
-	the royals' or 'Light of the Crown'.<br/><br/>Skrell are a highly advanced and logical race who live under the rule \
-	of the Qerr'Katish, a caste within their society which keeps the empire of the Skrell running smoothly. Skrell are \
-	herbivores on the whole and tend to be co-operative with the other species of the galaxy, although they rarely reveal \
-	the secrets of their empire to their allies."
+	blurb = "n amphibious herbivore species, Skrell come from the Qerr'Vallis system, Skrell Society is very rigid and regimental \
+	with a focus on knowlege and defined by an all encompassing caste system, with rulers, builders, scientists, artists and warriors. \
+	The Skrell city-states are also close allies with humantiy and the Sol Central Government \
+	though there remains a great tension over the regimented nature of Skrell society \
+	and the refusal of the Skrell to reveal their secrets."
 	num_alternate_languages = 3
 	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_SCHECHI)
 	name_language = LANGUAGE_SKRELLIAN

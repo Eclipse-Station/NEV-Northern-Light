@@ -249,11 +249,11 @@
 	color_mult = 1
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
 
-	blurb = "Vulpkanin (Commonly called Vulps or Vulpa for short) are a race of Canids from the planet of Altam in the Binary Vazzend system. \
-	Vulpkanin have a long history of religious and philosophical conflicts, ended by the current government the Vulpkanin nation,\
-	 an isolationist nation led by the ideas of utilitarianism with harsh criminal policies,\
-	including the generational exile of criminal and dissidents. However, a close working relationship with NanoTrasen means that while most Vulp characters are descendants or exiles\
-	themselves from Vulpkanin Space, some characters are citizens of the Vulp nation."
+	blurb = "Vulpkanin are a race of Canid-likes from the Vazzend system with a long history of. \
+	of religious and philosophical conflicts, ended by the current unifiying body, the Vulpkanin Nation \
+	an isolationist and totalitarian stellar state led by  ideas similar to Utilitarianism and with harsh criminal policies,\
+	including the generational exile of criminals and dissidents. Meaning there is a large exodus of Vulpkanins to foreign space\
+	though there remains a small community of temporary expats, still loyal to their home."
 
 	primitive_form = "Wolpin"
 
