@@ -1,0 +1,4 @@
+author: drexample
+delete-after: true
+changes:
+  - bugfix: mirc will now properly display boxer recipe
