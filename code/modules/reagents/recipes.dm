@@ -1827,7 +1827,9 @@
 
 /datum/chemical_reaction/noexcutite
 	result = "noexcutite"
-	required_reagents = list("oxycodone" = 1, "anti_toxin" = 1)
+	required_reagents = list("tramadol" = 1, "anti_toxin" = 1)
+	maximum_temperature = 150
+	minimum_temperature = 120
 	result_amount = 2
 
 /datum/chemical_reaction/violence
