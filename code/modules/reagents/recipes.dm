@@ -1853,13 +1853,8 @@
 
 /datum/chemical_reaction/boxer
 	result = "boxer"
-<<<<<<< HEAD
-	required_reagents = list("bouncer" = 2, "phoron" = 1, "amatoxin" = 2)
-	result_amount = 5
-=======
 	required_reagents = list("bouncer" = 1, "starkellin" = 1, "toxin" = 1)
 	result_amount = 3
->>>>>>> b824a41... Update recipes.dm (#5148)
 	maximum_temperature = 328
 	minimum_temperature = 323
 
