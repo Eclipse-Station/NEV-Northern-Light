@@ -32,11 +32,11 @@ You do not recieve a salary, but the local Union funds are yours to use. You may
 <br>\
 Things to bear in mind:<br>\
 	-Nobody has a right to free stuff. You are well within your rights to charge for anything you distribute, and you won't make a penny if you don't.<br>\
-	-CEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
+	-NEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
 	-Loyalty is a priceless resource, yet cheap to maintain. Don't screw over the miners and technicians working under you. <br>\
 	-Charity is a weapon. Used correctly, it can do wonders for your public image.  A few gifts spread around makes for good returning customers"
 	perks = list(/datum/perk/merchant, /datum/perk/deep_connection)
-	
+
 	duties = "Keep the crew supplied with anything they might need, at a healthy profit to you of course<br>\
 Buy up valueable items from scavengers, and make a profit reselling them<br>\
 Deploy your mining staff to harvest matter and materials<br>\
