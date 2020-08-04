@@ -249,10 +249,10 @@
 	color_mult = 1
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
 
-	blurb = "Vulpkanin are a race of Canid-likes from the Vazzend system with a long history of. \
-	of religious and philosophical conflicts, ended by the current unifiying body, the Vulpkanin Nation \
-	an isolationist and totalitarian stellar state led by  ideas similar to Utilitarianism and with harsh criminal policies,\
-	including the generational exile of criminals and dissidents. Meaning there is a large exodus of Vulpkanins to foreign space\
+	blurb = "Vulpkanin are a race of Canid-likes from the Vazzend system with a long history of \
+	religious and philosophical conflicts ended by the current unifying body, the Vulpkanin Nation. \
+	Their nation is an isolationist and totalitarian state led by ideas similar to Utilitarianism and with harsh criminal policies,\
+	including the generational exile of criminals and dissidents. Meaning there is a large exodus of Vulpkanins to foreign space \
 	though there remains a small community of temporary expats, still loyal to their home."
 
 	primitive_form = "Wolpin"
