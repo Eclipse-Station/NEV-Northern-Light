@@ -1,6 +1,0 @@
-author: Chatter42
-delete-after: true
-changes:
-  - rscadd: wearing a space suit will prevent trash piles from cutting your hands
-  - bugfix: trash piles will correctly cut your hands instead of your arms when you
-      are digging through them
