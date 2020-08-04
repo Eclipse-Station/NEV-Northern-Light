@@ -53,11 +53,11 @@
 
 //	economic_modifier = 7
 
-	blurb = "A reptillian species from the Uuosa-Eso system that speaks the hissing Sinta'Unathi language \
-	most Unathi are guided by a complex Ethnoreligion called the Unity,, \
-	which stresses perfection of one's craft, honesty and bravery \
-	discovered less then a generation ago by SolGov,\
-	an ensuring war against SolGov over the colony of Abel’s Rest has led to cross-migration between the two powers.  "
+	blurb = "A reptilian species from the Uuosa-Eso system that speaks the hissing Sinta'Unathi language. \
+	Most Unathi are guided by a complex Ethnoreligion called the Unity,\
+	which stresses honesty, bravery, and the perfection of one's craft. \
+	Discovered less then a generation ago by SolGov,\
+	an ensuring war against SolGov by the Unathi over the colony of Abel’s Rest has led to cross-migration between the two powers."
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200
@@ -167,10 +167,10 @@
 
 //	economic_modifier = 7
 
-	blurb = "The Tajaran are a feliform species, from Meralar in the Rarkajar system \
-	with a rich cultural history influenced by three great ethnic groups \
-	the Hharar who are the most populous and with noble lineages. The great explorers of the Njarir'Akhan and the barbarians of the Zhan-Khazan. \
-	Unlike many other species, the Tajaran homeworld is still not fully united and \
+	blurb = "The Tajaran are a feliform species from Meralar in the Rarkajar system. \
+	They have a rich cultural history influenced by three predominant ethnic groups. \
+	the Hharar who are the most populous and with noble lineages, The great explorers of the Njarir'Akhan, and the barbarians of the Zhan-Khazan. \
+	Unlike many other species, the Tajaran homeworld is still not fully united and  \
 	even now Tajara speak a variety of languages, including Siik and Akhani."
 
 	body_temperature = 320.15	//Even more cold resistant, even more flammable
