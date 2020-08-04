@@ -114,8 +114,6 @@
 	name = "leather shoes"
 	desc = "A sturdy pair of leather shoes."
 	icon_state = "leather"
-<<<<<<< HEAD
-=======
 
 /obj/item/clothing/shoes/german
 	name = "Oberth Republic boots"
@@ -124,5 +122,3 @@
 	force = WEAPON_FORCE_HARMLESS //to be in line with jackboots
 	siemens_coefficient = 0.6
 	can_hold_knife = TRUE
-
->>>>>>> 9b0f55e... german boots same as jackboots (#5183)
