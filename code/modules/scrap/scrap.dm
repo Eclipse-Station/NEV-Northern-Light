@@ -242,7 +242,9 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 			return FALSE
 		if(victim.gloves && prob(90))
 			return FALSE
-		var/obj/item/organ/external/BP = victim.get_organ(victim.hand ? BP_L_ARM : BP_R_ARM)
+		if(victim.wear_suit && istype(victim.wear_suit, /obj/item/clothing/suit/space)) //Eclipse edit: if getting cut through the spacesuit doesn't somehow depressurize it, then it should not cut you at all
+			return
+		var/obj/item/organ/external/BP = victim.get_organ(victim.hand ? BP_L_HAND : BP_R_HAND) //Eclipse edit: changed these to hands instead of arms because Eris doesn't have hands and we do
 		if(!BP)
 			return FALSE
 		if(BP_IS_ROBOTIC(BP))
