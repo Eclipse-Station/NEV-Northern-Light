@@ -2650,6 +2650,10 @@
 	nutriment_amt = 10
 	bitesize = 2
 	preloaded_reagents = list("protein" = 34, "tomatojuice" = 6)
+<<<<<<< HEAD
+=======
+	taste_tag = list(MEAT_FOOD, CHEESE_FOOD)
+>>>>>>> 441c6df... fix sanity ui (#5292)
 
 /obj/item/weapon/reagent_containers/food/snacks/meatpizzaslice
 	name = "Meatpizza slice"
@@ -2660,6 +2664,10 @@
 	center_of_mass = list("x"=18, "y"=13)
 	preloaded_reagents = list("protein" = 7, "tomatojuice" = 1)
 	cooked = TRUE
+<<<<<<< HEAD
+=======
+	taste_tag = list(MEAT_FOOD, CHEESE_FOOD)
+>>>>>>> 441c6df... fix sanity ui (#5292)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
 	name = "Mushroompizza"
@@ -2672,6 +2680,10 @@
 	nutriment_amt = 35
 	bitesize = 2
 	preloaded_reagents = list("protein" = 5)
+<<<<<<< HEAD
+=======
+	taste_tag = list(CHEESE_FOOD, CHEESE_FOOD)
+>>>>>>> 441c6df... fix sanity ui (#5292)
 
 /obj/item/weapon/reagent_containers/food/snacks/mushroompizzaslice
 	name = "Mushroompizza slice"
@@ -2682,6 +2694,10 @@
 	center_of_mass = list("x"=18, "y"=13)
 	preloaded_reagents = list("nutriment" = 5, "protein" = 1)
 	cooked = TRUE
+<<<<<<< HEAD
+=======
+	taste_tag = list(CHEESE_FOOD, CHEESE_FOOD)
+>>>>>>> 441c6df... fix sanity ui (#5292)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
 	name = "Vegetable pizza"
@@ -2694,6 +2710,10 @@
 	nutriment_amt = 25
 	bitesize = 2
 	preloaded_reagents = list("protein" = 5, "tomatojuice" = 6, "imidazoline" = 12)
+<<<<<<< HEAD
+=======
+	taste_tag = list(VEGETARIAN_FOOD, CHEESE_FOOD)
+>>>>>>> 441c6df... fix sanity ui (#5292)
 
 /obj/item/weapon/reagent_containers/food/snacks/vegetablepizzaslice
 	name = "Vegetable pizza slice"
@@ -2704,6 +2724,10 @@
 	center_of_mass = list("x"=18, "y"=13)
 	preloaded_reagents = list("nutriment" = 4, "protein" = 1, "tomatojuice" = 1, "imidazoline" = 2)
 	cooked = TRUE
+<<<<<<< HEAD
+=======
+	taste_tag = list(VEGETARIAN_FOOD, CHEESE_FOOD)
+>>>>>>> 441c6df... fix sanity ui (#5292)
 
 /obj/item/pizzabox
 	name = "pizza box"

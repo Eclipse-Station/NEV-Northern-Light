@@ -1014,6 +1014,40 @@ var/list/rank_prefix = list(\
 					if(organ.setBleeding())
 						src.adjustToxLoss(rand(1,3))
 
+<<<<<<< HEAD
+=======
+/mob/living/carbon/human/verb/browse_sanity()
+	set name		= "Show sanity"
+	set desc		= "Browse your character sanity."
+	set category	= "IC"
+	set src			= usr
+	ui_interact(src)
+
+/mob/living/carbon/human/ui_data()
+	var/list/data = list()
+
+	data["style"] = get_total_style()
+	data["min_style"] = MIN_HUMAN_SYLE
+	data["max_style"] = MAX_HUMAN_STYLE
+	data["sanity"] = sanity.level
+	data["sanity_max_level"] = sanity.max_level
+	data["insight"] = sanity.insight
+	data["desires"] = sanity.desires
+	data["rest"] = sanity.resting
+	data["insight_rest"] = sanity.insight_rest
+	return data
+
+/mob/living/carbon/human/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
+	var/list/data = ui_data()
+
+	ui = SSnano.try_update_ui(user, user, ui_key, ui, data, force_open)
+	if(!ui)
+		ui = new(user, src, ui_key, "sanity.tmpl", name, 650, 550, state = state)
+		ui.auto_update_layout = 1
+		ui.set_initial_data(data)
+		ui.open()
+
+>>>>>>> 441c6df... fix sanity ui (#5292)
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
 	set name = "Check pulse"
