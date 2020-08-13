@@ -101,6 +101,7 @@
 	desc = "Insendiary ammunition for shotguns"
 	build_path = /obj/item/ammo_casing/shotgun/incendiary/prespawned
 	sort_string = "TAACF"
+<<<<<<< HEAD
 
 
 //Upgrades
@@ -115,3 +116,5 @@
 /datum/design/research/item/weapon_upgrade/overheat
 	name = "NanoTrasen \"Caster\" magnetic overheat barrel"
 	build_path = /obj/item/weapon/gun_upgrade/barrel/overheat
+=======
+>>>>>>> 8fd00b7... Adding of tool and gun mods and mind swapper in RND (#5134)

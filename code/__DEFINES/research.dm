@@ -49,3 +49,8 @@
 #define CAT_MODCOMP     "Modular Computers"
 #define CAT_CIRCUITS    "Circuits"
 #define CAT_MEDI        "Medical"
+<<<<<<< HEAD
+=======
+#define CAT_TOOLMODS    "Toolmods"
+#define CAT_GUNMODS     "Gunmods"
+>>>>>>> 8fd00b7... Adding of tool and gun mods and mind swapper in RND (#5134)
