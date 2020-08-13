@@ -348,6 +348,171 @@
 	..()
 
 
+<<<<<<< HEAD
+=======
+/datum/breakdown/common/power_hungry
+	name = "Power Hungry"
+	duration = 15 MINUTES
+	insight_reward = 20
+	restore_sanity_post = 80
+
+	start_messages = list("You think this doesn’t feel real... But reality hurts! Ensure that you will feel again!")
+	end_messages = list("You feel alive again.")
+	var/message_time = 0
+	var/messages = list("You want to receive an electric shock.",
+						"How does it feel to control the power of lightning? let's find out.",
+						"More, more, more, more you want more power. Take it in your hands.",
+						"Electricity belongs to everyone, why does machinery grab it?")
+
+/datum/breakdown/common/power_hungry/can_occur()
+	if(holder.owner.species.siemens_coefficient > 0)
+		return TRUE
+	return FALSE
+
+/datum/breakdown/common/power_hungry/occur()
+	RegisterSignal(holder.owner, COMSIG_CARBON_ELECTROCTE, .proc/check_shock)
+	RegisterSignal(holder.owner, COMSIG_LIVING_STUN_EFFECT, .proc/check_shock)
+	return ..()
+
+/datum/breakdown/common/power_hungry/update()
+	. = ..()
+	if(!.)
+		return FALSE
+	if(world.time >= message_time)
+		message_time = world.time + BREAKDOWN_ALERT_COOLDOWN
+		to_chat(holder.owner, SPAN_NOTICE(pick(messages)))
+
+/datum/breakdown/common/power_hungry/conclude()
+	UnregisterSignal(holder.owner, COMSIG_CARBON_ELECTROCTE)
+	UnregisterSignal(holder.owner, COMSIG_LIVING_STUN_EFFECT)
+	..()
+
+/datum/breakdown/common/power_hungry/proc/check_shock()
+	finished = TRUE
+
+
+/datum/breakdown/negative/glassification
+	name = "Glassification"
+	duration = 2 MINUTES
+	restore_sanity_post = 40
+	var/time
+	var/cooldown = 20 SECONDS
+	var/time_view = 1 SECONDS
+	var/active_view = FALSE
+	var/mob/living/carbon/human/target
+	start_messages = list("You start to see through everything. Your mind expands.")
+	end_messages = list("The world has returned to normal ... right?")
+
+/datum/breakdown/negative/glassification/can_occur()
+	var/list/candidates = (GLOB.player_list & GLOB.living_mob_list & GLOB.human_mob_list) - holder.owner
+	if(candidates.len)
+		return TRUE
+	return FALSE
+
+/datum/breakdown/negative/glassification/update()
+	if(world.time < time)
+		return TRUE
+	if(active_view)
+		holder.owner.remoteviewer = FALSE
+		holder.owner.remoteview_target = null
+		holder.owner.reset_view(0)
+		target.remoteviewer = FALSE
+		target.remoteview_target = null
+		target.reset_view(0)
+		target = null
+		active_view = FALSE
+		time = world.time + cooldown
+		return TRUE
+	. = ..()
+	if(!.)
+		return FALSE
+	var/list/targets = (GLOB.player_list & GLOB.living_mob_list & GLOB.human_mob_list) - holder.owner
+	if(targets.len)
+		target = pick(targets)
+		holder.owner.remoteviewer = TRUE
+		holder.owner.remoteview_target = target
+		holder.owner.reset_view(target)
+		to_chat(holder.owner, SPAN_WARNING("It seems as if you are looking through someone else's eyes."))
+		to_chat(target, SPAN_WARNING("It seems as if you are looking through someone else's eyes."))
+		target.remoteviewer = TRUE
+		target.remoteview_target = holder.owner
+		target.reset_view(holder.owner)
+		target.sanity.changeLevel(-rand(5,10))
+		active_view = TRUE
+		time = world.time + time_view
+
+/datum/breakdown/common/herald
+	name = "Herald"
+	restore_sanity_pre = 5
+	restore_sanity_post = 45
+	duration = 5 MINUTES
+	start_messages = list("You've seen the abyss too long, and now forbidden knowledge haunts you.")
+	end_messages = list("You feel like you've forgotten something important. But this comforts you.")
+	var/message_time = 0
+	var/cooldown_message = 10 SECONDS
+
+
+/datum/breakdown/common/herald/update()
+	. = ..()
+	if(!.)
+		return FALSE
+	if(world.time >= message_time)
+		message_time = world.time + cooldown_message
+		var/chance = rand(1, 100)
+		holder.owner.say(chance <= 50 ? "[holder.pick_quote_20()]" : "[holder.pick_quote_40()]")
+
+/datum/breakdown/common/desire_for_chrome
+	name = "Desire for Chrome"
+	insight_reward = 30
+	restore_sanity_post = 60
+	start_messages = list("Flesh is weak, you are disgusted by the weakness of your own body.")
+	end_messages = list("Nothing like a mechanical upgrade to feel like new.")
+
+
+/datum/breakdown/common/desire_for_chrome/can_occur()
+	for(var/obj/item/organ/external/Ex in holder.owner.organs)
+		if(!BP_IS_ROBOTIC(Ex))
+			return TRUE
+	return FALSE
+
+/datum/breakdown/common/desire_for_chrome/occur()
+	RegisterSignal(holder.owner, COMSIG_HUMAN_ROBOTIC_MODIFICATION, .proc/check_organ)
+	return ..()
+
+/datum/breakdown/common/desire_for_chrome/conclude()
+	UnregisterSignal(holder.owner, COMSIG_HUMAN_ROBOTIC_MODIFICATION)
+	..()
+
+/datum/breakdown/common/desire_for_chrome/proc/check_organ()
+	finished = TRUE
+
+
+/datum/breakdown/common/false_nostalgy
+	name = "False Nostalgy"
+	duration = 10 MINUTES
+	insight_reward = 10
+	restore_sanity_post = 50
+	var/message_time = 0
+	var/area/target
+	var/messages
+	end_messages = list("Just like you remembered it.")
+
+/datum/breakdown/common/false_nostalgy/occur()
+	var/list/candidates = ship_areas.Copy()
+	message_time = world.time + BREAKDOWN_ALERT_COOLDOWN
+	for(var/area/A in candidates)
+		if(A.is_maintenance)
+			candidates -= A
+			continue
+	target = pick(candidates)
+	messages = list("Remember your last time in [target], those were the days",
+					"You feel like you’re drawn to [target] because you were always happy there. Right..?",
+					"When you are in [target] you feel like home... You want to feel like home.",
+					"[target] reminds you of the hunt.")
+
+	to_chat(holder.owner, SPAN_NOTICE(pick(messages)))
+	return ..()
+>>>>>>> fc80fce... nerffs glass breakdown (#5306)
 
 #define OBSESSION_COOLDOWN rand(30 SECONDS, 120 SECONDS)
 
