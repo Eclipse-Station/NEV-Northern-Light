@@ -1,6 +1,11 @@
 /obj/item/weapon/gun/energy/plasma
 	name = "NT PR \"Dominion\""
+<<<<<<< HEAD
 	desc = "A \"NanoTrasen\" weapon that uses advanced plasma generation technology to emit highly controllable blasts of energized matter. Due to its complexity and cost, it is rarely seen in use, except by specialists."
+=======
+	desc = "A \"NeoTheology\" weapon that uses advanced plasma generation technology to emit highly controllable blasts of energized matter. Due to its complexity and cost, it is rarely seen in use, except by specialists."
+	description_info = "Plasma weapons excel at armor penetration, especially with high-power modes due to extreme temperatures they cause."
+>>>>>>> 22723db... Make plasma weapon descriptions obvious (#5282)
 	icon = 'icons/obj/guns/energy/pulse.dmi'
 	icon_state = "pulse"
 	item_state = null	//so the human update icon uses the icon_state instead.
