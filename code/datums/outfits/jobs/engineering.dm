@@ -23,11 +23,16 @@
 	pda_type = /obj/item/modular_computer/pda/heads/ce
 
 /decl/hierarchy/outfit/job/engineering/engineer
+<<<<<<< HEAD
 	name = OUTFIT_JOB_NAME("Engineer")
 	head = /obj/item/clothing/head/hardhat
+=======
+	name = OUTFIT_JOB_NAME("Technomancer")
+	head = /obj/item/clothing/head/armor/helmet/technomancer
+>>>>>>> 7870069...  Give technomancer loadout a proper helmet (#5295)
 	uniform = /obj/item/clothing/under/rank/engineer
 	suit = /obj/item/clothing/suit/storage/vest/insulated
-	head = /obj/item/clothing/head/hardhat
+	head = /obj/item/clothing/head/armor/helmet/technomancer
 	id_type = /obj/item/weapon/card/id/engie
 	pda_type = /obj/item/modular_computer/pda/engineering
 
