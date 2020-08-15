@@ -141,6 +141,11 @@
 	name = "pirate bandana"
 	desc = "Yarr."
 	icon_state = "bandana"
+<<<<<<< HEAD
+=======
+	flags_inv = BLOCKHAIR
+	style = 1
+>>>>>>> e875c10... bandanas now are properly shown (#5327)
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
