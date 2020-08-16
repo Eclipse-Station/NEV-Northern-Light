@@ -141,6 +141,11 @@
 	name = "pirate bandana"
 	desc = "Yarr."
 	icon_state = "bandana"
+<<<<<<< HEAD
+=======
+	flags_inv = BLOCKHEADHAIR
+	style = 1
+>>>>>>> bd0d8b8... Quick Fix (#5339)
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
