@@ -365,7 +365,12 @@
 				/obj/item/clothing/shoes/jackboots = 14,
 				/obj/item/clothing/shoes/leather = 14,
 				/obj/item/clothing/shoes/reinforced = 14,
+<<<<<<< HEAD
 				/obj/item/clothing/shoes/workboots = 4))
+=======
+				/obj/item/clothing/shoes/workboots = 4,
+				/obj/item/clothing/shoes/jackboots/german = 3))
+>>>>>>> e3faec5... Datum armor and prosthetic protection (#5328)
 
 /obj/random/cloth/shoes/low_chance
 	name = "low chance random shoes"

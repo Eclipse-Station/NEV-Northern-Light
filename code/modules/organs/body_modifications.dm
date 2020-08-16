@@ -145,6 +145,7 @@ var/global/list/modifications_types = list(
 /datum/body_modification/limb/prosthesis/get_mob_icon(organ, color, gender, species)
 	return new/icon(icon, "[organ][gender == FEMALE ? "_f" : "_m"]")
 
+<<<<<<< HEAD
 /datum/body_modification/limb/prosthesis/bishop
 	id = "prosthesis_bishop"
 	replace_limb = /obj/item/organ/external/robotic
@@ -176,6 +177,27 @@ var/global/list/modifications_types = list(
 	name = "Xion"
 	desc = "Prosthesis with minimalist black and red casing."
 	prosthetic_model = "xion"
+=======
+/datum/body_modification/limb/prosthesis/asters
+	id = "prosthesis_asters"
+	replace_limb = /obj/item/organ/external/robotic/asters
+	icon = 'icons/mob/human_races/cyberlimbs/asters.dmi'
+
+/datum/body_modification/limb/prosthesis/serbian
+	id = "prosthesis_serbian"
+	replace_limb = /obj/item/organ/external/robotic/serbian
+	icon = 'icons/mob/human_races/cyberlimbs/serbian.dmi'
+
+/datum/body_modification/limb/prosthesis/frozen_star
+	id = "prosthesis_frozen_star"
+	replace_limb = /obj/item/organ/external/robotic/frozen_star
+	icon = 'icons/mob/human_races/cyberlimbs/frozen_star.dmi'
+
+/datum/body_modification/limb/prosthesis/technomancer
+	id = "prosthesis_technomancer"
+	replace_limb = /obj/item/organ/external/robotic/technomancer
+	icon = 'icons/mob/human_races/cyberlimbs/technomancer.dmi'
+>>>>>>> e3faec5... Datum armor and prosthetic protection (#5328)
 
 /datum/body_modification/limb/mutation/New()
 	short_name = "M: [name]"

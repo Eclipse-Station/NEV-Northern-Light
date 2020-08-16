@@ -105,13 +105,14 @@
 
 /obj/item/clothing/ui_data()
 	var/list/data = list()
-	if(armor.len)
+	var/list/armorlist = armor.getList()
+	if(armorlist.len)
 		var/list/armor_vals = list()
-		for(var/i in armor)
-			if(armor[i])
+		for(var/i in armorlist)
+			if(armorlist[i])
 				armor_vals += list(list(
 					"name" = i,
-					"value" = armor[i]
+					"value" = armorlist[i]
 					))
 		data["armor_info"] = armor_vals
 	if(body_parts_covered)
@@ -257,7 +258,12 @@ BLIND     // can't see anything
 	siemens_coefficient = 0.75
 	var/wired = 0
 	var/clipped = 0
+<<<<<<< HEAD
 	body_parts_covered = HANDS
+=======
+	body_parts_covered = ARMS
+	armor = list(melee = 10, bullet = 0, energy = 15, bomb = 0, bio = 0, rad = 0)
+>>>>>>> e3faec5... Datum armor and prosthetic protection (#5328)
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
 
@@ -401,6 +407,7 @@ BLIND     // can't see anything
 	var/noslip = 0
 	var/module_inside = 0
 
+	armor = list(melee = 10, bullet = 0, energy = 10, bomb = 0, bio = 0, rad = 0)
 	permeability_coefficient = 0.50
 	slowdown = SHOES_SLOWDOWN
 	force = 2
