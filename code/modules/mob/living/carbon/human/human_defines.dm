@@ -79,6 +79,10 @@
 	var/flapping = 0
 
 	var/mob/remoteview_target = null
+<<<<<<< HEAD
+=======
+	var/remoteviewer = FALSE //Acts as an override for remoteview_target viewing, see human/life.dm: handle_vision()
+>>>>>>> bade224... Glassification breakdown now no longer hijacks both peoples views, unless the receiver is below a sanity threshold. (#5332)
 	var/hand_blood_color
 
 	var/gunshot_residue

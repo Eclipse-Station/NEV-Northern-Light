@@ -1134,6 +1134,16 @@ var/list/rank_prefix = list(\
 
 	status_flags |= REBUILDING_ORGANS
 
+<<<<<<< HEAD
+=======
+	var/obj/item/organ/internal/carrion/core = internal_organs_by_name[BP_SPCORE]
+	var/list/organs_to_readd = list()
+	if(core) //kinda wack, this whole proc should be remade
+		for(var/obj/item/organ/internal/carrion/C in internal_organs)
+			C.removed_mob()
+			organs_to_readd += C
+
+>>>>>>> bade224... Glassification breakdown now no longer hijacks both peoples views, unless the receiver is below a sanity threshold. (#5332)
 	for(var/obj/item/organ/organ in (organs|internal_organs))
 		qdel(organ)
 
@@ -1553,3 +1563,7 @@ var/list/rank_prefix = list(\
 		return TRUE
 	else
 		return FALSE
+
+/mob/living/carbon/human/proc/set_remoteview(var/atom/A)
+	remoteview_target = A
+	reset_view(A)
