@@ -31,8 +31,13 @@
 
 /obj/item/robot_parts/robot_component/armour/exosuit/em
 	name = "EM-shielded exosuit armor plating"
+<<<<<<< HEAD
 	desc = "A shielded plating that surrounds the eletronics and protects them from electromagnetic radiation."
 	armor = list(melee = 65, bullet = 20, laser = 25, energy = 100, bomb = 10, bio = 100, rad = 60)
+=======
+	desc = "A shielded plating that surrounds the electronics and protects them from electromagnetic radiation."
+	armor = list(melee = 65, bullet = 20, energy = 100, bomb = 10, bio = 100, rad = 60)
+>>>>>>> 72fe439... Languagefixes2 (#5336)
 	origin_tech = list(TECH_MATERIAL = 3)
 	matter = list(MATERIAL_STEEL = 12)
 
