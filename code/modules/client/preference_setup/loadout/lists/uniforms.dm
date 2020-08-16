@@ -121,6 +121,34 @@
 	)
 	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
 
+<<<<<<< HEAD
+=======
+/datum/gear/uniform/neon
+	display_name = "neon tracksuits, color presets"
+	path = /obj/item/clothing/under/neon
+
+/datum/gear/uniform/neon/New()
+	..()
+	var/neon = list(
+		"green"			=	/obj/item/clothing/under/neon,
+		"yellow"			=	/obj/item/clothing/under/neon/yellow,
+		"blue"	=	/obj/item/clothing/under/neon/blue,
+		"red" = /obj/item/clothing/under/neon/red
+	)
+	gear_tweaks += new /datum/gear_tweak/path(neon)
+
+/datum/gear/uniform/cyber
+	display_name = "augmented jumpsuit"
+	path = /obj/item/clothing/under/cyber
+
+/datum/gear/uniform/jersey
+	display_name = "revealing jersey"
+	path = /obj/item/clothing/under/jersey
+
+
+
+
+>>>>>>> a6cc30d... Adds two new jumpsuits to the loadout (#5330)
 /*/datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP's dress"
 	path = /obj/item/clothing/under/dress/dress_hop
