@@ -34,6 +34,7 @@ The module base code is held in module.dm
 	var/datum/mind/host_mind
 	var/host_age
 	var/host_flavor_text
+	var/host_stats
 	var/list/host_languages = list()
 	var/host_name
 
@@ -86,6 +87,7 @@ The module base code is held in module.dm
 		host_flavor_text = wearer.flavor_text
 		has_stored_info = TRUE
 		host_name = wearer.dna.real_name
+		host_stats = wearer.stats
 		store_host_languages()
 	stat = SOULCRYPT_ONLINE
 	if(!wearer.mind) //We're in a blank body.
