@@ -1,6 +1,6 @@
 /obj/item/weapon/complicator
 	name = "Reality Complicator"
-	desc = "Weird device of unknown origin. It can be activated and  have a cooldown of 30 minutes."
+	desc = "An enigmatic device found by first expeditors in the Null sector. You feel like pressing the button is a bad idea."
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "complicator"
 	item_state = "complicator"
