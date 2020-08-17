@@ -33,6 +33,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	var/list/ways = list("pokes around in", "searches", "scours", "digs through", "rummages through", "goes through","picks through")
 	var/beacon = FALSE // If this junk pile is getting pulled by the junk beacon or not.
 	sanity_damage = 0.1
+	var/rare_item_chance = 70
+	var/rare_item = FALSE
 
 /obj/structure/scrap/proc/make_cube()
 	var/obj/container = new /obj/structure/scrap_cube(loc, loot_max)
@@ -117,6 +119,11 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	for(var/obj/item/loot in contents)
 		if(prob(66))
 			loot.make_old()
+		if(istype(loot, /obj/item/weapon/reagent_containers/food/snacks))
+			var/obj/item/weapon/reagent_containers/food/snacks/S = loot
+			S.junk_food = TRUE
+			if(prob(20))
+				S.reagents.add_reagent("toxin", rand(2, 15))
 
 	loot = new(src)
 	loot.max_w_class = ITEM_SIZE_HUGE
@@ -235,7 +242,9 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 			return FALSE
 		if(victim.gloves && prob(90))
 			return FALSE
-		var/obj/item/organ/external/BP = victim.get_organ(victim.hand ? BP_L_ARM : BP_R_ARM)
+		if(victim.wear_suit && istype(victim.wear_suit, /obj/item/clothing/suit/space)) //Eclipse edit: if getting cut through the spacesuit doesn't somehow depressurize it, then it should not cut you at all
+			return
+		var/obj/item/organ/external/BP = victim.get_organ(victim.hand ? BP_L_HAND : BP_R_HAND) //Eclipse edit: changed these to hands instead of arms because Eris doesn't have hands and we do
 		if(!BP)
 			return FALSE
 		if(BP_IS_ROBOTIC(BP))
@@ -291,13 +300,21 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		visible_message("<span class='notice'>\A hidden [big_item] is uncovered from beneath the [src]!</span>")
 		big_item.forceMove(get_turf(src))
 		big_item = null
+	else if(rare_item && prob(rare_item_chance))
+		var/obj/O = pickweight(RANDOM_RARE_ITEM - /obj/item/stash_spawner)
+		O = new O(get_turf(src))
+		visible_message("<span class='notice'>\A hidden [O] is uncovered from beneath the [src]!</span>")
 	qdel(src)
 
-/obj/structure/scrap/attackby(obj/item/W, mob/user)
+/obj/structure/scrap/attackby(obj/item/W, mob/living/carbon/human/user)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	if((W.has_quality(QUALITY_SHOVELING)) && W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SHOVELING, FAILCHANCE_VERY_EASY, required_stat = STAT_ROB, forced_sound = "rummage"))
 		user.visible_message(SPAN_NOTICE("[user] [pick(ways)] \the [src]."))
 		user.do_attack_animation(src)
+		if(user.stats.getPerk(PERK_JUNKBORN))
+			rare_item = TRUE
+		else
+			rare_item = FALSE
 		dig_out_lump(user.loc, 0)
 		shuffle_loot()
 		clear_if_empty()

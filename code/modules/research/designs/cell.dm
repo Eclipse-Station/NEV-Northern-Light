@@ -47,7 +47,7 @@
 	sort_string = "DAAAO"
 
 /datum/design/research/item/powercell/medium/hyper
-	name = "Moebius \"Power-Geyser 1300M\""
+	name = "\"Power-Geyser 1300M\""
 	build_path = /obj/item/weapon/cell/medium/moebius/hyper
 	sort_string = "DAAAP"
 

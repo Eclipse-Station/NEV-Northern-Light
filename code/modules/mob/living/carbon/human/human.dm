@@ -107,7 +107,7 @@
 	var/shielded = 0
 	var/b_loss = null
 	var/f_loss = null
-	var/bomb_defense = getarmor(null, ARMOR_BOMB)
+	var/bomb_defense = getarmor(null, ARMOR_BOMB) + mob_bomb_defense
 	switch (severity)
 		if (1.0)
 			b_loss += 500
@@ -254,10 +254,18 @@ var/list/rank_prefix = list(\
 	)
 
 /mob/living/carbon/human/proc/rank_prefix_name(name)
+// // // BEGIN ECLIPSE EDITS // // //
+	var/no_space = TRUE		//is there no space in the name? Defaults to true unless we find a space
 	if(get_id_rank())
 		if(findtext(name, " "))
 			name = copytext(name, findtext(name, " "))
-		name = get_id_rank() + name
+			no_space = FALSE
+		
+		if(!no_space)		//if the name had a space (forename and surname), we don't need to do anything special
+			name = get_id_rank() + name
+		else				//If the name did not have a space (single-barrel name), we need to add a space
+			name = get_id_rank() + " " + name
+// // // END ECLIPSE EDITS // // //
 	return name
 
 //repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a seperate proc as it'll be useful elsewhere
@@ -1090,6 +1098,8 @@ var/list/rank_prefix = list(\
 	species.handle_post_spawn(src)
 
 	maxHealth = species.total_health
+
+	update_client_colour(0)
 
 	spawn(0)
 		regenerate_icons()

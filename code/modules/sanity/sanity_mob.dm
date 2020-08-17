@@ -2,8 +2,10 @@
 
 #define SANITY_DAMAGE_MOD 0.6
 
+#define SANITY_VIEW_DAMAGE_MOD 0.4
+
 // Damage received from unpleasant stuff in view
-#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_DAMAGE_MOD * (1.2 - (vig) / STAT_LEVEL_MAX) * (1 - (dist)/15))
+#define SANITY_DAMAGE_VIEW(damage, vig, dist) ((damage) * SANITY_VIEW_DAMAGE_MOD * (1.2 - (vig) / STAT_LEVEL_MAX) * (1 - (dist)/15))
 
 // Damage received from body damage
 #define SANITY_DAMAGE_HURT(damage, vig) (min((damage) / 5 * SANITY_DAMAGE_MOD * (1.2 - (vig) / STAT_LEVEL_MAX), 60))
@@ -34,6 +36,9 @@
 #define INSIGHT_DESIRE_ALCOHOL "alcohol"
 #define INSIGHT_DESIRE_SMOKING "smoking"
 #define INSIGHT_DESIRE_DRUGS "drugs"
+
+
+#define EAT_COOLDOWN_MESSAGE 15 SECONDS
 
 /datum/sanity
 	var/flags
@@ -68,6 +73,8 @@
 
 	var/list/datum/breakdown/breakdowns = list()
 
+	var/eat_time_message = 0
+
 /datum/sanity/New(mob/living/carbon/human/H)
 	owner = H
 	level = max_level
@@ -99,11 +106,10 @@
 		if(A.sanity_damage) //If this thing is not nice to behold
 			. += SANITY_DAMAGE_VIEW(A.sanity_damage, vig, get_dist(owner, A))
 
-		if(owner.stats.getPerk(PERK_MORALIST) && ishuman(A)) //Moralists react negatively to people in distress
+		if(owner.stats.getPerk(PERK_MORALIST) && istype(A, /mob/living/carbon/human)) //Moralists react negatively to people in distress
 			var/mob/living/carbon/human/H = A
 			if(H.sanity.level < 30 || H.health < 50)
 				. += SANITY_DAMAGE_VIEW(0.1, vig, get_dist(owner, A))
-
 
 /datum/sanity/proc/handle_area()
 	var/area/my_area = get_area(owner)
@@ -120,11 +126,12 @@
 
 /datum/sanity/proc/handle_insight()
 	var/moralist_factor = 1
-	if(owner.stats.getPerk(PERK_MORALIST))
-		for(var/mob/living/carbon/human/H in view(owner))
-			if(H)
-				if(H.sanity.level > 60)
-					moralist_factor += 0.02
+	if(owner)
+		if(owner.stats.getPerk(PERK_MORALIST))
+			for(var/mob/living/carbon/human/H in view(owner))
+				if(H)
+					if(H.sanity.level > 60)
+						moralist_factor += 0.02
 	insight += INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier * moralist_factor
 	while(insight >= 100)
 		to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? null : " Now you need to rest and rethink your life choices."]"))
@@ -228,9 +235,9 @@
 
 /datum/sanity/proc/oddity_stat_up(multiplier)
 	var/list/inspiration_items = list()
-	for(var/obj/item/I in owner.get_contents())
-		if(I.GetComponent(/datum/component/inspiration))
-			inspiration_items += I
+	for(var/O in owner.get_contents())
+		if(is_type_in_list(O, valid_inspirations))
+			inspiration_items += O
 	if(inspiration_items.len)
 		var/obj/item/O = inspiration_items.len > 1 ? owner.client ? input(owner, "Select something to use as inspiration", "Level up") in inspiration_items : pick(inspiration_items) : inspiration_items[1]
 		if(!O)
@@ -251,7 +258,7 @@
 /datum/sanity/proc/onSeeDeath(mob/M)
 	if(ishuman(M))
 		var/penalty = -SANITY_DAMAGE_DEATH(owner.stats.getStat(STAT_VIG))
-		if(owner.stats.getPerk(PERK_NIHILIST))
+		if(M.stats.getPerk(PERK_NIHILIST))
 			var/effect_prob = rand(1, 100)
 			switch(effect_prob)
 				if(1 to 25)
@@ -280,10 +287,13 @@
 	if(resting)
 		add_rest(E.type, 3 * multiplier)
 
-/datum/sanity/proc/onEat(obj/item/weapon/reagent_containers/food/snacks/snack, amount_eaten)
-	changeLevel(snack.sanity_gain * amount_eaten / snack.bitesize)
+/datum/sanity/proc/onEat(obj/item/weapon/reagent_containers/food/snacks/snack, snack_sanity_gain, snack_sanity_message)
+	if(world.time > eat_time_message && snack_sanity_message)
+		eat_time_message = world.time + EAT_COOLDOWN_MESSAGE
+		to_chat(owner, SPAN_NOTICE("[snack_sanity_message]"))
+	changeLevel(snack_sanity_gain)
 	if(snack.cooked && resting)
-		add_rest(snack.type, 20 * amount_eaten / snack.bitesize)
+		add_rest(snack.type, snack_sanity_gain * 45)
 
 /datum/sanity/proc/onSmoke(obj/item/clothing/mask/smokable/S)
 	changeLevel(SANITY_GAIN_SMOKE * S.quality_multiplier)

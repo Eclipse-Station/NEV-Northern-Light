@@ -473,6 +473,11 @@
 	required_reagents = list("silicon" = 1, "hydrazine" = 1, "anti_toxin" = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/mindwipe
+	result = "mindwipe"
+	required_reagents = list("mindbreaker" = 1, "psilocybin" = 1, "sanguinum" = 1 , "anti_toxin" = 1, "ethanol" = 1)
+	result_amount = 5
+
 /datum/chemical_reaction/lipozine
 	result = "lipozine"
 	required_reagents = list("sodiumchloride" = 1, "ethanol" = 1, "radium" = 1)
@@ -1822,7 +1827,9 @@
 
 /datum/chemical_reaction/noexcutite
 	result = "noexcutite"
-	required_reagents = list("oxycodone" = 1, "anti_toxin" = 1)
+	required_reagents = list("tramadol" = 1, "anti_toxin" = 1)
+	maximum_temperature = 150
+	minimum_temperature = 120
 	result_amount = 2
 
 /datum/chemical_reaction/violence
@@ -1848,8 +1855,8 @@
 
 /datum/chemical_reaction/boxer
 	result = "boxer"
-	required_reagents = list("bouncer" = 2, "phoron" = 1, "amatoxin" = 2)
-	result_amount = 5
+	required_reagents = list("bouncer" = 1, "starkellin" = 1, "toxin" = 1)
+	result_amount = 3
 	maximum_temperature = 328
 	minimum_temperature = 323
 

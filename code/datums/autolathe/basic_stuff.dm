@@ -24,7 +24,7 @@
 
 /datum/design/autolathe/misc/radio_bounced
 	name = "station bounced radio"
-	build_path = /obj/item/device/radio/off
+	build_path = /obj/item/device/radio/color		//eclipse edit
 
 /datum/design/autolathe/misc/taperecorder
 	name = "tape recorder"

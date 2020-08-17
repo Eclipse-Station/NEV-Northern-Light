@@ -21,11 +21,11 @@
 					/obj/item/weapon/storage/deferred/crate/uniform_black = 2500,
 					/obj/item/weapon/storage/deferred/crate/uniform_light = 1750,
 					/obj/item/weapon/gun/projectile/boltgun/serbian = 1000,
-					/obj/item/ammo_magazine/ammobox/lrifle_small = 400,
-					/obj/item/weapon/storage/box/gunkits/mk58 = 1700,
-					/obj/item/weapon/storage/box/gunkits/mk58_wood = 2000,
-					/obj/item/weapon/storage/box/gunkits/colt = 1500,
-					/obj/item/ammo_magazine/ammobox/pistol = 350
+					/obj/item/ammo_magazine/ammobox/lrifle_small = 450,
+					/obj/item/weapon/storage/box/gunkits/mk58 = 1750,
+					/obj/item/weapon/storage/box/gunkits/mk58_wood = 2050,
+					/obj/item/weapon/storage/box/gunkits/colt = 1550,
+					/obj/item/ammo_magazine/ammobox/pistol = 500
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
@@ -36,16 +36,16 @@
 /obj/machinery/vending/serbomat/New()
 	..()
 	update_icon()
-	
+
 /obj/machinery/vending/serbomat/power_change()
 	..()
 	update_icon()
-	
+
 /obj/machinery/vending/serbomat/malfunction()
 	spawn(20)		//2 seconds is enough time for the icon to change OK.
 		update_icon()
 	..()		//there is a return statement in ..() so we need that last
-	
+
 /obj/machinery/vending/serbomat/attack_hand()
 	spawn(20)
 		update_icon()
@@ -82,6 +82,11 @@
 	. = ..()	//And we go back to how things were.
 
 /* Serbomat changelog
+2020-07-19
+	increased ammo packet costs
+		pistol 350 -> 500
+		lrifle 400 -> 450
+	gun kits now cost 50 more
 2020-06-30: ------
 	added gun kits (finally)
 	added pistol ammo boxes

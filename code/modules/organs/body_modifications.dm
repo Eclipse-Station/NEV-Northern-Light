@@ -125,7 +125,7 @@ var/global/list/modifications_types = list(
 		placeholder = new OD.default_type(holder,OD)
 
 	placeholder.overlays.Cut()
-	placeholder.name = name
+	placeholder.name = organ_tag_to_name[OD.organ_tag]
 	placeholder.force_icon = icon
 	placeholder.icon = icon
 	placeholder.desc = desc

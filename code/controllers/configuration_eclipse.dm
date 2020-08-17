@@ -8,12 +8,16 @@
 //Reginald spawn code on Eclipase Station code). Will be set TRUE after load.
 	var/eclipse_config_loaded = FALSE
 
-//job whitelisting.
+//job whitelisting. Prefix: "WhiteList"
 	var/usejobwhitelist = FALSE		//master job whitelisting enable
 	var/wl_heads = FALSE			//Whitelist Heads of Staff?
 	var/wl_security = FALSE			//Whitelist Security?
 	var/wl_silicons = FALSE			//Whitelist silicons?
 	var/wl_admins_too = FALSE		//Do admins go through whitelist checks?
+
+//Jobs required to start the round. Prefix: "Staff Requirement"
+	var/sr_bypass_command_requirement = FALSE		//Should we allow the round to start without a Head of Staff?
+	var/sr_lowpop_threshold = 10					//At what point are we no longer lowpop for the purposes of staff requirements?
 
 /hook/startup/proc/read_eclipse_config()
 	var/list/Lines = file2list("config/config_eclipse.txt")		//We don't want to add shit to the main config when we update this (merge conflicts)
@@ -51,6 +55,10 @@
 				config.wl_silicons = TRUE
 			if("admins_restricted_by_whitelist")
 				config.wl_admins_too = TRUE
+			if("bypass_head_of_staff_requirement")
+				config.sr_bypass_command_requirement = TRUE
+			if("staff_requirement_lowpop_threshold")
+				config.sr_lowpop_threshold = text2num(value)
 
 	config.eclipse_config_loaded = TRUE		//config is loaded
 
