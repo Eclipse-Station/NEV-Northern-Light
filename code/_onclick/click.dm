@@ -402,9 +402,6 @@ GLOBAL_LIST_INIT(click_catchers, create_click_catcher())
 
 /obj/screen/click_catcher/proc/resolve(var/mob/user)
 	var/turf/T = screen_loc2turf(screen_loc, get_turf(user))
-<<<<<<< HEAD
-	return T
-=======
 	return T
 
 /mob/living/carbon/human/proc/absolute_grab(mob/living/carbon/human/T)
@@ -439,4 +436,4 @@ GLOBAL_LIST_INIT(click_catchers, create_click_catcher())
 			Weaken(3)
 			return
 		T.attack_hand(src)
->>>>>>> f15a8f6... Fix lowborn and absolute grab (#5062)
+
