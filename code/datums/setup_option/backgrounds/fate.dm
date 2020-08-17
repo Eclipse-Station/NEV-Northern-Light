@@ -99,16 +99,11 @@
 
 /datum/category_item/setup_option/background/fate/lowborn
 	name = "Lowborn"
-<<<<<<< HEAD
-	desc = "Your origin is literally bottom of the society, be that a hobo gangs or underground trash communities. \
-			You did not knew your parents, and was just lucky enough to learn how to read, and that, in time, landed you on position at this ship."
-=======
 	desc = "You are the bottom of society. The dirt and grime on the heel of a boot. You had one chance. You took it. \
 			You never knew your parents and were lucky enough to learn how to read, and that, in time, landed you a position on this ship. \
 			Would you still choose to be part of this journey if you knew what it meant? Will you leave a mark or be forgotten forever? \
 			You cannot play command roles. Additionally, you have the ability to have a name without a last name and have an increased sanity pool."
 
->>>>>>> f15a8f6... Fix lowborn and absolute grab (#5062)
 	restricted_jobs = list(/datum/job/captain, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
 	restricted_depts = IRONHAMMER | MEDICAL | SCIENCE
 	perks = list(PERK_LOWBORN)
