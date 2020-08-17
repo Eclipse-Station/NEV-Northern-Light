@@ -1,6 +1,6 @@
 /obj/item/weapon/reagent_containers/enricher
 	name = "Molitor-Riedel Enricher"
-	desc = "Produces universal donor blood if you inject it with nutrients, outputs it in packet ready to use."
+	desc = "An exceptionally complicated device, capable of producing a pack of donor blood out of a small blood sample."
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "enricher"
 	item_state = "enricher"
