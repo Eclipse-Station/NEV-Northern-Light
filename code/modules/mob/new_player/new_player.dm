@@ -27,10 +27,43 @@
 	set src = usr
 	new_player_panel_proc()
 
-
+	/////BEGIN ECLIPSE EDIT/////
 /mob/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><B>New Player Options</B>"
-	output +="<hr>"
+	var/output = "<div align='center'><B><u>Current Character</B></u>"
+	output += "<br>"
+	output += "<div align='center'>[client.prefs.real_name]<br>"
+
+	var/department_color
+	if(ASSISTANT_TITLE in client.prefs.job_low)		//Vagabond is a special snowflake that gets checked first, hence job_low.
+		department_color = "#ffcb9e"
+	else if(client.prefs.job_high in engineering_positions)
+		department_color = "#e0ca22"
+	else if(client.prefs.job_high in medical_positions)
+		department_color = "#19ccd6"
+	else if(client.prefs.job_high in science_positions)
+		department_color = "#b344b3"
+	else if(client.prefs.job_high in cargo_positions)
+		department_color = "#ffaa00"
+	else if(client.prefs.job_high in civilian_positions)
+		department_color = "#77c932"
+	else if(client.prefs.job_high in security_positions)
+		department_color = "#dd3e40"
+	else if(client.prefs.job_high in nonhuman_positions)
+		department_color = "#fbadff"
+	else if(client.prefs.job_high in church_positions)
+		department_color = "#854500"
+	else if(client.prefs.job_high in command_positions)
+		department_color = "#0b60e8"
+	else
+		department_color = "#990014"
+
+	if(ASSISTANT_TITLE in client.prefs.job_low)		//If vagabond toggle is yes
+		output += "<font color=[department_color]>[ASSISTANT_TITLE]</font><br>"
+	else
+		output += "<font color=[department_color]>[client.prefs.job_high ? "[client.prefs.job_high]" : null]</font><br>"
+	/////END ECLIPSE EDIT/////
+
+	output += "<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
@@ -308,6 +341,13 @@
 		if(job && IsJobAvailable(job.title))
 			if(job.is_restricted(client.prefs))
 				continue
+			// // // BEGIN ECLIPSE EDITS // // //
+			//Jobban/job whitelist fixes
+			if(job.whitelist_only && !is_job_whitelisted(client, job.title))	//do they not pass whitelist?
+				continue
+			if(jobban_isbanned(client, job.title))			//are they banned?
+				continue
+			// // // END ECLIPSE EDITS // // //
 			var/active = 0
 			// Only players with the job assigned and AFK for less than 10 minutes count as active
 			for(var/mob/M in GLOB.player_list) if(M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)

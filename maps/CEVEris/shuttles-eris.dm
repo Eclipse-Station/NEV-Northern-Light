@@ -133,7 +133,7 @@
 	dock_target = "skipjack_shuttle"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_transition"
-	announcer = "CEV Eris Sensor Array"
+	announcer = "NEV Northern Light Sensor Array"
 	home_waypoint = "nav_skipjack_start"
 	arrival_message = "Attention, vessel detected entering vessel proximity."
 	departure_message = "Attention, vessel detected leaving vessel proximity."
@@ -171,6 +171,7 @@
 /datum/shuttle/autodock/multi/antag/mercenary
 	name = "Mercenary"
 	warmup_time = 0
+	move_time = 180
 	cloaked = 0
 	destination_tags = list(
 		"nav_merc_northeast",
@@ -193,7 +194,7 @@
 	default_docking_controller = "merc_shuttle"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_transition"
-	announcer = "CEV Eris Sensor Array"
+	announcer = "NEV Northern Light Sensor Array"
 	home_waypoint = "nav_merc_start"
 	arrival_message = "Attention, unidentified vessel detected on long range sensors. \nVessel is approaching on an intercept course. \nHailing frequencies open."
 	departure_message = "Attention, unknown vessel has departed"

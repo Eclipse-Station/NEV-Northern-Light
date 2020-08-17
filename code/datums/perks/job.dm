@@ -1,6 +1,7 @@
 /datum/perk/survivor
 	name = "Survivor"
-	desc = "Whether from training or from traumatic experiences, seeing death just doesn't phase you as much, anymore."
+	desc = "After seeing the death of many acquaintances and friends, witnessing death doesn't shock you as much as before. \
+			Halves sanity loss from seeing people die."
 	icon_state = "survivor" // https://game-icons.net/1x1/lorc/one-eyed.html
 
 /datum/perk/survivor/assign(mob/living/carbon/human/H)
@@ -12,8 +13,9 @@
 	..()
 
 /datum/perk/selfmedicated
-	name = "Heal Thyself"
-	desc = "Heal thyself, physician! You're able to resist addictive urges better, and are slightly more resistant to overstimulation from medications."
+	name = "Medication Expertise"
+	desc = "Your experience with different chems, be it professional or otherwise, has reinforced your body against some of their harmful effects. \
+			You total NSA is increased and chance to gain an addiction decreased."
 	icon_state = "selfmedicated" // https://game-icons.net/1x1/lorc/overdose.html
 
 /datum/perk/selfmedicated/assign(mob/living/carbon/human/H)
@@ -28,7 +30,8 @@
 
 /datum/perk/vagabond
 	name = "Vagabond"
-	desc = "You're used to see the worst sight the world has to offer. Your mind feels more resistant."
+	desc = "You're used to see the worst sight the world has to offer. Your mind feels more resistant. \
+			This perk reduces the total sanity damage you can take from what is happening around you."
 	icon_state = "vagabond" // https://game-icons.net/1x1/lorc/eye-shield.html
 
 /datum/perk/vagabond/assign(mob/living/carbon/human/H)
@@ -41,7 +44,8 @@
 
 /datum/perk/merchant
 	name = "Merchant"
-	desc = "Money is what matters for you, and it's so powerful it lets you improve your skills. The more cash, the more gain."
+	desc = "Money is what matters for you, and it's so powerful it lets you improve your skills. \
+			This perk lets you use money for leveling up. The credits need to be in your backpack."
 	icon_state = "merchant" // https://game-icons.net/1x1/lorc/cash.html and https://game-icons.net/1x1/delapouite/graduate-cap.html slapped on https://game-icons.net/1x1/lorc/trade.html
 
 /datum/perk/merchant/assign(mob/living/carbon/human/H)
@@ -60,7 +64,8 @@
 // ALERT: This perk has no removal method. Mostly because 3 out of 4 choices give knowledge to the player in the form of text, that would be pointless to remove.
 /datum/perk/deep_connection
 	name = "Deep connection"
-	desc = "With the help of your numerous trustworthy contacts, you manage to collect some useful information."
+	desc = "With the help of your numerous trustworthy contacts, you manage to collect some useful information. \
+			Provides you with 1 of 4 boons: Language, Traitor Contract, a stash location or a special item in a box."
 	icon_state = "deepconnection" // https://game-icons.net/1x1/quoting/card-pickup.html
 
 /datum/perk/deep_connection/assign(mob/living/carbon/human/H)
@@ -128,12 +133,11 @@
 /// Basically a marker perk. If the user has this perk, another will be given in certain conditions.
 /datum/perk/inspiration
 	name = "Exotic Inspiration"
-	desc = "Alcohol boosts your IQ. This makes sense, somehow."
+	desc = "Boosts your Cognition and Mechanical stats any time you imbibe any alcohol."
 	icon_state = "inspiration" // https://game-icons.net/1x1/delapouite/booze.html
 
 /datum/perk/active_inspiration
 	name = "Exotic Inspiration (Active)"
-	desc = "...or does the alcohol just make you less likely to realize your mistakes? Naaaah..."
 	icon_state = "inspiration_active" // https://game-icons.net/1x1/lorc/enlightenment.html
 
 /datum/perk/active_inspiration/assign(mob/living/carbon/human/H)

@@ -12,6 +12,8 @@
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
 	outfit_type = /decl/hierarchy/outfit/job/medical/cmo
+	
+	wl_config_heads = TRUE		//Eclipse edit.
 
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_genetics, access_heads,

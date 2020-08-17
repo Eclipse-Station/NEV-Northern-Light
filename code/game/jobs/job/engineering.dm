@@ -13,6 +13,8 @@
 	also_known_languages = list(LANGUAGE_CYRILLIC = 100, LANGUAGE_SERBIAN = 25)
 	wage = WAGE_COMMAND
 	ideal_character_age = 50
+	
+	wl_config_heads = TRUE		//Eclipse edit.
 //	alt_titles = list()
 
 	outfit_type = /decl/hierarchy/outfit/job/engineering/exultant

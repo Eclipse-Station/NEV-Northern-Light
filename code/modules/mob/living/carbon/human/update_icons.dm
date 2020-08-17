@@ -517,14 +517,14 @@ var/global/list/damage_icon_parts = list()
 		"glasses"		= 'icons/inventory/eyes/mob.dmi',
 		"ears"			= 'icons/inventory/ears/mob.dmi',
 		"mask"			= 'icons/inventory/face/mob.dmi',
-		"hat"			= 'icons/inventory/head/mob.dmi',
+		"hat"			= 'icons/inventory/head/mob_eclipse.dmi',
 		"shoes"			= 'icons/inventory/feet/mob.dmi',
 		"misk"			= 'icons/mob/mob.dmi',
 		"belt"			= 'icons/inventory/belt/mob.dmi',
 		"s_store"		= 'icons/inventory/on_suit/mob.dmi',
 		"backpack"		= 'icons/inventory/back/mob.dmi',
 		"underwear"		= 'icons/inventory/underwear/mob.dmi'
-		)
+		)		//Eclipse edit: Tweaked hat slot to use _eclipse to prevent conflicts
 	return icons[slot]
 
 //contained sprite gender icons
