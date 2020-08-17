@@ -155,15 +155,10 @@
 
 /datum/perk/rat
 	name = "Rat"
-<<<<<<< HEAD
-	desc = "Early bird gets the worm, but the second rat gets the cheese."
-	icon_state = "rat"
-=======
 	desc = "For all you know, taking what isn't yours is what you were best at. Be that roguery, theft or murder. It’s all the same no matter how you name it, after all. \
 			You start with a +10 to Mechanical stat and -10 to Vigilance. You will have a -10 to overall sanity health, meaning you will incur a breakdown faster than most. \
 			Additionally you have more quiet footsteps and a chance to not trigger traps on the ground."
 	icon_state = "rat" //https://game-icons.net/
->>>>>>> faddbe5... Medical Voidsuit resprite and Fate translation fix (#5053)
 
 /datum/perk/rat/assign(mob/living/carbon/human/H)
 	..()
@@ -175,15 +170,10 @@
 
 /datum/perk/rejected_genius
 	name = "Rejected Genius"
-<<<<<<< HEAD
-	desc = "Your dreams are undisturbed by reality, your search for the impossible continues regardless of your peers."
-	icon_state = "knowledge"
-=======
 	desc = "You see the world in different shapes and colors. \
 			Your sanity loss cap is removed, so stay clear of corpses or filth. You have less maximum sanity and no chance to have positive breakdowns. \
 			As tradeoff, you have 50% faster insight gain."
 	icon_state = "knowledge" //https://game-icons.net/
->>>>>>> faddbe5... Medical Voidsuit resprite and Fate translation fix (#5053)
 
 /datum/perk/rejected_genius/assign(mob/living/carbon/human/H)
 	..()
@@ -200,17 +190,11 @@
 	..()
 
 /datum/perk/oborin_syndrome
-<<<<<<< HEAD
-	name = "Oborin Syndrome" //https://game-icons.net/1x1/delapouite/prism.html
-	icon_state = "prism"
-	desc = "You're often told you see the world in black and whites. But they're wrong, you see the greys, you live in the greys. Not the 'colors' though, those are just venus traps for the dumb flies, you're smarter than that. Only grey."
-=======
 	name = "Oborin Syndrome"
 	icon_state = "prism" //https://game-icons.net/1x1/delapouite/prism.html
 	desc = "A condition manifested at some recent point in human history. \
 			It’s origin and prevalence are unknown, but it is speculated to be a psyionic phenomenom.\
 			Your sanity pool is higher than that of others at the cost of the colors of the world."
->>>>>>> faddbe5... Medical Voidsuit resprite and Fate translation fix (#5053)
 
 /datum/perk/oborin_syndrome/assign(mob/living/carbon/human/H)
 	..()

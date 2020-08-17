@@ -13,8 +13,8 @@
 	..()
 
 /datum/perk/selfmedicated
-	name = "Self-medicated"
-	desc = "You have very shoddy handwriting. This lets you write prescriptions to yourself! \
+	name = "Medication Expertise"
+	desc = "Your experience with different chems, be it professional or otherwise, has reinforced your body against some of their harmful effects. \
 			You total NSA is increased and chance to gain an addiction decreased."
 	icon_state = "selfmedicated" // https://game-icons.net/1x1/lorc/overdose.html
 
