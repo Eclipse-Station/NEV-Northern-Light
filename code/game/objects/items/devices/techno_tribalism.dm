@@ -1,6 +1,6 @@
 /obj/item/device/techno_tribalism
 	name = "Techno-Tribalism Enforcer"
-	desc = "Feeds on rare tools, tool mods and other tech items. After being fed enough, will produce a strange technological part, that will be useful to train your skills overtime."
+	desc = "An enigmatic device, found by the first exploratory team. Seems to be a destructive analyzer of sorts, that spits out weird-looking devices once in a while."
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "techno_tribalism"
 	item_state = "techno_tribalism"
