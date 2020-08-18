@@ -43,7 +43,7 @@
 	H.stats.addPerk(perk_random)
 	H.stats.addPerk(pick(/datum/perk/survivor, /datum/perk/selfmedicated, /datum/perk/vagabond, /datum/perk/merchant, /datum/perk/inspiration))
 	var/obj/item/weapon/implant/soulcrypt = new /obj/item/weapon/implant/soulcrypt(src)
-	crypt.install(H)
+	soulcrypt.install(H)
 	qdel(H)
 	return soulcrypt
 
