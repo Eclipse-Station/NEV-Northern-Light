@@ -3,7 +3,7 @@
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "maneki_neko"
 	item_state = "maneki_neko"
-	desc = "Costs a lot of money, this is ancient relic with no practical purpose. Feels like it's looking at you, with menacingly gaze. Fragile."
+	desc = "An expensive-looking figurine, found during Northern Light's refurbishment. It is surrounded by a menacing aura and seems to be very fragile."
 	flags = CONDUCT
 	force = WEAPON_FORCE_WEAK
 	w_class = ITEM_SIZE_SMALL
@@ -58,4 +58,4 @@
 		for(var/stat in ALL_STATS)
 			H.stats.changeStat(stat, -10)
 		var/neko = uppertext(src.name)
-		to_chat(H, SPAN_DANGER(pick("LIFE IS RUINED FOR ME! I CANNOT FIND [neko]!", "WHO STEAL MY [neko]!", "WHERE IS [neko]?!", "WHY I CANNOT FIND [neko]?!")))
+		to_chat(H, SPAN_DANGER("You feel like ages upon ages of bad luck crawled upon your shoulders!")
