@@ -12,6 +12,7 @@
 	throw_range = 15
 	price_tag = 20000
 	origin_tech = list(TECH_MATERIAL = 10)
+	var/affect_radius = 7
 	matter = list(MATERIAL_GLASS = 5, MATERIAL_GOLD = 7, MATERIAL_SILVER = 5, MATERIAL_DIAMOND = 1)
 	var/list/mob/living/carbon/human/followers = list()
 
@@ -26,8 +27,8 @@
 
 /obj/item/weapon/maneki_neko/Process()
 	..()
-	var/list/mob/living/carbon/human/affected = oviewers(src)
-	followers |= affected
+	for(var/list/mob/living/carbon/human/affected in oviewers(affect_radius, src))
+		followers |= affected
 
 /obj/item/weapon/maneki_neko/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(QUALITY_HAMMERING in W.tool_qualities)
@@ -58,4 +59,4 @@
 		for(var/stat in ALL_STATS)
 			H.stats.changeStat(stat, -10)
 		var/neko = uppertext(src.name)
-		to_chat(H, SPAN_DANGER("You feel like ages upon ages of bad luck crawled upon your shoulders!"))
+		to_chat(H, SPAN_DANGER(pick("LIFE IS RUINED FOR ME! I CANNOT FIND [neko]!", "WHO STEAL MY [neko]!", "WHERE IS [neko]?!", "WHY I CANNOT FIND [neko]?!")))
