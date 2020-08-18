@@ -57,7 +57,7 @@
 	for(var/mob/observer/ghost/O in GLOB.player_list)
 		if(O.client)
 			O << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever when he's chosen to decide.
-			if(alert(O, "Do you want to be cloned as NT disciple? Hurry up, you have 60 seconds to make choice!","Player Request","OH YES","No, I'm autist") == "OH YES")
+			if(alert(O, "Do you want to be cloned as a stranded space explorer? Hurry up, you have 60 seconds to make choice!","Player Request","OH YES","No :C") == "OH YES")
 				if(!agree_time_out)
 					if(MN)
 						to_chat(O, SPAN_WARNING("Somebody already took this place."))
