@@ -58,4 +58,4 @@
 		for(var/stat in ALL_STATS)
 			H.stats.changeStat(stat, -10)
 		var/neko = uppertext(src.name)
-		to_chat(H, SPAN_DANGER("You feel like ages upon ages of bad luck crawled upon your shoulders!")
+		to_chat(H, SPAN_DANGER("You feel like ages upon ages of bad luck crawled upon your shoulders!"))
