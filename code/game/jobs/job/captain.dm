@@ -18,6 +18,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	wl_config_heads = TRUE		//Eclipse edit.
 
 
+	perks = list(/datum/perk/sommelier)
+
 	ideal_character_age = 70 // Old geezer captains ftw
 	outfit_type = /decl/hierarchy/outfit/job/captain
 
@@ -81,6 +83,7 @@ Your second loyalty is to your command officers. The heads of each faction. List
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
 	also_known_languages = list(LANGUAGE_CYRILLIC = 20, LANGUAGE_SERBIAN = 15)
+	perks = list(/datum/perk/sommelier)
 	ideal_character_age = 50
 
 	wl_config_heads = TRUE		//Eclipse edit.

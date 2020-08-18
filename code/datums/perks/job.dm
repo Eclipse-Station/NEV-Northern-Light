@@ -145,3 +145,8 @@
 	holder.stats.removeTempStat(STAT_COG, "Exotic Inspiration")
 	holder.stats.removeTempStat(STAT_MEC, "Exotic Inspiration")
 	..()
+
+/datum/perk/sommelier
+	name = "Sommelier"
+	desc = "You know how to handle even strongest alcohol in the universe."
+	icon_state = "inspiration"
