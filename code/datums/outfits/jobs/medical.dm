@@ -28,7 +28,7 @@
 	r_pocket = /obj/item/device/lighting/toggleable/flashlight/pen
 
 /decl/hierarchy/outfit/job/medical/chemist
-	name = OUTFIT_JOB_NAME("Chemist")
+	name = OUTFIT_JOB_NAME("Pharmacist")
 	uniform = /obj/item/clothing/under/rank/chemist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/chemist
 	id_type = /obj/item/weapon/card/id/chem

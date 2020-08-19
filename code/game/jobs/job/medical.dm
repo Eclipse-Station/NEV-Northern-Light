@@ -120,7 +120,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 
 
 /datum/job/chemist
-	title = "Chemist"
+	title = "Pharmacist"
 	flag = CHEMIST
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
@@ -147,7 +147,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	software_on_spawn = list(/datum/computer_file/program/chem_catalog,
 							/datum/computer_file/program/scanner)
 
-	description = "The chemist is a man of medicine, as much as of science. You mix up colorful liquids to make other, equally colorful, but more useful liquids.<br>\
+	description = "The pharmacist is a man of medicine, as much as of science. You mix up colorful liquids to make other, equally colorful, but more useful liquids.<br>\
 	<br>\
 	Your primary responsibility is working as a pharmacist. Prepare medicines for use by the medical staff, so that they can capably treat a broad variety of conditions. It's good to keep a stock of bicaridine, dexalin, peridaxon, and alkysine.<br>\
 	<br>\
