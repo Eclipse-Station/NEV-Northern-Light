@@ -483,13 +483,31 @@
 	return
 
 /obj/item/weapon/storage/box/autoinjectors
-	name = "box of injectors"
-	desc = "Contains autoinjectors."
+	name = "box of autoinjectors (inaprovaline)"
+	desc = "Contains inaprovaline autoinjectors."
 	illustration = "syringe"
 
 /obj/item/weapon/storage/box/autoinjectors/populate_contents()
 	for(var/i in 1 to 7)
 		new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src)
+
+/obj/item/weapon/storage/box/autoinjectors/empty
+	name = "box of autoinjectors"
+	desc = "Contains empty autoinjectors."
+	illustration = "syringe"
+
+/obj/item/weapon/storage/box/autoinjectors/empty/populate_contents()
+	for(var/i in 1 to 7)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/empty(src)
+
+/obj/item/weapon/storage/box/autoinjectors/tricordrazine
+	name = "box of autoinjectors (tricordrazine)"
+	desc = "Contains tricordrazine autoinjectors."
+	illustration = "syringe"
+
+/obj/item/weapon/storage/box/autoinjectors/tricordrazine/populate_contents()
+	for(var/i in 1 to 7)
+		new /obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine(src)
 
 /obj/item/weapon/storage/box/lights
 	name = "box of replacement bulbs"
