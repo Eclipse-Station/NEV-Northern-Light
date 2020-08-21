@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
-source ~/.discordauth
-
-# ~/.discordauth contains:
-# CHANNELID=x
-# TOKEN=x
-# CHANNELID being the Discord Channel ID
-# TOKEN being the bot token
 
 set -u # don't expand unbound variable
 set -f # disable pathname expansion
@@ -40,17 +33,9 @@ containsElement () {
 }
 
 # Make sure we have our upstream remote
-if ! git remote | grep CEV-Eris > /dev/null; then
-   git remote add CEV-Eris https://github.com/SyzygyStation/Syzygy-Eris.git
+if ! git remote | grep Downstream1 > /dev/null; then
+   git remote add Downstream1 https://github.com/SyzygyStation/Syzygy-Eris.git
 fi
-
-curl -v \
--H "Authorization: Bot $TOKEN" \
--H "User-Agent: myBotThing (http://some.url, v0.1)" \
--H "Content-Type: application/json" \
--X POST \
--d "{\"content\":\"Mirroring [$1] from Downstream to Eclipse\"}" \
-https://discordapp.com/api/channels/$CHANNELID/messages
 
 # We need to make sure we are always on a clean master when creating the new branch.
 # So we forcefully reset, clean and then checkout the master branch
