@@ -1,5 +1,5 @@
 
-//Knifes
+//Knives
 
 /obj/item/weapon/tool/knife
 	name = "kitchen knife"
@@ -29,16 +29,17 @@
 	item_state = "knife"
 	matter = list(MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 1)
 	force = WEAPON_FORCE_PAINFUL
+	armor_penetration = ARMOR_PEN_SHALLOW
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 15)
 
 /obj/item/weapon/tool/knife/hook
 	name = "meat hook"
-	desc = "A sharp, metal hook what sticks into things."
+	desc = "A sharp, metal hook that sticks into things."
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
 	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_PLASTIC = 2)
 	force = WEAPON_FORCE_DANGEROUS
-	armor_penetration = ARMOR_PEN_EXTREME //Should be countered be embedding
+	armor_penetration = ARMOR_PEN_DEEP //Should be countered be embedding
 	embed_mult = 1.5 //This is designed for embedding
 
 /obj/item/weapon/tool/knife/ritual
@@ -46,15 +47,16 @@
 	desc = "The unearthly energies that once powered this blade are now dormant."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "render"
-	force = WEAPON_FORCE_PAINFUL
+	force = WEAPON_FORCE_NORMAL+2
+	armor_penetration = ARMOR_PEN_SHALLOW
 
 /obj/item/weapon/tool/knife/butch
 	name = "butcher's cleaver"
 	icon_state = "butch"
-	desc = "A huge thing used for chopping and chopping up meat. This includes roaches and roach-by-products."
+	desc = "A huge thing used for chopping and chopping up meat. This includes roaches and roach byproducts."
 	force = WEAPON_FORCE_DANGEROUS
-	throwforce = WEAPON_FORCE_NORMAL
-	armor_penetration = ARMOR_PEN_MODERATE
+	throwforce = WEAPON_FORCE_DANGEROUS
+	armor_penetration = ARMOR_PEN_GRAZING
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	matter = list(MATERIAL_STEEL = 5, MATERIAL_PLASTIC = 1)
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 15)
@@ -66,7 +68,8 @@
 	icon_state = "neot-knife"
 	item_state = "knife"
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_PLASTIC = 1)
-	force = WEAPON_FORCE_PAINFUL
+	force = WEAPON_FORCE_NORMAL
+	armor_penetration = ARMOR_PEN_GRAZING
 	max_upgrades = 3
 
 /obj/item/weapon/tool/knife/tacknife
@@ -87,7 +90,7 @@
 	icon_state = "dagger"
 	item_state = "dagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
-	force = WEAPON_FORCE_NORMAL
+	force = WEAPON_FORCE_NORMAL+2
 	armor_penetration = ARMOR_PEN_DEEP
 
 /obj/item/weapon/tool/knife/dagger/ceremonial
@@ -103,7 +106,8 @@
 	icon_state = "bluespace_dagger"
 	item_state = "bluespace_dagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PHORON = 20)
-	force = WEAPON_FORCE_NORMAL+1
+	switched_on_force = WEAPON_FORCE_NORMAL+1
+	armor_penetration = ARMOR_PEN_DEEP
 	embed_mult = 25 //You WANT it to embed
 	suitable_cell = /obj/item/weapon/cell/small
 	toggleable = TRUE
@@ -139,6 +143,7 @@
 	desc = "A sharp implement, with a twist; The handle acts as a reservoir for reagents, and the blade injects those that it hits."
 	icon_state = "assdagger"
 	item_state = "ass_dagger"
+	force = WEAPON_FORCE_HARMLESS+2
 	reagent_flags = INJECTABLE|TRANSPARENT
 
 /obj/item/weapon/tool/knife/dagger/assassin/New()
@@ -177,7 +182,8 @@
 	edge = FALSE
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
-	switched_on_force = WEAPON_FORCE_PAINFUL
+	switched_on_force = WEAPON_FORCE_NORMAL+2
+	armor_penetration = ARMOR_PEN_GRAZING
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL =6)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
 	tool_qualities = null
@@ -221,7 +227,8 @@
 	edge = FALSE
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
-	switched_on_force = WEAPON_FORCE_PAINFUL
+	switched_on_force = WEAPON_FORCE_NORMAL
+	armor_penetration = ARMOR_PEN_GRAZING
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL = 6, MATERIAL_GOLD= 0.5)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
 	tool_qualities = null
