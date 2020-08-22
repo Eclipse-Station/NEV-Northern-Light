@@ -316,11 +316,21 @@ Very rarely it might escape
 /obj/item/weapon/beartrap/Crossed(AM as mob|obj)
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
+<<<<<<< HEAD
 		if(("\ref[L]" in aware_mobs) && MOVING_DELIBERATELY(L))
 			return ..()
 		prob_catch = initial(prob_catch)
 		prob_catch -= L.skill_to_evade_traps(prob_catch)
 		if(!prob(prob_catch))
+=======
+		var/true_prob_catch = prob_catch - L.skill_to_evade_traps()
+		if("\ref[L]" in aware_mobs)
+			if(MOVING_DELIBERATELY(L))
+				return ..()
+			else
+				true_prob_catch -= 30
+		if(!prob(true_prob_catch))
+>>>>>>> b328635... Fix logic traps 3.0 (#5372)
 			return ..()
 		L.visible_message(
 			SPAN_DANGER("[L] steps on \the [src]."),
