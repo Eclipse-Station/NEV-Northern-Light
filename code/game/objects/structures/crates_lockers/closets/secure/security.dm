@@ -156,6 +156,7 @@
 	new /obj/item/weapon/gun/projectile/automatic/molly(src)
 	new /obj/item/weapon/storage/pouch/pistol_holster(src)
 	new /obj/item/weapon/storage/briefcase/crimekit(src)
+	new /obj/item/weapon/storage/box/autoinjectors/tricordrazine(src)
 
 /obj/structure/closet/secure_closet/detective
 	name = "Cobalt Inspector locker"

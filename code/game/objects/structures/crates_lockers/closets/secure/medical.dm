@@ -113,6 +113,7 @@
 	new /obj/item/weapon/reagent_containers/hypospray(src)
 	new /obj/item/weapon/storage/belt/medical(src)
 	new /obj/item/weapon/storage/pouch/medical_supply(src)
+	new /obj/item/weapon/reagent_containers/hypospray/autoinjector/drugs(src)
 
 /obj/structure/closet/secure_closet/animal
 	name = "animal control closet"
@@ -133,6 +134,7 @@
 	req_access = list(access_chemistry)
 
 /obj/structure/closet/secure_closet/chemical/populate_contents()
-	new /obj/item/weapon/storage/box/pillbottles(src)
-	new /obj/item/weapon/storage/box/pillbottles(src)
 	new /obj/item/weapon/storage/pouch/tubular/vial(src)
+	new /obj/item/weapon/storage/pouch/tubular/vial(src)
+	new /obj/item/weapon/storage/box/autoinjectors/empty(src)
+	new /obj/item/weapon/storage/box/autoinjectors/empty(src)
