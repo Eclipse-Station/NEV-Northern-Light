@@ -401,8 +401,14 @@
 
 	if(SSticker.random_players)
 		new_character.gender = pick(MALE, FEMALE)
+<<<<<<< HEAD
 		client.prefs.family_name = random_last_name(gender)		//Eclipse edit: refactor full name into family name.
 		client.prefs.real_name = random_first_name(gender) + " " + client.prefs.family_name
+=======
+		client.prefs.real_first_name = random_first_name(new_character.gender)
+		client.prefs.real_last_name = random_last_name(new_character.gender)
+		client.prefs.real_name = client.prefs.real_first_name + " " + client.prefs.real_last_name
+>>>>>>> d3e9505... Cringe Filter (#5355)
 		client.prefs.randomize_appearance_and_body_for(new_character)
 	else
 		client.prefs.copy_to(new_character)

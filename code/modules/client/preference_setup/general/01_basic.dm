@@ -65,6 +65,7 @@ datum/preferences
 /datum/category_item/player_setup_item/physical/basic/OnTopic(href, href_list, mob/user)
 	var/datum/species/S = all_species[pref.species]
 
+<<<<<<< HEAD
 // // // BEGIN PARTIAL ECLIPSE REVERT // // //
 	if(href_list["rename"])		//Eclipse Revert: Full name
 		var/raw_name = input(user, "Choose your character's name:", "Character Name", pref.real_name)  as text|null
@@ -72,6 +73,18 @@ datum/preferences
 			var/new_name = sanitize_name(raw_name, pref.species)
 			if(new_name)
 				pref.real_name = new_name
+=======
+	if(href_list["fname"])
+		var/raw_first_name = input(user, "Choose your character's first name:", "Character First Name", pref.real_first_name)  as text|null
+		if (!isnull(raw_first_name) && CanUseTopic(user))
+			var/new_fname = sanitize_name(raw_first_name, pref.species, 14)
+			if(new_fname)
+				if(GLOB.in_character_filter.len) //If you name yourself brazil, you're getting a random name.
+					if(findtext(new_fname, config.ic_filter_regex))
+						new_fname = random_first_name(pref.gender, pref.species)
+				pref.real_first_name = new_fname
+				pref.real_name = pref.real_first_name + " " + pref.real_last_name
+>>>>>>> d3e9505... Cringe Filter (#5355)
 				return TOPIC_REFRESH
 			else
 				to_chat(user, SPAN_WARNING("Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
@@ -85,9 +98,19 @@ datum/preferences
 				pref.family_name = null
 				return TOPIC_REFRESH
 			else
+<<<<<<< HEAD
 				var/new_famname = sanitize_name(raw_family_name, pref.species, last_name_max_length)
 				if(new_famname)
 					pref.family_name = new_famname
+=======
+				var/new_lname = sanitize_name(raw_last_name, pref.species, last_name_max_length)
+				if(new_lname)
+					if(GLOB.in_character_filter.len) //Same here too. Naming yourself brazil isn't funny, please stop.
+						if(findtext(new_lname, config.ic_filter_regex))
+							new_lname = random_last_name(pref.gender, pref.species)
+					pref.real_last_name = new_lname
+					pref.real_name = pref.real_first_name + " " + pref.real_last_name
+>>>>>>> d3e9505... Cringe Filter (#5355)
 					return TOPIC_REFRESH
 				else
 					to_chat(user, SPAN_WARNING("Invalid family/clan name. Your name should be at least 2 and at most [last_name_max_length] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
