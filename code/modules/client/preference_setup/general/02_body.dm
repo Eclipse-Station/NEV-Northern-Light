@@ -37,7 +37,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	var/icon/bgstate = "black"
 	var/list/bgstate_options = list("steel", "dark_steel", "white_tiles", "black_tiles", "wood", "carpet", "white", "black")
-	var/has_soulcrypt = FALSE
+	var/has_soulcrypt = TRUE
 
 /datum/category_item/player_setup_item/physical/body
 	name = "Body"

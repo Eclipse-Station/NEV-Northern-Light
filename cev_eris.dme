@@ -2537,6 +2537,7 @@
 #include "code\modules\soulcrypt\statpanel.dm"
 #include "code\modules\soulcrypt\modules\crew_monitor.dm"
 #include "code\modules\soulcrypt\modules\engineering.dm"
+#include "code\modules\soulcrypt\modules\illegal.dm"
 #include "code\modules\soulcrypt\modules\prosthetic_diag.dm"
 #include "code\modules\sprite_accessories\_accessory.dm"
 #include "code\modules\sprite_accessories\_accessory_facial.dm"

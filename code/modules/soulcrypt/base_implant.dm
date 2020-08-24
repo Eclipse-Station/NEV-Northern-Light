@@ -7,7 +7,7 @@ The module base code is held in module.dm
 	name = "soulcrypt"
 	desc = "A small, immensely complex biocompatible computer. Basic functions include DNA sequence storage, neural engram backups, access transciever functions, and an internal fuel cell using the host's nutrients."
 	icon = 'icons/obj/soulcrypt.dmi'
-	icon_state = "frame"
+	icon_state = "crypt_off"
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_MATERIAL=2, TECH_BIO=7, TECH_DATA=5)
 
@@ -61,10 +61,10 @@ The module base code is held in module.dm
 
 /obj/item/weapon/implant/soulcrypt/update_icon()
 	overlays.Cut()
-	if(host_mind && host_dna)
-		overlays += image('icons/obj/soulcrypt.dmi', "soulcrypt_active")
+	if(host_mind || host_dna)
+		icon_state = "soulcrypt"
 	else
-		overlays += image('icons/obj/soulcrypt.dmi', "soulcrypt_inactive")
+		icon_state = "crypt_off"
 
 /obj/item/weapon/implant/soulcrypt/examine(mob/user)
 	. = ..()

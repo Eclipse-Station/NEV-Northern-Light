@@ -3892,6 +3892,7 @@
 "aiZ" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/tool/tape_roll,
+/obj/item/weapon/access_update_tool,
 /turf/simulated/floor/wood,
 /area/eris/command/commander)
 "aja" = (
@@ -9636,7 +9637,8 @@
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/hallway/side/section3starboard)
 "avK" = (
-/obj/machinery/neotheology/biomass_container,
+/obj/structure/table/woodentable,
+/obj/random/common_oddities/low_chance,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "avL" = (
@@ -26814,10 +26816,6 @@
 /obj/machinery/disease2/diseaseanalyser,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
-"bid" = (
-/obj/machinery/neotheology/cloner,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/neotheology/chapelritualroom)
 "bie" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/railing,
@@ -31948,10 +31946,6 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/eris/medical/virology)
-"bty" = (
-/obj/machinery/neotheology/reader,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/neotheology/chapelritualroom)
 "btz" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 8
@@ -45467,13 +45461,6 @@
 	},
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/server)
-"bWs" = (
-/obj/structure/closet,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white/brown_platform,
-/area/eris/medical/surgery)
 "bWt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -56173,6 +56160,7 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
+/obj/landmark/join/start/paramedic,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbreak)
 "cuV" = (
@@ -60367,6 +60355,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Moebius Labs EFTPOS scanner"
 	},
+/obj/item/weapon/access_update_tool,
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/command/meo)
 "cDX" = (
@@ -61677,6 +61666,7 @@
 	pixel_y = 4
 	},
 /obj/item/weapon/folder/yellow,
+/obj/item/weapon/access_update_tool,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/quartermaster/office)
 "cGP" = (
@@ -63841,6 +63831,9 @@
 "cLY" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/weapon/holochip/engineering/alarm_mon,
+/obj/item/weapon/holochip/engineering/alarm_mon,
+/obj/item/weapon/holochip/engineering/alarm_mon,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
 "cLZ" = (
@@ -73262,6 +73255,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/item/weapon/access_update_tool,
 /turf/simulated/floor/wood,
 /area/eris/command/fo/quarters)
 "dhz" = (
@@ -73653,6 +73647,10 @@
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/gloves,
 /obj/item/weapon/storage/box/masks,
+/obj/item/weapon/holochip/medical/suitsensors,
+/obj/item/weapon/holochip/medical/suitsensors,
+/obj/item/weapon/holochip/medical/suitsensors,
+/obj/item/weapon/holochip/medical/suitsensors,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "dis" = (
@@ -74504,8 +74502,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/weapon/gun/projectile/handmade_pistol{
-	},
+/obj/item/weapon/gun/projectile/handmade_pistol,
 /obj/item/ammo_magazine/ammobox/pistol/rubber,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/xenobiology)
@@ -82355,6 +82352,7 @@
 "dBB" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/firstaid/regular,
+/obj/item/weapon/access_update_tool,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
 "dBC" = (
@@ -88153,6 +88151,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/weapon/bluespace_harpoon,
+/obj/item/weapon/access_update_tool,
 /turf/simulated/floor/wood,
 /area/eris/command/meo/quarters)
 "dOj" = (
@@ -101686,10 +101685,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/quartermaster/office)
-"esY" = (
-/obj/landmark/join/start/paramedic,
-/turf/simulated/floor/tiled/white/gray_perforated,
-/area/eris/medical/paramedic)
 "esZ" = (
 /obj/structure/closet/firecloset,
 /obj/random/pack/tech_loot/low_chance,
@@ -108499,6 +108494,10 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
+"fpA" = (
+/obj/machinery/neotheology/reader,
+/turf/simulated/floor/tiled/white/gray_platform,
+/area/eris/medical/surgery)
 "fzU" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	tag = "icon-map (EAST)";
@@ -108578,6 +108577,21 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"heQ" = (
+/obj/structure/table/glass,
+/obj/item/weapon/implant/soulcrypt,
+/obj/item/weapon/implant/soulcrypt,
+/obj/item/weapon/implant/soulcrypt,
+/obj/item/weapon/implant/soulcrypt,
+/obj/item/weapon/implant/soulcrypt,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/medical/surgery)
+"hgv" = (
+/obj/structure/table/glass,
+/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/weapon/implanter,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/medical/surgery)
 "hqB" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	icon_state = "intact";
@@ -108815,6 +108829,14 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
+"koe" = (
+/obj/structure/table/glass,
+/obj/item/weapon/storage/freezer/medical,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/medical/surgery)
 "kEW" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -108946,6 +108968,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/section3starboard)
+"msk" = (
+/obj/structure/closet/wardrobe/grey,
+/turf/simulated/floor/tiled/white/gray_platform,
+/area/eris/medical/surgery)
 "msv" = (
 /obj/machinery/atmospherics/unary/heat_exchanger{
 	icon_state = "intact";
@@ -108975,6 +109001,22 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5port)
+"mxJ" = (
+/obj/structure/table/glass,
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/weapon/storage/firstaid/o2{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/white/gray_platform,
+/area/eris/medical/surgery)
 "mCf" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -109002,6 +109044,26 @@
 	tag = "icon-hullcenter18"
 	},
 /area/space)
+"mTL" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_medical{
+	id_tag = null;
+	name = "Cloning";
+	req_access = list(5)
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/cargo,
+/area/eris/medical/surgery)
 "mVq" = (
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
@@ -109072,6 +109134,10 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"nIq" = (
+/obj/machinery/neotheology/biomass_container,
+/turf/simulated/floor/tiled/white/gray_platform,
+/area/eris/medical/surgery)
 "nYI" = (
 /obj/structure/catwalk,
 /obj/structure/closet/wall_mounted/firecloset{
@@ -109231,6 +109297,13 @@
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
+"ppk" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/surgery)
 "ptL" = (
 /obj/structure/closet/self_pacification,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
@@ -109390,6 +109463,10 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+"sRq" = (
+/obj/landmark/join/start/paramedic,
+/turf/simulated/floor/carpet/sblucarpet,
+/area/eris/medical/medbreak)
 "sUR" = (
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_platform,
@@ -109452,6 +109529,12 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"tGj" = (
+/obj/machinery/light,
+/obj/structure/table/glass,
+/obj/item/roller,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/medical/surgery)
 "tMc" = (
 /obj/machinery/camera/network/engineering{
 	dir = 8
@@ -109628,6 +109711,11 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
+"whK" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/access_update_tool,
+/turf/simulated/floor/carpet/bcarpet,
+/area/eris/command/meeting_room)
 "wja" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/wall/r_wall,
@@ -109689,6 +109777,10 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/medical/chemstor)
+"wXo" = (
+/obj/machinery/neotheology/cloner,
+/turf/simulated/floor/tiled/white/gray_platform,
+/area/eris/medical/surgery)
 "wYD" = (
 /obj/random/medical/low_chance,
 /obj/random/medical/low_chance,
@@ -163793,7 +163885,7 @@ cJp
 cIS
 aaa
 ccU
-bid
+avK
 byR
 byR
 bQx
@@ -163995,7 +164087,7 @@ cIS
 cIS
 aaa
 ccU
-bty
+avK
 byR
 byR
 bQx
@@ -203761,10 +203853,10 @@ bPu
 aUn
 bRS
 aTG
-abF
-aaa
-aaa
-aaa
+cgI
+cgI
+cgI
+cgI
 aaa
 bUW
 bXF
@@ -203963,10 +204055,10 @@ bNo
 bYo
 bKa
 aTG
-abF
-aaa
-aaa
-aaa
+nIq
+cjK
+tGj
+cgI
 cgI
 chm
 cgI
@@ -204165,9 +204257,9 @@ cdb
 bYo
 bKa
 aTG
-abF
-aaa
-aaa
+wXo
+cjK
+hgv
 cgI
 cgI
 cLs
@@ -204367,9 +204459,9 @@ cde
 bYo
 bKa
 aTG
-abF
-aaa
-aaa
+fpA
+cjK
+heQ
 cgI
 byl
 cjK
@@ -204569,9 +204661,9 @@ cdX
 bYo
 bKa
 aTG
-abF
-aad
-aad
+mxJ
+cjK
+cjK
 cgI
 bXE
 cjK
@@ -204771,11 +204863,11 @@ bNy
 bYo
 bKa
 aTG
-abF
-aaa
-aaa
-cgI
-bWs
+msk
+ppk
+cjK
+mTL
+cpy
 cjK
 cjK
 cnj
@@ -204973,9 +205065,9 @@ ceL
 bYo
 bKa
 aTG
-abF
-bSx
-bSx
+cgI
+cgI
+cgI
 cgI
 cgI
 cda
@@ -205382,7 +205474,7 @@ bSx
 bSx
 rjC
 cgI
-oTl
+koe
 cIx
 cnj
 cqN
@@ -205796,7 +205888,7 @@ beo
 dBG
 dxx
 dAm
-cpC
+sRq
 cpw
 eBq
 crs
@@ -244180,8 +244272,8 @@ bdL
 bdQ
 dKA
 eqy
-esY
-esY
+eqB
+eqB
 eCG
 eFb
 eCf
@@ -250201,7 +250293,7 @@ deh
 dew
 deS
 dcL
-dfG
+whK
 dfW
 cQp
 dgE
