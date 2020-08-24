@@ -9,8 +9,8 @@
 #define ANIM_CLOSE -1
 
 /obj/machinery/neotheology/cloner
-	name = "Lazarus clonepod"
-	desc = "The newest design from Lazarus, this automatic machine will return the flesh to the spirit in no time."
+	name = "SLT-73 Clonepod Prototype"
+	desc = "One of the more fruitful results of NT's investment in Lazarus, this baby puts a person back together from organic slurry just in a few minutes. Now with clear biomass fluids for all your gross anatomy viewing needs."
 	icon = 'icons/obj/neotheology_pod.dmi'
 	icon_state = "preview"
 	density = TRUE
@@ -458,8 +458,8 @@
 /////////////////////
 
 /obj/machinery/neotheology/reader
-	name = "Lazarus' cruciform reader"
-	desc = "How can a soul fit inside of this?"
+	name = "SLT-73-B Core Implant Reader"
+	desc = "A neat-looking device capable of extracting DNA and conciousness imprints from a core implant."
 	icon_state = "reader_off"
 	density = TRUE
 	anchored = TRUE
@@ -518,7 +518,8 @@
 	icon_state = "reader_off"
 
 	if(reading)
-		icon_state = "reader_on"
+		var/image/S = image(icon, "screen")
+		overlays.Add(S)
 
 	if(implant)
 		var/image/I = image(icon, "reader_c_green")

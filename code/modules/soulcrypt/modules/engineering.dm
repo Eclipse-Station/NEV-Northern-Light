@@ -8,5 +8,5 @@
 	nanomodule_type = /datum/nano_module/alarm_monitor/engineering
 	has_nanomodule = TRUE
 
-/datum/soulcrypt_module/crew_monitor/stat_text()
+/datum/soulcrypt_module/alarm_monitor/stat_text()
 	return "Activate Alarm Monitoring"

@@ -99,7 +99,7 @@
 	)
 
 /obj/item/weapon/oddity/common/paper_crumpled
-	name = "turn-out page"
+	name = "torn-out page"
 	desc = "This ALMOST makes sense."
 	icon_state = "paper_crumpled"
 	oddity_stats = list(
@@ -120,7 +120,7 @@
 
 /obj/item/weapon/oddity/common/book_eyes
 	name = "observer book"
-	desc = "This book details information on some cyber creatures. Who did this, how this is even possible?"
+	desc = "This book contains concise details on the nature of bluespace fauna. You're not quite sure those things are even real."
 	icon_state = "book_eyes"
 	oddity_stats = list(
 		STAT_ROB = 9,
@@ -130,7 +130,7 @@
 
 /obj/item/weapon/oddity/common/book_omega
 	name = "occult book"
-	desc = "Most of the stories in this book seem to be the writings of madmen, but at least the stories are interesting."
+	desc = "Most of the stories in this book seem to be the ramblings of a madman, but you can't help but keep reading."
 	icon_state = "book_omega"
 	oddity_stats = list(
 		STAT_BIO = 6,
@@ -149,7 +149,7 @@
 
 /obj/item/weapon/oddity/common/old_money
 	name = "old money"
-	desc = "It's not like the organization that issued this exists anymore."
+	desc = "Hey, how did old Polluxian money get here?"
 	icon_state = "old_money"
 	oddity_stats = list(
 		STAT_ROB = 4,
@@ -158,7 +158,7 @@
 
 /obj/item/weapon/oddity/common/healthscanner
 	name = "odd health scanner"
-	desc = "It's broken and stuck on some really strange readings. Was this even human?"
+	desc = "It's broken and stuck on some really strange readings. Was this thing even remotely humanoid?"
 	icon_state = "healthscanner"
 	item_state = "electronic"
 	oddity_stats = list(
@@ -168,7 +168,7 @@
 
 /obj/item/weapon/oddity/common/old_pda
 	name = "broken pda"
-	desc = "An old Nanotrasen era PDA. These were issued to their employees all throughout the galaxy."
+	desc = "An old NanoTrasen standard-issue PDA. And to think they thought 64kb of RAM was the limit!"
 	icon_state = "old_pda"
 	item_state = "electronic"
 	oddity_stats = list(

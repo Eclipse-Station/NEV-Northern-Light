@@ -67,3 +67,8 @@
 	contained_modules = list(/datum/soulcrypt_module/alarm_monitor)
 
 
+/obj/item/weapon/holochip/illegal
+	name = "unlicensed holochip"
+
+/obj/item/weapon/holochip/illegal/weasel
+	contained_modules = list(/datum/soulcrypt_module/weasel)
