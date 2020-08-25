@@ -10,9 +10,6 @@
 
 /obj/structure/catwalk/New()
 	..()
-	if (istype(loc, /turf/simulated/open))
-		var/turf/simulated/open/T = loc
-		T.updateFallability()
 	spawn(4)
 		if(src)
 			for(var/obj/structure/catwalk/C in get_turf(src))
@@ -20,6 +17,10 @@
 					qdel(C)
 			update_icon()
 			redraw_nearby_catwalks()
+
+			if (istype(loc, /turf/simulated/open))
+				var/turf/simulated/open/T = loc
+				T.updateFallability()
 
 /obj/structure/catwalk/Destroy()
 	if (istype(loc, /turf/simulated/open))
@@ -82,5 +83,7 @@
 	return
 
 
+// Can it prevent falling from the z-level above? Enables "hovering" in the z-level
+// above if TRUE
 /obj/structure/catwalk/can_prevent_fall()
-	return TRUE
+	return FALSE

@@ -87,7 +87,8 @@ see multiz/movement.dm for some info.
 		if(!below)
 			return
 
-	if(locate(/obj/structure/catwalk) in src)
+	var/obj/structure/catwalk/CAT = (locate(/obj/structure/catwalk) in src)
+	if(CAT && !CAT.gc_destroyed)
 		return
 
 	if(locate(/obj/structure/multiz/stairs) in src)
