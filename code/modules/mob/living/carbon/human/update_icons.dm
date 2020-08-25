@@ -388,7 +388,7 @@ var/global/list/damage_icon_parts = list()
 		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[h_style]
 		if(hair_style && (src.species.get_bodytype() in hair_style.species_allowed))
 			var/icon/hair_s
-			if((hair_style.icon == 'icons/mob/human_face.dmi') || (hair_style.icon == 'icons/mob/human_face_vr.dmi'))
+			if((hair_style.icon == 'icons/mob/human_face.dmi') || (hair_style.icon == 'icons/mob/human_face_vr_add.dmi')) // swap around .dmi with _add.dmi because Virgo-code in Eris code
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
 			else
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]")
