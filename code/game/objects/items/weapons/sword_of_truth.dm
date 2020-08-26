@@ -32,20 +32,33 @@
 		to_chat(src, SPAN_DANGER("You was interrupted!"))
 		return
 
+<<<<<<< HEAD
+=======
+	var/bang_text = pick("HOLY LIGHT!", "GOD HAVE MERCY!", "HOLY HAVEN!", "YOU SEE THE LIGHT!")
+
+>>>>>>> 63224d2... Merge pull request #50 from martinlyra/carrion-port
 	for(var/obj/structure/closet/L in hear(7, get_turf(src)))
 		if(locate(/mob/living/carbon/, L))
 			for(var/mob/living/carbon/M in L)
 				var/obj/item/weapon/implant/core_implant/I = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 				if(I && I.active && I.wearer)
 					continue
+<<<<<<< HEAD
 				bang(get_turf(src), M)
+=======
+				flashbang_bang(get_turf(src), M, bang_text)
+>>>>>>> 63224d2... Merge pull request #50 from martinlyra/carrion-port
 
 
 	for(var/mob/living/carbon/M in hear(7, get_turf(src)))
 		var/obj/item/weapon/implant/core_implant/I = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 		if(I && I.active && I.wearer)
 			continue
+<<<<<<< HEAD
 		bang(get_turf(src), M)
+=======
+		flashbang_bang(get_turf(src), M, bang_text)
+>>>>>>> 63224d2... Merge pull request #50 from martinlyra/carrion-port
 
 	for(var/obj/effect/blob/B in hear(8,get_turf(src)))       		//Blob damage here
 		var/damage = round(30/(get_dist(B,get_turf(src))+1))
@@ -57,6 +70,7 @@
 	last_use = world.time
 	return
 
+<<<<<<< HEAD
 /obj/item/weapon/tool/sword/nt_sword/proc/bang(var/turf/T , var/mob/living/carbon/M)					// Added a new proc called 'bang' that takes a location and a person to be banged.
 	to_chat(M, SPAN_DANGER(pick("HOLY LIGHT!", "GOD HAVE MERCY!", "HOLY HAVEN!", "YOU SEE THE LIGHT!")))								// Called during the loop that bangs people in lockers/containers and when banging
 	playsound(loc, 'sound/effects/bang.ogg', 50, 1, 5)		// people in normal view.  Could theroetically be called during other explosions.
@@ -122,6 +136,8 @@
 			to_chat(M, SPAN_DANGER("Your ears start to ring!"))
 	M.update_icons()
 
+=======
+>>>>>>> 63224d2... Merge pull request #50 from martinlyra/carrion-port
 /obj/structure/nt_pedestal
 	name = "Sword of Truth Pedestal"
 	desc = "Pedestal of glorious weapon named: \"Sword of Truth\"."
