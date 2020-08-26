@@ -3,10 +3,6 @@
     var/list/jobs_list       //list of jobs to which tip can be shown
     textColor = "#22458d"
 
-/tipsAndTricks/jobs/captain_boss
-    jobs_list = list(/datum/job/captain)
-    tipText = "As a captain, you own this ship. You set the rules."
-
 /tipsAndTricks/jobs/ironhammer_theft
     jobs_list = list(/datum/job/ihc, /datum/job/gunserg, /datum/job/inspector, /datum/job/medspec, /datum/job/ihoper)
     tipText = "As an Aegis operative, you have broad access to chase criminals. This does not mean you can take anything you have access to. Taking things from other departments is theft!"
@@ -29,7 +25,7 @@
 
 /tipsAndTricks/jobs/captain_value_your_ship
     jobs_list = list(/datum/job/captain)
-    tipText = "This ship is the culmination of your life's work. Don't abandon it because you scratched the paint."
+    tipText = "This ship is the culmination of your life's work. Don't abandon it because you scratched the paint." //Syzygy Edit
 
 /tipsAndTricks/jobs/captain_is_overseer
     jobs_list = list(/datum/job/captain)
@@ -51,15 +47,15 @@
 
 /tipsAndTricks/jobs/engies_suppermatter_one
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "The Supreme Matter is a fickle mistress, and each Chief Engineer has their own unique setup. No setup is strictly wrong; a poor Engineer would be dead by now, surely..."
+    tipText = "The Supermatter is a fickle mistress, and each Chief Engineer has his or her own unique setup. No setup is strictly wrong; a poor Engineer would surely be dead by now..."   //Syzygy Edit
 
 /tipsAndTricks/jobs/engies_suppermatter_two
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "Venting the Supermatter's overheated coolant may drop temperatures immediately, but without fresh coolant gas the Supermatter will almost surely delaminate."
+    tipText = "Venting the Supermatter's overheated coolant may drop temperatures immediately, but without fresh coolant gas, the Supermatter will almost certainly delaminate."
 
 /tipsAndTricks/jobs/engies_suppermatter_three
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "Woe betide the Chief Engineer who jettisons a Supermatter, one of the ancient relics of the grand, lost fleets; for their numbers dwindle, and the artifice of their creation is lost. It is better to hurl oneself after it than live so ashamed."
+    tipText = "If all else fails, the supermatter can be ejected if it is the only way to save the ship."   //Syzygy Edit
 
 /tipsAndTricks/jobs/engies_lifekeeper
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
@@ -67,7 +63,7 @@
 
 /tipsAndTricks/jobs/engies_die_live
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
-    tipText = "An Engineer shall die so that the ship shall live. It is the one rite all engineers share."
+    tipText = "An Engineer shall die so that the ship will live. It is the one rite all engineers share."
 
 /tipsAndTricks/jobs/engies_tenants
     jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
@@ -83,23 +79,23 @@
 
 /tipsAndTricks/jobs/tric
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
-    tipText = "Inaprovaline and dylovene can be mixed together in a container to produce tricordazine - a mild regenerative compound that can treat brute/burns/toxin damage and even suffocation. Best of all, it has no overdose risk."
+    tipText = "Inaprovaline and Dylovene can be mixed together in a container to produce Tricordazine - a mild regenerative compound that can treat brute/burns/toxin damage and even suffocation. Best of all, it has no overdose risk."
 
 /tipsAndTricks/jobs/reagent_scanner_pda
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
-    tipText = "There is a reagent scanner integraged in your PDA."
+    tipText = "Your PDA has an integrated reagent scanner."
 
 /tipsAndTricks/jobs/medical_scanner_pda
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/psychiatrist, /datum/job/paramedic)
-    tipText = "Your PDA has integrated medical scanner."
+    tipText = "Your PDA has an integrated medical scanner."
 
 /tipsAndTricks/jobs/gas_scanner_pda
-    jobs_list = list(/datum/job/cmo, /datum/job/technomancer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "Your PDA has an integrated gas sensor."
 
 /tipsAndTricks/jobs/carbonPills
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
-    tipText = "Pills containing pure carbon can be ingested to treat cases of poisoning and accidental overdoes. 1u of carbon will remove 1u of anything in the stomach. This will not, however, purge chemicals in the bloodstream, nor will injecting carbon have the same effect."
+    tipText = "Pills containing pure Carbon can be ingested to treat cases of poisoning and accidental overdoes. 1u of Carbon will remove 1u of anything in the stomach. This will not, however, purge chemicals in the bloodstream, nor will injecting Carbon have the same effect."
 
 /tipsAndTricks/jobs/inaprov
     jobs_list = list(/datum/job/cmo, /datum/job/doctor, /datum/job/chemist, /datum/job/psychiatrist, /datum/job/paramedic)
@@ -135,7 +131,7 @@
 
 /tipsAndTricks/jobs/siliconShortcuts
     jobs_list = list(/datum/job/cyborg, /datum/job/ai)
-    tipText = "Many machinery has keyboard shortcuts. Try alt/shift/ctrl clicking on some. For example- airlocks, air/fire alarms, APC."
+    tipText = "Many machines have keyboard shortcuts. Try alt/shift/ctrl clicking on some. For example- airlocks, air/fire alarms, APC."    //Syzygy Edit
 
 /tipsAndTricks/jobs/siliconRemoteControlTwo
     jobs_list = list(/datum/job/cyborg, /datum/job/ai)
@@ -148,7 +144,6 @@
 /tipsAndTricks/jobs/pda_paper_scanner
     jobs_list = list(/datum/job/captain, /datum/job/cmo, /datum/job/chief_engineer, /datum/job/ihc, /datum/job/hop, /datum/job/rd)
     tipText = "Your PDA has integrated paper scanner and printer."
-
 
 /tipsAndTricks/jobs/aiCanBeMoved
     jobs_list = list(/datum/job/ai)
