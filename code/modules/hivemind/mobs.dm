@@ -278,6 +278,7 @@
 	mob_size = MOB_SMALL
 	pass_flags = PASSTABLE
 	speed = 6
+	move_to_delay = 10//Syzygy edit
 
 	speak = list(
 				"WE COME IN PEACE.",
@@ -302,11 +303,18 @@
 /mob/living/simple_animal/hostile/hivemind/bomber/death()
 	..()
 	gibs(loc, null, /obj/effect/gibspawner/robot)
-	explosion(get_turf(src), 0, 0, 2)
 	qdel(src)
 
 
 /mob/living/simple_animal/hostile/hivemind/bomber/AttackingTarget()
+	//Syzygy edit start
+	playsound(src, 'sound/effects/scanbeep.ogg', 100, 1)
+	src.visible_message(SPAN_DANGER("Smoke pours out of [src]!"))
+	set_light(7, 2, "#FF4411")
+	move_to_delay = 60
+	sleep(30)
+	explosion(get_turf(src), 0, 0, 2)
+	//Syzygy edit end
 	death()
 
 
