@@ -3,6 +3,7 @@
 	name = "cat"
 	desc = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
 	icon_state = "cat2"
+	item_state = "cat2"
 	speak_emote = list("purrs", "meows")
 	emote_see = list("shakes their head", "shivers")
 	speak_chance = 1
@@ -232,12 +233,18 @@
 	desc = "Her fur has the look and feel of velvet, and her tail quivers occasionally."
 	gender = FEMALE
 	icon_state = "cat"
+<<<<<<< HEAD
 	befriend_job = "Chief Medical Officer"
+=======
+	item_state =  "cat"
+	befriend_job = "Moebius Biolab Officer"
+>>>>>>> b2bc85c... Dead cat fix (#5383)
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
 	desc = "D'aaawwww"
 	icon_state = "kitten"
+	item_state = "kitten"
 	gender = NEUTER
 
 // Leaving this here for now.
@@ -246,12 +253,14 @@
 	desc = "It's Bones! Meow."
 	gender = MALE
 	icon_state = "cat3"
+	item_state = "cat3"
 
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
 	desc = "That's Bones the cat. He's a laid back, black cat. Meow."
 	gender = MALE
 	icon_state = "cat3"
+	item_state = "cat3"
 	holder_type = /obj/item/weapon/holder/cat/fluff/bones
 	var/friend_name = "Erstatz Vryroxes"
 
