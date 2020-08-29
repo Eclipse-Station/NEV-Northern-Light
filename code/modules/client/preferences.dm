@@ -338,8 +338,7 @@
 		panel = null
 	user << browse(null, "window=saves")
 
-	var/mob/new_player/np = client.mob
-	np.new_player_panel_proc()			//Eclipse edit. Automatic refresh for current character.
+	try_refresh_lobby(user)
 
 /datum/preferences/proc/open_copy_dialog(mob/user)		//Eclipse edit.
 	var/dat = "<body>"
@@ -363,3 +362,9 @@
 	panel = new(user, "Character Slots", "Character Slots", 300, 390, src)
 	panel.set_content(dat)
 	panel.open()
+
+// Syzygy edit to fix an runtime casually caused by an Eclipse edit
+/datum/preferences/proc/try_refresh_lobby(mob/user = client.mob)
+	if (user && istype(user, /mob/new_player))
+		var/mob/new_player/np = user
+		np.new_player_panel_proc()			//Eclipse edit. Automatic refresh for current character.
