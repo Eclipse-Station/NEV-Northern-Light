@@ -393,7 +393,7 @@ var/const/GRAV_NEEDS_WRENCH = 3
 /obj/machinery/gravity_generator/main/proc/shake_everyone()
 	for(var/mob/M in SSmobs.mob_list)
 		var/turf/our_turf = get_turf(src.loc)
-		if(M.client)
+		if(M.client && !istype(M, /mob/new_player))
 			shake_camera(M, 15, 1)
 			M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, 1, 0.5)
 
