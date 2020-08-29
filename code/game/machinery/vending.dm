@@ -980,70 +980,49 @@
 	products = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 6,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 6,/obj/item/weapon/reagent_containers/food/snacks/chips =6,
 					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 6,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 6,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 6,
 					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 6, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 6)
-	contraband = list(/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6)
+	contraband = list(/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6, /obj/item/weapon/storage/ration_pack = 1)
 	prices = list(/obj/item/weapon/reagent_containers/food/snacks/candy = 40,/obj/item/weapon/reagent_containers/food/drinks/dry_ramen = 45,/obj/item/weapon/reagent_containers/food/snacks/chips = 40,
 					/obj/item/weapon/reagent_containers/food/snacks/sosjerky = 45,/obj/item/weapon/reagent_containers/food/snacks/no_raisin = 40,/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie = 40,
 					/obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers = 40, /obj/item/weapon/reagent_containers/food/snacks/tastybread = 50,
-					/obj/item/weapon/reagent_containers/food/snacks/syndicake = 60)
+					/obj/item/weapon/reagent_containers/food/snacks/syndicake = 60, /obj/item/weapon/storage/ration_pack = 200)
 
 
 /obj/machinery/vending/weapon_machine
-	name = "Frozen Star Guns&Ammo"
+	name = "Frozen Star Guns&Armor"
 	desc = "A self-defense equipment vending machine. When you need to take care of that clown."
 	product_slogans = "The best defense is good offense!;Buy for your whole family today!;Nobody can outsmart bullet!;God created man - Frozen Star made them EQUAL!;Stupidity can be cured! By LEAD.;Dead kids can't bully your children!"
 	product_ads = "Stunning!;Take justice in your own hands!;LEADearship!"
 	icon_state = "weapon"
 	no_criminals = TRUE
-	products = list(/obj/item/device/flash = 6,
-					/obj/item/weapon/reagent_containers/spray/pepper = 6,
-					/obj/item/weapon/gun/projectile/olivaw = 5,
-					/obj/item/weapon/gun/projectile/giskard = 5,
-					/obj/item/weapon/gun/energy/gun/martin = 5,
+	products = list(
+					/obj/item/weapon/reagent_containers/spray/pepper = 5,
 					/obj/item/weapon/gun/projectile/revolver/havelock = 5,
+					/obj/item/weapon/gun/projectile/giskard = 5,
+					/obj/item/weapon/gun/projectile/mk58 = 5,
 					/obj/item/weapon/gun/projectile/automatic/atreides = 3,
-					/obj/item/weapon/gun/projectile/shotgun/pump/gladstone = 3,
 					/obj/item/weapon/gun/projectile/shotgun/pump = 3,
-					/obj/item/ammo_magazine/pistol/rubber = 20,
-					/obj/item/ammo_magazine/hpistol/rubber = 5,
-					/obj/item/ammo_magazine/slpistol/rubber = 20,
-					/obj/item/ammo_magazine/smg/rubber = 15,
-					/obj/item/ammo_magazine/ammobox/pistol/rubber = 20,
-					/obj/item/ammo_magazine/sllrifle = 10,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags = 10,
-					/obj/item/weapon/storage/box/shotgunammo/flashshells = 10,
-					/obj/item/weapon/storage/box/shotgunammo/blanks = 10,
+					/obj/item/weapon/gun/energy/gun/martin = 5,
 					/obj/item/clothing/accessory/holster = 5,
-					/obj/item/clothing/accessory/holster/armpit = 5,
 					/obj/item/clothing/accessory/holster/waist = 5,
-					/obj/item/clothing/accessory/holster/hip = 5,
-					/obj/item/ammo_magazine/slpistol = 5,
-					/obj/item/ammo_magazine/pistol = 5,
-					/obj/item/ammo_magazine/hpistol = 5,
-					/obj/item/ammo_magazine/smg = 3,
-					/obj/item/ammo_magazine/ammobox/pistol = 5,
-					/obj/item/weapon/storage/box/shotgunammo/slug = 3,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot = 3,
-					/obj/item/weapon/tool/knife/tacknife = 5)
+					/obj/item/weapon/tool/knife/tacknife = 5,
+					/obj/item/clothing/head/armor/helmet = 2,
+					/obj/item/clothing/suit/armor/vest = 2
+					)
 
 	prices = list(
-					/obj/item/ammo_magazine/ammobox/pistol/rubber = 400,
-					/obj/item/ammo_magazine/ammobox/pistol/rubber = 500,
-					/obj/item/ammo_magazine/slpistol/rubber = 300,
-					/obj/item/ammo_magazine/pistol/rubber = 200,
-					/obj/item/ammo_magazine/hpistol = 400,
-					/obj/item/ammo_magazine/hpistol/rubber = 300,
-					/obj/item/weapon/storage/box/shotgunammo/beanbags = 300,
-					/obj/item/weapon/storage/box/shotgunammo/flashshells = 300,
-					/obj/item/weapon/storage/box/shotgunammo/blanks = 50,
-					/obj/item/ammo_magazine/sllrifle = 400,
-					/obj/item/ammo_magazine/slpistol = 500,
-					/obj/item/ammo_magazine/smg/rubber = 300,
-					/obj/item/ammo_magazine/smg = 400,
-					/obj/item/ammo_magazine/ammobox/pistol = 500,
-					/obj/item/weapon/storage/box/shotgunammo/slug = 900,
-					/obj/item/weapon/storage/box/shotgunammo/buckshot = 900,
-					/obj/item/weapon/tool/knife/tacknife = 600,
-					/obj/item/ammo_magazine/pistol = 600,)
+					/obj/item/weapon/reagent_containers/spray/pepper = 200,
+					/obj/item/weapon/gun/projectile/revolver/havelock = 500,
+					/obj/item/weapon/gun/projectile/giskard = 500,
+					/obj/item/weapon/gun/projectile/mk58 = 900,
+					/obj/item/weapon/gun/projectile/automatic/atreides = 1200,
+					/obj/item/weapon/gun/projectile/shotgun/pump = 1000,
+					/obj/item/weapon/gun/energy/gun/martin = 600,
+					/obj/item/clothing/accessory/holster/armpit = 200,
+					/obj/item/clothing/accessory/holster/waist = 200,
+					/obj/item/weapon/tool/knife/tacknife = 400,
+					/obj/item/clothing/head/armor/helmet = 1000,
+					/obj/item/clothing/suit/armor/vest = 1500
+					)
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -1141,16 +1120,14 @@
 
 /obj/machinery/vending/wallmed/lobby
 	products = list(
-		/obj/item/device/scanner/health = 6,
-
-		/obj/item/stack/medical/bruise_pack = 2, /obj/item/stack/medical/ointment = 2,
-		/obj/item/stack/medical/advanced/bruise_pack = 1, /obj/item/stack/medical/advanced/ointment = 1,
-		/obj/item/stack/nanopaste = 1,
-
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 5, /obj/item/weapon/reagent_containers/syringe/antitoxin = 5,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 5, /obj/item/weapon/reagent_containers/syringe/tricordrazine = 5,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 1, /obj/item/weapon/reagent_containers/syringe/spaceacillin = 1,
-
+		/obj/item/device/scanner/health = 5,
+		/obj/item/stack/medical/bruise_pack = 5,
+		/obj/item/stack/medical/ointment = 5,
+		/obj/item/stack/medical/advanced/bruise_pack = 2,
+		/obj/item/stack/medical/advanced/ointment = 2,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 10,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 5,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 5,
 		/obj/item/weapon/implantcase/death_alarm = 2,
 		/obj/item/weapon/implanter = 2
 		)
@@ -1159,19 +1136,16 @@
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/drugs = 2,
 		)
 	prices = list(
-		/obj/item/device/scanner/health = 50,
-
-		/obj/item/stack/medical/bruise_pack = 100, /obj/item/stack/medical/ointment = 100,
-		/obj/item/stack/medical/advanced/bruise_pack = 200, /obj/item/stack/medical/advanced/ointment = 200,
-		/obj/item/stack/nanopaste = 300,
-
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 100, /obj/item/weapon/reagent_containers/syringe/antitoxin = 200,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 150, /obj/item/weapon/reagent_containers/syringe/tricordrazine = 300,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 100, /obj/item/weapon/reagent_containers/syringe/spaceacillin = 200,
-
+		/obj/item/device/scanner/health = 150,
+		/obj/item/stack/medical/bruise_pack = 100,
+		/obj/item/stack/medical/ointment = 100,
+		/obj/item/stack/medical/advanced/bruise_pack = 250,
+		/obj/item/stack/medical/advanced/ointment = 250,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/antitoxin = 75,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/tricordrazine = 150,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/spaceacillin = 150,
 		/obj/item/weapon/implantcase/death_alarm = 500,
 		/obj/item/weapon/implanter = 50,
-
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/hyperzine = 500,
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/drugs = 500,
 		)
