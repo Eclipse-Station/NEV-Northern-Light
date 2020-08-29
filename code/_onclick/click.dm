@@ -277,6 +277,7 @@
 /mob/proc/CtrlClickOn(var/atom/A)
 	A.CtrlClick(src)
 	return
+
 /atom/proc/CtrlClick(var/mob/user)
 	return
 

@@ -178,8 +178,14 @@
 
 /mob/living/silicon/robot/AltClickOn(var/atom/A)
 	if(ai_access)
+<<<<<<< HEAD
 		return A.BorgAltClick(src)
 	..()
+=======
+		A.BorgAltClick(src)
+	else
+		..()
+>>>>>>> 78b7a49... Refactor alt-click handling of vent-crawling (#67)
 
 /atom/proc/BorgCtrlShiftClick(var/mob/living/silicon/robot/user) //forward to human click if not overriden
 	CtrlShiftClick(user)

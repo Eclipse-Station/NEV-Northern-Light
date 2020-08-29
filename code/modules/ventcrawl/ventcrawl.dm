@@ -1,7 +1,14 @@
+// Entry-points that can be used to vent-crawl should be implemented like these:
 var/list/ventcrawl_machinery = list(
 	/obj/machinery/atmospherics/unary/vent_scrubber,
 	/obj/machinery/atmospherics/unary/vent_pump
 	)
+
+/obj/machinery/atmospherics/unary/vent_scrubber/AltClick(mob/living/user)
+	user.handle_ventcrawl(src)
+
+/obj/machinery/atmospherics/unary/vent_pump/AltClick(mob/living/user)
+	user.handle_ventcrawl(src)
 
 // Vent crawling whitelisted items, whoo
 // What are these for? Antags mostly,and allowing mice to steal small things
@@ -70,12 +77,6 @@ var/list/ventcrawl_machinery = list(
 			to_chat(src, "<span class='warning'>You can't carry \the [A] while ventcrawling!</span>")
 			return FALSE
 	return TRUE
-
-/mob/living/AltClickOn(var/atom/A)
-	if(is_type_in_list(A,ventcrawl_machinery))
-		handle_ventcrawl(A)
-		return 1
-	return ..()
 
 /mob/proc/start_ventcrawl()
 	var/atom/pipe
@@ -155,6 +156,7 @@ var/list/ventcrawl_machinery = list(
 			to_chat(src, "This vent is not connected to anything.")
 	else
 		to_chat(src, "You must be standing on or beside an air vent to enter it.")
+
 /mob/living/proc/add_ventcrawl(obj/machinery/atmospherics/starting_machine)
 
 	var/datum/pipe_network/network
