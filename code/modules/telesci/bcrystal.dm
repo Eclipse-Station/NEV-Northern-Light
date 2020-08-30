@@ -7,7 +7,11 @@
 	icon_state = "bluespace_crystal"
 	w_class = 1
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 3)
+<<<<<<< HEAD
 	matter = list(MATERIAL_GOLD = 30, MATERIAL_DIAMOND = 35, MATERIAL_PHORON = 30)
+=======
+	matter = list(MATERIAL_DIAMOND = 5, MATERIAL_PLASMA = 5)
+>>>>>>> 268f0c0... Teleporter changes (#5366)
 	var/blink_range = 8 // The teleport range when crushed/thrown at someone.
 
 
