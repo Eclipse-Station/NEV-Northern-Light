@@ -124,7 +124,7 @@ var/global/datum/computer_file/data/email_account/service/payroll/payroll_mailer
 
 	//create an entry in the account transaction log for when it was created
 	var/datum/transaction/T = new(department.account_initial_balance, department_account.owner_name, "Account creation", "Free Trade Union Terminal #277")
-	T.date = "2 April, 2555"
+	T.date = "2 April, [game_year - 3]"
 	T.time = "11:24"
 
 	//add the account
