@@ -31,7 +31,13 @@
 
 /obj/item/organ/external/stump/removed()
 	..()
+<<<<<<< HEAD
 	qdel(src)
+=======
+	if(owner)
+		qdel(src)
+	owner = null //To stop infinate deletion loop.
+>>>>>>> 9708a87... Merge pull request #90 from martinlyra/upstream-2
 
 /obj/item/organ/external/stump/is_usable()
 	return FALSE

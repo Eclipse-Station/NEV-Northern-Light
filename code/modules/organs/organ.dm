@@ -139,10 +139,18 @@
 		return
 
 	if(!owner)
+<<<<<<< HEAD
 		var/datum/reagent/organic/blood/B = locate(/datum/reagent/organic/blood) in reagents.reagent_list
 		if(B && prob(40))
 			reagents.remove_reagent("blood",0.1)
 			blood_splatter(src,B,1)
+=======
+		if(reagents)
+			var/datum/reagent/organic/blood/B = locate(/datum/reagent/organic/blood) in reagents.reagent_list
+			if(B && prob(40))
+				reagents.remove_reagent("blood",0.1)
+				blood_splatter(src,B,1)
+>>>>>>> 9708a87... Merge pull request #90 from martinlyra/upstream-2
 		if(config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
