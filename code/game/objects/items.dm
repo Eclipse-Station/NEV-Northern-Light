@@ -509,7 +509,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	for(var/A in hud_actions)
 		var/obj/item/action = A
-		action.update_icon()
+		if(action)
+			action.update_icon()
 
 /obj/item/proc/refresh_upgrades()
 	return

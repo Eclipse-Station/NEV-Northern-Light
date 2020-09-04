@@ -510,8 +510,9 @@ var/global/list/default_medbay_channels = list(
 	// check if this radio can receive on the given frequency, and if so,
 	// what the range is in which mobs will hear the radio
 	// returns: -1 if can't receive, range otherwise
-
-	if (wires.IsIndexCut(WIRE_RECEIVE))
+	if (QDELING(src))
+		return -1
+	if (wires?.IsIndexCut(WIRE_RECEIVE))
 		return -1
 	if(!listening)
 		return -1
