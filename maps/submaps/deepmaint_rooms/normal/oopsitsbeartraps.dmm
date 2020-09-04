@@ -14,9 +14,8 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "e" = (
-/obj/random/traps,
-/obj/random/junk/low_chance,
-/turf/simulated/floor/tiled/techmaint,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/deepmaint)
 "f" = (
 /obj/effect/window_lwall_spawn,
@@ -29,14 +28,19 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "h" = (
-/obj/random/traps/low_chance,
+/obj/random/traps,
 /obj/random/junk/low_chance,
-/obj/random/junk/low_chance,
-/obj/random/scrap/sparse_weighted/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "i" = (
-/turf/simulated/floor/tiled/techmaint_panels,
+/obj/random/traps/low_chance,
+/obj/random/junk/low_chance,
+/obj/random/scrap/sparse_weighted/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "j" = (
 /obj/random/traps/low_chance,
@@ -49,9 +53,10 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "k" = (
-/obj/random/traps,
+/obj/random/traps/low_chance,
 /obj/random/junk/low_chance,
 /obj/random/scrap/sparse_weighted/low_chance,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "l" = (
@@ -65,20 +70,30 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "m" = (
-/turf/simulated/floor/light,
-/area/deepmaint)
-"n" = (
 /obj/random/traps/low_chance,
 /obj/random/junk/low_chance,
+/obj/random/junk/low_chance,
 /obj/random/scrap/sparse_weighted/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"n" = (
+/obj/random/junk/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/deepmaint)
 "o" = (
+/obj/random/traps/low_chance,
+/obj/random/junk/low_chance,
+/obj/random/scrap/sparse_weighted/low_chance,
+/obj/random/junk/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "p" = (
 /obj/random/traps/low_chance,
+/obj/random/junk/low_chance,
 /obj/random/scrap/sparse_weighted/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "q" = (
@@ -86,23 +101,27 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/deepmaint)
 "r" = (
-/obj/machinery/door/airlock/maintenance_common,
 /obj/random/traps,
 /obj/random/junk/low_chance,
-/turf/simulated/floor/light,
+/obj/random/scrap/sparse_weighted/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "s" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/random/traps/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "t" = (
 /obj/random/traps/low_chance,
-/turf/simulated/floor/light,
+/obj/random/scrap/sparse_weighted/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
 "u" = (
-/obj/random/traps,
 /obj/random/traps/low_chance,
-/turf/simulated/floor/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/deepmaint)
 "v" = (
 /obj/random/traps/low_chance,
@@ -116,19 +135,41 @@
 /obj/machinery/door/airlock/maintenance_common,
 /turf/simulated/floor/tiled/techmaint,
 /area/deepmaint)
+"x" = (
+/obj/machinery/door/airlock/maintenance_common,
+/obj/random/traps,
+/obj/random/junk/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/light,
+/area/deepmaint)
+"y" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"z" = (
+/obj/random/traps/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"A" = (
+/obj/random/traps,
+/obj/random/traps/low_chance,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/deepmaint)
 
 (1,1,1) = {"
 a
+e
 a
 a
-i
-i
-m
-m
-m
-m
-m
-m
+n
+e
+a
+e
+a
+n
+a
 "}
 (2,1,1) = {"
 a
@@ -141,38 +182,38 @@ c
 c
 c
 c
-m
+e
 "}
 (3,1,1) = {"
-a
+e
 c
-g
+i
 j
+k
+k
 g
-g
-g
-g
-g
-r
-m
+k
+k
+x
+a
 "}
 (4,1,1) = {"
 a
 c
-g
+k
 c
-g
-g
-g
+i
 g
 k
+k
 r
-m
+x
+e
 "}
 (5,1,1) = {"
 a
 c
-g
+i
 c
 w
 c
@@ -180,59 +221,59 @@ c
 c
 f
 c
-m
+a
 "}
 (6,1,1) = {"
 a
 d
-g
+k
 c
 g
-g
+k
 g
 c
-o
-o
-m
+s
+s
+a
 "}
 (7,1,1) = {"
 b
 c
-h
+m
 v
-g
-g
-g
-c
-p
+k
 o
+p
+c
 t
+y
+q
 "}
 (8,1,1) = {"
+e
+c
+i
+c
+k
+o
+o
+c
+t
+z
 a
-c
-g
-c
-g
-g
-g
-c
-p
-s
-m
 "}
 (9,1,1) = {"
 a
-e
-g
+h
+k
 f
 l
-n
-n
+g
+g
 c
+u
 q
 q
-t
 "}
 (10,1,1) = {"
 a
@@ -243,20 +284,20 @@ c
 c
 c
 c
+u
 q
-q
-m
+a
 "}
 (11,1,1) = {"
 a
 a
+n
 a
 a
 a
 a
-a
-a
-q
 a
 u
+a
+A
 "}

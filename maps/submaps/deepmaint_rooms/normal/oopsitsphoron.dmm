@@ -16,15 +16,15 @@
 /turf/simulated/wall/r_wall,
 /area/deepmaint)
 "f" = (
-/turf/simulated/floor/tiled/techmaint_cargo,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint_perforated,
 /area/deepmaint)
 "g" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/deepmaint)
 "h" = (
-/obj/structure/table/standard,
-/obj/random/boxes/low_chance,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint_panels,
 /area/deepmaint)
 "i" = (
@@ -146,16 +146,34 @@
 /obj/random/booze,
 /turf/simulated/floor/tiled/techmaint_panels,
 /area/deepmaint)
+"F" = (
+/obj/structure/table/standard,
+/obj/random/boxes/low_chance,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/deepmaint)
+"G" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/deepmaint)
+"H" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint_cargo,
+/area/deepmaint)
 
 (1,1,1) = {"
 c
 c
 c
+f
 c
 c
 c
-c
-c
+f
 c
 c
 c
@@ -164,14 +182,14 @@ c
 c
 a
 e
-h
+F
 o
 s
 e
 a
 A
 a
-c
+f
 "}
 (3,1,1) = {"
 c
@@ -188,7 +206,7 @@ c
 "}
 (4,1,1) = {"
 c
-a
+h
 e
 i
 p
@@ -196,7 +214,7 @@ k
 x
 z
 b
-a
+h
 c
 "}
 (5,1,1) = {"
@@ -222,7 +240,7 @@ t
 x
 C
 b
-a
+h
 c
 "}
 (7,1,1) = {"
@@ -233,7 +251,7 @@ k
 k
 k
 x
-C
+G
 b
 a
 c
@@ -260,12 +278,12 @@ q
 e
 w
 D
-f
+H
 a
 c
 "}
 (10,1,1) = {"
-c
+f
 d
 e
 m
@@ -275,7 +293,7 @@ e
 A
 a
 a
-c
+f
 "}
 (11,1,1) = {"
 c
