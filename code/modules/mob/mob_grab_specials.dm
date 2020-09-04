@@ -51,10 +51,12 @@
 		return
 
 	var/time_to_jointlock = max( 0, ( target.getarmor(target_zone, ARMOR_MELEE) - attacker.stats.getStat(STAT_ROB) ) )
+	attacker.visible_message(SPAN_WARNING("[attacker] starts putting [target]'s [organ.name] into a jointlock!"))
+	
 	if(!do_mob(attacker, target, time_to_jointlock))
-		attacker << SPAN_WARNING("You must stand still to jointlock [target]!")
+		to_chat(attacker, SPAN_WARNING("You must stand still to jointlock [target]!"))
 	else
-		attacker << SPAN_WARNING("[attacker] [pick("bent", "twisted")] [target]'s [organ.name] into a jointlock!")
+		attacker.visible_message(SPAN_WARNING("[attacker] [pick("bent", "twisted")] [target]'s [organ.name] into a jointlock!"))
 		to_chat(target, SPAN_DANGER("You feel extreme pain!"))
 		affecting.adjustHalLoss(CLAMP(0, 60-affecting.halloss, 30)) //up to 60 halloss
 
