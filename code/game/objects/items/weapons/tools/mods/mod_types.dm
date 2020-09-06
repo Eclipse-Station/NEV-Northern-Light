@@ -222,6 +222,53 @@
 	I.req_fuel_cell = REQ_FUEL_OR_CELL
 
 
+/obj/item/weapon/tool_upgrade/productivity/antistaining/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.tool_upgrades = list(
+	UPGRADE_WORKSPEED = 0.30,
+	UPGRADE_PRECISION = 5,
+	UPGRADE_ITEMFLAGPLUS = NOBLOODY
+	)
+	I.prefix = "anti-stain coated"
+
+/obj/item/weapon/tool_upgrade/productivity/booster
+	name = "booster"
+	desc = "When you do not care about energy comsumption and just want to get shit done quickly. This device shunts the power safeties of your tool whether it uses fuel or electricity."
+	icon_state = "booster"
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_GOLD = 1)
+
+/obj/item/weapon/tool_upgrade/productivity/booster/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.tool_upgrades = list(
+	UPGRADE_WORKSPEED = 0.35,
+	UPGRADE_DEGRADATION_MULT = 1.15,
+	UPGRADE_POWERCOST_MULT = 1.25,
+	UPGRADE_FUELCOST_MULT = 1.25
+	)
+	I.prefix = "boosted"
+	I.req_fuel_cell = REQ_FUEL_OR_CELL
+
+/obj/item/weapon/tool_upgrade/productivity/injector
+	name = "plasma injector"
+	desc = "If the words \"safety regulations\" do not mean anything to you, you may consider installing this fine piece of technology on your tool. It injects small amounts of plasma in the fuel mix before combustion to greatly increase its power output, making all kinds of tasks easier to perform."
+	icon_state = "injector"
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_PLASMA = 2)
+
+/obj/item/weapon/tool_upgrade/productivity/injector/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.tool_upgrades = list(
+	UPGRADE_WORKSPEED = 0.75,
+	UPGRADE_DEGRADATION_MULT = 1.3,
+	UPGRADE_POWERCOST_MULT = 1.3,
+	UPGRADE_FUELCOST_MULT = 1.3,
+	UPGRADE_HEALTH_THRESHOLD = -10
+	)
+	I.prefix = "plasma-fueled"
+	I.req_fuel_cell = REQ_FUEL
+
 // 	 REFINEMENT: INCREASES PRECISION
 //------------------------------------------------
 /obj/item/weapon/tool_upgrade/refinement/laserguide

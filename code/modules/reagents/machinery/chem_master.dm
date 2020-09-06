@@ -168,6 +168,15 @@
 					if("By volume")
 						amount_per_pill = input("Select the volume that single pill should contain.", "Max [R.total_volume]", 5) as num
 						amount_per_pill = CLAMP(amount_per_pill, 1, reagents.total_volume)
+<<<<<<< HEAD
+=======
+						if (amount_per_pill > max_pill_vol)
+							alert("Maximum volume supported in pills is [max_pill_vol]","Error.","Ok")
+							return
+						if ((reagents.total_volume / amount_per_pill) > max_pill_count)
+							alert("Maximum supported pills amount is [max_pill_count]","Error.","Ok")
+							return
+>>>>>>> a447f0a... Merge pull request #102 from martinlyra/onions-3
 					else
 						return
 			else

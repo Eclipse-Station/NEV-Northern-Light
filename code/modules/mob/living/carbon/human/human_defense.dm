@@ -161,7 +161,9 @@ meteor_act
 		if(gear && istype(gear ,/obj/item/clothing))
 			var/obj/item/clothing/C = gear
 			if(istype(C) && C.body_parts_covered & def_zone.body_part)
-				protection += C.armor[type]
+				if(C.armor.vars[type] > protection)
+					protection = C.armor.vars[type]
+
 	return protection
 
 /mob/living/carbon/human/proc/check_head_coverage()
