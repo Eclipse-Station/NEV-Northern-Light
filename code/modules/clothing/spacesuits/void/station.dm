@@ -227,7 +227,7 @@
 	light_overlay = "helmet_light_dual"
 
 /obj/item/clothing/suit/space/void/science
-	name = "Lazarus Contractor Power Armor"
+	name = "Moebius Contractor Power Armor"
 	icon_state = "assaultsuit"
 	desc = "A power armor designed by Moebius for contractor work. Features near impeccable armor."
 	item_state = "assaultsuit"

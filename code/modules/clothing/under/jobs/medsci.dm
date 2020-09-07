@@ -98,6 +98,7 @@
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is in baby blue."
 	icon_state = "scrubsblue"
 	item_state = "b_suit"
+	style = 1
 
 /obj/item/clothing/under/rank/medical/green
 	name = "medical scrubs"
@@ -117,9 +118,8 @@
 	icon_state = "psychturtle"
 	item_state = "b_suit"
 
-
 /obj/item/clothing/under/rank/paramedic
-	desc = "Jumpsuit of Moebius Medical paramedics. It's made with reinforced fiber to offer more protection for recovery operators."
+	desc = "Jumpsuit of Lazarus Medical paramedics. It's made with reinforced fiber to offer more protection for recovery operators."
 	name = "moebius paramedic's jumpsuit"
 	icon_state = "paramedic"
 	item_state = "paramedic"
@@ -132,4 +132,3 @@
 		bio = 10,
 		rad = 0
 	)
-

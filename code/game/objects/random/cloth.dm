@@ -24,6 +24,7 @@
 				/obj/item/clothing/mask/gas/ihs = 10,
 				/obj/item/clothing/mask/gas/swat = 2,
 				/obj/item/clothing/mask/gas/voice = 2,
+				/obj/item/clothing/mask/gas/german = 2,
 				/obj/item/clothing/mask/luchador = 2,
 				/obj/item/clothing/mask/luchador/rudos = 2,
 				/obj/item/clothing/mask/luchador/tecnicos = 2,
@@ -65,6 +66,7 @@
 				/obj/item/clothing/suit/armor/bulletproof/serbian = 2,
 				/obj/item/clothing/suit/armor/bulletproof/serbian/green = 2,
 				/obj/item/clothing/suit/armor/bulletproof/serbian/tan = 2,
+				/obj/item/clothing/suit/armor/greatcoat/german_overcoat = 2,
 				/obj/item/clothing/suit/armor/laserproof = 4,
 				/obj/item/clothing/suit/armor/heavy = 2,
 				/obj/item/clothing/suit/armor/heavy/riot = 4,
@@ -192,7 +194,8 @@
 				/obj/item/clothing/under/dress/red = 5,
 				/obj/item/clothing/under/leisure = 5,
 				/obj/item/clothing/under/leisure/white = 5,
-				/obj/item/clothing/under/leisure/pullover = 5))
+				/obj/item/clothing/under/leisure/pullover = 5,
+				/obj/item/clothing/under/germansuit = 5))
 
 /obj/random/cloth/under/low_chance
 	name = "low chance random under"
@@ -239,8 +242,9 @@
 
 /obj/random/cloth/head/item_to_spawn()
 	return pickweight(list(/obj/item/clothing/head/kitty = 1,    //God forgive us
-				/obj/item/clothing/head/greenbandana = 5,
+				/obj/item/clothing/head/bandana/green = 5,
 				/obj/item/clothing/head/beret = 5,
+				/obj/item/clothing/head/beret/german = 4,
 				/obj/item/clothing/head/HoS = 1,
 				/obj/item/clothing/head/bearpelt = 5,
 				/obj/item/clothing/head/bowler = 5,
@@ -256,8 +260,8 @@
 				/obj/item/clothing/head/hardhat = 5,
 				/obj/item/clothing/head/nun_hood = 5,
 				/obj/item/clothing/head/philosopher_wig = 5,
-				/obj/item/clothing/head/orangebandana = 5,
-				/obj/item/clothing/head/greenbandana = 5,
+				/obj/item/clothing/head/bandana/orange = 5,
+				/obj/item/clothing/head/bandana/green = 5,
 				/obj/item/clothing/head/nun_hood = 5,
 				/obj/item/clothing/head/det/grey = 5,
 				/obj/item/clothing/head/det = 5,
@@ -312,7 +316,8 @@
 				/obj/item/clothing/gloves/thick = 5,
 				/obj/item/clothing/gloves/security/tactical = 1,
 				/obj/item/clothing/gloves/security = 2,
-				/obj/item/clothing/gloves/stungloves = 1))
+				/obj/item/clothing/gloves/stungloves = 1,
+				/obj/item/clothing/gloves/german = 3))
 
 /obj/random/cloth/gloves/low_chance
 	name = "low chance random gloves"
@@ -365,7 +370,8 @@
 				/obj/item/clothing/shoes/jackboots = 14,
 				/obj/item/clothing/shoes/leather = 14,
 				/obj/item/clothing/shoes/reinforced = 14,
-				/obj/item/clothing/shoes/workboots = 4))
+				/obj/item/clothing/shoes/workboots = 4,
+				/obj/item/clothing/shoes/jackboots/german = 3))
 
 /obj/random/cloth/shoes/low_chance
 	name = "low chance random shoes"

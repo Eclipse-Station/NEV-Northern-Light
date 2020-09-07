@@ -28,7 +28,7 @@
 	build_path = /obj/item/weapon/gun/projectile/automatic/c20r
 	sort_string = "TAAAF"
 
-/datum/design/research/item/weapon/phoronpistol
+/datum/design/research/item/weapon/plasmapistol
 	build_path = /obj/item/weapon/gun/energy/plasma/brigador
 	sort_string = "TAAAD"
 
@@ -63,21 +63,20 @@
 	sort_string = "TBAAB"
 
 /datum/design/research/item/weapon/hatton
-	name = "NanoTrasen BT \"Q-del\""
+	name = "Moebius BT \"Q-del\""
 	desc = "This breaching tool was reverse engineered from the \"Hatton\" design.\
-			Despite the Excelsior \"Hatton\" being traded on the free market through illegal channels,\
+			Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,\
 			this device suffers from a wide number of reliability issues stemming from it being lathe printed."
-	//Eclipse Note: Leaving this reference to technomancers intact since it doesn't imply that our engineering staff is contracted out ^Spitzer
 	build_path = /obj/item/weapon/hatton/moebius
 	sort_string = "TBAAD"
 
 /datum/design/research/item/weapon/katana
-	name = "NanoTrasen \"Muramasa\" Katana"
+	name = "Moebius \"Muramasa\" Katana"
 	build_path = /obj/item/weapon/tool/sword/katana/nano
 
 
 /datum/design/research/item/weapon/bluespace_dagger
-	name = "NanoTrasen \"Displacement Dagger\""
+	name = "Moebius \"Displacement Dagger\""
 	build_path = /obj/item/weapon/tool/knife/dagger/bluespace
 
 // Ammo
@@ -86,7 +85,7 @@
 	category = CAT_WEAPON
 
 /datum/design/research/item/ammo/hatton
-	name = "NanoTrasen BT \"Q-del\" gas tube"
+	name = "Moebius BT \"Q-del\" gas tube"
 	build_path = /obj/item/weapon/hatton_magazine/moebius
 	sort_string = "TAACC"
 
@@ -101,17 +100,3 @@
 	desc = "Insendiary ammunition for shotguns"
 	build_path = /obj/item/ammo_casing/shotgun/incendiary/prespawned
 	sort_string = "TAACF"
-
-
-//Upgrades
-/datum/design/research/item/weapon_upgrade
-	name_category = "weapon upgrades"
-	category = CAT_WEAPON
-
-/datum/design/research/item/weapon_upgrade/penetrator
-	name = "NanoTrasen \"Penetrator\" magnetic accelerator barrel"
-	build_path = /obj/item/weapon/gun_upgrade/barrel/mag_accel
-
-/datum/design/research/item/weapon_upgrade/overheat
-	name = "NanoTrasen \"Caster\" magnetic overheat barrel"
-	build_path = /obj/item/weapon/gun_upgrade/barrel/overheat

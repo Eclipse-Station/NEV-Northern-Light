@@ -3,9 +3,9 @@
 var/list/disciples = list()
 
 /obj/item/weapon/implant/core_implant/cruciform
-	name = "core implant"
+	name = "Mekhanite Cruciform"
 	icon_state = "cruciform_green"
-	desc = "Soul holder for anyone who can afford it. With the proper flair, this can be implanted to induct a new believer into Transhumanism."
+	desc =  "Soul holder for every disciple. With the proper rituals, this can be implanted to induct a new believer into Mekhane."
 	allowed_organs = list(BP_CHEST)
 	implant_type = /obj/item/weapon/implant/core_implant/cruciform
 	layer = ABOVE_MOB_LAYER
@@ -47,7 +47,7 @@ var/list/disciples = list()
 	if(!wearer || active)
 		return
 
-	if(wearer.mind && wearer.mind.changeling)
+	if(is_carrion(wearer))
 		playsound(wearer.loc, 'sound/hallucinations/wail.ogg', 55, 1)
 		wearer.gib()
 		return
@@ -69,8 +69,8 @@ var/list/disciples = list()
 
 /obj/item/weapon/implant/core_implant/cruciform/Process()
 	..()
-	if(active && round(world.time) % 5 == 0)
-		remove_cyber()
+//	if(active && round(world.time) % 5 == 0)
+//		remove_cyber()   -- Eclipse Edit
 	if(wearer && wearer.stat == DEAD)
 		deactivate()
 

@@ -49,6 +49,7 @@
 		spawn_uplink(owner.current, DEFAULT_TELECRYSTAL_AMOUNT * 1.5)
 	else
 		spawn_uplink(owner.current)
+
 	give_codewords()
 
 	return TRUE
@@ -81,7 +82,7 @@
 
 	survive_objective = /datum/objective/survive
 
-/datum/antagonist/traitor/synth/can_become_antag(var/datum/mind/player)
+/datum/antagonist/traitor/synth/can_become_antag(datum/mind/player)
 	return issilicon(player.current) && ..(player)
 
 /datum/antagonist/traitor/synth/equip()
