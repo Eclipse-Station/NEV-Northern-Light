@@ -87,7 +87,7 @@
 /datum/gear/uniform/warden_skirt
 	display_name = "jumpskirt, warden"
 	path = /obj/item/clothing/under/rank/warden/skirt
-	allowed_roles = list("Gunnery Sergeant")
+	allowed_roles = list("Aegis Gunnery Sergeant")
 
 /datum/gear/uniform/hos_skirt
 	display_name = "jumpskirt, commander"

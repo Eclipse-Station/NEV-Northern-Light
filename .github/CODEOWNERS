@@ -19,34 +19,9 @@
 /.travis.yml @DrExample
 /libbyond-extools.so @DrExample
 /schema.sql @DrExample
-
-
-
-
-
-# EvilJackCarver / Spitzer
-###############
-
-/code/ZAS/ @EvilJackCarver
-/code/ATMOSPHERICS/ @EvilJackCarver
-/code/modules/power/ @EvilJackCarver
-/tools/ @EvilJackCarver
-
-
-
-
-
-# Multiple Owners
-###############
-
-# Mapping related
-
-maps/CEVEris/ @DrExample @EvilJackCarver
-maps/submaps/ @DrExample @EvilJackCarver
-*.dmm @DrExample @EvilJackCarver
-
-# Controllers
-
-/code/controllers/configuration_eclipse.dm @DrExample @EvilJackCarver
-/code/controllers/failsafe.dm @DrExample @EvilJackCarver
-/code/controllers/master.dm @DrExample @EvilJackCarver
+maps/CEVEris/ @DrExample
+maps/submaps/ @DrExample
+*.dmm @DrExample
+/code/controllers/configuration_eclipse.dm @DrExample
+/code/controllers/failsafe.dm @DrExample
+/code/controllers/master.dm @DrExample
