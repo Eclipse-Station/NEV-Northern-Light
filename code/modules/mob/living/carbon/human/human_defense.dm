@@ -160,8 +160,15 @@ meteor_act
 	for(var/gear in protective_gear)
 		if(gear && istype(gear ,/obj/item/clothing))
 			var/obj/item/clothing/C = gear
+<<<<<<< HEAD
 			if(istype(C) && C.body_parts_covered & def_zone.body_part)
 				protection += C.armor[type]
+=======
+			if(istype(C) && C.body_parts_covered & def_zone.body_part && C.armor)
+				if(C.armor.vars[type] > protection)
+					protection = C.armor.vars[type]
+
+>>>>>>> beffc27... 2 runtimes. One in datacore.dm and one in human_defense.dm (#5433)
 	return protection
 
 /mob/living/carbon/human/proc/check_head_coverage()
