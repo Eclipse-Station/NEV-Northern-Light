@@ -4,6 +4,10 @@
 	name = "airlock electronics"
 	build_path = /obj/item/weapon/airlock_electronics
 
+/datum/design/autolathe/circuit/airlockmodule/secure
+	name = "secure airlock electronics"
+	build_path = /obj/item/weapon/airlock_electronics/secure
+
 /datum/design/autolathe/circuit/airalarm
 	name = "air alarm electronics"
 	build_path = /obj/item/weapon/airalarm_electronics
@@ -51,6 +55,18 @@
 /datum/design/autolathe/circuit/reagentgrinder
 	name = "reagent grinder"
 	build_path = /obj/item/weapon/circuitboard/reagentgrinder
+
+/datum/design/autolathe/circuit/smelter
+	name = "smelter"
+	build_path = /obj/item/weapon/circuitboard/smelter
+
+/datum/design/autolathe/circuit/sorter
+	name = "sorter"
+	build_path = /obj/item/weapon/circuitboard/sorter
+
+/datum/design/autolathe/circuit/industrialgrinder
+	name = "industrial grinder"
+	build_path = /obj/item/weapon/circuitboard/industrial_grinder
 
 //Exelsior ciruits
 /datum/design/autolathe/circuit/shieldgen_excelsior

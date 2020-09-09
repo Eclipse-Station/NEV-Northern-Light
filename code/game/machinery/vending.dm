@@ -1039,7 +1039,7 @@
 					/obj/item/ammo_magazine/slpistol = 500,
 					/obj/item/ammo_magazine/smg/rubber = 300,
 					/obj/item/ammo_magazine/smg = 400,
-					/obj/item/ammo_magazine/ammobox/pistol = 500,
+					/obj/item/ammo_magazine/ammobox/pistol = 700,
 					/obj/item/weapon/storage/box/shotgunammo/slug = 900,
 					/obj/item/weapon/storage/box/shotgunammo/buckshot = 900,
 					/obj/item/weapon/tool/knife/tacknife = 600,
@@ -1084,11 +1084,24 @@
 	product_ads = "Probably not bad for you!;Don't believe the scientists!;It's good for you!;Don't quit, buy more!;Smoke!;Nicotine heaven.;Best cigarettes since 2150.;Award-winning cigs."
 	vend_delay = 34
 	icon_state = "cigs"
-	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10,/obj/item/weapon/storage/box/matches = 10,/obj/item/weapon/flame/lighter/random = 4)
-	contraband = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 4, /obj/item/weapon/flame/lighter/zippo = 4,)
-	premium = list(/obj/item/weapon/storage/fancy/cigar = 5,/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5 )
-	prices = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 200, /obj/item/weapon/storage/fancy/cigarettes = 100 ,/obj/item/weapon/storage/box/matches = 10,/obj/item/weapon/flame/lighter/random = 5,
-				/obj/item/weapon/flame/lighter/zippo = 250)
+	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10,
+					/obj/item/weapon/storage/fancy/cigcartons = 5,
+					/obj/item/clothing/mask/smokable/cigarette/cigar = 4,
+					/obj/item/weapon/flame/lighter/zippo = 4,
+					/obj/item/weapon/storage/box/matches = 10,
+					/obj/item/weapon/flame/lighter/random = 4,
+					/obj/item/weapon/storage/fancy/cigar = 5,
+					/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5,
+					/obj/item/clothing/mask/vape = 5
+				   )
+
+	prices = list(/obj/item/clothing/mask/smokable/cigarette/cigar = 200,
+				  /obj/item/weapon/storage/fancy/cigarettes = 100,
+				  /obj/item/weapon/storage/fancy/cigcartons = 800,
+				  /obj/item/weapon/storage/box/matches = 10,
+				  /obj/item/weapon/flame/lighter/random = 5,
+				  /obj/item/weapon/flame/lighter/zippo = 250,
+				  /obj/item/clothing/mask/vape = 300)
 
 
 /obj/machinery/vending/medical

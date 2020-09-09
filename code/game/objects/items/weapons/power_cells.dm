@@ -1,5 +1,4 @@
 //BIG CELLS - for APC, borgs and machinery.
-
 /obj/item/weapon/cell/large
 	name = "\"Robustcell 1000L\""
 	desc = "A Rechargeable L-standardized power cell. This one is the cheapest you can find."
@@ -166,10 +165,10 @@
 	maxcharge = 1000
 
 /obj/item/weapon/cell/medium/excelsior
-	name = "\"Zarya 800M\""
-	desc = "A rechargeable M-standardized power cell. Power to the people!"
+	name = "Excelsior \"Zarya 1000M\""
+	desc = "Commie rechargeable M-standardized power cell. Power to the people!"
 	icon_state = "exs_m"
-	origin_tech = list(TECH_POWER = 3)
+	origin_tech = list(TECH_POWER = 4)
 	matter = list(MATERIAL_STEEL = 4, MATERIAL_PLASTIC = 2)
 	maxcharge = 1000
 
@@ -249,7 +248,8 @@
 	desc = "An experimental branded S-standardized microreactor cell. Recharges itself over time."
 	icon_state = "meb_pda"
 	origin_tech = list(TECH_POWER = 4)
-	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_URANIUM = 1)
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
+	matter_reagents = list("radium" = 5, "uranium" = 1)
 	maxcharge = 50
 	// Autorecharge rate is calculated for PDA power consumption: enough to offset it, unless PDA light is on.
 	autorecharging = TRUE
@@ -257,9 +257,22 @@
 	recharge_time = 1
 
 /obj/item/weapon/cell/small/excelsior
-	name = "\"Zarya 250S\""
-	desc = "A rechargeable S-standardized power cell. Power to the people!"
+	name = "Excelsior \"Zarya 300S\""
+	desc = "Commie rechargeable S-standardized power cell. Power to the people!"
 	icon_state = "exs_s"
-	origin_tech = list(TECH_POWER = 3)
+	origin_tech = list(TECH_POWER = 4)
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 1)
 	maxcharge = 300
+
+
+/obj/item/weapon/cell/disposable
+	name = "a disposable cell"
+	desc = "just steel for this one!"
+	icon_state = "s_st"
+	w_class = ITEM_SIZE_TINY
+	force = WEAPON_FORCE_HARMLESS
+	throw_speed = 5
+	throw_range = 7
+	origin_tech = list(TECH_POWER = 1)
+	matter = list(MATERIAL_STEEL = 1)  //some cost just in case you manage to get this in a disk or something
+	maxcharge = 100  //small cause if someone manage to get this shouldn't be that usefull. and 100 is a nice number to work with.

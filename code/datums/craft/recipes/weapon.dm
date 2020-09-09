@@ -24,14 +24,6 @@
 		list(CRAFT_MATERIAL, 1, MATERIAL_STEEL)
 	)
 
-/datum/craft_recipe/weapon/crudespear //put it near the top since it's a classic
-	name = "glass spear"
-	result = /obj/item/weapon/material/spear
-	steps = list(
-		list(/obj/item/stack/rods, 2, "time" = 5),
-		list(/obj/item/weapon/material/shard, 1, "time" = 15)
-	)
-
 /datum/craft_recipe/weapon/knife
 	name = "steel knife"
 	result = /obj/item/weapon/tool/knife
@@ -116,7 +108,7 @@
 	result = /obj/item/weapon/shield/riot/handmade/tray
 	steps = list(
 		list(/obj/item/weapon/tray, 1),
-		list(/obj/item/weapon/storage/belt, 2, "time" = 10)
+		list(/obj/item/weapon/storage/belt, 1, "time" = 10)
 	)
 
 /datum/craft_recipe/weapon/pistol
@@ -222,3 +214,17 @@
 		list(QUALITY_WIRE_CUTTING, 30, "time" = 50), //Fix the wires
 	)
 
+/datum/craft_recipe/weapon/lasersmg
+	name = "Lasblender"
+	result = /obj/item/weapon/gun/energy/lasersmg
+	steps = list(
+		list(/obj/item/weapon/gun/projectile/automatic/atreides, 1),
+		list(QUALITY_WELDING, 10, "time" = 30),
+		list(CRAFT_MATERIAL, 6, MATERIAL_PLASTEEL, "time" = 10),
+		list(/obj/item/weapon/stock_parts/subspace/crystal, 1),
+		list(/obj/item/weapon/computer_hardware/led, 1),
+		list(/obj/item/stack/cable_coil, 5, "time" = 20),
+		list(/obj/item/weapon/stock_parts/capacitor, 1, "time" = 5),
+		list(CRAFT_MATERIAL, 2, MATERIAL_GLASS, "time" = 10),
+		list(QUALITY_ADHESIVE, 15, 70)
+	)

@@ -26816,6 +26816,12 @@
 /obj/machinery/disease2/diseaseanalyser,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/virology)
+"bid" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/eclipse/laz3,
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/reception)
 "bie" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/railing,
@@ -31946,6 +31952,13 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/eris/medical/virology)
+"bty" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/eclipse/laz4,
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/reception)
 "btz" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 8
@@ -45461,6 +45474,22 @@
 	},
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/server)
+"bWs" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/eclipse/laz1,
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/reception)
 "bWt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -53790,7 +53819,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/fact_plaque/rnd1,
+/obj/effect/floor_decal/eclipse/laz3,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/mixing)
 "cph" = (
@@ -53803,7 +53832,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/effect/floor_decal/fact_plaque/rnd2,
+/obj/effect/floor_decal/eclipse/laz4,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/mixing)
 "cpi" = (
@@ -54207,12 +54236,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/fact_plaque/rnd3,
+/obj/effect/floor_decal/eclipse/laz1,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/mixing)
 "cqf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/fact_plaque/rnd4,
+/obj/effect/floor_decal/eclipse/laz2,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/mixing)
 "cqg" = (
@@ -73336,6 +73365,25 @@
 	},
 /turf/simulated/floor/tiled/white/danger,
 /area/eris/rnd/xenobiology)
+"dhJ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/eclipse/laz2,
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/reception)
+"dhK" = (
+/obj/machinery/light,
+/obj/structure/table/glass,
+/obj/item/roller,
+/obj/item/device/defib_kit/loaded,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/medical/surgery)
 "dhL" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/rd,
@@ -73528,6 +73576,12 @@
 /obj/random/traps/wire_splicing/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/hallway/side/bridgehallway)
+"dif" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/box/beakers,
+/obj/item/device/defib_kit/loaded,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/medical/medbay)
 "dig" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
@@ -78934,11 +78988,6 @@
 /obj/item/weapon/reagent_containers/syringe,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
-"dtS" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/box/beakers,
-/turf/simulated/floor/tiled/white/brown_perforated,
-/area/eris/medical/medbay)
 "dtT" = (
 /obj/machinery/power/rad_collector,
 /turf/simulated/floor/tiled/steel/cargo,
@@ -82841,12 +82890,6 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/misc)
-"dCC" = (
-/obj/effect/floor_decal/fact_plaque/med1,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
 "dCD" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -24
@@ -82869,13 +82912,6 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
-"dCG" = (
-/obj/effect/floor_decal/fact_plaque/med2,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
 "dCH" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -83076,34 +83112,6 @@
 	},
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/engineering/foyer)
-"dDf" = (
-/obj/effect/floor_decal/fact_plaque/med3,
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
-"dDg" = (
-/obj/effect/floor_decal/fact_plaque/med4,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
 "dDh" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -109529,12 +109537,6 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
-"tGj" = (
-/obj/machinery/light,
-/obj/structure/table/glass,
-/obj/item/roller,
-/turf/simulated/floor/tiled/white/brown_perforated,
-/area/eris/medical/surgery)
 "tMc" = (
 /obj/machinery/camera/network/engineering{
 	dir = 8
@@ -204057,7 +204059,7 @@ bKa
 aTG
 nIq
 cjK
-tGj
+dhK
 cgI
 cgI
 chm
@@ -207298,7 +207300,7 @@ coA
 cqG
 cKg
 cKg
-dtS
+dif
 csm
 dBT
 cun
@@ -208514,8 +208516,8 @@ cKx
 chB
 rGT
 rGT
-dCC
-dDf
+bid
+bWs
 dDE
 dDE
 clS
@@ -208716,8 +208718,8 @@ dgs
 chA
 coS
 coS
-dCG
-dDg
+bty
+dhJ
 coS
 coS
 clR
@@ -244254,7 +244256,7 @@ abF
 abF
 abF
 abF
-aaa
+abF
 aaa
 aaa
 aaa
@@ -244456,9 +244458,9 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
+abF
+abF
+abF
 aaa
 abF
 abF
@@ -244658,9 +244660,9 @@ abF
 abF
 abF
 abF
-aaa
-aaa
-aaa
+abF
+abF
+abF
 abF
 abF
 abF
@@ -244860,8 +244862,8 @@ abF
 abF
 abF
 abF
-aaa
-aaa
+abF
+abF
 bdL
 bdL
 bdL
@@ -245062,8 +245064,8 @@ abF
 abF
 abF
 abF
-aaa
-aaa
+abF
+abF
 bdL
 bdM
 bdL
@@ -245264,8 +245266,8 @@ bYo
 bYo
 abF
 abF
-aaa
-aaa
+abF
+abF
 bdL
 bgd
 cIv
@@ -245466,7 +245468,7 @@ dhm
 bYo
 abF
 abF
-aaa
+abF
 bdL
 bdL
 bgd
@@ -245668,7 +245670,7 @@ dhm
 bYo
 abF
 abF
-aaa
+abF
 bdL
 bdP
 bdQ
@@ -245870,7 +245872,7 @@ dhm
 bYo
 bPe
 bPe
-aaa
+abF
 bdL
 bdL
 bdL
@@ -246072,7 +246074,7 @@ dhm
 bYo
 cvq
 dAf
-aaa
+abF
 abF
 abF
 abF

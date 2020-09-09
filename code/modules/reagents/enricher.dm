@@ -12,7 +12,7 @@
 	price_tag = 20000
 	origin_tech = list(TECH_BIO = 9, TECH_MATERIAL = 9, TECH_PLASMA = 3)
 	unacidable = TRUE //glass doesn't dissolve in acid
-	matter = list(MATERIAL_GLASS = 3, MATERIAL_STEEL = 2, MATERIAL_PLASMA = 5, MATERIAL_BIOMATTER = 50)
+	matter = list(MATERIAL_GLASS = 3, MATERIAL_STEEL = 2, MATERIAL_PHORON = 5, MATERIAL_BIOMATTER = 50)
 	var/blood_amount = 0
 
 /obj/item/weapon/reagent_containers/enricher/attack_self()

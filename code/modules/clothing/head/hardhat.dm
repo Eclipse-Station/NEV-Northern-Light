@@ -16,6 +16,17 @@
 	siemens_coefficient = 0.8
 	w_class = ITEM_SIZE_NORMAL
 	price_tag = 30
+	style = 1
+
+/obj/item/clothing/head/hardhat/visor
+	name = "visored hard hat"
+	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight and visor, which may protect eyes."
+	icon_state = "hardhat_yellow_visor"
+	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = HIDEEYES
+
+/obj/item/clothing/head/hardhat/blue
+	icon_state = "hardhat_blue"
 
 /obj/item/clothing/head/hardhat/visor
 	name = "visored hard hat"

@@ -246,16 +246,17 @@ The module base code is held in module.dm
 	integrity = CLAMP(integrity, 0, 100)
 
 /obj/item/weapon/implant/soulcrypt/proc/send_host_message(var/message, var/message_type = MESSAGE_NOTICE)
+	var/turf/T = get_turf(wearer)
 	switch(message_type)
 		if(MESSAGE_NOTICE)
 			to_chat(wearer, SPAN_NOTICE("\icon[src] [src] transmits calmly, '[message]'"))
-			wearer << good_sound
+			wearer.playsound_local(T, good_sound, 30)
 		if(MESSAGE_WARNING)
 			to_chat(wearer, SPAN_WARNING("\icon[src] [src] transmits urgently, '[message]'"))
-			wearer << bad_sound
+			wearer.playsound_local(T, bad_sound, 30)
 		if(MESSAGE_DANGER)
 			to_chat(wearer, SPAN_DANGER("\icon[src] [src] transmits urgently, '[message]'"))
-			wearer << very_bad_sound
+			wearer.playsound_local(T, very_bad_sound, 30)
 
 /obj/item/weapon/implant/soulcrypt/proc/find_module_by_name(var/name)
 	for(var/datum/soulcrypt_module/M in modules)

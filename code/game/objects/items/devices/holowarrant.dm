@@ -105,7 +105,7 @@
 	if(active.fields["arrestsearch"] ==  "search")
 		var/output= {"
 		<HTML><HEAD><TITLE>Search Warrant: [active.fields["namewarrant"]]</TITLE></HEAD>
-		<BODY bgcolor='#ffffff'><center><large><b>AC SEC Warrant Tracker System</b></large></br>
+		<BODY bgcolor='#ffffff'><center><large><b>IH SEC Warrant Tracker System</b></large></br>
 		</br>
 		Issued under the jurisdiction of the</br>
 		[boss_name]</br>
@@ -120,9 +120,9 @@
 		</br>
 		Vessel or habitat: _<u>[station_name]</u>____</br>
 		</br>
-		<center><small><i>The Aegis Cobalt Security Operative(s) bearing this Warrant are hereby authorized by the Issuer to conduct a one time lawful search of the Suspect's person/belongings/premises and/or Organization for any items and materials that could be connected to the suspected criminal act described below, pending an investigation in progress.</br>
+		<center><small><i>The Aegis Security Operative(s) bearing this Warrant are hereby authorized by the Issuer to conduct a one time lawful search of the Suspect's person/belongings/premises and/or Organization for any items and materials that could be connected to the suspected criminal act described below, pending an investigation in progress.</br>
 		</br>
-		The Aegis Cobalt Security Operative(s) are obligated to remove any and all such items from the Suspects posession and/or Organization and file it as evidence.</br>
+		The Aegis Security Operative(s) are obligated to remove any and all such items from the Suspects posession and/or Organization and file it as evidence.</br>
 		</br>
 		The Suspect/Organization staff is expected to offer full co-operation.</br>
 		</br>

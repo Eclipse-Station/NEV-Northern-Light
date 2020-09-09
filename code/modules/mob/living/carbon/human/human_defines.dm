@@ -79,6 +79,7 @@
 	var/flapping = 0
 
 	var/mob/remoteview_target = null
+	var/remoteviewer = FALSE //Acts as an override for remoteview_target viewing, see human/life.dm: handle_vision()
 	var/hand_blood_color
 
 	var/gunshot_residue

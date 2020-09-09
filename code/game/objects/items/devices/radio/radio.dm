@@ -52,9 +52,10 @@ var/global/list/default_medbay_channels = list(
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
-	
+
 	//Eclipse-added vars
 	var/freqlock = FALSE		//Eclipse Edit: Should we lock the frequency to prevent people from changing the channel?
+
 
 /obj/item/device/radio
 	var/datum/radio_frequency/radio_connection
@@ -72,11 +73,6 @@ var/global/list/default_medbay_channels = list(
 	if(syndie)
 		internal_channels += unique_internal_channels.Copy()
 	add_hearing()
-	
-	//eclipse addition
-	if(audible_squelch_enabled)		//if it's disabled, should stay as null.ogg. Prevents it from playing squelch in the event another if-check fails.
-		audible_squelch_type = pick(all_radio_squelch_sounds)		//radios get a semi-unique radio squelch sound. granted, there's four sounds total, but if one radio receives it should maintain the same squelch sound all the time.
-	//of course, this isn't realistic at all since each radio plays the same squelch when it receives different radios (not the other way around), but it should break the monotony.
 
 /obj/item/device/radio/Destroy()
 	remove_hearing()
@@ -539,7 +535,6 @@ var/global/list/default_medbay_channels = list(
 
 		if (!accept)
 			return -1
-	play_squelch_sound(audible_squelch_type)		//eclipse addition - play radio squelch.
 	return canhear_range
 
 /obj/item/device/radio/proc/send_hear(freq, level)
@@ -876,5 +871,3 @@ var/global/list/default_medbay_channels = list(
 				to_chat(user, SPAN_WARNING("You cannot find any use of [D], maybe you need something related to mechanic to repair this?"))
 		else
 			to_chat(user, SPAN_WARNING("The [D] is useless here. Try to find another one."))
-
-

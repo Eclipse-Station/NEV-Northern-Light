@@ -70,4 +70,3 @@
 /datum/design/research/item/exosuit/rcd
 	name = "mounted RCD"
 	build_path = /obj/item/mech_equipment/mounted_system/rcd
-

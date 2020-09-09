@@ -10,7 +10,8 @@
 /obj/item/mech_equipment/clamp/attack()
 	return 0
 
-/obj/item/mech_equipment/clamp/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
+/obj/item/mech_equipment/clamp/afterattack(atom/target, mob/living/user, inrange, params)
+	if(!inrange) return
 	. = ..()
 
 	if(. && !carrying)
@@ -22,6 +23,15 @@
 				return
 			if(locate(/mob/living) in O)
 				to_chat(user,"<span class='warning'>You can't load living things into the cargo compartment.</span>")
+				return
+
+			if(istype(target, /obj/structure/scrap))
+				owner.visible_message(SPAN_NOTICE("\The [owner] begins compressing \the [O] with \the [src]."))
+				if(do_after(owner, 20, O, 0, 1))
+					if(istype(O, /obj/structure/scrap))
+						var/obj/structure/scrap/S = O
+						S.make_cube()
+						owner.visible_message(SPAN_NOTICE("\The [owner] compresses \the [O] into a cube with \the [src]."))
 				return
 
 			if(O.anchored)
@@ -222,7 +232,8 @@
 			playsound(src, 'sound/weapons/circsawhit.ogg', 50, 1)
 
 
-/obj/item/mech_equipment/drill/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
+/obj/item/mech_equipment/drill/afterattack(atom/target, mob/living/user, inrange, params)
+	if(!inrange) return
 	. = ..()
 	if(.)
 		if(isobj(target))

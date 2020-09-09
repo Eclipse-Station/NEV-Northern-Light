@@ -45,7 +45,7 @@
 	W.forceMove(get_turf(src))
 	W.layer = initial(W.layer)
 	W.set_plane(initial(W.plane))
-	W.dropped()
+	W.dropped(usr)
 	return FALSE
 
 // Removes an item from inventory and places it in the target atom.
@@ -173,6 +173,8 @@
 /mob/proc/get_max_w_class()
 	return 0 //zero
 
+/mob/proc/get_total_style()
+	return 0 //zero
 
 //Returns the inventory slot for the current hand
 /mob/proc/get_active_hand_slot()
@@ -204,3 +206,23 @@
 		var/obj/item/I = entry
 		if(I.body_parts_covered & body_parts)
 			. += I
+
+
+/mob/proc/is_holding(var/obj/item/W)
+	return is_holding_in_active_hand(W) || is_holding_in_inactive_hand(W)
+
+/mob/proc/is_holding_in_active_hand(var/obj/item/W)
+	return get_active_hand() == W
+
+/mob/proc/is_holding_in_inactive_hand(var/obj/item/W)
+	return get_inactive_hand() == W
+
+//You should never need to use these unless the item calling requires proper alignment with a structure.
+/mob/proc/is_holding_in_l_hand(var/obj/item/W)
+	return l_hand == W
+
+/mob/proc/is_holding_in_r_hand(var/obj/item/W)
+	return r_hand == W
+
+/mob/proc/hands_are_full()
+	return l_hand && r_hand

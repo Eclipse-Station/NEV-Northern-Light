@@ -4,7 +4,7 @@
 
 /obj/item/weapon/reagent_containers/hypospray
 	name = "hypospray"
-	desc = "The NanoTrasen corporation hypospray is a sterile, air-needle autoinjector for rapid administration of drugs to patients."
+	desc = "The Moebius Medical department hypospray is a sterile, air-needle autoinjector for rapid administration of drugs to patients."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"

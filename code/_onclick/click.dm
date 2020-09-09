@@ -437,4 +437,3 @@ GLOBAL_LIST_INIT(click_catchers, create_click_catcher())
 			Weaken(3)
 			return
 		T.attack_hand(src)
-
