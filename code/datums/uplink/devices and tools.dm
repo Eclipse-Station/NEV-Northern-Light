@@ -9,6 +9,7 @@
 	item_cost = 5
 	path = /obj/item/weapon/storage/toolbox/syndicate
 	desc = "Danger. Very robust. Filled with advanced tools."
+
 /datum/uplink_item/item/tools/shield_diffuser
 	name = "Shield Diffuser"
 	item_cost = 4
@@ -341,3 +342,12 @@
 			return
 		BS.module.modules += new /obj/item/weapon/bluespace_harpoon/mounted/blitz(BS.module)
 		return TRUE
+<<<<<<< HEAD
+=======
+
+/datum/uplink_item/item/tools/mindreader
+	name = "Mindreader"
+	desc = "Place on your victim's head to extract memories from their brain after a mental breakdown."
+	item_cost = 20
+	path = /obj/item/clothing/head/mindreader
+>>>>>>> 97c0c57... Merge pull request #107 from martinlyra/onions-5
