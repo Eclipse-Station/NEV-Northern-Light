@@ -34,31 +34,31 @@
 #define DNA_UI_BODYBUILD   15
 #define DNA_UI_BEARD_STYLE 16
 #define DNA_UI_HAIR_STYLE  17
-#define DNA_UI_EAR_STYLE   17 // Eclipse snippet.
-#define DNA_UI_TAIL_STYLE  18
-#define DNA_UI_PLAYERSCALE 19
-#define DNA_UI_TAIL_R      20
-#define DNA_UI_TAIL_G      21
-#define DNA_UI_TAIL_B      22
-#define DNA_UI_TAIL2_R     23
-#define DNA_UI_TAIL2_G     24
-#define DNA_UI_TAIL2_B     25
-#define DNA_UI_EARS_R      26
-#define DNA_UI_EARS_G      27
-#define DNA_UI_EARS_B      28
-#define DNA_UI_EARS2_R     29
-#define DNA_UI_EARS2_G     30
-#define DNA_UI_EARS2_B     31
-#define DNA_UI_WING_STYLE  32
-#define DNA_UI_WING_R      33
-#define DNA_UI_WING_G      34
-#define DNA_UI_WING_B      35
-#define DNA_UI_WING2_R     36
-#define DNA_UI_WING2_G     37
-#define DNA_UI_WING2_B     38 // Eclipse snippet end.
-#define DNA_UI_LENGTH      38 // Eclipse Edit - Needs to match the highest number above.
+#define DNA_UI_EAR_STYLE   18 // Eclipse snippet.
+#define DNA_UI_TAIL_STYLE  19
+#define DNA_UI_PLAYERSCALE 20
+#define DNA_UI_TAIL_R      21
+#define DNA_UI_TAIL_G      22
+#define DNA_UI_TAIL_B      23
+#define DNA_UI_TAIL2_R     24
+#define DNA_UI_TAIL2_G     25
+#define DNA_UI_TAIL2_B     26
+#define DNA_UI_EARS_R      27
+#define DNA_UI_EARS_G      28
+#define DNA_UI_EARS_B      29
+#define DNA_UI_EARS2_R     30
+#define DNA_UI_EARS2_G     31
+#define DNA_UI_EARS2_B     32
+#define DNA_UI_WING_STYLE  33
+#define DNA_UI_WING_R      34
+#define DNA_UI_WING_G      35
+#define DNA_UI_WING_B      36
+#define DNA_UI_WING2_R     37
+#define DNA_UI_WING2_G     38
+#define DNA_UI_WING2_B     39 // Eclipse snippet end.
+#define DNA_UI_LENGTH      39 // Eclipse Edit - Needs to match the highest number above.
 
-#define DNA_SE_LENGTH 38
+#define DNA_SE_LENGTH DNA_UI_LENGTH
 // For later:
 //#define DNA_SE_LENGTH 50 // Was STRUCDNASIZE, size 27. 15 new blocks added = 42, plus room to grow.
 
@@ -115,9 +115,10 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	new_dna.unique_enzymes=unique_enzymes
 	new_dna.b_type=b_type
 	new_dna.real_name=real_name
-	new_dna.body_markings=body_markings.Copy()//Eclipse add
+	new_dna.body_markings=body_markings.Copy() //Eclipse add
+	new_dna.custom_species=custom_species // Syzygy edit
 	new_dna.species=species
-	for(var/b=1;b<=DNA_SE_LENGTH;b++)
+	for(var/b in 1 to DNA_SE_LENGTH)
 		new_dna.SE[b]=SE[b]
 		if(b<=DNA_UI_LENGTH)
 			new_dna.UI[b]=UI[b]
