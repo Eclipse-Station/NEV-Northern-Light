@@ -243,8 +243,12 @@
 			occupant.UpdateAppearance()
 			occupant.sync_organ_dna()
 			occupant.flavor_text = R.host_flavor_text
+<<<<<<< HEAD
 			occupant.stats = R.host_stats
 			occupant.stats = R.host_stats
+=======
+			// occupant.stats = R.stats // commented out because it's a variable used by the cruciform, uncomment when we're back to using cruciforms
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
 			var/datum/effect/effect/system/spark_spread/s = new

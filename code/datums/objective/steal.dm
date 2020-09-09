@@ -22,8 +22,13 @@
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
+<<<<<<< HEAD
 		"an Ironhammer hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer,
 		"a Bluespace Biosyphon" = /obj/item/biosyphon,
+=======
+		"a Cobalt Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer,
+		"a Lazarus Carbon Reclaimer" = /obj/item/biosyphon,
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 		"a S REV .35 Auto \"Sky Driver\"" = /obj/item/weapon/gun/projectile/revolver/sky_driver,
 		"Von-Krabin Stimulator" = /obj/item/device/von_krabin,
 		"Molitor-Riedel Enricher" = /obj/item/weapon/reagent_containers/enricher,

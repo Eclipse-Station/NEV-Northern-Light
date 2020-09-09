@@ -1,6 +1,10 @@
 /obj/item/weapon/reagent_containers/enricher
 	name = "Molitor-Riedel Enricher"
+<<<<<<< HEAD
 	desc = "An exceptionally complicated device, capable of producing a pack of donor blood out of a small blood sample."
+=======
+	desc = "Produces universal donor blood if you inject it with nutrients, outputs it in packet ready to use."
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "enricher"
 	item_state = "enricher"
@@ -12,7 +16,11 @@
 	price_tag = 20000
 	origin_tech = list(TECH_BIO = 9, TECH_MATERIAL = 9, TECH_PLASMA = 3)
 	unacidable = TRUE //glass doesn't dissolve in acid
+<<<<<<< HEAD
 	matter = list(MATERIAL_GLASS = 3, MATERIAL_STEEL = 2, MATERIAL_PHORON = 5, MATERIAL_BIOMATTER = 50)
+=======
+	matter = list(MATERIAL_GLASS = 3, MATERIAL_STEEL = 2, MATERIAL_PLASMA = 5, MATERIAL_BIOMATTER = 50)
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 	var/blood_amount = 0
 
 /obj/item/weapon/reagent_containers/enricher/attack_self()

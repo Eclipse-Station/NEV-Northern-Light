@@ -3,7 +3,11 @@
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "maneki_neko"
 	item_state = "maneki_neko"
+<<<<<<< HEAD
 	desc = "An expensive-looking figurine, found during Northern Light's refurbishment. It is surrounded by a menacing aura and seems to be very fragile."
+=======
+	desc = "Costs a lot of money, this is ancient relic with no practical purpose. Feels like it's looking at you, with menacingly gaze. Fragile."
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 	flags = CONDUCT
 	force = WEAPON_FORCE_WEAK
 	w_class = ITEM_SIZE_SMALL
@@ -12,7 +16,10 @@
 	throw_range = 15
 	price_tag = 20000
 	origin_tech = list(TECH_MATERIAL = 10)
+<<<<<<< HEAD
 	var/affect_radius = 7
+=======
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 	matter = list(MATERIAL_GLASS = 5, MATERIAL_GOLD = 7, MATERIAL_SILVER = 5, MATERIAL_DIAMOND = 1)
 	var/list/mob/living/carbon/human/followers = list()
 
@@ -27,8 +34,13 @@
 
 /obj/item/weapon/maneki_neko/Process()
 	..()
+<<<<<<< HEAD
 	for(var/list/mob/living/carbon/human/affected in oviewers(affect_radius, src))
 		followers |= affected
+=======
+	var/list/mob/living/carbon/human/affected = oviewers(src)
+	followers |= affected
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 
 /obj/item/weapon/maneki_neko/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(QUALITY_HAMMERING in W.tool_qualities)
@@ -58,4 +70,9 @@
 		H.sanity.level = 0
 		for(var/stat in ALL_STATS)
 			H.stats.changeStat(stat, -10)
+<<<<<<< HEAD
 		to_chat(H, SPAN_DANGER("You feel ages upon ages of bad luck crawling onto your shoulders!"))
+=======
+		var/neko = uppertext(src.name)
+		to_chat(H, SPAN_DANGER(pick("LIFE IS RUINED FOR ME! I CANNOT FIND [neko]!", "WHO STEAL MY [neko]!", "WHERE IS [neko]?!", "WHY I CANNOT FIND [neko]?!")))
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4

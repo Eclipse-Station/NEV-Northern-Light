@@ -2212,7 +2212,10 @@
 	glass_name = "special blend whiskey"
 	glass_desc = "Just when you thought regular station whiskey was good... This silky, amber goodness has to come along and ruin everything."
 	glass_center_of_mass = list("x"=16, "y"=12)
+<<<<<<< HEAD
 	taste_tag = list(TASTE_LIGHT)
+=======
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 
 /datum/reagent/ethanol/atomic_vodka
 	name = "Atomic Vodka"
@@ -2228,7 +2231,10 @@
 	glass_name = "atomic vodka"
 	glass_desc = "Booze for true drunkers."
 	glass_center_of_mass = list("x"=16, "y"=12)
+<<<<<<< HEAD
 	taste_tag = list(TASTE_STRONG)
+=======
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 
 
 

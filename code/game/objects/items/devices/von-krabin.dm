@@ -51,7 +51,11 @@
 	for(var/mob/living/carbon/human/H in no_longer_affected)
 		for(var/stat in stats_buff)
 			H.stats.removeTempStat(stat, "von_krabin")
+<<<<<<< HEAD
 			to_chat(H, SPAN_NOTICE("Your knowledge of [stat] slightly decreases once you leave the stimulator's influence."))
+=======
+			to_chat(H, SPAN_NOTICE("Your knowledge of [stat] slightly decreases once you leave the von krabin's influence."))
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 	for(var/mob/living/carbon/human/mob in affected)
 		if(stats_buff)
 			var/message

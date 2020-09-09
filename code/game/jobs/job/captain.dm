@@ -20,8 +20,11 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	perks = list(/datum/perk/sommelier)
 
+<<<<<<< HEAD
 	perks = list(/datum/perk/sommelier)
 
+=======
+>>>>>>> e767f66... Merge pull request #104 from martinlyra/onions-4
 	ideal_character_age = 70 // Old geezer captains ftw
 	outfit_type = /decl/hierarchy/outfit/job/captain
 
