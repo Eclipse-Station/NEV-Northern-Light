@@ -1,8 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - rscadd: Adds defibs to medbay
-  - bugfix: Fixes a few bad english cases + more lore compliance
-  - tweak: Changes Moebius logos to Lazarus
-  - bugfix: Fixes a hole above cloning
-  - tweak: Crewmen crave shoes now 33,333333(3) times as less!
