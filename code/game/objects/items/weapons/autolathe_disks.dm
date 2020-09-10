@@ -89,6 +89,8 @@
 		/datum/design/autolathe/misc/floor_light,
 		/datum/design/autolathe/misc/tube,
 		/datum/design/autolathe/misc/bulb,
+		/datum/design/autolathe/device/floorpainter,
+		/datum/design/autolathe/device/mechpainter
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/devices
