@@ -2,7 +2,7 @@
 //This machine converts liquid biomatter to solid one(sheets)
 //Working with this also required bio protection cloths
 
-#define BIOMATTER_PER_SHEET 		1
+#define BIOMATTER_PER_SHEET 		10
 #define CONTAINER_PIXEL_OFFSET 		6
 #define BIOMATTER_SHEETS_PER_TIME  5 // X sheets per 2 seconds
 
