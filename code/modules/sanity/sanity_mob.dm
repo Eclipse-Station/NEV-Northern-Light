@@ -106,10 +106,11 @@
 		if(A.sanity_damage) //If this thing is not nice to behold
 			. += SANITY_DAMAGE_VIEW(A.sanity_damage, vig, get_dist(owner, A))
 
-		if(owner.stats.getPerk(PERK_MORALIST) && istype(A, /mob/living/carbon/human)) //Moralists react negatively to people in distress
+		if(owner.stats.getPerk(PERK_MORALIST) && ishuman(A)) //Moralists react negatively to people in distress
 			var/mob/living/carbon/human/H = A
 			if(H.sanity.level < 30 || H.health < 50)
 				. += SANITY_DAMAGE_VIEW(0.1, vig, get_dist(owner, A))
+
 
 /datum/sanity/proc/handle_area()
 	var/area/my_area = get_area(owner)
@@ -126,15 +127,16 @@
 
 /datum/sanity/proc/handle_insight()
 	var/moralist_factor = 1
-	if(owner)
-		if(owner.stats.getPerk(PERK_MORALIST))
-			for(var/mob/living/carbon/human/H in view(owner))
-				if(H)
-					if(H.sanity.level > 60)
-						moralist_factor += 0.02
-	insight += INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier * moralist_factor
+	var/style_factor = owner.get_style_factor()
+	if(owner.stats.getPerk(PERK_MORALIST))
+		for(var/mob/living/carbon/human/H in view(owner))
+			if(H)
+				if(H.sanity.level > 60)
+					moralist_factor += 0.02
+	insight += INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier * moralist_factor * style_factor
 	while(insight >= 100)
 		to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? null : " Now you need to rest and rethink your life choices."]"))
+		owner.playsound_local(get_turf(owner), 'sound/sanity/psychochimes.ogg', 100)
 		++resting
 		pick_desires()
 		insight -= 100
@@ -172,47 +174,28 @@
 	)
 	for(var/i = 0; i < INSIGHT_DESIRE_COUNT; i++)
 		var/desire = pick_n_take(candidates)
+		var/list/potential_desires = list()
 		switch(desire)
 			if(INSIGHT_DESIRE_FOOD)
-				var/static/list/food_types = subtypesof(/obj/item/weapon/reagent_containers/food/snacks)
-				var/desire_count = 0
-				while(desire_count < 5)
-					var/obj/item/weapon/reagent_containers/food/snacks/candidate = pick(food_types)
-					if(!initial(candidate.cooked))
-						food_types -= candidate
-						continue
-					desires += candidate
-					++desire_count
+				potential_desires = all_types_food.Copy()
 			if(INSIGHT_DESIRE_ALCOHOL)
-				var/static/list/ethanol_types = subtypesof(/datum/reagent/ethanol)
-				var/desire_count = 0
-				while(desire_count < 5)
-					var/candidate = pick(ethanol_types)
-					var/list/categories = subtypesof(candidate)
-					if(categories.len) //Exclude categories
-						ethanol_types -= candidate
-						continue
-					desires += candidate
-					++desire_count
+				potential_desires = all_taste_drinks.Copy()
 			else
 				desires += desire
+				continue
+		if(potential_desires.len)
+			var/candidate = pick(potential_desires)
+			desires += candidate
 	print_desires()
 
 /datum/sanity/proc/print_desires()
 	if(!resting)
 		return
-	var/list/desire_names = list()
-	for(var/desire in desires)
-		if(ispath(desire))
-			var/atom/A = desire
-			desire_names += initial(A.name)
-		else
-			desire_names += desire
-	to_chat(owner, SPAN_NOTICE("You desire [english_list(desire_names)]."))
+	to_chat(owner, SPAN_NOTICE("You desire [english_list(desires)]."))
 
 /datum/sanity/proc/add_rest(type, amount)
 	if(!(type in desires))
-		amount /= 4
+		amount /= 16
 	insight_rest += amount
 	if(insight_rest >= 100)
 		insight_rest = 0
@@ -231,13 +214,14 @@
 	INVOKE_ASYNC(src, .proc/oddity_stat_up, resting)
 
 	to_chat(owner, SPAN_NOTICE("You have rested well and improved your stats."))
+	owner.playsound_local(get_turf(owner), 'sound/sanity/rest.ogg', 100)
 	resting = 0
 
 /datum/sanity/proc/oddity_stat_up(multiplier)
 	var/list/inspiration_items = list()
-	for(var/O in owner.get_contents())
-		if(is_type_in_list(O, valid_inspirations))
-			inspiration_items += O
+	for(var/obj/item/I in owner.get_contents())
+		if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
+			inspiration_items += I
 	if(inspiration_items.len)
 		var/obj/item/O = inspiration_items.len > 1 ? owner.client ? input(owner, "Select something to use as inspiration", "Level up") in inspiration_items : pick(inspiration_items) : inspiration_items[1]
 		if(!O)
@@ -248,6 +232,10 @@
 			var/stat_up = L[stat] * multiplier
 			to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_up]"))
 			owner.stats.changeStat(stat, stat_up)
+		if(istype(O, /obj/item/weapon/oddity))
+			var/obj/item/weapon/oddity/OD = O
+			if(OD.perk)
+				owner.stats.addPerk(OD.perk)
 
 /datum/sanity/proc/onDamage(amount)
 	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getStat(STAT_VIG)))
@@ -258,7 +246,7 @@
 /datum/sanity/proc/onSeeDeath(mob/M)
 	if(ishuman(M))
 		var/penalty = -SANITY_DAMAGE_DEATH(owner.stats.getStat(STAT_VIG))
-		if(M.stats.getPerk(PERK_NIHILIST))
+		if(owner.stats.getPerk(PERK_NIHILIST))
 			var/effect_prob = rand(1, 100)
 			switch(effect_prob)
 				if(1 to 25)
@@ -269,7 +257,10 @@
 					penalty *= -1
 				if(76 to 100)
 					penalty *= 0
-		changeLevel(penalty*death_view_multiplier)
+		if(M.stats.getPerk(PERK_TERRIBLE_FATE) && prob(100-owner.stats.getStat(STAT_VIG)))
+			setLevel(0)
+		else
+			changeLevel(penalty*death_view_multiplier)
 
 /datum/sanity/proc/onShock(amount)
 	changeLevel(-SANITY_DAMAGE_SHOCK(amount, owner.stats.getStat(STAT_VIG)))
@@ -284,16 +275,18 @@
 
 /datum/sanity/proc/onAlcohol(datum/reagent/ethanol/E, multiplier)
 	changeLevel(E.sanity_gain_ingest * multiplier)
-	if(resting)
-		add_rest(E.type, 3 * multiplier)
+	if(resting && E.taste_tag.len)
+		for(var/taste_tag in E.taste_tag)
+			add_rest(taste_tag, 4 * multiplier/E.taste_tag.len)
 
 /datum/sanity/proc/onEat(obj/item/weapon/reagent_containers/food/snacks/snack, snack_sanity_gain, snack_sanity_message)
 	if(world.time > eat_time_message && snack_sanity_message)
 		eat_time_message = world.time + EAT_COOLDOWN_MESSAGE
 		to_chat(owner, "[snack_sanity_message]")
 	changeLevel(snack_sanity_gain)
-	if(snack.cooked && resting)
-		add_rest(snack.type, snack_sanity_gain * 45)
+	if(snack.cooked && resting && snack.taste_tag.len)
+		for(var/taste in snack.taste_tag)
+			add_rest(taste, snack_sanity_gain * 50/snack.taste_tag.len)
 
 /datum/sanity/proc/onSmoke(obj/item/clothing/mask/smokable/S)
 	changeLevel(SANITY_GAIN_SMOKE * S.quality_multiplier)
@@ -337,6 +330,10 @@
 	for(var/obj/item/device/mind_fryer/M in GLOB.active_mind_fryers)
 		if(get_turf(M) in view(get_turf(owner)))
 			M.reg_break(owner)
+	
+	for(var/obj/item/weapon/implant/carrion_spider/mindboil/S in GLOB.active_mindboil_spiders)
+		if(get_turf(S) in view(get_turf(owner)))
+			S.reg_break(owner)
 
 	var/list/possible_results
 	if(prob(positive_prob) && positive_prob_multiplier > 0)

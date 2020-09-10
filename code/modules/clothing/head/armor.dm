@@ -13,6 +13,7 @@
 	siemens_coefficient = 0.6
 	w_class = ITEM_SIZE_NORMAL
 	price_tag = 100
+	style = 0
 
 /*
  * Helmets
@@ -64,7 +65,7 @@
 	icon_state = "helmet_ironhammer"
 
 /obj/item/clothing/head/armor/helmet/technomancer
-	name = "engineering helmet"
+	name = "technomancer helmet"
 	desc = "A piece of armor used in hostile work conditions to protect the head. Comes with a built-in flashlight."
 	icon_state = "technohelmet"
 	body_parts_covered = HEAD|EARS|EYES|FACE
@@ -323,7 +324,6 @@
 		update_icon()
 		update_wear_icon()	//update our mob overlays
 		usr.update_action_buttons()
-
 
 
 /*

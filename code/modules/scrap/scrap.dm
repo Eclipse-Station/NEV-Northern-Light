@@ -37,6 +37,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	var/rare_item = FALSE
 
 /obj/structure/scrap/proc/make_cube()
+	try_make_loot() //don't have a cube without materials
 	var/obj/container = new /obj/structure/scrap_cube(loc, loot_max)
 	forceMove(container)
 
@@ -267,7 +268,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	.=..()
 
 /obj/structure/scrap/attack_generic(mob/user)
-	if (isliving(user))
+	if (isliving(user) && loot)
 		loot.open(user)
 	.=..()
 
@@ -275,6 +276,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 /obj/structure/scrap/proc/dig_out_lump(newloc = loc)
 	if(dig_amount > 0)
 		dig_amount--
+		for (var/a in matter)
+			matter[a] *=RAND_DECIMAL(0.6, 0.8)//remove some amount of matter from the pile
 		//new /obj/item/weapon/scrap_lump(src) //Todo: uncomment this once purposes and machinery for scrap are implemented
 		return TRUE
 
@@ -370,7 +373,6 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	parts_icon = 'icons/obj/structures/scrap/food_trash.dmi'
 	loot_list = list(
 		/obj/random/junkfood = 5,
-		/obj/random/junkfood,
 		/obj/random/booze,
 		/obj/item/stack/rods/random,
 		/obj/item/weapon/material/shard,
@@ -410,7 +412,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/random/common_oddities = 0.5,
 		/obj/random/pack/rare,//No weight on this, rare loot is pretty likely to appear in scientific scrap
 		/obj/random/tool_upgrade,
-		/obj/random/exosuit_equipment)
+		/obj/random/exosuit_equipment
+	)
 
 /obj/structure/scrap/cloth
 	icontype = "cloth"
@@ -558,4 +561,3 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	..()
 	if(!loot_generated)
 		underlays += image(icon, icon_state = "underlay_big")
-

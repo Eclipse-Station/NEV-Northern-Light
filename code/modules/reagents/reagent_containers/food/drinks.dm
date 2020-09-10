@@ -79,7 +79,7 @@
 	set src in view(1)
 
 	if(isghost(usr))
-		to_chat(usr, "Ghosts can't gulp down drinks!")		//this was originally "You ghost!" verbatim, and I kinda wanted to keep that but felt it more professional to change it
+		to_chat(usr, "You ghost!")
 		return
 
 	if(is_drainable())
@@ -351,8 +351,8 @@
 	icon_state = "britmug"
 
 /obj/item/weapon/reagent_containers/food/drinks/mug/moebius
-	name = "\improper NanoTrasen mug"
-	desc = "A mug with a NanoTrasen logo, scribbled to have an M on it. Not even your morning coffee is safe from corporate advertising."
+	name = "\improper Moebius mug"
+	desc = "A mug with a Moebius Laboratories logo on it. Not even your morning coffee is safe from corporate advertising."
 	icon_state = "mug_moebius"
 
 /obj/item/weapon/reagent_containers/food/drinks/mug/teacup

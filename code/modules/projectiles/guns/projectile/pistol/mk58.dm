@@ -15,7 +15,6 @@
 	damage_multiplier = 1.3
 	penetration_multiplier = 1.3
 	recoil_buildup = 3
-	gun_tags = list(GUN_PROJECTILE, GUN_CALIBRE_35)
 
 
 /obj/item/weapon/gun/projectile/mk58/update_icon()

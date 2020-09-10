@@ -12,7 +12,7 @@
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
 	outfit_type = /decl/hierarchy/outfit/job/science/rd
-	
+
 	wl_config_heads = TRUE		//Eclipse edit.
 
 	access = list(
@@ -95,7 +95,7 @@ There are a few specialist branches within the research wing that you may delve 
 	Xenoarchaeology: A facility for analysing artefacts and finds brought back from expeditions.<br>\
 	<br>\
 	The Vasily Dokuchaev is the Expedition shuttle, and is intended for going on adventures down to strange sites, and recovering items of value."
-	
+
 	duties = "Create unusual things and experiment with them<br>\
 Explore, learn and adventure, do anything to advance the cause of knowledge"
 	perks = list(/datum/perk/selfmedicated)
@@ -152,7 +152,7 @@ Lastly, though they're not commonly used, you have the facilities to construct m
 	Maintain and implant new bionics in crewmembers<br>\
 	Advertise bionics for sale and run a commercial cybernetic clinic<br>\
 	Construct large mechas for specialised use in departments"
-	
+
 
 
 /obj/landmark/join/start/roboticist

@@ -114,7 +114,7 @@ obj/structure/salvageable/computer/Initialize()
 		/obj/item/stack/material/phoron{amount = 10} = 20,
 		/obj/item/stack/material/uranium{amount = 3} = 5,
 		/obj/item/stack/material/diamond{amount = 1} = 1
-	)
+		)
 
 /obj/structure/salvageable/implant_container
 	name = "old container"
@@ -281,7 +281,8 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/item/weapon/stock_parts/micro_laser/one_star = 40,
 		/obj/item/weapon/stock_parts/micro_laser/one_star = 40,
 		/obj/item/weapon/stock_parts/matter_bin/one_star = 40,
-		/obj/item/weapon/stock_parts/matter_bin/one_star = 40
+		/obj/item/weapon/stock_parts/matter_bin/one_star = 40,
+		/obj/random/prothesis/one_star = 20
 	)
 
 /obj/structure/salvageable/computer_os

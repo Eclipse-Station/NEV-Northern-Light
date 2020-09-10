@@ -71,27 +71,22 @@ obj/item/device/propaganda_chip/Destroy()
 		if (crew_target_mind)
 			break
 	var/datum/mind/crew_name
-
 	if (!crew_target_mind || !(crew_target_mind?.current))
-
 		crew_name = "Unknown"
 	else
 		crew_name = crew_target_mind.current.real_name
 
 	var/list/messages = list( // Idealy should be extremely long with lots of lines
-		"Fucking Aegis just searched me and took all my shit",
-		"Haha, Aegis just killed a vag for breaking a window",
+		"Fucking IH just searched me and took all my shit",
+		"Haha, IH just killed a vag for breaking a window",
 		"With my paycheck I can't even afford 3 bread tubes...",
 		"You know what we should do... unionize",
-		"I hate Aegis so much",
-		"Cheers ye Aegis just broke my fucking leg in personal",
-		"A clown could beat Aegis, lets get them",
+		"I hate IH so much",
+		"Cheers ye IH just broke my fucking leg in personal",
+		"A clown could beat IH, lets get them",
 		"Command cares more about roaches than us",
 		"Ian has more liberty than any of us",
-		"Aegis gets more money than anyone and all they do is sit around",
-		"Medical just sits around all day in the fucking break room",
-		"NanoTrasen is unfair. The Captain is in there, standing at the concession, plotting our oppression.",
-		"Monopoly is Anti-Meritocratic"
+		"IH gets more money than anyone and all they do is sit around"
 	)
 	var/message_text = pick(messages)
 	var/message = " <b>[crew_name]</b> says,<FONT SIZE =-2>  \"[message_text]\"</FONT>"
@@ -99,5 +94,4 @@ obj/item/device/propaganda_chip/Destroy()
 	for (var/mob/living/M in viewers(src))
 		to_chat(M, "[message]")
 	last_talk_time = world.time
-
-
+		

@@ -113,7 +113,7 @@
 	holder.stats.addTempStat(STAT_ROB, 10, INFINITY, "Fate Alcoholic")
 
 /datum/perk/alcoholic_active/remove()
-	holder.stats.addTempStat(STAT_ROB, "Fate Alcoholic")
+	holder.stats.removeTempStat(STAT_ROB, "Fate Alcoholic")
 	..()
 
 /datum/perk/noble
@@ -124,10 +124,10 @@
 
 /datum/perk/noble/assign(mob/living/carbon/human/H)
 	..()
-	if(!holder.family_name)		//Eclipse edit: Family name, not surname
-		qdel(src)
-		return
 	holder.sanity.environment_cap_coeff -= 1
+	if(!holder.family_name)
+		holder.stats.removePerk(src.type)
+		return
 	var/turf/T = get_turf(holder)
 	var/obj/item/W = pickweight(list(
 				/obj/item/weapon/tool/knife/ritual = 0.5,
@@ -135,8 +135,9 @@
 				/obj/item/weapon/tool/sword/katana = 0.2,
 				/obj/item/weapon/tool/knife/dagger/ceremonial = 0.8,
 				/obj/item/weapon/gun/projectile/revolver = 0.4))
+	holder.sanity.valid_inspirations += W
 	W = new W(T)
-	W.name = "[holder.family_name] family [W.name]"		//Eclipse edit: Family name, not surname
+	W.desc += " It has been inscribed with the \"[holder.family_name]\" family name."
 	var/oddities = rand(2,4)
 	var/list/stats = ALL_STATS
 	var/list/final_oddity = list()
@@ -147,7 +148,8 @@
 		final_oddity[stat] = rand(1,7)
 	W.AddComponent(/datum/component/inspiration, final_oddity)
 	W.AddComponent(/datum/component/atom_sanity, 1, "")
-	holder.put_in_hands(W)
+	spawn(1)
+		holder.equip_to_storage_or_drop(W)
 
 /datum/perk/noble/remove()
 	holder.sanity.environment_cap_coeff += 1

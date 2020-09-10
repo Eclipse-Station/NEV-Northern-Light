@@ -1,5 +1,5 @@
 /datum/reagent/organic/blood
-	data = new/list("donor" = null, "viruses" = null, "species" = "Human", "blood_DNA" = null, "blood_type" = null, "blood_colour" = "#A10808", "resistances" = null, "trace_chem" = null, "antibodies" = list(), "ling" = null)
+	data = new/list("donor" = null, "viruses" = null, "species" = "Human", "blood_DNA" = null, "blood_type" = null, "blood_colour" = "#A10808", "resistances" = null, "trace_chem" = null, "antibodies" = list(), "carrion" = null)
 	name = "Blood"
 	id = "blood"
 	reagent_state = LIQUID
@@ -17,7 +17,7 @@
 	if(data && data["blood_colour"])
 		color = data["blood_colour"]
 	return
-
+	
 /datum/reagent/organic/blood/get_data() // Just in case you have a reagent that handles data differently.
 	var/t = data.Copy()
 	if(t["virus2"])
@@ -96,7 +96,7 @@
 	glass_desc = "The father of all refreshments."
 	nerve_system_accumulations = 0
 	reagent_type = "Water"
-
+	
 /datum/reagent/water/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
 		return TRUE
@@ -146,7 +146,7 @@
 /datum/reagent/water/affect_touch(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
 	if(isslime(M))
 		var/mob/living/carbon/slime/S = M
-		S.adjustToxLoss(2.8 * effect_multiplier) // Babies have 150 health, adults have 200; So, 10 units and 13.5 // eclipse edit; disregard previous
+		S.adjustToxLoss(7 * effect_multiplier)
 		if(!S.client)
 			if(S.Target) // Like cats
 				S.Target = null

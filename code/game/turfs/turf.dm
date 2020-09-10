@@ -272,6 +272,11 @@ var/const/enterloopsanity = 100
 	sound =  footstep_sound("floor")
 	if(catwalk)
 		sound = footstep_sound("catwalk")
+	else if(flooring)
+		sound = footstep_sound(flooring.footstep_sound)
+	else if(initial_flooring)
+		var/decl/flooring/floor = initial_flooring
+		sound = footstep_sound(floor.footstep_sound)
 
 	else if(flooring)
 		sound = footstep_sound(flooring.footstep_sound)

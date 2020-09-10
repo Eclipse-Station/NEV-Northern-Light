@@ -30,6 +30,7 @@
 		target.b_eyes = eyecolors[3]
 		target.update_eyes()
 	..()
+	owner.update_client_colour()
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)

@@ -20,6 +20,10 @@
 		STAT_COG = -8
 	)
 
+/datum/category_item/setup_option/background/origin/oberth/apply(mob/living/carbon/human/character)
+  ..()
+  character.add_language(LANGUAGE_GERMAN)
+
 
 /datum/category_item/setup_option/background/origin/predstraza
 	name = "Thug"

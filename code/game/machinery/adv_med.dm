@@ -145,8 +145,9 @@
 		/obj/item/weapon/implant/death_alarm,
 		/obj/item/weapon/implant/tracking,
 		/obj/item/weapon/implant/core_implant/cruciform,
-		/obj/item/weapon/implant/excelsior
-	)
+		/obj/item/weapon/implant/excelsior,
+		/obj/item/weapon/implant/soulcrypt
+	)//Eclipse add - soulcrypt
 	var/delete
 	var/temphtml
 	name = "Body Scanner Console"

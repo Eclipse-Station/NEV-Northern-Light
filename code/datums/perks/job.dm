@@ -14,7 +14,7 @@
 
 /datum/perk/selfmedicated
 	name = "Medication Expertise"
-	desc = "Your experience with different chems, be it professional or otherwise, has reinforced your body against some of their harmful effects. \
+	desc = "You have very shoddy handwriting. This lets you write prescriptions to yourself! \
 			You total NSA is increased and chance to gain an addiction decreased."
 	icon_state = "selfmedicated" // https://game-icons.net/1x1/lorc/overdose.html
 
@@ -79,7 +79,7 @@
 		if(stash.stash_location)
 			choices += CHOICE_STASHPAPER
 	// Let's see if an additional language is feasible. If the user has them all already somehow, we aren't gonna choose this.
-	var/list/valid_languages = list(LANGUAGE_COMMON, LANGUAGE_JIVE, LANGUAGE_UNATHI, LANGUAGE_SIIK, LANGUAGE_SKRELLIAN, LANGUAGE_TRADEBAND, LANGUAGE_GUTTER, LANGUAGE_SCHECHI, LANGUAGE_BIRDSONG) // Not static, because we're gonna remove languages already known by the user
+	var/list/valid_languages = list(LANGUAGE_CYRILLIC, LANGUAGE_SERBIAN, LANGUAGE_GERMAN) // Not static, because we're gonna remove languages already known by the user
 	for(var/l in valid_languages)
 		var/datum/language/L = all_languages[l]
 		if(L in holder.languages)

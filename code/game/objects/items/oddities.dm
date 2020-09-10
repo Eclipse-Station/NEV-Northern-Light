@@ -34,8 +34,7 @@
 	..()
 	if(perk)
 		var/datum/perk/oddity/OD = GLOB.all_perks[perk]
-		to_chat(user, SPAN_NOTICE("Strange words echo in your head: <span style='color:orange'>[OD]. [OD.desc]</span>."))
-
+		to_chat(user, SPAN_NOTICE("Strange words echo in your head: <span style='color:orange'>[OD]. [OD.desc]</span>"))
 
 //Oddities are separated into categories depending on their origin. They are meant to be used both in maints and derelicts, so this is important
 //This is done by subtypes, because this way even densiest code monkey will not able to misuse them
@@ -207,7 +206,6 @@
 	slot_flags = SLOT_BELT
 	sharp = TRUE
 	edge = TRUE
-
 	oddity_stats = list(
 		STAT_ROB = 5,
 		STAT_TGH = 5,

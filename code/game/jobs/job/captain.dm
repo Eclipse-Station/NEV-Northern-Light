@@ -20,6 +20,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	perks = list(/datum/perk/sommelier)
 
+	perks = list(/datum/perk/sommelier)
+
 	ideal_character_age = 70 // Old geezer captains ftw
 	outfit_type = /decl/hierarchy/outfit/job/captain
 

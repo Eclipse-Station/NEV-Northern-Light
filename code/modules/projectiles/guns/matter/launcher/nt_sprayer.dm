@@ -31,7 +31,6 @@
 
 	qdel(src)
 
-
 /obj/item/weapon/arrow/neotheo/weedkiller/throw_impact()
 	..()
 	create_reagents(5)
