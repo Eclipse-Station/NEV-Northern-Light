@@ -38,7 +38,6 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a cruciform" = /obj/item/weapon/implant/core_implant/cruciform,
 		"the station blueprints" = /obj/item/blueprints,
 		"a hand teleporter" = /obj/item/weapon/hand_tele,
-		"a bluespace Harpoon" = /obj/item/weapon/bluespace_harpoon,
 		"a rocket-powered charge hammer" = /obj/item/weapon/tool/hammer/charge,
 		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
 

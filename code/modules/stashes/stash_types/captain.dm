@@ -26,7 +26,6 @@
 	/obj/item/weapon/stamp/captain = 35,
 	/obj/item/weapon/disk/nuclear = 15,
 	/obj/item/weapon/hand_tele = 25,
-	/obj/item/weapon/bluespace_harpoon = 15,
 	/obj/item/weapon/reagent_containers/hypospray = 15,
 	/obj/item/weapon/hatton = 15,
 	/obj/item/weapon/rcd = 15,

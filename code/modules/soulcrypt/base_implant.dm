@@ -28,10 +28,11 @@ The module base code is held in module.dm
 
 	var/nutrition_usage_setting = NUTRITION_USAGE_LOW //These can be found in soulcrypt.dm, under DEFINES.
 
-	var/stat//Status.
+	var/stat // Status
 	//Host variables, stored for cloning.
 	var/datum/dna/host_dna
 	var/datum/mind/host_mind
+	var/datum/stat_holder/host_stats
 	var/host_age
 	var/host_flavor_text
 	var/host_stats
@@ -84,6 +85,7 @@ The module base code is held in module.dm
 		host_mind = wearer.mind
 		host_dna = wearer.dna.Clone()
 		host_age = wearer.age
+		host_stats = wearer.stats
 		host_flavor_text = wearer.flavor_text
 		has_stored_info = TRUE
 		host_name = wearer.dna.real_name

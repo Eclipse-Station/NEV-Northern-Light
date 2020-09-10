@@ -331,7 +331,7 @@
 	name = "Blitzshell Blue Space Harpoon"
 	desc = "Activates the embedded bluespace harpoon."
 	item_cost = 12
-	antag_roles = list(ROLE_BLITZ)
+	antag_roles = list() // list(ROLE_BLITZ) -- Syzygy edit to disable biltz getting BS harps
 
 /datum/uplink_item/item/tools/blitz_harpoon/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
 	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
