@@ -1,0 +1,9 @@
+author: drexample
+delete-after: true
+changes:
+  - rscadd: Added ability to build on exoplanet turfs
+  - bugfix: Fixed exoplanet turfs being called coarse sand and improperly merging
+      with environment
+  - bugfix: A few flooring related runtimes
+  - bugfix: You can now build floor on underplating (It was intended but somehow got
+      lost in the execution back on eris?)
