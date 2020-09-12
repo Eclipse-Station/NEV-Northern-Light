@@ -36,4 +36,5 @@
 			break
 
 	message_admins("Hivemind spawned at \the [jumplink(start_location)]")
+	command_announcement.Announce("Confirmed outbreak of biomechanical infestation aboard [station_name()] in [get_area(start_location)]. All personnel must contain the outbreak.", "Anomaly Alert")	// syzygy edit - announce the room in which the hivemind core spawned
 	new /obj/machinery/hivemind_machine/node(start_location)
