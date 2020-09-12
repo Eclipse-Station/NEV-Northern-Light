@@ -552,7 +552,12 @@ var/global/list/damage_icon_parts = list()
 			under_state += w_uniform.icon_state + WORN_UNDER + get_gender_icon_contained(gender)
 
 		else if(w_uniform.icon_override)
-			under_icon = w_uniform.icon_override
+			// SYZYGY EDIT START - Gendered icon_overrides
+			if(gender == MALE)
+				under_icon = w_uniform.icon_override
+			else
+				under_icon = w_uniform.icon_override_female
+			// SYZYGY EDIT END - Gendered icon_overrides
 		else
 			under_icon = get_gender_icon(gender, "uniform")
 
