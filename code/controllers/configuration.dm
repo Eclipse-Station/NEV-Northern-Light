@@ -448,7 +448,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if("ipr_minimum_age")
 					config.ipr_minimum_age = text2num(value)
-			
+
 				if ("ipqualityscore_apikey")
 					config.ipqualityscore_apikey = value
 
@@ -822,7 +822,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	return runnable_storytellers
 
 
-
 /datum/configuration/proc/post_load()
 	//apply a default value to config.python_path, if needed
 	if (!config.python_path)
@@ -833,6 +832,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 	world.name = station_name()
 
+<<<<<<< HEAD
 
 /datum/configuration/proc/LoadChatFilter()
 	GLOB.in_character_filter = list()
@@ -847,3 +847,5 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	if(!ic_filter_regex && GLOB.in_character_filter.len)
 		ic_filter_regex = regex("\\b([jointext(GLOB.in_character_filter, "|")])\\b", "i")
 
+=======
+>>>>>>> c37da2f... AED Unit and Defib Belt update! (#114)
