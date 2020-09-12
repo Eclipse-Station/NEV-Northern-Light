@@ -2718,4 +2718,11 @@
 #include "zzz_modular_eclipse\radio_squelch\radios.dm"
 #include "zzz_modular_eclipse\sawnoff\sawnoff.dm"
 #include "zzz_modular_eclipse\storytellers\tyrant.dm"
+<<<<<<< HEAD
+=======
+#include "zzz_modular_syzygy\ammo.dm"
+#include "zzz_modular_syzygy\grenades.dm"
+#include "zzz_modular_syzygy\hugbox.dm"
+#include "zzz_modular_syzygy\projectiles.dm"
+>>>>>>> e8ec652... Adds stinger grenades and rubbershot (#115)
 // END_INCLUDE

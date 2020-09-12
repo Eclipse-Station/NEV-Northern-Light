@@ -6,6 +6,7 @@
 	product_ads = "Don't dial 911, dial .357!;Coming soon: Pink and blue tracer bullets so you can protect your family in the dark!;Did you bring your protection?;Exercise your right to carry today!"		//Need to add more
 	no_criminals = TRUE
 	products = list(
+<<<<<<< HEAD
 					/obj/item/weapon/storage/deferred/crate/uniform_green = 2, /obj/item/weapon/storage/deferred/crate/uniform_brown = 2,
 					/obj/item/weapon/storage/deferred/crate/uniform_black = 2,
 					/obj/item/weapon/storage/deferred/crate/uniform_light = 5,
@@ -26,6 +27,40 @@
 					/obj/item/weapon/storage/box/gunkits/mk58_wood = 2050,
 					/obj/item/weapon/storage/box/gunkits/colt = 1550,
 					/obj/item/ammo_magazine/ammobox/pistol = 500
+=======
+					/obj/item/ammo_magazine/slpistol/rubber = 10,
+					/obj/item/ammo_magazine/pistol/rubber = 20,
+					/obj/item/ammo_magazine/hpistol/rubber = 10,
+					/obj/item/ammo_magazine/smg/rubber =10,
+					/obj/item/ammo_magazine/ammobox/pistol/rubber = 20,
+					/obj/item/ammo_magazine/slmagnum/rubber = 10,
+					/obj/item/ammo_magazine/magnum/rubber = 5,
+					/obj/item/ammo_magazine/msmg/rubber = 5,
+					/obj/item/ammo_magazine/ammobox/magnum/rubber = 10,
+					/obj/item/ammo_magazine/cspistol/rubber = 5,
+					/obj/item/ammo_magazine/ammobox/clrifle_small/rubber = 5,
+					/obj/item/ammo_casing/shotgun/beanbag/prespawned = 20,
+					/obj/item/weapon/storage/box/shotgunammo/beanbags = 5,
+					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 5,
+					/obj/item/weapon/cell/small/high = 10
+					)
+	prices = list(
+					/obj/item/ammo_magazine/slpistol/rubber = 90,
+					/obj/item/ammo_magazine/pistol/rubber = 200,
+					/obj/item/ammo_magazine/hpistol/rubber = 260,
+					/obj/item/ammo_magazine/smg/rubber = 500,
+					/obj/item/ammo_magazine/ammobox/pistol/rubber = 300,
+					/obj/item/ammo_magazine/slmagnum/rubber = 100,
+					/obj/item/ammo_magazine/magnum/rubber = 220,
+					/obj/item/ammo_magazine/msmg/rubber = 550,
+					/obj/item/ammo_magazine/ammobox/magnum/rubber = 360,
+					/obj/item/ammo_magazine/cspistol/rubber = 250,
+					/obj/item/ammo_magazine/ammobox/clrifle_small/rubber = 900,
+					/obj/item/ammo_casing/shotgun/beanbag/prespawned = 75,
+					/obj/item/weapon/storage/box/shotgunammo/beanbags = 575,
+					/obj/item/weapon/storage/box/shotgunammo/rubbershot = 575,
+					/obj/item/weapon/cell/small/high = 500
+>>>>>>> e8ec652... Adds stinger grenades and rubbershot (#115)
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
