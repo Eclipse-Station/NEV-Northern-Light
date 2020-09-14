@@ -254,6 +254,8 @@ var/list/rank_prefix = list(\
 	"Aegis Gunnery Sergeant" = "Sergeant",\
 	"Aegis Commander" = "Lieutenant",\
 	"Captain" = "Captain",\
+	"Medical Doctor" = "Doctor",\
+	"Chief Medical Officer" = "Doctor",\
 	)
 
 /mob/living/carbon/human/proc/rank_prefix_name(name)
