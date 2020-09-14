@@ -2718,4 +2718,17 @@
 #include "zzz_modular_eclipse\radio_squelch\radios.dm"
 #include "zzz_modular_eclipse\sawnoff\sawnoff.dm"
 #include "zzz_modular_eclipse\storytellers\tyrant.dm"
+<<<<<<< HEAD
+=======
+#include "zzz_modular_syzygy\_helpers.dm"
+#include "zzz_modular_syzygy\ammo.dm"
+#include "zzz_modular_syzygy\clothing.dm"
+#include "zzz_modular_syzygy\defib.dm"
+#include "zzz_modular_syzygy\defiblocker.dm"
+#include "zzz_modular_syzygy\grenades.dm"
+#include "zzz_modular_syzygy\hugbox.dm"
+#include "zzz_modular_syzygy\loadout.dm"
+#include "zzz_modular_syzygy\projectiles.dm"
+#include "zzz_modular_syzygy\storytellers\mentor.dm"
+>>>>>>> efc971c... Merge pull request #121 from Chatter42/mentor_storyteller
 // END_INCLUDE
