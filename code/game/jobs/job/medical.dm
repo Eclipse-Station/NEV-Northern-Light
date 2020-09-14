@@ -151,9 +151,9 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	<br>\
 	Your primary responsibility is working as a pharmacist. Prepare medicines for use by the medical staff, so that they can capably treat a broad variety of conditions. It's good to keep a stock of bicaridine, dexalin, peridaxon, and alkysine.<br>\
 	<br>\
-	Your secondary responsibility is as a chemical manufacturer for NanoTrasen generally. You may be requested to make non-medical chemicals for your colleagues in science, or even for other medical staff. Anyone within moebius should be freely and quickly provided with anything they request. Don't question why, it's above your paygrade.<br>\
+	Your secondary responsibility is as a chemical manufacturer for NanoTrasen generally. You may be requested to make non-medical chemicals for your colleagues in science, or even for other medical staff. Anyone within NanoTrasen's Medical and Research departments should be freely and quickly provided with anything they request. Don't question why, it's above your paygrade.<br>\
 	<br>\
-	Your third duty is to run a chemical sales outlet. You may get requests from other crewmembers to make acid, chemical grenades, smoke, cleaning products, napalm, or perhaps even just to make medicines. You are fully licensed to sell any and all chemicals to those outside moebius. Sell being the operative word here. If someone isn't an employee of Moebius corp, charge them for their chemicals.<br>\
+	Your third duty is to run a chemical sales outlet. You may get requests from other crewmembers to make acid, chemical grenades, smoke, cleaning products, napalm, or perhaps even just to make medicines. You are fully licensed to sell any and all chemicals to those outside of your department. Sell being the operative word here. If someone isn't a member of the Research and Medical departments, charge them for their chemicals.<br>\
 	<br>\
 	Its worth noting that you don't always have everything you need on hand. Some recipes will require external ingredients. Bicaridine, most notably, requires the roach toxin blattedin, so you should gather up roach corpses to hack apart for their chemicals. Pay assistants to do this if necessary"
 
