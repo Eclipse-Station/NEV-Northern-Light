@@ -179,7 +179,12 @@
 			if(!configuring)
 				use_power = !use_power
 			else
+<<<<<<< HEAD
 				use_power = 0
+=======
+				use_power = NO_POWER_USE
+			investigate_log("was [use_power ? "enabled" : "disabled"] by [key_name(usr)]", "atmos")
+>>>>>>> 2eff743... Atmos and chemisty investrigation (#5443)
 		if("configure")
 			configuring = !configuring
 			if(configuring)
@@ -197,6 +202,8 @@
 				change_concentration(dir_flag(href_list["dir"]))
 			if("switch_conlock")
 				con_lock(dir_flag(href_list["dir"]))
+		if((href_list["command"]))
+			investigate_log("had it's settings modified by [key_name(usr)]", "atmos")
 
 	playsound(loc, 'sound/machines/machine_switch.ogg', 100, 1)
 	update_icon()

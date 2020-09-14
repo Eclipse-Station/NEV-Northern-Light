@@ -159,7 +159,12 @@
 			if(!configuring)
 				use_power = !use_power
 			else
+<<<<<<< HEAD
 				use_power = 0
+=======
+				use_power = NO_POWER_USE
+			investigate_log("was [use_power ? "enabled" : "disabled"] by [key_name(usr)]", "atmos")
+>>>>>>> 2eff743... Atmos and chemisty investrigation (#5443)
 		if("configure")
 			configuring = !configuring
 			if(configuring)
@@ -176,6 +181,8 @@
 			if("switch_filter")
 				var/new_filter = input(usr, "Select filter mode:", "Change filter", href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide")
 				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
+		if(href_list["command"])
+			investigate_log("had it's settings modified by [key_name(usr)]", "atmos")
 
 	update_icon()
 	SSnano.update_uis(src)

@@ -657,6 +657,8 @@
 				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C")
 			else
 				target_temperature = input_temperature + T0C
+			investigate_log("had it's target temperature changed by [key_name(usr)]", "atmos")
+
 		playsound(loc, 'sound/machines/button.ogg', 100, 1)
 		return 1
 
@@ -695,6 +697,7 @@
 					"scrubbing")
 					playsound(loc, 'sound/machines/machine_switch.ogg', 100, 1)
 					send_signal(device_id, list(href_list["command"] = text2num(href_list["val"]) ) )
+					investigate_log("had it's settings changed by [key_name(usr)]", "atmos")
 					return 1
 
 				if("set_threshold")
@@ -746,6 +749,7 @@
 						if(selected[3] > selected[4])
 							selected[3] = selected[4]
 
+					investigate_log("had it's tresholds changed by [key_name(usr)]", "atmos")
 					apply_mode()
 					return 1
 
@@ -773,6 +777,7 @@
 		if(href_list["atmos_reset"])
 			playsound(loc, 'sound/machines/machine_switch.ogg', 100, 1)
 			forceClearAlarm()
+			investigate_log("had it's alarms cleared by [key_name(usr)]", "atmos")
 			return 1
 
 		if(href_list["mode"])
