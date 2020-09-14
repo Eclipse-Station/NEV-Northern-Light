@@ -108571,6 +108571,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+"gJE" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/defibcabinet{
+	pixel_x = 28
+	},
+/turf/simulated/floor/tiled/white/brown_platform,
+/area/eris/medical/reception)
 "gPD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -108624,6 +108631,19 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
+<<<<<<< HEAD
+=======
+"iaf" = (
+/obj/structure/multiz/stairs/enter{
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/hallway/side/eschangarb)
+>>>>>>> 451891e... Merge pull request #119 from Michiyamenotehifunana/Map-defib-lockers
 "ifz" = (
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -210125,7 +210145,7 @@ bSx
 bSV
 chM
 cYV
-crD
+gJE
 cWj
 dgo
 dAL
