@@ -70,6 +70,7 @@
 	name = "excelsior mine"
 	build_path = /obj/item/weapon/mine
 
+<<<<<<< HEAD
 /datum/design/autolathe/device/grenade/nt_cleaner
 	name = "NT \"Cleanse Capsule\""
 	build_path = /obj/item/weapon/grenade/chem_grenade/cleaner/nt_cleaner
@@ -78,6 +79,8 @@
 	name = "NT \"Kudzu Killer\""
 	build_path = /obj/item/weapon/grenade/chem_grenade/antiweed/nt_antiweed
 
+=======
+>>>>>>> 210cf82... Ports Upstream Mech Improvements (#122)
 /datum/design/autolathe/device/floorpainter
 	name = "floor painter"
 	build_path = /obj/item/device/floor_painter

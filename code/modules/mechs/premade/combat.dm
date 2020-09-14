@@ -53,7 +53,11 @@
 	mech_health = 400 //It's not as beefy as the heavy, but it IS a combat chassis, so let's make it slightly beefier
 	power_use = 40
 	climb_time = 25 //standard values for now to encourage use over heavy
+<<<<<<< HEAD
 	matter = list(MATERIAL_STEEL = 45, MATERIAL_PLASTEEL = 10, MATERIAL_PHORONGLASS = 5)
+=======
+	matter = list(MATERIAL_STEEL = 45, MATERIAL_PLASTEEL = 10, MATERIAL_PLASMAGLASS = 5)
+>>>>>>> 210cf82... Ports Upstream Mech Improvements (#122)
 
 /obj/item/mech_component/chassis/combat/Initialize()
 	pilot_positions = list(
