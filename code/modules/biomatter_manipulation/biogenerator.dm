@@ -263,11 +263,26 @@
 				return
 			if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_VERY_EASY,  required_stat = STAT_MEC))
 				if(tank)
+<<<<<<< HEAD
 					tank.anchored = FALSE
 					tank.pixel_x = initial(tank.pixel_x)
 					tank = null
 					playsound(src, 'sound/machines/airlock_ext_open.ogg', 60, 1)
 					to_chat(user, SPAN_NOTICE("You detached [tank] from [src]."))
+=======
+					tank.can_anchor = TRUE
+					set_canister = tank.set_anchored(FALSE)
+					if(!isnull(set_canister))
+						var/datum/component/plumbing/P = tank.GetComponent(/datum/component/plumbing/supply)
+						if(P)
+							P.disable()
+							P.supply_connects = initial(P.supply_connects)
+							P.demand_connects = initial(P.demand_connects)
+						tank.pixel_x = initial(tank.pixel_x)
+						tank = null
+						playsound(src, 'sound/machines/airlock_ext_open.ogg', 60, 1)
+						to_chat(user, SPAN_NOTICE("You detached [tank] from [src]."))
+>>>>>>> 0566555... Plumbingfix (#5451)
 				else
 					tank = locate(/obj/structure/reagent_dispensers) in get_turf(src)
 					if(tank)

@@ -12,12 +12,28 @@
 	var/possible_transfer_amounts = list(10,25,50,100)
 	var/contents_cost
 
+<<<<<<< HEAD
 /obj/structure/reagent_dispensers/get_item_cost()
 	var/ratio = reagents.total_volume / reagents.maximum_volume
 
 	return ..() + round(contents_cost * ratio)
 
 /obj/structure/reagent_dispensers/attackby(obj/item/weapon/W as obj, mob/user as mob)
+=======
+/obj/structure/reagent_dispensers/Initialize(mapload, bolt=FALSE)
+	. = ..()
+	create_reagents(volume)
+	if (starting_reagent)
+		reagents.add_reagent(starting_reagent, volume)
+	if (!possible_transfer_amounts)
+		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
+	anchored = bolt
+	AddComponent(/datum/component/plumbing/supply/all, anchored, FALSE)
+	var/turf/T = get_turf(src)
+	T?.levelupdate()
+
+/obj/structure/reagent_dispensers/attackby(obj/item/weapon/W, mob/user)
+>>>>>>> 0566555... Plumbingfix (#5451)
 	if(W.is_refillable())
 		return 0 //so we can refill them via their afterattack.
 	else

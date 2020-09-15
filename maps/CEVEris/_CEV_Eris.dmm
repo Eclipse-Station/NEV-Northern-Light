@@ -57205,6 +57205,7 @@
 /obj/item/weapon/reagent_containers/glass/bottle/mutagen,
 /obj/item/weapon/reagent_containers/dropper,
 /obj/structure/closet/crate/secure/hydrosec/prelocked,
+/obj/item/weapon/tool/wrench,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "cxl" = (
@@ -108502,10 +108503,34 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
+<<<<<<< HEAD
 "fpA" = (
 /obj/machinery/neotheology/reader,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
+=======
+"eZp" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+"fea" = (
+/obj/machinery/duct,
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics/garden)
+"fjl" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/structure/railing/grey,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "fzU" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	tag = "icon-map (EAST)";
@@ -108540,6 +108565,53 @@
 /obj/effect/shuttle_landmark/merc/sec3east4,
 /turf/space,
 /area/space)
+<<<<<<< HEAD
+=======
+"fUC" = (
+/obj/random/junk/low_chance,
+/obj/machinery/camera/network/command,
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section1deck4central)
+"fVv" = (
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel{
+	amount = 120
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/item/stack/material/plasteel,
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/obj/item/stack/material/plastic{
+	amount = 120
+	},
+/obj/item/stack/material/plastic{
+	amount = 120
+	},
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material_resources/low_chance,
+/obj/random/material_resources/low_chance,
+/obj/random/material_resources/low_chance,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "fZX" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
@@ -108553,6 +108625,12 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
+"gkN" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "gsO" = (
 /obj/machinery/door/airlock/glass_medical{
 	id_tag = null;
@@ -108585,6 +108663,7 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+<<<<<<< HEAD
 "heQ" = (
 /obj/structure/table/glass,
 /obj/item/weapon/implant/soulcrypt,
@@ -108600,6 +108679,28 @@
 /obj/item/weapon/implanter,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
+=======
+"gTF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+"gXX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/hydroponics/garden)
+"gYp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"hld" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "hqB" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	icon_state = "intact";
@@ -108607,10 +108708,40 @@
 	},
 /turf/simulated/floor/hull,
 /area/space)
+<<<<<<< HEAD
+=======
+"hqX" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+"hug" = (
+/obj/random/scrap/sparse_weighted/low_chance,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section3deck5port)
+"hAw" = (
+/obj/random/scrap/sparse_weighted/low_chance,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section3deck5starboard)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "hHz" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"hIx" = (
+/obj/structure/closet/crate/internals,
+/obj/random/contraband/low_chance,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/railing/grey,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "hMo" = (
 /obj/machinery/holomap{
 	dir = 8;
@@ -108618,16 +108749,49 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
+<<<<<<< HEAD
+=======
+"hMr" = (
+/obj/machinery/camera/network/command{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section1deck4central)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "hNy" = (
 /obj/structure/closet/wall_mounted/firecloset{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
+<<<<<<< HEAD
 "ifz" = (
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/hallway/side/cryo)
+=======
+"hQD" = (
+/obj/machinery/duct,
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics)
+"hUQ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section3deck2starboard)
+"iaf" = (
+/obj/structure/multiz/stairs/enter{
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/hallway/side/eschangarb)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "ijn" = (
 /obj/structure/table/bar_special,
 /obj/item/weapon/reagent_containers/food/condiment/peppermill{
@@ -108699,6 +108863,21 @@
 /obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled/steel/panels,
 /area/eris/engineering/post)
+<<<<<<< HEAD
+=======
+"iQt" = (
+/obj/machinery/camera/motion/security,
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section1deck4central)
+"iTJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/blue{
+	tag = "icon-intact (EAST)";
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/bioreactor)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "iUs" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
@@ -108722,6 +108901,51 @@
 /obj/effect/shuttle_landmark/merc/mining,
 /turf/space,
 /area/space)
+"jcw" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cargo_bay_door";
+	locked = 1;
+	name = "Cargo Docking Hatch";
+	req_access = list(13)
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
+"jrc" = (
+/obj/structure/closet/crate,
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/random/contraband/low_chance,
+/obj/random/boxes,
+/obj/random/boxes,
+/obj/random/boxes/low_chance,
+/obj/random/boxes/low_chance,
+/obj/random/boxes/low_chance,
+/obj/random/boxes/low_chance,
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
 "jtf" = (
 /obj/structure/table/standard,
 /obj/machinery/chem_heater,
@@ -108837,6 +109061,7 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
 "koe" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/freezer/medical,
@@ -108845,6 +109070,8 @@
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
+=======
+>>>>>>> 0566555... Plumbingfix (#5451)
 "kEW" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -108866,6 +109093,12 @@
 /obj/item/weapon/storage/box,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"kGH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
 "lcL" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -108932,6 +109165,17 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"lwW" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "lCK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -108959,10 +109203,32 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/storage)
+<<<<<<< HEAD
+=======
+"lGH" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -26
+	},
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/railing/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "lIn" = (
 /obj/effect/shuttle_landmark/merc/junk,
 /turf/space,
 /area/space)
+"lOA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
 "lUc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -109009,6 +109275,7 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5port)
+<<<<<<< HEAD
 "mxJ" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/firstaid/adv{
@@ -109025,6 +109292,36 @@
 	},
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
+=======
+"mBD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/closet/crate,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "mCf" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -109101,6 +109398,16 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"nfq" = (
+/obj/machinery/camera/network/third_section{
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/chapelritualroom)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "nlx" = (
 /obj/machinery/light,
 /obj/machinery/holomap{
@@ -109115,6 +109422,12 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"nqt" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "ntp" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
@@ -109128,6 +109441,12 @@
 	},
 /turf/space,
 /area/space)
+"nuw" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/neotheology/chapelritualroom)
 "nGz" = (
 /obj/structure/sink{
 	dir = 4;
@@ -109142,10 +109461,17 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+<<<<<<< HEAD
 "nIq" = (
 /obj/machinery/neotheology/biomass_container,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
+=======
+"nJh" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "nYI" = (
 /obj/structure/catwalk,
 /obj/structure/closet/wall_mounted/firecloset{
@@ -109167,6 +109493,12 @@
 /obj/structure/reagent_dispensers/fueltank/huge,
 /turf/simulated/floor,
 /area/shuttle/mining/station)
+"obk" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "ofp" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -109180,6 +109512,10 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"onJ" = (
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/chapelritualroom)
 "oup" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -109190,6 +109526,12 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4port)
+"ovh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/hydroponics/garden)
 "owL" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -109290,6 +109632,21 @@
 /obj/item/weapon/storage/freezer/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
+"oXl" = (
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"oXs" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"oZm" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "paj" = (
 /obj/structure/sign/faction/moebius{
 	pixel_y = -32
@@ -109305,6 +109662,7 @@
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
 "ppk" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -109312,6 +109670,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/surgery)
+=======
+"plN" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+"pmS" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "ptL" = (
 /obj/structure/closet/self_pacification,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
@@ -109362,6 +109732,10 @@
 /obj/effect/shuttle_landmark/merc/engieva,
 /turf/space,
 /area/space)
+"qBj" = (
+/obj/machinery/duct,
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/hydroponics)
 "qTX" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
@@ -109395,6 +109769,27 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck3port)
+<<<<<<< HEAD
+=======
+"rnc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
+"rBd" = (
+/obj/machinery/duct,
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/hydroponics/garden)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "rDZ" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/firedoor,
@@ -109437,6 +109832,32 @@
 	},
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"rPr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/closet/crate,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+"rUL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "rXZ" = (
 /mob/living/simple_animal/cat/fluff/bones,
 /turf/simulated/floor/carpet/sblucarpet,
@@ -109451,6 +109872,15 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"ssB" = (
+/obj/structure/closet/crate/medical,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid/low_chance,
+/obj/random/firstaid/low_chance,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
 "suD" = (
 /obj/machinery/holomap{
 	dir = 8;
@@ -109471,6 +109901,7 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
 "sRq" = (
 /obj/landmark/join/start/paramedic,
 /turf/simulated/floor/carpet/sblucarpet,
@@ -109479,6 +109910,8 @@
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/hallway/main/section2)
+=======
+>>>>>>> 0566555... Plumbingfix (#5451)
 "sZg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -109537,6 +109970,18 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"tEu" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/box/lights/tubes,
+/obj/item/weapon/storage/box/lights/tubes,
+/obj/item/weapon/storage/box/lights/tubes,
+/obj/item/weapon/storage/box/lights/bulbs,
+/obj/item/weapon/storage/box/lights/bulbs,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
 "tMc" = (
 /obj/machinery/camera/network/engineering{
 	dir = 8
@@ -109548,6 +109993,21 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"tPR" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+"tTj" = (
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/obj/machinery/vending/assist,
+/turf/simulated/floor/tiled/dark,
+/area/eris/rnd/lab)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "ubu" = (
 /obj/machinery/holomap{
 	pixel_y = 32
@@ -109581,6 +110041,15 @@
 /obj/random/pack/tech_loot,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
+<<<<<<< HEAD
+=======
+"uqX" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "utr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -109635,6 +110104,14 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"vdS" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/camera/network/third_section{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
 "vdU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -109669,6 +110146,42 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"vkt" = (
+/obj/machinery/door/window/eastright{
+	name = "Research Desk";
+	req_access = list(5)
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "ScienceTotalLockdown";
+	layer = 2.6;
+	name = "Science Total Lockdown";
+	opacity = 0
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	id = "rnddesk";
+	name = "Research Desk Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/window/westleft{
+	name = "Research Desk";
+	req_access = list(5)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/eris/rnd/lab)
+"voT" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "voV" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
@@ -109681,6 +110194,21 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"vvC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"vwc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "vIB" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -109793,6 +110321,22 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"xaI" = (
+/obj/structure/closet/crate/radiation,
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
+"xiI" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/plasma,
+/turf/simulated/floor/plating,
+/area/eris/crew_quarters/sleep/cryo)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "xld" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -109811,6 +110355,21 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"xwS" = (
+/obj/machinery/status_display/supply_display{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+"xGZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 0566555... Plumbingfix (#5451)
 "xLv" = (
 /obj/effect/shuttle_landmark/merc/sec2west,
 /turf/space,
@@ -109848,6 +110407,13 @@
 	},
 /turf/simulated/open,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"ycs" = (
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/neotheology/chapelritualroom)
+>>>>>>> 0566555... Plumbingfix (#5451)
 
 (1,1,1) = {"
 aaa
@@ -127335,7 +127901,11 @@ btg
 bts
 bGG
 bSZ
+<<<<<<< HEAD
 bYO
+=======
+iTJ
+>>>>>>> 0566555... Plumbingfix (#5451)
 bZM
 cci
 bts
@@ -132790,7 +133360,11 @@ aBz
 aBz
 auV
 cIk
+<<<<<<< HEAD
 ewu
+=======
+jcw
+>>>>>>> 0566555... Plumbingfix (#5451)
 auV
 ewu
 exK
@@ -132991,6 +133565,15 @@ auV
 auV
 auV
 auV
+<<<<<<< HEAD
+=======
+eZp
+ssB
+lGH
+vdS
+fjl
+xwS
+>>>>>>> 0566555... Plumbingfix (#5451)
 erN
 ato
 atx
@@ -133190,14 +133773,27 @@ avn
 aBz
 aBz
 auV
+<<<<<<< HEAD
 bsO
 btG
 bVM
+=======
+mBD
+ato
+ato
+ato
+ato
+ato
+>>>>>>> 0566555... Plumbingfix (#5451)
 ato
 cbf
 cdm
 cef
+<<<<<<< HEAD
 ato
+=======
+lOA
+>>>>>>> 0566555... Plumbingfix (#5451)
 bZz
 auV
 aBz
@@ -133392,6 +133988,7 @@ avn
 aBz
 aBz
 auV
+<<<<<<< HEAD
 btk
 ato
 ato
@@ -133400,6 +133997,19 @@ ato
 ato
 ato
 ato
+=======
+rPr
+ato
+ato
+ato
+kGH
+oXs
+oXs
+oXs
+xGZ
+ato
+voT
+>>>>>>> 0566555... Plumbingfix (#5451)
 cfs
 auV
 aBz
@@ -133591,6 +134201,7 @@ avn
 avF
 awg
 auV
+<<<<<<< HEAD
 auV
 auV
 auV
@@ -133602,6 +134213,19 @@ ato
 ato
 ato
 ato
+=======
+fVv
+hIx
+ato
+ato
+vvC
+oXl
+oXl
+oXl
+hld
+nqt
+lwW
+>>>>>>> 0566555... Plumbingfix (#5451)
 cgp
 auV
 auV
@@ -133796,6 +134420,7 @@ auV
 baH
 bta
 byK
+<<<<<<< HEAD
 ato
 bRz
 bVR
@@ -133804,6 +134429,16 @@ cbm
 cdD
 ato
 ato
+=======
+nqt
+vvC
+oXl
+bZl
+oXl
+hld
+oZm
+pmS
+>>>>>>> 0566555... Plumbingfix (#5451)
 ato
 aHl
 cgM
@@ -133995,6 +134630,7 @@ avn
 avF
 awg
 auV
+<<<<<<< HEAD
 btk
 ato
 ato
@@ -134006,6 +134642,19 @@ cbn
 cdH
 ato
 ato
+=======
+tEu
+ato
+tPR
+nJh
+vvC
+oXl
+oXl
+oXl
+hld
+oZm
+pmS
+>>>>>>> 0566555... Plumbingfix (#5451)
 ato
 aHl
 cgM
@@ -134200,6 +134849,7 @@ auV
 avx
 apb
 bqy
+<<<<<<< HEAD
 ato
 bRC
 bRC
@@ -134209,6 +134859,17 @@ bRC
 ato
 ato
 cgp
+=======
+gTF
+bRC
+vwc
+vwc
+vwc
+gYp
+gTF
+xaI
+jrc
+>>>>>>> 0566555... Plumbingfix (#5451)
 auV
 auV
 auV
@@ -134402,7 +135063,11 @@ atk
 bmn
 bmn
 bmn
+<<<<<<< HEAD
 bmn
+=======
+rnc
+>>>>>>> 0566555... Plumbingfix (#5451)
 bRE
 bRE
 bRE
@@ -134602,6 +135267,7 @@ avF
 awp
 ata
 aBI
+<<<<<<< HEAD
 aBI
 aBI
 aBI
@@ -134610,6 +135276,13 @@ aUH
 aUH
 aUH
 aUH
+=======
+kGH
+oXs
+oXs
+oXs
+xGZ
+>>>>>>> 0566555... Plumbingfix (#5451)
 bBr
 bBP
 bRq
@@ -134807,11 +135480,22 @@ avx
 apb
 bqA
 ato
+<<<<<<< HEAD
 bRP
 bRP
 bRP
 bRP
 bRP
+=======
+ato
+plN
+rUL
+vvC
+oXl
+oXl
+oXl
+hld
+>>>>>>> 0566555... Plumbingfix (#5451)
 ceY
 axs
 bJn
@@ -135008,6 +135692,7 @@ auV
 btk
 ato
 ato
+<<<<<<< HEAD
 ato
 bRQ
 bWL
@@ -135016,6 +135701,16 @@ cbB
 cbB
 ato
 ato
+=======
+obk
+vvC
+oXl
+bZD
+oXl
+hld
+uqX
+gkN
+>>>>>>> 0566555... Plumbingfix (#5451)
 bJK
 auV
 aBv
@@ -135211,6 +135906,7 @@ bsi
 aTu
 byL
 ato
+<<<<<<< HEAD
 bRR
 bXz
 bXz
@@ -135218,6 +135914,15 @@ cbS
 cbS
 ato
 ato
+=======
+vvC
+oXl
+oXl
+oXl
+hld
+uqX
+gkN
+>>>>>>> 0566555... Plumbingfix (#5451)
 cgt
 auV
 aBv
@@ -135419,6 +136124,15 @@ ato
 ato
 ato
 ato
+<<<<<<< HEAD
+=======
+bRC
+vwc
+vwc
+vwc
+gYp
+obk
+>>>>>>> 0566555... Plumbingfix (#5451)
 ato
 bRr
 auV
@@ -135616,11 +136330,18 @@ dhU
 auV
 ato
 ato
+<<<<<<< HEAD
 ato
 ato
 ato
 ato
 ato
+=======
+hqX
+hqX
+hqX
+hqX
+>>>>>>> 0566555... Plumbingfix (#5451)
 cgf
 cgu
 ayL
@@ -163686,8 +164407,13 @@ cIS
 aaa
 ccU
 avK
+<<<<<<< HEAD
 clY
 byR
+=======
+nfq
+onJ
+>>>>>>> 0566555... Plumbingfix (#5451)
 cqc
 bQx
 bQx
@@ -163890,6 +164616,10 @@ ccU
 avK
 byR
 byR
+<<<<<<< HEAD
+=======
+onJ
+>>>>>>> 0566555... Plumbingfix (#5451)
 bQx
 bQx
 bQx
@@ -164092,6 +164822,10 @@ ccU
 avK
 byR
 byR
+<<<<<<< HEAD
+=======
+onJ
+>>>>>>> 0566555... Plumbingfix (#5451)
 bQx
 bQx
 bQx
@@ -164293,8 +165027,13 @@ aaa
 ccU
 ciT
 byR
+<<<<<<< HEAD
 byR
 bQy
+=======
+onJ
+ycs
+>>>>>>> 0566555... Plumbingfix (#5451)
 bQy
 bQy
 bQy
@@ -164496,7 +165235,11 @@ ccU
 ciU
 byR
 cjz
+<<<<<<< HEAD
 bQy
+=======
+ycs
+>>>>>>> 0566555... Plumbingfix (#5451)
 bQy
 bQy
 bQy
@@ -164900,8 +165643,13 @@ abF
 ccU
 bQj
 ccU
+<<<<<<< HEAD
 bQy
 bQy
+=======
+ycs
+ycs
+>>>>>>> 0566555... Plumbingfix (#5451)
 bQy
 bQy
 ccU
@@ -165103,7 +165851,11 @@ ccU
 ccU
 ccU
 bzF
+<<<<<<< HEAD
 bzF
+=======
+nuw
+>>>>>>> 0566555... Plumbingfix (#5451)
 bzF
 bVF
 ccU
@@ -165305,7 +166057,11 @@ bzz
 bCv
 bCy
 bQD
+<<<<<<< HEAD
 bRH
+=======
+fea
+>>>>>>> 0566555... Plumbingfix (#5451)
 bxH
 bQn
 bZn
@@ -165318,7 +166074,11 @@ bQq
 bQq
 bQq
 bQq
+<<<<<<< HEAD
 bQq
+=======
+qBj
+>>>>>>> 0566555... Plumbingfix (#5451)
 dHB
 cbF
 cbF
@@ -165507,7 +166267,11 @@ bAZ
 bCv
 bCv
 bQD
+<<<<<<< HEAD
 bRH
+=======
+fea
+>>>>>>> 0566555... Plumbingfix (#5451)
 bxH
 bQY
 bQY
@@ -165520,7 +166284,11 @@ bUT
 bUT
 bUT
 bUT
+<<<<<<< HEAD
 bQq
+=======
+qBj
+>>>>>>> 0566555... Plumbingfix (#5451)
 bOi
 bxH
 bQn
@@ -165709,20 +166477,33 @@ bAZ
 bCv
 bCv
 bQD
+<<<<<<< HEAD
 bRH
+=======
+fea
+>>>>>>> 0566555... Plumbingfix (#5451)
 bxH
 bQZ
 bRg
 bQZ
 bQn
 bQq
+<<<<<<< HEAD
 bQn
+=======
+hQD
+>>>>>>> 0566555... Plumbingfix (#5451)
 auS
 auS
 auS
 auS
+<<<<<<< HEAD
 bQn
 bQq
+=======
+hQD
+qBj
+>>>>>>> 0566555... Plumbingfix (#5451)
 bVu
 bxH
 bQS
@@ -165911,7 +166692,11 @@ bAZ
 bCv
 bCv
 bQD
+<<<<<<< HEAD
 bRH
+=======
+fea
+>>>>>>> 0566555... Plumbingfix (#5451)
 bxH
 bRg
 bTz
@@ -165924,7 +166709,11 @@ bUT
 bUT
 bUT
 bUT
+<<<<<<< HEAD
 bQq
+=======
+qBj
+>>>>>>> 0566555... Plumbingfix (#5451)
 bXk
 bIs
 bXn
@@ -166113,7 +166902,11 @@ bAZ
 bCv
 bCv
 bQD
+<<<<<<< HEAD
 bRH
+=======
+fea
+>>>>>>> 0566555... Plumbingfix (#5451)
 bxH
 bQZ
 bRg
@@ -166126,7 +166919,11 @@ bUT
 bUT
 bUT
 bUT
+<<<<<<< HEAD
 bQq
+=======
+qBj
+>>>>>>> 0566555... Plumbingfix (#5451)
 bXi
 bxH
 bXC
@@ -166315,20 +167112,33 @@ bAZ
 bCv
 bCv
 bQD
+<<<<<<< HEAD
 bRH
+=======
+fea
+>>>>>>> 0566555... Plumbingfix (#5451)
 bxH
 bRi
 bRi
 bRi
 bQn
 bQq
+<<<<<<< HEAD
 bQn
+=======
+hQD
+>>>>>>> 0566555... Plumbingfix (#5451)
 auS
 auS
 auS
 auS
+<<<<<<< HEAD
 bQn
 bQq
+=======
+hQD
+qBj
+>>>>>>> 0566555... Plumbingfix (#5451)
 bXi
 bxH
 bQn
@@ -166517,7 +167327,11 @@ bzz
 bCw
 bCv
 bQD
+<<<<<<< HEAD
 bRH
+=======
+fea
+>>>>>>> 0566555... Plumbingfix (#5451)
 bxH
 bQn
 bQn
@@ -166719,7 +167533,11 @@ bzz
 bzz
 bzz
 bQG
+<<<<<<< HEAD
 bRH
+=======
+fea
+>>>>>>> 0566555... Plumbingfix (#5451)
 bxH
 bVY
 cad
@@ -166921,6 +167739,13 @@ bWk
 bWk
 bHh
 bQU
+<<<<<<< HEAD
+=======
+rBd
+rBd
+rBd
+rBd
+>>>>>>> 0566555... Plumbingfix (#5451)
 bQU
 bVb
 bWb
@@ -167127,8 +167952,13 @@ bQU
 bVp
 bWM
 cfb
+<<<<<<< HEAD
 bQU
 bQU
+=======
+gXX
+ovh
+>>>>>>> 0566555... Plumbingfix (#5451)
 bQU
 bAZ
 cPv
