@@ -63,10 +63,18 @@ var/global/list/ore_data = list()
 	smelts_to = MATERIAL_GLASS
 	compresses_to = MATERIAL_SANDSTONE
 
+<<<<<<< HEAD
 /ore/phoron
 	name = "phoron"
 	display_name = "phoron crystals"
 	compresses_to = "phoron"
+=======
+/ore/plasma
+	name = "plasma"
+	display_name = "plasma crystals"
+	compresses_to = "plasma"
+	alloy = 1
+>>>>>>> e508110... processor pickup buff, plasma slag fix (#5447)
 	//smelts_to = something that explodes violently on the conveyor, huhuhuhu
 	result_amount = 8
 	spread_chance = 25
