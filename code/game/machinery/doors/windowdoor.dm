@@ -11,8 +11,13 @@
 	hitsound = 'sound/effects/Glasshit.ogg'
 	maxhealth = 100 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
 	health = 100
+<<<<<<< HEAD
 	visible = 0.0
 	use_power = 0
+=======
+	visible = 0
+	use_power = NO_POWER_USE
+>>>>>>> 004cced... Remove the .0 from the ends of vars 2 (#5430)
 	flags = ON_BORDER
 	opacity = 0
 	var/obj/item/weapon/airlock_electronics/electronics = null

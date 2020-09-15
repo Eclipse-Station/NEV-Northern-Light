@@ -59,6 +59,10 @@
 	name = "blob"
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob"
+<<<<<<< HEAD
+=======
+	var/icon_scale = 1
+>>>>>>> 004cced... Remove the .0 from the ends of vars 2 (#5430)
 	light_range = 3
 	desc = "Some blob creature thingy"
 	density = FALSE //Normal blobs can be walked over, but it's not a good idea
@@ -196,7 +200,7 @@
 		core = null
 		//When the core is gone, the blob starts dying
 		//The closer it was to the core, the faster it dies. So death spreads out radially
-		take_damage((1.0 / coredist))
+		take_damage((1 / coredist))
 	update_icon()
 
 /*
