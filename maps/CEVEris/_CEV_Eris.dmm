@@ -2299,10 +2299,14 @@
 /area/eris/security/prison)
 "afB" = (
 /obj/machinery/shower{
+<<<<<<< HEAD
 	dir = 8;
 	icon_state = "shower";
 	pixel_x = 0;
 	pixel_y = 0
+=======
+	dir = 8
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/prison)
@@ -2449,6 +2453,7 @@
 /obj/random/flora/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/security/disposal)
+<<<<<<< HEAD
 "afW" = (
 /obj/machinery/shower{
 	icon_state = "shower";
@@ -2456,6 +2461,8 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/prison)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "afX" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -8611,6 +8618,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck2starboard)
+<<<<<<< HEAD
 "ata" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
@@ -8633,6 +8641,8 @@
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/quartermaster/hangarsupply)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "atb" = (
 /turf/simulated/wall,
 /area/eris/maintenance/fueltankstorage)
@@ -9339,6 +9349,7 @@
 /turf/space,
 /area/shuttle/escape_pod1/station)
 "auS" = (
+/obj/machinery/duct,
 /turf/simulated/floor/dirt,
 /area/eris/crew_quarters/hydroponics)
 "auT" = (
@@ -11775,9 +11786,13 @@
 "aAI" = (
 /obj/structure/railing{
 	tag = "icon-railing0 (WEST)";
+<<<<<<< HEAD
 	icon_state = "railing0";
 	dir = 8;
 	anchored = 1
+=======
+	dir = 8
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck2starboard)
@@ -12176,11 +12191,16 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5starboard)
 "aBI" = (
+<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+=======
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
@@ -12198,6 +12218,7 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5starboard)
+<<<<<<< HEAD
 "aBK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
@@ -12205,6 +12226,8 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/junk)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "aBL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19341,9 +19364,7 @@
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/hallway/side/atmosphericshallway)
 "aSV" = (
-/obj/structure/mopbucket,
-/obj/item/weapon/mop,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/machinery/duct/vertical,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "aSW" = (
@@ -26997,6 +27018,7 @@
 "biy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "biz" = (
@@ -28756,6 +28778,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+<<<<<<< HEAD
 "bmd" = (
 /obj/machinery/vending/assist,
 /obj/effect/floor_decal/industrial/warning{
@@ -28764,6 +28787,8 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "bme" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -31623,6 +31648,7 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck1central)
+<<<<<<< HEAD
 "bsO" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/alarm{
@@ -31632,6 +31658,8 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "bsP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -31665,6 +31693,7 @@
 "bsS" = (
 /turf/simulated/wall,
 /area/eris/hallway/side/section3port)
+<<<<<<< HEAD
 "bsT" = (
 /obj/item/device/radio/intercom{
 	dir = 2;
@@ -31672,6 +31701,8 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "bsU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -31745,7 +31776,7 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/rnd/lab)
 "btd" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/duct,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "bte" = (
@@ -32012,6 +32043,7 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/disposaldrop)
+<<<<<<< HEAD
 "btG" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/camera/network/third_section{
@@ -32019,6 +32051,8 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "btH" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -32874,6 +32908,9 @@
 	dir = 4;
 	pixel_x = -26;
 	pixel_y = 0
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
@@ -34426,9 +34463,13 @@
 "byV" = (
 /obj/structure/railing{
 	tag = "icon-railing0 (WEST)";
+<<<<<<< HEAD
 	icon_state = "railing0";
 	dir = 8;
 	anchored = 1
+=======
+	dir = 8
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck1central)
@@ -37615,9 +37656,13 @@
 "bFX" = (
 /obj/structure/railing{
 	tag = "icon-railing0 (WEST)";
+<<<<<<< HEAD
 	icon_state = "railing0";
 	dir = 8;
 	anchored = 1
+=======
+	dir = 8
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4port)
@@ -37847,6 +37892,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/maintenance/substation/section4)
+<<<<<<< HEAD
 "bGu" = (
 /obj/structure/railing{
 	tag = "icon-railing0 (WEST)";
@@ -37855,6 +37901,8 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4port)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "bGv" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -38250,10 +38298,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bHq" = (
@@ -43324,6 +43370,7 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5port)
+<<<<<<< HEAD
 "bRB" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/steel{
@@ -43364,6 +43411,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
+=======
+"bRC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 /area/eris/quartermaster/hangarsupply)
 "bRD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -43487,6 +43541,7 @@
 /obj/random/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/white/panels,
 /area/eris/rnd/scient)
+<<<<<<< HEAD
 "bRP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -43502,6 +43557,8 @@
 /obj/random/contraband/low_chance,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/hangarsupply)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "bRS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -43845,10 +43902,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bSJ" = (
@@ -43863,8 +43920,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/catwalk,
+/obj/machinery/duct,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bSL" = (
@@ -43880,6 +43940,7 @@
 	dir = 9
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bSM" = (
@@ -43905,6 +43966,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bSO" = (
@@ -43982,6 +44044,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bTa" = (
@@ -43995,6 +44058,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bTb" = (
@@ -44008,6 +44072,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
+/obj/machinery/duct,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bTd" = (
@@ -44808,6 +44873,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "bUR" = (
@@ -44889,6 +44955,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "bVe" = (
@@ -44998,9 +45065,6 @@
 	},
 /area/eris/hallway/main/section1)
 "bVp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics/garden)
@@ -45209,10 +45273,13 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section3deck4port)
+<<<<<<< HEAD
 "bVM" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "bVN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -45353,12 +45420,6 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/eris/command/courtroom)
-"bWb" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/eris/crew_quarters/hydroponics/garden)
 "bWc" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
@@ -45683,10 +45744,7 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/hangarsupply)
 "bWM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics/garden)
 "bWN" = (
@@ -47221,6 +47279,9 @@
 	icon_state = "tube1";
 	dir = 8
 	},
+/obj/structure/mopbucket,
+/obj/item/weapon/mop,
+/obj/item/weapon/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/bioreactor)
 "cai" = (
@@ -47958,10 +48019,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/neotheology/storage)
+<<<<<<< HEAD
 "cbS" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/hangarsupply)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "cbT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	tag = "icon-intact (SOUTHEAST)";
@@ -48749,6 +48813,7 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
 /area/eris/crew_quarters/clothingstorage)
+<<<<<<< HEAD
 "cdH" = (
 /obj/structure/closet/crate,
 /obj/random/pack/tech_loot,
@@ -48763,6 +48828,8 @@
 /obj/random/lowkeyrandom/low_chance,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/hangarsupply)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "cdI" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27;
@@ -49517,10 +49584,10 @@
 /turf/simulated/floor/tiled/steel,
 /area/eris/storage/tech)
 "cfb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/wood,
@@ -59652,6 +59719,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "cCu" = (
@@ -59881,6 +59949,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "cCQ" = (
@@ -72454,6 +72523,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/neotheology/chapelritualroom)
 "dfR" = (
@@ -78076,6 +78146,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
+/obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "drJ" = (
@@ -92636,6 +92707,7 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating,
 /area/eris/medical/genetics)
+<<<<<<< HEAD
 "dYm" = (
 /obj/structure/railing{
 	tag = "icon-railing0 (WEST)";
@@ -92644,6 +92716,8 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck2starboard)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "dYn" = (
 /obj/structure/disposalpipe/down{
 	tag = "icon-pipe-d (EAST)";
@@ -107308,6 +107382,7 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck1central)
+<<<<<<< HEAD
 "eEx" = (
 /obj/structure/railing{
 	tag = "icon-railing0 (WEST)";
@@ -107316,6 +107391,8 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck1central)
+=======
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "eEy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -108264,6 +108341,10 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
+"eKx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "eKF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -108502,10 +108583,25 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
+<<<<<<< HEAD
 "fpA" = (
 /obj/machinery/neotheology/reader,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
+=======
+"fuF" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/box/lights/tubes,
+/obj/item/weapon/storage/box/lights/tubes,
+/obj/item/weapon/storage/box/lights/tubes,
+/obj/item/weapon/storage/box/lights/bulbs,
+/obj/item/weapon/storage/box/lights/bulbs,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "fzU" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	tag = "icon-map (EAST)";
@@ -108540,6 +108636,20 @@
 /obj/effect/shuttle_landmark/merc/sec3east4,
 /turf/space,
 /area/space)
+<<<<<<< HEAD
+=======
+"fUu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"fUC" = (
+/obj/random/junk/low_chance,
+/obj/machinery/camera/network/command,
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section1deck4central)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "fZX" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
@@ -108547,6 +108657,10 @@
 /obj/machinery/camera/network/engineering,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"ggy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/hydroponics/garden)
 "gjm" = (
 /obj/machinery/holomap{
 	pixel_y = 32
@@ -108585,6 +108699,7 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+<<<<<<< HEAD
 "heQ" = (
 /obj/structure/table/glass,
 /obj/item/weapon/implant/soulcrypt,
@@ -108600,6 +108715,14 @@
 /obj/item/weapon/implanter,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
+=======
+"hbi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/hydroponics/garden)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "hqB" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	icon_state = "intact";
@@ -108611,6 +108734,14 @@
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"hHA" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"hHV" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "hMo" = (
 /obj/machinery/holomap{
 	dir = 8;
@@ -108618,6 +108749,21 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
+<<<<<<< HEAD
+=======
+"hMr" = (
+/obj/machinery/camera/network/command{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section1deck4central)
+"hMY" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "hNy" = (
 /obj/structure/closet/wall_mounted/firecloset{
 	pixel_x = 32
@@ -108709,6 +108855,13 @@
 /obj/effect/shuttle_landmark/merc/engine,
 /turf/space,
 /area/space)
+<<<<<<< HEAD
+=======
+"iYs" = (
+/obj/machinery/duct,
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/hydroponics/garden)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "jak" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/structure/cable/yellow{
@@ -108735,10 +108888,32 @@
 	},
 /turf/simulated/floor/tiled/steel/panels,
 /area/eris/engineering/post)
+"jux" = (
+/obj/machinery/atmospherics/pipe/simple/visible/blue{
+	tag = "icon-intact (EAST)";
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/bioreactor)
 "jBr" = (
 /obj/effect/shuttle_landmark/merc/armory,
 /turf/space,
 /area/space)
+"jBX" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
 "jDU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_medical{
@@ -108760,6 +108935,16 @@
 	},
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"jET" = (
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"jHM" = (
+/obj/machinery/duct,
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/hydroponics)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "jIq" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -108780,6 +108965,15 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
+<<<<<<< HEAD
+=======
+"jNm" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "jRe" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -108837,6 +109031,7 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
 "koe" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/freezer/medical,
@@ -108845,6 +109040,14 @@
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
+=======
+"kDV" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "kEW" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -108893,6 +109096,25 @@
 /obj/item/weapon/tool/knife/butch,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"ljN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/closet/crate,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
 "lls" = (
 /obj/structure/catwalk,
 /obj/structure/cable/green{
@@ -108932,6 +109154,24 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"lBg" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -26
+	},
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/railing/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "lCK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -108959,6 +109199,14 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/storage)
+"lHz" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/machinery/camera/network/third_section{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
 "lIn" = (
 /obj/effect/shuttle_landmark/merc/junk,
 /turf/space,
@@ -108969,6 +109217,12 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"mfp" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "mjD" = (
 /obj/machinery/holomap{
 	dir = 4;
@@ -109009,6 +109263,7 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5port)
+<<<<<<< HEAD
 "mxJ" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/firstaid/adv{
@@ -109025,6 +109280,14 @@
 	},
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
+=======
+"mwc" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "mCf" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -109044,6 +109307,16 @@
 /obj/machinery/atmospherics/unary/heat_exchanger,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
+"mQp" = (
+/obj/machinery/duct,
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics)
+"mQs" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "mQQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/hull{
@@ -109101,6 +109374,12 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+"njV" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "nlx" = (
 /obj/machinery/light,
 /obj/machinery/holomap{
@@ -109200,6 +109479,14 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"owQ" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
 "owS" = (
 /obj/machinery/requests_console{
 	announcementConsole = 1;
@@ -109249,6 +109536,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay/uppercor)
+"oHF" = (
+/obj/structure/closet/crate/internals,
+/obj/random/contraband/low_chance,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/railing/grey,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
 "oHW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	tag = "icon-intact (EAST)";
@@ -109305,6 +109602,7 @@
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
 "ppk" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -109312,6 +109610,36 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/surgery)
+=======
+"pnf" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/closet/crate,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/random/pack/tech_loot/low_chance,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "ptL" = (
 /obj/structure/closet/self_pacification,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
@@ -109325,10 +109653,82 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
+"pKL" = (
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel{
+	amount = 120
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/item/stack/material/plasteel,
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/obj/item/stack/material/glass{
+	amount = 120
+	},
+/obj/item/stack/material/plastic{
+	amount = 120
+	},
+/obj/item/stack/material/plastic{
+	amount = 120
+	},
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+/obj/random/material_resources/low_chance,
+/obj/random/material_resources/low_chance,
+/obj/random/material_resources/low_chance,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
 "pMF" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/hull,
 /area/space)
+"pVP" = (
+/obj/structure/closet/crate,
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/item/weapon/caution{
+	name = "Caution Sign"
+	},
+/obj/random/contraband/low_chance,
+/obj/random/boxes,
+/obj/random/boxes,
+/obj/random/boxes/low_chance,
+/obj/random/boxes/low_chance,
+/obj/random/boxes/low_chance,
+/obj/random/boxes/low_chance,
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
 "qaP" = (
 /obj/machinery/atmospherics/omni/filter{
 	tag_east = 2;
@@ -109337,6 +109737,12 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"qdS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "qkR" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
@@ -109352,6 +109758,11 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemistry)
+"qkY" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
 "qnS" = (
 /obj/structure/closet/wall_mounted/firecloset{
 	pixel_x = -32
@@ -109380,6 +109791,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
+"rdw" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "rhQ" = (
 /obj/machinery/camera/network/engineering{
 	dir = 8
@@ -109395,6 +109810,21 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck3port)
+<<<<<<< HEAD
+=======
+"rov" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cargo_bay_door";
+	locked = 1;
+	name = "Cargo Docking Hatch";
+	req_access = list(13)
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "rDZ" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/firedoor,
@@ -109437,6 +109867,12 @@
 	},
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
+"rXL" = (
+/obj/machinery/status_display/supply_display{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
 "rXZ" = (
 /mob/living/simple_animal/cat/fluff/bones,
 /turf/simulated/floor/carpet/sblucarpet,
@@ -109463,14 +109899,30 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"sAK" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "sGt" = (
 /obj/effect/shuttle_landmark/merc/sec2east,
 /turf/space,
 /area/space)
+"sJl" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/neotheology/chapelritualroom)
 "sJL" = (
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
 "sRq" = (
 /obj/landmark/join/start/paramedic,
 /turf/simulated/floor/carpet/sblucarpet,
@@ -109479,6 +109931,20 @@
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/hallway/main/section2)
+=======
+"sLG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"sYg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "sZg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -109548,6 +110014,17 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"tTj" = (
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/obj/machinery/vending/assist,
+/turf/simulated/floor/tiled/dark,
+/area/eris/rnd/lab)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "ubu" = (
 /obj/machinery/holomap{
 	pixel_y = 32
@@ -109562,6 +110039,13 @@
 /obj/item/weapon/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+<<<<<<< HEAD
+=======
+"ucS" = (
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/neotheology/chapelritualroom)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "uiz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	tag = "icon-intact (SOUTHWEST)";
@@ -109581,6 +110065,19 @@
 /obj/random/pack/tech_loot,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
+<<<<<<< HEAD
+=======
+"uny" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+"uoG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "utr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -109617,6 +110114,12 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
+"uHf" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/structure/railing/grey,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
 "uYg" = (
 /obj/random/medical/low_chance,
 /obj/random/medical/low_chance,
@@ -109681,6 +110184,15 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"vqi" = (
+/obj/structure/closet/crate/medical,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid/low_chance,
+/obj/random/firstaid/low_chance,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
 "vIB" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -109758,6 +110270,13 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"wxB" = (
+/obj/effect/window_lwall_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section3deck2starboard)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "wEJ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -109793,6 +110312,32 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"wYY" = (
+/obj/machinery/camera/network/third_section{
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/chapelritualroom)
+"xiI" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/plasma,
+/turf/simulated/floor/plating,
+/area/eris/crew_quarters/sleep/cryo)
+"xjA" = (
+/obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "xld" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -109805,16 +110350,44 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"xpj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"xtZ" = (
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/chapelritualroom)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "xuA" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+"xyA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
 "xLv" = (
 /obj/effect/shuttle_landmark/merc/sec2west,
 /turf/space,
 /area/space)
+<<<<<<< HEAD
+=======
+"xNl" = (
+/obj/structure/closet/crate/radiation,
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 "xPv" = (
 /obj/machinery/holomap{
 	dir = 8;
@@ -109848,6 +110421,13 @@
 	},
 /turf/simulated/open,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"ykQ" = (
+/obj/machinery/duct,
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics/garden)
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 
 (1,1,1) = {"
 aaa
@@ -126726,7 +127306,7 @@ awR
 awR
 aCn
 btd
-byX
+btd
 bHp
 bSK
 bXZ
@@ -127335,7 +127915,7 @@ btg
 bts
 bGG
 bSZ
-bYO
+jux
 bZM
 cci
 bts
@@ -128749,9 +129329,9 @@ btr
 bBX
 bRo
 bTc
-bts
-bts
-bts
+btd
+btd
+btd
 bts
 bts
 bts
@@ -129903,7 +130483,11 @@ aeI
 abH
 afk
 afB
+<<<<<<< HEAD
 afW
+=======
+afB
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 abH
 amV
 aad
@@ -132790,7 +133374,11 @@ aBz
 aBz
 auV
 cIk
+<<<<<<< HEAD
 ewu
+=======
+rov
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 auV
 ewu
 exK
@@ -132991,6 +133579,15 @@ auV
 auV
 auV
 auV
+<<<<<<< HEAD
+=======
+xjA
+vqi
+lBg
+lHz
+uHf
+rXL
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 erN
 ato
 atx
@@ -133190,14 +133787,27 @@ avn
 aBz
 aBz
 auV
+<<<<<<< HEAD
 bsO
 btG
 bVM
+=======
+pnf
+ato
+ato
+ato
+ato
+ato
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 ato
 cbf
 cdm
 cef
+<<<<<<< HEAD
 ato
+=======
+xyA
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 bZz
 auV
 aBz
@@ -133392,6 +134002,7 @@ avn
 aBz
 aBz
 auV
+<<<<<<< HEAD
 btk
 ato
 ato
@@ -133400,6 +134011,19 @@ ato
 ato
 ato
 ato
+=======
+ljN
+ato
+ato
+ato
+xpj
+fUu
+fUu
+fUu
+jNm
+ato
+qkY
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 cfs
 auV
 aBz
@@ -133591,6 +134215,7 @@ avn
 avF
 awg
 auV
+<<<<<<< HEAD
 auV
 auV
 auV
@@ -133602,6 +134227,19 @@ ato
 ato
 ato
 ato
+=======
+pKL
+oHF
+ato
+ato
+sAK
+jET
+jET
+jET
+hHA
+uny
+owQ
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 cgp
 auV
 auV
@@ -133796,6 +134434,7 @@ auV
 baH
 bta
 byK
+<<<<<<< HEAD
 ato
 bRz
 bVR
@@ -133804,6 +134443,16 @@ cbm
 cdD
 ato
 ato
+=======
+uny
+sAK
+jET
+bZl
+jET
+hHA
+mwc
+mQs
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 ato
 aHl
 cgM
@@ -133995,6 +134644,7 @@ avn
 avF
 awg
 auV
+<<<<<<< HEAD
 btk
 ato
 ato
@@ -134006,6 +134656,19 @@ cbn
 cdH
 ato
 ato
+=======
+fuF
+ato
+hHV
+eKx
+sAK
+jET
+jET
+jET
+hHA
+mwc
+mQs
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 ato
 aHl
 cgM
@@ -134200,6 +134863,7 @@ auV
 avx
 apb
 bqy
+<<<<<<< HEAD
 ato
 bRC
 bRC
@@ -134209,6 +134873,17 @@ bRC
 ato
 ato
 cgp
+=======
+qdS
+bRC
+sYg
+sYg
+sYg
+sLG
+qdS
+xNl
+pVP
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 auV
 auV
 auV
@@ -134402,7 +135077,11 @@ atk
 bmn
 bmn
 bmn
+<<<<<<< HEAD
 bmn
+=======
+jBX
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 bRE
 bRE
 bRE
@@ -134600,6 +135279,7 @@ aaa
 arQ
 avF
 awp
+<<<<<<< HEAD
 ata
 aBI
 aBI
@@ -134610,6 +135290,18 @@ aUH
 aUH
 aUH
 aUH
+=======
+auV
+avx
+apb
+bqA
+aBI
+xpj
+fUu
+fUu
+fUu
+jNm
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 bBr
 bBP
 bRq
@@ -134807,11 +135499,22 @@ avx
 apb
 bqA
 ato
+<<<<<<< HEAD
 bRP
 bRP
 bRP
 bRP
 bRP
+=======
+ato
+rdw
+uoG
+sAK
+jET
+jET
+jET
+hHA
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 ceY
 axs
 bJn
@@ -135008,6 +135711,7 @@ auV
 btk
 ato
 ato
+<<<<<<< HEAD
 ato
 bRQ
 bWL
@@ -135016,6 +135720,16 @@ cbB
 cbB
 ato
 ato
+=======
+hMY
+sAK
+jET
+bZD
+jET
+hHA
+kDV
+mfp
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 bJK
 auV
 aBv
@@ -135211,6 +135925,7 @@ bsi
 aTu
 byL
 ato
+<<<<<<< HEAD
 bRR
 bXz
 bXz
@@ -135218,6 +135933,15 @@ cbS
 cbS
 ato
 ato
+=======
+sAK
+jET
+jET
+jET
+hHA
+kDV
+mfp
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 cgt
 auV
 aBv
@@ -135419,6 +136143,15 @@ ato
 ato
 ato
 ato
+<<<<<<< HEAD
+=======
+bRC
+sYg
+sYg
+sYg
+sLG
+hMY
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 ato
 bRr
 auV
@@ -135616,11 +136349,18 @@ dhU
 auV
 ato
 ato
+<<<<<<< HEAD
 ato
 ato
 ato
 ato
 ato
+=======
+njV
+njV
+njV
+njV
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 cgf
 cgu
 ayL
@@ -163313,7 +164053,11 @@ aCM
 abF
 bqj
 bFX
+<<<<<<< HEAD
 bGu
+=======
+bFX
+>>>>>>> fdd6ee7... NT plumbing integration (#5445)
 bFX
 bHm
 bHm
@@ -163686,8 +164430,8 @@ cIS
 aaa
 ccU
 avK
-clY
-byR
+wYY
+xtZ
 cqc
 bQx
 bQx
@@ -163889,7 +164633,7 @@ aaa
 ccU
 avK
 byR
-byR
+xtZ
 bQx
 bQx
 bQx
@@ -164091,7 +164835,7 @@ aaa
 ccU
 avK
 byR
-byR
+xtZ
 bQx
 bQx
 bQx
@@ -164293,8 +165037,8 @@ aaa
 ccU
 ciT
 byR
-byR
-bQy
+xtZ
+ucS
 bQy
 bQy
 bQy
@@ -164496,7 +165240,7 @@ ccU
 ciU
 byR
 cjz
-bQy
+ucS
 bQy
 bQy
 bQy
@@ -164900,8 +165644,8 @@ abF
 ccU
 bQj
 ccU
-bQy
-bQy
+ucS
+ucS
 bQy
 bQy
 ccU
@@ -165103,7 +165847,7 @@ ccU
 ccU
 ccU
 bzF
-bzF
+sJl
 bzF
 bVF
 ccU
@@ -165305,7 +166049,7 @@ bzz
 bCv
 bCy
 bQD
-bRH
+ykQ
 bxH
 bQn
 bZn
@@ -165318,7 +166062,7 @@ bQq
 bQq
 bQq
 bQq
-bQq
+jHM
 dHB
 cbF
 cbF
@@ -165507,7 +166251,7 @@ bAZ
 bCv
 bCv
 bQD
-bRH
+ykQ
 bxH
 bQY
 bQY
@@ -165520,7 +166264,7 @@ bUT
 bUT
 bUT
 bUT
-bQq
+jHM
 bOi
 bxH
 bQn
@@ -165709,20 +166453,20 @@ bAZ
 bCv
 bCv
 bQD
-bRH
+ykQ
 bxH
 bQZ
 bRg
 bQZ
 bQn
 bQq
-bQn
+mQp
 auS
 auS
 auS
 auS
-bQn
-bQq
+mQp
+jHM
 bVu
 bxH
 bQS
@@ -165911,7 +166655,7 @@ bAZ
 bCv
 bCv
 bQD
-bRH
+ykQ
 bxH
 bRg
 bTz
@@ -165924,7 +166668,7 @@ bUT
 bUT
 bUT
 bUT
-bQq
+jHM
 bXk
 bIs
 bXn
@@ -166113,7 +166857,7 @@ bAZ
 bCv
 bCv
 bQD
-bRH
+ykQ
 bxH
 bQZ
 bRg
@@ -166126,7 +166870,7 @@ bUT
 bUT
 bUT
 bUT
-bQq
+jHM
 bXi
 bxH
 bXC
@@ -166315,20 +167059,20 @@ bAZ
 bCv
 bCv
 bQD
-bRH
+ykQ
 bxH
 bRi
 bRi
 bRi
 bQn
 bQq
-bQn
+mQp
 auS
 auS
 auS
 auS
-bQn
-bQq
+mQp
+jHM
 bXi
 bxH
 bQn
@@ -166517,7 +167261,7 @@ bzz
 bCw
 bCv
 bQD
-bRH
+ykQ
 bxH
 bQn
 bQn
@@ -166719,7 +167463,7 @@ bzz
 bzz
 bzz
 bQG
-bRH
+ykQ
 bxH
 bVY
 cad
@@ -166921,12 +167665,12 @@ bWk
 bWk
 bHh
 bQU
+iYs
+iYs
+iYs
+iYs
 bQU
 bVb
-bWb
-bQU
-bQU
-bQU
 cmm
 cpP
 cPv
@@ -167127,8 +167871,8 @@ bQU
 bVp
 bWM
 cfb
-bQU
-bQU
+ggy
+hbi
 bQU
 bAZ
 cPv
@@ -259460,7 +260204,7 @@ btI
 aAV
 btI
 dYk
-dYm
+aAI
 btI
 dso
 euE
@@ -291979,7 +292723,7 @@ eEp
 eEu
 ezF
 eEw
-eEx
+byV
 boN
 abF
 abF
