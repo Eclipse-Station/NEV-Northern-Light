@@ -1167,7 +1167,7 @@ var/global/list/damage_icon_parts = list()
 	var/standing = null
 
 	var/image/vr_tail_image = get_tail_image()
-	if(vr_tail_image && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(vr_tail_image)
 		standing = vr_tail_image
 	else
 		var/species_tail = species.get_tail(src)
