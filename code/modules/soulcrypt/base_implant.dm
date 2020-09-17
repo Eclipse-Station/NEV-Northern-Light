@@ -48,9 +48,9 @@ The module base code is held in module.dm
 	var/list/modules = list()
 	var/list/access = list()
 
-	var/good_sound = 'sound/machines/synth_yes.ogg'
-	var/bad_sound = 'sound/machines/synth_no.ogg'
-	var/very_bad_sound = 'sound/machines/warning-buzzer.ogg'
+	var/good_sound = 'sound/machines/soul_good.ogg'
+	var/bad_sound = 'sound/machines/soul_bad.ogg'
+	var/very_bad_sound = 'sound/machines/soul_alarm.ogg'
 
 //Inherited procs
 
