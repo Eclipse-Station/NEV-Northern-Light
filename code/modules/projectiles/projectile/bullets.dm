@@ -110,7 +110,15 @@
 		//whether the pellet actually hits the def_zone or a different zone should still be determined by the parent using get_zone_with_miss_chance().
 		var/old_zone = def_zone
 		def_zone = ran_zone(def_zone, spread)
-		if (..()) hits++
+		//syzygy edit START - this is what makes shotgun buckshot target mobs randomly on the target tile. It adds all mobs on the target mob tile to a list, checks if they're dead or alive, and then hits them randomly.
+		var/list/collateraltargets = list()
+		for (var/mob/living/M in get_turf(target_mob))
+			if (M.stat != DEAD)
+				collateraltargets += M
+		if (collateraltargets.len > 1)
+			if (..(collateraltargets[rand(1,collateraltargets.len)])) hits++
+		//syzygy edit END
+		else if (..()) hits++
 		def_zone = old_zone //restore the original zone the projectile was aimed at
 
 	pellets -= hits //each hit reduces the number of pellets left
