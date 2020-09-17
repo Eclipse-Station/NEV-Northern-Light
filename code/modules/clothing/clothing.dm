@@ -477,6 +477,7 @@ BLIND     // can't see anything
 			/obj/item/weapon/tool/knife/butterfly,
 			/obj/item/weapon/material/kitchen/utensil,
 			/obj/item/weapon/tool/knife/tacknife,
+			/obj/item/weapon/oddity/common/old_knife //Syzygy change that should have been done forever ago
 		)
 	if(can_hold_knife && is_type_in_list(I, knifes))
 		if(holding)
