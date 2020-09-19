@@ -34,8 +34,8 @@
 	gluttonous = 1
 	slowdown = 0.5
 	total_health = 125
-	brute_mod = 0.85
-	burn_mod = 0.85
+	brute_mod = 0.90	//syzygy edit
+	burn_mod = 0.90		//also edit
 	color_mult = 1
 //	metabolic_rate = 0.85
 //	item_slowdown_mod = 0.25
@@ -85,7 +85,7 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#34AF10"
-	blood_color = "#b3cbc3"
+	blood_color = "#f24b2e"		//syzygy edit
 	base_color = "#066000"
 
 //	reagent_tag = IS_UNATHI
