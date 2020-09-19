@@ -1,5 +1,5 @@
 #define ARMOR_AGONY_COEFFICIENT 0.6
-#define ARMOR_GDR_COEFFICIENT 0.1
+#define ARMOR_GDR_COEFFICIENT 0.0
 
 //This calculation replaces old run_armor_check in favor of more complex and better system
 //If you need to do something else with armor - just use getarmor() proc and do with those numbers all you want

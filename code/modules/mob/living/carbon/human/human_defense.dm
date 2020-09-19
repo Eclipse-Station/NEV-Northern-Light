@@ -165,8 +165,8 @@ meteor_act
 		if(gear && istype(gear ,/obj/item/clothing))
 			var/obj/item/clothing/C = gear
 			if(istype(C) && C.body_parts_covered & def_zone.body_part && C.armor)
-				if(C.armor.vars[type] > protection)
-					protection = C.armor.vars[type]
+				if(C.armor[type] > protection)
+					protection = C.armor[type]
 
 	return protection
 
