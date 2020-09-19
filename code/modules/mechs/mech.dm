@@ -176,7 +176,12 @@
 		material ? to_chat(user, "Its frame is reinforced with [material].") : null
 
 /mob/living/exosuit/return_air()
+<<<<<<< HEAD
 	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc.return_air()
+=======
+	if(src && loc)
+		return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc.return_air()
+>>>>>>> b01b019... Running with extools and VsCode part 2 (#5461)
 
 /mob/living/exosuit/GetIdCard()
 	return access_card
