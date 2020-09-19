@@ -201,7 +201,7 @@ This file contains the underlying code for stash datums
 		direction_string = direction_string_base_coords
 		direction_string = replacetext(direction_string, "%X", "[T.x]")
 		direction_string = replacetext(direction_string, "%Y", "[T.y]")
-		direction_string = replacetext(direction_string, "%Z", "[T.z]")
+		direction_string = replacetext(direction_string, "%Z", "[-(T.z)+6]") //Syzygy change; makes it so that the returned z level is always the same as the deck.
 
 
 /*************************
