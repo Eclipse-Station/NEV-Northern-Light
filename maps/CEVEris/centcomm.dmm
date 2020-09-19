@@ -137,11 +137,9 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/centcom/evac)
 "aE" = (
-/obj/machinery/cryopod,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/gray_platform,
+/obj/structure/table/standard,
+/obj/item/device/defib_kit/compact/combat/loaded,
+/turf/simulated/floor/tiled/white/brown_perforated,
 /area/centcom/evac)
 "aF" = (
 /turf/unsimulated/wall,
@@ -2715,6 +2713,30 @@
 	icon_state = "floor6"
 	},
 /area/shuttle/mercenary)
+"ht" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/soap/nanotrasen,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/centcom/evac)
+"hu" = (
+/obj/structure/sign/nanotrasen{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/centcom/evac)
+"hv" = (
+/obj/structure/table/woodentable,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/evac)
+"hw" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/tiled/dark/golden,
+/area/centcom/evac)
 "hx" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/storage/box/drinkingglasses{
@@ -2750,11 +2772,18 @@
 /obj/machinery/microwave,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
+"hB" = (
+/turf/simulated/wall/r_wall,
+/area/space)
 "hC" = (
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/space,
 /area/space)
+"hD" = (
+/obj/structure/closet/secure_closet/anesthetics,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/centcom/evac)
 "hE" = (
 /obj/structure/lattice,
 /obj/structure/grille/broken,
@@ -2770,6 +2799,24 @@
 	icon_state = "lino"
 	},
 /area/centcom/merc_base)
+"hG" = (
+/obj/item/weapon/bedsheet/brown,
+/obj/structure/bed,
+/turf/simulated/floor/carpet/bcarpet,
+/area/centcom/evac)
+"hH" = (
+/obj/machinery/door/airlock{
+	name = "Unisex Restrooms"
+	},
+/turf/simulated/floor/tiled/dark/golden,
+/area/centcom/evac)
+"hI" = (
+/obj/machinery/shower{
+	pixel_z = 0
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/centcom/evac)
 "hJ" = (
 /turf/unsimulated/floor{
 	tag = "icon-cult";
@@ -2805,6 +2852,23 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
+"hO" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/centcom/evac)
+"hP" = (
+/obj/structure/medical_stand/anesthetic,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/centcom/evac)
+"hQ" = (
+/obj/structure/sign/nanotrasen{
+	pixel_x = 0;
+	pixel_z = 32
+	},
+/turf/simulated/floor/tiled/dark/golden,
+/area/centcom/evac)
 "hR" = (
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/dark,
@@ -2835,8 +2899,42 @@
 	icon_state = "white"
 	},
 /area/centcom/merc_base)
+"hV" = (
+/obj/structure/device/piano,
+/turf/simulated/floor/tiled/dark/golden,
+/area/centcom/evac)
+"hW" = (
+/obj/item/modular_computer/console,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/centcom/evac)
+"hX" = (
+/turf/simulated/floor/tiled/white,
+/area/centcom/evac)
+"hY" = (
+/obj/structure/table/standard,
+/obj/item/weapon/storage/box/masks,
+/obj/item/weapon/storage/box/gloves{
+	pixel_x = -2;
+	pixel_z = -2
+	},
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/centcom/evac)
 "hZ" = (
 /turf/simulated/floor/carpet/bcarpet,
+/area/centcom/evac)
+"ia" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/table/standard,
+/obj/item/weapon/storage/firstaid/adv,
+/obj/item/weapon/storage/firstaid/adv,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/centcom/evac)
+"ib" = (
+/obj/structure/table/glass,
+/obj/item/weapon/storage/firstaid/surgery,
+/turf/simulated/floor/tiled/white/brown_perforated,
 /area/centcom/evac)
 "ic" = (
 /turf/space,
@@ -2851,6 +2949,39 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
+"ie" = (
+/obj/machinery/sleeper{
+	dir = 4;
+	icon_state = "sleeper_0"
+	},
+/turf/simulated/floor/tiled/white/gray_platform,
+/area/centcom/evac)
+"if" = (
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white/gray_platform,
+/area/centcom/evac)
+"ig" = (
+/obj/structure/table/standard,
+/obj/item/stack/medical/advanced/bruise_pack,
+/obj/item/stack/medical/advanced/ointment,
+/obj/item/stack/medical/splint,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/centcom/evac)
+"ih" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/storage/box/donkpockets,
+/turf/simulated/floor/tiled/dark,
+/area/centcom/evac)
+"ii" = (
+/turf/simulated/floor/tiled/white/brown_platform,
+/area/centcom/evac)
+"ij" = (
+/obj/structure/table/glass,
+/obj/item/weapon/storage/freezer/medical,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/centcom/evac)
 "ik" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod1,
 /turf/space,
@@ -2866,6 +2997,12 @@
 	icon_state = "floor3"
 	},
 /area/skipjack_station/start)
+"im" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/centcom/evac)
 "in" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/drinkingglasses{
@@ -2877,6 +3014,15 @@
 	icon_state = "white"
 	},
 /area/centcom/merc_base)
+"io" = (
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/white,
+/area/centcom/evac)
+"ip" = (
+/obj/structure/table/glass,
+/obj/item/weapon/reagent_containers/spray/sterilizine,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/centcom/evac)
 "iq" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "wall3"
@@ -3027,6 +3173,13 @@
 	icon_state = "cult"
 	},
 /area/centcom/merc_base)
+"iG" = (
+/obj/machinery/vending/wallmed{
+	pixel_x = 30;
+	pixel_z = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/centcom/evac)
 "iH" = (
 /obj/machinery/button/remote/blast_door{
 	id = "syndieshutters";
@@ -3112,6 +3265,13 @@
 	icon_state = "dark"
 	},
 /area/centcom/merc_base)
+"iR" = (
+/turf/simulated/floor/tiled/white/cargo,
+/area/centcom/evac)
+"iS" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/space)
 "iT" = (
 /obj/effect/shuttle_landmark/escape_pod/out/pod2,
 /turf/space,
@@ -3205,9 +3365,30 @@
 /obj/structure/table/woodentable,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
+"je" = (
+/obj/structure/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/structure/mirror{
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/centcom/evac)
 "jf" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/centcom/evac)
+"jg" = (
+/obj/machinery/vending/wallmed{
+	pixel_z = 30
+	},
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/centcom/evac)
+"jh" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/tiled/white/brown_platform,
 /area/centcom/evac)
 "ji" = (
 /turf/simulated/floor/tiled/dark,
@@ -3319,9 +3500,6 @@
 	dir = 2
 	},
 /area/centcom/merc_base)
-"jy" = (
-/turf/space,
-/area/centcom/evac)
 "jz" = (
 /obj/machinery/light{
 	dir = 4
@@ -13267,22 +13445,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ho
+ho
+ho
+ho
+ho
+ho
+ho
+ek
+ek
+ek
+ek
+ek
+iS
+ek
+ho
+ho
 aa
 aa
 aa
@@ -13469,21 +13647,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
 ho
+hD
+hX
+hX
+im
 ho
-ek
-ek
-ek
-ek
-ek
-ek
-ek
-ho
+hV
+dl
+dl
+dl
+dl
+dl
+dl
+dl
+cL
 ho
 aa
 aa
@@ -13671,21 +13849,21 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
 ho
-cL
-dl
-dl
-dl
-dl
-dl
-dl
-dl
-cL
+hP
+hX
+hX
+io
+ho
+cN
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+cN
 ho
 aa
 aa
@@ -13873,18 +14051,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ho
+jg
+hX
+hX
+ib
 ho
 cN
 dn
 dn
-dn
-dn
-dn
+hZ
+hZ
+hZ
 dn
 dn
 cN
@@ -14075,11 +14253,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ho
+ij
+hX
+hX
+ip
 ho
 cN
 dn
@@ -14280,7 +14458,7 @@ aa
 ho
 ho
 ho
-ho
+jh
 ho
 ho
 dj
@@ -14480,10 +14658,10 @@ aa
 aa
 aa
 ho
-at
-at
-at
-at
+aE
+hX
+hX
+ie
 hM
 cN
 dn
@@ -14682,10 +14860,10 @@ aa
 aa
 aa
 ho
-au
-au
-au
-au
+hY
+hX
+hX
+hX
 ek
 cN
 dn
@@ -14884,11 +15062,11 @@ aa
 aa
 aa
 ek
-aD
-aD
-aD
-aD
-cK
+jf
+hX
+ii
+hX
+iR
 hZ
 hZ
 hZ
@@ -15086,11 +15264,11 @@ aa
 aa
 aa
 ek
-aD
-aD
-aD
-aD
-cK
+jf
+hX
+ii
+hX
+iR
 hZ
 hZ
 hZ
@@ -15288,11 +15466,11 @@ aa
 aa
 aa
 ek
-aD
-aD
-aD
-aD
-cK
+jf
+hX
+ii
+hX
+iR
 hZ
 hZ
 hZ
@@ -15490,10 +15668,10 @@ aa
 aa
 aa
 ho
-aE
-cq
-cq
-cq
+ia
+hX
+hX
+hX
 ek
 cN
 dn
@@ -15692,10 +15870,10 @@ aa
 aa
 aa
 ho
-bI
-bI
-bI
-bI
+ig
+iG
+hu
+if
 hM
 cN
 do
@@ -16099,9 +16277,9 @@ aa
 ho
 hx
 jd
-jd
+hv
 ho
-cN
+hQ
 do
 dL
 hZ
@@ -16113,9 +16291,9 @@ cN
 ho
 dZ
 hZ
-jP
+hZ
+hG
 ho
-aa
 aa
 aa
 aa
@@ -16301,8 +16479,8 @@ aa
 ho
 hy
 ji
-jf
-ho
+ji
+hw
 cN
 do
 dL
@@ -16315,9 +16493,9 @@ cN
 ho
 dL
 hZ
+hZ
 jP
 ho
-aa
 aa
 aa
 aa
@@ -16507,7 +16685,7 @@ ji
 hR
 cN
 do
-dL
+ht
 hZ
 hZ
 hZ
@@ -16515,11 +16693,11 @@ dL
 dT
 cN
 hR
-cN
+dn
+hZ
 hZ
 jP
 ho
-aa
 aa
 aa
 aa
@@ -16706,7 +16884,7 @@ ho
 hA
 ji
 ji
-ho
+hw
 cN
 do
 dL
@@ -16717,11 +16895,11 @@ dL
 dT
 cN
 ho
-dL
+hW
+hZ
 hZ
 jP
 ho
-aa
 aa
 aa
 aa
@@ -16907,7 +17085,7 @@ aa
 ho
 jd
 jd
-jd
+ih
 ho
 cN
 dn
@@ -16919,11 +17097,11 @@ dn
 dn
 cN
 ho
-dL
-hZ
-jP
 ho
-aa
+ho
+ho
+ho
+ho
 aa
 aa
 aa
@@ -17121,11 +17299,11 @@ dn
 dn
 cN
 hM
+hI
+dn
+dn
+hO
 ho
-ho
-ho
-ho
-aa
 aa
 aa
 aa
@@ -17311,8 +17489,8 @@ aa
 aa
 aa
 aa
-aa
-ho
+hB
+cN
 dk
 dn
 dn
@@ -17322,12 +17500,12 @@ hZ
 dM
 dn
 cN
+hH
+dn
+dn
+dn
+je
 ho
-jy
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -17513,7 +17691,7 @@ aa
 aa
 aa
 aa
-aa
+hB
 ho
 ho
 dK
@@ -17525,11 +17703,11 @@ ho
 dU
 ho
 ho
-aa
-aa
-aa
-aa
-aa
+ho
+ho
+ho
+ho
+ho
 aa
 aa
 aa
