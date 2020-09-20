@@ -444,10 +444,17 @@
 		return 1
 	return 0
 
+<<<<<<< HEAD
 /obj/structure/window/proc/set_anchored(var/new_anchored)
 	if(anchored == new_anchored)
 		return
 	anchored = new_anchored
+=======
+/obj/structure/window/set_anchored(new_anchored)
+	. = ..()
+	if(!.)
+		return FALSE
+>>>>>>> 244cbb1... solidifier update (#5462)
 	update_verbs()
 	update_nearby_icons()
 

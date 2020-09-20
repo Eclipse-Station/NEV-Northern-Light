@@ -199,17 +199,30 @@
 					spill_biomass(user_interaction_loc)
 			update_icon()
 
-
 /obj/structure/biomatter_tank/proc/set_canister(obj/target_tank)
+<<<<<<< HEAD
 	target_tank.anchored = TRUE
+=======
+	. = target_tank.set_anchored(TRUE)
+	if(!.)
+		return FALSE
+	target_tank.can_anchor = FALSE
+>>>>>>> 244cbb1... solidifier update (#5462)
 	canister = target_tank
 	platform.MS_bioreactor.metrics_screen.icon_state = "screen_process"
 	flick("screen_activation", platform.MS_bioreactor.metrics_screen)
 	playsound(platform.MS_bioreactor.output_port.loc, 'sound/machines/Custom_extin.ogg', 100, 1)
 
-
 /obj/structure/biomatter_tank/proc/unset_canister(obj/target_tank)
+<<<<<<< HEAD
 	target_tank.anchored = FALSE
+=======
+	target_tank.can_anchor = TRUE
+	. = target_tank.set_anchored(FALSE)
+	if(!.)
+		target_tank.can_anchor = FALSE
+		return FALSE
+>>>>>>> 244cbb1... solidifier update (#5462)
 	canister = null
 	platform.MS_bioreactor.metrics_screen.icon_state = initial(platform.MS_bioreactor.metrics_screen.icon_state)
 	playsound(platform.MS_bioreactor.output_port.loc, 'sound/machines/Custom_extout.ogg', 100, 1)

@@ -391,6 +391,7 @@
 /atom/movable/proc/preventsTurfInteractions()
 	return FALSE
 
+<<<<<<< HEAD
 
 
 /atom/movable/proc/update_transform()
@@ -407,3 +408,18 @@
 /atom/movable/proc/adjust_rotation(new_rotation)
 	icon_rotation = new_rotation
 	update_transform()
+=======
+///Sets the anchored var and returns if it was sucessfully changed or not.
+/atom/movable/proc/set_anchored(anchorvalue)
+	SHOULD_CALL_PARENT(TRUE)
+	if(anchored == anchorvalue || !can_anchor)
+		return FALSE
+	anchored = anchorvalue
+	SEND_SIGNAL(src, COMSIG_ATOM_UNFASTEN, anchored)
+	. = TRUE
+
+/atom/movable/proc/update_overlays()
+	SHOULD_CALL_PARENT(TRUE)
+	. = list()
+	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_OVERLAYS, .)
+>>>>>>> 244cbb1... solidifier update (#5462)
