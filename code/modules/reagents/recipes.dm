@@ -1862,7 +1862,11 @@
 
 /datum/chemical_reaction/steady
 	result = "steady"
+<<<<<<< HEAD
 	required_reagents = list("nicotine" = 1, "copper" = 1, "tramadol" = 1)
+=======
+	required_reagents = list("pararein" = 1, "seligitillin" = 1, "copper" = 1, "hydrazine" = 1)
+>>>>>>> a1ea35a... changes steady receipe (#148)
 	result_amount = 4
 	maximum_temperature = 338
 	minimum_temperature = 323
