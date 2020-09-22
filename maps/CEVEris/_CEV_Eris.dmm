@@ -51113,11 +51113,14 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "ciU" = (
+<<<<<<< HEAD
 /obj/structure/table/rack,
 /obj/item/device/last_shelter,
 /obj/machinery/door/blast/shutters/glass{
 	id = "last_shelter"
 	},
+=======
+>>>>>>> b7f7b4e... The Big Patch (#146)
 /obj/structure/table/rack,
 /obj/item/device/last_shelter,
 /obj/machinery/door/blast/shutters/glass{

@@ -19,11 +19,19 @@
 		if(soulcrypt)
 			scan = FALSE
 			if(istype(src.loc, /mob/living/carbon/human))
+<<<<<<< HEAD
 				user.put_in_hands(soulcrypt)
 				to_chat(user, SPAN_NOTICE("The [src] has found a stranded core implant! The fate of this Child is now in your hands."))
 			else
 				visible_message(SPAN_NOTICE("[src] drops [soulcrypt]."))
 				soulcrypt.forceMove(get_turf(src))
+=======
+				user.put_in_hands(cruciform)
+				to_chat(user, SPAN_NOTICE("The [src] has found the lost cruciform in a deep space. Now this fate of the disciple rests in your hands."))
+			else
+				visible_message(SPAN_NOTICE("[src] drops [cruciform]."))
+				cruciform.forceMove(get_turf(src))
+>>>>>>> b7f7b4e... The Big Patch (#146)
 		else
 			to_chat(user, SPAN_WARNING("The [src] couldn't find anything."))
 			scan = FALSE
@@ -44,8 +52,21 @@
 	var/datum/perk/perk_random = pick(subtypesof(/datum/perk/oddity))
 	H.stats.addPerk(perk_random)
 	H.stats.addPerk(pick(/datum/perk/survivor, /datum/perk/selfmedicated, /datum/perk/vagabond, /datum/perk/merchant, /datum/perk/inspiration))
+<<<<<<< HEAD
 	var/obj/item/weapon/implant/soulcrypt/soulcrypt = new /obj/item/weapon/implant/soulcrypt(src)
 	soulcrypt.install(H)
+=======
+	var/obj/item/weapon/implant/core_implant/cruciform/cruciform = new /obj/item/weapon/implant/core_implant/cruciform(src)
+	cruciform.add_module(new CRUCIFORM_CLONING)
+	cruciform.activated = TRUE
+	MN.name = H.real_name
+	MN.assigned_role = "NT disciple"
+	MN.original = H
+	for(var/datum/core_module/cruciform/cloning/M in cruciform.modules)
+		M.write_wearer(H)
+		M.ckey = MN.key
+		M.mind = MN
+>>>>>>> b7f7b4e... The Big Patch (#146)
 	qdel(H)
 	return soulcrypt
 

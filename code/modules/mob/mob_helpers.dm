@@ -639,7 +639,13 @@ proc/is_blind(A)
 			A.tumble()
 	embedded = list()
 
+<<<<<<< HEAD
 /mob/proc/skill_to_evade_traps()
+=======
+/mob/proc/skill_to_evade_traps(prob_catch)
+	if(!stats)
+		return 0
+>>>>>>> b7f7b4e... The Big Patch (#146)
 	var/prob_evade = 0
 	var/base_prob_evade = 30
 	if(MOVING_DELIBERATELY(src))

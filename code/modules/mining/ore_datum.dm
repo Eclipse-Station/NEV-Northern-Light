@@ -67,6 +67,7 @@ var/global/list/ore_data = list()
 	name = "phoron"
 	display_name = "phoron crystals"
 	compresses_to = "phoron"
+	alloy = 1
 	//smelts_to = something that explodes violently on the conveyor, huhuhuhu
 	result_amount = 8
 	spread_chance = 25
