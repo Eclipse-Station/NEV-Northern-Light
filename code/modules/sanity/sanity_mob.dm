@@ -236,6 +236,10 @@
 			var/obj/item/weapon/oddity/OD = O
 			if(OD.perk)
 				owner.stats.addPerk(OD.perk)
+<<<<<<< HEAD
+=======
+				// Copied over from Upstream Eris Sanity_Mob.DM
+>>>>>>> 48ee73c... Sanity_mob.DM edits (#139)
 
 /datum/sanity/proc/onDamage(amount)
 	changeLevel(-SANITY_DAMAGE_HURT(amount, owner.stats.getStat(STAT_VIG)))
@@ -330,7 +334,7 @@
 	for(var/obj/item/device/mind_fryer/M in GLOB.active_mind_fryers)
 		if(get_turf(M) in view(get_turf(owner)))
 			M.reg_break(owner)
-	
+
 	for(var/obj/item/weapon/implant/carrion_spider/mindboil/S in GLOB.active_mindboil_spiders)
 		if(get_turf(S) in view(get_turf(owner)))
 			S.reg_break(owner)
