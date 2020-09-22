@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(ticker)
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME
 	wait = 1 SECONDS //Tick every second
 
-	var/const/restart_timeout = 600
+	var/const/restart_timeout = 1200	// Syzygy Edit - Doubles the duration of the round-end phase
 	var/current_state = GAME_STATE_STARTUP
 	// If true, there is no lobby phase, the game starts immediately.
 	var/start_immediately = FALSE
