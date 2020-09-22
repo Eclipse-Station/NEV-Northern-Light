@@ -19,14 +19,10 @@
 	min_age = 18
 	max_age = 80
 
-	blurb = "There are two subspecies of Sergal; Southern and Northern. Northern sergals are a highly aggressive race \
-	that lives in the plains and tundra of their homeworld. They are characterized by long, fluffy fur bodies with cold colors; \
-	usually with white abdomens, somewhat short ears, and thick faces. Southern sergals are much more docile and live in the \
-	Gold Ring City and are scattered around the outskirts in rural areas and small towns. They usually have short, brown or yellow \
-	(or other 'earthy' colors) fur, long ears, and a long, thin face. They are smaller than their Northern relatives. Both have strong \
-	racial tensions which has resulted in more than a number of wars and outright attempts at genocide. Sergals have an incredibly long \
-	lifespan, but due to their lust for violence, only a handful have ever survived beyond the age of 80, such as the infamous and \
-	legendary General Rain Silves who is claimed to have lived to 5000."
+	blurb = "Hailing from the arboreal world of Talvis-Epsilon III, or more commonly known as 'Tal'. Sergals are one of two sapient species \
+	that have become a protectorate under Solgov after what was known as the 'Antelope Incident'. Sergals are tall canopy hunters with strong, \
+	balancing tails, prehensile feet and dense muscles. While not strictly carnivores, their culture and bodies favor meat. Sergals are only about two \
+	generations new to star-faring society and struggle to find their place in the galaxy."
 
 	primitive_form = "Saru"
 
@@ -82,13 +78,11 @@
 	min_age = 18
 	max_age = 80
 
-	blurb = "The Akula are a species of amphibious humanoids like the Skrell, but have an appearance very similar to that of a shark. \
-	They were first discovered as a primitive race of underwater dwelling tribal creatures by the Skrell. At first they were not believed \
-	to be noteworthy, but the Akula proved to be such swift and clever learners that the Skrell reclassified them as sentients. Allegedly, \
-	the Akula were also the first sentient life that the Skrell had ever encountered beside themselves, and thus the two species became swift \
-	allies over the next few hundred years. With the help of Skrellean technology, the Akula had their genome modified to be capable of \
-	surviving in open air for long periods of time. However, Akula even today still require a high humidity environment to avoid drying out \
-	after a few days, which would make life on an arid world like Virgo-Prime nearly impossible if it were not for Skrellean technology to aid them."
+	blurb = "What used to be a primitive, sub-sapient aquatic species crippled by genetic deformities, the Akula were discovered by \
+	NZR exploration teams and uplifted by advanced genetic engineering using the sequences of the closest candidate available - Terran sharks. \
+	Within a generation or two Akula had become a servitor species for the NZR's underwater colonies on their home maintaining it's mining, agriculture \
+	and construction efforts until strikes and riots had forced the NZR to grant them sapient rights. Akula find themselves in a unique place in the galaxy, \
+	having no significant history or culture, but a strong sense of unity to each other. "
 
 	primitive_form = "Sobaka"
 
@@ -126,11 +120,10 @@
 	min_age = 18
 	max_age = 80
 
-	blurb = "Nevreans are a race of avian and dinosaur-like creatures living on Tal. They belong to a group of races that hails from Eltus, \
-	in the Vilous system. Unlike sergals whom they share a star system with, their species is a very peaceful one. They possess remarkable \
-	intelligence and very skillful hands that are put use for constructing precision instruments, but tire-out fast when repeatedly working \
-	over and over again. Consequently, they struggle to make copies of same things. Both genders have a voice that echoes a lot. Their natural \
-	tone oscillates between tenor and soprano. They are excessively noisy when they quarrel in their native language."
+	blurb = "One of Tal's two sapient species, Nevreans are an avian species that stand nearly a third shorter than most sapient species, known as extremely \
+	bright and social creatures, they have taken to rapid advancement into the space age better than their neighbors. Nevreans themselves are omnivores with \
+	lithe bodies and flightless, winged arms that work well in groups and have found themselves better in people-facing careers rather than physical due to their \
+	colorful and 'pretty' nature. However this has given them a promiscuous stereotype. "
 
 	primitive_form = "Sparra"
 
@@ -317,10 +310,12 @@
 	color_mult = 1
 	min_age = 18
 
-	blurb = "A race of feathered raptors who developed alongside the Skrell, inhabiting \
-	the polar tundral regions outside of Skrell territory. Extremely fragile, they developed \
-	hunting skills that emphasized taking out their prey without themselves getting hit. They \
-	are only recently becoming known on human stations after reaching space with Skrell assistance."
+	blurb = "Teshari are a diminutive raptor-like species which evolved on Kha, a tentatively habitable world of the Tajaran home system. \
+	Historically a pack-hunting predator, Teshari society values cooperation and success through teamwork. The average Teshari is a highly social \
+	and inquisitive creature, whose quickness to adapt to galactic society and long cultural legacy of community and communality has served them \
+	well as crew aboard starships. Their relationship with their neighbours, the Tajara, was initially highly exploitive and involved mass relocation \
+	of teshari to Merelar.  An uprising involving both the Teshari and disaffected Tajaran citizens overturned this status quo, and the Teshari have \
+	lived in relative peace with their tajaran neighbors ever since.  With the expansion of the galactic community, many teshari have set forth into the larger galaxy."
 	push_flags = ~HEAVY //Allows them to use micro step code.
 	swap_flags = ~HEAVY
 
