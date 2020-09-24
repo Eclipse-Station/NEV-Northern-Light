@@ -798,6 +798,9 @@ default behaviour is:
 
 	src.pulling = AM
 	AM.pulledby = src
+	//SYSZYGY EDIT - PULL FEEDBACK
+	playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+	//END SYZYGY EDIT
 
 	if (HUDneed.Find("pull"))
 		var/obj/screen/HUDthrow/HUD = HUDneed["pull"]
