@@ -391,6 +391,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_dress, R_FUN, FALSE)
 	dresscode.equip(M)
 
 
+<<<<<<< HEAD
 //Preserving the old one for now, so the dress lists in it can be converted into real outfits
 ADMIN_VERB_ADD(/client/proc/cmd_admin_dress_old, R_FUN, FALSE)
 /client/proc/cmd_admin_dress_old()
@@ -732,6 +733,8 @@ ADMIN_VERB_ADD(/client/proc/check_positions, R_DEBUG, FALSE)
 	to_chat(user, "Check ended.")
 
 
+=======
+>>>>>>> ef72446... admin_verbs_update (#5490)
 /client/proc/startSinglo()
 
 	set category = "Debug"
