@@ -35,9 +35,31 @@
 /datum/design/research/item/mechfab/prosthesis_moebius/l_leg
 	build_path = /obj/item/organ/external/robotic/moebius/l_leg
 
+<<<<<<< HEAD
 /datum/design/research/item/mechfab/prosthesis_moebius/groin
 	build_path = /obj/item/organ/external/robotic/moebius/groin
 */
+=======
+//Upgraded prosthesis ========================
+/datum/design/research/item/mechfab/prosthesis_moebius
+	category = CAT_PROSTHESIS
+
+/datum/design/research/item/mechfab/prosthesis_moebius/r_arm
+	build_path = /obj/item/organ/external/robotic/moebius/r_arm
+
+/datum/design/research/item/mechfab/prosthesis_moebius/l_arm
+	build_path = /obj/item/organ/external/robotic/moebius/l_arm
+
+/datum/design/research/item/mechfab/prosthesis_moebius/r_leg
+	build_path = /obj/item/organ/external/robotic/moebius/r_leg
+
+/datum/design/research/item/mechfab/prosthesis_moebius/l_leg
+	build_path = /obj/item/organ/external/robotic/moebius/l_leg
+
+/datum/design/research/item/mechfab/prosthesis_moebius/groin
+	build_path = /obj/item/organ/external/robotic/moebius/groin
+
+>>>>>>> a0129e4... Merge pull request #157 from martinlyra/onions-6
 //Modules ====================================
 
 /datum/design/research/item/mechfab/modules

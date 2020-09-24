@@ -115,3 +115,8 @@
 	name = "leather shoes"
 	desc = "A sturdy pair of leather shoes."
 	icon_state = "leather"
+
+/obj/item/clothing/shoes/jackboots/german
+	name = "Oberth Republic boots"
+	desc = "A pair of brown boots."
+	icon_state = "germanboots"

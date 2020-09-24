@@ -14,17 +14,17 @@
 	return "Robotic[model]"
 
 /obj/item/organ/external/robotic/update_icon()
-    var/gender = "m"
-    if(owner)
-        gender = owner.gender == FEMALE ? "f" : "m"
-    if(gendered || force_icon == 'icons/mob/human_races/cyberlimbs/generic.dmi')
-
-        icon_state = "[organ_tag]_[gender]"
-    else
-        icon_state = "[organ_tag]"
-    mob_icon = icon(force_icon, icon_state)
-    icon = mob_icon
-    return mob_icon
+	var/gender = "m"
+	if(owner)
+		gender = owner.gender == FEMALE ? "f" : "m"
+	var/key = "[organ_tag]_[gender]"
+	if(key in icon_states(force_icon))
+		icon_state = key
+	else 
+		icon_state = "[organ_tag]"
+	mob_icon = icon(force_icon, icon_state)
+	icon = mob_icon
+	return mob_icon
 
 /obj/item/organ/external/robotic/is_malfunctioning()
 	return prob(brute_dam + burn_dam - min_malfunction_damage)

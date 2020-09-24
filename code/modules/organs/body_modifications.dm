@@ -109,73 +109,41 @@ var/global/list/modifications_types = list(
 	name = "Unbranded prosthesis"
 	id = "prosthesis_basic"
 	desc = "Simple, brutal and reliable prosthesis"
-	body_parts = list(BP_HEAD, BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, \
-		BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT) //
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG) //
 	replace_limb = /obj/item/organ/external/robotic
 	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_alt1.dmi'
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 	var/prosthetic_model
 
-/datum/body_modification/limb/prosthesis/create_organ(var/mob/living/carbon/holder, var/datum/organ_description/OD, var/color)
-	var/obj/item/organ/external/robotic/placeholder
-	if(replace_limb)
-		placeholder = new replace_limb(holder,OD)
-	else
-		placeholder = new OD.default_type(holder,OD)
-
-	placeholder.overlays.Cut()
-	placeholder.name = organ_tag_to_name[OD.organ_tag]
-	placeholder.force_icon = icon
-	placeholder.icon = icon
-	placeholder.desc = desc
-	placeholder.model = prosthetic_model
-	placeholder.mob_icon = null
-	placeholder.update_icon()
-	return placeholder
-
 /datum/body_modification/limb/prosthesis/New()
-	/*var/obj/item/organ/external/robotic/R = replace_limb
+	var/obj/item/organ/external/robotic/R = replace_limb
 	name = initial(R.name)
 	icon = initial(R.force_icon)
-	desc = initial(R.desc)*/
-	short_name = "P: [name]"
-	name = "Prosthesis: [name]"
+	desc = initial(R.desc)
 
 /datum/body_modification/limb/prosthesis/get_mob_icon(organ, color, gender, species)
 	return new/icon(icon, "[organ][gender == FEMALE ? "_f" : "_m"]")
 
-/datum/body_modification/limb/prosthesis/bishop
-	id = "prosthesis_bishop"
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_main.dmi'
-	name = "Bishop"
-	desc = "Prosthesis with white polymer casing with blue holo-displays."
-	prosthetic_model = "bishop"
+/datum/body_modification/limb/prosthesis/asters
+	id = "prosthesis_asters"
+	replace_limb = /obj/item/organ/external/robotic/asters
+	icon = 'icons/mob/human_races/cyberlimbs/asters.dmi'
 
-/datum/body_modification/limb/prosthesis/hesphaistos
-	id = "prosthesis_hesphaistos"
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_main.dmi'
-	name = "Hesphaistos"
-	desc = "Prosthesis with militaristic black and green casing with gold stripes."
-	prosthetic_model = "hesphaistos"
+/datum/body_modification/limb/prosthesis/serbian
+	id = "prosthesis_serbian"
+	replace_limb = /obj/item/organ/external/robotic/serbian
+	icon = 'icons/mob/human_races/cyberlimbs/serbian.dmi'
 
-/datum/body_modification/limb/prosthesis/zenghu
-	id = "prosthesis_zenghu"
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_main.dmi'
-	name = "Zeng-Hu"
-	desc = "Prosthesis with rubbery fleshtone covering with visible seams."
-	prosthetic_model = "zenghu"
+/datum/body_modification/limb/prosthesis/frozen_star
+	id = "prosthesis_frozen_star"
+	replace_limb = /obj/item/organ/external/robotic/frozen_star
+	icon = 'icons/mob/human_races/cyberlimbs/frozen_star.dmi'
 
-/datum/body_modification/limb/prosthesis/xion
-	id = "prosthesis_xion"
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_main.dmi'
-	name = "Xion"
-	desc = "Prosthesis with minimalist black and red casing."
-	prosthetic_model = "xion"
+/datum/body_modification/limb/prosthesis/technomancer
+	id = "prosthesis_technomancer"
+	replace_limb = /obj/item/organ/external/robotic/technomancer
+	icon = 'icons/mob/human_races/cyberlimbs/technomancer.dmi'
 
 /datum/body_modification/limb/mutation/New()
 	short_name = "M: [name]"
@@ -285,15 +253,3 @@ var/global/list/modifications_types = list(
 	var/obj/item/organ/internal/eyes/heterohromia/E = new(holder,organ_type,color)
 	E.second_color = color
 	return E
-
-
-// Special heads
-/datum/body_modification/limb/prosthesis/tvhead
-	name = "Unbranded TV-head"
-	id = "tvhead"
-	desc = "A knock-off unbranded tv-shaped head."
-	body_parts = list(BP_HEAD)
-	replace_limb = /obj/item/organ/external/robotic
-	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_monitor.dmi'
-	nature = MODIFICATION_SILICON
-	allow_nt = FALSE

@@ -1655,7 +1655,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/bigbiteburger
 	name = "Big Bite Burger"
-	desc = "Forget the Big Mac. THIS is the future!"
+	desc = "Forget the Big Mac. THIS is the future! It has big \"R\" stamped on it's bun."
 	icon_state = "bigbiteburger"
 	filling_color = "#E3D681"
 	bitesize = 3
@@ -3183,5 +3183,8 @@
 	nutriment_desc = list("bread" = 2, "sweetness" = 3)
 	nutriment_amt = 6
 	junk_food = TRUE
+<<<<<<< HEAD
 	taste_tag = list(SWEET_FOOD)
 
+=======
+>>>>>>> a0129e4... Merge pull request #157 from martinlyra/onions-6

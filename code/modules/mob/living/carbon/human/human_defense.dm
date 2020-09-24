@@ -164,9 +164,15 @@ meteor_act
 	for(var/gear in protective_gear)
 		if(gear && istype(gear ,/obj/item/clothing))
 			var/obj/item/clothing/C = gear
+<<<<<<< HEAD
 			if(istype(C) && C.body_parts_covered & def_zone.body_part && C.armor)
 				if(C.armor.vars[type] > protection)
 					protection = C.armor.vars[type]
+=======
+			if(istype(C) && C.body_parts_covered & def_zone.body_part)
+				if(C.armor.getRating(type) > protection)
+					protection = C.armor.getRating(type)
+>>>>>>> a0129e4... Merge pull request #157 from martinlyra/onions-6
 
 	return protection
 

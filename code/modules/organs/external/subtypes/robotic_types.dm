@@ -2,19 +2,32 @@
 
 /obj/item/organ/external/robotic/asters
 	name = "Asters \"Movement Lock\""
+<<<<<<< HEAD
 	desc = "Generic gray prosthesis for everyday use."
+=======
+	desc = "Generic gray prostesis for everyday use."
+>>>>>>> a0129e4... Merge pull request #157 from martinlyra/onions-6
 	force_icon = 'icons/mob/human_races/cyberlimbs/asters.dmi'
 	model = "asters"
 
 /obj/item/organ/external/robotic/serbian
+<<<<<<< HEAD
 	name = "\"Serbian Arms\""
 	desc = "Battle hardened green and brown prosthesis, rebranded several times."
+=======
+	name = "\"Serbain Arms\""
+	desc = "Battle hardened green and brown prostesis rebranded several times."
+>>>>>>> a0129e4... Merge pull request #157 from martinlyra/onions-6
 	force_icon = 'icons/mob/human_races/cyberlimbs/serbian.dmi'
 	model = "serbian"
 
 /obj/item/organ/external/robotic/frozen_star
 	name = "\"Frozen Star\""
+<<<<<<< HEAD
 	desc = "Tactical \"Frozen Star\" blue and gray prosthesis for dangerous environment."
+=======
+	desc = "Tactical \"Frozen Star\" blue and gray prosthesis for dangerous enviroment."
+>>>>>>> a0129e4... Merge pull request #157 from martinlyra/onions-6
 	force_icon = 'icons/mob/human_races/cyberlimbs/frozen_star.dmi'
 	model = "frozen_star"
 
@@ -52,11 +65,19 @@
 
 /obj/item/organ/external/robotic/excelsior
 	name = "Excelsior"
+<<<<<<< HEAD
 	desc = "Plasma reinforced black prosthesis designed for heavy combat."
 	force_icon = 'icons/mob/human_races/cyberlimbs/excelsior.dmi'
 	model = "excelsior"
 	armor = list(melee = 50, bullet = 50, energy = 50, bomb = 50, bio = 0, rad = 100)
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTEEL = 1, MATERIAL_PHORON = 0.5) //Plasma needed as a material that excelsiors can't teleport in
+=======
+	desc = "Plasma reinforced black prothsesis designed for heavy combat."
+	force_icon = 'icons/mob/human_races/cyberlimbs/excelsior.dmi'
+	model = "excelsior"
+	armor = list(melee = 50, bullet = 50, energy = 50, bomb = 50, bio = 0, rad = 100)
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTEEL = 1, MATERIAL_PLASMA = 0.5) //Plasma needed as a material that excelsiors can't teleport in
+>>>>>>> a0129e4... Merge pull request #157 from martinlyra/onions-6
 	max_damage = 65
 	min_broken_damage = 45
 
@@ -74,7 +95,11 @@
 
 /obj/item/organ/external/robotic/one_star
 	name = "One star"
+<<<<<<< HEAD
 	desc = "Advanced, extremely resilient and mobile prosthetic. Inscribed with \"Made in\" followed by gibberish, must have been lost to time."
+=======
+	desc = "Advanced, extremly resileant and mobile prosthetic. Inscribed with \"Made in\" followed by giberish, must have been lost to time."
+>>>>>>> a0129e4... Merge pull request #157 from martinlyra/onions-6
 	force_icon = 'icons/mob/human_races/cyberlimbs/one_star.dmi'
 	model = "one_star"
 	armor = list(melee = 65, bullet = 65, energy = 65, bomb = 65, bio = 0, rad = 100)
