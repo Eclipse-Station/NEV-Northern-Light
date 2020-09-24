@@ -4073,6 +4073,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/defibcabinet{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
 "ajr" = (
@@ -5542,6 +5545,9 @@
 /area/eris/security/exerooms)
 "amA" = (
 /obj/machinery/hologram/holopad,
+/obj/structure/defibcabinet{
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/exerooms)
 "amB" = (
@@ -6996,6 +7002,9 @@
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
+	},
+/obj/structure/defibcabinet{
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/eschangarb)
@@ -71739,6 +71748,9 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/structure/defibcabinet{
+	pixel_x = 28
+	},
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "dek" = (
@@ -101662,6 +101674,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/defibcabinet{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "esT" = (
@@ -103129,6 +103144,9 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/defibcabinet{
+	pixel_y = 32
 	},
 /turf/simulated/open,
 /area/eris/quartermaster/storage)
@@ -108877,6 +108895,15 @@
 /obj/item/weapon/storage/freezer/contains_food,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/research)
+"lgz" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/defibcabinet{
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/crew_quarters/sleep/cryo)
 "liQ" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -210802,7 +210829,7 @@ cWA
 dzr
 cYj
 cRM
-bsE
+lgz
 bAp
 daC
 bON
