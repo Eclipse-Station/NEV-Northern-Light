@@ -109316,6 +109316,10 @@
 /obj/structure/closet/self_pacification,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
+"pHi" = (
+/obj/machinery/smartfridge/drying_rack,
+/turf/simulated/floor/plating,
+/area/eris/crew_quarters/hydroponics)
 "pJI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -166517,8 +166521,13 @@ bzz
 bCw
 bCv
 bQD
+<<<<<<< HEAD
 bRH
 bxH
+=======
+fea
+pHi
+>>>>>>> 41b0a80... maps drying rack to NT garden, and public garden (#5483)
 bQn
 bQn
 bQn
