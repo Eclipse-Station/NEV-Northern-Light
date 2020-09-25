@@ -276,7 +276,7 @@
 	burn += burn_amt
 	total_dam = brute+burn
 	if(total_dam >= max_dam)
-		var/obj/item/weapon/circuitboard/broken/broken_device = new (get_turf(src))
+		var/obj/item/weapon/electronics/circuitboard/broken/broken_device = new (get_turf(src))
 		if(icon_state_broken != "broken")
 			broken_device.icon = icon
 			broken_device.icon_state = icon_state_broken
@@ -323,4 +323,10 @@
 	icon = 'icons/obj/tank.dmi'
 	icon_state = "jetpack-black"
 	icon_state_broken = "jetpack-black"
+<<<<<<< HEAD
 	matter = list(MATERIAL_STEEL = 10, MATERIAL_PHORON = 10, MATERIAL_SILVER = 20)
+=======
+	matter = list(MATERIAL_STEEL = 10, MATERIAL_PLASMA = 10, MATERIAL_SILVER = 20)
+	spawn_tags = SPAWN_TAG_JETPACK
+	rarity_value = 66.66
+>>>>>>> 0c71e2e... Random spawn values (#5374)

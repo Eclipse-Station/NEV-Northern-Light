@@ -1,7 +1,9 @@
-/obj/random/gun_upgrade
+/obj/spawner/gun_upgrade
 	name = "random gun upgrade"
 	icon_state = "ammo-orange"
+	tags_to_spawn = list(SPAWN_GUN_UPGRADE)
 
+<<<<<<< HEAD
 /obj/random/gun_cheap/item_to_spawn()
 	return pickweight(list(/obj/item/weapon/gun_upgrade/trigger/dangerzone = 4,
 				/obj/item/weapon/gun_upgrade/trigger/cop_block = 4,
@@ -15,6 +17,9 @@
 				/obj/item/weapon/gun_upgrade/barrel/forged = 5))
 
 /obj/random/gun_cheap/low_chance
+=======
+/obj/spawner/gun_upgrade/low_chance
+>>>>>>> 0c71e2e... Random spawn values (#5374)
 	name = "low chance random gun upgrade"
 	icon_state = "ammo-orange-low"
 	spawn_nothing_percentage = 70

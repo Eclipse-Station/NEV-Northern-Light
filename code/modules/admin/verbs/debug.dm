@@ -67,7 +67,7 @@ ADMIN_VERB_ADD(/client/proc/Debug2, R_DEBUG, FALSE)
 		M.Animalize()
 
 
-/client/proc/makepAI(var/turf/T)
+/client/proc/makepAI(turf/T)
 	set category = "Fun"
 	set name = "Make pAI"
 	set desc = "Specify a location to spawn a pAI device, then specify a key to play that pAI"
@@ -94,7 +94,7 @@ ADMIN_VERB_ADD(/client/proc/Debug2, R_DEBUG, FALSE)
 			SSpai.pai_candidates.Remove(candidate)
 
 
-/client/proc/cmd_admin_slimeize(var/mob/living/M)
+/client/proc/cmd_admin_slimeize(mob/living/M)
 	set category = "Fun"
 	set name = "Make slime"
 
@@ -390,6 +390,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_dress, R_FUN, FALSE)
 
 	dresscode.equip(M)
 
+<<<<<<< HEAD
 
 //Preserving the old one for now, so the dress lists in it can be converted into real outfits
 ADMIN_VERB_ADD(/client/proc/cmd_admin_dress_old, R_FUN, FALSE)
@@ -732,8 +733,9 @@ ADMIN_VERB_ADD(/client/proc/check_positions, R_DEBUG, FALSE)
 	to_chat(user, "Check ended.")
 
 
+=======
+>>>>>>> 0c71e2e... Random spawn values (#5374)
 /client/proc/startSinglo()
-
 	set category = "Debug"
 	set name = "Start Singularity"
 	set desc = "Sets up the singularity and all machines to get power flowing through the station"
@@ -805,7 +807,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_debug_mob_lists, R_DEBUG, FALSE)
 			to_chat(usr, jointext(clients,","))
 
 // DNA2 - Admin Hax
-/client/proc/cmd_admin_toggle_block(var/mob/M,var/block)
+/client/proc/cmd_admin_toggle_block(mob/M,var/block)
 	if(iscarbon(M))
 		M.dna.SetSEState(block,!M.dna.GetSEState(block))
 		domutcheck(M,null,MUTCHK_FORCED)

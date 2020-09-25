@@ -2,7 +2,11 @@
 // all these will be defined here and sorted in different sections.
 
 // The item price in credits. atom/movable so we can also assign a price to animals and other things.
+<<<<<<< HEAD
 /atom/movable/var/price_tag = null
+=======
+// /atom/movable/var/price_tag atoms_movable.dm line: 22 var/price_tag = 0
+>>>>>>> 0c71e2e... Random spawn values (#5374)
 
 // The proc that is called when the price is being asked for. Use this to refer to another object if necessary.
 /atom/movable/proc/get_item_cost(var/export = FALSE)
@@ -968,3 +972,133 @@
 
 /obj/item/weapon/flame/lighter/zippo
 	price_tag = 50
+<<<<<<< HEAD
+=======
+
+/obj/item/bluespace_crystal
+	price_tag = 500
+
+
+
+/obj/machinery
+	price_tag = 100
+
+/obj/machinery/get_item_cost(export)
+	. = ..()
+	for(var/atom/movable/i in component_parts)
+		. += SStrade.get_new_cost(i)
+
+/obj/machinery/portable_atmospherics
+	price_tag = 200
+
+/obj/machinery/power/supermatter
+	price_tag = 5000
+
+/obj/machinery/portable_atmospherics/canister/get_item_cost(export)
+	. = price_tag + (price_tag * log(10, air_contents.volume)) //todo, prices of gases
+
+/obj/structure/reagent_dispensers/price_tag = 5
+/obj/structure/reagent_dispensers/get_item_cost()
+	var/ratio = reagents.total_volume / reagents.maximum_volume
+
+	return ..() + round(contents_cost * ratio)
+
+
+/obj/item/weapon/tank
+	price_tag = 50
+/obj/item/weapon/tank/plasma
+	price_tag = 75
+/obj/item/weapon/tank/get_item_cost(export)
+	. = price_tag + (price_tag * log(10, air_contents.volume)) //todo, prices of gases
+
+/obj/item/weapon/electronics/circuitboard
+	price_tag = 150
+
+/obj/item/weapon/electronics/circuitboard/get_item_cost(export)
+	. = ..()
+	for(var/atom/movable/i in req_components)
+		if(ispath(i))
+			. += SStrade.get_new_cost(i) * log(10, price_tag / 2)
+
+/obj/item/weapon/stock_parts
+	price_tag = 100
+/obj/item/weapon/stock_parts/get_item_cost(export)
+	. = ..() * rating
+
+/obj/item/organ
+	price_tag = 500
+
+/mob/living/carbon/superior_animal/roach
+	price_tag = 150
+
+/mob/living/carbon/superior_animal/roach/roachling
+	price_tag = 100
+
+/mob/living/carbon/superior_animal/roach/hunter
+	price_tag = 200
+
+/mob/living/exosuit/get_item_cost(export)
+	. = ..() + SStrade.get_import_cost(body)
+
+/obj/item/stack/get_item_cost(export)
+	return amount * ..()
+
+/obj/item/ammo_magazine/price_tag = 60
+/obj/item/ammo_magazine/ammobox/price_tag = 40
+
+/obj/item/ammo_magazine/get_item_cost(export)
+	. = ..()
+	for(var/obj/item/ammo_casing/i in stored_ammo)
+		. += i.get_item_cost(export)
+
+/obj/item/ammo_casing/price_tag = 20
+
+/obj/item/ammo_casing/get_item_cost(export)
+	. = ..() * amount
+
+/obj/item/weapon/tool/price_tag = 20
+/obj/item/weapon/tool/get_item_cost(export)
+	. = 1
+	for(var/i in tool_qualities)
+		. += tool_qualities[i] / 5
+	. *= ..()
+
+/obj/structure/medical_stand/price_tag = 100
+/obj/item/weapon/virusdish/price_tag = 300
+
+/obj/item/weapon/reagent_containers/price_tag = 20
+/obj/item/weapon/reagent_containers/glass/beaker/bluespace/price_tag = 300
+/obj/item/weapon/reagent_containers/get_item_cost(export)
+	. = ..()
+	. += reagents?.get_price() //TODO assign an apprpriate price_per_unit
+
+/obj/item/weapon/reagent_containers/blood
+	price_tag = 50
+
+/obj/item/clothing/price_tag = 30
+/obj/item/solar_assembly/price_tag = 100
+/obj/item/weapon/tracker_electronics/price_tag = 150
+/obj/item/weapon/handcuffs/price_tag = 30
+/obj/item/weapon/handcuffs/get_item_cost(export)
+	. = ..()
+	. += breakouttime / 20
+
+/obj/item/weapon/grenade/price_tag = 50
+
+/obj/item/robot_parts/price_tag = 100
+/obj/item/robot_parts/robot_component/armour/exosuit/price_tag = 300
+/obj/item/robot_parts/robot_component/armour/exosuit/radproof/price_tag = 500
+/obj/item/robot_parts/robot_component/armour/exosuit/em/price_tag = 550
+/obj/item/robot_parts/robot_component/armour/exosuit/combat/price_tag = 1000
+
+/obj/item/mech_component/price_tag = 150
+/obj/item/mech_equipment/price_tag = 200
+
+/obj/item/weapon/gun/launcher/grenade/price_tag = 1500
+
+/obj/item/weapon/storage/briefcase/inflatable/price_tag = 50
+
+/obj/item/inflatable/price_tag = 40
+
+/obj/item/weapon/tool/knife/dagger/bluespace/price_tag = 400
+>>>>>>> 0c71e2e... Random spawn values (#5374)

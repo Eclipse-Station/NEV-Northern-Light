@@ -1,8 +1,13 @@
-/obj/random/lowkeyrandom //Absolutly random things
+/obj/spawner/lowkeyrandom //Absolutly random things
 	name = "random stuff"
 	icon_state = "radnomstuff-green"
+	tags_to_spawn = list(SPAWN_ITEM)
+	top_price = 800
+	low_price = 10
 
+// /obj/item/clothing/accessory/badge/marshal = 0.1, //Antag item //recuerda esto
 
+<<<<<<< HEAD
 /obj/random/lowkeyrandom/item_to_spawn()
 	return pickweight(list(
 				/obj/item/weapon/storage/box/shotgunammo/beanbags = 1,
@@ -136,6 +141,9 @@
 				/obj/item/stash_spawner = 12))
 
 /obj/random/lowkeyrandom/low_chance
+=======
+/obj/spawner/lowkeyrandom/low_chance
+>>>>>>> 0c71e2e... Random spawn values (#5374)
 	name = "low chance random stuff"
 	icon_state = "radnomstuff-green-low"
 	spawn_nothing_percentage = 60

@@ -6,8 +6,13 @@
 
 	anchored = TRUE
 	density = TRUE
+<<<<<<< HEAD
 	use_power = 1
 	circuit = /obj/item/weapon/circuitboard/bluespacerelay
+=======
+	use_power = IDLE_POWER_USE
+	circuit = /obj/item/weapon/electronics/circuitboard/bluespacerelay
+>>>>>>> 0c71e2e... Random spawn values (#5374)
 	var/on = TRUE
 
 	idle_power_usage = 15000

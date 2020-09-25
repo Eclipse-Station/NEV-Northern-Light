@@ -7,6 +7,8 @@
 	anchored = TRUE
 	w_class = ITEM_SIZE_HUGE
 	layer = BELOW_OBJ_LAYER
+	spawn_tags = SPAWN_TAG_STRUCTURE_COMMON
+	rarity_value = 50
 	var/oxygentanks = 10
 	var/phorontanks = 10
 	var/list/oxytanks = list()	//sorry for the similar var names
@@ -14,10 +16,16 @@
 
 
 /obj/structure/dispenser/oxygen
+<<<<<<< HEAD
 	phorontanks = 0
+=======
+	plasmatanks = 0
+	rarity_value = 10
+>>>>>>> 0c71e2e... Random spawn values (#5374)
 
 /obj/structure/dispenser/phoron
 	oxygentanks = 0
+	rarity_value = 25
 
 
 /obj/structure/dispenser/Initialize()
