@@ -81,7 +81,6 @@ They generally give more random result and can provide more divercity in spawn.
 	/obj/item/weapon/stock_parts/matter_bin/one_star = 2,
 	/obj/random/prothesis/one_star = 1))
 
-
 //This will be spawned in rare closets
 /obj/random/pack/gun_loot
 	name = "Random gun loot"
@@ -125,8 +124,6 @@ They generally give more random result and can provide more divercity in spawn.
 	spawn_nothing_percentage = 70
 
 
-
-
 //The pack to surpass them all. This pack is meant to be PLACED ON MAP. Not in JUNK CODE, because it CONTAINS JUNK SPAWNER.
 //It meant to spawn any large structure, machine or container.
 /obj/random/pack/machine
@@ -149,8 +146,6 @@ They generally give more random result and can provide more divercity in spawn.
 	name = "low chance random structure"
 	icon_state = "machine-orange-low"
 	spawn_nothing_percentage = 70
-
-
 
 
 //Same pack as above, but it meant to be PLACED TO JUNK CODE. Numbers are a bit different as well

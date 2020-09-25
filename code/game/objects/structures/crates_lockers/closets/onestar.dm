@@ -1,6 +1,13 @@
 //Closets full of loot, they should be placed in derelicts
 
 //// Loot table on all tiers
+<<<<<<< HEAD
+=======
+/obj/structure/closet/onestar
+	spawn_blacklisted = TRUE
+	spawn_tags = SPAWN_TAG_CLOSET_OS
+
+>>>>>>> 4ba38eb... Spawnvalues fix (#5508)
 // Tier 1
 /obj/structure/closet/onestar/tier1
 	name = "\improper OneStar forgotten closet"

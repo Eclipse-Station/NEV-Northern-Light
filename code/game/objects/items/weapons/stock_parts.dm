@@ -266,7 +266,6 @@
 	rating = 6
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1)
 
-
 // Subspace stock parts
 
 /obj/item/weapon/stock_parts/subspace/ansible

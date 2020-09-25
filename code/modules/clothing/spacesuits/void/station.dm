@@ -225,6 +225,7 @@
 	)
 	siemens_coefficient = 0.4
 	light_overlay = "helmet_light_dual"
+	spawn_blacklisted = TRUE
 
 /obj/item/clothing/suit/space/void/science
 	name = "Moebius Contractor Power Armor"

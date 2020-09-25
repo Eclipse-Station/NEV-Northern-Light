@@ -60,9 +60,18 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	origin_tech = list(TECH_MATERIAL = 4, TECH_PLASMA = 4, TECH_ENGINEERING = 6, TECH_COMBAT = 3)
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_URANIUM = 5)
+<<<<<<< HEAD
+=======
+	spawn_blacklisted = TRUE
+
+/obj/item/weapon/gun/energy/plasmacutter
+	bad_types = /obj/item/weapon/gun/energy/plasmacutter
+
+>>>>>>> 4ba38eb... Spawnvalues fix (#5508)
 /obj/item/weapon/gun/energy/plasmacutter/mounted/mech
 	use_external_power = TRUE
 	restrict_safety = TRUE
 	twohanded = FALSE
 	self_recharge = FALSE
 	charge_cost = MECH_WEAPON_POWER_COST * 1.5
+	spawn_blacklisted = TRUE

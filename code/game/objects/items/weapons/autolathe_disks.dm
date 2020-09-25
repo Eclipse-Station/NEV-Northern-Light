@@ -450,7 +450,14 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/onestar
 	disk_name = "One Star Tool Pack"
 	icon_state = "onestar"
+<<<<<<< HEAD
 
+=======
+	rarity_value = 70
+	spawn_frequency = 9
+	spawn_blacklisted = TRUE
+	spawn_tags = SPAWN_TAG_DESING_OS
+>>>>>>> 4ba38eb... Spawnvalues fix (#5508)
 	license = 2
 	designs = list(
 		/datum/design/autolathe/tool/crowbar_onestar,
@@ -841,7 +848,13 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/sa_pug
 	disk_name = "Serbian Arms - .50 Pug Auto Shotgun"
 	icon_state = "serbian"
+<<<<<<< HEAD
 
+=======
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED
+	rarity_value = 100
+	spawn_frequency = 8
+>>>>>>> 4ba38eb... Spawnvalues fix (#5508)
 	license = 12
 	designs = list(
 		/datum/design/autolathe/gun/bojevic = 3, // "SA SG \"Bojevic\""

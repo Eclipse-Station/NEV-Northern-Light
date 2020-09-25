@@ -1,6 +1,13 @@
 /obj/random/lowkeyrandom //Absolutly random things
 	name = "random stuff"
 	icon_state = "radnomstuff-green"
+<<<<<<< HEAD
+=======
+	tags_to_spawn = list(SPAWN_ITEM)
+	top_price = 500
+	low_price = 10
+	restricted_tags = list(SPAWN_ORE, SPAWN_MATERIAL_RESOURCES)
+>>>>>>> 4ba38eb... Spawnvalues fix (#5508)
 
 
 /obj/random/lowkeyrandom/item_to_spawn()

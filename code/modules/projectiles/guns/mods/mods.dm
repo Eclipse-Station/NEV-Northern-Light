@@ -189,10 +189,15 @@
 	I.gun_loc_tag = GUN_MECHANISM
 
 /obj/item/weapon/gun_upgrade/underbarrel
+<<<<<<< HEAD
+=======
+	bad_types = /obj/item/weapon/gun_upgrade/underbarrel
+>>>>>>> 4ba38eb... Spawnvalues fix (#5508)
 
 /obj/item/weapon/storage/box/gun_upgrades
 	name = "Big box of gun fun"
 	desc = "If seen, please report to your nearest \[REDACTED\]"
+	bad_types = /obj/item/weapon/storage/box/gun_upgrades
 
 /obj/item/weapon/storage/box/gun_upgrades/populate_contents()
 	for(var/i in subtypesof(/obj/item/weapon/gun_upgrade))

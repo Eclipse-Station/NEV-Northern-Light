@@ -46,9 +46,13 @@
 	new /obj/random/pack/tech_loot/low_chance(src)
 
 
+<<<<<<< HEAD
 
 
 /obj/structure/closet/random_spareparts
+=======
+/obj/structure/closet/random/spareparts
+>>>>>>> 4ba38eb... Spawnvalues fix (#5508)
 	name = "\improper spare parts closet"
 	desc = "Somewhat old closet with spare parts in it."
 	icon_state = "eng"
