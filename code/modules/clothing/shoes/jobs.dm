@@ -48,8 +48,13 @@
 	icon_state = "reinforced_ironhammer"
 
 /obj/item/clothing/shoes/reinforced/medical
+<<<<<<< HEAD
 	name = "moebius reinfoced shoes"
 	desc = "Slightly reinforced shoes for medical personnel."
+=======
+	name = "moebius reinforced shoes"
+	desc = "Slightly reinforced shoes for moebius medical personnel."
+>>>>>>> 64dc373... fix reinforced shoe spelling (#5501)
 	icon_state = "reinforced_moebius"
 	item_state = "reinforced_moebius"
 
