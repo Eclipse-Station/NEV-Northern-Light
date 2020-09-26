@@ -647,6 +647,7 @@
 /obj/item/proc/get_tool_type(mob/living/user, list/required_qualities, atom/use_on, datum/callback/CB)
 	var/list/L = required_qualities & tool_qualities
 
+<<<<<<< HEAD
 	if(!L.len)
 		return FALSE
 
@@ -662,6 +663,14 @@
 		return
 
 	return return_quality
+=======
+	if(L.len)
+		if(L.len == 1)
+			return L[1]
+		for(var/i in L)
+			L[i] = image(icon = 'icons/mob/radial/tools.dmi', icon_state = i)
+		return show_radial_menu(user, use_on ? use_on : user, L, tooltips = TRUE, require_near = TRUE, custom_check = CB)
+>>>>>>> 9657ac3... I am a fool, I expected L to never be null (#5512)
 
 /obj/item/weapon/tool/proc/turn_on(var/mob/user)
 	if(use_power_cost)
