@@ -185,6 +185,12 @@
 	maxcharge = 100
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1)
 	price_tag = 50
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_SMALL_POWERCELL
+	rarity_value = 2
+	spawn_frequency = 9.5
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 
 /obj/item/weapon/cell/small/high
 	name = "\"Robustcell 200S\""

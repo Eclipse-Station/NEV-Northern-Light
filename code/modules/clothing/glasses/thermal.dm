@@ -36,6 +36,11 @@
 	desc = "Used for seeing walls, floors, and stuff through anything."
 	icon_state = "meson"
 	origin_tech = list(TECH_MAGNET = 3, TECH_COVERT = 4)
+<<<<<<< HEAD
+=======
+	rarity_value = 50
+	spawn_blacklisted = TRUE
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 
 
 /obj/item/clothing/glasses/powered/thermal/onestar

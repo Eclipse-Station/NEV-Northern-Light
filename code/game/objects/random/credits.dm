@@ -20,10 +20,16 @@
 	spawn_nothing_percentage = 80
 
 
+<<<<<<< HEAD
 
 /obj/random/credits/c50
 	min = 1
 	max = 50
+=======
+/obj/spawner/credits/c50
+	low_price = 1
+	top_price = 50
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 	icon_state = "cash-black"
 
 /obj/random/credits/c100

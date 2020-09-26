@@ -6,6 +6,12 @@
 	origin_tech = list(TECH_DATA = 3) // Most design disks end up being 64 to 128 GQ
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 2, MATERIAL_GOLD = 0.5)
 	license = -1
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_DESING
+	rarity_value = 25
+	spawn_frequency = 9.5
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 	var/list/designs = list()
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/install_default_files()

@@ -30309,7 +30309,11 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/rnd/chargebay)
 "bpu" = (
+<<<<<<< HEAD
 /obj/random/cluster/slimes/low_chance,
+=======
+/obj/spawner/mob/slime/cluster/low_chance,
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck4starboard)
 "bpv" = (

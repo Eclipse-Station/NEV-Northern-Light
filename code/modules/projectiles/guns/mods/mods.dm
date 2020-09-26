@@ -44,6 +44,11 @@
 	desc = "Uses sympathetic magnetic coiling to increase exit velocity of a metal projectile."
 	icon_state = "Penetrator"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1)
+<<<<<<< HEAD
+=======
+	rarity_value = 30
+	spawn_blacklisted = TRUE
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 
 /obj/item/weapon/gun_upgrade/barrel/mag_accel/New()
 	..()
@@ -62,6 +67,11 @@
 	desc = "Uses magnetic induction to heat the projectile of a weapon. Arguable combat effectiveness, but flashy nonetheless."
 	icon_state = "Caster"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1)
+<<<<<<< HEAD
+=======
+	rarity_value = 30
+	spawn_blacklisted = TRUE
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 
 /obj/item/weapon/gun_upgrade/barrel/overheat/New()
 	..()
@@ -131,6 +141,10 @@
 	name = "Frozen Star \"Overshooter\" internal magazine kit"
 	desc = "A method of overloading a weapon's internal magazine, fitting more ammunition within the weapon."
 	icon_state = "Overshooter"
+<<<<<<< HEAD
+=======
+	rarity_value = 20
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 
 /obj/item/weapon/gun_upgrade/mechanism/overshooter/New()
 	..()
@@ -146,6 +160,11 @@
 	name = "Syndicate \"Glass Widow\" infuser"
 	desc = "An illegal modification, used to make formerly useless civilian-grade weaponry into something much more lethal."
 	icon_state = "Glass_Widow"
+<<<<<<< HEAD
+=======
+	rarity_value = 50
+	spawn_blacklisted = TRUE
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 
 /obj/item/weapon/gun_upgrade/mechanism/glass_widow/New()
 	..()
@@ -193,6 +212,10 @@
 /obj/item/weapon/storage/box/gun_upgrades
 	name = "Big box of gun fun"
 	desc = "If seen, please report to your nearest \[REDACTED\]"
+<<<<<<< HEAD
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 
 /obj/item/weapon/storage/box/gun_upgrades/populate_contents()
 	for(var/i in subtypesof(/obj/item/weapon/gun_upgrade))
@@ -213,6 +236,7 @@
 	desc = "This experimental battery shunt is a cutting edge tool attachment which bypasses battery protection circuits to deliver the maximum amount of power in the shortest amount of time."
 	icon_state = "battery_shunt"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1, MATERIAL_URANIUM = 1)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun_upgrade/mechanism/battery_shunt/New()
 	..()
@@ -230,6 +254,7 @@
 	desc = "This experimental chip is a cutting edge tool attachment which bypasses power management protocols to dramatically increase the rate of fire at the cost of a reduced stopping power."
 	icon_state = "overdrive"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1, MATERIAL_URANIUM = 1)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun_upgrade/mechanism/overdrive/New()
 	..()
@@ -247,6 +272,7 @@
 	desc = "This experimental trigger mechanism taps directly into the bluespace dimension and refines its energy to produce the purest sounds possible."
 	icon_state = "honker"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun_upgrade/trigger/honker/New()
 	..()
@@ -261,6 +287,7 @@
 	desc = "This experimental barrel coats bullets with a thin layer of toxins just before they leave the weapon. Do not lick it."
 	icon_state = "toxin_coater"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 2)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun_upgrade/barrel/toxin_coater/New()
 	..()
@@ -276,6 +303,7 @@
 	desc = "This experimental barrel constantly sprays a thin mist of radioactive isotopes to make projectiles leaving the weapons deadlier, whether bullets, lasers or energy bolts. Do not put it in your mouth."
 	icon_state = "isotope_diffuser"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_URANIUM = 2)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun_upgrade/barrel/isotope_diffuser/New()
 	..()
@@ -291,6 +319,7 @@
 	desc = "This controversial device greatly amplifies the natural psionic ability of the user and allows them to project their will into the world. Before the development of the Psi Amp, psionic disciplines were mostly detectable only in a lab environment."
 	icon_state = "psionic_catalyst"
 	matter = list(MATERIAL_SILVER = 3, MATERIAL_PLASTEEL = 3, MATERIAL_URANIUM = 3)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun_upgrade/mechanism/psionic_catalyst/New()
 	..()
@@ -299,3 +328,78 @@
 	GUN_UPGRADE_DAMAGE_PSY = 0.4)
 	I.req_gun_tags = list(GUN_PROJECTILE)
 	I.gun_loc_tag = GUN_MECHANISM
+<<<<<<< HEAD
+=======
+
+/obj/item/weapon/gun_upgrade/barrel/gauss
+	name = "Syndicate \"Gauss Coil\" barrel"
+	desc = "Make bullet pierce through wall and penetrate armors easily, but losing rate of fire and increece recoil."
+	icon_state = "Gauss"
+	spawn_blacklisted = TRUE
+
+/obj/item/weapon/gun_upgrade/barrel/gauss/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_DAMAGE_BRUTE = 10,
+		GUN_UPGRADE_PEN_MULT = 1.2,
+		GUN_UPGRADE_PIERC_MULT = 1,
+		GUN_UPGRADE_FIRE_DELAY_MULT = 1.2,
+		GUN_UPGRADE_RECOIL = 1.2,
+		)
+	I.removal_time *= 10
+	I.gun_loc_tag = GUN_BARREL
+	I.req_gun_tags = list(GUN_PROJECTILE)
+
+/obj/item/weapon/gun_upgrade/trigger/boom
+	name = "Syndicate \"Self Desturct\" trigger"
+	desc = "Trigger that explode gun on shoot, only for enegry weapon."
+	icon_state = "Boom"
+	spawn_blacklisted = TRUE
+
+/obj/item/weapon/gun_upgrade/trigger/boom/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_EXPLODE = TRUE,
+		)
+	I.removal_time *= 10
+	I.gun_loc_tag = GUN_TRIGGER
+	I.req_gun_tags = list(GUN_ENERGY)
+
+/obj/item/weapon/gun_upgrade/scope
+	bad_types = /obj/item/weapon/gun_upgrade/scope
+
+/obj/item/weapon/gun_upgrade/scope/watchman
+	name = "Frozen Star \"Watchman\" scope"
+	desc = "Scope that can be attachet to avarage gun."
+	icon_state = "Watchman"
+
+/obj/item/weapon/gun_upgrade/scope/watchman/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_OFFSET = 0.9,
+		GUN_UPGRADE_RECOIL = 1.1,
+		GUN_UPGRADE_ZOOM = 1.2
+		)
+	I.gun_loc_tag = GUN_SCOPE
+	I.req_gun_tags = list(GUN_SCOPE)
+
+/obj/item/weapon/gun_upgrade/scope/killer
+	name = "Syndicate \"Proffesional Killer\" scope"
+	desc = "Scope used for sniping from large distances."
+	icon_state = "Killer"
+	spawn_blacklisted = TRUE
+
+/obj/item/weapon/gun_upgrade/scope/killer/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_OFFSET = 0.7,
+		GUN_UPGRADE_RECOIL = 1.3,
+		GUN_UPGRADE_ZOOM = 2
+		)
+	I.gun_loc_tag = GUN_SCOPE
+	I.req_gun_tags = list(GUN_SCOPE)
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)

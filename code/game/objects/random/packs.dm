@@ -115,6 +115,7 @@ They generally give more random result and can provide more divercity in spawn.
 /obj/random/pack/rare
 	name = "rare loot"
 	icon_state = "box-orange"
+	rarity_value = 20
 
 /obj/random/pack/rare/item_to_spawn()
 	return pickweight(RANDOM_RARE_ITEM) // made into a define so that rare objects can be spawned for mobs too

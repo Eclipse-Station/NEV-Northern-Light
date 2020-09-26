@@ -27,10 +27,21 @@
 	for (var/mob/living/carbon/slime/S in spawns)
 		S.set_mutation(pickweight(colors))
 
+<<<<<<< HEAD
 /obj/random/cluster/slimes/item_to_spawn()
 	return /mob/living/carbon/slime
 
 /obj/random/cluster/slimes/low_chance
+=======
+/obj/spawner/mob/slime/cluster
+	name = "cluster of slimes"
+	alpha = 128
+	min_amount = 1
+	max_amount = 3
+	spread_range = 2
+
+/obj/spawner/mob/slime/cluster/low_chance
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 	name = "low chance cluster of slimes"
 	icon_state = "hostilemob-cyan-cluster-low"
 	spawn_nothing_percentage = 60
@@ -51,6 +62,7 @@
 /obj/random/slime/item_to_spawn()
 	return /mob/living/carbon/slime
 
+<<<<<<< HEAD
 /obj/random/slime/rainbow/post_spawn(var/list/spawns)
 	var/list/colors = list("grey" = 10,
 	"purple" = 4,
@@ -67,3 +79,9 @@
 	"green" = 1)
 	for (var/mob/living/carbon/slime/S in spawns)
 		S.set_mutation(pickweight(colors))
+=======
+/obj/spawner/mob/slime/cluster/rainbow
+	name = "cluster of colored slimes"
+	alpha = 128
+	has_postspawn = TRUE
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)

@@ -10,6 +10,7 @@
 		/obj/item/weapon/stock_parts/capacitor = 2,
 		/obj/item/stack/cable_coil = 30
 	)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/circuitboard/excelsiorautolathe
 	name = T_BOARD("excelsior autolathe")
@@ -20,6 +21,7 @@
 		/obj/item/weapon/stock_parts/matter_bin = 3,
 		/obj/item/weapon/stock_parts/manipulator = 1,
 	)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/circuitboard/excelsiorreconstructor
 	name = T_BOARD("excelsior implant reconstructor")
@@ -30,6 +32,7 @@
 		/obj/item/weapon/stock_parts/manipulator = 2,
 		/obj/item/weapon/stock_parts/console_screen = 1
 	)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/circuitboard/diesel
 	name = T_BOARD("excelsior diesel generator")
@@ -40,7 +43,13 @@
 		/obj/item/weapon/stock_parts/manipulator = 1,
 		/obj/item/weapon/stock_parts/console_screen = 1
 	)
+<<<<<<< HEAD
 /obj/item/weapon/circuitboard/excelsior_boombox
+=======
+	spawn_blacklisted = TRUE
+
+/obj/item/weapon/electronics/circuitboard/excelsior_boombox
+>>>>>>> 20d9e6c... Spawn values fix V4 (#5516)
 	name = T_BOARD("excelsior boombox")
 	build_path = /obj/machinery/excelsior_boombox
 	board_type = "machine"
@@ -49,6 +58,7 @@
 		/obj/item/weapon/stock_parts/manipulator = 1,
 		/obj/item/weapon/stock_parts/console_screen = 1
 	)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/circuitboard/excelsior_teleporter
 	name = T_BOARD("excelsior teleporter")
@@ -60,6 +70,7 @@
 		/obj/item/weapon/cell/large = 1,
 		/obj/item/weapon/stock_parts/subspace/crystal = 1
 	)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/circuitboard/excelsior_turret
 	name = T_BOARD("excelsior turret")
@@ -71,3 +82,4 @@
 		/obj/item/device/assembly/prox_sensor = 1,
 		/obj/item/weapon/cell/medium = 1
 	)
+	spawn_blacklisted = TRUE
