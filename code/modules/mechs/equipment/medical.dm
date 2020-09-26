@@ -54,7 +54,12 @@
 	idle_power_usage = 0
 	active_power_usage = 0 //It'd be hard to handle, so for now all power is consumed by mech sleeper object
 	interact_offline = TRUE
+<<<<<<< HEAD
 	use_power = 0
+=======
+	use_power = NO_POWER_USE
+	spawn_blacklisted = TRUE
+>>>>>>> 5a6c648... Spawn values fix V3 (#5514)
 
 /obj/machinery/sleeper/mounted/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/topic_state/state = GLOB.mech_state)
 	. = ..()

@@ -11,7 +11,12 @@
 	throw_range = 20
 	origin_tech = list(TECH_BLUESPACE = 5)
 	price_tag = 4000
+<<<<<<< HEAD
 	matter = list(MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PHORON = 20, MATERIAL_PLASTIC = 20)
+=======
+	matter = list(MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PLASMA = 20, MATERIAL_PLASTIC = 20)
+	spawn_blacklisted = TRUE
+>>>>>>> 5a6c648... Spawn values fix V3 (#5514)
 	var/mode = MODE_TRANSMIT
 	var/transforming = FALSE	// mode changing takes some time
 	var/offset_chance = 5		//chance to teleport things in wrong place
@@ -117,6 +122,7 @@
 		src.cell = C
 
 /obj/item/weapon/bluespace_harpoon/mounted
+	spawn_blacklisted = TRUE
 	var/charge_cost = 100
 	var/charge_tick = 0
 	var/recharge_time = 4

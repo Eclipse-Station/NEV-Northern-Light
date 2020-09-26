@@ -22,6 +22,7 @@
 	self_recharge = TRUE
 	twohanded = FALSE
 	charge_cost = MECH_WEAPON_POWER_COST
+	spawn_blacklisted = TRUE
 
 /obj/item/mech_equipment/mounted_system/taser/ion
 	name = "mounted ion rifle"
@@ -36,6 +37,7 @@
 	self_recharge = TRUE
 	twohanded = FALSE
 	charge_cost = MECH_WEAPON_POWER_COST * 2
+	spawn_blacklisted = TRUE
 
 /obj/item/mech_equipment/mounted_system/taser/laser
 	name = "\improper CH-PS \"Immolator\" laser"

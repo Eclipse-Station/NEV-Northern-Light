@@ -23,6 +23,13 @@
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
 	hud_actions = list()
+<<<<<<< HEAD
+=======
+	bad_types = /obj/item/weapon/gun
+	spawn_tags = SPAWN_TAG_GUN
+	rarity_value = 10
+	spawn_frequency = 10
+>>>>>>> 5a6c648... Spawn values fix V3 (#5514)
 
 	var/damage_multiplier = 1 //Multiplies damage of projectiles fired from this gun
 	var/penetration_multiplier = 1 //Multiplies armor penetration of projectiles fired from this gun
@@ -63,7 +70,7 @@
 
 	var/icon_contained = TRUE
 	var/static/list/item_icons_cache = list()
-	var/wielded_item_state = null
+	var/wielded_item_state
 	var/one_hand_penalty = 0 //The higher this number is, the more severe the accuracy penalty for shooting it one handed. 5 is a good baseline for this, but var edit it live and play with it yourself.
 
 	var/projectile_color //Set by a firemode. Sets the fired projectiles color

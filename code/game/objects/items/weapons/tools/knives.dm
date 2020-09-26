@@ -145,6 +145,7 @@
 	item_state = "ass_dagger"
 	force = WEAPON_FORCE_HARMLESS+2
 	reagent_flags = INJECTABLE|TRANSPARENT
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger/assassin/New()
 	..()
