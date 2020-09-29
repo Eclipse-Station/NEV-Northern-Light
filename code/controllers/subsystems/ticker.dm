@@ -247,6 +247,7 @@ SUBSYSTEM_DEF(ticker)
 		generate_excel_contracts(min(6 + round(minds.len / 5), 12))
 		excel_check()
 		addtimer(CALLBACK(src, .proc/contract_tick), 15 MINUTES)
+		addtimer(CALLBACK(src, .proc/crew_transfer), 240 MINUTES)	// SYZYGY EDIT - Crew transfer vote, initially starts 4 hours in. Check zzz_modular_syzygy/vote.dm for the actual vote
 	//start_events() //handles random events and space dust.
 	//new random event system is handled from the MC.
 
