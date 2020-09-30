@@ -81346,7 +81346,6 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dze" = (
-/obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -81367,6 +81366,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
@@ -108845,6 +108847,18 @@
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
+"kug" = (
+/obj/machinery/door/blast/shutters/glass{
+	id = "BridgeArmoury";
+	name = "Armoury showcase"
+	},
+/obj/structure/table/rack,
+/obj/item/weapon/cell/small/high,
+/obj/item/weapon/cell/small/high,
+/obj/item/weapon/cell/small/high,
+/obj/item/weapon/cell/small/high,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "kEW" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -109044,6 +109058,16 @@
 /obj/machinery/atmospherics/unary/heat_exchanger,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
+"mQf" = (
+/obj/machinery/door/blast/shutters/glass{
+	id = "BridgeArmoury";
+	name = "Armoury showcase"
+	},
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/plasma/brigador,
+/obj/item/weapon/gun/energy/plasma/brigador,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "mQQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/hull{
@@ -292510,8 +292534,8 @@ doD
 doD
 dyY
 dze
-dVw
-abF
+mQf
+aae
 abF
 abF
 abF
@@ -292712,8 +292736,8 @@ aaa
 dVw
 dyZ
 dzg
-dVw
-abF
+kug
+aae
 abF
 abF
 abF
@@ -292915,7 +292939,7 @@ dVw
 dVw
 dVw
 dVw
-abF
+aae
 abF
 abF
 abF

@@ -99,11 +99,13 @@
 
 	init_firemodes = list()
 
+/* Syzygy patch; this functions basically, but it's supposed to change icon based on the cell. Replacement code can be found in zzz_modular_syzygy/plasma.dm
 /obj/item/weapon/gun/energy/plasma/brigador/update_icon()
 	overlays.Cut()
 	..()
 	if(cell)
 		overlays += image(icon, "cell_guild")
+*/
 
 /obj/item/weapon/gun/energy/plasma/martyr // or should it be  Zealot
 	name = "NT PR \"Martyr\""
