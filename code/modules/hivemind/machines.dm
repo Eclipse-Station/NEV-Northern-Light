@@ -331,8 +331,13 @@
 
 	//self-defense protocol setting
 	var/list/possible_sdps = subtypesof(/datum/hivemind_sdp)
+<<<<<<< HEAD
 	if(hive_mind_ai.evo_level > 6) //emergency jump will show up after a longer time
 		possible_sdps -= /datum/hivemind_sdp/emergency_jump
+=======
+	if(hive_mind_ai.evo_level > 3)
+		possible_sdps -= /datum/hivemind_sdp/champion //syzygy edit to replace emergency jump
+>>>>>>> 85ffffb... Merge pull request #161 from Torque4607/hivemindemergency
 	var/picked_sdp = pick(possible_sdps)
 	SDP = new picked_sdp(src)
 	SDP.set_master(src)

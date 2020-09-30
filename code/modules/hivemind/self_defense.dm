@@ -152,7 +152,7 @@
 //Teleports master to new location
 //Also disconnect wireweeds if this is node
 //Single usage
-/datum/hivemind_sdp/emergency_jump
+/*/datum/hivemind_sdp/emergency_jump
 	name = "wOrm-hOle"
 
 
@@ -179,4 +179,9 @@
 			master.forceMove(new_place)
 			master.visible_message("[master] appeared from an air!")
 			playsound(master, 'sound/effects/cascade.ogg', 50, 1)
+<<<<<<< HEAD
 			message_admins("Hivemind node [master] emergency run at \the [jumplink(new_place)]")
+=======
+			message_admins("Hivemind node [master] emergency run at \the [jumplink(new_place)]") */	//SYZYGY EMERGENCY DISABLE
+																									//TODO: REWORK OR REMOVE FULLY
+>>>>>>> 85ffffb... Merge pull request #161 from Torque4607/hivemindemergency
