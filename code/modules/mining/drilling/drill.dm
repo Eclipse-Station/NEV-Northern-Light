@@ -212,7 +212,7 @@
 			charge_use -= 10 * (P.rating - harvest_speed)
 			charge_use = max(charge_use, 0)
 		if(istype(P, /obj/item/weapon/stock_parts/scanning_module))
-			radius = 1 + P.rating
+			radius = 2 + (P.rating * 2) //Syzygy edit: Boosting the radius drills mine.
 	cell = locate(/obj/item/weapon/cell/large) in component_parts
 
 

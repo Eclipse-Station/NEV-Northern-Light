@@ -377,7 +377,11 @@
 
 /turf/simulated/mineral/random
 	name = "Mineral deposit"
+<<<<<<< HEAD
 	var/mineralSpawnChanceList = list("Uranium" = 5, "Platinum" = 5, "Hematite" = 35, "Carbon" = 35, "Diamond" = 1, "Gold" = 5, "Silver" = 5, "Plasma" = 10)
+=======
+	var/mineralSpawnChanceList = list("Uranium" = 5, "Platinum" = 5, "Hematite" = 35, "Carbon" = 35, "Diamond" = 1, "Gold" = 5, "Silver" = 5, "Phoron" = 10) //Syzygy Edit: Fixes calls for hemetite and coal?
+>>>>>>> 3d9731a... Merge pull request #170 from Jamini/jamini-orefix
 	var/mineralChance = 100 //10 //means 10% chance of this plot changing to a mineral deposit
 
 /turf/simulated/mineral/random/New()
