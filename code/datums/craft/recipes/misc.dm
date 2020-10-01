@@ -238,3 +238,15 @@
 		list(QUALITY_WELDING, 10, 60)
 	)
 	variation_type = CRAFT_VARIATION
+<<<<<<< HEAD
+=======
+
+/datum/craft_recipe/pipe
+	name = "Smoking pipe"
+	result = /obj/item/clothing/mask/smokable/pipe
+	steps = list(
+		list(CRAFT_MATERIAL, 5, MATERIAL_WOOD, "time" = 0),
+		list(QUALITY_CUTTING, 10, 10)
+	)
+	related_stats = list(STAT_COG)
+>>>>>>> 0aea6ef... fixes pipe being built in the wrong section (#5523)
