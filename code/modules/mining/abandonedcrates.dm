@@ -89,8 +89,11 @@
 			new/obj/item/weed_extract(src)
 		if(88)
 			new/obj/item/xenos_claw(src)
+<<<<<<< HEAD
 		if(89)
 			new/obj/item/organ/internal/xenos/phoronvessel(src)
+=======
+>>>>>>> 5d0f67d... Admin verbs update (#5507)
 		if(90)
 			new/obj/item/organ/internal/heart(src)
 		if(91)

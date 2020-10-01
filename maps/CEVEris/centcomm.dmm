@@ -5208,7 +5208,10 @@
 	},
 /area/centcom/raider_base)
 "nL" = (
+<<<<<<< HEAD
 /obj/item/organ/internal/xenos/phoronvessel,
+=======
+>>>>>>> 5d0f67d... Admin verbs update (#5507)
 /turf/unsimulated/floor{
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
@@ -5401,7 +5404,6 @@
 	},
 /area/centcom/raider_base)
 "ol" = (
-/obj/item/organ/internal/xenos/eggsac,
 /turf/unsimulated/floor{
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
