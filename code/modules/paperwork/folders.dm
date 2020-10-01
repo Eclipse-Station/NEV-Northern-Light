@@ -5,6 +5,11 @@
 	icon_state = "folder"
 	w_class = ITEM_SIZE_SMALL
 	matter = list(MATERIAL_BIOMATTER = 2)
+<<<<<<< HEAD
+=======
+	rarity_value = 5
+	spawn_tags = SPAWN_TAG_JUNK
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/weapon/folder/blue
 	desc = "A blue folder."

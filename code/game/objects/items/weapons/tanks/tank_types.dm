@@ -86,7 +86,12 @@
 	flags = CONDUCT
 	slot_flags = null	//they have no straps!
 	default_pressure = 3*ONE_ATMOSPHERE
+<<<<<<< HEAD
 	default_gas = "phoron"
+=======
+	default_gas = "plasma"
+	rarity_value = 30
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 
 /*

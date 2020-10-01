@@ -209,6 +209,11 @@
 /obj/item/weapon/reagent_containers/pill/floorpill
 	name = "floor pill"
 	desc = "Dare you?"
+<<<<<<< HEAD
+=======
+	rarity_value = 4
+	spawn_tags = SPAWN_TAG_JUNK
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/weapon/reagent_containers/pill/floorpill/Initialize()
 	. = ..()

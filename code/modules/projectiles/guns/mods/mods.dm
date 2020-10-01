@@ -1,7 +1,14 @@
 /obj/item/weapon/gun_upgrade
 	icon = 'icons/obj/guns/mods.dmi'
 	w_class = ITEM_SIZE_TINY
+<<<<<<< HEAD
 	price_tag = 500
+=======
+	price_tag = 100
+	rarity_value = 10
+	spawn_tags = SPAWN_TAG_GUN_UPGRADE
+	bad_types = /obj/item/weapon/gun_upgrade
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/weapon/gun_upgrade/barrel
 
@@ -125,6 +132,10 @@
 	I.gun_loc_tag = GUN_TRIGGER
 
 /obj/item/weapon/gun_upgrade/mechanism
+<<<<<<< HEAD
+=======
+	bad_types = /obj/item/weapon/gun_upgrade/mechanism
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 //Adds +3 to the internal magazine of a weapon. Acquired through loot spawns.
 /obj/item/weapon/gun_upgrade/mechanism/overshooter

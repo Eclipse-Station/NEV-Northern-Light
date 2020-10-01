@@ -792,6 +792,11 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	icon_state = "newspaper"
 	w_class = ITEM_SIZE_SMALL	//Let's make it fit in trashbags!
 	attack_verb = list("bapped")
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_JUNK
+	rarity_value = 10
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 	var/screen = 0
 	var/pages = 0
 	var/curr_page = 0

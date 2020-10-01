@@ -15,6 +15,11 @@
 	default_material = MATERIAL_GLASS
 	unbreakable = 1 //It's already broken.
 	drops_debris = 0
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_JUNK
+	rarity_value = 6
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 	var/amount = 0
 
 /obj/item/weapon/material/shard/New(var/newloc, var/material_key, var/_amount)

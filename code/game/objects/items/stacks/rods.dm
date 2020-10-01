@@ -27,6 +27,10 @@
 	uses_charge = 1
 	charge_costs = list(500)
 	stacktype = /obj/item/stack/rods
+<<<<<<< HEAD
+=======
+	spawn_tags = null
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/stack/rods/attackby(obj/item/I, mob/living/user)
 	..()

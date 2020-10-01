@@ -218,6 +218,10 @@
 
 /obj/item/weapon/rcd/borg
 	canRwall = 1
+<<<<<<< HEAD
+=======
+	spawn_tags = null
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/weapon/rcd/borg/useResource(var/amount, var/mob/user, var/checkOnly)
 	if(isrobot(user))

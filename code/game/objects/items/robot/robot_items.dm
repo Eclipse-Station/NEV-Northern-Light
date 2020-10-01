@@ -5,6 +5,13 @@
 ***********************************************************************/
 //Might want to move this into several files later but for now it works here
 // Consider changing this to a child of the stun baton class. ~Z
+<<<<<<< HEAD
+=======
+/obj/item/borg
+	bad_types = /obj/item/borg
+	spawn_tags = null
+
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 /obj/item/borg/stun
 	name = "electrified arm"
 	icon = 'icons/obj/decals.dmi'

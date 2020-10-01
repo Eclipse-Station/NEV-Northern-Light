@@ -106,6 +106,11 @@
 	maxcharge = 600
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 2)
 	price_tag = 100
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_MEDIUM_POWERCELL
+	spawn_frequency = 8.5
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/weapon/cell/medium/high
 	name = "\"Robustcell 800M\""
@@ -185,6 +190,12 @@
 	maxcharge = 100
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1)
 	price_tag = 50
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_SMALL_POWERCELL
+	rarity_value = 2
+	spawn_frequency = 9
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/weapon/cell/small/high
 	name = "\"Robustcell 200S\""
@@ -276,3 +287,4 @@
 	origin_tech = list(TECH_POWER = 1)
 	matter = list(MATERIAL_STEEL = 1)  //some cost just in case you manage to get this in a disk or something
 	maxcharge = 100  //small cause if someone manage to get this shouldn't be that usefull. and 100 is a nice number to work with.
+	spawn_blacklisted = TRUE

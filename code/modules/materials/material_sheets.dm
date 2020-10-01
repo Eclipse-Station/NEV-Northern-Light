@@ -182,6 +182,11 @@
 /obj/item/stack/material/platinum/random
 	rand_min = 1
 	rand_max = 10
+<<<<<<< HEAD
+=======
+	//spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
+	//rarity_value = 45
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 //Extremely valuable to Research.
 /obj/item/stack/material/mhydrogen
@@ -291,6 +296,11 @@
 /obj/item/stack/material/glass/phoronglass/random
 	rand_min = 3
 	rand_max = 30
+<<<<<<< HEAD
+=======
+	//spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
+	//rarity_value = 50
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/stack/material/glass/phoronrglass
 	name = "reinforced borosilicate glass"

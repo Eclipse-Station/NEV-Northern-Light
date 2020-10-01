@@ -6,6 +6,12 @@
 
 //This can be attached to basically any long tool
 //This includes most mechanical ones
+<<<<<<< HEAD
+=======
+/obj/item/weapon/tool_upgrade/reinforcement
+	bad_types = /obj/item/weapon/tool_upgrade/reinforcement
+
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 /obj/item/weapon/tool_upgrade/reinforcement/stick
 	name = "brace bar"
 	desc = "A sturdy pole made of fiber tape and plasteel rods. Can be used to reinforce the shaft of many tools."

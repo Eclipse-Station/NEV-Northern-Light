@@ -174,6 +174,10 @@ var/last_chew = 0
 
 /obj/item/weapon/handcuffs/cyborg
 	dispenser = 1
+<<<<<<< HEAD
+=======
+	spawn_tags = null
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/weapon/handcuffs/cyborg/afterattack(atom/A, mob/user as mob, proximity)
 	if (istype(A,/obj/item/weapon/handcuffs))

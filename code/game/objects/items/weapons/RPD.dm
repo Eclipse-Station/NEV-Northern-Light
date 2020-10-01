@@ -158,6 +158,11 @@
 	return
 
 /obj/item/weapon/rpd/borg
+<<<<<<< HEAD
+=======
+	spawn_tags = null
+
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 
 /obj/item/weapon/rpd/borg/useCharge(mob/user)
 	if(isrobot(user))

@@ -21,6 +21,11 @@
 	throw_speed = 7
 	throw_range = 15
 	matter = list(MATERIAL_STEEL = 1)
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_JUNK
+	rarity_value = 6
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 	var/colour = "black"	//what colour the ink is!
 
 

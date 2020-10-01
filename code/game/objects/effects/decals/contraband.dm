@@ -26,6 +26,10 @@
 /obj/item/weapon/contraband/poster/placed
 	icon_state = "random"
 	anchored = TRUE
+<<<<<<< HEAD
+=======
+	spawn_tags = null
+>>>>>>> d2bdc9c... spawn values fix V5 (#5518)
 	New(turf/loc)
 		if(icon_state != "random")
 			for(var/datum/poster/new_design in poster_designs)
