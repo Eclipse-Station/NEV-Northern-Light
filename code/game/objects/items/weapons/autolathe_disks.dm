@@ -249,6 +249,11 @@
 		/datum/design/autolathe/container/freezer_medical,
 		/datum/design/autolathe/device/implanter,
 		/datum/design/autolathe/container/syringegun_ammo,
+<<<<<<< HEAD
+=======
+		/datum/design/autolathe/container/syringe/large,
+
+>>>>>>> da5396d... large syringe price change. and typo in tastes, amd Emt plus medical belt changes (#5482)
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/surgery

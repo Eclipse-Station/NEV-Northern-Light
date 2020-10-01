@@ -108,7 +108,28 @@
 		/obj/item/clothing/glasses,
 		/obj/item/weapon/tool/crowbar,
 		/obj/item/device/lighting/toggleable/flashlight,
+<<<<<<< HEAD
 		/obj/item/weapon/extinguisher/mini
+=======
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/stack/nanopaste,
+		/obj/item/bodybag,
+		/obj/item/weapon/tool/bonesetter,
+		/obj/item/weapon/tool/scalpel,
+		/obj/item/weapon/tool/scalpel/advanced,
+		/obj/item/weapon/tool/scalpel/laser,
+		/obj/item/weapon/tool/surgicaldrill,
+		/obj/item/weapon/tool/cautery,
+		/obj/item/weapon/tool/retractor,
+		/obj/item/weapon/tool/saw/circular,
+		/obj/item/weapon/tool/hemostat,
+		/obj/item/weapon/reagent_containers/pill,
+		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/bodybag/cryobag,
+		/obj/item/clothing/gloves,
+		/obj/item/clothing/glasses,
+		/obj/item/weapon/reagent_containers/blood
+>>>>>>> da5396d... large syringe price change. and typo in tastes, amd Emt plus medical belt changes (#5482)
 	)
 
 /obj/item/weapon/storage/belt/medical/emt
@@ -116,6 +137,54 @@
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
+<<<<<<< HEAD
+=======
+	can_hold = list(
+		/obj/item/device/scanner/health,
+		/obj/item/weapon/dnainjector,
+		/obj/item/device/radio/headset,
+		/obj/item/weapon/reagent_containers/dropper,
+		/obj/item/weapon/reagent_containers/glass/beaker,
+		/obj/item/weapon/reagent_containers/glass/bottle,
+		/obj/item/weapon/reagent_containers/pill,
+		/obj/item/weapon/reagent_containers/syringe,
+		/obj/item/weapon/flame/lighter,
+		/obj/item/weapon/cell/small,
+		/obj/item/weapon/storage/fancy/cigarettes,
+		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/stack/medical,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/head/surgery,
+		/obj/item/clothing/gloves,
+		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/clothing/glasses,
+		/obj/item/weapon/tool/crowbar,
+		/obj/item/device/lighting/toggleable/flashlight,
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/stack/nanopaste,
+		/obj/item/bodybag,
+		/obj/item/weapon/tool/bonesetter,
+		/obj/item/weapon/tool/scalpel,
+		/obj/item/weapon/tool/scalpel/advanced,
+		/obj/item/weapon/tool/scalpel/laser,
+		/obj/item/weapon/tool/surgicaldrill,
+		/obj/item/weapon/tool/cautery,
+		/obj/item/weapon/tool/retractor,
+		/obj/item/weapon/tool/saw/circular,
+		/obj/item/weapon/tool/hemostat,
+		/obj/item/weapon/reagent_containers/pill,
+		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/bodybag/cryobag,
+		/obj/item/weapon/inflatable_dispenser,
+		/obj/item/device/radio/off,
+		/obj/item/taperoll/medical,
+		/obj/item/weapon/tool/crowbar,
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/clothing/gloves,
+		/obj/item/clothing/glasses
+
+	)
+>>>>>>> da5396d... large syringe price change. and typo in tastes, amd Emt plus medical belt changes (#5482)
 
 /obj/item/weapon/storage/belt/tactical
 	name = "tactical belt"

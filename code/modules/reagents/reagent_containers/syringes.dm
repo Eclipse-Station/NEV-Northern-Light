@@ -325,6 +325,25 @@
 		return
 	..()
 
+<<<<<<< HEAD
+=======
+/obj/item/weapon/reagent_containers/syringe/large
+	name = "large syringe"
+	desc = "A large syringe for those patients who needs a little more"
+	icon = 'icons/obj/large_syringe.dmi'
+	item_state = "large_syringe"
+	icon_state = "0"
+	matter = list(MATERIAL_GLASS = 1, MATERIAL_STEEL = 1,MATERIAL_SILVER = 1)
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = list(5,10)
+	volume = 30
+	w_class = ITEM_SIZE_TINY
+	slot_flags = SLOT_EARS
+	sharp = TRUE
+	unacidable = 1 //glass
+	reagent_flags = TRANSPARENT
+
+>>>>>>> da5396d... large syringe price change. and typo in tastes, amd Emt plus medical belt changes (#5482)
 ////////////////////////////////////////////////////////////////////////////////
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
