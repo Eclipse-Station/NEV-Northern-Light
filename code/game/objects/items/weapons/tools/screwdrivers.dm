@@ -17,6 +17,11 @@
 	tool_qualities = list(QUALITY_SCREW_DRIVING = 15)
 	degradation = 2
 	max_upgrades = 5 //all makeshift tools get more mods to make them actually viable for mid-late game
+<<<<<<< HEAD
+=======
+	rarity_value = 3
+	spawn_tags = SPAWN_TAG_TOOL_TAG_JUNK
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 
 /obj/item/weapon/tool/screwdriver/electric
 	name = "electric screwdriver"

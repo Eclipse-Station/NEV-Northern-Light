@@ -12,6 +12,10 @@
 	degradation = 0 //its consumable anyway
 	flags = NOBLUDGEON //Its not a weapon
 	max_upgrades = 0 //These are consumable, so no wasting upgrades on them
+<<<<<<< HEAD
+=======
+	rarity_value = 4
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 
 /obj/item/weapon/tool/tape_roll/web
 	name = "web tape"
@@ -20,6 +24,11 @@
 	use_stock_cost = 0.17
 	max_stock = 30
 	alpha = 150
+<<<<<<< HEAD
+=======
+	rarity_value = 2
+	spawn_tags = SPAWN_TAG_TOOL_TAG_JUNK
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 
 /obj/item/weapon/tool/tape_roll/fiber
 	name = "fiber tape"
@@ -29,6 +38,12 @@
 	matter = list(MATERIAL_PLASTIC = 20)
 	use_stock_cost = 0.10
 	max_stock = 100
+<<<<<<< HEAD
+=======
+	spawn_frequency = 8
+	rarity_value = 24
+	spawn_tags = SPAWN_TAG_TOOL_ADVANCED
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 
 /obj/item/weapon/tool/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user)
 	if(istype(H))
@@ -116,8 +131,10 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape"
 	w_class = ITEM_SIZE_TINY
-	layer = 4
-	anchored = 1 //it's sticky, no you cant move it
+	layer = BELOW_MOB_LAYER
+	anchored = TRUE //it's sticky, no you cant move it
+	spawn_frequency = 0
+	bad_types = /obj/item/weapon/ducttape
 
 	var/obj/item/weapon/stuck = null
 

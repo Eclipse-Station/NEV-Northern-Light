@@ -22,6 +22,11 @@
 	tool_qualities = list(QUALITY_SHOVELING = 25, QUALITY_DIGGING = 25, QUALITY_EXCAVATION = 10, QUALITY_HAMMERING = 10)
 	degradation = 1.5
 	max_upgrades = 5 //all makeshift tools get more mods to make them actually viable for mid-late game
+<<<<<<< HEAD
+=======
+	rarity_value = 4.8
+	spawn_tags = SPAWN_TAG_TOOL_TAG_JUNK
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 
 /obj/item/weapon/tool/shovel/spade
 	name = "spade"

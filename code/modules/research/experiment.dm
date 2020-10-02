@@ -231,6 +231,12 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 	throw_range = 10
 	matter = list(MATERIAL_STEEL = 5)
 	origin_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 1)
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_DIVICE_SCIENCE
+	spawn_frequency = 5
+	rarity_value = 8
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 
 	var/datum/experiment_data/experiments
 	var/list/scanned_autopsy_weapons = list()

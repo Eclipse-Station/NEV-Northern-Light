@@ -20,6 +20,11 @@
 	tool_qualities = list(QUALITY_PRYING = 10, QUALITY_DIGGING = 10,QUALITY_HAMMERING = 10)
 	degradation = 5 //This one breaks REALLY fast
 	max_upgrades = 5 //all makeshift tools get more mods to make them actually viable for mid-late game
+<<<<<<< HEAD
+=======
+	rarity_value = 2
+	spawn_tags = SPAWN_TAG_TOOL_TAG_JUNK
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 
 /obj/item/weapon/tool/crowbar/onestar
 	name = "One Star crowbar"

@@ -14,6 +14,13 @@
 	throwforce = WEAPON_FORCE_NORMAL
 	w_class = ITEM_SIZE_SMALL
 
+<<<<<<< HEAD
+=======
+	//spawn values
+	bad_types = /obj/item/weapon/tool
+	spawn_tags = SPAWN_TAG_TOOL
+
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 	var/tool_in_use = FALSE
 
 	var/force_upgrade_mults = 1

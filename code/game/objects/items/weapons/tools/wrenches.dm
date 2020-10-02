@@ -20,6 +20,11 @@
 	tool_qualities = list(QUALITY_BOLT_TURNING = 20, QUALITY_HAMMERING = 5)
 	matter = list(MATERIAL_STEEL = 1)
 	max_upgrades = 5 //all makeshift tools get more mods to make them actually viable for mid-late game
+<<<<<<< HEAD
+=======
+	rarity_value = 3
+	spawn_tags = SPAWN_TAG_TOOL_TAG_JUNK
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 
 /obj/item/weapon/tool/wrench/big_wrench
 	name = "big wrench"

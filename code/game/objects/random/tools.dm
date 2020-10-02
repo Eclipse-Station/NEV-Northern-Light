@@ -2,6 +2,7 @@
 	name = "random tool"
 	icon_state = "tool-grey"
 	spawn_nothing_percentage = 15
+<<<<<<< HEAD
 	has_postspawn = TRUE
 
 /obj/random/tool/item_to_spawn()
@@ -69,6 +70,10 @@
 				/obj/item/device/makeshift_centrifuge = 1,
 				/obj/item/robot_parts/robot_component/jetpack = 0.75,))
 
+=======
+	tags_to_spawn = list(SPAWN_TOOL, SPAWN_DIVICE, SPAWN_GLOVES_INSULATED, SPAWN_JETPACK, SPAWN_ITEM_UTILITY)
+	restricted_tags = list(SPAWN_SURGERY_TOOL, SPAWN_KNIFE, SPAWN_JUNK)
+>>>>>>> 5b5eedf... Tool spawn tweaks (#5542)
 
 //Randomly spawned tools will often be in imperfect condition if they've been left lying out
 /obj/random/tool/post_spawn(var/list/spawns)
