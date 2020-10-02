@@ -88,18 +88,27 @@
 	icon_state = "medicalbelt"
 	item_state = "medical"
 	can_hold = list(
+		/obj/item/bodybag,
+		/obj/item/clothing/mask/surgical,
+		/obj/item/clothing/head/surgery,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/clothing/glasses/hud/health,
 		/obj/item/device/scanner/health,
-		/obj/item/weapon/dnainjector,
 		/obj/item/device/radio/headset,
+		/obj/item/device/lighting/toggleable/flashlight,
+		/obj/item/weapon/dnainjector,
+		/obj/item/weapon/reagent_containers/blood,
 		/obj/item/weapon/reagent_containers/dropper,
 		/obj/item/weapon/reagent_containers/glass/beaker,
 		/obj/item/weapon/reagent_containers/glass/bottle,
 		/obj/item/weapon/reagent_containers/pill,
 		/obj/item/weapon/reagent_containers/syringe,
+		/obj/item/weapon/reagent_containers/hypospray,
 		/obj/item/weapon/flame/lighter,
 		/obj/item/weapon/cell/small,
 		/obj/item/weapon/storage/fancy/cigarettes,
 		/obj/item/weapon/storage/pill_bottle,
+<<<<<<< HEAD
 		/obj/item/stack/medical,
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/head/surgery,
@@ -109,6 +118,20 @@
 		/obj/item/weapon/tool/crowbar,
 		/obj/item/device/lighting/toggleable/flashlight,
 		/obj/item/weapon/extinguisher/mini
+=======
+		/obj/item/weapon/tool/bonesetter,
+		/obj/item/weapon/tool/scalpel,
+		/obj/item/weapon/tool/scalpel/advanced,
+		/obj/item/weapon/tool/scalpel/laser,
+		/obj/item/weapon/tool/surgicaldrill,
+		/obj/item/weapon/tool/cautery,
+		/obj/item/weapon/tool/retractor,
+		/obj/item/weapon/tool/saw/circular,
+		/obj/item/weapon/tool/hemostat,
+		/obj/item/stack/medical,
+		/obj/item/stack/nanopaste,
+		/obj/item/taperoll/medical
+>>>>>>> 2d7cf95... EMT Belt Redux (#5540)
 	)
 
 /obj/item/weapon/storage/belt/medical/emt
@@ -116,6 +139,15 @@
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
+<<<<<<< HEAD
+=======
+	can_hold_extra = list(
+		/obj/item/device/radio/off,
+		/obj/item/weapon/inflatable_dispenser,
+		/obj/item/weapon/tool/crowbar,
+		/obj/item/weapon/extinguisher/mini
+	)
+>>>>>>> 2d7cf95... EMT Belt Redux (#5540)
 
 /obj/item/weapon/storage/belt/tactical
 	name = "tactical belt"
