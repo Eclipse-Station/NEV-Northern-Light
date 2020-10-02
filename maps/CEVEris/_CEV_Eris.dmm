@@ -108553,6 +108553,19 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
+<<<<<<< HEAD
+=======
+"gkh" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
+"gkN" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> 3f75c7f... Fixed Slot machines (#5550)
 "gsO" = (
 /obj/machinery/door/airlock/glass_medical{
 	id_tag = null;
@@ -109471,6 +109484,7 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
 "sRq" = (
 /obj/landmark/join/start/paramedic,
 /turf/simulated/floor/carpet/sblucarpet,
@@ -109479,6 +109493,12 @@
 /obj/machinery/vending/serbomat,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/hallway/main/section2)
+=======
+"sRW" = (
+/obj/machinery/slotmachine,
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
+>>>>>>> 3f75c7f... Fixed Slot machines (#5550)
 "sZg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -169358,7 +169378,7 @@ apF
 ckK
 clf
 clq
-clq
+gkh
 clW
 clf
 clf
@@ -169560,7 +169580,7 @@ ckn
 ckL
 cjA
 ijn
-cjQ
+sRW
 clX
 cjq
 aqV
@@ -169762,7 +169782,7 @@ cJQ
 ckQ
 cjA
 dqw
-cjQ
+sRW
 cJQ
 aAs
 anJ
