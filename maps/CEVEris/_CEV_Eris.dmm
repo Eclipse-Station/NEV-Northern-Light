@@ -52410,6 +52410,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/item/weapon/stool/custom/bar_special,
 /turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
 "clY" = (
@@ -108699,6 +108700,29 @@
 /obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled/steel/panels,
 /area/eris/engineering/post)
+<<<<<<< HEAD
+=======
+"iPY" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 8
+	},
+/obj/item/weapon/stool/custom/bar_special,
+/turf/simulated/floor/tiled/steel/bar_flat,
+/area/eris/crew_quarters/bar)
+"iQt" = (
+/obj/machinery/camera/motion/security,
+/turf/simulated/floor/plating,
+/area/eris/maintenance/section1deck4central)
+"iTJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/blue{
+	tag = "icon-intact (EAST)";
+	dir = 4
+	},
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/bioreactor)
+>>>>>>> 218ff7a... Stool chairs added for slot machines (#5551)
 "iUs" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
@@ -169762,8 +169786,13 @@ cJQ
 ckQ
 cjA
 dqw
+<<<<<<< HEAD
 cjQ
 cJQ
+=======
+sRW
+iPY
+>>>>>>> 218ff7a... Stool chairs added for slot machines (#5551)
 aAs
 anJ
 anJ
