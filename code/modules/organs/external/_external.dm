@@ -198,6 +198,7 @@
 	..()
 	SSnano.update_uis(src)
 
+<<<<<<< HEAD
 
 /obj/item/organ/external/proc/augment_organ(obj/item/organ/external/new_organ, mob/user)
 	var/mob/living/carbon/human/H = user
@@ -250,6 +251,18 @@
 	H.update_body()
 
 	SSnano.update_uis(src)
+=======
+/obj/item/organ/external/proc/make_bones()
+	if(default_bone_type && !is_stump(src))
+		var/obj/item/organ/internal/bone/bone
+		if(nature < MODIFICATION_SILICON)
+			bone = new default_bone_type
+		else
+			var/mecha_bone = text2path("[default_bone_type]/robotic")
+			bone = new mecha_bone
+
+		bone?.replaced(src)
+>>>>>>> b6b32df... Fixes bones being made of paper (#5546)
 
 /obj/item/organ/external/proc/update_bionics_hud()
 	switch(organ_tag)
@@ -807,7 +820,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 // Checks if the limb should get fractured by now
 /obj/item/organ/external/proc/should_fracture()
+<<<<<<< HEAD
 	return config.bones_can_break && !BP_IS_ROBOTIC(src) && brute_dam > (min_broken_damage * ORGAN_HEALTH_MULTIPLIER)
+=======
+	var/obj/item/organ/internal/bone/B = get_bone()
+	return config.bones_can_break && !BP_IS_ROBOTIC(src) && (brute_dam > ((min_broken_damage * ORGAN_HEALTH_MULTIPLIER) * (B ? (B.organ_efficiency / 100) : 1)))
+>>>>>>> b6b32df... Fixes bones being made of paper (#5546)
 
 // Fracture the bone in the limb
 /obj/item/organ/external/proc/fracture()
