@@ -36,6 +36,7 @@
 	min_broken_damage = 40
 
 /obj/item/organ/external/robotic/moebius/l_arm
+<<<<<<< HEAD
 	default_description = /datum/organ_description/arm/left
 
 /obj/item/organ/external/robotic/moebius/r_arm
@@ -48,6 +49,25 @@
 	default_description = /datum/organ_description/leg/right
 
 /obj/item/organ/external/robotic/moebius/groin
+=======
+	name = "\"Moebius\" Left Arm"
+	default_description = /datum/organ_description/arm/left
+
+/obj/item/organ/external/robotic/moebius/r_arm
+	name = "\"Moebius\" Right Arm"
+	default_description = /datum/organ_description/arm/right
+
+/obj/item/organ/external/robotic/moebius/l_leg
+	name = "\"Moebius\" Left Leg"
+	default_description = /datum/organ_description/leg/left
+
+/obj/item/organ/external/robotic/moebius/r_leg
+	name = "\"Moebius\" Right Leg"
+	default_description = /datum/organ_description/leg/right
+
+/obj/item/organ/external/robotic/moebius/groin
+	name = "\"Moebius\" Groin"
+>>>>>>> f98bd2f... robo (#5548)
 	default_description = /datum/organ_description/groin
 
 /obj/item/organ/external/robotic/excelsior
