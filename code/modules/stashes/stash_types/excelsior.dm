@@ -16,8 +16,13 @@
 	/obj/item/weapon/gun/projectile/automatic/ak47 = 30,
 	/obj/item/weapon/gun/projectile/automatic/ak47 = 30,
 	/obj/item/ammo_magazine/lrifle = 50,
+<<<<<<< HEAD
 	/obj/item/ammo_magazine/lrifle = 50,
 	/obj/item/weapon/circuitboard/excelsior_teleporter = 30)
+=======
+	/obj/item/ammo_magazine/lrifle = 50
+	)
+>>>>>>> 4810add... Removes the excel teleporter from random excel stashes (#5554)
 	weight = 0.5
 
 /datum/stash/excelsior/shipyard
