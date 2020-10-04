@@ -59,7 +59,7 @@ Your second loyalty is to your workers. Ensure they are paid, fed and safe. Don'
 	join_tag = /datum/job/chief_engineer
 
 
-/datum/job/technomancer
+/datum/job/engineer
 	title = "Ship Engineer"
 	flag = TECHNOMANCER
 	department = DEPARTMENT_ENGINEERING
@@ -125,4 +125,4 @@ The Northern Light is your home, your life, and your livelihood. Take pride in i
 /obj/landmark/join/start/technomancer
 	name = "Engineer"
 	icon_state = "player-orange"
-	join_tag = /datum/job/technomancer
+	join_tag = /datum/job/engineer
