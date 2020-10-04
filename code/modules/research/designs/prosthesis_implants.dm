@@ -62,7 +62,7 @@
 
 /datum/design/research/item/mechfab/modules/multitool/engineer
 	build_path = /obj/item/organ_module/active/simple/engineer
-	name = "Embedded Technomancer multitool"
+	name = "Embedded engineering multitool"
 
 /datum/design/research/item/mechfab/modules/multitool/miner
 	build_path = /obj/item/organ_module/active/multitool/miner

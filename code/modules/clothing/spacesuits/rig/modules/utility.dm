@@ -455,7 +455,7 @@
 
 /obj/item/rig_module/cape/te
 	name = "engineering cape"
-	desc = "A tough regal cape, imprinted with the emblem of the Technomancer League."
+	desc = "A tough regal cape, imprinted with the emblem of the NT engineering corps."
 	suit_overlay_active = "cape_te"
 	suit_overlay_inactive = "cape_te"
 	suit_overlay_mob_only = 1
