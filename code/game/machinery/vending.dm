@@ -990,7 +990,7 @@
 /obj/machinery/vending/weapon_machine
 	name = "Frozen Star Guns&Ammo"
 	desc = "A self-defense equipment vending machine. When you need to take care of that clown."
-	product_slogans = "The best defense is good offense!;Buy for your whole family today!;Nobody can outsmart bullet!;God created man - Frozen Star made them EQUAL!;Stupidity can be cured! By LEAD.;Dead kids can't bully your children!"
+	product_slogans = "The best defense is good offense!;Buy for your whole family today!;Nobody can outsmart bullet!;God created man - Frozen Star made them EQUAL!;Stupidity can be cured. By LEAD!;Now with blue and pink tracers for the ultimate gender reveal party!"
 	product_ads = "Stunning!;Take justice in your own hands!;LEADearship!"
 	icon_state = "weapon"
 	no_criminals = TRUE
