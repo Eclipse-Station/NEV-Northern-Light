@@ -53264,7 +53264,11 @@
 	id = "SecondSectionLockdown";
 	layer = 2.6;
 	name = "Second Section Lockdown";
+<<<<<<< HEAD
 	opacity = 0
+=======
+	pixel_x = 0
+>>>>>>> eba3af5... Merge pull request #175 from Michiyamenotehifunana/BugfixTime
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/hallway/main/section2)
@@ -109669,6 +109673,37 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
+<<<<<<< HEAD
+=======
+"vkt" = (
+/obj/machinery/door/window/eastright{
+	name = "Research Desk";
+	req_access = list(5)
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "ScienceTotalLockdown";
+	layer = 2.6;
+	name = "Science Total Lockdown";
+	opacity = 0
+	},
+/obj/machinery/door/blast/shutters{
+	density = 1;
+	dir = 2;
+	id = "rnddesk";
+	name = "Research Desk Shutters";
+	opacity = 1
+	},
+/obj/machinery/door/window/westleft{
+	name = "Research Desk";
+	req_access = list(5)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/eris/rnd/lab)
+>>>>>>> eba3af5... Merge pull request #175 from Michiyamenotehifunana/BugfixTime
 "voV" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
