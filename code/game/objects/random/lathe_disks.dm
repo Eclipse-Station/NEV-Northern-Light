@@ -27,6 +27,7 @@
 
 				/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_doublebarrel = 3,
 				/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_kammerer = 3,
+				/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_leveraction = 3, //Sygygy inclusion.
 
 				/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_paco = 2,
 				/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_straylight = 1,
