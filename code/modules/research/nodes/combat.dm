@@ -39,8 +39,7 @@
 	icon = "recharger"
 
 	required_technologies = list(
-								/datum/technology/basic_combat
-								)
+								/datum/technology/basic_nonlethal)
 	required_tech_levels = list()
 	cost = 1000
 
@@ -114,7 +113,11 @@
 
 /datum/technology/adv_exotic_weaponry
 	name = "Advanced Experimental Weaponry"
+<<<<<<< HEAD
 	desc = "Special weapon system using plasma as catalyst. Special weapon core prototype that deal DNA damage to target."
+=======
+	desc = "Special weapons systems that leverage phoron catalysts for various exotic effects, including a prototype that degrades a target's DNA."
+>>>>>>> f923001... Merge pull request #174 from Michiyamenotehifunana/cherrypickarmorstuff
 	tech_type = RESEARCH_COMBAT
 
 	x = 0.8
@@ -126,7 +129,11 @@
 	cost = 5000
 
 	unlocks_designs = list(	/datum/design/research/item/weapon/decloner,
+<<<<<<< HEAD
 							/datum/design/research/item/weapon/plasmapistol,
+=======
+							/datum/design/research/item/weapon/phoronpistol,
+>>>>>>> f923001... Merge pull request #174 from Michiyamenotehifunana/cherrypickarmorstuff
 							/datum/design/research/item/weapon/gunmod/penetrator
 						)
 
@@ -139,11 +146,19 @@
 	y = 0.4
 	icon = "toxincoater"
 
+<<<<<<< HEAD
 	required_technologies = list(/datum/technology/exotic_weaponry)
 	required_tech_levels = list()
 	cost = 4000
 
 	unlocks_designs = list(	
+=======
+	required_technologies = list(/datum/technology/adv_exotic_weaponry)
+	required_tech_levels = list()
+	cost = 4000
+
+	unlocks_designs = list(
+>>>>>>> f923001... Merge pull request #174 from Michiyamenotehifunana/cherrypickarmorstuff
 							/datum/design/research/item/weapon/gunmod/battery_shunt,
 							/datum/design/research/item/weapon/gunmod/overdrive,
 							/datum/design/research/item/weapon/gunmod/honker,
@@ -204,4 +219,18 @@
 	cost = 5000
 
 	unlocks_designs = list(/datum/design/research/item/weapon/nuclear_gun, /datum/design/research/item/weapon/lasercannon)
+
+/datum/technology/advanced_armor
+	name = "Advanced Armor Solutions"
+	desc = "Advanced voidsuit with combined ballistic and ablative plating."
+	tech_type = RESEARCH_COMBAT
+
+	x = 0.8
+	y = 0.5
+	icon = "moebiushelm"
+
+	required_technologies = list(/datum/technology/laser_weaponry)
+	required_tech_levels = list()
+	cost = 2500
+	unlocks_designs = list(/datum/design/research/item/science_voidsuit)
 

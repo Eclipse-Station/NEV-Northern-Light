@@ -249,6 +249,10 @@
 							/datum/design/research/item/mechfab/modules/multitool/miner
 							)
 
+<<<<<<< HEAD
+=======
+/*	SYZYGY EDIT - no thanks
+>>>>>>> f923001... Merge pull request #174 from Michiyamenotehifunana/cherrypickarmorstuff
 /datum/technology/mind_biotech
 	name = "Mind Biotech"
 	desc = "Experimental biotechnology that explores the inner workings of sentient minds"
@@ -264,3 +268,7 @@
 	cost = 3000
 
 	unlocks_designs = list(	/datum/design/research/circuit/mindswapper)
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> f923001... Merge pull request #174 from Michiyamenotehifunana/cherrypickarmorstuff
