@@ -39,7 +39,13 @@
 
 	send2adminchat(key_name(src), original_msg)
 
-	for(var/client/X in admins)
+	if(admins.len <= 0) //START SYZ EDIT - If there are no admins, send ahelps to deadmins
+		for(var/client/X in deadmins)
+			if(X.deadmin_holder)
+				if(X.get_preference_value(/datum/client_preference/staff/play_adminhelp_ping) == GLOB.PREF_HEAR)
+					X << 'sound/effects/adminhelp.ogg'
+				to_chat(X, mentor_msg)		// Generally assume deadmins don't want to know antag status
+	else for(var/client/X in admins) //END SYZ EDIT
 		if((R_ADMIN|R_MOD|R_MENTOR) & X.holder.rights)
 
 			if(X.get_preference_value(/datum/client_preference/staff/play_adminhelp_ping) == GLOB.PREF_HEAR)
