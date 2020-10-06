@@ -47,8 +47,13 @@
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "k" = (
+<<<<<<< HEAD
 /obj/random/mob/roomba,
 /obj/random/firstaid,
+=======
+/obj/spawner/mob/roomba,
+/obj/spawner/firstaid,
+>>>>>>> 8fef24c... Fixes some DMM code, instigates Roomba re-emergence in dungeon rooms. (#5555)
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "l" = (
@@ -61,8 +66,13 @@
 /turf/simulated/floor/tiled/dark/cargo,
 /area/crawler)
 "n" = (
+<<<<<<< HEAD
 /obj/random/mob/roomba,
 /obj/random/contraband,
+=======
+/obj/spawner/mob/roomba, 
+/obj/spawner/contraband,
+>>>>>>> 8fef24c... Fixes some DMM code, instigates Roomba re-emergence in dungeon rooms. (#5555)
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "o" = (
