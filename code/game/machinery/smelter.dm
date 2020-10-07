@@ -4,11 +4,11 @@
 	icon_state = "smelter"
 	density = TRUE
 	anchored = TRUE
-	use_power = 1
+	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 2000
 
-	circuit = /obj/item/weapon/circuitboard/smelter
+	circuit = /obj/item/weapon/electronics/circuitboard/smelter
 
 	// base smelting speed - based on levels of manipulators
 	var/speed = 10

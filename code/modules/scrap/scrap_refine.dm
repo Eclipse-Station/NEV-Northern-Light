@@ -13,7 +13,7 @@
 
 /obj/structure/scrap_cube/Initialize(mapload, size = -1)
 	if(size < 0)
-		new /obj/random/scrap/moderate_weighted(src)
+		new /obj/spawner/scrap(src)
 	. = ..()
 
 /obj/structure/scrap_cube/attackby(obj/item/W, mob/user)
@@ -39,7 +39,7 @@
 	for(var/i in 1 to reag_num)
 		if(reagents.total_volume == reagents.maximum_volume)
 			break
-		reagents.add_reagent(pick(chemical_reagents_list), rand(1, reagents.maximum_volume))
+		reagents.add_reagent(pick(GLOB.chemical_reagents_list), rand(1, reagents.maximum_volume))
 	pixel_x = rand(0, 16) - 8
 	pixel_y = rand(0, 8) - 8
 

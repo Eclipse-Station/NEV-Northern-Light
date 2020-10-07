@@ -17,6 +17,9 @@
 	anchored = TRUE //There's a reason this is here, Mport. God fucking damn it -Agouri. Find&Fix by Pete. The reason this is here is to stop the curving of emitter shots.
 	pass_flags = PASSTABLE
 	mouse_opacity = 0
+	spawn_blacklisted = TRUE
+	spawn_frequency = 0
+	spawn_tags = null
 	var/bumped = FALSE		//Prevents it from hitting more than one guy at once
 	var/hitsound_wall = "ricochet"
 	var/list/mob_hit_sound = list('sound/effects/gore/bullethit2.ogg', 'sound/effects/gore/bullethit3.ogg') //Sound it makes when it hits a mob. It's a list so you can put multiple hit sounds there.
@@ -599,6 +602,12 @@
 			new /obj/effect/overlay/temp/dir_setting/bloodsplatter(target_mob.loc, splatter_dir, blood_color)
 			if(target_loca && prob(50))
 				target_loca.add_blood(L)
+
+	if(istype(src, /obj/item/projectile/beam/psychic) && istype(target_mob, /mob/living/carbon/human))
+		var/obj/item/projectile/beam/psychic/psy = src
+		var/mob/living/carbon/human/H = target_mob
+		if(psy.traitor && result && (H.sanity.level <= 0))
+			psy.holder.reg_break(H)
 
 	return TRUE
 

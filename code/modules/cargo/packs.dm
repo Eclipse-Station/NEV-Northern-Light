@@ -596,17 +596,17 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Engineering"
 
 /datum/supply_pack/toolmods
-	contains = list(/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade,
-					/obj/random/tool_upgrade)
+	contains = list(/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade,
+					/obj/spawner/tool_upgrade)
 	name = "Unsorted Tool Upgrades"
 	cost = 2000
 	containertype = /obj/structure/closet/crate
@@ -653,8 +653,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/solar_assembly,
 					/obj/item/solar_assembly,
 					/obj/item/solar_assembly, // 21 Solar Assemblies. 1 Extra for the controller
-					/obj/item/weapon/circuitboard/solar_control,
-					/obj/item/weapon/tracker_electronics,
+					/obj/item/weapon/electronics/circuitboard/solar_control,
+					/obj/item/weapon/electronics/tracker,
 					/obj/item/weapon/paper/solar)
 	cost = 2000
 	containertype = /obj/structure/closet/crate
@@ -743,13 +743,13 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 //Contains six, you'll probably want to build several of these
 /datum/supply_pack/shield_diffuser
-	contains = list(/obj/item/weapon/circuitboard/shield_diffuser,
-	/obj/item/weapon/circuitboard/shield_diffuser,
-	/obj/item/weapon/circuitboard/shield_diffuser,
-	/obj/item/weapon/circuitboard/shield_diffuser,
-	/obj/item/weapon/circuitboard/shield_diffuser,
-	/obj/item/weapon/circuitboard/shield_diffuser,
-	/obj/item/weapon/circuitboard/shield_diffuser)
+	contains = list(/obj/item/weapon/electronics/circuitboard/shield_diffuser,
+	/obj/item/weapon/electronics/circuitboard/shield_diffuser,
+	/obj/item/weapon/electronics/circuitboard/shield_diffuser,
+	/obj/item/weapon/electronics/circuitboard/shield_diffuser,
+	/obj/item/weapon/electronics/circuitboard/shield_diffuser,
+	/obj/item/weapon/electronics/circuitboard/shield_diffuser,
+	/obj/item/weapon/electronics/circuitboard/shield_diffuser)
 	name = "Shield diffuser circuitry"
 	cost = 3000
 	containertype = /obj/structure/closet/crate/secure
@@ -758,7 +758,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	access = access_ce
 
 /datum/supply_pack/shield_gen
-	contains = list(/obj/item/weapon/circuitboard/shield_generator)
+	contains = list(/obj/item/weapon/electronics/circuitboard/shield_generator)
 	name = "Hull shield generator circuitry"
 	cost = 5000
 	containertype = /obj/structure/closet/crate/secure
@@ -766,7 +766,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Engineering"
 
 /*/datum/supply_pack/shield_cap
-	contains = list(/obj/item/weapon/circuitboard/shield_cap)
+	contains = list(/obj/item/weapon/electronics/circuitboard/shield_cap)
 	name = "Bubble shield capacitor circuitry"
 	cost = 5000
 	containertype = /obj/structure/closet/crate/secure
@@ -1294,8 +1294,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/head/that,
 					/obj/item/clothing/under/suit_jacket,
 					/obj/item/clothing/under/suit_jacket/red,
-					/obj/item/clothing/shoes/black,
-					/obj/item/clothing/shoes/black,
+					/obj/item/clothing/shoes/color/black,
+					/obj/item/clothing/shoes/color/black,
 					/obj/item/clothing/shoes/leather,
 					/obj/item/clothing/suit/wcoat)
 	name = "Formalwear closet"
@@ -1417,10 +1417,10 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/guns
 	num_contained = 4
-	contains = list(/obj/random/gun_cheap,
-                /obj/random/gun_normal,
-                /obj/random/gun_energy_cheap,
-                /obj/random/gun_shotgun)
+	contains = list(/obj/spawner/gun/cheap,
+                /obj/spawner/gun/normal,
+                /obj/spawner/gun/energy_cheap,
+                /obj/spawner/gun/shotgun)
 	name = "Surplus Weaponry"
 	cost = 5000
 	crate_name = "Surplus Weapons Crate"
@@ -1429,14 +1429,14 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/ammo
 	num_contained = 8
-	contains = list(/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo,
-				/obj/random/ammo)
+	contains = list(/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo,
+				/obj/spawner/ammo)
 	name = "Surplus Ammo"
 	cost = 1500
 	crate_name = "Surplus Ammo Crate"
@@ -1445,11 +1445,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/pouches
 	num_contained = 5
-	contains = list(/obj/random/pouch,
-				/obj/random/pouch,
-				/obj/random/pouch,
-				/obj/random/pouch,
-				/obj/random/pouch)
+	contains = list(/obj/spawner/pouch,
+				/obj/spawner/pouch,
+				/obj/spawner/pouch,
+				/obj/spawner/pouch,
+				/obj/spawner/pouch)
 	name = "Surplus Storage Pouches"
 	cost = 1500
 	crate_name = "Surplus Pouches Crate"
@@ -1459,10 +1459,10 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/holsters
 	num_contained = 4
-	contains = list(/obj/random/cloth/holster,
-					/obj/random/cloth/holster,
-					/obj/random/cloth/holster,
-					/obj/random/cloth/holster)
+	contains = list(/obj/spawner/cloth/holster,
+					/obj/spawner/cloth/holster,
+					/obj/spawner/cloth/holster,
+					/obj/spawner/cloth/holster)
 	name = "Surplus Unform Holsters"
 	cost = 1000
 	crate_name = "Surplus Uniform Holsters Crate"
@@ -1471,8 +1471,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/voidsuit
 	num_contained = 1
-	contains = list(/obj/random/voidsuit,
-					/obj/random/voidsuit/damaged)
+	contains = list(/obj/spawner/voidsuit,
+					/obj/spawner/voidsuit/damaged)
 	name = "Surplus Voidsuit"
 	cost = 1500
 	crate_name = "Surplus Voidsuit Crate"
@@ -1481,8 +1481,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/rig
 	num_contained = 1
-	contains = list(/obj/random/rig,
-					/obj/random/rig/damaged)
+	contains = list(/obj/spawner/rig,
+					/obj/spawner/rig/damaged)
 	name = "Surplus Rig Suit"
 	cost = 5000
 	crate_name = "Surplus Rig Crate"
@@ -1491,8 +1491,8 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/randomised/rigmods
 	num_contained = 2
-	contains = list(/obj/random/rig_module,
-				/obj/random/rig_module)
+	contains = list(/obj/spawner/rig_module,
+				/obj/spawner/rig_module)
 	name = "Surplus Rig Modules"
 	cost = 2500
 	crate_name = "Surplus Rig Modules"

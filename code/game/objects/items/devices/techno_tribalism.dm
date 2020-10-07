@@ -6,6 +6,8 @@
 	item_state = "techno_tribalism"
 	origin_tech = list(TECH_MATERIAL = 8, TECH_ENGINEERING = 7, TECH_POWER = 2)
 	price_tag = 20000
+	spawn_frequency = 0
+	spawn_blacklisted = TRUE
 	var/list/oddity_stats = list(STAT_MEC = 0, STAT_COG = 0, STAT_BIO = 0, STAT_ROB = 0, STAT_TGH = 0, STAT_VIG = 0)
 	var/last_produce = -30 MINUTES
 	var/items_count = 0
@@ -115,9 +117,9 @@
 			else
 				to_chat(src.loc, SPAN_WARNING("The [src] is too complicated to use!"))
 		else
-			visible_message("\The [src] beeps, \"The [src] is not full enough to produce.\".")
+			visible_message("\icon The [src] beeps, \"The [src] is not full enough to produce.\".")
 	else
-		visible_message("\The [src] beeps, \"The [src] need time to cooldown.\".")
+		visible_message("\icon The [src] beeps, \"The [src] need time to cooldown.\".")
 
 /obj/item/device/techno_tribalism/examine(user)
 	..()
