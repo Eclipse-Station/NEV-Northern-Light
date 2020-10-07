@@ -116,7 +116,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	new_dna.b_type=b_type
 	new_dna.real_name=real_name
 	new_dna.body_markings=body_markings.Copy() //Eclipse add
-	new_dna.custom_species=custom_species // Syzygy edit
+	new_dna.custom_species=custom_species // Eclipse edit
 	new_dna.species=species
 	for(var/b in 1 to DNA_SE_LENGTH)
 		new_dna.SE[b]=SE[b]
