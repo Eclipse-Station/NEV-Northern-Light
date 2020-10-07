@@ -1,0 +1,6 @@
+author: Crosarius
+
+delete-after: True
+
+changes: 
+  - tweak: "Shotgun buckshot and rubbershot will now randomly distribute their pellets to every (living) mob on a single tile if there is more than one mob i.e. roach stacks."
