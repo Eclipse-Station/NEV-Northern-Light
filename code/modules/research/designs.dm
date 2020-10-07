@@ -172,25 +172,41 @@ other types of metals and chemistry for reagents).
 
 /datum/design/research/item/belt_holding
 	name = "'Belt of Holding', an infinite capacity belt prototype"
+<<<<<<< HEAD
 	desc = "Using localized pockets of bluespace this belt prototype offers incredible storage capacity with the contents weighing nothing."
+=======
+	desc = "Using localized pockets of bluespace this belt prototype offers incredible storage capacity with the contents weighting nothing."
+>>>>>>> 0cfe9bc... Merge pull request #182 from Michiyamenotehifunana/CherryPickBSandTaserArmor
 	build_path = /obj/item/weapon/storage/belt/holding
 	sort_string = "VAEAB"
 
 /datum/design/research/item/pouch_holding
 	name = "'Pouch of Holding', an infinite capacity pouch prototype"
+<<<<<<< HEAD
 	desc = "Using localized pockets of bluespace this pouch prototype offers incredible storage capacity with the contents weighing nothing."
+=======
+	desc = "Using localized pockets of bluespace this pouch prototype offers incredible storage capacity with the contents weighting nothing."
+>>>>>>> 0cfe9bc... Merge pull request #182 from Michiyamenotehifunana/CherryPickBSandTaserArmor
 	build_path = /obj/item/weapon/storage/pouch/holding
 	sort_string = "VAEAC"
 
 /datum/design/research/item/trashbag_holding
 	name = "'Trashbag of Holding', an infinite capacity trashbag prototype"
+<<<<<<< HEAD
 	desc = "Using localized pockets of bluespace this trashbag prototype offers incredible storage capacity with the contents weighing nothing."
+=======
+	desc = "Using localized pockets of bluespace this trashbag prototype offers incredible storage capacity with the contents weighting nothing."
+>>>>>>> 0cfe9bc... Merge pull request #182 from Michiyamenotehifunana/CherryPickBSandTaserArmor
 	build_path = /obj/item/weapon/storage/bag/trash/holding
 	sort_string = "VAEAD"
 
 /datum/design/research/item/oresatchel_holding
 	name = "'Ore satchel of Holding', an infinite capacity ore satchel prototype"
+<<<<<<< HEAD
 	desc = "Using localized pockets of bluespace this ore satchel prototype offers incredible storage capacity with the contents weighing nothing."
+=======
+	desc = "Using localized pockets of bluespace this ore satchel prototype offers incredible storage capacity with the contents weighting nothing."
+>>>>>>> 0cfe9bc... Merge pull request #182 from Michiyamenotehifunana/CherryPickBSandTaserArmor
 	build_path = /obj/item/weapon/storage/bag/ore/holding
 	sort_string = "VAEAE"
 
