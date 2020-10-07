@@ -219,7 +219,7 @@
 			else if((M.targeted_organ == BP_HEAD) && target_organ_exists)
 				M.visible_message(SPAN_NOTICE("[M] pats [src]'s head."), \
 									SPAN_NOTICE("You pat [src]'s head."))
-			else if(M.targeted_organ == BP_R_ARM || M.targeted_organ == BP_L_ARM)
+			else if(M.targeted_organ == BP_R_HAND || M.targeted_organ == BP_L_HAND) //Syz Edit
 				if(target_organ_exists)
 					M.visible_message(SPAN_NOTICE("[M] shakes hands with [src]."), \
 										SPAN_NOTICE("You shake hands with [src]."))
