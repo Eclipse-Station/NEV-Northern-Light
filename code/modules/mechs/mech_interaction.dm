@@ -169,6 +169,9 @@
 	if(!user || user.incapacitated())	return FALSE
 	if(!user.Adjacent(src)) 			return FALSE
 	if(issilicon(user))					return FALSE
+	if (user.buckled)
+		to_chat(user, SPAN_WARNING("You cannot enter a mech while buckled, unbuckle first."))
+		return FALSE
 	if(hatch_locked)
 		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 		return FALSE
@@ -276,7 +279,7 @@
 
 		return TRUE
 
-	else if(istype(I, /obj/item/weapon/circuitboard/exosystem))
+	else if(istype(I, /obj/item/weapon/electronics/circuitboard/exosystem))
 		if(!maintenance_protocols)
 			to_chat(user, SPAN_WARNING("The software upload bay is locked while maintenance protocols are disabled."))
 			return TRUE

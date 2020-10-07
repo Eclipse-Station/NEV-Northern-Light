@@ -1,4 +1,4 @@
-/obj/item/weapon/circuitboard/pile_ripper
+/obj/item/weapon/electronics/circuitboard/pile_ripper
 	name = T_BOARD("Pile Ripper")
 	build_path = /obj/machinery/pile_ripper
 	board_type = "machine"
@@ -15,7 +15,7 @@
 	layer = MOB_LAYER + 1 // Overhead
 	anchored = TRUE
 	density = TRUE
-	use_power = 1
+	use_power = IDLE_POWER_USE
 	idle_power_usage = 300
 
 	var/safety_mode = FALSE // Temporality stops the machine if it detects a mob

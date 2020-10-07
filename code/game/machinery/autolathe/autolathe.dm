@@ -20,7 +20,7 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 2000
-	circuit = /obj/item/weapon/circuitboard/autolathe
+	circuit = /obj/item/weapon/electronics/circuitboard/autolathe
 
 	var/build_type = AUTOLATHE
 
@@ -838,7 +838,7 @@
 	las_rating -= las_amount
 
 	speed = initial(speed) + man_rating + las_rating
-	mat_efficiency = max(0.2, 1.0 - (man_rating * 0.1))
+	mat_efficiency = max(0.2, 1 - (man_rating * 0.1))
 
 
 

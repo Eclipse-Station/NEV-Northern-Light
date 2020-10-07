@@ -13,7 +13,7 @@
 	anchored = TRUE
 	use_power = NO_POWER_USE // Handles power use in Process()
 	layer = BELOW_OBJ_LAYER
-	circuit = /obj/item/weapon/circuitboard/chemical_dispenser
+	circuit = /obj/item/weapon/electronics/circuitboard/chemical_dispenser
 
 	var/ui_title = "Chem Dispenser 5000"
 	var/obj/item/weapon/cell/medium/cell
@@ -30,7 +30,7 @@
 		"sugar","sacid","tungsten"
 	)
 	var/list/hacked_reagents = list()
-	var/obj/item/weapon/reagent_containers/beaker = null
+	var/obj/item/weapon/reagent_containers/beaker
 
 /obj/machinery/chemical_dispenser/RefreshParts()
 	cell = locate() in component_parts
@@ -57,10 +57,10 @@
 
 /obj/machinery/chemical_dispenser/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			del(src)
 			return
-		if(2.0)
+		if(2)
 			if (prob(50))
 				del(src)
 				return
@@ -75,7 +75,7 @@
 
 	var/list/chemicals = list()
 	for (var/re in dispensable_reagents)
-		var/datum/reagent/temp = chemical_reagents_list[re]
+		var/datum/reagent/temp = GLOB.chemical_reagents_list[re]
 		if(temp)
 			chemicals.Add(list(list("title" = temp.name, "id" = temp.id, "commands" = list("dispense" = temp.id)))) // list in a list because Byond merges the first list...
 	data["chemicals"] = chemicals
@@ -132,6 +132,7 @@
 			var/added_amount = min(amount, cell.charge / chemical_dispenser_ENERGY_COST, space)
 			R.add_reagent(href_list["dispense"], added_amount)
 			cell.use(added_amount * chemical_dispenser_ENERGY_COST)
+			investigate_log("dispensed [href_list["dispense"]] into [B], while being operated by [key_name(usr)]", "chemistry")
 
 	if(href_list["ejectBeaker"])
 		src.detach()
@@ -143,7 +144,7 @@
 	if(!Adjacent(user) || !I.Adjacent(user) || user.stat)
 		return ..()
 	if(istype(I, /obj/item/weapon/reagent_containers) && I.is_open_container() && !beaker)
-		I.forceMove(src)
+		user.unEquip(I, src)
 		I.add_fingerprint(user)
 		beaker = I
 		to_chat(user, SPAN_NOTICE("You add [I] to [src]."))

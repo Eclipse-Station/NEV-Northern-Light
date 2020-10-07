@@ -3,12 +3,14 @@
  */
 /obj/item/weapon/paper/court
 	name = "Judgement"
+	spawn_blacklisted = TRUE
 	info = {"For crimes against the station, the offender is sentenced to:
 	\[br\]
 	\[br\]"}
 
 /obj/item/weapon/paper/toxin
 	name = "Chemical Information"
+	spawn_blacklisted = TRUE
 	info = {"Known Onboard Toxins:
 	
 	Grade A Semi-Liquid Phoron:
@@ -46,6 +48,7 @@
 
 /obj/item/weapon/paper/courtroom
 	name = "A Crash Course in Legal SOP on SS13"
+	spawn_blacklisted = TRUE
 	info = {"\[b\]Roles:\[/b\]
 	The Detective is basically the investigator and prosecutor.
 	The Staff Assistant can perform these functions with written authority from the Detective.
@@ -94,6 +97,7 @@
 
 /obj/item/weapon/paper/hydroponics
 	name = "Greetings from Billy Bob"
+	spawn_blacklisted = TRUE
 	info = {"\[b\]Hey fellow botanist!\[/b\]
 	
 	I didn't trust the station folk so I left \
@@ -126,6 +130,7 @@
 
 /obj/item/weapon/paper/djstation
 	name = "DJ Listening Outpost"
+	spawn_blacklisted = TRUE
 	info = {"\[b\]Welcome new owner!\[/b\]
 	
 	You have purchased the latest in listening equipment. The telecommunication setup we created is the best in listening to common and private radio fequencies. Here is a step by step guide to start listening in on those saucy radio channels:
@@ -136,6 +141,7 @@
 
 /obj/item/weapon/paper/jobs
 	name = "Job Information"
+	spawn_blacklisted = TRUE
 	info = {"Information on all formal jobs that can be assigned on Space Station 13 can be found on this document.
 	
 	The data will be in the following form.
@@ -241,6 +247,7 @@
 
 /obj/item/weapon/paper/sop
 	name = "paper- 'Standard Operating Procedure'"
+	spawn_blacklisted = TRUE
 	info = {"Alert Levels:
 	Blue- Emergency
 	1. Caused by fire
@@ -303,6 +310,7 @@
 
 /obj/item/weapon/paper/self_pacification
 	name = "Self-Pacification and You!"
+	spawn_blacklisted = TRUE
 	info = {"\[h1\]\[center\]\[b\]Self-Pacification and You!\[/b\]\[/center\]\[/h1\]
 	As pursuant to \[b\]\"Hansa Property Rights For Detainees\"\[/b\], \[b\]Aster's \"Assembly Upon The Definition of Aggression\"\[/b\], and the good initiative of \[b\]IronHammer Command\[/b\]; these steps have been laid to better actuate your personal property rights while within indefinite detainment:
 	
