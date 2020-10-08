@@ -113,4 +113,7 @@
 	name = "leather shoes"
 	desc = "A sturdy pair of leather shoes."
 	icon_state = "leather"
+<<<<<<< HEAD
 	rarity_value = 14.3
+=======
+>>>>>>> 71a3eef... Merge pull request #186 from Michiyamenotehifunana/IconResync
