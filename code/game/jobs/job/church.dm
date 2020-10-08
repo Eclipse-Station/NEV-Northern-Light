@@ -16,7 +16,7 @@
 	)
 
 	access = list(
-		access_RC_announce, access_keycard_auth, access_heads, access_sec_doors
+		access_RC_announce, access_keycard_auth, access_heads, access_sec_doors, access_morgue, access_chapel_office, access_crematorium, access_hydroponics, access_janitor, access_maint_tunnels	//SYZYGY EDIT - transcribes preacher cruciform access onto their ID
 	)
 
 	wage = WAGE_PROFESSIONAL //The church has deep pockets
@@ -75,6 +75,7 @@
 	selection_color = "#ecd37d"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
 	cruciform_access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
+	access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)	//SYZYGY EDIT - transcribes acolyte cruciform access onto their ID
 	wage = WAGE_PROFESSIONAL
 	outfit_type = /decl/hierarchy/outfit/job/church/acolyte
 
@@ -86,7 +87,8 @@
 	)
 
 	core_upgrades = list(
-		CRUCIFORM_PRIEST
+		CRUCIFORM_PRIEST,
+		CRUCIFORM_REDLIGHT	//As compensation for not being able to actually spawn as the preacher
 	)
 
 	description = "You serve the Preacher as a disciple of the Faith.<br>\
