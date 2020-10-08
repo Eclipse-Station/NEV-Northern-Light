@@ -524,7 +524,7 @@ var/global/list/damage_icon_parts = list()
 		"s_store"		= 'icons/inventory/on_suit/mob.dmi',
 		"backpack"		= 'icons/inventory/back/mob.dmi',
 		"underwear"		= 'icons/inventory/underwear/mob.dmi'
-		)		//Eclipse edit: Tweaked hat slot to use _eclipse to prevent conflicts	//Syzygy edit: Reverts hat slot to use upstream files
+		)
 	return icons[slot]
 
 //contained sprite gender icons
