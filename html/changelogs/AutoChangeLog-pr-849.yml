@@ -1,4 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - bugfix: Hands and feet no longer explode by themselves (and have bone structure)
