@@ -45,40 +45,40 @@
 
 /*		//Eclipse removal - moved inhouse
 /tipsAndTricks/jobs/engies_tribe
-    jobs_list = list(/datum/job/chief_engineer, /datum/job/engineer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "In the ancient times, a group of engineers was called a tribe. That is why some technomancers call you Chief."
 */
 
 /tipsAndTricks/jobs/engies_suppermatter_one
-    jobs_list = list(/datum/job/chief_engineer, /datum/job/engineer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "The Supreme Matter is a fickle mistress, and each Chief Engineer has their own unique setup. No setup is strictly wrong; a poor Engineer would be dead by now, surely..."
 
 /tipsAndTricks/jobs/engies_suppermatter_two
-    jobs_list = list(/datum/job/chief_engineer, /datum/job/engineer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "Venting the Supermatter's overheated coolant may drop temperatures immediately, but without fresh coolant gas the Supermatter will almost surely delaminate."
 
 /tipsAndTricks/jobs/engies_suppermatter_three
-    jobs_list = list(/datum/job/chief_engineer, /datum/job/engineer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "Woe betide the Chief Engineer who jettisons a Supermatter, one of the ancient relics of the grand, lost fleets; for their numbers dwindle, and the artifice of their creation is lost. It is better to hurl oneself after it than live so ashamed."
 
 /tipsAndTricks/jobs/engies_lifekeeper
-    jobs_list = list(/datum/job/chief_engineer, /datum/job/engineer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "You are responsible for keeping these hundred souls alive inside an electrified air canister hurtling through an unholy blackness at speeds that make an Aegis bullet-pusher stare slack-jawed. You will fail. The question is how many bodies are needed to fill the breach, smother the flames, and bind the wires."
 
 /tipsAndTricks/jobs/engies_die_live
-    jobs_list = list(/datum/job/chief_engineer, /datum/job/engineer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "An Engineer shall die so that the ship shall live. It is the one rite all engineers share."
 
 /tipsAndTricks/jobs/engies_tenants
-    jobs_list = list(/datum/job/chief_engineer, /datum/job/engineer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "The relationship between ship captains and engineers is like that between tenants and landlords. One struts around between carpeting and ceiling like they own the place, while the other crawls in the foundation and attic actually giving a damn."
 
 /tipsAndTricks/jobs/engies_glass_fire
-    jobs_list = list(/datum/job/chief_engineer, /datum/job/engineer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "Fire extinguishers are incredibly effective for both braining vermin and stopping flames."
 
 /tipsAndTricks/jobs/engies_firespacesuit
-    jobs_list = list(/datum/job/chief_engineer, /datum/job/engineer)
+    jobs_list = list(/datum/job/chief_engineer, /datum/job/technomancer)
     tipText = "No engineer lives long without learning that firesuits are not space suits. The opposite is sometimes true. Sometimes."
 
 /tipsAndTricks/jobs/tric
@@ -94,7 +94,7 @@
     tipText = "Your PDA has integrated medical scanner."
 
 /tipsAndTricks/jobs/gas_scanner_pda
-    jobs_list = list(/datum/job/cmo, /datum/job/engineer)
+    jobs_list = list(/datum/job/cmo, /datum/job/technomancer)
     tipText = "Your PDA has an integrated gas sensor."
 
 /tipsAndTricks/jobs/carbonPills

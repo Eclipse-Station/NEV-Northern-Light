@@ -97,7 +97,7 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 	var/allowed_jobs = list(/datum/job/captain, /datum/job/rd, /datum/job/hop, /datum/job/cmo, /datum/job/chief_engineer, /datum/job/ihc,
 						/datum/job/gunserg, /datum/job/inspector, /datum/job/medspec, /datum/job/ihoper,
 						/datum/job/doctor, /datum/job/chemist, /datum/job/paramedic, /datum/job/psychiatrist,
-						/datum/job/engineer,
+						/datum/job/technomancer,
 						/datum/job/cargo_tech, /datum/job/mining, /datum/job/merchant,
 						/datum/job/clubworker, /datum/job/clubmanager, /datum/job/actor,
 						/datum/job/chaplain, /datum/job/acolyte, /datum/job/janitor, /datum/job/hydro,
