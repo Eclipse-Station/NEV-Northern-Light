@@ -46,7 +46,7 @@
 	// Small bodymass, more effect from lower volume.
 	M.adjustNutrition(nutriment_factor * (issmall(M) ? effect_multiplier * 2 : effect_multiplier)) // For hunger and fatness
 	M.add_chemical_effect(CE_BLOODRESTORE, 0.1 * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
-	
+
 	apply_sanity_effect(M, effect_multiplier)
 
 /datum/reagent/organic/nutriment/glucose
@@ -1351,9 +1351,9 @@
 	taste_tag = list(TASTE_SWEET, TASTE_BITTER)
 
 /datum/reagent/ethanol/ntcahors
-	name = "NeoTheology Cahors Wine"
+	name = "Children of the Mekhane Cahors Wine"
 	id = "ntcahors"
-	description = "Fortified dessert wine made from cabernet sauvignon, saperavi and other grapes."
+	description = "Fortified dessert wine made from cabernet sauvignon, saperavi and other grapes. They say the Children add a special ingredient to the mix."
 	taste_description = "sweet charcoal"
 	color = "#7E4043" // rgb: 126, 64, 67
 	strength = 30
@@ -1368,6 +1368,24 @@
 	..()
 	M.adjust_hallucination(-0.9 * effect_multiplier)
 	M.adjustToxLoss(-0.5 * effect_multiplier)
+
+/datum/reagent/ethanol/ntcahors/activated
+	name = "Children of the Mekhane Cahors Wine"
+	id = "ntcahors_active"
+	description = "Sweet church wine, that seems to bubble and move around by itself."
+	taste_description = "sweet activated charcoal"
+	color = "#4d292a" // rgb: 77, 41, 42
+	strength = 50 //Oh no
+
+	glass_desc = "It looks like wine, but more dark. The liquid seems to move around by itself."
+
+/datum/reagent/ethanol/ntcahors/activated/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
+	..()
+	M.adjust_hallucination(-0.9 * effect_multiplier)
+	M.adjustToxLoss(-0.5 * effect_multiplier)
+	M.adjustFireLoss(-0.3 * effect_multiplier)
+	M.adjustOxyLoss(-0.3 * effect_multiplier)
+	M.adjustBruteLoss(-0.3 * effect_multiplier)
 
 // Cocktails
 /datum/reagent/ethanol/acid_spit
@@ -1746,7 +1764,7 @@
 	glass_desc = "The surprise is, it's green!"
 	glass_center_of_mass = list("x"=16, "y"=9)
 	taste_tag = list(TASTE_SWEET)
-	
+
 
 /datum/reagent/ethanol/gargle_blaster
 	name = "Pan-Galactic Gargle Blaster"
@@ -2073,7 +2091,7 @@
 	glass_desc = "A spicy mix of Vodka and Spice. Very hot."
 	glass_center_of_mass = list("x"=17, "y"=8)
 	taste_tag = list(TASTE_SPICY,TASTE_SLIMEY)
-	
+
 /datum/reagent/ethanol/screwdrivercocktail
 	name = "Screwdriver"
 	id = "screwdrivercocktail"
