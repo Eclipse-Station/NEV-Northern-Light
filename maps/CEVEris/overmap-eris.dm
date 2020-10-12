@@ -45,7 +45,11 @@
 
 /obj/effect/overmap/ship/eris/Initialize()
 	.=..()
+<<<<<<< HEAD
 	if(name == "CEV Eris")
+=======
+	if(name == "NEV Northern Light")	//Syzygy edit - to make this work with our ship name
+>>>>>>> 21f0118... Merge pull request #188 from Michiyamenotehifunana/YetAnotherUpstreamUpdate
 		ships[eris] = src
 
 /obj/machinery/computer/shuttle_control/explore/exploration_shuttle

@@ -16,7 +16,11 @@
 	)
 
 	access = list(
+<<<<<<< HEAD
 		access_RC_announce, access_keycard_auth, access_heads, access_sec_doors
+=======
+		access_RC_announce, access_keycard_auth, access_heads, access_sec_doors, access_morgue, access_chapel_office, access_crematorium, access_hydroponics, access_janitor, access_maint_tunnels, access_change_nt	//SYZYGY EDIT - transcribes preacher cruciform access onto their ID
+>>>>>>> 21f0118... Merge pull request #188 from Michiyamenotehifunana/YetAnotherUpstreamUpdate
 	)
 
 	wage = WAGE_PROFESSIONAL //The church has deep pockets
