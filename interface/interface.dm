@@ -111,6 +111,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tPGUP = swap-hand
 \tPGDN = activate held object
 \tEND = throw
+\tm = multiline input menu for emotes
 </font>"}
 
 	var/robot_hotkey_mode = {"<font color='purple'>

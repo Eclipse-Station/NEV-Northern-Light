@@ -59,7 +59,7 @@
 #define WAIT_FINISH  4
 
 // Setting this much higher than 1024 could allow spammers to DOS the server easily.
-#define MAX_MESSAGE_LEN       1024
+#define MAX_MESSAGE_LEN       2048		//Syzygy edit: What's the WORST that could happen? - Inspired by Citadel's edit
 #define MAX_PAPER_MESSAGE_LEN 3072
 #define MAX_BOOK_MESSAGE_LEN  9216
 #define MAX_LNAME_LEN         64

@@ -12,7 +12,7 @@
 
 	set_typing_indicator(TRUE)
 	hud_typing = TRUE
-	var/message = input("", "say (text)") as text
+	var/message = input("", "say (text)") as text|null	//SYZYGY EDIT - So you can click cancel right away.
 	hud_typing = FALSE
 	set_typing_indicator(FALSE)
 	if(message)
@@ -35,7 +35,7 @@
 
 	set_typing_indicator(TRUE)
 	hud_typing = TRUE
-	var/message = input("", "me (text)") as text
+	var/message = input("", "me (text)") as text|null	//SYZYGY EDIT - So you can click cancel right away.
 	hud_typing = FALSE
 	set_typing_indicator(FALSE)
 	if(message)
@@ -160,7 +160,7 @@
 //returns the language object only if the code corresponds to a language that src can speak, otherwise null.
 /mob/proc/parse_language(message)
 	var/prefix = copytext(message, 1, 2)
-	
+
 	if(length(message) >= 1 && prefix == get_prefix_key(/decl/prefix/audible_emote))
 		return all_languages["Noise"]
 
