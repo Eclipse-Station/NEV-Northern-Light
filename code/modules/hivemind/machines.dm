@@ -447,11 +447,26 @@
 	cooldown_time = 25 SECONDS  //shorter cooldown
 	spawn_weight  =	50 //more common than earlier
 	var/mob_to_spawn
+<<<<<<< HEAD
 	var/mob_amount = 4
 
 /obj/spawner/mob/assembled
 	name = "random hivemob"
 	tags_to_spawn = list(SPAWN_MOB_HIVEMIND)
+=======
+	var/mob_amount = 3
+/* Syz change, porting a post Pr from when this stuff was added, placing it here for consistancy
+/obj/spawner/mob/assembled
+	name = "random hivemob"
+	tags_to_spawn = list(SPAWN_MOB_HIVEMIND)
+
+/obj/machinery/hivemind_machine/mob_spawner/Initialize()
+	..()
+	mob_to_spawn = /obj/spawner/mob/assembled //randomly chooses a mob from the list when spawning, instead of choosing a single mob and spawning only that one.
+	//TL;DR - Assembler can now spawn multiple types of mobs
+*/
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/machinery/hivemind_machine/mob_spawner/Initialize()
 	..()

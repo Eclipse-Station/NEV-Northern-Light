@@ -16,7 +16,11 @@
 	spawn_blacklisted = TRUE
 	spawn_tags = SPAWN_TAG_ODDITY
 	rarity_value = 10
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/oddity
+=======
+	bad_type = /obj/item/weapon/oddity
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 //You choose what stat can be increased, and a maximum value that will be added to this stat
 //The minimum is defined above. The value of change will be decided by random
@@ -47,7 +51,11 @@
 
 //Common - you can find those everywhere
 /obj/item/weapon/oddity/common
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/oddity/common
+=======
+	bad_type = /obj/item/weapon/oddity/common
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_blacklisted = FALSE
 
 /obj/item/weapon/oddity/common/blueprint
@@ -68,6 +76,7 @@
 		STAT_ROB = 5,
 		STAT_TGH = 5,
 	)
+	rarity_value = 18
 
 /obj/item/weapon/oddity/common/photo_landscape
 	name = "alien landscape photo"
@@ -77,6 +86,7 @@
 		STAT_COG = 5,
 		STAT_TGH = 5,
 	)
+	rarity_value = 18
 
 /obj/item/weapon/oddity/common/photo_coridor
 	name = "surreal maint photo"
@@ -96,7 +106,11 @@
 		STAT_TGH = 6,
 		STAT_VIG = 6,
 	)
+<<<<<<< HEAD
 	rarity_value = 18
+=======
+	rarity_value = 23
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/oddity/common/old_newspaper
 	name = "old newspaper"
@@ -107,6 +121,7 @@
 		STAT_COG = 4,
 		STAT_BIO = 4,
 	)
+	rarity_value = 18
 
 /obj/item/weapon/oddity/common/paper_crumpled
 	name = "torn-out page"
@@ -117,7 +132,11 @@
 		STAT_COG = 6,
 		STAT_BIO = 6,
 	)
+<<<<<<< HEAD
 	rarity_value = 18
+=======
+	rarity_value = 23
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/oddity/common/paper_omega
 	name = "collection of obscure reports"
@@ -160,6 +179,7 @@
 		STAT_ROB = 5,
 		STAT_VIG = 5,
 	)
+	rarity_value = 18
 
 /obj/item/weapon/oddity/common/old_money
 	name = "old money"
@@ -169,7 +189,11 @@
 		STAT_ROB = 4,
 		STAT_TGH = 4,
 	)
+<<<<<<< HEAD
 	rarity_value = 8
+=======
+	rarity_value = 18
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/oddity/common/healthscanner
 	name = "odd health scanner"
@@ -180,7 +204,11 @@
 		STAT_COG = 8,
 		STAT_BIO = 8,
 	)
+<<<<<<< HEAD
 	rarity_value = 23
+=======
+	rarity_value = 18
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/oddity/common/old_pda
 	name = "broken pda"
@@ -191,7 +219,11 @@
 		STAT_COG = 6,
 		STAT_MEC = 6,
 	)
+<<<<<<< HEAD
 	rarity_value = 15
+=======
+	rarity_value = 18
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/oddity/common/towel
 	name = "trustworthy towel"
@@ -241,6 +273,7 @@
 	oddity_stats = list(
 		STAT_VIG = 9,
 	)
+	rarity_value = 23
 
 /obj/item/weapon/oddity/common/old_radio
 	name = "old radio"

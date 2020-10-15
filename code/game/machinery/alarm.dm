@@ -54,7 +54,7 @@
 	var/other_dangerlevel = 0
 
 	var/report_danger_level = 1
-	
+
 	// Eclipse added vars
 	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
 	var/last_sound_time = 0			//When did the audible last fire?

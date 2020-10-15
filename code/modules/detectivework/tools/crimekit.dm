@@ -6,8 +6,13 @@
 	icon_state = "case"
 	item_state = "case"
 	storage_slots = 14
+<<<<<<< HEAD
 	price_tag = 50
 	rarity_value = 20
+=======
+	price_tag = 500
+	rarity_value  = 20
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_frequency = 10
 	spawn_blacklisted = FALSE
 	spawn_tags = SPAWN_TAG_BOX//CUIDADO

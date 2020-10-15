@@ -23,6 +23,10 @@
 	var/list/req_component_names = null
 	var/state = STATE_NONE
 	frame_type = FRAME_DEFAULT
+	spawn_frequency = 10 //as /obj/structure/computerframe
+	rarity_value = 10
+	spawn_tags = SPAWN_TAG_CONSTRUCTABLE_FRAME
+	bad_type = /obj/machinery/constructable_frame
 
 /obj/machinery/constructable_frame/machine_frame/examine(mob/user)
 	. = ..()
@@ -228,7 +232,11 @@
 	icon_state = "v2box_0"
 	base_state = "v2box"
 	frame_type = FRAME_VERTICAL
+<<<<<<< HEAD
 	bad_types = /obj/machinery/constructable_frame/machine_frame/vertical
+=======
+	bad_type = /obj/machinery/constructable_frame/machine_frame/vertical
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/machinery/constructable_frame/machine_frame/vertical/New()
 	..()

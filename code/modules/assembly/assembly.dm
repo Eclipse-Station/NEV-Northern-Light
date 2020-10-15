@@ -11,7 +11,11 @@
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 1)
 
+<<<<<<< HEAD
 	bad_types = /obj/item/device/assembly
+=======
+	bad_type = /obj/item/device/assembly
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_ASSEMBLY
 

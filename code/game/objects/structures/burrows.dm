@@ -146,7 +146,7 @@
 	//Creatures only. No humans or robots
 	if (!isanimal(L) && !issuperioranimal(L))
 		return FALSE
-	
+
 	//Kaisers are too fat, they can't fit in
 	if(istype(L, /mob/living/carbon/superior_animal/roach/kaiser))
 		return FALSE

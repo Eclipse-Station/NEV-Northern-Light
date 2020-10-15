@@ -373,7 +373,11 @@
 	name = "syringe (spaceacillin)"
 	desc = "Contains spaceacillin - an antibacterial agent."
 	preloaded_reagents = list("spaceacillin" = 15)
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_MEDICINE
+=======
+	spawn_tags = SPAWN_TAG_MEDICINE_COMMON
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 20
 
 /obj/item/weapon/reagent_containers/syringe/hyperzine

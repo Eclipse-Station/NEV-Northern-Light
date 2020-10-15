@@ -128,6 +128,7 @@
 	force = WEAPON_FORCE_ROBUST
 	armor_penetration = ARMOR_PEN_DEEP
 
+
 	throwforce = WEAPON_FORCE_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'

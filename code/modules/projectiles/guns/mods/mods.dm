@@ -4,6 +4,7 @@
 	price_tag = 100
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_GUN_UPGRADE
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun_upgrade
 
 /obj/item/weapon/gun_upgrade/barrel
@@ -11,6 +12,15 @@
 
 /obj/item/weapon/gun_upgrade/muzzle
 	bad_types = /obj/item/weapon/gun_upgrade/muzzle
+=======
+	bad_type = /obj/item/weapon/gun_upgrade
+
+/obj/item/weapon/gun_upgrade/barrel
+	bad_type = /obj/item/weapon/gun_upgrade/barrel
+
+/obj/item/weapon/gun_upgrade/muzzle
+	bad_type = /obj/item/weapon/gun_upgrade/muzzle
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 //Silences the weapon, reduces damage multiplier slightly, Legacy port.
 /obj/item/weapon/gun_upgrade/muzzle/silencer
@@ -96,7 +106,11 @@
 	desc = "It's time for us to shine."
 	icon_state = "Excruciator"
 	rarity_value = 50
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /obj/item/weapon/gun_upgrade/barrel/excruciator/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
@@ -108,7 +122,11 @@
 	I.req_gun_tags = list(GUN_ENERGY)
 
 /obj/item/weapon/gun_upgrade/trigger
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun_upgrade/trigger
+=======
+	bad_type = /obj/item/weapon/gun_upgrade/trigger
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 //Disables the ability to toggle the safety, toggles the safety permanently off, decreases fire delay. Acquired through loot spawns
 /obj/item/weapon/gun_upgrade/trigger/dangerzone
@@ -116,7 +134,10 @@
 	desc = "When you need that extra edge."
 	icon_state = "Danger_Zone"
 	rarity_value = 15
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/gun_upgrade/trigger/dangerzone/New()
 	..()
@@ -144,7 +165,11 @@
 	I.gun_loc_tag = GUN_TRIGGER
 
 /obj/item/weapon/gun_upgrade/mechanism
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun_upgrade/mechanism
+=======
+	bad_type = /obj/item/weapon/gun_upgrade/mechanism
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 //Adds +3 to the internal magazine of a weapon. Acquired through loot spawns.
 /obj/item/weapon/gun_upgrade/mechanism/overshooter
@@ -214,7 +239,11 @@
 	I.gun_loc_tag = GUN_MECHANISM
 
 /obj/item/weapon/gun_upgrade/underbarrel
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun_upgrade/underbarrel
+=======
+	bad_type = /obj/item/weapon/gun_upgrade/underbarrel
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/storage/box/gun_upgrades
 	name = "Big box of gun fun"
@@ -370,7 +399,11 @@
 	I.req_gun_tags = list(GUN_ENERGY)
 
 /obj/item/weapon/gun_upgrade/scope
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun_upgrade/scope
+=======
+	bad_type = /obj/item/weapon/gun_upgrade/scope
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/gun_upgrade/scope/watchman
 	name = "Frozen Star \"Watchman\" scope"

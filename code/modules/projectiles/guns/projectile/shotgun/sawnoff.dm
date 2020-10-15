@@ -13,4 +13,8 @@
 	damage_multiplier = 0.8 //slightly weaker due to sawn-off barrels
 	recoil_buildup = 1.2 //gonna have solid grip on those, point-blank shots adviced
 	one_hand_penalty = 10 //compact shotgun level
+<<<<<<< HEAD
 	rarity_value = 24
+=======
+	rarity_value = 24
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

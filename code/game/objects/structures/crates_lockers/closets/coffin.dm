@@ -7,7 +7,11 @@
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_COFFIN_CLOSET
+<<<<<<< HEAD
 	bad_types = /obj/structure/closet/coffin
+=======
+	bad_type = /obj/structure/closet/coffin
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/mob/living/occupant = null
 
 /obj/structure/closet/coffin/close(mob/living/user)

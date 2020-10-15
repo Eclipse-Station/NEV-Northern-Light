@@ -24,10 +24,10 @@
 	selectable = 1
 	toggleable = 0
 	disruptive = 0
-
-
 	var/device_type
 	var/obj/item/device
+	rarity_value = 2.5
+	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
 
 /obj/item/rig_module/device/healthscanner
 	name = "health scanner module"
@@ -194,7 +194,6 @@
 	return 1
 
 /obj/item/rig_module/chem_dispenser/engage(atom/target)
-
 	if(!..())
 		return 0
 

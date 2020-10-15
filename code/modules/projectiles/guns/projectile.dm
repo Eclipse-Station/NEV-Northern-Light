@@ -13,7 +13,11 @@
 	w_class = ITEM_SIZE_NORMAL
 	matter = list(MATERIAL_STEEL = 1)
 	recoil_buildup = 1
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun/projectile
+=======
+	bad_type = /obj/item/weapon/gun/projectile
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_GUN_PROJECTILE
 
 	var/caliber = CAL_357		//determines which casings will fit
@@ -33,8 +37,13 @@
 	var/list/loaded = list()	//stored ammo
 
 	//For MAGAZINE guns
+<<<<<<< HEAD
 	var/magazine_type		//the type of magazine that the gun comes preloaded with
 	var/obj/item/ammo_magazine/ammo_magazine	 //stored magazine
+=======
+	var/magazine_type	//the type of magazine that the gun comes preloaded with
+	var/obj/item/ammo_magazine/ammo_magazine //stored magazine
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/mag_well = MAG_WELL_GENERIC	//What kind of magazines the gun can load
 	var/auto_eject = FALSE			//if the magazine should automatically eject itself when empty.
 	var/auto_eject_sound

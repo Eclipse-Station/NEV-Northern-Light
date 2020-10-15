@@ -15,8 +15,12 @@
 	w_class = ITEM_SIZE_SMALL
 
 	//spawn values
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/tool
 	spawn_tags = SPAWN_TAG_TOOL
+=======
+	bad_type = /obj/item/weapon/tool
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	var/tool_in_use = FALSE
 

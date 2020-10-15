@@ -44,4 +44,8 @@
 /obj/spawner/gun/shotgun/low_chance
 	name = "low chance random shotgun"
 	icon_state = "gun-red-low"
+<<<<<<< HEAD
 	spawn_nothing_percentage = 75
+=======
+	spawn_nothing_percentage = 75
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

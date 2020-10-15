@@ -271,6 +271,8 @@
 	icon_state = "detflask"
 	volume = 60
 	center_of_mass = list("x"=17, "y"=8)
+	spawn_tags = SPAWN_TAG_JUNK
+	rarity_value = 20
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/barflask
 	name = "flask"

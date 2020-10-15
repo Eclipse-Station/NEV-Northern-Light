@@ -5,7 +5,10 @@
 
 // Items that ask to be called every cycle.
 var/global/datum/datacore/data_core
+<<<<<<< HEAD
 var/global/datum/DB_search/db_search = new()
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 var/global/list/all_areas                = list()
 var/global/list/ship_areas               = list()
 
@@ -30,9 +33,15 @@ var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 
 
 var/runtime_diary
+<<<<<<< HEAD
 var/diary              
 var/world_qdel_log
 var/href_logfile       
+=======
+var/diary
+var/world_qdel_log
+var/href_logfile
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 var/station_name        = "NEV Northern Light"
 var/station_short       = "Northern Light"
 var/const/dock_name     = "N.A.S. Crescent"
@@ -47,7 +56,11 @@ var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 300)
 var/round_progressing = 1
 var/master_storyteller       = "shitgenerator"
 
+<<<<<<< HEAD
 var/host	//only here until check @ code\modules\ghosttrap\trap.dm:112 is fixed
+=======
+var/host//only here until check @ code\modules\ghosttrap\trap.dm:112 is fixed
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 var/list/bombers       = list()
 var/list/admin_log     = list()

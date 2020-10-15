@@ -208,7 +208,6 @@
 	ammo_type = /obj/item/ammo_casing/lrifle/rubber
 
 //// .60 ////
-
 /obj/item/ammo_magazine/ammobox/antim
 	name = "ammunition box (.60 Anti Material)"
 	icon_state = "antim"

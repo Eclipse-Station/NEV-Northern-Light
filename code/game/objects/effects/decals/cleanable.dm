@@ -2,7 +2,11 @@
 	layer = ABOVE_NORMAL_TURF_LAYER
 	var/list/random_icon_states = list()
 	random_rotation = 1
+<<<<<<< HEAD
 	bad_types = /obj/effect/decal/cleanable
+=======
+	bad_type = /obj/effect/decal/cleanable
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 5.5
 	spawn_tags = SPAWN_TAG_CLEANABLE
 

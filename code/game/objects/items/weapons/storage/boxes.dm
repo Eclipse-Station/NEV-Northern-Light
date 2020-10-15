@@ -31,7 +31,11 @@
 	var/illustration = "writing"
 	contained_sprite = TRUE
 	health = 20
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/storage/box
+=======
+	bad_type = /obj/item/weapon/storage/box
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_blacklisted = FALSE
 	spawn_tags = SPAWN_TAG_BOX
 	rarity_value = 20
@@ -303,6 +307,7 @@
 	name = "box of smoke bombs"
 	desc = "A box containing 5 smoke bombs."
 	illustration = "flashbang"
+	rarity_value = 40
 
 /obj/item/weapon/storage/box/smokes/populate_contents()
 	for(var/i in 1 to 5)
@@ -373,7 +378,11 @@
 /obj/item/weapon/storage/box/drinkingglasses
 	name = "box of drinking glasses"
 	desc = "It has a picture of drinking glasses on it."
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	rarity_value = 50
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/storage/box/drinkingglasses/populate_contents()
 	for(var/i in 1 to 6)
@@ -505,7 +514,10 @@
 	item_state = "zippo"
 	illustration = null
 	w_class = ITEM_SIZE_TINY
+<<<<<<< HEAD
 	slot_flags = SLOT_BELT
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 5
 	spawn_tags = SPAWN_TAG_BOX_TAG_JUNK
 
@@ -561,7 +573,10 @@
 	illustration = "lightmixed"
 	spawn_tags = SPAWN_TAG_BOX_TAG_JUNK
 	rarity_value = 6.66
+<<<<<<< HEAD
 	
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/storage/box/lights/mixed/populate_contents()
 	for(var/i in 1 to 14)

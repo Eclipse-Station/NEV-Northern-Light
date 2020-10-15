@@ -146,7 +146,11 @@
 
 /obj/item/weapon/electronics/circuitboard/shuttle
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/electronics/circuitboard/shuttle
+=======
+	bad_type = /obj/item/weapon/electronics/circuitboard/shuttle
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/electronics/circuitboard/shuttle/mining
 	name = T_BOARD("mining shuttle console")

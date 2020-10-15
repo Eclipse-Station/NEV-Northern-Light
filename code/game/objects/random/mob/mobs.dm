@@ -9,4 +9,8 @@
 	name = "cluster of random mob"
 	icon_state = "hostilemob-red-cluster"
 	min_amount = 3
+<<<<<<< HEAD
 	max_amount = 6
+=======
+	max_amount = 6
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

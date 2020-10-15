@@ -5,7 +5,11 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	w_class = ITEM_SIZE_SMALL
 	rarity_value = 10
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/stock_parts
+=======
+	bad_type = /obj/item/weapon/stock_parts
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_STOCK_PARTS
 	var/rating = 1
 
@@ -89,7 +93,11 @@
 	origin_tech = list(TECH_MATERIAL = 3, TECH_DATA = 2)
 	rating = 2
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
+<<<<<<< HEAD
 	rarity_value = 30
+=======
+	rarity_value = 50
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_STOCK_PARTS_TIER_2
 
 /obj/item/weapon/stock_parts/micro_laser/high
@@ -99,7 +107,11 @@
 	origin_tech = list(TECH_MAGNET = 3)
 	rating = 2
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 1)
+<<<<<<< HEAD
 	rarity_value = 30
+=======
+	rarity_value = 50
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_STOCK_PARTS_TIER_2
 
 /obj/item/weapon/stock_parts/matter_bin/adv
@@ -178,7 +190,10 @@
 	rating = 4
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/stock_parts/manipulator/excelsior
 	name = "excelsior manipulator"
@@ -263,7 +278,10 @@
 	spawn_blacklisted = TRUE
 	rarity_value = 40
 	spawn_tags = SPAWN_TAG_STOCK_PARTS_OS
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 //alien stock parts (rating 6)
 
@@ -311,11 +329,19 @@
 	rating = 6
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1)
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
+=======
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 // Subspace stock parts
 /obj/item/weapon/stock_parts/subspace
 	rarity_value = 7.14
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/stock_parts/subspace
+=======
+	bad_type = /obj/item/weapon/stock_parts/subspace
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/stock_parts/subspace/ansible
 	name = "subspace ansible"

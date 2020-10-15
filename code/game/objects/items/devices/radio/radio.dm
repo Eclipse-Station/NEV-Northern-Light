@@ -73,6 +73,14 @@ var/global/list/default_medbay_channels = list(
 	if(syndie)
 		internal_channels += unique_internal_channels.Copy()
 	add_hearing()
+<<<<<<< HEAD
+=======
+
+	//eclipse addition
+	if(audible_squelch_enabled)		//if it's disabled, should stay as null.ogg. Prevents it from playing squelch in the event another if-check fails.
+		audible_squelch_type = pick(all_radio_squelch_sounds)		//radios get a semi-unique radio squelch sound. granted, there's four sounds total, but if one radio receives it should maintain the same squelch sound all the time.
+	//of course, this isn't realistic at all since each radio plays the same squelch when it receives different radios (not the other way around), but it should break the monotony.
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/device/radio/Destroy()
 	remove_hearing()
@@ -772,6 +780,8 @@ var/global/list/default_medbay_channels = list(
 	item_state = "random_radio"
 	slot_flags = FALSE
 	canhear_range = 4
+	spawn_frequency = 0
+	spawn_blacklisted = TRUE
 	var/random_hear = 20
 	channels = list("Command" = 1, "Security" = 1, "Engineering" = 1, "NT Voice" = 1, "Science" = 1, "Medical" = 1, "Supply" = 1, "Service" = 1, "AI Private" = 1)
 	price_tag = 20000

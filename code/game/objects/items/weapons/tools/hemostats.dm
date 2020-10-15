@@ -7,4 +7,8 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
 	tool_qualities = list(QUALITY_CLAMPING = 30)
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_SURGERY_TOOL
+=======
+	spawn_tags = SPAWN_TAG_SURGERY_TOOL
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

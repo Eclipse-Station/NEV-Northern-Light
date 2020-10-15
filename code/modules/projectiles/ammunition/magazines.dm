@@ -57,7 +57,11 @@
 /obj/item/ammo_magazine/hpistol/empty
 	icon_state = "hpistol"
 	initial_ammo = 0
+<<<<<<< HEAD
 	spawn_frequency = 5
+=======
+	rarity_value = 5
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/ammo_magazine/hpistol/practice
 	name = "highcap magazine (.35 Auto practice)"
@@ -96,13 +100,18 @@
 	icon_state = "smg"
 	ammo_color = ""
 	initial_ammo = 0
+<<<<<<< HEAD
 	spawn_frequency = 5
+=======
+	rarity_value = 5
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/ammo_magazine/smg/practice
 	name = "smg magazine (.35 Auto practice)"
 	icon_state = "smg_p"
 	ammo_color = "-p"
 	ammo_type = /obj/item/ammo_casing/pistol/practice
+	rarity_value = 5
 
 /obj/item/ammo_magazine/smg/hv
 	name = "smg magazine (.35 Auto high-velocity)"
@@ -212,7 +221,11 @@
 	icon_state = "srifle"
 	matter = list(MATERIAL_STEEL = 3)
 	initial_ammo = 0
+<<<<<<< HEAD
 	spawn_frequency = 5
+=======
+	rarity_value = 5
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/ammo_magazine/srifle/practice
 	name = "magazine (.20 Rifle practice)"

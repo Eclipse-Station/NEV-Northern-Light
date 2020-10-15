@@ -2,7 +2,10 @@
 	name = "implanter (S)"
 	implant = /obj/item/weapon/implant/spying
 	spawn_tags = null
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/implant/spying
 	name = "spying implant"

@@ -6,11 +6,19 @@
 	light_color = COLOR_LIGHTING_SCI_BRIGHT
 	req_one_access = list(access_security)
 	circuit = /obj/item/weapon/electronics/circuitboard/secure_data
+<<<<<<< HEAD
 	var/obj/item/weapon/card/id/scan
 	var/authenticated
 	var/rank
 	var/screen
 	var/datum/data/record/active1 
+=======
+	var/obj/item/weapon/card/id/scan = null
+	var/authenticated
+	var/rank
+	var/screen
+	var/datum/data/record/active1
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/datum/data/record/active2
 	var/a_id
 	var/temp

@@ -1234,7 +1234,11 @@ var/list/FLOORITEMS = list(
 /proc/crash_with(msg)
 	CRASH(msg)
 
+<<<<<<< HEAD
 /proc/CheckFace(atom/Obj1, atom/Obj2)
+=======
+/proc/CheckFace(atom/Obj1,atom/Obj2)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/CurrentDir = get_dir(Obj1, Obj2)
 	//if ((Obj1.loc == Obj2.loc) || (CurrentDir == Obj1.dir) || (CurrentDir == turn(Obj1.dir, 45)) || (CurrentDir == turn(Obj1.dir, -45)))
 	if((CurrentDir & Obj1.dir) || (CurrentDir == 0))

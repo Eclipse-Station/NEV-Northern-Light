@@ -16,8 +16,13 @@
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL|MAG_WELL_H_PISTOL
 	magazine_type = /obj/item/ammo_magazine/pistol
+<<<<<<< HEAD
 	gun_tags = list(GUN_SILENCABLE)
 	damage_multiplier = 1
+=======
+	gun_tags = list(GUN_PROJECTILE, GUN_SILENCABLE, GUN_CALIBRE_35)
+	damage_multiplier = 0.7
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	recoil_buildup = 19
 
 	init_firemodes = list(

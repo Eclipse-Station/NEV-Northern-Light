@@ -19,7 +19,11 @@
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_TOOLBOX
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/storage/toolbox
+=======
+	bad_type = /obj/item/weapon/storage/toolbox
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/storage/toolbox/emergency
 	name = "emergency toolbox"

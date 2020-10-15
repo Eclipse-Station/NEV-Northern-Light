@@ -11,7 +11,10 @@
 	action_button_name = "Toggle Magboots"
 	siemens_coefficient = 0 // DAMN BOI
 	//This armor only applies to legs
+<<<<<<< HEAD
 	style = 0
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/shoes/magboots/proc/set_slowdown()

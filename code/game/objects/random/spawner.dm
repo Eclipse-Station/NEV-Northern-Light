@@ -6,7 +6,11 @@
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_SPAWNER
+<<<<<<< HEAD
 	bad_types = /obj/spawner
+=======
+	bad_type = /obj/spawner
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/spawn_nothing_percentage = 0 // this variable determines the likelyhood that this random object will not spawn anything
 	var/min_amount = 1
 	var/max_amount = 1
@@ -48,8 +52,11 @@
 	return candidates
 
 /obj/spawner/proc/pick_spawn(list/candidates)
+<<<<<<< HEAD
 	candidates = lsd.pick_frequencies_spawn(candidates)
 	candidates = lsd.pick_rarities_spawn(candidates)
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/selected = lsd.pick_spawn(candidates)
 	aditional_object = lsd.all_spawn_accompanying_obj_by_path[selected]
 	return selected
@@ -99,22 +106,38 @@
 					price_tag += AMAO.price_tag
 	return spawns
 
+<<<<<<< HEAD
 /obj/randomcatcher
+=======
+/obj/spawnercatcher
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	name = "Random Catcher Object"
 	desc = "You should not see this."
 	icon = 'icons/misc/mark.dmi'
 	icon_state = "rup"
 
+<<<<<<< HEAD
 /obj/randomcatcher/proc/get_item(type)
+=======
+/obj/spawnercatcher/proc/get_item(type)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	new type(src)
 	if (contents.len)
 		. = pick(contents)
 	else
 		return null
 
+<<<<<<< HEAD
 /obj/randomcatcher/proc/get_items(type)
+=======
+/obj/spawnercatcher/proc/get_items(type)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	new type(src)
 	if (contents.len)
 		return contents
 	else
+<<<<<<< HEAD
 		return null
+=======
+		return null
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

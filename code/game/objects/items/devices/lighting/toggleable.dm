@@ -39,4 +39,8 @@
 	item_state = ""
 	brightness_on = 2
 	w_class = ITEM_SIZE_TINY
+<<<<<<< HEAD
 	spawn_blacklisted = TRUE
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

@@ -14,9 +14,14 @@
 	w_class = ITEM_SIZE_NORMAL
 	price_tag = 100
 	spawn_tags = SPAWN_TAG_CLOTHING_HEAD_HELMET
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/head/armor
 	rarity_value = 10
 	style = 0
+=======
+	bad_type = /obj/item/clothing/head/armor
+	rarity_value = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /*
  * Helmets

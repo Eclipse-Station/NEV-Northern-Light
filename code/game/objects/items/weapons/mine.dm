@@ -83,7 +83,7 @@
 
 /obj/item/weapon/mine/attackby(obj/item/I, mob/user)
 	if(QUALITY_PULSING in I.tool_qualities)
-		
+
 		if (deployed)
 			user.visible_message(
 			SPAN_DANGER("[user] starts to carefully disarm \the [src]."),

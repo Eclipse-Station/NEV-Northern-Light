@@ -25,10 +25,17 @@
 	var/charges = 0
 	var/mode
 	var/menu
+<<<<<<< HEAD
 	var/datum/data/record/active1 //General
 	var/datum/data/record/active2 //Medical
 	var/datum/data/record/active3 //Security
 	var/selected_sensor // Power Sensor
+=======
+	var/datum/data/record/active1//General
+	var/datum/data/record/active2//Medical
+	var/datum/data/record/active3//Security
+	var/selected_sensor// Power Sensor
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/message1	// used for status_displays
 	var/message2
 	var/list/stored_data = list()

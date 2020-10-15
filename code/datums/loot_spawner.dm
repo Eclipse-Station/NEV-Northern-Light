@@ -1,4 +1,5 @@
 /datum/loot_spawner_data
+<<<<<<< HEAD
 	var/list/all_spawn_bad_paths = list()
 	var/list/all_spawn_blacklist = list()
 	//var/list/all_spawn_by_price = list()
@@ -8,6 +9,18 @@
 	//var/list/all_spawn_by_rarity = list()
 	var/list/all_spawn_rarity_by_path = list()
 	var/list/all_spawn_by_tag = list()
+=======
+	//var/list/all_spawn_bad_paths = list()
+	var/list/all_spawn_blacklist = list()//soft
+	//var/list/all_spawn_by_price = list()
+	var/list/all_price_by_path = list()
+	//var/list/all_spawn_by_frequency = list()
+	//var/list/all_spawn_frequency_by_path = list()
+	//var/list/all_spawn_by_rarity = list()
+	//var/list/all_spawn_rarity_by_path = list()
+	var/list/all_spawn_by_tag = list()
+	var/list/all_spawn_by_spawn_value = list()
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/list/all_spawn_accompanying_obj_by_path = list()
 
 /datum/loot_spawner_data/New()
@@ -18,9 +31,15 @@
 	var/rarity
 	var/frequency
 	var/blacklisted
+<<<<<<< HEAD
 	var/list/spawn_tags = list()
 	var/list/accompanying_objs = list()
 	var/list/bad_paths = list()
+=======
+	var/list/bad_paths = list()
+	var/list/spawn_tags = list()
+	var/list/accompanying_objs = list()
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	//Initialise all paths
 	paths = subtypesof(/obj/item) - typesof(/obj/item/projectile)
@@ -32,6 +51,7 @@
 
 	for(var/path in paths)
 		var/atom/movable/A = path
+<<<<<<< HEAD
 
 		bad_paths = initial(A.bad_types)
 		if(istext(bad_paths))
@@ -55,12 +75,21 @@
 
 		frequency = initial(A.spawn_frequency)
 		if(!frequency || frequency <= 0)
+=======
+		var/bad_path = initial(A.bad_type)
+		if(!(bad_path in bad_paths))
+			ASSERT(ispath(bad_path) || !bad_path)
+			bad_paths += list(bad_path)
+
+		if(path in bad_paths)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 			continue
 
 		spawn_tags = splittext(initial(A.spawn_tags), ",")
 
 		if(!spawn_tags.len)
 			continue
+<<<<<<< HEAD
 		//tags
 		for(var/tag in spawn_tags)
 			all_spawn_by_tag[tag] += list(path)
@@ -78,6 +107,30 @@
 		rarity = initial(A.rarity_value)
 		//all_spawn_by_rarity["[rarity]"] += list(path)
 		all_spawn_rarity_by_path[path] = rarity
+=======
+		//tags//
+		for(var/tag in spawn_tags)
+			all_spawn_by_tag[tag] += list(path)
+
+		//price//
+		price = initial(A.price_tag)
+		//all_spawn_by_price["[price]"] += list(path)
+		all_price_by_path[path] = price
+
+		//frequency
+		frequency = initial(A.spawn_frequency)
+		//all_spawn_by_frequency["[frequency]"] += list(path)
+		//all_spawn_frequency_by_path[path] = frequency
+
+		//rarity//
+		rarity = initial(A.rarity_value)
+		ASSERT(rarity >= 1)
+		//all_spawn_by_rarity["[rarity]"] += list(path)
+		//all_spawn_rarity_by_path[path] = rarity
+
+		//spawn_value//
+		all_spawn_by_spawn_value[path] = 10 * frequency/rarity
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 		//blacklisted//
 		blacklisted = initial(A.spawn_blacklisted)
@@ -111,8 +164,11 @@
 
 /datum/loot_spawner_data/proc/spawn_by_tag(list/tags)
 	var/list/things = list()
+<<<<<<< HEAD
 	if(!islist(tags))
 		return things
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	for(var/tag in tags)
 		if(all_spawn_by_tag["[tag]"] in things)
 			continue
@@ -124,7 +180,11 @@
 	//	return
 	var/list/things = list()
 	for(var/path in paths)
+<<<<<<< HEAD
 		if(all_spawn_price_by_path[path] < price)
+=======
+		if(all_price_by_path[path] < price)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 			things += path
 	return things
 
@@ -133,6 +193,7 @@
 	//	return
 	var/list/things = list()
 	for(var/path in paths)
+<<<<<<< HEAD
 		if(all_spawn_price_by_path[path] > price)
 			things += path
 	return things
@@ -166,6 +227,9 @@
 	things = list()
 	for(var/path in paths)
 		if(all_spawn_rarity_by_path[path] <= rarity)
+=======
+		if(all_price_by_path[path] > price)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 			things += path
 	return things
 
@@ -173,6 +237,7 @@
 	//if(!paths || !paths.len) //NOPE
 		//return
 	var/list/things = list()
+<<<<<<< HEAD
 	for(var/path in paths)
 		var/frequency_path = all_spawn_frequency_by_path[path]
 		if(!frequency_path)
@@ -201,3 +266,17 @@
 			things += path
 	var/path_selected = pick(things)
 	return path_selected
+=======
+	var/list/values = list()
+	for(var/path in paths)
+		if(!(all_spawn_by_spawn_value[path] in values))
+			values += all_spawn_by_spawn_value[path]
+			things[path] = all_spawn_by_spawn_value[path]
+	var/spawn_value = pickweight(things, 0)
+	spawn_value = all_spawn_by_spawn_value[spawn_value]
+	things = list()
+	for(var/path in paths)
+		if(all_spawn_by_spawn_value[path] == spawn_value)
+			things += path
+	return pick(things)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

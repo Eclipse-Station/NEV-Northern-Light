@@ -1,9 +1,17 @@
 datum/preferences
+<<<<<<< HEAD
 	var/icon/preview_icon 
 	var/icon/preview_south
 	var/icon/preview_north
 	var/icon/preview_east 
 	var/icon/preview_west 
+=======
+	var/icon/preview_icon
+	var/icon/preview_south
+	var/icon/preview_north
+	var/icon/preview_east
+	var/icon/preview_west
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/preview_dir = SOUTH	//for augmentation
 
 datum/preferences/proc/update_preview_icon(var/naked = FALSE)

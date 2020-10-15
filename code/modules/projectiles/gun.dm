@@ -23,7 +23,11 @@
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
 	hud_actions = list()
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun
+=======
+	bad_type = /obj/item/weapon/gun
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_GUN
 	rarity_value = 10
 	spawn_frequency = 10

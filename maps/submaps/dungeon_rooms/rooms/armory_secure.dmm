@@ -61,7 +61,11 @@
 /turf/simulated/floor/tiled/dark/cargo,
 /area/crawler)
 "n" = (
+<<<<<<< HEAD
 /obj/spawner/mob/roomba, 
+=======
+/obj/spawner/mob/roomba,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /obj/spawner/contraband,
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
@@ -69,13 +73,21 @@
 /obj/structure/table/onestar,
 /obj/spawner/gun/energy_cheap,
 /obj/spawner/gun/energy_cheap,
+<<<<<<< HEAD
 /obj/spawner/gun/shotgun,
+=======
+/obj/spawner/gun/shotgun,,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "p" = (
 /obj/structure/table/onestar,
 /obj/spawner/gun/energy_cheap,
+<<<<<<< HEAD
 /obj/spawner/gun/shotgun,
+=======
+/obj/spawner/gun/shotgun,,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /obj/spawner/contraband,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
@@ -84,7 +96,11 @@
 /obj/spawner/gun/normal,
 /obj/spawner/gun/normal,
 /obj/spawner/gun/normal/low_chance,
+<<<<<<< HEAD
 /obj/spawner/gun/shotgun,
+=======
+/obj/spawner/gun/shotgun,,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "s" = (

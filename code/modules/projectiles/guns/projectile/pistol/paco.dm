@@ -22,7 +22,11 @@
 	damage_multiplier = 1.5
 	penetration_multiplier = 0.9
 	recoil_buildup = 10
+<<<<<<< HEAD
 	gun_tags = list(GUN_SILENCABLE)
+=======
+	gun_tags = list(GUN_PROJECTILE, GUN_CALIBRE_35, GUN_SILENCABLE)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/gun/projectile/paco/update_icon()
 	..()

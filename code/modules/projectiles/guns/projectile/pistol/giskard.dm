@@ -5,7 +5,11 @@
 	icon_state = "giskard"
 	item_state = "pistol"
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
+<<<<<<< HEAD
 	gun_tags = list(GUN_SILENCABLE)
+=======
+	gun_tags = list(GUN_PROJECTILE, GUN_SILENCABLE, GUN_CALIBRE_35)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	w_class = ITEM_SIZE_SMALL
 	can_dual = 1
 	fire_delay = 0.6

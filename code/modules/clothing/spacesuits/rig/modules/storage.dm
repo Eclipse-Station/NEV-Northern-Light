@@ -9,7 +9,11 @@
 	//The default iconstate is actually really perfect for this, it looks like a reinforced box
 	//Duplicate specify it here incase it gets changed in the parent in future
 	icon_state = "module"
+<<<<<<< HEAD
 	rarity_value = 1.5
+=======
+	rarity_value = 2
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
 	//These vars will be passed onto the storage
 	var/list/can_hold = new/list() //List of objects which this item can store (if set, it can't store anything else)

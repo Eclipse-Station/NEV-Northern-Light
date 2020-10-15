@@ -8,8 +8,13 @@
 	//spawn_values
 	spawn_tags = SPAWN_TAG_MECH
 	spawn_frequency = 10
+<<<<<<< HEAD
 	rarity_value = 10
 	bad_types = "/mob/living/exosuit/premade"
+=======
+	rarity_value  = 10
+	bad_type = /mob/living/exosuit/premade
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	var/exosuit_color
 	var/decal

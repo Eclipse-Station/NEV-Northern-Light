@@ -3,7 +3,11 @@
 	icon_state = "tool-grey"
 	spawn_nothing_percentage = 15
 	tags_to_spawn = list(SPAWN_TOOL, SPAWN_DIVICE, SPAWN_GLOVES_INSULATED, SPAWN_JETPACK, SPAWN_ITEM_UTILITY)
+<<<<<<< HEAD
 	restricted_tags = list(SPAWN_SURGERY_TOOL, SPAWN_KNIFE, SPAWN_JUNK)
+=======
+	restricted_tags = list(SPAWN_SURGERY_TOOL, SPAWN_KNIFE)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 //Randomly spawned tools will often be in imperfect condition if they've been left lying out
 /obj/spawner/tool/post_spawn(list/spawns)

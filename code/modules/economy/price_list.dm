@@ -1080,7 +1080,7 @@
 
 /obj/item/clothing/price_tag = 30
 /obj/item/solar_assembly/price_tag = 100
-/obj/item/weapon/tracker_electronics/price_tag = 150
+/obj/item/weapon/electronics/tracker/price_tag = 150
 /obj/item/weapon/handcuffs/price_tag = 30
 /obj/item/weapon/handcuffs/get_item_cost(export)
 	. = ..()

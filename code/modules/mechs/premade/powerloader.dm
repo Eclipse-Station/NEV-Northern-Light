@@ -3,7 +3,11 @@
 	name = "S.E.U. \"Ripley\"" //Space Excavation Unit
 	desc = "A cheap utility exosuit. An old Nanotrasen design, now used just about everywhere due to post-Fall data leaks."
 
+<<<<<<< HEAD
 	rarity_value = 15
+=======
+	rarity_value  = 15
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	material = MATERIAL_STEEL
 	exosuit_color = "#ffbc37"
 	installed_software_boards = list(

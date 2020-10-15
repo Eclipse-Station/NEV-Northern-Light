@@ -7,7 +7,11 @@
 	slot_flags = SLOT_ACCESSORY_BUFFER
 	w_class = ITEM_SIZE_SMALL
 	var/slot = "decor"
+<<<<<<< HEAD
 	var/obj/item/clothing/has_suit		//the suit the tie may be attached to
+=======
+	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/image/inv_overlay	//overlay used when attached to clothing.
 	var/image/mob_overlay
 	var/overlay_state

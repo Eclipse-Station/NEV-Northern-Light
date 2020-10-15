@@ -140,8 +140,11 @@
 	name = "pirate bandana"
 	desc = "Yarr."
 	icon_state = "bandana"
+<<<<<<< HEAD
 	flags_inv = BLOCKHEADHAIR
 	style = 1
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 3.33
 
 /obj/item/clothing/head/bowler

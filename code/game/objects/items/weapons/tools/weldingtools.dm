@@ -49,6 +49,7 @@
 	desc = "An assembly of pipes attached to a little gas tank. Serves capably as a welder, though a bit risky. Can be improved greatly with large amount of tool mods."
 	icon_state = "ghettowelder"
 	item_state = "ghettowelder"
+	rarity_value = 3
 	switched_on_force = WEAPON_FORCE_PAINFUL * 0.8
 	max_fuel = 15
 	switched_on_qualities = list(QUALITY_WELDING = 15, QUALITY_CAUTERIZING = 10, QUALITY_WIRE_CUTTING = 10)

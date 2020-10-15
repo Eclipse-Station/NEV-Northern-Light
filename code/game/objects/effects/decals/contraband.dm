@@ -16,7 +16,11 @@
 	var/ruined = 0
 	var/datum/poster/design
 	rarity_value = 10
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/contraband/poster
+=======
+	bad_type = /obj/item/weapon/contraband/poster
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_CONTRABAND
 
 /obj/item/weapon/contraband/poster/New(turf/loc, var/datum/poster/new_design = null)

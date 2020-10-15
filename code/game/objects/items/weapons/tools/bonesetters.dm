@@ -7,4 +7,8 @@
 	flags = CONDUCT
 	attack_verb = list("attacked", "hit", "bludgeoned")
 	tool_qualities = list(QUALITY_BONE_SETTING = 30)
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_SURGERY_TOOL
+=======
+	spawn_tags = SPAWN_TAG_SURGERY_TOOL
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

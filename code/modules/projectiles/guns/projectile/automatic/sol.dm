@@ -8,6 +8,11 @@
 	ammo_mag = "ih_sol"
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_IH
+<<<<<<< HEAD
+=======
+	magazine_type = /obj/item/ammo_magazine/ihclrifle
+	auto_eject = 1
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	caliber = CAL_CLRIFLE
 	magazine_type = /obj/item/ammo_magazine/ihclrifle
 	auto_eject = 1

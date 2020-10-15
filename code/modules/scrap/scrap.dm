@@ -100,7 +100,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 
 /obj/structure/scrap/proc/make_big_loot()
 	if(prob(big_item_chance))
-		var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
+		var/obj/spawnercatcher/CATCH = new /obj/spawnercatcher(src)
 		if(beacon)
 			big_item = CATCH.get_item(/obj/spawner/pack/junk_machine/beacon)
 		else
@@ -423,7 +423,12 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/spawner/oddities = 0.5,
 		/obj/spawner/pack/rare,//No weight on this, rare loot is pretty likely to appear in scientific scrap
 		/obj/spawner/tool_upgrade,
+<<<<<<< HEAD
 		/obj/spawner/exosuit_equipment)
+=======
+		/obj/spawner/exosuit_equipment
+	)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/scrap/cloth
 	icontype = "cloth"
@@ -497,7 +502,11 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	base_min = 9
 	base_max = 14
 	base_spread = 16
+<<<<<<< HEAD
 	big_item_chance = 50
+=======
+	big_item_chance = 5
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 7.5
 	spawn_tags = SPAWN_TAG_LARGE_SCRAP
 
@@ -600,7 +609,10 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	beacon = TRUE
 	rarity_value = 3.33
 	spawn_tags = SPAWN_TAG_BEACON_SCRAP
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/scrap/poor/structure/update_icon() //make big trash icon for this
 	..()

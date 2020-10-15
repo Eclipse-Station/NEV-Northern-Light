@@ -22,7 +22,11 @@
 	helm_type = /obj/item/clothing/head/space/rig/combat
 
 /obj/item/weapon/rig/combat/equipped
+<<<<<<< HEAD
 	rarity_value = 40
+=======
+	rarity_value = 20
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/vision/thermal,
@@ -58,6 +62,7 @@
 	rarity_value = 20
 
 /obj/item/weapon/rig/hazard
+	rarity_value = 40
 	name = "hazard hardsuit control module"
 	suit_type = "hazard hardsuit"
 	desc = "A Security hardsuit designed for prolonged EVA in dangerous environments."

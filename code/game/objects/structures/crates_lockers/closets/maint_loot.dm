@@ -3,7 +3,11 @@
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_RANDOM_CLOSET
 	rarity_value = 10
+<<<<<<< HEAD
 	bad_types = /obj/structure/closet/random
+=======
+	bad_type = /obj/structure/closet/random
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/closet/random/miscellaneous
 	name = "\improper forgotten closet"
@@ -51,6 +55,11 @@
 	new /obj/spawner/pack/tech_loot/low_chance(src)
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /obj/structure/closet/random/spareparts
 	name = "\improper spare parts closet"
 	desc = "Somewhat old closet with spare parts in it."
@@ -196,4 +205,8 @@
 	new /obj/spawner/rations(src)
 	new /obj/spawner/rations(src)
 	new /obj/spawner/rations(src)
+<<<<<<< HEAD
 	new /obj/spawner/mob/roaches/cluster/beacon(src)
+=======
+	new /obj/spawner/mob/roaches/cluster/beacon(src)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

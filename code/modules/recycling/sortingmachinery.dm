@@ -335,7 +335,7 @@
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
 	rarity_value = 50
 	var/currTag = 0
-
+	rarity_value = 50
 	w_class = ITEM_SIZE_SMALL
 	item_state = "electronic"
 	flags = CONDUCT

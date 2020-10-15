@@ -25,4 +25,8 @@
 /obj/item/weapon/implanter/uplink
 	name = "implanter (Uplink)"
 	implant = /obj/item/weapon/implant/uplink
+<<<<<<< HEAD
 	spawn_tags = null
+=======
+	spawn_tags = null
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

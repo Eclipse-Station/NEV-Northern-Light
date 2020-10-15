@@ -6,9 +6,15 @@
 	icon_state = ""
 	matter = list(MATERIAL_STEEL = 40)
 	force = 10
+<<<<<<< HEAD
 	bad_types = /obj/item/mech_equipment
 	spawn_tags = SPAWN_TAG_MECH_QUIPMENT
 	rarity_value = 10
+=======
+	bad_type = /obj/item/mech_equipment
+	spawn_tags = SPAWN_TAG_MECH_QUIPMENT
+	rarity_value  = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_frequency = 10
 
 	var/restricted_hardpoints
@@ -68,7 +74,11 @@
 /obj/item/mech_equipment/mounted_system
 	var/holding_type
 	var/obj/item/holding
+<<<<<<< HEAD
 	bad_types = /obj/item/mech_equipment/mounted_system
+=======
+	bad_type = /obj/item/mech_equipment/mounted_system
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/mech_equipment/mounted_system/attack_self(var/mob/user)
 	. = ..()

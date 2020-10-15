@@ -2,14 +2,22 @@
 	name = "cabinet"
 	desc = "Old will forever be in fashion."
 	icon_state = "cabinet"
+<<<<<<< HEAD
 	bad_types = /obj/structure/closet/cabinet
+=======
+	bad_type = /obj/structure/closet/cabinet
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/closet/gimmick
 	name = "administrative supply closet"
 	desc = "It's a storage unit for things that have no right being here."
 	icon_state = "syndicate"
 	anchored = FALSE
+<<<<<<< HEAD
 	bad_types = /obj/structure/closet/gimmick
+=======
+	bad_type = /obj/structure/closet/gimmick
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/closet/gimmick/russian
 	name = "russian surplus closet"

@@ -15,7 +15,10 @@
 	damage_multiplier = 1.5
 	recoil_buildup = 17
 	rarity_value = 8
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/gun/projectile/colt/update_icon()
 	..()

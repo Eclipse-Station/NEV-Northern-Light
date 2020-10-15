@@ -18,4 +18,8 @@
 /obj/spawner/tool_upgrade/rare/low_chance
 	name = "low chance random rare tool upgrade"
 	icon_state = "tech-red-low"
+<<<<<<< HEAD
 	spawn_nothing_percentage = 75
+=======
+	spawn_nothing_percentage = 75
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

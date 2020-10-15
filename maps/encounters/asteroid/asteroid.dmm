@@ -104,8 +104,13 @@
 "az" = (
 /obj/effect/floor_decal/rust,
 /obj/structure/table/rack/shelf,
+<<<<<<< HEAD
 /obj/spawner/material/building,
 /obj/spawner/material/building,
+=======
+/obj/spawner/material,
+/obj/spawner/material,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned)
 "aA" = (
@@ -698,15 +703,25 @@
 /obj/effect/floor_decal/rust,
 /obj/structure/closet/crate,
 /obj/spawner/material/resources/rare/low_chance,
+<<<<<<< HEAD
 /obj/spawner/material/building,
 /obj/spawner/material/building,
+=======
+/obj/spawner/material,
+/obj/spawner/material,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned)
 "cK" = (
 /obj/structure/closet/crate,
 /obj/spawner/material/resources/rare/low_chance,
+<<<<<<< HEAD
 /obj/spawner/material/building,
 /obj/spawner/material/building,
+=======
+/obj/spawner/material,
+/obj/spawner/material,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/asteroid,
 /area/outpost/abandoned)
 "cL" = (

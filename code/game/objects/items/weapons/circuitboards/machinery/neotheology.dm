@@ -1,5 +1,9 @@
 /obj/item/weapon/electronics/circuitboard/neotheology
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/electronics/circuitboard/neotheology
+=======
+	bad_type = /obj/item/weapon/electronics/circuitboard/neotheology
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 40
 
 /obj/item/weapon/electronics/circuitboard/neotheology/cloner

@@ -5,7 +5,11 @@
 	icon_state = "remains"
 	anchored = FALSE
 	rarity_value = 20
+<<<<<<< HEAD
 	bad_types = /obj/item/remains
+=======
+	bad_type = /obj/item/remains
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_REMAINS
 
 /obj/item/remains/human

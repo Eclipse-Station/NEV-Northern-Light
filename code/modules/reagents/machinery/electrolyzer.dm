@@ -141,7 +141,7 @@
 		separation_beaker.forceMove(get_turf(src))
 		separation_beaker = null
 	..()
-	
+
 
 /obj/machinery/electrolyzer/attack_hand(mob/user)
 	if(..())
@@ -282,7 +282,7 @@
 			if(!state || state == -1)
 				turn_off()
 			SSnano.update_uis(src)
-			
+
 
 /obj/item/device/makeshift_electrolyser/attack_self(mob/user as mob)
 	user.set_machine(src)

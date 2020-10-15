@@ -48,6 +48,7 @@
 	holding_type = /obj/item/weapon/gun/energy/laser/mounted/mech
 	matter = list(MATERIAL_PLASTEEL = 26, MATERIAL_SILVER = 5)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
+
 /obj/item/weapon/gun/energy/laser/mounted/mech
 	name = "\improper CH-PS \"Immolator\" laser"
 	use_external_power = TRUE
@@ -67,7 +68,11 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun/energy/plasmacutter
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun/energy/plasmacutter
+=======
+	bad_type = /obj/item/weapon/gun/energy/plasmacutter
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/gun/energy/plasmacutter/mounted/mech
 	use_external_power = TRUE

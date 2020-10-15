@@ -7,6 +7,10 @@
 	icon_state = "powered_off"
 	density = TRUE
 	anchored = TRUE
+<<<<<<< HEAD
+=======
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	circuit = /obj/item/weapon/electronics/circuitboard/autodoc
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 60

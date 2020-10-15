@@ -8,8 +8,12 @@
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_FLORA
+<<<<<<< HEAD
 	bad_types = /obj/effect/spawner/maintshroom
 
+=======
+	bad_type = /obj/effect/spawner/maintshroom
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/effect/spawner/maintshroom/proc/spawn_shroom()
 	// Skip the spawning if the burrow is in a well lit places.

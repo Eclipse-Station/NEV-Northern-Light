@@ -2,7 +2,11 @@
 	name = "clothing"
 	siemens_coefficient = 0.9
 	item_flags = DRAG_AND_DROP_UNEQUIP
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing
+=======
+	bad_type = /obj/item/clothing
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_CLOTHING
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
@@ -268,7 +272,11 @@ BLIND     // can't see anything
 	w_class = ITEM_SIZE_SMALL
 	icon = 'icons/inventory/hands/icon.dmi'
 	siemens_coefficient = 0.75
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/gloves
+=======
+	bad_type = /obj/item/clothing/gloves
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_GLOVES
 	var/wired = 0
 	var/clipped = 0
@@ -308,7 +316,11 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = ITEM_SIZE_SMALL
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/head
+=======
+	bad_type = /obj/item/clothing/head
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_CLOTHING_HEAD
 
 	var/light_overlay = "helmet_light"
@@ -395,7 +407,11 @@ BLIND     // can't see anything
 	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
 	body_parts_covered = FACE|EYES
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/mask
+=======
+	bad_type = /obj/item/clothing/mask
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_MASK
 
 	var/voicechange = 0
@@ -415,8 +431,13 @@ BLIND     // can't see anything
 	siemens_coefficient = 0.9
 	body_parts_covered = FEET
 	slot_flags = SLOT_FEET
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_SHOES
 	bad_types = /obj/item/clothing/shoes
+=======
+	bad_type = /obj/item/clothing/mask
+	spawn_tags = SPAWN_TAG_MASK
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	var/can_hold_knife
 	var/obj/item/holding
@@ -557,6 +578,8 @@ BLIND     // can't see anything
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
+	spawn_tags = SPAWN_TAG_CLOTHING_UNDER
+	bad_type = /obj/item/clothing/under
 	var/list/extra_allowed = list()
 	equip_delay = 1 SECONDS
 

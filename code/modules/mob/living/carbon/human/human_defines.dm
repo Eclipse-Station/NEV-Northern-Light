@@ -38,7 +38,11 @@
 
 	var/list/body_markings = list()
 
+<<<<<<< HEAD
 	var/lip_style //no lipstick by default- arguably misleading, as it could be used for general makeup
+=======
+	var/lip_style	//no lipstick by default- arguably misleading, as it could be used for general makeup
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	var/age = 30		//Player's age (pure fluff)
 	var/b_type = "A+"	//Player's bloodtype
@@ -79,7 +83,10 @@
 	var/flapping = 0
 
 	var/mob/remoteview_target
+<<<<<<< HEAD
 	var/remoteviewer = FALSE //Acts as an override for remoteview_target viewing, see human/life.dm: handle_vision()
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/hand_blood_color
 
 	var/gunshot_residue

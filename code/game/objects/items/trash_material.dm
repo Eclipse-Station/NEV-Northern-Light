@@ -1,7 +1,11 @@
 /obj/item/trash/material
 	icon = 'icons/obj/material_trash.dmi'
 	matter = list()
+<<<<<<< HEAD
 	bad_types = /obj/item/trash/material
+=======
+	bad_type = /obj/item/trash/material
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/matter_chances = list()	//List of lists: list(material_name, chance, amount)
 
 

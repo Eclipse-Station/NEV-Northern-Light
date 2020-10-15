@@ -140,7 +140,11 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aF" = (
+<<<<<<< HEAD
 /obj/spawner/gun/normal/low_chance,
+=======
+/obj/spawner/gun/cheap/low_chance,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aG" = (
@@ -160,7 +164,11 @@
 /area/outpost/abandoned_fortress)
 "aJ" = (
 /obj/structure/closet/crate,
+<<<<<<< HEAD
 /obj/spawner/gun/normal/low_chance,
+=======
+/obj/spawner/gun/cheap/low_chance,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aL" = (
@@ -285,10 +293,17 @@
 /area/outpost/abandoned_fortress)
 "bx" = (
 /obj/structure/table/rack/shelf,
+<<<<<<< HEAD
 /obj/spawner/material/building,
 /obj/spawner/material/building,
 /obj/spawner/material/building/low_chance,
 /obj/spawner/material/building/low_chance,
+=======
+/obj/spawner/material/resources,
+/obj/spawner/material/resources,
+/obj/spawner/material/resources/low_chance,
+/obj/spawner/material/resources/low_chance,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "by" = (
@@ -357,7 +372,11 @@
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bL" = (
+<<<<<<< HEAD
 /obj/spawner/gun/normal/low_chance,
+=======
+/obj/spawner/gun/cheap/low_chance,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bM" = (
@@ -375,9 +394,15 @@
 "bP" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/material/resources/rare/low_chance,
+<<<<<<< HEAD
 /obj/spawner/material/resources,
 /obj/spawner/material/resources,
 /obj/spawner/material/resources,
+=======
+/obj/spawner/material/building,
+/obj/spawner/material/building,
+/obj/spawner/material/building,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bQ" = (

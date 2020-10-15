@@ -13,4 +13,8 @@
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/jager
 	meat_amount = 3
+<<<<<<< HEAD
 	rarity_value = 11.25
+=======
+	rarity_value = 11.25
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

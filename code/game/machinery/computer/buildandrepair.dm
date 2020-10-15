@@ -8,7 +8,10 @@
 	var/state = 0
 	var/obj/item/weapon/electronics/circuitboard/circuit
 	spawn_tags = SPAWN_TAG_COMPUTERFRAME
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 //	weight = 1.0E8
 
 /obj/structure/computerframe/verb/rotate()

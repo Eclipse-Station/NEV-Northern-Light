@@ -39,7 +39,11 @@
 	new /obj/item/clothing/mask/luchador/tecnicos(src)
 
 /obj/structure/closet/lasertag
+<<<<<<< HEAD
 	bad_types = /obj/structure/closet/lasertag
+=======
+	bad_type = /obj/structure/closet/lasertag
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 20
 	spawn_tags = SPAWN_TAG_LASERTAG_CLOSET
 

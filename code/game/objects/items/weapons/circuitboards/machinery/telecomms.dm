@@ -1,6 +1,10 @@
 /obj/item/weapon/electronics/circuitboard/telecomms
 	board_type = "machine"
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/electronics/circuitboard/telecomms
+=======
+	bad_type = /obj/item/weapon/electronics/circuitboard/telecomms
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/electronics/circuitboard/telecomms/receiver
 	name = T_BOARD("subspace receiver")

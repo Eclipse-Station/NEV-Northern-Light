@@ -81,6 +81,10 @@
 	melee_damage_upper = 10
 	ranged = TRUE
 	rarity_value = 59.5
+<<<<<<< HEAD
+=======
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/spawner/mob/roomba
 	name = "random roomba"

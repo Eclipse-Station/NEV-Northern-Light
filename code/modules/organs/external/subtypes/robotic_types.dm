@@ -101,7 +101,10 @@
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTEEL = 1, MATERIAL_PHORON = 0.5) //Plasma needed as a material that excelsiors can't teleport in
 	max_damage = 65
 	min_broken_damage = 45
+<<<<<<< HEAD
 	price_tag = 600
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_blacklisted = TRUE
 
 /obj/item/organ/external/robotic/excelsior/l_arm
@@ -129,8 +132,12 @@
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_OS_PROSTHETIC
+<<<<<<< HEAD
 	bad_types = /obj/item/organ/external/robotic/one_star
 	price_tag = 900
+=======
+	bad_type = /obj/item/organ/external/robotic/one_star
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/organ/external/robotic/one_star/l_arm
 	default_description = /datum/organ_description/arm/left

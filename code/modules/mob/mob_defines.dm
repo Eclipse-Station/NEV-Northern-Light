@@ -123,7 +123,11 @@ While it would be entirely possible to check the mob's move handlers list for th
 	var/can_pull_size = ITEM_SIZE_TITANIC // Maximum w_class the mob can pull.
 	var/can_pull_mobs = MOB_PULL_LARGER       // Whether or not the mob can pull other mobs.
 
+<<<<<<< HEAD
 	var/datum/dna/dna //Carbon
+=======
+	var/datum/dna/dna//Carbon
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/list/active_genes=list()
 	var/list/mutations = list() //Carbon -- Doohl
 	//see: setup.dm for list of mutations
@@ -197,4 +201,8 @@ While it would be entirely possible to check the mob's move handlers list for th
 
 	var/can_be_fed = 1 //Can be feeded by reagent_container or other things
 
+<<<<<<< HEAD
 	bad_types = /mob
+=======
+	bad_type = /mob
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

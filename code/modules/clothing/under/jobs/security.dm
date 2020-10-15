@@ -123,7 +123,11 @@
 	icon_state = "hoshat"
 	body_parts_covered = NONE
 	siemens_coefficient = 0.8
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+	rarity_value  = 50
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /*
  * Navy uniforms

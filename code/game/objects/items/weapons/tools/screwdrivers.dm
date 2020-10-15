@@ -19,7 +19,10 @@
 	degradation = 2
 	max_upgrades = 5 //all makeshift tools get more mods to make them actually viable for mid-late game
 	rarity_value = 3
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_TOOL_TAG_JUNK
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/tool/screwdriver/electric
 	name = "electric screwdriver"

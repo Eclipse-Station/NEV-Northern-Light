@@ -22,8 +22,13 @@
 	/obj/spawner/ammo = 80,
 	/obj/spawner/ammo = 80,
 	/obj/spawner/ammo = 80,
+<<<<<<< HEAD
 	/obj/spawner/gun_upgrade = 50,
 	/obj/spawner/gun_upgrade = 50,
+=======
+	/obj/spawner/gun/cheap = 50,
+	/obj/spawner/gun/cheap = 50,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	/obj/spawner/gun/shotgun = 50)
 	lore = "MUTINY TOMORROW 0300 MEET AT %D <br><br>BRING YOUR OWN BOOMSTICK ONLY A FEW SPARES"
 

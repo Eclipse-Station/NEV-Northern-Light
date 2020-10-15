@@ -85,7 +85,11 @@
 	desc = "A wrapped item."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
+<<<<<<< HEAD
 	var/size = 3
+=======
+	var/size = 3.0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/obj/item/gift
 	item_state = "gift"
 	w_class = ITEM_SIZE_BULKY
@@ -140,7 +144,11 @@
 	matter = list(MATERIAL_BIOMATTER = 4)
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_JUNK
+<<<<<<< HEAD
 	var/amount = 20
+=======
+	var/amount = 20.0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/wrapping_paper/attackby(obj/item/weapon/W, mob/user)
 	..()

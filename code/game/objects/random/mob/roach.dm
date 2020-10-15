@@ -25,4 +25,8 @@
 
 // For Scrap Beacon
 /obj/spawner/mob/roaches/cluster/beacon
+<<<<<<< HEAD
 	tags_to_spawn = list(SPAWN_NANITE_ROACH)
+=======
+	tags_to_spawn = list(SPAWN_NANITE_ROACH)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

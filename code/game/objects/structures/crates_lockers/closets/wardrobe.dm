@@ -294,4 +294,8 @@
 	new /obj/item/clothing/head/hardhat(src)
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
+<<<<<<< HEAD
 	new /obj/item/clothing/head/beret/engineering(src)
+=======
+	new /obj/item/clothing/head/beret/engineering(src)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

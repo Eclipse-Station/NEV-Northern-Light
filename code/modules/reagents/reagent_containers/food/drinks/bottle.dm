@@ -8,7 +8,11 @@
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	force = 5
 	rarity_value = 14
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/reagent_containers/food/drinks/bottle
+=======
+	bad_type = /obj/item/weapon/reagent_containers/food/drinks/bottle
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	var/isGlass = 1 //Whether the 'bottle' is made of glass or not so that milk cartons dont shatter when someone gets hit by it
 
@@ -376,7 +380,11 @@
 	smash_duration = 1
 	flags = 0 //starts closed
 	rag_underlay = "rag_small"
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/reagent_containers/food/drinks/bottle/small
+=======
+	bad_type = /obj/item/weapon/reagent_containers/food/drinks/bottle/small
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer
 	name = "space beer"

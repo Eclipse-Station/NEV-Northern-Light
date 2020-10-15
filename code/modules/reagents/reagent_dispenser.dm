@@ -7,7 +7,11 @@
 	anchored = FALSE
 	reagent_flags = DRAINABLE | AMOUNT_VISIBLE
 	//sapwn_values
+<<<<<<< HEAD
 	bad_types = /obj/structure/reagent_dispensers
+=======
+	bad_type = /obj/structure/reagent_dispensers
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_REAGENT_DISPENSER
@@ -263,6 +267,26 @@
 	volume = 500
 	starting_reagent = "water"
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
+=======
+
+/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/I, mob/user)
+	if(QUALITY_BOLT_TURNING in I.tool_qualities)
+		if(I.use_tool(user, src, WORKTIME_FAST, QUALITY_BOLT_TURNING, FAILCHANCE_EASY,  required_stat = STAT_MEC))
+			src.add_fingerprint(user)
+			if(anchored)
+				user.visible_message("\The [user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
+			else
+				user.visible_message("\The [user] begins securing \the [src] to the floor.", "You start securing \the [src] to the floor.")
+
+			if(do_after(user, 20, src))
+				if(!src) return
+				to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secured \the [src]!"))
+				anchored = !anchored
+			return
+	else
+		return ..()
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/reagent_dispensers/beerkeg
 	name = "beer keg"
@@ -274,7 +298,10 @@
 	price_tag = 50
 	contents_cost = 700
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/reagent_dispensers/cahorsbarrel
 	name = "NanoTrasen Cahors barrel"

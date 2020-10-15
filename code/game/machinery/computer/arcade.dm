@@ -26,7 +26,11 @@
 		/obj/item/toy/prize/odysseus					= 1,
 		/obj/item/toy/prize/phazon						= 1,
 		/obj/item/toy/waterflower						= 1,
+<<<<<<< HEAD
 		/obj/spawner/toy/figure								= 1,
+=======
+		/obj/spawner/toy/figure						= 1,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 		/obj/spawner/toy/plushie							= 1,
 		/obj/item/toy/cultsword							= 1
 	)

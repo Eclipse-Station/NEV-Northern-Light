@@ -33,6 +33,12 @@
 	origin_tech = list(TECH_MATERIAL = 5)
 	var/obj/item/weapon/inside
 	var/method = 0// 0 = fire, 1 = brush, 2 = pick
+<<<<<<< HEAD
+=======
+	origin_tech = list(TECH_MATERIAL = 5)
+	spawn_tags = SPAWN_TAG_XENOARCH_ITEM_FOSSIL
+	spawn_blacklisted = TRUE
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/ore/strangerock/New(loc, var/inside_item_type = 0)
 	..(loc)

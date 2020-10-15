@@ -13,6 +13,10 @@
 	caliber = CAL_MAGNUM
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_SMG
+<<<<<<< HEAD
+=======
+	caliber = CAL_MAGNUM
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	magazine_type = /obj/item/ammo_magazine/msmg
 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_STEEL = 6, MATERIAL_PLASTIC = 4)
 	price_tag = 2000

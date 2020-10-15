@@ -51,4 +51,8 @@
 	consume_cell = FALSE
 	cell_type = /obj/item/weapon/cell/small/high //Two shots
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
+=======
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 

@@ -91,6 +91,7 @@
 	force = WEAPON_FORCE_PAINFUL
 	armor_penetration = ARMOR_PEN_MODERATE
 	max_upgrades = 3
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger
 	name = "dagger"

@@ -3,7 +3,11 @@
 	name = "combat exosuit"
 	desc = "A sleek, modern combat exosuit."
 
+<<<<<<< HEAD
 	rarity_value = 60
+=======
+	rarity_value  = 60
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	material = MATERIAL_PLASTEEL
 	exosuit_color = COLOR_DARK_GUNMETAL

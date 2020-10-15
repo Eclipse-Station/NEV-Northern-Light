@@ -21,7 +21,10 @@
 	var/fire_sound = 'sound/weapons/pulse.ogg'
 	var/fire_cooldown = 0
 	var/last_fired = 0
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/hatton/Initialize()
 	. = ..()
@@ -154,7 +157,10 @@
 	matter = list(MATERIAL_PHORON = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
 	price_tag = 100
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/charge = 3
 
 /obj/item/weapon/hatton_magazine/Initialize()

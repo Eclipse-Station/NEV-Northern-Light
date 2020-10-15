@@ -26,7 +26,11 @@ var/list/global/tank_gauge_cache = list()
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_blacklisted = FALSE
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/tank
+=======
+	bad_type = /obj/item/weapon/tank
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_TANK_GAS
 
 	var/datum/gas_mixture/air_contents

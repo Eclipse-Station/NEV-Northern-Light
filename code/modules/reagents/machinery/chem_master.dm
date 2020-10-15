@@ -168,7 +168,7 @@
 						if (pillamount > max_pill_vol)
 							alert("Maximum volume supported in pills is [max_pill_vol]","Error.","Ok")
 							return
-						
+
 						count = CLAMP(count, 1, max_pill_count)
 					if("By volume")
 						amount_per_pill = input("Select the volume that single pill should contain.", "Max [R.total_volume]", 5) as num

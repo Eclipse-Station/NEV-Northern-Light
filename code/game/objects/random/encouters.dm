@@ -11,6 +11,7 @@
 
 /obj/spawner/encouter/mine
 	tags_to_spawn = list(SPAWN_MINE)
+<<<<<<< HEAD
 
 /obj/spawner/encouter/miningbot
 	allow_blacklist = TRUE
@@ -29,9 +30,28 @@
 	allow_blacklist = TRUE
 	tags_to_spawn = list(SPAWN_COFFIN_CLOSET)
 
+=======
+
+/obj/spawner/encouter/miningbot
+	allow_blacklist = TRUE
+	tags_to_spawn = list(SPAWN_BOT_OS)
+
+/obj/spawner/encouter/strangebeacon
+	tags_to_spawn = list(SPAWN_STRANGEBEACON)
+
+/obj/spawner/encouter/cryopod
+	tags_to_spawn = list(SPAWN_ENCOUNTER_CRYOPOD)
+
+/obj/spawner/encouter/satellite
+	tags_to_spawn = list(SPAWN_SATELITE)
+
+/obj/spawner/encouter/coffin
+	allow_blacklist = TRUE
+	tags_to_spawn = list(SPAWN_COFFIN_CLOSET)
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /obj/spawner/encouter/omnius
 	tags_to_spawn = list(SPAWN_OMINOUS)
 
 ///////ENCOUTERS
 //////////////////////
-

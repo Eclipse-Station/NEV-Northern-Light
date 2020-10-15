@@ -22,7 +22,10 @@
 	matter = list(MATERIAL_STEEL = 1)
 	max_upgrades = 5 //all makeshift tools get more mods to make them actually viable for mid-late game
 	rarity_value = 3
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_TOOL_TAG_JUNK
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/tool/wrench/big_wrench
 	name = "big wrench"
@@ -36,4 +39,8 @@
 	degradation = 0.7
 	max_upgrades = 4
 	rarity_value = 24
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_TOOL_ADVANCED
+=======
+	spawn_tags = SPAWN_TAG_TOOL_ADVANCED
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

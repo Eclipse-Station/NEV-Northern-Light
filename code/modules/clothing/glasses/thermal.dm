@@ -38,7 +38,10 @@
 	origin_tech = list(TECH_MAGNET = 3, TECH_COVERT = 4)
 	rarity_value = 50
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/clothing/glasses/powered/thermal/onestar
 	name = "OS Type - 73 \"Zhenchayuan\""

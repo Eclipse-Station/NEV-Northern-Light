@@ -137,10 +137,17 @@
 	desc = "Twoooo!"
 	icon_state = "owl"
 	body_parts_covered = HEAD|FACE|EYES
+<<<<<<< HEAD
 	rarity_value = 100
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/clothing/mask/gas/german
 	name = "Oberth Republic gas mask"
 	icon_state = "germangasmask"
 	rarity_value = 100
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

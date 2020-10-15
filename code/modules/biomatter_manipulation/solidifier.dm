@@ -137,5 +137,5 @@
 	ping()
 	update_icon()
 
-#undef BIOMATTER_SHEETS_PER_TIME 
+#undef BIOMATTER_SHEETS_PER_TIME
 #undef CONTAINER_PIXEL_OFFSET

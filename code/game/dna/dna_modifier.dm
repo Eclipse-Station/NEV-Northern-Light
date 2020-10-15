@@ -196,10 +196,17 @@
 	icon_screen = "dna"
 	density = TRUE
 	circuit = /obj/item/weapon/electronics/circuitboard/scan_consolenew
+<<<<<<< HEAD
 	var/selected_ui_block = 1
 	var/selected_ui_subblock = 1
 	var/selected_se_block = 1
 	var/selected_se_subblock = 1
+=======
+	var/selected_ui_block = 1.0
+	var/selected_ui_subblock = 1.0
+	var/selected_se_block = 1.0
+	var/selected_se_subblock = 1.0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/selected_ui_target = 1
 	var/selected_ui_target_hex = 1
 	var/radiation_duration = 2

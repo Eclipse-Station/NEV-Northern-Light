@@ -14,4 +14,7 @@
 	recoil_buildup = 14
 	one_hand_penalty = 15 //full sized shotgun level
 	rarity_value = 20
+<<<<<<< HEAD
 	rarity_value = 10.66
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

@@ -81,4 +81,8 @@
 /obj/item/weapon/implanter/freedom
 	name = "implanter (freedom)"
 	implant = /obj/item/weapon/implant/freedom
+<<<<<<< HEAD
 	spawn_tags = null
+=======
+	spawn_tags = null
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

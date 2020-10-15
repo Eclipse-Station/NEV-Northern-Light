@@ -22,6 +22,7 @@
 	reagent_flags = OPENCONTAINER
 	filling_states = "-10;10;25;50;75;80;100"
 	var/blood_type = null
+	rarity_value = 10
 
 /obj/item/weapon/reagent_containers/blood/Initialize()
 	. = ..()
@@ -73,4 +74,8 @@
 
 /obj/item/weapon/reagent_containers/blood/empty
 	spawn_tags = SPAWN_TAG_JUNK
+<<<<<<< HEAD
 	rarity_value = 20
+=======
+	rarity_value = 20
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

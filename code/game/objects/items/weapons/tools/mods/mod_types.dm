@@ -7,7 +7,11 @@
 //This can be attached to basically any long tool
 //This includes most mechanical ones
 /obj/item/weapon/tool_upgrade/reinforcement
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/tool_upgrade/reinforcement
+=======
+	bad_type = /obj/item/weapon/tool_upgrade/reinforcement
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/tool_upgrade/reinforcement/stick
 	name = "brace bar"
@@ -51,6 +55,7 @@
 	name = "reinforced plating"
 	desc = "A sturdy bit of plasteel that can be bolted onto any tool to protect it. Tough, but bulky."
 	icon_state = "plate"
+	rarity_value = 10
 	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_STEEL = 2) //steel to compensate for metal rods used in crafting
 
 /obj/item/weapon/tool_upgrade/reinforcement/plating/New()
@@ -121,7 +126,11 @@
 // 	 PRODUCTIVITY: INCREASES WORKSPEED
 //------------------------------------------------
 /obj/item/weapon/tool_upgrade/productivity
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/tool_upgrade/productivity
+=======
+	bad_type = /obj/item/weapon/tool_upgrade/productivity
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/tool_upgrade/productivity/ergonomic_grip
 	name = "ergonomic grip"
@@ -317,7 +326,11 @@
 // 	 REFINEMENT: INCREASES PRECISION
 //------------------------------------------------
 /obj/item/weapon/tool_upgrade/refinement
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/tool_upgrade/refinement
+=======
+	bad_type = /obj/item/weapon/tool_upgrade/refinement
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/tool_upgrade/refinement/laserguide
 	name = "\"Guiding Light\" laser guide"
@@ -430,7 +443,11 @@
 
 //Allows the tool to use a cell one size category larger than it currently uses. Small to medium, medium to large, etc
 /obj/item/weapon/tool_upgrade/augment
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/tool_upgrade/augment
+=======
+	bad_type = /obj/item/weapon/tool_upgrade/augment
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/tool_upgrade/augment/cell_mount
 	name = "heavy cell mount"

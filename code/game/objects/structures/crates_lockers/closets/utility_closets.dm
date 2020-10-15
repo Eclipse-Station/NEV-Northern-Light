@@ -63,7 +63,10 @@
 	icon_state = "fire"
 	rarity_value = 1.5
 	spawn_tags = SPAWN_TAG_TECHNICAL_CLOSET
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/closet/firecloset/populate_contents()
 	new /obj/item/clothing/gloves/thick(src)
@@ -151,7 +154,10 @@
 	icon_state = "bomb"
 	rarity_value = 14.28
 	spawn_tags = SPAWN_TAG_BOMB_CLOSET
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/closet/bombcloset/populate_contents()
 	new /obj/item/clothing/suit/space/bomb(src)

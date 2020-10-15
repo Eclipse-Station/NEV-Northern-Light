@@ -27,7 +27,11 @@
 	reagent_flags = REFILLABLE | DRAINABLE | AMOUNT_VISIBLE
 	unacidable = 0
 	spawn_tags = SPAWN_TAG_JUNK
+<<<<<<< HEAD
 	rarity_value = 20
+=======
+	rarity_value  = 20
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 

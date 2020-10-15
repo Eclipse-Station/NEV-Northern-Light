@@ -7,7 +7,11 @@
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 120
+<<<<<<< HEAD
 	bad_types = /obj/item/stack/material
+=======
+	bad_type = /obj/item/stack/material
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	var/default_type = MATERIAL_STEEL
 	var/material/material
@@ -101,7 +105,11 @@
 	rand_min = 3
 	rand_max = 30
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES
+<<<<<<< HEAD
 	rarity_value = 45
+=======
+	rarity_value  = 45
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/sandstone
 	name = "sandstone brick"
@@ -124,7 +132,11 @@
 	rand_min = 1
 	rand_max = 8
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
+<<<<<<< HEAD
 	rarity_value = 90
+=======
+	rarity_value  = 90
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/uranium
 	name = MATERIAL_URANIUM
@@ -136,7 +148,11 @@
 	rand_min = 2
 	rand_max = 15
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
+<<<<<<< HEAD
 	rarity_value = 90
+=======
+	rarity_value  = 90
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/phoron
 	name = "solid phoron"
@@ -148,7 +164,11 @@
 	rand_min = 3
 	rand_max = 20
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES
+<<<<<<< HEAD
 	rarity_value = 30
+=======
+	rarity_value  = 30
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/plastic
 	name = "plastic"
@@ -160,7 +180,11 @@
 /obj/item/stack/material/plastic/random
 	rand_min = 3
 	rand_max = 30
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	rarity_value  = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
 
 /obj/item/stack/material/gold
@@ -173,7 +197,11 @@
 	rand_min = 2
 	rand_max = 15
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
+<<<<<<< HEAD
 	rarity_value = 45
+=======
+	rarity_value  = 45
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/silver
 	name = MATERIAL_SILVER
@@ -185,7 +213,11 @@
 	rand_min = 3
 	rand_max = 30
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
+<<<<<<< HEAD
 	rarity_value = 45
+=======
+	rarity_value  = 45
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 //Valuable resource, cargo can sell it.
 /obj/item/stack/material/platinum
@@ -238,7 +270,11 @@
 	rand_min = 3
 	rand_max = 30
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_BULDING
+<<<<<<< HEAD
 	rarity_value = 18
+=======
+	rarity_value  = 18
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/plasteel
 	name = "plasteel"
@@ -252,7 +288,11 @@
 	rand_min = 3
 	rand_max = 20
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	rarity_value  = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/wood
 	name = "wooden plank"
@@ -263,7 +303,11 @@
 /obj/item/stack/material/wood/random
 	rand_min = 3
 	rand_max = 30
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	rarity_value  = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
 
 /obj/item/stack/material/cloth
@@ -277,7 +321,11 @@
 	icon_state = "sheet-card"
 	default_type = MATERIAL_CARDBOARD
 	price_tag = 5
+<<<<<<< HEAD
 	rarity_value = 6.66
+=======
+	rarity_value  = 6.66
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_JUNK
 
 /obj/item/stack/material/cardboard/random
@@ -303,7 +351,11 @@
 	rand_min = 3
 	rand_max = 30
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_BULDING
+<<<<<<< HEAD
 	rarity_value = 22.5
+=======
+	rarity_value  = 22.5
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
@@ -322,7 +374,11 @@
 	rand_min = 3
 	rand_max = 30
 	//spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
+<<<<<<< HEAD
 	//rarity_value = 50
+=======
+	//rarity_value = 45
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/glass/phoronrglass
 	name = "reinforced borosilicate glass"
@@ -346,7 +402,11 @@
 	rand_min = 5
 	rand_max = 25
 	spawn_tags = SPAWN_TAG_MATERIAL
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	rarity_value  = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/stack/material/biomatter/full
 	amount = 60

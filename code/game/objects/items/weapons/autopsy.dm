@@ -6,6 +6,7 @@
 	name = "autopsy scanner"
 	desc = "Extracts information on wounds."
 	icon = 'icons/obj/autopsy_scanner.dmi'
+	rarity_value = 50
 	icon_state = ""
 	flags = CONDUCT
 	w_class = ITEM_SIZE_SMALL

@@ -111,7 +111,10 @@
 	item_state = "church_coat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	matter = list(MATERIAL_BIOMATTER = 20, MATERIAL_GOLD = 5)
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	armor = list(
 		melee = 30,
 		bullet = 20,

@@ -45,4 +45,8 @@
 	item_state = "rwelding-g"
 	prescription = TRUE
 	tint = TINT_MODERATE
+<<<<<<< HEAD
 	rarity_value = 100
+=======
+	rarity_value = 100
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

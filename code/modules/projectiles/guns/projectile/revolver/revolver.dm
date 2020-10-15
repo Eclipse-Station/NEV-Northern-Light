@@ -24,6 +24,10 @@
 	armor_penetration = 0.65 // Insanely powerful handcannon, but worthless against heavy armor
 	recoil_buildup = 50
 	rarity_value = 9.6
+<<<<<<< HEAD
+=======
+	gun_tags = list(GUN_PROJECTILE, GUN_INTERNAL_MAG)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/gun/projectile/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"

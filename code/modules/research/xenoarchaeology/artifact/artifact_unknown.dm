@@ -27,7 +27,11 @@
 	var/icon_num = 0
 	density = TRUE
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	spawn_frequency = 9
+=======
+	spawn_frequency = 0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/datum/artifact_effect/my_effect
 	var/datum/artifact_effect/secondary_effect
 	var/being_used = 0

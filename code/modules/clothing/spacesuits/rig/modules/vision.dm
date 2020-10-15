@@ -56,13 +56,18 @@
 	engage_string = "Cycle Visor Mode"
 	activate_string = "Enable Visor"
 	deactivate_string = "Disable Visor"
+<<<<<<< HEAD
 	bad_types = /obj/item/rig_module/vision
+=======
+	bad_type = /obj/item/rig_module/vision
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/datum/rig_vision/vision
 	var/list/vision_modes = list(
 		/datum/rig_vision/nvg,
 		/datum/rig_vision/thermal,
 		/datum/rig_vision/meson
 		)
+	rarity_value = 100
 
 	var/vision_index
 
@@ -147,7 +152,10 @@
 
 	vision_modes = list(/datum/rig_vision/medhud)
 	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 // There should only ever be one vision module installed in a suit.
 /obj/item/rig_module/vision/installed()

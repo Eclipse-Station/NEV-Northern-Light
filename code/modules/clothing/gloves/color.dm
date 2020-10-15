@@ -5,7 +5,11 @@
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "latex"
 	item_state = "lgloves"
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/gloves/color
+=======
+	bad_type = /obj/item/clothing/gloves/color
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 3
 
 /obj/item/clothing/gloves/color/white

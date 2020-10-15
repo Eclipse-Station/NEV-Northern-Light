@@ -77,7 +77,7 @@
 	name = "egg cluster"
 	desc = "They seem to pulse slightly with an inner life"
 	icon_state = "eggs"
-	var/amount_grown = 0		
+	var/amount_grown = 0
 
 /obj/effect/spider/eggcluster/New(var/location, var/atom/parent)
 	pixel_x = rand(3,-3)

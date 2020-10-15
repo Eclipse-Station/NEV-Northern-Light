@@ -58,4 +58,8 @@
 /obj/spawner/soda/low_chance
 	name = "low chance soda"
 	icon_state = "food-red-low"
+<<<<<<< HEAD
 	spawn_nothing_percentage = 60
+=======
+	spawn_nothing_percentage = 60
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

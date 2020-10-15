@@ -23,7 +23,11 @@
 	force = NONE
 
 	//spawn_values
+<<<<<<< HEAD
 	bad_types = /obj/item/toy
+=======
+	bad_type = /obj/item/toy
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_TOY
 
 /*
@@ -329,7 +333,11 @@
 	R.my_atom = src
 	R.add_reagent("water", 10)
 
+<<<<<<< HEAD
 /obj/item/toy/waterflower/attack(mob/living/carbon/human/M, mob/user )
+=======
+/obj/item/toy/waterflower/attack(mob/living/carbon/human/M, mob/user)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	return
 
 /obj/item/toy/waterflower/afterattack(atom/A as mob|obj, mob/user)
@@ -486,7 +494,11 @@
 	icon_state = "figure"
 	icon = 'icons/obj/toy.dmi'
 	spawn_tags = SPAWN_TAG_FIGURE
+<<<<<<< HEAD
 	bad_types = "/obj/item/toy/figure"
+=======
+	bad_type = "/obj/item/toy/figure"
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/toy/figure/excelsior
 	name = "\"Excelsior\" figurine"
@@ -569,7 +581,11 @@
 	anchored = FALSE
 	density = TRUE
 	spawn_tags = SPAWN_TAG_STRUCTURE_PLUSHIE
+<<<<<<< HEAD
 	bad_types = "/obj/structure/plushie"
+=======
+	bad_type = "/obj/structure/plushie"
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/phrase = "I don't want to exist anymore!"
 
 /obj/structure/plushie/attack_hand(mob/user)
@@ -613,7 +629,11 @@
 	desc = "A very generic small plushie. It seems to not want to exist."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "nymphplushie"
+<<<<<<< HEAD
 	bad_types = "/obj/item/toy/plushie"
+=======
+	bad_type = "/obj/item/toy/plushie"
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_PLUSHIE
 
 /obj/item/toy/plushie/attack_self(mob/user)

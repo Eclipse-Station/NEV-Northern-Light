@@ -66,6 +66,7 @@
 	price_tag = 50
 	rarity_value = 8.33
 	max_capacity = 64
+	rarity_value = 8.33
 	hardware_size = 1
 
 /obj/item/weapon/computer_hardware/hard_drive/small/adv

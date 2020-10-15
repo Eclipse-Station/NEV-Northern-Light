@@ -56,6 +56,10 @@ They generally give more random result and can provide more divercity in spawn.
 	desc = "This is a random technical loot."
 	allow_blacklist = TRUE
 	tags_to_spawn = list(SPAWN_ITEM_TECH_OS)
+<<<<<<< HEAD
+=======
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 //This will be spawned in rare closets
 /obj/spawner/pack/gun_loot
@@ -153,4 +157,8 @@ They generally give more random result and can provide more divercity in spawn.
 					/obj/spawner/closet = 2,
 					/obj/spawner/closet/wardrobe = 2,
 					/obj/spawner/exosuit/damaged = 1, //Some dangerous shit can be found there
+<<<<<<< HEAD
 				))
+=======
+				))
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

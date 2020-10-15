@@ -43,4 +43,8 @@
 
 // For Scrap Beacon
 /obj/spawner/closet/maintloot/beacon
+<<<<<<< HEAD
 	exclusion_paths = list(/obj/structure/closet/random/hostilemobs)
+=======
+	exclusion_paths = list(/obj/structure/closet/random/hostilemobs)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

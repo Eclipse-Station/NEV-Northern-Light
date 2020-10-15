@@ -161,7 +161,10 @@
 	origin_tech = list(TECH_POWER = 2)
 	maxcharge = 900
 	rarity_value = 6
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/cell/medium/moebius/super
 	name = "\"Power-Geyser 1000M\""
@@ -198,7 +201,10 @@
 	maxcharge = 1000
 	rarity_value = 30
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 //SMALL CELLS - for small devices, such as flashlights, analyzers and HUDs.
 /obj/item/weapon/cell/small
 	name = "\"Robustcell 100S\""
@@ -212,7 +218,11 @@
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1)
 	price_tag = 50
 	spawn_tags = SPAWN_TAG_SMALL_POWERCELL
+<<<<<<< HEAD
 	rarity_value = 2
+=======
+	rarity_value = 22
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_frequency = 9
 
 /obj/item/weapon/cell/small/high
@@ -229,7 +239,11 @@
 	icon_state = "s_sup"
 	origin_tech = list(TECH_POWER = 5)
 	maxcharge = 300
+<<<<<<< HEAD
 	rarity_value = 5
+=======
+	rarity_value = 35
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/cell/small/hyper
 	name = "\"Robustcell-X 500S\""
@@ -315,4 +329,8 @@
 	origin_tech = list(TECH_POWER = 1)
 	matter = list(MATERIAL_STEEL = 1)  //some cost just in case you manage to get this in a disk or something
 	maxcharge = 100  //small cause if someone manage to get this shouldn't be that usefull. and 100 is a nice number to work with.
+<<<<<<< HEAD
 	spawn_blacklisted = TRUE
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

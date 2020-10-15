@@ -20,7 +20,7 @@ var/global/excelsior_last_draft = 0
 	var/energy_gain = 1
 	var/processing_order = FALSE
 	var/nanoui_menu = 0 	// Based on Uplink
-	var/mob/current_user 
+	var/mob/current_user
 	var/time_until_scan
 
 	var/reinforcements_delay = 20 MINUTES
@@ -186,7 +186,7 @@ var/global/excelsior_last_draft = 0
 			) // list in a list because Byond merges the first list...
 
 	data["materials_list"] = order_list_m
-	
+
 	var/list/order_list_p = list()
 	for(var/item in parts_list)
 		var/obj/item/I = item
@@ -322,11 +322,15 @@ var/global/excelsior_last_draft = 0
 			teleport_out(affecting, user)
 			excelsior_conscripts += 1
 			return
+<<<<<<< HEAD
 	if (is_excelsior(affecting))
 		teleport_out(affecting, user)
 		excelsior_conscripts += 1
 		return
 	
+=======
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	visible_message("\the [src] blinks, refusing [affecting].")
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 1 -3)
 /obj/machinery/complant_teleporter/proc/teleport_out(var/mob/living/affecting, var/mob/living/user)

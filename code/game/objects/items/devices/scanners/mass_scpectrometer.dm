@@ -8,8 +8,8 @@
 	reagent_flags = OPENCONTAINER
 
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
-	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
-
+	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 27)
+	rarity_value = 50
 	charge_per_use = 7
 	rarity_value = 50
 
@@ -60,7 +60,7 @@
 			if(R.id != "blood")
 				reagents.clear_reagents()
 				return SPAN_WARNING("The sample was contaminated! Please insert another sample")
-				
+
 			else
 				blood_traces = params2list(R.data["trace_chem"])
 				break
@@ -79,5 +79,9 @@
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
 	details = 1
+<<<<<<< HEAD
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
+=======
+	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 27)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 100

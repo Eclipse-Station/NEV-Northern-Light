@@ -7,10 +7,17 @@
 	layer = MOB_LAYER
 	icon_state = "mining_drone"
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_BOT_OS
 	bad_types = /mob/living/bot/miningonestar
+=======
+	rarity_value  = 10
+	spawn_frequency = 10
+	spawn_tags = SPAWN_TAG_BOT_OS
+	bad_type = /mob/living/bot/miningonestar
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/obj/item/loot
 	var/attacktext = "drills"
 	var/environment_smash = 1

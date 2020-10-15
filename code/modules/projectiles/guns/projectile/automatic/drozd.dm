@@ -14,11 +14,16 @@
 	mag_well = MAG_WELL_SMG
 	magazine_type = /obj/item/ammo_magazine/msmg
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_STEEL = 4, MATERIAL_PLASTIC = 4)
+	caliber = CAL_MAGNUM
 	price_tag = 2200
 	damage_multiplier = 0.8 	 //25,6 lethal, 28 HV //damage
 	penetration_multiplier = 1.5 //22.5 lethal, 30 HV //AP
 	recoil_buildup = 6
+<<<<<<< HEAD
 
+=======
+	magazine_type = /obj/item/ammo_magazine/msmg
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	twohanded = FALSE
 	one_hand_penalty = 5 //smg level
 	gun_tags = list(GUN_SILENCABLE)

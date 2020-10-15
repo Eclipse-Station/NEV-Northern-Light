@@ -22,7 +22,10 @@
 	degradation = 5 //This one breaks REALLY fast
 	max_upgrades = 5 //all makeshift tools get more mods to make them actually viable for mid-late game
 	rarity_value = 2
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_TOOL_TAG_JUNK
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/tool/crowbar/onestar
 	name = "One Star crowbar"
@@ -50,4 +53,8 @@
 	max_upgrades = 4
 	suitable_cell = /obj/item/weapon/cell/medium
 	rarity_value = 24
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_TOOL_ADVANCED
+=======
+	spawn_tags = SPAWN_TAG_TOOL_ADVANCED
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

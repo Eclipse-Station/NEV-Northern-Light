@@ -4,7 +4,11 @@
 	icon = 'icons/obj/salvageable.dmi'
 	density = TRUE
 	anchored = TRUE
+<<<<<<< HEAD
 	bad_types = /obj/structure/salvageable
+=======
+	bad_type = /obj/structure/salvageable
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_frequency = 13
 	spawn_tags = SPAWN_TAG_SALVAGEABLE
 	var/salvageable_parts = list()
@@ -81,7 +85,10 @@
 		/obj/item/weapon/computer_hardware/network_card/advanced = 20,
 		/obj/item/weapon/stock_parts/capacitor/super = 5
 	)
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /obj/structure/salvageable/computer/Initialize()
 	. = ..()
 	icon_state = "computer[rand(0,7)]"
@@ -280,7 +287,11 @@ obj/structure/salvageable/bliss/Initialize()
 	spawn_tags = SPAWN_TAG_SALVAGEABLE_OS
 	rarity_value = 20
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	bad_types = /obj/structure/salvageable/os
+=======
+	bad_type = /obj/structure/salvageable/os
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/salvageable/os/machine
 	name = "broken machine"
@@ -301,7 +312,11 @@ obj/structure/salvageable/bliss/Initialize()
 		/obj/spawner/prothesis_one_star = 20
 	)
 
+<<<<<<< HEAD
 /obj/structure/salvageable/os/computer
+=======
+/obj/structure/salvageable/os/machine
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	name = "broken computer"
 	icon_state = "os-computer"
 	rarity_value = 33

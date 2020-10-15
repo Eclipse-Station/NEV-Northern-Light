@@ -5,8 +5,12 @@
 	desc = "A simple grasping tool specialized in construction and engineering work."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gripper
 
+=======
+	bad_type = /obj/item/weapon/gripper
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	flags = NOBLUDGEON
 
 	//Has a list of items that it can hold.

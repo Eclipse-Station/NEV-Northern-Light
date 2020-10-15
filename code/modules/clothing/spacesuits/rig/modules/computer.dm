@@ -35,7 +35,10 @@
 	activates_on_touch = 1
 	rarity_value = 2
 	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	engage_string = "Eject AI"
 	activate_string = "Enable Dataspike"

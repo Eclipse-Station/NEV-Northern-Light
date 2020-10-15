@@ -43,4 +43,8 @@
 /obj/spawner/mob/slime/cluster/rainbow
 	name = "cluster of colored slimes"
 	alpha = 128
+<<<<<<< HEAD
 	has_postspawn = TRUE
+=======
+	has_postspawn = TRUE
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

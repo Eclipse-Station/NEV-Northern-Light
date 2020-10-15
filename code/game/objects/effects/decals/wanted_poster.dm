@@ -1,5 +1,9 @@
 /obj/item/weapon/contraband/poster/wanted
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/contraband/poster/wanted
+=======
+	bad_type = /obj/item/weapon/contraband/poster/wanted
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/contraband/poster/wanted/New(turf/loc, icon/person_icon, wanted_name, description)
 	name = "wanted poster ([wanted_name])"

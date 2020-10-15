@@ -19,6 +19,10 @@
 	spawn_nothing_percentage = 75
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /obj/spawner/credits/c50
 	low_price = 1
 	top_price = 50
@@ -47,4 +51,8 @@
 /obj/spawner/credits/c10000
 	low_price = 5000
 	top_price = 10000
+<<<<<<< HEAD
 	icon_state = "cash-red"
+=======
+	icon_state = "cash-red"
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

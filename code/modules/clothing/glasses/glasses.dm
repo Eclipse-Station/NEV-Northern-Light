@@ -2,7 +2,11 @@
 	name = "glasses"
 	icon = 'icons/inventory/eyes/icon.dmi'
 	spawn_tags = SPAWN_TAG_GLASSES
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/glasses
+=======
+	bad_type = /obj/item/clothing/glasses
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 20
 	var/prescription = FALSE
 	var/toggleable = FALSE

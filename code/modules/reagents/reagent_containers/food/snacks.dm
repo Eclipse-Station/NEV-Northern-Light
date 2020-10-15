@@ -3,7 +3,7 @@
 	name = "snack"
 	desc = "yummy"
 	icon = 'icons/obj/food.dmi'
-	icon_state = null
+	icon_state
 	center_of_mass = list("x"=16, "y"=16)
 	w_class = ITEM_SIZE_SMALL
 	var/bitesize = 1
@@ -12,7 +12,11 @@
 	var/slice_path
 	var/slices_num
 	var/dried_type
+<<<<<<< HEAD
 	var/dry = FALSE
+=======
+	var/dry = 0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/dryness = 0 //Used by drying rack. Represents progress towards Dry state
 	var/nutriment_amt = 0
 	var/list/nutriment_desc = list("food" = 1)
@@ -390,6 +394,7 @@
 	nutriment_amt = 1
 	nutriment_desc = list("candy" = 1)
 	preloaded_reagents = list("sugar" = 3)
+	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
 	taste_tag = list(SWEET_FOOD)
@@ -1124,7 +1129,10 @@
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	rarity_value = 20
+<<<<<<< HEAD
 	taste_tag = list(SWEET_FOOD,FLOURY_FOOD)
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/reagent_containers/food/snacks/pie/throw_impact(atom/hit_atom)
 	..()
@@ -1338,7 +1346,10 @@
 	nutriment_desc = list("popcorn" = 3)
 	nutriment_amt = 2
 	bitesize = 0.1 //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
+<<<<<<< HEAD
 	junk_food = TRUE
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	New()
 		..()
@@ -1382,7 +1393,11 @@
 	center_of_mass = list("x"=15, "y"=11)
 	preloaded_reagents = list("sugar" = 4)
 	junk_food = TRUE
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_JUNKFOOD
+=======
+	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/reagent_containers/food/snacks/cheesiehonkers
 	name = "Cheesie Honkers"
@@ -1395,8 +1410,12 @@
 	nutriment_desc = list("cheese" = 5, "chips" = 2)
 	nutriment_amt = 4
 	junk_food = TRUE
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	taste_tag = list(CHEESE_FOOD)
+=======
+	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/reagent_containers/food/snacks/syndicake
 	name = "Syndi-Cakes"
@@ -1847,7 +1866,10 @@
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	rarity_value = 20
+<<<<<<< HEAD
 	taste_tag = list(CHEESE_FOOD,FLOURY_FOOD)
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/reagent_containers/food/snacks/toastedsandwich
 	name = "Toasted Sandwich"
@@ -2867,9 +2889,14 @@
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza
 	slices_num = 6
 	filling_color = "#BAA14C"
+<<<<<<< HEAD
 	taste_tag = list(CHEESE_FOOD)
 	spawn_tags = SPAWN_TAG_PIZZA
 	bad_types = /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza
+=======
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	rarity_value = 20
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza/margherita
 	name = "Margherita"
@@ -3295,7 +3322,10 @@
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 	rarity_value = 20
+<<<<<<< HEAD
 	taste_tag = list(MEAT_FOOD)
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/reagent_containers/food/snacks/flatbread
 	name = "flatbread"
@@ -3343,7 +3373,10 @@
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
 	rarity_value = 5
+<<<<<<< HEAD
 	taste_tag = list(BLAND_FOOD,UMAMI_FOOD)
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
 	name = "bread tube"
@@ -3357,4 +3390,7 @@
 	nutriment_amt = 6
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD_RATIONS
+<<<<<<< HEAD
 	taste_tag = list(SWEET_FOOD)
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

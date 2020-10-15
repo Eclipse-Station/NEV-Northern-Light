@@ -143,7 +143,10 @@
 	amount_per_transfer_from_this = 50
 	volume = 400
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/structure/reagent_dispensers/biomatter/large
 	name = "large biomatter canister"

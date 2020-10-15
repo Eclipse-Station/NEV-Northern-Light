@@ -181,7 +181,10 @@
 	desc = "A simple, comfortable poncho."
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
+<<<<<<< HEAD
 	style = 1
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_CLOTHING_SUIT_PONCHO
 	rarity_value = 5
 
@@ -191,7 +194,10 @@
 	icon_state = "tacticalponcho"
 	item_state = "tacticalponcho"
 	rarity_value = 80
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/clothing/suit/storage/toggle/bomber
 	name = "bomber jacket"
@@ -251,7 +257,10 @@
 	icon_closed = "grey_hoodie"
 	min_cold_protection_temperature = T0C - 20
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+<<<<<<< HEAD
 	style = 1
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 5
 
 /obj/item/clothing/suit/storage/toggle/hoodie/black
@@ -261,6 +270,7 @@
 	item_state = "black_hoodie"
 	icon_open = "black_hoodie_open"
 	icon_closed = "black_hoodie"
+	rarity_value = 6.25
 
 /obj/item/clothing/suit/storage/cyberpunksleek
 	name = "\improper Enforcer's Overcoat"

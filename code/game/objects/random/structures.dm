@@ -17,4 +17,7 @@
 	name = "random os structure"
 	allow_blacklist = TRUE
 	tags_to_spawn = list(SPAWN_SALVAGEABLE_OS)
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

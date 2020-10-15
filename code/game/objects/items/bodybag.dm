@@ -81,7 +81,7 @@
             icon_state = "bodybag_full"
         else
             icon_state = "bodybag_closed"
-				
+
 /obj/item/bodybag/cryobag
 	name = "stasis bag"
 	desc = "A folded, non-reusable bag designed to prevent additional damage to an occupant. Especially useful if short on time or in \
@@ -103,7 +103,11 @@
 	icon = 'icons/obj/cryobag.dmi'
 	item_path = /obj/item/bodybag/cryobag
 	store_misc = 0
+<<<<<<< HEAD
 	store_items = 0
+=======
+	store_items =  0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 20
 	var/used = 0
 	var/obj/item/weapon/tank/tank

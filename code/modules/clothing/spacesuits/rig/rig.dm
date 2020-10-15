@@ -61,12 +61,21 @@
 
 	//Component/device holders.
 	var/obj/item/weapon/tank/air_supply                       // Air tank, if any.
+<<<<<<< HEAD
 	var/obj/item/clothing/shoes/boots                  // Deployable boots, if any.
 	var/obj/item/clothing/suit/space/rig/chest                // Deployable chestpiece, if any.
 	var/obj/item/clothing/head/space/rig/helmet				 // Deployable helmet, if any.
 	var/obj/item/clothing/gloves/rig/gloves					// Deployable gauntlets, if any.
 	var/obj/item/weapon/cell/large/cell						// Power supply, if any.
 	var/obj/item/rig_module/selected_module      		      // Primary system (used with middle-click)
+=======
+	var/obj/item/clothing/shoes/boots                 // Deployable boots, if any.
+	var/obj/item/clothing/suit/space/rig/chest                // Deployable chestpiece, if any.
+	var/obj/item/clothing/head/space/rig/helmet // Deployable helmet, if any.
+	var/obj/item/clothing/gloves/rig/gloves            // Deployable gauntlets, if any.
+	var/obj/item/weapon/cell/large/cell                             // Power supply, if any.
+	var/obj/item/rig_module/selected_module           // Primary system (used with middle-click)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/obj/item/rig_module/vision/visor                      // Kinda shitty to have a var for a module, but saves time.
 	var/obj/item/rig_module/voice/speech                      // As above.
 	var/obj/item/rig_module/storage/storage					  // var for installed storage module, if any

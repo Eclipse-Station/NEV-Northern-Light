@@ -69,4 +69,8 @@
 	siemens_coefficient = 0
 	armor = list(melee = 10, bullet = 0, energy = 10, bomb = 0, bio = 0, rad = 0)
 	can_hold_knife = TRUE
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+	rarity_value = 50
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

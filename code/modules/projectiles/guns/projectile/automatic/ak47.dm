@@ -72,4 +72,8 @@
 
 	item_suffix = "_wood"
 	wielded_item_state = "_doble_wood"
+<<<<<<< HEAD
 	rarity_value = 19.2
+=======
+	rarity_value = 19.2
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

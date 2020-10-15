@@ -3,10 +3,13 @@
 /datum/design/autolathe/circuit/airlockmodule
 	name = "airlock electronics"
 	build_path = /obj/item/weapon/electronics/airlock
+<<<<<<< HEAD
 
 /datum/design/autolathe/circuit/airlockmodule/secure
 	name = "secure airlock electronics"
 	build_path = /obj/item/weapon/electronics/airlock/secure
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /datum/design/autolathe/circuit/airalarm
 	name = "air alarm electronics"

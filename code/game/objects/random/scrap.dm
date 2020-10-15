@@ -50,4 +50,8 @@
 
 /obj/spawner/scrap/beacon/dense
 	name = "Random dense beacon trash"
+<<<<<<< HEAD
 	tags_to_spawn = list(SPAWN_BEACON_SCRAP)
+=======
+	tags_to_spawn = list(SPAWN_BEACON_SCRAP)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

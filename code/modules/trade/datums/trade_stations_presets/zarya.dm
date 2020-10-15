@@ -18,7 +18,11 @@
 			/obj/item/weapon/cell/large/high,
 			/obj/item/solar_assembly,
 			/obj/item/weapon/electronics/circuitboard/solar_control,
+<<<<<<< HEAD
 			/obj/item/weapon/tracker_electronics,
+=======
+			/obj/item/weapon/electronics/tracker,
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 			/obj/machinery/power/emitter,
 			/obj/machinery/power/rad_collector,
 			/obj/machinery/power/supermatter,

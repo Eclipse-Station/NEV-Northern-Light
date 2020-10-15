@@ -6,7 +6,11 @@
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE
 	w_class = ITEM_SIZE_SMALL
+<<<<<<< HEAD
 	siemens_coefficient = 3
+=======
+	siemens_coefficient = 3.0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 100
 
 /obj/item/clothing/mask/luchador/tecnicos

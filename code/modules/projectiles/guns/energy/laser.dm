@@ -29,9 +29,12 @@
 	safety = FALSE
 	restrict_safety = TRUE
 	twohanded = FALSE
+<<<<<<< HEAD
 	zoom_factor = 0
 	damage_multiplier = 1
 	charge_cost = 100
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun/energy/laser/mounted/blitz
@@ -68,7 +71,11 @@
 	damage_multiplier = 1
 	charge_cost = 100
 	price_tag = 2000
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	init_firemodes = list(
 		WEAPON_NORMAL,
 		WEAPON_CHARGE

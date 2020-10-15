@@ -7,7 +7,11 @@
 	name = "ore box"
 	desc = "A heavy box used for storing ore."
 	density = TRUE
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	rarity_value  = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_STRUCTURE_COMMON
 	var/last_update = 0
 	var/list/stored_ore = list()

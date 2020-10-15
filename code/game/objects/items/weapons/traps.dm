@@ -429,4 +429,8 @@ Very rarely it might escape
 	anchored = TRUE
 	rarity_value = 22.2
 	spawn_frequency = 10
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_TRAP_ARMED
+=======
+	spawn_tags = SPAWN_TAG_TRAP_ARMED
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

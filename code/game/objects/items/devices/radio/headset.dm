@@ -68,8 +68,9 @@
 
 /obj/item/device/radio/headset/syndicate
 	origin_tech = list(TECH_COVERT = 3)
-	syndie = 1
+	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/syndicate
+	spawn_blacklisted = TRUE
 
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_COVERT = 3)
@@ -110,6 +111,10 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_moebius
 
+/obj/item/device/radio/headset/heads
+	bad_type = /obj/item/device/radio/headset/heads
+	spawn_blacklisted = TRUE
+
 /obj/item/device/radio/headset/headset_com
 	name = "command radio headset"
 	desc = "A headset with a commanding channel."
@@ -131,7 +136,11 @@
 	icon_state = "radio"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/ai_integrated
+<<<<<<< HEAD
 	var/myAi    // Atlantis: Reference back to the AI which has this radio.
+=======
+	var/myAi   // Atlantis: Reference back to the AI which has this radio.
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via intellicard menu.
 
 /obj/item/device/radio/headset/heads/ai_integrated/receive_range(freq, level)

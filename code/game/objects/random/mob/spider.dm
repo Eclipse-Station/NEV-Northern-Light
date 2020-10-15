@@ -22,4 +22,8 @@
 	name = "low chance cluster of spiders"
 	icon_state = "hostilemob-black-cluster-low"
 	spawn_nothing_percentage = 60
+<<<<<<< HEAD
 	spawn_blacklisted = TRUE
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

@@ -52,7 +52,7 @@
 	. = ..()
 
 
-/obj/item/weapon/storage/deferred/rations //DO this before merging 
+/obj/item/weapon/storage/deferred/rations //DO this before merging
 	name = "infantryman's rations kit"
 	icon_state = "irp_box"
 	item_state = "irp_box"

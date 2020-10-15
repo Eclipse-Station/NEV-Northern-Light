@@ -148,7 +148,7 @@
 			return // we got this one already
 		//We send a message to the occupant's current mob - probably a ghost, but who knows.
 		to_chat(M, SPAN_NOTICE("Your remains have been collected and properly stored. Your crew respawn time is reduced by 10 minutes."))
-		
+
 		M << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
 
 		M.set_respawn_bonus("CORPSE_HANDLING", 10 MINUTES)
@@ -475,7 +475,11 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "cremat"
 	density = TRUE
+<<<<<<< HEAD
 	layer = 2
+=======
+	layer = 2.0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/obj/structure/crematorium/connected
 	anchored = TRUE
 	throwpass = 1

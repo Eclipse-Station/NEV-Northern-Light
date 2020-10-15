@@ -89,7 +89,10 @@
 	default_pressure = 3*ONE_ATMOSPHERE
 	default_gas = "phoron"
 	rarity_value = 30
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /*
  * Emergency Oxygen

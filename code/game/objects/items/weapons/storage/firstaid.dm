@@ -16,7 +16,11 @@
 	throw_range = 8
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_FIRSTAID
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/storage/firstaid
+=======
+	bad_type = /obj/item/weapon/storage/firstaid
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/empty = 0
 
 
@@ -163,6 +167,10 @@
 /obj/item/weapon/storage/firstaid/surgery/traitor
 	spawn_blacklisted = TRUE
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 /obj/item/weapon/storage/firstaid/surgery/traitor/populate_contents()
 	if (empty) return
 	new /obj/item/weapon/tool/bonesetter(src)
@@ -198,7 +206,11 @@
 	matter = list(MATERIAL_PLASTIC = 1)
 	max_storage_space = 12
 	rarity_value = 10
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/storage/pill_bottle
+=======
+	bad_type = /obj/item/weapon/storage/pill_bottle
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_MEDICINE
 
 /obj/item/weapon/storage/pill_bottle/antitox

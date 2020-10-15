@@ -41,7 +41,11 @@
 //items - one star
 #define SPAWN_ITEM_TECH_OS "item_tech_os"
 
+<<<<<<< HEAD
 #define SPAWN_TAG_ITEM_TECH_OS "obj,item,item_tech_os"
+=======
+#define SPAWN_TAG_ITEM_TECH_OS "obj,item,item_tech_os,onestar"
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 // ITEMS - organ- PROSTHESIS
 #define SPAWN_OS_PROSTHETIC "prosthetic_os"
 
@@ -449,6 +453,7 @@
 #define SPAWN_TAG_SPAWNER_MOB "spawner,spawner_mob"
 #define SPAWN_TAG_SPAWNER_SCRAP "spawner,spawner_scrap"
 #define SPAWN_TAG_SPAWNER_LARGE_SCRAP "spawner,spawner_scrap,spawner_large_scrap"
+<<<<<<< HEAD
 
 // FACTION KEYWORDS
 #define SPAWN_ASTERS "asters"
@@ -458,3 +463,5 @@
 #define SPAWN_NEOTHEOLOGY "neotheology"
 #define SPAWN_MOEBIUS "moebius"
 #define SPAWN_SERBIAN "serbian"
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

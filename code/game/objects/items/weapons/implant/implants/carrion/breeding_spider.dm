@@ -16,16 +16,16 @@
 		return
 	if(!istype(wearer.species, /datum/species/human))
 		to_chat(owner_mob, SPAN_WARNING("[src] only works on humans"))
-		return	
+		return
 
 	if(!(wearer.stat == DEAD))
 		to_chat(owner_mob, SPAN_WARNING("The host must be dead!"))
 		return
-	
+
 	if(active)
 		to_chat(owner_mob, SPAN_WARNING("[src] is already active!"))
 		return
-	
+
 	for(var/obj/item/weapon/implant/carrion_spider/breeding/BS in wearer)
 		if(BS.active)
 			to_chat(owner_mob, SPAN_WARNING("Another breeding spider is already active in [wearer]!"))

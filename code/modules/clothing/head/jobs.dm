@@ -17,6 +17,7 @@
 		slot_l_hand_str = "caphat",
 		slot_r_hand_str = "caphat",
 		)
+	spawn_blacklisted = TRUE
 	body_parts_covered = 0
 
 /obj/item/clothing/head/caphat/cap
@@ -67,7 +68,10 @@
 	desc = "A beret, an artists favorite headwear."
 	icon_state = "beret"
 	body_parts_covered = 0
+<<<<<<< HEAD
 	style = 1
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_blacklisted = TRUE
 
 //Security

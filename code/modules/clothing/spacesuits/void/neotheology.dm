@@ -94,4 +94,8 @@
 	)
 	unacidable = TRUE
 	helmet = /obj/item/clothing/head/space/void/custodian
+<<<<<<< HEAD
 	spawn_blacklisted = TRUE
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

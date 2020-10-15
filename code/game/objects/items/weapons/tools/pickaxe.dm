@@ -164,4 +164,8 @@
 	switched_on_qualities = list(QUALITY_DIGGING = 15, QUALITY_PRYING = 15)
 	w_class = ITEM_SIZE_NORMAL
 	matter = list(MATERIAL_STEEL = 3)
+<<<<<<< HEAD
 	rarity_value = 48
+=======
+	rarity_value = 48
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

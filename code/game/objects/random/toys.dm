@@ -11,4 +11,8 @@
 /obj/spawner/toy/plushie
 	name = "random plushie"
 	icon_state = "box-grey"
+<<<<<<< HEAD
 	tags_to_spawn = list(SPAWN_PLUSHIE)
+=======
+	tags_to_spawn = list(SPAWN_PLUSHIE)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

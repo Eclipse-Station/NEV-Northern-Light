@@ -6,10 +6,17 @@
 	icon_screen = "mass_driver"
 	light_color = COLOR_LIGHTING_GREEN_MACHINERY
 	circuit = /obj/item/weapon/electronics/circuitboard/pod
+<<<<<<< HEAD
 	var/id = 1
 	var/obj/machinery/mass_driver/connected
 	var/timing = 0
 	var/time = 30
+=======
+	var/id = 1.0
+	var/obj/machinery/mass_driver/connected
+	var/timing = 0.0
+	var/time = 30.0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/title = "Mass Driver Controls"
 
 

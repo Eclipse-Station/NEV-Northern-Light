@@ -6,7 +6,11 @@
 	toggleable = TRUE
 	prescription = TRUE
 	active = FALSE
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/glasses/powered
+=======
+	bad_type = /obj/item/clothing/glasses/powered
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/tick_cost = 1
 	var/obj/item/weapon/cell/cell
 	var/suitable_cell = /obj/item/weapon/cell/small

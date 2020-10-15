@@ -553,5 +553,11 @@
 	w_class = ITEM_SIZE_SMALL
 	spawn_tags = SPAWN_TAG_TOOL_UPGRADE
 	price_tag = 200
+<<<<<<< HEAD
 	rarity_value = 15
 	bad_types = /obj/item/weapon/tool_upgrade
+=======
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE
+	rarity_value = 15
+	bad_type = /obj/item/weapon/tool_upgrade
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

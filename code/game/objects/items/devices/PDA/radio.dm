@@ -36,7 +36,11 @@
 	proc/generate_menu()
 
 /obj/item/radio/integrated/beepsky
+<<<<<<< HEAD
 	var/list/botlist		// list of bots
+=======
+	var/list/botlist	// list of bots
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/mob/living/bot/secbot/active 	// the active bot; if null, show bot list
 	var/list/botstatus			// the status signal sent by the bot
 

@@ -93,4 +93,8 @@
 	ranged = TRUE
 	melee_damage_lower = 7
 	melee_damage_upper = 15
+<<<<<<< HEAD
 	rarity_value = 39.66
+=======
+	rarity_value = 39.66
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

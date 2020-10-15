@@ -99,4 +99,8 @@
 	recoil_buildup = 0.4 // Double the excel variant
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_WOOD = 10)
 	wielded_item_state = "_doble_wood"
+<<<<<<< HEAD
 	rarity_value = 48
+=======
+	rarity_value = 48
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

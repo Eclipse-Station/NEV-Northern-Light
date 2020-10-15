@@ -2,7 +2,11 @@
 	name = "armory closet"
 	desc = "Why is this here?"
 	icon_state = "syndicate"
+<<<<<<< HEAD
 	bad_types = /obj/structure/closet/syndicate
+=======
+	bad_type = /obj/structure/closet/syndicate
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 100
 
 

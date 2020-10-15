@@ -27,14 +27,18 @@
 
 	var/last_special = 0 //Used by the resist verb, likely used to prevent players from bypassing next_move by logging in/out.
 
-	var/t_phoron = null
-	var/t_oxygen = null
-	var/t_sl_gas = null
-	var/t_n2 = null
+	var/t_phoron
+	var/t_oxygen
+	var/t_sl_gas
+	var/t_n2
 
 	var/now_pushing
 	var/fuzzy = 1	//Sprite scaling Fuzzy/Sharp toggle
 
+<<<<<<< HEAD
+=======
+	var/now_pushing
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/mob_bump_flag = 0
 	var/mob_swap_flags = 0
 	var/mob_push_flags = 0
@@ -47,7 +51,11 @@
 	var/list/datum/action/actions = list()
 	var/step_count = 0
 
+<<<<<<< HEAD
 	var/tod // Time of death
+=======
+	var/tod  // Time of death
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/update_slimes = 1
 	var/silent 		// Can't talk. Value goes down every life proc.
 	var/on_fire = 0 //The "Are we on fire?" var
@@ -62,7 +70,11 @@
 	var/stuttering	//Carbon
 	var/slurring		//Carbon
 
+<<<<<<< HEAD
 	var/job //Living
+=======
+	var/job//Living
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	var/image/static_overlay // For static overlays on living mobs
 	mob_classification = CLASSIFICATION_ORGANIC
@@ -79,4 +91,8 @@
 	var/noise_coeff = 1 //noise coefficient
 
 	spawn_frequency = 10
+<<<<<<< HEAD
 	bad_types = /mob/living
+=======
+	bad_type = /mob/living
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

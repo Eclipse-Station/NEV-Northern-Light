@@ -8,10 +8,15 @@
 	spawn_tags = SPAWN_TAG_ITEM
 	rarity_value = 10
 	spawn_frequency = 10 //MAX
+<<<<<<< HEAD
 	bad_types = /obj/item
 
 	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
+=======
+	bad_type = /obj/item
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/randpixel = 6
+	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite	var/randpixel = 6
 	var/abstract = 0
 	var/r_speed = 1
 	var/health
@@ -57,7 +62,12 @@
 
 	var/contained_sprite = FALSE //TRUE if object icon and related mob overlays are all in one dmi
 
+<<<<<<< HEAD
 	var/icon_override  //Used to override hardcoded clothing dmis in human clothing proc.
+=======
+	var/icon_override //Used to override hardcoded clothing dmis in human clothing proc.
+	var/icon_override_female = null  //SYZYGY EDIT - gendered icon_overrides
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	//** These specify item/icon overrides for _slots_
 
@@ -382,7 +392,7 @@
 		return
 
 	if((flags & NOBLOODY)||(item_flags & NOBLOODY))
-		return	
+		return
 
 	//if we haven't made our blood_overlay already
 	if( !blood_overlay )

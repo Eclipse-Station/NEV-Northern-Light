@@ -16,7 +16,11 @@
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_POUCH
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/storage/pouch
+=======
+	bad_type = /obj/item/weapon/storage/pouch
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	var/sliding_behavior = FALSE
 
@@ -104,7 +108,11 @@
 	desc = "Can hold small engineering tools. But only about three pieces of them."
 	icon_state = "engineering_tool"
 	item_state = "engineering_tool"
+<<<<<<< HEAD
 	rarity_value = 20
+=======
+	rarity_value = 33
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	storage_slots = 3
 	max_w_class = ITEM_SIZE_SMALL

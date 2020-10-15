@@ -29,7 +29,11 @@
 
 	var/obj/item/weapon/tank/internal //Human/Monkey
 
+<<<<<<< HEAD
 
 	bad_types = /mob/living/carbon
+=======
+	bad_type = /mob/living/carbon
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	//TODO: move to brain
 

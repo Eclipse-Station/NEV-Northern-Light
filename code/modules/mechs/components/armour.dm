@@ -10,7 +10,11 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(MATERIAL_STEEL = 7)
 	spawn_tags = SPAWN_TAG_MECH_QUIPMENT
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	rarity_value  = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/robot_parts/robot_component/armour/exosuit/Initialize(newloc)
 	. = ..()

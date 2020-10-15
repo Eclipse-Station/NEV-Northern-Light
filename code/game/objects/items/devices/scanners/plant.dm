@@ -46,7 +46,7 @@
 		if(BH.smoked)
 			dat += "The hive is smoked."
 		return jointext(dat, "<br>")
-	
+
 	else if(istype(target,/obj/item/weapon/reagent_containers/food/snacks/grown))
 
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = target
@@ -195,5 +195,5 @@
 
 	if(grown_seed.get_trait(TRAIT_CONSUME_GASSES))
 		dat += "<br>It will remove gas from the environment."
-		
+
 	return JOINTEXT(dat)

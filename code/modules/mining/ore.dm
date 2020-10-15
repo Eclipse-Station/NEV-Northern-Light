@@ -3,8 +3,13 @@
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "ore2"
 	w_class = ITEM_SIZE_SMALL
+<<<<<<< HEAD
 	rarity_value = 25
 	bad_types = /obj/item/weapon/ore
+=======
+	rarity_value  = 25
+	bad_type = /obj/item/weapon/ore
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_ORE
 	var/datum/geosample/geologic_data
 	var/material
@@ -14,7 +19,11 @@
 	icon_state = "ore_uranium"
 	origin_tech = list(TECH_MATERIAL = 5)
 	material = MATERIAL_URANIUM
+<<<<<<< HEAD
 	rarity_value = 100
+=======
+	rarity_value  = 100
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/ore/iron
 	name = "hematite"
@@ -34,7 +43,11 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	material = "sand"
 	slot_flags = SLOT_HOLSTER
+<<<<<<< HEAD
 	rarity_value = 20
+=======
+	rarity_value  = 20
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_tags = SPAWN_TAG_ORE_TAG_JUNK
 
 // POCKET SAND!
@@ -54,47 +67,75 @@
 	icon_state = "ore_plasma"
 	origin_tech = list(TECH_MATERIAL = 2)
 	material = "phoron"
+<<<<<<< HEAD
 	rarity_value = 33.33
+=======
+	rarity_value  = 33.33
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/ore/silver
 	name = "native silver ore"
 	icon_state = "ore_silver"
 	origin_tech = list(TECH_MATERIAL = 3)
 	material = MATERIAL_SILVER
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+	rarity_value  = 50
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/ore/gold
 	name = "native gold ore"
 	icon_state = "ore_gold"
 	origin_tech = list(TECH_MATERIAL = 4)
 	material = MATERIAL_GOLD
+<<<<<<< HEAD
 	rarity_value = 33.33
+=======
+	rarity_value  = 33.33
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/ore/diamond
 	name = "diamonds"
 	icon_state = "ore_diamond"
 	origin_tech = list(TECH_MATERIAL = 6)
 	material = MATERIAL_DIAMOND
+<<<<<<< HEAD
 	rarity_value = 100
+=======
+	rarity_value  = 100
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/ore/osmium
 	name = "raw platinum"
 	icon_state = "ore_platinum"
 	material = MATERIAL_PLATINUM
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+	rarity_value  = 50
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/ore/hydrogen
 	name = "raw hydrogen"
 	icon_state = "ore_hydrogen"
 	material = MATERIAL_MHYDROGEN
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+	rarity_value  = 50
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /obj/item/weapon/ore/slag
 	name = "Slag"
 	desc = "Someone screwed up..."
 	icon_state = "slag"
 	material = null
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	rarity_value  = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	spawn_blacklisted = TRUE
 
 /obj/item/weapon/ore/New()

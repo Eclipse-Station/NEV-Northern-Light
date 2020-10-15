@@ -5,7 +5,11 @@
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1)
 	price_tag = 50
 	spawn_tags = SPAWN_TAG_COMPUTER_HARDWERE
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/computer_hardware
+=======
+	bad_type = /obj/item/weapon/computer_hardware
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 25
 	var/obj/item/modular_computer/holder2
 	var/power_usage = 0 			// If the hardware uses extra power, change this.

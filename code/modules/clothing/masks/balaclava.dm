@@ -16,6 +16,7 @@
 	action_button_name = "Adjust Balaclava"
 	rarity_value = 10
 	var/open = 0 //0 = full, 1 = head only, 2 = face only
+	rarity_value = 10
 
 /obj/item/clothing/mask/balaclava/tactical/proc/adjust_mask(mob/living/carbon/human/user)
 	if(!istype(user))

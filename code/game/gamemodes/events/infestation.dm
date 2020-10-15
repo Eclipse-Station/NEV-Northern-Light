@@ -164,6 +164,24 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 			event_name = "Giant Roach Infestation"
 			chosen_verb = "have burrowed into"
 			chosen_mob_classification += /obj/spawner/mob/roaches
+<<<<<<< HEAD
+=======
+		if(INFESTATION_YITHIAN)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/yithian
+		if(INFESTATION_TINDALOS)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/tindalos
+		if(INFESTATION_SAMAK)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/hostile/samak
+		if(INFESTATION_SHANTAK)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/hostile/shantak
+		if(INFESTATION_DIYAAB)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/hostile/diyaab
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	//Chance for identification to fail even for normal mobs, to frustrate metagamers
 	if (prob(15))

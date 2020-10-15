@@ -22,4 +22,8 @@
 /obj/spawner/powercell/large
 	name = "random powercell"
 	icon_state = "battery-green"
+<<<<<<< HEAD
 	tags_to_spawn = list(SPAWN_LARGE_POWERCELL)
+=======
+	tags_to_spawn = list(SPAWN_LARGE_POWERCELL)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

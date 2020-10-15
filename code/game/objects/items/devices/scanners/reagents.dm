@@ -37,6 +37,11 @@
 	icon_state = "adv_spectrometer"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_DIVICE
 	rarity_value = 50
 
+=======
+	spawn_tags = SPAWN_TAG_DIVICE_SCIENCE
+	rarity_value = 50
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

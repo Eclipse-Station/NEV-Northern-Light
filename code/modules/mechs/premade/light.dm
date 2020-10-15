@@ -3,7 +3,11 @@
 	name = "light exosuit"
 	desc = "A light and agile exosuit."
 
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+	rarity_value  = 10
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	material = MATERIAL_PLASTIC
 	exosuit_color = COLOR_OFF_WHITE

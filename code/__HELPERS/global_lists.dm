@@ -157,6 +157,8 @@ var/global/list/unworn_slots = list(slot_l_hand,slot_r_hand, slot_l_store, slot_
 
 GLOBAL_LIST_EMPTY(all_spawn_data)
 
+GLOBAL_LIST_EMPTY(all_spawn_data)
+
 //////////////////////////
 /////Initial Building/////
 //////////////////////////
@@ -285,6 +287,11 @@ GLOBAL_LIST_EMPTY(all_spawn_data)
 			GLOB.all_rituals[R.name] = R
 
 	GLOB.all_spawn_data["loot_s_data"] = new /datum/loot_spawner_data
+<<<<<<< HEAD
+=======
+
+	return 1
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 	return 1
 

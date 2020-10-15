@@ -70,7 +70,7 @@
 	force = WEAPON_FORCE_WEAK
 	spawn_blacklisted = TRUE
 	siemens_coefficient = 0.7
-
+	spawn_blacklisted = TRUE
 	cold_protection = LEGS
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = LEGS
@@ -113,4 +113,8 @@
 	name = "leather shoes"
 	desc = "A sturdy pair of leather shoes."
 	icon_state = "leather"
+<<<<<<< HEAD
 	rarity_value = 14.3
+=======
+	rarity_value = 14.3
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

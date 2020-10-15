@@ -168,7 +168,11 @@
 /obj/item/clothing/suit/space/void/security/equipped
 	boots = /obj/item/clothing/shoes/magboots
 	tank = /obj/item/weapon/tank/jetpack/oxygen
+<<<<<<< HEAD
 	spawn_blacklisted = TRUE
+=======
+	rarity_value = 20
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 //Atmospherics Rig (BS12)
 /obj/item/clothing/head/space/void/atmos
@@ -267,5 +271,8 @@
 	siemens_coefficient = 0.4
 	helmet = /obj/item/clothing/head/space/void/science
 	rarity_value = 20
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 

@@ -21,4 +21,8 @@
 
 /obj/spawner/voidsuit/post_spawn(list/spawns)
 	for (var/obj/item/clothing/suit/space/void/suit in spawns)
+<<<<<<< HEAD
 		suit.create_breaches(pick(BRUTE, BURN), rand(10, 50))
+=======
+		suit.create_breaches(pick(BRUTE, BURN), rand(10, 50))
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

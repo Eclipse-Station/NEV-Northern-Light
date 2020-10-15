@@ -76,4 +76,8 @@
 /obj/item/weapon/implanter/death_alarm
 	name = "implanter (death alarm)"
 	implant = /obj/item/weapon/implant/death_alarm
+<<<<<<< HEAD
 	spawn_tags = null
+=======
+	spawn_tags = null
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop

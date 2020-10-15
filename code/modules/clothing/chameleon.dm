@@ -45,7 +45,10 @@
 	spawn_blacklisted = TRUE
 	spawn_tags = SPAWN_TAG_CLOTHING_UNDER_CHAMALEON
 	rarity_value = 50
+<<<<<<< HEAD
 
+=======
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	origin_tech = list(TECH_COVERT = 3)
 	var/global/list/clothing_choices
 
@@ -97,6 +100,9 @@
 	name = "grey cap"
 	desc = "It's a baseball hat in a tasteful grey colour."
 	icon_state = "greysoft"
+	spawn_blacklisted = TRUE
+	spawn_tags = SPAWN_TAG_CLOTHING_HEAD_CHAMALEON
+	rarity_value = 50
 	update_icon()
 	update_wear_icon()
 
@@ -194,7 +200,11 @@
 	desc = "A backpack outfitted with cloaking tech. It seems to have a small dial inside, kept away from the storage."
 	origin_tech = list(TECH_COVERT = 3)
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_BACKPACK_CHAMALEON
+=======
+	spawn_tags = SPAWN_TAG_SHOES_CHAMALEON
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 50
 	var/global/list/clothing_choices
 
@@ -233,7 +243,11 @@
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	origin_tech = list(TECH_COVERT = 3)
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_GLOVES_CHAMALEON
+=======
+	spawn_tags = SPAWN_TAG_SHOES_CHAMALEON
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 50
 	var/global/list/clothing_choices
 
@@ -270,7 +284,11 @@
 	desc = "It looks like a plain gask mask, but on closer inspection, it seems to have a small dial inside."
 	origin_tech = list(TECH_COVERT = 3)
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_MASK_CONTRABAND
+=======
+	spawn_tags = SPAWN_TAG_SHOES_CHAMALEON
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 50
 	flags_inv = HIDEEYES|HIDEFACE
 	var/global/list/clothing_choices
@@ -308,7 +326,11 @@
 	desc = "It looks like a plain set of mesons, but on closer inspection, it seems to have a small dial inside."
 	origin_tech = list(TECH_COVERT = 3)
 	spawn_blacklisted = TRUE
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_GLASSES_CHAMALEON
+=======
+	spawn_tags = SPAWN_TAG_SHOES_CHAMALEON
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 50
 	var/list/global/clothing_choices
 
@@ -387,7 +409,11 @@
 	update_icon()
 	update_wear_icon()
 
+<<<<<<< HEAD
 /obj/item/weapon/gun/energy/chameleon/disguise(newtype)
+=======
+/obj/item/weapon/gun/energy/chameleon/disguise(ewtype)
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	var/obj/item/weapon/gun/copy = ..()
 
 	flags_inv = copy.flags_inv

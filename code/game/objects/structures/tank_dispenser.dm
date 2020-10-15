@@ -3,6 +3,8 @@
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten phoron tanks."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "dispenser"
+	spawn_tags = SPAWN_TAG_STRUCTURE_COMMON
+	rarity_value = 50
 	density = TRUE
 	anchored = TRUE
 	w_class = ITEM_SIZE_HUGE
@@ -16,11 +18,19 @@
 
 
 /obj/structure/dispenser/oxygen
+<<<<<<< HEAD
 	phorontanks = 0
 	rarity_value = 10
 
 /obj/structure/dispenser/phoron
 	oxygentanks = 0
+=======
+	phorontanks =  0
+	rarity_value = 10
+
+/obj/structure/dispenser/phoron
+	oxygentanks =  0
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	rarity_value = 25
 
 

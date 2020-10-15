@@ -269,6 +269,11 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/surgery
 	disk_name = "Back Alley Organs"
 	icon_state = "moebius"
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_DESING_COMMON
+	rarity_value = 3.125
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 	license = 5
 	designs = list(
 		/datum/design/bioprinter/lungs
@@ -670,6 +675,9 @@
 // .35 PISTOLS + REVOLVERS
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns
 	bad_types = /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns
+	bad_type = /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cheap_guns
 	disk_name = "Frozen Star Basic - .35 Civilian Pack"
@@ -1096,7 +1104,7 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_svalinn
 	disk_name = "NeoTheology Armory - NT LP \"Svalinn\""
 	icon_state = "neotheology"
-
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED
 	license = 12
 	designs = list(
 		/datum/design/autolathe/gun/nt_svalinn = 3,

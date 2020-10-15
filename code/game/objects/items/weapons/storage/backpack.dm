@@ -192,7 +192,11 @@
 	desc = "Designed for planetary infantry, holds a lot of equipment."
 	icon_state = "backpack_military"
 	max_storage_space = DEFAULT_HUGE_STORAGE * 1.3
+<<<<<<< HEAD
 	rarity_value = 8.33
+=======
+	rarity_value = 8/33
+>>>>>>> f05e272... Merge pull request #193 from Trilbyspaceclone/beep_boop
 
 /*
  * Backsport Types (alternative style)
