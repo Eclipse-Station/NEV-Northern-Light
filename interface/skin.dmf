@@ -410,6 +410,9 @@ macro "macro"
 		name = "F4"
 		command = "me-verb"
 	elem 
+		name = "CTRL+F4"
+		command = "me-multiline-verb"
+	elem 
 		name = "F5"
 		command = "asay"
 	elem 
@@ -660,6 +663,9 @@ macro "hotkeymode"
 	elem 
 		name = "F4"
 		command = "me-verb"
+	elem 
+		name = "CTRL+F4"
+		command = "me-multiline-verb"
 	elem 
 		name = "F5"
 		command = "asay"
