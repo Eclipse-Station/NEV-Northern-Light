@@ -181,8 +181,7 @@
 	base_icon = "cup"
 	filling_states = "100"
 	preloaded_reagents = list("dry_ramen" = 30)
-	spawn_tags = SPAWN_TAG_JUNKFOOD
-	rarity_value = 15
+
 
 /obj/item/weapon/reagent_containers/food/drinks/sillycup
 	name = "paper cup"

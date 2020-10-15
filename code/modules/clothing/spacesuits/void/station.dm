@@ -121,7 +121,6 @@
 		rad = 75
 	)
 	helmet = /obj/item/clothing/head/space/void/medical
-	rarity_value = 4.5
 
 /obj/item/clothing/suit/space/void/medical/equipped
 	boots = /obj/item/clothing/shoes/magboots
@@ -163,12 +162,14 @@
 	)
 	siemens_coefficient = 0.7
 	helmet = /obj/item/clothing/head/space/void/security
-	rarity_value = 20
 
 /obj/item/clothing/suit/space/void/security/equipped
 	boots = /obj/item/clothing/shoes/magboots
 	tank = /obj/item/weapon/tank/jetpack/oxygen
+<<<<<<< HEAD
 	spawn_blacklisted = TRUE
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 //Atmospherics Rig (BS12)
 /obj/item/clothing/head/space/void/atmos
@@ -206,7 +207,6 @@
 	)
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	helmet = /obj/item/clothing/head/space/void/atmos
-	rarity_value = 8
 
 //Science
 /obj/item/clothing/head/space/void/science
@@ -234,7 +234,6 @@
 	)
 	siemens_coefficient = 0.4
 	light_overlay = "helmet_light_dual"
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/space/void/science
     var/list/icon_states = list("moebiushelmb","moebiushelmr", "moebiushelmp","moebiushelmg", "moebiushelmy", "moebiushelmw") //TODO: a manual selection anytime.
@@ -266,6 +265,10 @@
 	price_tag = 1200
 	siemens_coefficient = 0.4
 	helmet = /obj/item/clothing/head/space/void/science
-	rarity_value = 20
 
+<<<<<<< HEAD
 
+=======
+/obj/item/clothing/suit/space/void/security/equipped
+	tank = /obj/item/weapon/tank/jetpack/oxygen
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

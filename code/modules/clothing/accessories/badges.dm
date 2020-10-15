@@ -99,7 +99,6 @@
 	desc = "A silver Cobalt Security badge. Stamped with the words 'Sergeant.'"
 	icon_state = "silverbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
-	spawn_blacklisted = TRUE
 
 
 /obj/item/clothing/accessory/badge/hos
@@ -107,11 +106,9 @@
 	desc = "An immaculately polished gold Aegis Cobalt Security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/accessory/badge/marshal
 	name = "Marshal's badge"
 	desc = "A leather-backed gold badge displaying the crest of the Aegis Marshals."
 	icon_state = "marshalbadge"
 	badge_string = "Ironhammer Marshal Bureau"
-	spawn_blacklisted = TRUE

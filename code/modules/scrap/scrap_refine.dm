@@ -13,7 +13,7 @@
 
 /obj/structure/scrap_cube/Initialize(mapload, size = -1)
 	if(size < 0)
-		new /obj/spawner/scrap(src)
+		new /obj/random/scrap/moderate_weighted(src)
 	. = ..()
 
 /obj/structure/scrap_cube/attackby(obj/item/W, mob/user)

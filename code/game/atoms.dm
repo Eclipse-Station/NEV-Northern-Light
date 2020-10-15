@@ -6,7 +6,7 @@
 	var/flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
-	var/fingerprintslast
+	var/fingerprintslast = null
 	var/list/blood_DNA
 	var/was_bloodied
 	var/blood_color
@@ -21,7 +21,7 @@
 
 	///Chemistry.
 	var/reagent_flags = NONE
-	var/datum/reagents/reagents
+	var/datum/reagents/reagents = null
 
 	//Detective Work, used for the duplicate data points kept in the scanners
 	var/list/original_atom
@@ -30,7 +30,7 @@
 
 	var/initialized = FALSE
 
-	var/list/preloaded_reagents
+	var/list/preloaded_reagents = null
 
 	var/sanity_damage = 0
 
@@ -548,9 +548,9 @@ its easier to just keep the beam vertical.
 
 /atom/proc/get_global_map_pos()
 	if(!islist(global_map) || isemptylist(global_map)) return
-	var/cur_x
-	var/cur_y
-	var/list/y_arr
+	var/cur_x = null
+	var/cur_y = null
+	var/list/y_arr = null
 	for(cur_x=1, cur_x<=global_map.len, cur_x++)
 		y_arr = global_map[cur_x]
 		cur_y = y_arr.Find(src.z)

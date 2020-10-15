@@ -6,7 +6,10 @@
 	toggleable = TRUE
 	prescription = TRUE
 	active = FALSE
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/glasses/powered
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/tick_cost = 1
 	var/obj/item/weapon/cell/cell
 	var/suitable_cell = /obj/item/weapon/cell/small

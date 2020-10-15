@@ -56,7 +56,11 @@
 	engage_string = "Cycle Visor Mode"
 	activate_string = "Enable Visor"
 	deactivate_string = "Disable Visor"
+<<<<<<< HEAD
 	bad_types = /obj/item/rig_module/vision
+=======
+
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/datum/rig_vision/vision
 	var/list/vision_modes = list(
 		/datum/rig_vision/nvg,
@@ -94,9 +98,9 @@
 	interface_desc = "An integrated meson scanner."
 
 	vision_modes = list(/datum/rig_vision/meson)
-	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
 
 /obj/item/rig_module/vision/thermal
+
 	name = "hardsuit thermal scanner"
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "thermal"
@@ -107,9 +111,9 @@
 	interface_desc = "An integrated thermal scanner."
 
 	vision_modes = list(/datum/rig_vision/thermal)
-	rarity_value = 50
 
 /obj/item/rig_module/vision/nvg
+
 	name = "hardsuit night vision interface"
 	desc = "A multi input night vision system for a hardsuit."
 	icon_state = "night"
@@ -118,8 +122,8 @@
 
 	interface_name = "night vision interface"
 	interface_desc = "An integrated night vision system."
+
 	vision_modes = list(/datum/rig_vision/nvg)
-	rarity_value = 30
 
 /obj/item/rig_module/vision/sechud
 
@@ -133,7 +137,6 @@
 	interface_desc = "An integrated security heads up display."
 
 	vision_modes = list(/datum/rig_vision/sechud)
-	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
 
 /obj/item/rig_module/vision/medhud
 	name = "hardsuit medical hud"
@@ -146,7 +149,7 @@
 	interface_desc = "An integrated medical heads up display."
 
 	vision_modes = list(/datum/rig_vision/medhud)
-	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
+
 
 
 // There should only ever be one vision module installed in a suit.

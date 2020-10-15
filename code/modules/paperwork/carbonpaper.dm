@@ -2,7 +2,6 @@
 	name = "sheet of paper"
 	icon_state = "paper_stack"
 	item_state = "paper"
-	spawn_blacklisted = TRUE
 	var/copied = 0
 	var/iscopy = 0
 

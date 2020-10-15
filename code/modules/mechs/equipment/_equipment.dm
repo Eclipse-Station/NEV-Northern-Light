@@ -6,10 +6,13 @@
 	icon_state = ""
 	matter = list(MATERIAL_STEEL = 40)
 	force = 10
+<<<<<<< HEAD
 	bad_types = /obj/item/mech_equipment
 	spawn_tags = SPAWN_TAG_MECH_QUIPMENT
 	rarity_value = 10
 	spawn_frequency = 10
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 	var/restricted_hardpoints
 	var/mob/living/exosuit/owner
@@ -68,7 +71,10 @@
 /obj/item/mech_equipment/mounted_system
 	var/holding_type
 	var/obj/item/holding
+<<<<<<< HEAD
 	bad_types = /obj/item/mech_equipment/mounted_system
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/mech_equipment/mounted_system/attack_self(var/mob/user)
 	. = ..()

@@ -9,8 +9,8 @@
 	w_class = ITEM_SIZE_TINY
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_GLASS = 1)
 	var/implanted = FALSE
-	var/mob/living/carbon/human/wearer
-	var/obj/item/organ/external/part
+	var/mob/living/carbon/human/wearer = null
+	var/obj/item/organ/external/part = null
 	var/implant_color = "b"
 	var/allow_reagents = FALSE
 	var/malfunction = MALFUNCTION_NONE
@@ -20,7 +20,7 @@
 	var/external = FALSE
 	var/cruciform_resist = FALSE
 
-/obj/item/weapon/implant/attackby(obj/item/weapon/I, mob/user)
+/obj/item/weapon/implant/attackby(obj/item/weapon/I as obj, mob/user as mob)
 	..()
 	if (istype(I, /obj/item/weapon/implanter))
 		var/obj/item/weapon/implanter/M = I

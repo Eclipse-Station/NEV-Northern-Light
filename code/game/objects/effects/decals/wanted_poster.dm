@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 /obj/item/weapon/contraband/poster/wanted
 	bad_types = /obj/item/weapon/contraband/poster/wanted
 
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /obj/item/weapon/contraband/poster/wanted/New(turf/loc, icon/person_icon, wanted_name, description)
 	name = "wanted poster ([wanted_name])"
 	desc = "A wanted poster for [wanted_name]."

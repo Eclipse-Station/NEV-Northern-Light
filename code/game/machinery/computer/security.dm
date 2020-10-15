@@ -5,6 +5,7 @@
 	icon_screen = "security"
 	light_color = COLOR_LIGHTING_SCI_BRIGHT
 	req_one_access = list(access_security)
+<<<<<<< HEAD
 	circuit = /obj/item/weapon/electronics/circuitboard/secure_data
 	var/obj/item/weapon/card/id/scan
 	var/authenticated
@@ -15,9 +16,21 @@
 	var/a_id
 	var/temp
 	var/printing
+=======
+	circuit = /obj/item/weapon/circuitboard/secure_data
+	var/obj/item/weapon/card/id/scan = null
+	var/authenticated = null
+	var/rank = null
+	var/screen = null
+	var/datum/data/record/active1 = null
+	var/datum/data/record/active2 = null
+	var/a_id = null
+	var/temp = null
+	var/printing = null
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/can_change_id = 0
 	var/list/Perp
-	var/tempname
+	var/tempname = null
 	//Sorting Variables
 	var/sortBy = "name"
 	var/order = 1 // -1 = Descending - 1 = Ascending
@@ -48,7 +61,7 @@
 	..()
 
 //Someone needs to break down the dat += into chunks instead of long ass lines.
-/obj/machinery/computer/secure_data/attack_hand(mob/user)
+/obj/machinery/computer/secure_data/attack_hand(mob/user as mob)
 	if(..())
 		return
 	ui_interact(user)

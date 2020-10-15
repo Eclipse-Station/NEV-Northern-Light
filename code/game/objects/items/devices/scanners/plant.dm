@@ -5,7 +5,6 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "hydro"
 	item_state = "analyzer"
-	rarity_value = 50
 
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1)
 

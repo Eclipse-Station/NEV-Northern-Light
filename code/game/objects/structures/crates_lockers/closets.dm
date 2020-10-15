@@ -7,8 +7,11 @@
 	layer = BELOW_OBJ_LAYER
 	w_class = ITEM_SIZE_GARGANTUAN
 	matter = list(MATERIAL_STEEL = 10)
+<<<<<<< HEAD
 	bad_types = "/obj/structure/closet"
 	spawn_tags = SPAWN_TAG_CLOSET
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/locked = FALSE
 	var/broken = FALSE
 	var/horizontal = FALSE
@@ -324,14 +327,14 @@
 /obj/structure/closet/proc/populate_contents()
 	return
 
-/obj/structure/closet/proc/damage(damage)
+/obj/structure/closet/proc/damage(var/damage)
 	health -= damage
 	if(health <= 0)
 		for(var/atom/movable/A in src)
 			A.forceMove(src.loc)
 		qdel(src)
 
-/obj/structure/closet/bullet_act(obj/item/projectile/Proj)
+/obj/structure/closet/bullet_act(var/obj/item/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage)
 		return
@@ -341,7 +344,7 @@
 
 	return
 
-/obj/structure/closet/affect_grab(mob/living/user, mob/living/target)
+/obj/structure/closet/affect_grab(var/mob/living/user, var/mob/living/target)
 	if(src.opened)
 		MouseDrop_T(target, user)      //act like they were dragged onto the closet
 		return TRUE
@@ -483,7 +486,7 @@
 		src.attack_hand(user)
 	return
 
-/obj/structure/closet/MouseDrop_T(atom/movable/O as mob|obj, mob/user)
+/obj/structure/closet/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
 	if(istype(O, /obj/screen))	//fix for HUD elements making their way into the world	-Pete
 		return
 	if(O.loc == user)

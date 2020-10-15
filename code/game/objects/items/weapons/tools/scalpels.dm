@@ -15,7 +15,6 @@
 	matter = list(MATERIAL_STEEL = 4)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	tool_qualities = list(QUALITY_CUTTING = 30, QUALITY_WIRE_CUTTING = 10)
-	spawn_tags = SPAWN_TAG_SURGERY_TOOL
 
 /obj/item/weapon/tool/scalpel/advanced
 	name = "advanced scalpel"
@@ -25,7 +24,6 @@
 	tool_qualities = list(QUALITY_CUTTING = 40, QUALITY_WIRE_CUTTING = 10)
 	degradation = 0.12
 	max_upgrades = 4
-	rarity_value = 20
 
 /obj/item/weapon/tool/scalpel/laser
 	name = "laser scalpel"
@@ -40,7 +38,6 @@
 	use_power_cost = 0.12
 	suitable_cell = /obj/item/weapon/cell/small
 	max_upgrades = 4
-	rarity_value = 30
 
 // Laser cutting overrides normal cutting
 /obj/item/weapon/tool/scalpel/laser/get_tool_type(mob/living/user, list/required_qualities, atom/use_on, datum/callback/CB)

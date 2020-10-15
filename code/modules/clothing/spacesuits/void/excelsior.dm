@@ -48,5 +48,9 @@
 		MATERIAL_STEEL = 10,
 		MATERIAL_PLASTEEL = 5
 	)
+<<<<<<< HEAD
 	helmet = /obj/item/clothing/head/space/void/excelsior
 	spawn_blacklisted = TRUE
+=======
+	helmet = /obj/item/clothing/head/space/void/excelsior
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

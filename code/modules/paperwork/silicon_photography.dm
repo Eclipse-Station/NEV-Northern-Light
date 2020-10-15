@@ -2,7 +2,6 @@
 * AI-specific *
 **************/
 /obj/item/device/camera/siliconcam
-	spawn_frequency = 0
 	var/in_camera_mode = 0
 	var/photos_taken = 0
 	var/list/obj/item/weapon/photo/aipictures = list()

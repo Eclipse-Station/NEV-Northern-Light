@@ -71,5 +71,9 @@
 	)
 
 	item_suffix = "_wood"
+<<<<<<< HEAD
 	wielded_item_state = "_doble_wood"
 	rarity_value = 19.2
+=======
+	wielded_item_state = "_doble_wood"
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

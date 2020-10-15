@@ -5,8 +5,11 @@
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "latex"
 	item_state = "lgloves"
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/gloves/color
 	rarity_value = 3
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/clothing/gloves/color/white
 	name = "white gloves"

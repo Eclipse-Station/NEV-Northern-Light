@@ -107,7 +107,7 @@
 /turf/simulated/floor/bluegrid,
 /area/crawler)
 "y" = (
-/obj/spawner/toy/plushie,
+/obj/random/plushie,
 /turf/simulated/floor/bluegrid,
 /area/crawler)
 "z" = (
@@ -130,7 +130,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/spawner/toolbox,
+/obj/random/toolbox,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/crawler)
 "E" = (

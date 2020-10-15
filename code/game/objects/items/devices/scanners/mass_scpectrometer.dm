@@ -79,5 +79,9 @@
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
 	details = 1
+<<<<<<< HEAD
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 	rarity_value = 100
+=======
+	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

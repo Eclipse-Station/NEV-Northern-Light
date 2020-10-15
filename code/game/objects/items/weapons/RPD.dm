@@ -158,8 +158,6 @@
 	return
 
 /obj/item/weapon/rpd/borg
-	spawn_tags = null
-
 
 /obj/item/weapon/rpd/borg/useCharge(mob/user)
 	if(isrobot(user))

@@ -99,4 +99,7 @@
 	recoil_buildup = 0.4 // Double the excel variant
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_WOOD = 10)
 	wielded_item_state = "_doble_wood"
+<<<<<<< HEAD
 	rarity_value = 48
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

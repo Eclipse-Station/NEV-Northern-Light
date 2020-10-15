@@ -7,10 +7,17 @@
 	slot_flags = SLOT_ACCESSORY_BUFFER
 	w_class = ITEM_SIZE_SMALL
 	var/slot = "decor"
+<<<<<<< HEAD
 	var/obj/item/clothing/has_suit		//the suit the tie may be attached to
 	var/image/inv_overlay	//overlay used when attached to clothing.
 	var/image/mob_overlay
 	var/overlay_state
+=======
+	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
+	var/image/inv_overlay = null	//overlay used when attached to clothing.
+	var/image/mob_overlay = null
+	var/overlay_state = null
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/clothing/accessory/Destroy()
 	if(has_suit)

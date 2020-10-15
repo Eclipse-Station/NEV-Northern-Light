@@ -2,8 +2,11 @@
 	name = "armory closet"
 	desc = "Why is this here?"
 	icon_state = "syndicate"
+<<<<<<< HEAD
 	bad_types = /obj/structure/closet/syndicate
 	rarity_value = 100
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 
 /obj/structure/closet/syndicate/personal

@@ -68,7 +68,7 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 	var/list/temp_tech = I.origin_tech
 	var/item_tech_points = 0
 	var/has_new_tech = FALSE
-	var/is_board = istype(I, /obj/item/weapon/electronics/circuitboard)
+	var/is_board = istype(I, /obj/item/weapon/circuitboard)
 
 	for(var/T in temp_tech)
 		if(tech_points[T])
@@ -231,9 +231,12 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 	throw_range = 10
 	matter = list(MATERIAL_STEEL = 5)
 	origin_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 1)
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_DIVICE_SCIENCE
 	spawn_frequency = 5
 	rarity_value = 8
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 	var/datum/experiment_data/experiments
 	var/list/scanned_autopsy_weapons = list()
@@ -306,8 +309,6 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 /obj/item/weapon/computer_hardware/hard_drive/portable/research_points
 	disk_name = "research data"
 	icon_state = "onestar"
-	spawn_tags = SPAWN_TAG_RESEARCH_POINTS
-	rarity_value = 12
 	var/min_points = 2000
 	var/max_points = 10000
 
@@ -319,4 +320,3 @@ GLOBAL_LIST_EMPTY(explosion_watcher_list)
 /obj/item/weapon/computer_hardware/hard_drive/portable/research_points/rare
 	min_points = 10000
 	max_points = 20000
-	rarity_value = 60

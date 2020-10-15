@@ -28,7 +28,6 @@
 		rad = 75
 	)
 	helmet = /obj/item/clothing/head/space/void/acolyte
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/space/void/agrolyte
 	name = "Agrolyte hood"
@@ -60,7 +59,6 @@
 		rad = 75
 	)
 	helmet = /obj/item/clothing/head/space/void/agrolyte
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/space/void/custodian
 	name = "Custodian helmet"
@@ -93,5 +91,9 @@
 		rad = 90
 	)
 	unacidable = TRUE
+<<<<<<< HEAD
 	helmet = /obj/item/clothing/head/space/void/custodian
 	spawn_blacklisted = TRUE
+=======
+	helmet = /obj/item/clothing/head/space/void/custodian
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

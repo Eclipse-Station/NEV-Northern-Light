@@ -6,11 +6,14 @@
 	icon = 'icons/obj/aibots.dmi'
 	layer = MOB_LAYER
 	icon_state = "mining_drone"
+<<<<<<< HEAD
 	spawn_blacklisted = TRUE
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_BOT_OS
 	bad_types = /mob/living/bot/miningonestar
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/obj/item/loot
 	var/attacktext = "drills"
 	var/environment_smash = 1

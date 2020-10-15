@@ -45,26 +45,26 @@
 /area/outpost/abandoned_fortress)
 "am" = (
 /obj/structure/table/reinforced,
-/obj/spawner/tool,
-/obj/spawner/tool,
+/obj/random/tool,
+/obj/random/tool,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "an" = (
 /obj/structure/table/reinforced,
-/obj/spawner/tool,
-/obj/spawner/tool,
-/obj/spawner/techpart,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/techpart,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ao" = (
 /obj/structure/table/reinforced,
-/obj/spawner/tool,
-/obj/spawner/lowkeyrandom,
+/obj/random/tool,
+/obj/random/lowkeyrandom,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ap" = (
 /obj/structure/table/reinforced,
-/obj/spawner/ammo/low_chance,
+/obj/random/ammo/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aq" = (
@@ -73,8 +73,8 @@
 /area/outpost/abandoned_fortress)
 "ar" = (
 /obj/structure/table/reinforced,
-/obj/spawner/tool,
-/obj/spawner/booze,
+/obj/random/tool,
+/obj/random/booze,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "as" = (
@@ -84,7 +84,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "at" = (
-/obj/spawner/junk/low_chance,
+/obj/random/junk/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "au" = (
@@ -100,13 +100,13 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ax" = (
-/obj/spawner/junk/low_chance,
-/obj/spawner/junk/low_chance,
+/obj/random/junk/low_chance,
+/obj/random/junk/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ay" = (
 /obj/structure/table/reinforced,
-/obj/spawner/booze,
+/obj/random/booze,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "az" = (
@@ -122,29 +122,33 @@
 /area/outpost/abandoned_fortress)
 "aC" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/techpart,
-/obj/spawner/techpart,
-/obj/spawner/techpart,
+/obj/random/techpart,
+/obj/random/techpart,
+/obj/random/techpart,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aD" = (
 /obj/structure/table/reinforced,
-/obj/spawner/booze,
-/obj/spawner/booze,
+/obj/random/booze,
+/obj/random/booze,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aE" = (
 /obj/structure/table/reinforced,
-/obj/spawner/techpart,
-/obj/spawner/techpart,
+/obj/random/techpart,
+/obj/random/techpart,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aF" = (
+<<<<<<< HEAD
 /obj/spawner/gun/normal/low_chance,
+=======
+/obj/random/gun_normal/low_chance,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aG" = (
-/obj/spawner/ammo/low_chance,
+/obj/random/ammo/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "aH" = (
@@ -154,23 +158,27 @@
 /area/outpost/abandoned_fortress)
 "aI" = (
 /obj/structure/closet/emcloset,
-/obj/spawner/gun/cheap,
-/obj/spawner/junk,
+/obj/random/gun_cheap,
+/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aJ" = (
 /obj/structure/closet/crate,
+<<<<<<< HEAD
 /obj/spawner/gun/normal/low_chance,
+=======
+/obj/random/gun_normal/low_chance,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aL" = (
 /obj/structure/closet/crate,
-/obj/spawner/ammo_lowcost/low_chance,
+/obj/random/ammo_lowcost/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aM" = (
 /obj/structure/closet/crate,
-/obj/spawner/ammo/low_chance,
+/obj/random/ammo/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aN" = (
@@ -182,11 +190,11 @@
 /area/outpost/abandoned_fortress)
 "aQ" = (
 /obj/structure/closet,
-/obj/spawner/contraband/low_chance,
-/obj/spawner/contraband/low_chance,
-/obj/spawner/powercell/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
+/obj/random/contraband/low_chance,
+/obj/random/contraband/low_chance,
+/obj/random/powercell/low_chance,
+/obj/random/lowkeyrandom/low_chance,
+/obj/random/lowkeyrandom/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "aS" = (
@@ -203,8 +211,8 @@
 /area/outpost/abandoned_fortress)
 "bb" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom/low_chance,
+/obj/random/lowkeyrandom,
+/obj/random/lowkeyrandom/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bc" = (
@@ -217,15 +225,15 @@
 /area/outpost/abandoned_fortress)
 "be" = (
 /obj/structure/closet,
-/obj/spawner/contraband/low_chance,
-/obj/spawner/contraband/low_chance,
-/obj/spawner/powercell/low_chance,
+/obj/random/contraband/low_chance,
+/obj/random/contraband/low_chance,
+/obj/random/powercell/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bi" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
+/obj/random/lowkeyrandom/low_chance,
+/obj/random/lowkeyrandom/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bj" = (
@@ -234,9 +242,9 @@
 /area/outpost/abandoned_fortress)
 "bk" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/lowkeyrandom/low_chance,
-/obj/spawner/electronics,
+/obj/random/lowkeyrandom/low_chance,
+/obj/random/lowkeyrandom/low_chance,
+/obj/random/circuitboard,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bm" = (
@@ -247,7 +255,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bq" = (
-/obj/spawner/junk/low_chance,
+/obj/random/junk/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "br" = (
@@ -270,25 +278,32 @@
 /area/outpost/abandoned_fortress)
 "bv" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/tool/low_chance,
-/obj/spawner/tool/low_chance,
-/obj/spawner/techpart,
-/obj/spawner/techpart,
-/obj/spawner/techpart,
+/obj/random/tool/low_chance,
+/obj/random/tool/low_chance,
+/obj/random/techpart,
+/obj/random/techpart,
+/obj/random/techpart,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bw" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/powercell/low_chance,
-/obj/spawner/powercell/low_chance,
+/obj/random/powercell/low_chance,
+/obj/random/powercell/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bx" = (
 /obj/structure/table/rack/shelf,
+<<<<<<< HEAD
 /obj/spawner/material/building,
 /obj/spawner/material/building,
 /obj/spawner/material/building/low_chance,
 /obj/spawner/material/building/low_chance,
+=======
+/obj/random/material,
+/obj/random/material,
+/obj/random/material/low_chance,
+/obj/random/material/low_chance,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "by" = (
@@ -304,25 +319,25 @@
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bB" = (
-/obj/spawner/ammo/low_chance,
+/obj/random/ammo/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bC" = (
 /obj/structure/table/reinforced,
-/obj/spawner/medical,
-/obj/spawner/firstaid,
-/obj/spawner/firstaid,
+/obj/random/medical,
+/obj/random/firstaid,
+/obj/random/firstaid,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bD" = (
 /obj/structure/table/reinforced,
-/obj/spawner/medical,
-/obj/spawner/firstaid/low_chance,
+/obj/random/medical,
+/obj/random/firstaid/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bE" = (
 /obj/structure/table/reinforced,
-/obj/spawner/medical/low_chance,
+/obj/random/medical/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bF" = (
@@ -340,24 +355,28 @@
 /area/outpost/abandoned_fortress)
 "bI" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/tool/low_chance,
-/obj/spawner/tool/low_chance,
-/obj/spawner/techpart,
+/obj/random/tool/low_chance,
+/obj/random/tool/low_chance,
+/obj/random/techpart,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bJ" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/tool/low_chance,
-/obj/spawner/tool/low_chance,
+/obj/random/tool/low_chance,
+/obj/random/tool/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bK" = (
 /obj/structure/table/reinforced,
-/obj/spawner/techpart,
+/obj/random/techpart,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bL" = (
+<<<<<<< HEAD
 /obj/spawner/gun/normal/low_chance,
+=======
+/obj/random/gun_normal/low_chance,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bM" = (
@@ -369,26 +388,33 @@
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bO" = (
-/obj/spawner/medical/low_chance,
+/obj/random/medical/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bP" = (
 /obj/structure/table/rack/shelf,
+<<<<<<< HEAD
 /obj/spawner/material/resources/rare/low_chance,
 /obj/spawner/material/resources,
 /obj/spawner/material/resources,
 /obj/spawner/material/resources,
+=======
+/obj/random/material_rare/low_chance,
+/obj/random/material_resources,
+/obj/random/material_resources,
+/obj/random/material_resources,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bQ" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/material/resources/rare/low_chance,
-/obj/spawner/material/resources/rare,
+/obj/random/material_rare/low_chance,
+/obj/random/material_rare,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bR" = (
 /obj/structure/table/rack/shelf,
-/obj/spawner/material/resources/rare/low_chance,
+/obj/random/material_rare/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bT" = (
@@ -408,8 +434,8 @@
 /area/outpost/abandoned_fortress)
 "bV" = (
 /obj/structure/table/reinforced,
-/obj/spawner/medical/low_chance,
-/obj/spawner/medical/low_chance,
+/obj/random/medical/low_chance,
+/obj/random/medical/low_chance,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "bW" = (
@@ -417,12 +443,12 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "bX" = (
-/obj/spawner/medical_lowcost/low_chance,
+/obj/random/medical_lowcost/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "bY" = (
-/obj/spawner/medical/low_chance,
-/obj/spawner/medical/low_chance,
+/obj/random/medical/low_chance,
+/obj/random/medical/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "bZ" = (
@@ -430,7 +456,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ca" = (
-/obj/spawner/junk/low_chance,
+/obj/random/junk/low_chance,
 /mob/living/simple_animal/hostile/hivebot/range,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
@@ -439,36 +465,36 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "cc" = (
-/obj/spawner/boxes/low_chance,
+/obj/random/boxes/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "cd" = (
-/obj/spawner/material/resources/rare/low_chance,
-/obj/spawner/material/resources/rare/low_chance,
+/obj/random/material_rare/low_chance,
+/obj/random/material_rare/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ce" = (
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
+/obj/random/lowkeyrandom,
+/obj/random/lowkeyrandom,
+/obj/random/lowkeyrandom,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "cf" = (
-/obj/spawner/ammo/low_chance,
-/obj/spawner/ammo/low_chance,
+/obj/random/ammo/low_chance,
+/obj/random/ammo/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "cg" = (
-/obj/spawner/tool/low_chance,
-/obj/spawner/tool/low_chance,
+/obj/random/tool/low_chance,
+/obj/random/tool/low_chance,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ch" = (
 /obj/structure/closet/emcloset,
-/obj/spawner/ammo_lowcost/low_chance,
-/obj/spawner/ammo_lowcost/low_chance,
-/obj/spawner/ammo_lowcost/low_chance,
-/obj/spawner/junk,
+/obj/random/ammo_lowcost/low_chance,
+/obj/random/ammo_lowcost/low_chance,
+/obj/random/ammo_lowcost/low_chance,
+/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "ci" = (
@@ -485,17 +511,17 @@
 /area/space)
 "cm" = (
 /obj/structure/closet/emcloset,
-/obj/spawner/junk,
+/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "cn" = (
 /obj/structure/closet/emcloset,
-/obj/spawner/junk,
-/obj/spawner/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/outpost/abandoned_fortress)
 "co" = (
-/obj/spawner/junk,
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 

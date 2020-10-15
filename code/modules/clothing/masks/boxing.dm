@@ -6,8 +6,12 @@
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE
 	w_class = ITEM_SIZE_SMALL
+<<<<<<< HEAD
 	siemens_coefficient = 3
 	rarity_value = 100
+=======
+	siemens_coefficient = 3.0
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/clothing/mask/luchador/tecnicos
 	name = "Tecnicos Mask"

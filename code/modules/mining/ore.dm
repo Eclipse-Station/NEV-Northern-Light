@@ -3,9 +3,12 @@
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "ore2"
 	w_class = ITEM_SIZE_SMALL
+<<<<<<< HEAD
 	rarity_value = 25
 	bad_types = /obj/item/weapon/ore
 	spawn_tags = SPAWN_TAG_ORE
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/datum/geosample/geologic_data
 	var/material
 
@@ -14,7 +17,10 @@
 	icon_state = "ore_uranium"
 	origin_tech = list(TECH_MATERIAL = 5)
 	material = MATERIAL_URANIUM
+<<<<<<< HEAD
 	rarity_value = 100
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/ore/iron
 	name = "hematite"
@@ -34,8 +40,11 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	material = "sand"
 	slot_flags = SLOT_HOLSTER
+<<<<<<< HEAD
 	rarity_value = 20
 	spawn_tags = SPAWN_TAG_ORE_TAG_JUNK
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 // POCKET SAND!
 /obj/item/weapon/ore/glass/throw_impact(atom/hit_atom)
@@ -54,54 +63,75 @@
 	icon_state = "ore_plasma"
 	origin_tech = list(TECH_MATERIAL = 2)
 	material = "phoron"
+<<<<<<< HEAD
 	rarity_value = 33.33
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/ore/silver
 	name = "native silver ore"
 	icon_state = "ore_silver"
 	origin_tech = list(TECH_MATERIAL = 3)
 	material = MATERIAL_SILVER
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/ore/gold
 	name = "native gold ore"
 	icon_state = "ore_gold"
 	origin_tech = list(TECH_MATERIAL = 4)
 	material = MATERIAL_GOLD
+<<<<<<< HEAD
 	rarity_value = 33.33
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/ore/diamond
 	name = "diamonds"
 	icon_state = "ore_diamond"
 	origin_tech = list(TECH_MATERIAL = 6)
 	material = MATERIAL_DIAMOND
+<<<<<<< HEAD
 	rarity_value = 100
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/ore/osmium
 	name = "raw platinum"
 	icon_state = "ore_platinum"
 	material = MATERIAL_PLATINUM
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/ore/hydrogen
 	name = "raw hydrogen"
 	icon_state = "ore_hydrogen"
 	material = MATERIAL_MHYDROGEN
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/ore/slag
 	name = "Slag"
 	desc = "Someone screwed up..."
 	icon_state = "slag"
 	material = null
+<<<<<<< HEAD
 	rarity_value = 10
 	spawn_blacklisted = TRUE
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/ore/New()
 	pixel_x = rand(0,16)-8
 	pixel_y = rand(0,8)-8
 
-/obj/item/weapon/ore/attackby(obj/item/weapon/W, mob/user)
+/obj/item/weapon/ore/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/device/core_sampler))
 		var/obj/item/device/core_sampler/C = W
 		C.sample_item(src, user)

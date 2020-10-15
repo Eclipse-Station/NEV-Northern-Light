@@ -1,24 +1,44 @@
-/obj/spawner/voidsuit
+/obj/random/voidsuit
 	name = "random voidsuit"
 	icon_state = "armor-blue"
-	tags_to_spawn = list(SPAWN_VOID_SUIT)
-	has_postspawn = FALSE
 
-/obj/spawner/voidsuit/low_chance
-	name = "low chance random voidsuit"
-	icon_state = "armor-blue-low"
-	spawn_nothing_percentage = 75
-
-/obj/spawner/voidsuit/damaged
-	name = "random damaged voidsuit"
-	icon_state = "armor-red"
+	var/damaged = FALSE
 	has_postspawn = TRUE
 
-/obj/spawner/voidsuit/damaged/low_chance
+
+/obj/random/voidsuit/item_to_spawn()
+	return pickweight(list(/obj/item/clothing/suit/space/void = 2,
+		/obj/item/clothing/suit/space/void/engineering = 2,
+		/obj/item/clothing/suit/space/void/mining = 2,
+		/obj/item/clothing/suit/space/void/medical = 2.3,
+		/obj/item/clothing/suit/space/void/atmos = 1.5,
+		/obj/item/clothing/suit/space/void/merc = 0.5))
+
+/obj/random/voidsuit/low_chance
+	name = "low chance random voidsuit"
+	icon_state = "armor-blue-low"
+	spawn_nothing_percentage = 80
+
+
+
+
+/obj/random/voidsuit/damaged
+	name = "random damaged voidsuit"
+	damaged = TRUE
+	icon_state = "armor-red"
+
+/obj/random/voidsuit/damaged/low_chance
 	name = "low chance random damaged voidsuit"
 	icon_state = "armor-red-low"
-	spawn_nothing_percentage = 75
+	spawn_nothing_percentage = 80
 
-/obj/spawner/voidsuit/post_spawn(list/spawns)
+
+/obj/random/voidsuit/post_spawn(var/list/spawns)
 	for (var/obj/item/clothing/suit/space/void/suit in spawns)
+<<<<<<< HEAD
 		suit.create_breaches(pick(BRUTE, BURN), rand(10, 50))
+=======
+		new /obj/item/clothing/shoes/magboots(loc)
+		if (damaged)
+			suit.create_breaches(pick(BRUTE, BURN), rand(10, 50))
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

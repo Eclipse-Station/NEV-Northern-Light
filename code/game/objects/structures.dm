@@ -1,10 +1,14 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
 	w_class = ITEM_SIZE_GARGANTUAN
+<<<<<<< HEAD
 	spawn_frequency = 10
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_STRUCTURE
 	bad_types = /obj/structure
+=======
+
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/climbable
 	var/breakable
 	var/parts

@@ -23,8 +23,8 @@
 /turf/simulated/wall/untinted/onestar_reinforced,
 /area/crawler)
 "g" = (
-/obj/spawner/contraband,
-/obj/spawner/mob/roomba,
+/obj/random/contraband,
+/obj/random/mob/roomba,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "h" = (
@@ -47,8 +47,8 @@
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "k" = (
-/obj/spawner/mob/roomba,
-/obj/spawner/firstaid,
+/obj/random/mob/roomba,
+/obj/random/firstaid,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "l" = (
@@ -61,30 +61,54 @@
 /turf/simulated/floor/tiled/dark/cargo,
 /area/crawler)
 "n" = (
+<<<<<<< HEAD
 /obj/spawner/mob/roomba, 
 /obj/spawner/contraband,
+=======
+/obj/random/mob/roomba,
+/obj/random/contraband,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 "o" = (
 /obj/structure/table/onestar,
+<<<<<<< HEAD
 /obj/spawner/gun/energy_cheap,
 /obj/spawner/gun/energy_cheap,
 /obj/spawner/gun/shotgun,
+=======
+/obj/random/gun_energy_cheap,
+/obj/random/gun_energy_cheap,
+/obj/random/gun_shotgun,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "p" = (
 /obj/structure/table/onestar,
+<<<<<<< HEAD
 /obj/spawner/gun/energy_cheap,
 /obj/spawner/gun/shotgun,
 /obj/spawner/contraband,
+=======
+/obj/random/gun_energy_cheap,
+/obj/random/gun_shotgun,
+/obj/random/contraband,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "q" = (
 /obj/structure/table/rack,
+<<<<<<< HEAD
 /obj/spawner/gun/normal,
 /obj/spawner/gun/normal,
 /obj/spawner/gun/normal/low_chance,
 /obj/spawner/gun/shotgun,
+=======
+/obj/random/gun_normal,
+/obj/random/gun_normal,
+/obj/random/gun_normal/low_chance,
+/obj/random/gun_shotgun,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "s" = (

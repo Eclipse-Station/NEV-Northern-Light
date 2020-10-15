@@ -4,7 +4,6 @@
 	icon_state = "excelsior_white"
 	item_state = "bl_suit"
 	has_sensor = 0
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/under/excelsior/New()
 	name = "white excelsior jumpsuit"

@@ -3,11 +3,14 @@
 	desc = "It's a burial receptacle for the dearly departed."
 	icon_state = "coffin"
 	matter = list(MATERIAL_WOOD = 10)
+<<<<<<< HEAD
 	spawn_blacklisted = TRUE
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_COFFIN_CLOSET
 	bad_types = /obj/structure/closet/coffin
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/mob/living/occupant = null
 
 /obj/structure/closet/coffin/close(mob/living/user)

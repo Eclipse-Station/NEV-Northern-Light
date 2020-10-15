@@ -5,9 +5,6 @@
 	icon = 'icons/obj/machines/excelsior/objects.dmi'
 	icon_state = "strange_beacon"
 	desc = "It looks like ancient, and strange beacon."
-	rarity_value = 10
-	spawn_frequency = 10
-	spawn_tags = SPAWN_TAG_STRANGEBEACON
 	var/nosignal = FALSE
 
 /obj/structure/strangebeacon/attack_hand(mob/living/user as mob)

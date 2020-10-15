@@ -1,8 +1,11 @@
 /obj/item/clothing/suit/storage
 	item_flags = DRAG_AND_DROP_UNEQUIP|EQUIP_SOUNDS
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/suit/storage
 	spawn_tags = SPAWN_TAG_CLOTHING_SUIT_STORAGE
 	rarity_value = 10
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/obj/item/weapon/storage/internal/pockets
 
 /obj/item/clothing/suit/storage/New()

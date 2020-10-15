@@ -7,4 +7,7 @@
 	flags = CONDUCT
 	attack_verb = list("attacked", "hit", "bludgeoned")
 	tool_qualities = list(QUALITY_BONE_SETTING = 30)
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_SURGERY_TOOL
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

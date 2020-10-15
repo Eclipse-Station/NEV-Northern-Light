@@ -11,8 +11,6 @@
 	var/large = 1
 	wall_mounted = 0 //never solid (You can always pass over it)
 	health = 200
-	spawn_tags = SPAWN_TAG_CLOSET_SECURE
-	spawn_blacklisted = TRUE
 
 /obj/structure/closet/secure_closet/req_breakout()
 	if(!opened && locked) return TRUE

@@ -5,8 +5,11 @@
 	icon_state = "energy"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	fire_sound_text = "laser blast"
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun/energy
 	spawn_tags = SPAWN_TAG_GUN_ENERGY
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 	recoil_buildup = 0.5 //energy weapons have little to no recoil
 

@@ -12,11 +12,14 @@
 	max_storage_space = DEFAULT_SMALL_STORAGE
 	matter = list(MATERIAL_BIOMATTER = 12)
 	attack_verb = list("pouched")
+<<<<<<< HEAD
 	spawn_blacklisted = FALSE
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_POUCH
 	bad_types = /obj/item/weapon/storage/pouch
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 	var/sliding_behavior = FALSE
 
@@ -48,7 +51,6 @@
 	storage_slots = null //Uses generic capacity
 	max_storage_space = DEFAULT_SMALL_STORAGE * 0.5
 	max_w_class = ITEM_SIZE_SMALL
-	rarity_value = 10
 
 /obj/item/weapon/storage/pouch/medium_generic
 	name = "medium generic pouch"
@@ -58,7 +60,6 @@
 	storage_slots = null //Uses generic capacity
 	max_storage_space = DEFAULT_SMALL_STORAGE
 	max_w_class = ITEM_SIZE_NORMAL
-	rarity_value = 20
 
 /obj/item/weapon/storage/pouch/large_generic
 	name = "large generic pouch"
@@ -70,14 +71,12 @@
 	storage_slots = null //Uses generic capacity
 	max_storage_space = DEFAULT_NORMAL_STORAGE
 	max_w_class = ITEM_SIZE_NORMAL
-	rarity_value = 100
 
 /obj/item/weapon/storage/pouch/medical_supply
 	name = "medical supply pouch"
 	desc = "Can hold medical equipment. But only about three pieces of it."
 	icon_state = "medical_supply"
 	item_state = "medical_supply"
-	rarity_value = 33
 
 	storage_slots = 3
 	max_w_class = ITEM_SIZE_NORMAL
@@ -104,7 +103,10 @@
 	desc = "Can hold small engineering tools. But only about three pieces of them."
 	icon_state = "engineering_tool"
 	item_state = "engineering_tool"
+<<<<<<< HEAD
 	rarity_value = 20
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 	storage_slots = 3
 	max_w_class = ITEM_SIZE_SMALL
@@ -143,7 +145,7 @@
 
 	can_hold = list(
 		/obj/item/weapon/cell,
-		/obj/item/weapon/electronics/circuitboard,
+		/obj/item/weapon/circuitboard,
 		/obj/item/weapon/tool,
 		/obj/item/stack/material,
 		/obj/item/weapon/material,
@@ -162,7 +164,6 @@
 	desc = "Can hold ammo magazines and bullets, not the boxes though."
 	icon_state = "ammo"
 	item_state = "ammo"
-	rarity_value = 33
 
 	storage_slots = 3
 	w_class = ITEM_SIZE_NORMAL
@@ -178,7 +179,6 @@
 	desc = "Can hold five cylindrical and small items, including but not limiting to flares, glowsticks, syringes and even hatton tubes or rockets."
 	icon_state = "flare"
 	item_state = "flare"
-	rarity_value = 14
 
 	storage_slots = 5
 	w_class = ITEM_SIZE_NORMAL
@@ -253,7 +253,6 @@
 	desc = "Can hold a baton, or indeed most weapon shafts."
 	icon_state = "baton_holster"
 	item_state = "baton_holster"
-	rarity_value = 33
 
 	storage_slots = 1
 	max_w_class = ITEM_SIZE_BULKY
@@ -281,4 +280,3 @@
 	max_storage_space = DEFAULT_HUGE_STORAGE
 	matter = list(MATERIAL_STEEL = 4, MATERIAL_GOLD = 5, MATERIAL_DIAMOND = 2, MATERIAL_URANIUM = 2)
 	origin_tech = list(TECH_BLUESPACE = 4)
-	spawn_blacklisted = TRUE

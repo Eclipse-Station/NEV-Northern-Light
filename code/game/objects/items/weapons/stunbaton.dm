@@ -101,7 +101,7 @@
 
 	var/agony = agonyforce
 	var/stun = stunforce
-	var/obj/item/organ/external/affecting
+	var/obj/item/organ/external/affecting = null
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		affecting = H.get_organ(hit_zone)

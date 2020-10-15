@@ -10,5 +10,9 @@
 	poison_per_bite = 5
 	move_to_delay = 4
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/spider/hunter
+<<<<<<< HEAD
 	meat_amount = 4
 	rarity_value = 75
+=======
+	meat_amount = 4
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

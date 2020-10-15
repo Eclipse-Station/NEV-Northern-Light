@@ -39,4 +39,7 @@
 	item_state = ""
 	brightness_on = 2
 	w_class = ITEM_SIZE_TINY
+<<<<<<< HEAD
 	spawn_blacklisted = TRUE
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

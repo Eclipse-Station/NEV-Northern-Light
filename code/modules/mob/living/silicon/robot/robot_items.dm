@@ -4,7 +4,10 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "portable_analyzer"
 	desc = "Similar to the stationary version, this rather unwieldy device allows you to break down objects in the name of science."
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/portable_destructive_analyzer
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 	var/min_reliability = 90 //Can't upgrade, call it laziness or a drawback
 
@@ -78,7 +81,7 @@
 			to_chat(user, "The [src] is already empty.")
 
 
-/obj/item/weapon/portable_destructive_analyzer/afterattack(atom/target, mob/living/user, proximity)
+/obj/item/weapon/portable_destructive_analyzer/afterattack(var/atom/target, var/mob/living/user, proximity)
 	if(!target)
 		return
 	if(!proximity)
@@ -104,7 +107,10 @@
 	icon_state = "id-robot"
 	desc = "A circuit grafted onto the bottom of an ID card.  It is used to transmit access codes into other robot chassis, \
 	allowing you to lock and unlock other robots' panels."
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/card/robot
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 //A harvest item for serviceborgs.
 /obj/item/weapon/robot_harvester
@@ -112,7 +118,10 @@
 	desc = "A hand-held harvest tool that resembles a sickle.  It uses energy to cut plant matter very efficently."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "autoharvester"
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/robot_harvester
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/robot_harvester/afterattack(var/atom/target, var/mob/living/user, proximity)
 	if(!target)
@@ -135,9 +144,12 @@
 /obj/item/weapon/tray/robotray
 	name = "RoboTray"
 	desc = "An autoloading tray specialized for carrying refreshments."
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/tray/robotray
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
-/obj/item/weapon/tray/robotray/afterattack(atom/target, mob/user, proximity)
+/obj/item/weapon/tray/robotray/afterattack(atom/target, mob/user as mob, proximity)
 	if(!proximity)
 		return
 	if ( !target )
@@ -226,9 +238,12 @@
 	desc = "A black ink printing attachment with a paper naming mode."
 	name = "Printing Pen"
 	var/mode = 1
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/pen/robopen
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
-/obj/item/weapon/pen/robopen/attack_self(mob/user)
+/obj/item/weapon/pen/robopen/attack_self(mob/user as mob)
 
 	var/choice = input("Would you like to change colour or mode?") as null|anything in list("Colour","Mode")
 	if(!choice) return
@@ -253,7 +268,7 @@
 // Copied over from paper's rename verb
 // see code\modules\paperwork\paper.dm line 62
 
-/obj/item/weapon/pen/robopen/proc/RenamePaper(mob/user,obj/paper)
+/obj/item/weapon/pen/robopen/proc/RenamePaper(mob/user as mob,obj/paper as obj)
 	if ( !user || !paper )
 		return
 	var/n_name = sanitizeSafe(input(user, "What would you like to label the paper?", "Paper Labelling", null)  as text, 32)
@@ -273,9 +288,12 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper_bin1"
 	item_state = "sheet-metal"
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/form_printer
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
-/obj/item/weapon/form_printer/attack(mob/living/carbon/M, mob/living/carbon/user)
+/obj/item/weapon/form_printer/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	return
 
 /obj/item/weapon/form_printer/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag, params)
@@ -286,7 +304,7 @@
 	if(istype(target,/obj/structure/table))
 		deploy_paper(get_turf(target))
 
-/obj/item/weapon/form_printer/attack_self(mob/user)
+/obj/item/weapon/form_printer/attack_self(mob/user as mob)
 	deploy_paper(get_turf(src))
 
 /obj/item/weapon/form_printer/proc/deploy_paper(var/turf/T)
@@ -323,8 +341,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "inf_deployer"
 	w_class = ITEM_SIZE_NORMAL
-	spawn_tags = SPAWN_TAG_ITEM_UTILITY
-	rarity_value = 15
+
 	// By default stores up to 10 walls and 5 doors. May be changed.
 	var/stored_walls = 10
 	var/stored_doors = 5
@@ -332,7 +349,7 @@
 	var/max_doors = 5
 	var/mode = 0 // 0 - Walls   1 - Doors
 
-/obj/item/weapon/inflatable_dispenser/examine(mob/user)
+/obj/item/weapon/inflatable_dispenser/examine(var/mob/user)
 	if(!..(user))
 		return
 	to_chat(user, "It has [stored_walls] wall segment\s and [stored_doors] door segment\s stored.")
@@ -342,7 +359,7 @@
 	mode = !mode
 	to_chat(usr, "You set \the [src] to deploy [mode ? "doors" : "walls"].")
 
-/obj/item/weapon/inflatable_dispenser/afterattack(atom/A, mob/user)
+/obj/item/weapon/inflatable_dispenser/afterattack(var/atom/A, var/mob/user)
 	..(A, user)
 	if(!user)
 		return
@@ -354,7 +371,7 @@
 	if(istype(A, /obj/item/inflatable) || istype(A, /obj/structure/inflatable))
 		pick_up(A, user)
 
-/obj/item/weapon/inflatable_dispenser/proc/try_deploy_inflatable(turf/T, mob/living/user)
+/obj/item/weapon/inflatable_dispenser/proc/try_deploy_inflatable(var/turf/T, var/mob/living/user)
 	if(mode) // Door deployment
 		if(!stored_doors)
 			to_chat(user, "\The [src] is out of doors!")
@@ -376,7 +393,7 @@
 	playsound(T, 'sound/items/zip.ogg', 75, 1)
 	to_chat(user, "You deploy the inflatable [mode ? "door" : "wall"]!")
 
-/obj/item/weapon/inflatable_dispenser/proc/pick_up(obj/A, mob/living/user)
+/obj/item/weapon/inflatable_dispenser/proc/pick_up(var/obj/A, var/mob/living/user)
 	if(istype(A, /obj/structure/inflatable))
 		if(istype(A, /obj/structure/inflatable/wall))
 			if(stored_walls >= max_walls)
@@ -415,33 +432,26 @@
 /obj/item/weapon/tool/crowbar/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	tool_qualities = list(QUALITY_PRYING = 40, QUALITY_DIGGING = 35)
-	spawn_tags = null
 
 /obj/item/weapon/tool/wrench/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	tool_qualities = list(QUALITY_BOLT_TURNING = 40)
-	spawn_tags = null
 
 /obj/item/weapon/tool/screwdriver/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	//random_icon = FALSE
-	spawn_tags = null
 
 /obj/item/weapon/tool/multitool/robotic
 	icon = 'icons/obj/robot_items.dmi'
-	spawn_tags = null
 
 /obj/item/weapon/tool/wirecutters/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	tool_qualities = list(QUALITY_WIRE_CUTTING = 40, QUALITY_CUTTING = 30)
-	spawn_tags = null
 
 /obj/item/weapon/tool/weldingtool/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	switched_on_qualities = list(QUALITY_WELDING = 40, QUALITY_CAUTERIZING = 15, QUALITY_WIRE_CUTTING = 15)
-	spawn_tags = null
 
 /obj/item/weapon/tool/shovel/robotic
 	icon = 'icons/obj/robot_items.dmi'
 	tool_qualities = list(QUALITY_SHOVELING = 40, QUALITY_DIGGING = 40, QUALITY_EXCAVATION = 20, QUALITY_HAMMERING = 20)
-	spawn_tags = null

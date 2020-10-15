@@ -3,12 +3,15 @@
 	name = "S.E.U. \"Ripley\"" //Space Excavation Unit
 	desc = "A cheap utility exosuit. An old Nanotrasen design, now used just about everywhere due to post-Fall data leaks."
 
+<<<<<<< HEAD
 	rarity_value = 15
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	material = MATERIAL_STEEL
 	exosuit_color = "#ffbc37"
 	installed_software_boards = list(
-		/obj/item/weapon/electronics/circuitboard/exosystem/utility,
-		/obj/item/weapon/electronics/circuitboard/exosystem/engineering
+		/obj/item/weapon/circuitboard/exosystem/utility,
+		/obj/item/weapon/circuitboard/exosystem/engineering
 	)
 	installed_systems = list(
 		HARDPOINT_LEFT_HAND = /obj/item/mech_equipment/drill,

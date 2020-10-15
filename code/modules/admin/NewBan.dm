@@ -1,4 +1,4 @@
-var/CMinutes
+var/CMinutes = null
 var/savefile/Banlist
 
 

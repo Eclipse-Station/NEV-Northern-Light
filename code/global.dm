@@ -4,8 +4,12 @@
 #endif
 
 // Items that ask to be called every cycle.
+<<<<<<< HEAD
 var/global/datum/datacore/data_core
 var/global/datum/DB_search/db_search = new()
+=======
+var/global/datum/datacore/data_core = null
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 var/global/list/all_areas                = list()
 var/global/list/ship_areas               = list()
 
@@ -23,16 +27,23 @@ var/global/list/hud_icon_reference       = list()
 
 var/global/datum/universal_state/universe = new
 
-var/global/list/global_map
+var/global/list/global_map = null
 
 // Noises made when hit while typing.
 var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 
 
+<<<<<<< HEAD
 var/runtime_diary
 var/diary              
 var/world_qdel_log
 var/href_logfile       
+=======
+var/runtime_diary		= null
+var/diary               = null
+var/world_qdel_log		= null
+var/href_logfile        = null
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 var/station_name        = "NEV Northern Light"
 var/station_short       = "Northern Light"
 var/const/dock_name     = "N.A.S. Crescent"
@@ -47,7 +58,11 @@ var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 300)
 var/round_progressing = 1
 var/master_storyteller       = "shitgenerator"
 
+<<<<<<< HEAD
 var/host	//only here until check @ code\modules\ghosttrap\trap.dm:112 is fixed
+=======
+var/host = null //only here until check @ code\modules\ghosttrap\trap.dm:112 is fixed
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 var/list/bombers       = list()
 var/list/admin_log     = list()
@@ -64,13 +79,13 @@ var/list/reverse_dir = list( // reverse_dir[dir] = reverse of dir
 	23, 28, 30, 29, 31, 48, 50, 49, 51, 56, 58, 57, 59, 52, 54, 53, 55, 60, 62, 61, 63
 )
 
-var/datum/configuration/config
+var/datum/configuration/config      = null
 
 var/Debug2 = 0
 
 var/gravity_is_on = 1
 
-var/join_motd
+var/join_motd = null
 
 var/list/awaydestinations = list() // Away missions. A list of landmarks that the warpgate can take you to.
 
@@ -84,7 +99,7 @@ var/sqlpass
 // For FTP requests. (i.e. downloading runtime logs.)
 // However it'd be ok to use for accessing attack logs and such too, which are even laggier.
 var/fileaccess_timer = 0
-var/custom_event_msg
+var/custom_event_msg = null
 
 // Database connections. A connection is established on world creation.
 // Ideally, the connection dies when the server restarts (After feedback logging.).

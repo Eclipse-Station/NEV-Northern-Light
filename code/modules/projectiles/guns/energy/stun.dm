@@ -16,7 +16,6 @@
 	use_external_power = TRUE
 	safety = FALSE
 	restrict_safety = TRUE
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun/energy/taser/mounted/cyborg
 	name = "taser gun"

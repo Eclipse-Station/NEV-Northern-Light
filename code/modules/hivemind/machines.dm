@@ -28,7 +28,7 @@
 	var/cooldown = 0						//cooldown in world.time value
 	var/time_until_regen = 0
 	var/obj/assimilated_machinery
-	var/obj/item/weapon/electronics/circuitboard/saved_circuit
+	var/obj/item/weapon/circuitboard/saved_circuit
 
 /obj/machinery/hivemind_machine/Initialize()
 	. = ..()
@@ -447,6 +447,7 @@
 	cooldown_time = 25 SECONDS  //shorter cooldown
 	spawn_weight  =	50 //more common than earlier
 	var/mob_to_spawn
+<<<<<<< HEAD
 	var/mob_amount = 4
 
 /obj/spawner/mob/assembled
@@ -457,6 +458,14 @@
 	..()
 	mob_to_spawn = /obj/spawner/mob/assembled //randomly chooses a mob from the list when spawning, instead of choosing a single mob and spawning only that one.
 	//TL;DR - Assembler can now spawn multiple types of mobs
+=======
+	var/mob_amount = 3
+
+/obj/machinery/hivemind_machine/mob_spawner/Initialize()
+	..()
+	mob_to_spawn = pick(/mob/living/simple_animal/hostile/hivemind/stinger, /mob/living/simple_animal/hostile/hivemind/bomber)
+
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/machinery/hivemind_machine/mob_spawner/Process()
 	if(!..())

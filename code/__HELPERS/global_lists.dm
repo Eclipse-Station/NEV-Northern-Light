@@ -155,7 +155,10 @@ var/global/list/string_slot_flags = list(
 //A list of slots where an item doesn't count as "worn" if it's in one of them
 var/global/list/unworn_slots = list(slot_l_hand,slot_r_hand, slot_l_store, slot_r_store,slot_robot_equip_1,slot_robot_equip_2,slot_robot_equip_3)
 
+<<<<<<< HEAD
 GLOBAL_LIST_EMPTY(all_spawn_data)
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 //////////////////////////
 /////Initial Building/////
@@ -191,7 +194,7 @@ GLOBAL_LIST_EMPTY(all_spawn_data)
 		var/datum/surgery_step/S = new path
 		GLOB.surgery_steps[path] = S
 
-	//perks - Initialise all /datum/perks into a list
+	//perkS - Initialise all /datum/perks into a list
 	paths = subtypesof(/datum/perk)
 	for(var/path in paths)
 		var/datum/perk/P = new path
@@ -283,8 +286,6 @@ GLOBAL_LIST_EMPTY(all_spawn_data)
 		//Rituals which are just categories for subclasses will have a null phrase
 		if (R.phrase)
 			GLOB.all_rituals[R.name] = R
-
-	GLOB.all_spawn_data["loot_s_data"] = new /datum/loot_spawner_data
 
 	return 1
 

@@ -6,18 +6,22 @@
 	item_state = "clarissa"
 	w_class = ITEM_SIZE_SMALL
 	can_dual = 1
+	caliber = CAL_PISTOL
 	silenced = 0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 6)
 	price_tag = 1200
-	rarity_value = 16
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
-	caliber = CAL_PISTOL
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL|MAG_WELL_H_PISTOL
+<<<<<<< HEAD
 	magazine_type = /obj/item/ammo_magazine/pistol
 	gun_tags = list(GUN_SILENCABLE)
 	damage_multiplier = 1
+=======
+	gun_tags = list(GUN_PROJECTILE, GUN_SILENCABLE, GUN_CALIBRE_35)
+	damage_multiplier = 0.7
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	recoil_buildup = 19
 
 	init_firemodes = list(

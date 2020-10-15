@@ -72,5 +72,8 @@
 	bloodtypeandpackname("O-")
 
 /obj/item/weapon/reagent_containers/blood/empty
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_JUNK
 	rarity_value = 20
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

@@ -10,7 +10,6 @@
 	matter = list(MATERIAL_STEEL = 3)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	tool_qualities = list(QUALITY_BOLT_TURNING = 30, QUALITY_HAMMERING = 10)
-	rarity_value = 6
 
 /obj/item/weapon/tool/wrench/improvised
 	name = "sheet spanner"
@@ -21,8 +20,11 @@
 	tool_qualities = list(QUALITY_BOLT_TURNING = 20, QUALITY_HAMMERING = 5)
 	matter = list(MATERIAL_STEEL = 1)
 	max_upgrades = 5 //all makeshift tools get more mods to make them actually viable for mid-late game
+<<<<<<< HEAD
 	rarity_value = 3
 	spawn_tags = SPAWN_TAG_TOOL_TAG_JUNK
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/tool/wrench/big_wrench
 	name = "big wrench"
@@ -34,6 +36,10 @@
 	force = WEAPON_FORCE_NORMAL
 	throwforce = WEAPON_FORCE_NORMAL
 	degradation = 0.7
+<<<<<<< HEAD
 	max_upgrades = 4
 	rarity_value = 24
 	spawn_tags = SPAWN_TAG_TOOL_ADVANCED
+=======
+	max_upgrades = 4
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

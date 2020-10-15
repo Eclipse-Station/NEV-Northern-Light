@@ -163,7 +163,6 @@
 /obj/item/device/drone_uplink
 	name = "Drone Bounty Uplink"
 	icon_state = "uplink_access"
-	spawn_blacklisted = TRUE
 
 /obj/item/device/drone_uplink/New()
 	..()

@@ -4,6 +4,7 @@
 	desc = "It seems to be saying 'please let me die'."
 
 	material = MATERIAL_STEEL
+<<<<<<< HEAD
 
 	//spawn_values
 	spawn_tags = SPAWN_TAG_MECH
@@ -11,6 +12,8 @@
 	rarity_value = 10
 	bad_types = "/mob/living/exosuit/premade"
 
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/exosuit_color
 	var/decal
 	var/installed_armor = /obj/item/robot_parts/robot_component/armour/exosuit

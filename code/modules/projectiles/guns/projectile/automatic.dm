@@ -16,7 +16,11 @@
 	reload_sound = 'sound/weapons/guns/interact/smg_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/smg_cock.ogg'
 	zoom_factor = 0 //Default zoom factor you want on all automatic weapons.
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gun/projectile/automatic
+=======
+	gun_tags = list(GUN_PROJECTILE, GUN_INTERNAL_MAG)
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	init_firemodes = list(
 		FULL_AUTO_400,
 		SEMI_AUTO_NODELAY,
@@ -30,9 +34,9 @@
 /datum/firemode/automatic
 	settings = list(burst = 1, suppress_delay_warning = TRUE, dispersion=null)
 	//The full auto clickhandler we have
-	var/datum/click_handler/fullauto/CH
+	var/datum/click_handler/fullauto/CH = null
 
-/datum/firemode/automatic/update(force_state = null)
+/datum/firemode/automatic/update(var/force_state = null)
 	var/mob/living/L
 	if (gun && gun.is_held())
 		L = gun.loc

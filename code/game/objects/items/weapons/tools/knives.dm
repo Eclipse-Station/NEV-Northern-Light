@@ -21,10 +21,6 @@
 	slot_flags = SLOT_BELT
 	structure_damage_factor = STRUCTURE_DAMAGE_BLADE
 
-	//spawn values
-	rarity_value = 10
-	spawn_tags = SPAWN_TAG_KNIFE
-
 /obj/item/weapon/tool/knife/boot
 	name = "boot knife"
 	desc = "A small fixed-blade knife for putting inside a boot."
@@ -35,7 +31,6 @@
 	force = WEAPON_FORCE_PAINFUL
 	armor_penetration = ARMOR_PEN_SHALLOW
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 15)
-	rarity_value = 20
 
 /obj/item/weapon/tool/knife/hook
 	name = "meat hook"
@@ -46,7 +41,6 @@
 	force = WEAPON_FORCE_DANGEROUS
 	armor_penetration = ARMOR_PEN_DEEP //Should be countered be embedding
 	embed_mult = 1.5 //This is designed for embedding
-	rarity_value = 5
 
 /obj/item/weapon/tool/knife/ritual
 	name = "ritual knife"
@@ -55,7 +49,6 @@
 	icon_state = "render"
 	force = WEAPON_FORCE_NORMAL+2
 	armor_penetration = ARMOR_PEN_SHALLOW
-	rarity_value = 20
 
 /obj/item/weapon/tool/knife/butch
 	name = "butcher's cleaver"
@@ -67,7 +60,6 @@
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	matter = list(MATERIAL_STEEL = 5, MATERIAL_PLASTIC = 1)
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 15)
-	rarity_value = 5
 
 /obj/item/weapon/tool/knife/neotritual
 	name = "NeoTheology ritual knife"
@@ -101,7 +93,6 @@
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
 	force = WEAPON_FORCE_NORMAL+2
 	armor_penetration = ARMOR_PEN_DEEP
-	rarity_value = 15
 
 /obj/item/weapon/tool/knife/dagger/ceremonial
 	name = "ceremonial dagger"
@@ -109,7 +100,6 @@
 	icon_state = "fancydagger"
 	item_state = "fancydagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_GOLD = 1, MATERIAL_SILVER = 1)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger/bluespace
 	name = "NanoTrasen \"Displacement Dagger\""
@@ -125,7 +115,6 @@
 	use_power_cost = 0.4
 	passive_power_cost = 0.4
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2, TECH_BLUESPACE = 4)
-	spawn_blacklisted = TRUE
 	var/mob/living/embedded
 	var/last_teleport
 
@@ -157,7 +146,6 @@
 	item_state = "ass_dagger"
 	force = WEAPON_FORCE_HARMLESS+2
 	reagent_flags = INJECTABLE|TRANSPARENT
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger/assassin/New()
 	..()
@@ -201,8 +189,6 @@
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
 	tool_qualities = list()
 	toggleable = TRUE
-	rarity_value = 25
-	spawn_tags = SPAWN_TAG_KNIFE_CONTRABAND
 
 /obj/item/weapon/tool/knife/butterfly/turn_on(mob/user)
 	item_state = "[initial(item_state)]_on"
@@ -248,8 +234,6 @@
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
 	tool_qualities = list()
 	toggleable = TRUE
-	rarity_value = 30
-	spawn_tags = SPAWN_TAG_KNIFE_CONTRABAND
 
 /obj/item/weapon/tool/knife/switchblade/turn_on(mob/user)
 	item_state = "[initial(item_state)]_on"

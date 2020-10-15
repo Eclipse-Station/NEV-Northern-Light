@@ -10,7 +10,7 @@
 	var/transfer_blood = 0
 	var/mob/living/carbon/human/bloody_hands_mob
 
-/obj/item/clothing/shoes
+/obj/item/clothing/shoes/
 	var/track_blood = 0
 
 /obj/item/weapon/reagent_containers/glass/rag
@@ -26,8 +26,12 @@
 	flags = NOBLUDGEON
 	reagent_flags = REFILLABLE | DRAINABLE | AMOUNT_VISIBLE
 	unacidable = 0
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_JUNK
 	rarity_value = 20
+=======
+
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 
@@ -39,7 +43,7 @@
 	STOP_PROCESSING(SSobj, src) //so we don't continue turning to ash while gc'd
 	. = ..()
 
-/obj/item/weapon/reagent_containers/glass/rag/attack_self(mob/user)
+/obj/item/weapon/reagent_containers/glass/rag/attack_self(mob/user as mob)
 	if(on_fire)
 		user.visible_message(SPAN_WARNING("\The [user] stamps out [src]."), SPAN_WARNING("You stamp out [src]."))
 		user.unEquip(src)
@@ -105,7 +109,7 @@
 			user.visible_message("\The [user] finishes wiping off the [A]!")
 			A.clean_blood()
 
-/obj/item/weapon/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user, flag)
+/obj/item/weapon/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
 	if(isliving(target))
 		var/mob/living/M = target
 		if(on_fire)
@@ -132,7 +136,7 @@
 
 	return ..()
 
-/obj/item/weapon/reagent_containers/glass/rag/afterattack(atom/A as obj|turf|area, mob/user, proximity)
+/obj/item/weapon/reagent_containers/glass/rag/afterattack(atom/A as obj|turf|area, mob/user as mob, proximity)
 	if(!proximity)
 		return
 

@@ -18,11 +18,14 @@
 	drain = 4
 	offline_slowdown = 3
 	offline_vision_restriction = 1
-	rarity_value = 20
+
 	helm_type = /obj/item/clothing/head/space/rig/combat
 
 /obj/item/weapon/rig/combat/equipped
+<<<<<<< HEAD
 	rarity_value = 40
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/vision/thermal,
@@ -55,7 +58,6 @@
 /obj/item/clothing/head/space/rig/hazard
 	light_overlay = "helmet_light_dual"
 	camera_networks = list(NETWORK_SECURITY)
-	rarity_value = 20
 
 /obj/item/weapon/rig/hazard
 	name = "hazard hardsuit control module"

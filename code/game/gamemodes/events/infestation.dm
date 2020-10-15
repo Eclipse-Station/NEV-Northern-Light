@@ -150,7 +150,7 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 		if(INFESTATION_SLIMES)
 			event_name = "Slime Leak"
 			chosen_verb = "have leaked into"
-			chosen_mob_classification += /obj/spawner/mob/slime/rainbow
+			chosen_mob_classification += /obj/random/slime/rainbow
 		if(INFESTATION_SPIDERLINGS)
 			event_name = "Spiderling Infestation"
 			chosen_verb = "have burrowed into"
@@ -159,11 +159,30 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 		if(INFESTATION_SPIDERS)
 			event_name = "Spider Infestation"
 			chosen_verb = "have burrowed into"
-			chosen_mob_classification += /obj/spawner/mob/spiders
+			chosen_mob_classification += /obj/random/mob/spiders
 		if(INFESTATION_ROACHES)
 			event_name = "Giant Roach Infestation"
 			chosen_verb = "have burrowed into"
+<<<<<<< HEAD
 			chosen_mob_classification += /obj/spawner/mob/roaches
+=======
+			chosen_mob_classification += /obj/random/mob/roaches
+		if(INFESTATION_YITHIAN)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/yithian
+		if(INFESTATION_TINDALOS)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/tindalos
+		if(INFESTATION_SAMAK)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/hostile/samak
+		if(INFESTATION_SHANTAK)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/hostile/shantak
+		if(INFESTATION_DIYAAB)
+			unidentified = TRUE
+			chosen_mob_classification += /mob/living/simple_animal/hostile/diyaab
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 	//Chance for identification to fail even for normal mobs, to frustrate metagamers
 	if (prob(15))

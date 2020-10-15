@@ -17,7 +17,7 @@
 	icon_state = "morgue1"
 	dir = EAST
 	density = TRUE
-	var/obj/structure/m_tray/connected
+	var/obj/structure/m_tray/connected = null
 	var/open = FALSE
 	anchored = TRUE
 	var/mob/living/occupant
@@ -252,7 +252,7 @@
 	icon_state = "morguet"
 	density = TRUE
 	layer = LOW_OBJ_LAYER
-	var/obj/structure/morgue/connected
+	var/obj/structure/morgue/connected = null
 	anchored = TRUE
 	throwpass = 1
 
@@ -291,7 +291,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "crema1"
 	density = TRUE
-	var/obj/structure/c_tray/connected
+	var/obj/structure/c_tray/connected = null
 	anchored = TRUE
 	var/cremating = 0
 	var/id = 1
@@ -475,8 +475,13 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "cremat"
 	density = TRUE
+<<<<<<< HEAD
 	layer = 2
 	var/obj/structure/crematorium/connected
+=======
+	layer = 2.0
+	var/obj/structure/crematorium/connected = null
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	anchored = TRUE
 	throwpass = 1
 

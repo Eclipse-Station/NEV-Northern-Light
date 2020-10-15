@@ -11,11 +11,11 @@
 	slot_flags = SLOT_EARS
 	var/translate_binary = 0
 	var/translate_hive = 0
-	var/obj/item/device/encryptionkey/keyslot1
-	var/obj/item/device/encryptionkey/keyslot2
+	var/obj/item/device/encryptionkey/keyslot1 = null
+	var/obj/item/device/encryptionkey/keyslot2 = null
 
 	var/ks1type = /obj/item/device/encryptionkey
-	var/ks2type
+	var/ks2type = null
 
 /obj/item/device/radio/headset/New()
 	..()
@@ -131,7 +131,11 @@
 	icon_state = "radio"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/ai_integrated
+<<<<<<< HEAD
 	var/myAi    // Atlantis: Reference back to the AI which has this radio.
+=======
+	var/myAi = null    // Atlantis: Reference back to the AI which has this radio.
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via intellicard menu.
 
 /obj/item/device/radio/headset/heads/ai_integrated/receive_range(freq, level)
@@ -216,7 +220,7 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_church
 
-/obj/item/device/radio/headset/attackby(obj/item/weapon/W, mob/user)
+/obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
 	if (!( istype(W, /obj/item/weapon/tool/screwdriver) || (istype(W, /obj/item/device/encryptionkey/ ))))

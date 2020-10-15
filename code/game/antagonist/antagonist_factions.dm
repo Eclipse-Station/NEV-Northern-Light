@@ -1,12 +1,12 @@
 /datum/faction
-	var/id
+	var/id = null
 	var/name = "faction"	//name displayed in different places
 	var/antag = "antag"		//name for the faction members
 	var/antag_plural = "antags"
 	var/welcome_text = "Hello, antagonist!"
 
-	var/hud_indicator
-	var/leader_hud_indicator
+	var/hud_indicator = null
+	var/leader_hud_indicator = null
 	var/faction_invisible = TRUE
 
 	var/list/faction_icons = list()

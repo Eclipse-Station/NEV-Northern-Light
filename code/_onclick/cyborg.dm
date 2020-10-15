@@ -228,7 +228,7 @@
 /mob/living/silicon/robot/RangedAttack(atom/A)
 	A.attack_robot(src)
 
-/atom/proc/attack_robot(mob/user)
+/atom/proc/attack_robot(mob/user as mob)
 	attack_ai(user)
 	return
 

@@ -15,7 +15,6 @@
 	damage_multiplier = 1.3
 	charge_cost = 50
 	price_tag = 2500
-	rarity_value = 12
 	projectile_type = /obj/item/projectile/beam/midlaser
 	init_firemodes = list(
 		WEAPON_NORMAL,
@@ -29,10 +28,13 @@
 	safety = FALSE
 	restrict_safety = TRUE
 	twohanded = FALSE
+<<<<<<< HEAD
 	zoom_factor = 0
 	damage_multiplier = 1
 	charge_cost = 100
 	spawn_blacklisted = TRUE
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/gun/energy/laser/mounted/blitz
 	name = "SDF LR \"Strahl\""
@@ -51,7 +53,7 @@
 	projectile_type = /obj/item/projectile/beam/practice
 	zoom_factor = 0
 
-/obj/item/weapon/gun/energy/retro
+obj/item/weapon/gun/energy/retro
 	name = "OS LG \"Cog\""
 	icon = 'icons/obj/guns/energy/retro.dmi'
 	icon_state = "retro"
@@ -68,7 +70,10 @@
 	damage_multiplier = 1
 	charge_cost = 100
 	price_tag = 2000
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	init_firemodes = list(
 		WEAPON_NORMAL,
 		WEAPON_CHARGE
@@ -136,7 +141,6 @@
 	zoom_factor = 0
 	damage_multiplier = 1
 	charge_cost = 100
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/gun/energy/psychic
 	icon = 'icons/obj/guns/energy/psychiccannon.dmi'
@@ -144,7 +148,6 @@
 	item_state = "psychic_lasercannon"
 	projectile_type = /obj/item/projectile/beam/psychic
 	icon_contained = TRUE
-	spawn_blacklisted = TRUE
 	var/traitor = FALSE //Check if it's a traitor psychic weapon
 	var/datum/mind/owner
 	var/list/victims = list()

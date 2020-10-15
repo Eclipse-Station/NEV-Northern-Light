@@ -22,6 +22,7 @@ var/list/global/tank_gauge_cache = list()
 	throw_speed = 1
 	throw_range = 4
 
+<<<<<<< HEAD
 	//spawn_values
 	rarity_value = 10
 	spawn_frequency = 10
@@ -30,12 +31,15 @@ var/list/global/tank_gauge_cache = list()
 	spawn_tags = SPAWN_TAG_TANK_GAS
 
 	var/datum/gas_mixture/air_contents
+=======
+	var/datum/gas_mixture/air_contents = null
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/distribute_pressure = ONE_ATMOSPHERE
 	var/default_pressure = 3*ONE_ATMOSPHERE
 	var/default_gas = null
 	var/integrity = 3
 	var/volume = 70 //liters
-	var/manipulated_by		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
+	var/manipulated_by = null		//Used by _onclick/hud/screen_objects.dm internals to determine if someone has messed with our tank or not.
 						//If they have and we haven't scanned it with the PDA or gas analyzer then we might just breath whatever they put in it.
 
 /obj/item/weapon/tank/Initialize(mapload, ...)

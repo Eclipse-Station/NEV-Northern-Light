@@ -6,11 +6,11 @@
 	icon_screen = "robot"
 	light_color = COLOR_LIGHTING_PURPLE_MACHINERY
 	req_access = list(access_robotics)
-	circuit = /obj/item/weapon/electronics/circuitboard/robotics
+	circuit = /obj/item/weapon/circuitboard/robotics
 
 	var/safety = 1
 
-/obj/machinery/computer/robotics/attack_hand(var/mob/user)
+/obj/machinery/computer/robotics/attack_hand(var/mob/user as mob)
 	if(..())
 		return
 	ui_interact(user)

@@ -14,10 +14,14 @@
 	icon_state = "rolled_poster"
 	var/serial_number = 0
 	var/ruined = 0
+<<<<<<< HEAD
 	var/datum/poster/design
 	rarity_value = 10
 	bad_types = /obj/item/weapon/contraband/poster
 	spawn_tags = SPAWN_TAG_CONTRABAND
+=======
+	var/datum/poster/design = null
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/weapon/contraband/poster/New(turf/loc, var/datum/poster/new_design = null)
 	if(!new_design)
@@ -29,7 +33,6 @@
 /obj/item/weapon/contraband/poster/placed
 	icon_state = "random"
 	anchored = TRUE
-	spawn_tags = null
 	New(turf/loc)
 		if(icon_state != "random")
 			for(var/datum/poster/new_design in GLOB.poster_designs)
@@ -45,7 +48,7 @@
 						if(EAST)  pixel_x = 32
 						if(WEST)  pixel_x = -32
 
-/obj/item/weapon/contraband/poster/attack_hand(mob/user)
+/obj/item/weapon/contraband/poster/attack_hand(mob/user as mob)
 	if(!anchored)
 		return ..()
 
@@ -67,7 +70,7 @@
 		if("No")
 			return
 
-/obj/item/weapon/contraband/poster/attackby(obj/item/weapon/W, mob/user)
+/obj/item/weapon/contraband/poster/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/tool/wirecutters))
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)

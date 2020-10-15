@@ -2,8 +2,11 @@
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	reagent_flags = NONE //starts closed
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_DRINK_SODA
 	bad_types = /obj/item/weapon/reagent_containers/food/drinks/cans
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 //DRINKS
 

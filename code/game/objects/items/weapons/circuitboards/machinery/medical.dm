@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*/obj/item/weapon/electronics/circuitboard/autodoc
+=======
+/obj/item/weapon/circuitboard/autodoc
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	name = T_BOARD("autodoc")
 	build_path = /obj/machinery/autodoc
 	board_type = "machine"
@@ -8,8 +12,14 @@
 		/obj/item/weapon/stock_parts/manipulator = 4,
 		/obj/item/weapon/stock_parts/console_screen = 2,
 		/obj/item/weapon/stock_parts/micro_laser = 2
+<<<<<<< HEAD
 )*/
 /obj/item/weapon/electronics/circuitboard/sleeper
+=======
+)
+
+/obj/item/weapon/circuitboard/sleeper
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	name = T_BOARD("sleeper")
 	build_path = /obj/machinery/sleeper
 	board_type = "machine"

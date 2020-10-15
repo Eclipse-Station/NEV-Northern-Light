@@ -6,7 +6,6 @@
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = FACE|HEAD
 	w_class = ITEM_SIZE_SMALL
-	rarity_value = 13.33
 
 /obj/item/clothing/mask/balaclava/tactical
 	name = "tactical balaclava"
@@ -14,7 +13,10 @@
 	icon_state = "swatclava"
 	item_state = "balaclava"
 	action_button_name = "Adjust Balaclava"
+<<<<<<< HEAD
 	rarity_value = 10
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/open = 0 //0 = full, 1 = head only, 2 = face only
 
 /obj/item/clothing/mask/balaclava/tactical/proc/adjust_mask(mob/living/carbon/human/user)

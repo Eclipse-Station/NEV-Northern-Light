@@ -7,9 +7,12 @@
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "bone"
 	desc = "It's a fossil."
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_XENOARCH_ITEM_FOSSIL
 	spawn_blacklisted = TRUE
 	bad_types = /obj/item/weapon/fossil
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/animal = 1
 
 /obj/item/weapon/fossil/base/New()

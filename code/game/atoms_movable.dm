@@ -8,15 +8,16 @@
 	var/m_flag = 1
 	var/throwing = 0
 	var/thrower
-	var/turf/throw_source
+	var/turf/throw_source = null
 	var/throw_speed = 2
 	var/icon_scale = 1 // Used to scale icons up or down in update_transform().
 	var/throw_range = 7
 	var/icon_rotation = 0 // Used to rotate icons in update_transform()
 	var/moved_recently = 0
-	var/mob/pulledby
-	var/item_state // Used to specify the item state for the on-mob overlays.
+	var/mob/pulledby = null
+	var/item_state = null // Used to specify the item state for the on-mob overlays.
 	var/inertia_dir = 0
+<<<<<<< HEAD
 	var/can_anchor = TRUE
 
 	//spawn_values
@@ -27,6 +28,8 @@
 	var/accompanying_object	//path or text
 	var/spawn_blacklisted = FALSE
 	var/bad_types //path or text. e.g: spawn_tags = obj/item or spawn_tags = "obj/item,obj/spawner"
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /atom/movable/Del()
 	if(isnull(gc_destroyed) && loc)

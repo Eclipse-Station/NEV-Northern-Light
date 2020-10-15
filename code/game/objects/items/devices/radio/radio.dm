@@ -52,7 +52,7 @@ var/global/list/default_medbay_channels = list(
 	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
-
+	
 	//Eclipse-added vars
 	var/freqlock = FALSE		//Eclipse Edit: Should we lock the frequency to prevent people from changing the channel?
 
@@ -73,6 +73,14 @@ var/global/list/default_medbay_channels = list(
 	if(syndie)
 		internal_channels += unique_internal_channels.Copy()
 	add_hearing()
+<<<<<<< HEAD
+=======
+	
+	//eclipse addition
+	if(audible_squelch_enabled)		//if it's disabled, should stay as null.ogg. Prevents it from playing squelch in the event another if-check fails.
+		audible_squelch_type = pick(all_radio_squelch_sounds)		//radios get a semi-unique radio squelch sound. granted, there's four sounds total, but if one radio receives it should maintain the same squelch sound all the time.
+	//of course, this isn't realistic at all since each radio plays the same squelch when it receives different radios (not the other way around), but it should break the monotony.
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/device/radio/Destroy()
 	remove_hearing()
@@ -583,20 +591,19 @@ var/global/list/default_medbay_channels = list(
 //Giving borgs their own radio to have some more room to work with -Sieve
 
 /obj/item/device/radio/borg
+	var/mob/living/silicon/robot/myborg = null // Cyborg which owns this radio. Used for power checks
+	var/obj/item/device/encryptionkey/keyslot = null//Borg radios can handle a single encryption key
+	var/shut_up = 1
 	icon = 'icons/obj/robot_component.dmi' // Cyborgs radio icons should look like the component.
 	icon_state = "radio"
 	canhear_range = 0
 	subspace_transmission = 1
-	spawn_frequency = 0
-	var/mob/living/silicon/robot/myborg // Cyborg which owns this radio. Used for power checks
-	var/obj/item/device/encryptionkey/keyslot //Borg radios can handle a single encryption key
-	var/shut_up = 1
 
 /obj/item/device/radio/borg/Destroy()
 	myborg = null
 	return ..()
 
-/obj/item/device/radio/borg/list_channels(mob/user)
+/obj/item/device/radio/borg/list_channels(var/mob/user)
 	return list_secure_channels(user)
 
 /obj/item/device/radio/borg/talk_into(mob/living/M, message, channel, var/verb = "says", var/datum/language/speaking = null, var/speech_volume)
@@ -606,8 +613,8 @@ var/global/list/default_medbay_channels = list(
 		var/datum/robot_component/C = R.components["radio"]
 		R.cell_use_power(C.active_usage)
 
-/obj/item/device/radio/borg/attackby(obj/item/weapon/W, mob/user)
-	//..()
+/obj/item/device/radio/borg/attackby(obj/item/weapon/W as obj, mob/user as mob)
+//	..()
 	user.set_machine(src)
 	if (!( istype(W, /obj/item/weapon/tool/screwdriver) || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return

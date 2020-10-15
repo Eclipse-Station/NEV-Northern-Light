@@ -13,7 +13,6 @@
 		rad = 50
 	)
 	siemens_coefficient = 0.4
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/suit/space/syndicate
 	name = "red space suit"
@@ -33,4 +32,3 @@
 	siemens_coefficient = 0.4
 	can_breach = FALSE
 	supporting_limbs = list()
-	spawn_blacklisted = TRUE

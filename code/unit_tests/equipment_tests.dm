@@ -4,9 +4,9 @@
 
 datum/unit_test/vision_glasses/
 	name = "EQUIPMENT: Vision Template"
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/human/H = null
 	var/expectation = SEE_INVISIBLE_NOLIGHTING
-	var/glasses_type
+	var/glasses_type = null
 	async = 1
 
 datum/unit_test/vision_glasses/start_test()

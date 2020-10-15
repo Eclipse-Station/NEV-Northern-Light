@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(vote)
 
 	var/list/votes = list()
 	var/list/voters = list()	//List of clients with opened vote window
-	var/datum/poll/active_vote
+	var/datum/poll/active_vote = null
 	var/vote_start_time = 0
 
 /datum/controller/subsystem/vote/PreInit()
@@ -41,7 +41,7 @@ SUBSYSTEM_DEF(vote)
 	if(active_vote)
 		return FALSE
 
-	var/datum/poll/poll
+	var/datum/poll/poll = null
 
 	if(ispath(newvote) && (newvote in votes))
 		poll = votes[newvote]

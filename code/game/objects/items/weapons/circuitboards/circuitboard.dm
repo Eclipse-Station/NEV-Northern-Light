@@ -4,6 +4,7 @@
 #endif
 #define T_BOARD(name)	"circuit board (" + (name) + ")"
 
+<<<<<<< HEAD
 /obj/item/weapon/electronics
 	spawn_tags = SPAWN_TAG_ELECTRONICS
 	rarity_value = 20
@@ -11,6 +12,9 @@
 	bad_types = /obj/item/weapon/electronics
 
 /obj/item/weapon/electronics/circuitboard
+=======
+/obj/item/weapon/circuitboard
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	name = "circuit board"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "id_mod"
@@ -26,27 +30,30 @@
 	throwforce = WEAPON_FORCE_HARMLESS
 	throw_speed = 3
 	throw_range = 15
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/electronics/circuitboard
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
-	var/build_path
+	var/build_path = null
 	var/frame_type = FRAME_DEFAULT
 	var/board_type = "computer"
-	var/list/req_components
+	var/list/req_components = null
 
 //Called when the circuitboard is used to contruct a new machine.
-/obj/item/weapon/electronics/circuitboard/proc/construct(obj/machinery/M)
+/obj/item/weapon/circuitboard/proc/construct(var/obj/machinery/M)
 	if (istype(M, build_path))
 		return TRUE
 	return FALSE
 
 //Called when a computer is deconstructed to produce a circuitboard.
 //Only used by computers, as other machines store their circuitboard instance.
-/obj/item/weapon/electronics/circuitboard/proc/deconstruct(obj/machinery/M)
+/obj/item/weapon/circuitboard/proc/deconstruct(var/obj/machinery/M)
 	if (istype(M, build_path))
 		return TRUE
 	return FALSE
 
-/obj/item/weapon/electronics/circuitboard/examine(user, distance)
+/obj/item/weapon/circuitboard/examine(user, distance)
 	. = ..()
 	// gets the required components and displays it in a list to the user when examined.
 	if(length(req_components))

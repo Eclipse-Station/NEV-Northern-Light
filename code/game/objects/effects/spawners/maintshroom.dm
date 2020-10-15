@@ -5,10 +5,13 @@
 	var/instant = TRUE
 	var/min_light_limit = 0.5
 	mouse_opacity = 0
+<<<<<<< HEAD
 	rarity_value = 10
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_FLORA
 	bad_types = /obj/effect/spawner/maintshroom
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 
 /obj/effect/spawner/maintshroom/proc/spawn_shroom()

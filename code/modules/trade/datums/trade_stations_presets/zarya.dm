@@ -12,12 +12,16 @@
 			/obj/machinery/pipedispenser/disposal/orderable,
 		),
 		"Energiya" = list(
-			/obj/item/weapon/electronics/circuitboard/shield_diffuser,
-			/obj/item/weapon/electronics/circuitboard/shield_generator,
+			/obj/item/weapon/circuitboard/shield_diffuser,
+			/obj/item/weapon/circuitboard/shield_generator,
 			/obj/item/weapon/cell/large,
 			/obj/item/weapon/cell/large/high,
 			/obj/item/solar_assembly,
+<<<<<<< HEAD
 			/obj/item/weapon/electronics/circuitboard/solar_control,
+=======
+			/obj/item/weapon/circuitboard/solar_control,
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 			/obj/item/weapon/tracker_electronics,
 			/obj/machinery/power/emitter,
 			/obj/machinery/power/rad_collector,

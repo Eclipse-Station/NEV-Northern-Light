@@ -43,4 +43,7 @@
 /obj/item/weapon/implanter/adrenalin
 	name = "implanter-adrenalin"
 	implant = /obj/item/weapon/implant/adrenalin
+<<<<<<< HEAD
 	spawn_tags = null
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

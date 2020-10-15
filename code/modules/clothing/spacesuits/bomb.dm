@@ -22,8 +22,6 @@
 	desc = "A heavy armored space suit designed for safety when handling explosives."
 	icon_state = "bombsuit"
 	item_state = "bombsuit"
-	rarity_value = 35
-	spawn_tags = SPAWN_TAG_HAZMATSUIT
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	slowdown = 2
@@ -45,5 +43,9 @@
 	icon_state = "bombsuitsec"
 
 /obj/item/clothing/suit/space/bomb/security
+<<<<<<< HEAD
 	icon_state = "bombsuitsec"
 	spawn_blacklisted = TRUE
+=======
+	icon_state = "bombsuitsec"
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

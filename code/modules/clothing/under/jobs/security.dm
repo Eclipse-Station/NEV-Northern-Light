@@ -123,7 +123,10 @@
 	icon_state = "hoshat"
 	body_parts_covered = NONE
 	siemens_coefficient = 0.8
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /*
  * Navy uniforms

@@ -10,7 +10,6 @@
 
 	melee_damage_lower = 2
 	melee_damage_upper = 5
-	spawn_blacklisted = TRUE
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat
 	meat_amount = 1
@@ -28,6 +27,12 @@
 			if (fed > 0) // If roachling has eaten a corpse
 				spawn_type = /mob/living/carbon/superior_animal/roach/fuhrer
 			else
-				spawn_type = /obj/spawner/mob/roaches
+				spawn_type = pickweight(list(/mob/living/carbon/superior_animal/roach = 9,
+					/mob/living/carbon/superior_animal/roach/tank = 2,
+					/mob/living/carbon/superior_animal/roach/toxic = 2,
+					/mob/living/carbon/superior_animal/roach/nanite = 2,
+					/mob/living/carbon/superior_animal/roach/hunter = 4,
+					/mob/living/carbon/superior_animal/roach/support = 4,
+					/mob/living/carbon/superior_animal/roach/fuhrer = 0.5))
 			new spawn_type(src.loc, src)
 			qdel(src)

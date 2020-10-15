@@ -13,4 +13,7 @@
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/jager
 	meat_amount = 3
+<<<<<<< HEAD
 	rarity_value = 11.25
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

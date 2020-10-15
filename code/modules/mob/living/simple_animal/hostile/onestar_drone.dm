@@ -23,8 +23,6 @@
 	light_color = COLOR_LIGHTING_BLUE_BRIGHT
 	mob_classification = CLASSIFICATION_SYNTHETIC
 	move_to_delay = 9
-	spawn_tags = SPAWN_TAG_MOB_OS_CUSTODIAN
-	rarity_value = 23.8
 	var/shell_type = "os"
 	var/marks_type = "os"
 	var/screen_type = "os" //if someone decides to make the drones for something aside from OS and have different desgins
@@ -73,8 +71,7 @@
 	fire_verb = "lobs flame"
 	screen_type = "os_red"
 	projectiletype = /obj/item/projectile/flamer_lob
-	ranged = TRUE
-	rarity_value = 59.5
+	ranged = 1
 
 
 /mob/living/simple_animal/hostile/onestar_custodian/chef/adjustFireLoss(var/amount)
@@ -90,7 +87,11 @@
 	tooltype = "os_red"
 	screen_type = "yellow"
 	projectiletype = /obj/item/projectile/beam/drone
-	ranged = TRUE
+	ranged = 1
 	melee_damage_lower = 7
+<<<<<<< HEAD
 	melee_damage_upper = 15
 	rarity_value = 39.66
+=======
+	melee_damage_upper = 15
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

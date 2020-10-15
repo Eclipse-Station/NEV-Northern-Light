@@ -17,11 +17,17 @@
 
 /obj/structure/dispenser/oxygen
 	phorontanks = 0
+<<<<<<< HEAD
 	rarity_value = 10
 
 /obj/structure/dispenser/phoron
 	oxygentanks = 0
 	rarity_value = 25
+=======
+
+/obj/structure/dispenser/phoron
+	oxygentanks = 0
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 
 /obj/structure/dispenser/Initialize()

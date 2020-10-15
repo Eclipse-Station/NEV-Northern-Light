@@ -5,7 +5,6 @@
 	desc = "It's a hat used by chefs to keep hair out of your food. Judging by the food in the mess, they don't work."
 	icon_state = "chefhat"
 	item_state = "chefhat"
-	spawn_blacklisted = TRUE
 
 //Captain
 /obj/item/clothing/head/caphat
@@ -23,20 +22,17 @@
 	name = "captain's cap"
 	desc = "You fear to wear it for the negligence it brings."
 	icon_state = "capcap"
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/caphat/formal
 	name = "parade hat"
 	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
 	icon_state = "officercap"
-	spawn_blacklisted = TRUE
 
 //HOP
 /obj/item/clothing/head/caphat/hop
 	name = "crew resource's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
-	spawn_blacklisted = TRUE
 
 //Chaplain
 /obj/item/clothing/head/chaplain_hood
@@ -45,7 +41,6 @@
 	icon_state = "chaplain_hood"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/nun_hood
 	name = "nun hood"
@@ -53,13 +48,11 @@
 	icon_state = "nun_hood"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/preacher
 	name = "preacher hat"
 	desc = "Useful for hiding disdainful eyes from the godless masses."
 	icon_state = "church_hat"
-	spawn_blacklisted = TRUE
 
 //Mime
 /obj/item/clothing/head/beret
@@ -67,39 +60,33 @@
 	desc = "A beret, an artists favorite headwear."
 	icon_state = "beret"
 	body_parts_covered = 0
+<<<<<<< HEAD
 	style = 1
 	spawn_blacklisted = TRUE
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 //Security
 /obj/item/clothing/head/beret/sec/navy/officer
 	name = "Operative beret"
 	desc = "A navy blue beret with an Operative's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "beret_navy_officer"
-	spawn_blacklisted = TRUE
-
 /obj/item/clothing/head/beret/sec/navy/hos
 	name = "Commander beret"
 	desc = "Grey beret with a Commander's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "beret_navy_hos"
-	spawn_blacklisted = TRUE
-
 /obj/item/clothing/head/beret/sec/navy/warden
 	name = "Sergeant beret"
 	desc = "Read beret with a Sergeant's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "beret_navy_warden"
-	spawn_blacklisted = TRUE
-
 /obj/item/clothing/head/beret/engineering
 	name = "engineering beret"
 	desc = "A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety."
 	icon_state = "beret_engineering"
-	spawn_blacklisted = TRUE
-
 /obj/item/clothing/head/beret/purple
 	name = "purple beret"
 	desc = "A stylish, if purple, beret."
 	icon_state = "beret_purple"
-	spawn_blacklisted = TRUE
 
 //Medical
 /obj/item/clothing/head/surgery
@@ -107,19 +94,15 @@
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs."
 	icon_state = "surgcap_green"
 	flags_inv = BLOCKHEADHAIR
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/surgery/purple
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is deep purple."
 	icon_state = "surgcap_purple"
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/surgery/blue
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is baby blue."
 	icon_state = "surgcap_blue"
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/surgery/green
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is dark green."
 	icon_state = "surgcap_green"
-	spawn_blacklisted = TRUE

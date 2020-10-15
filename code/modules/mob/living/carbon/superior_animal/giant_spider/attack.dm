@@ -1,4 +1,4 @@
-/mob/living/carbon/superior_animal/giant_spider/UnarmedAttack(atom/A, proximity)
+/mob/living/carbon/superior_animal/giant_spider/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
 
 	if(isliving(A))

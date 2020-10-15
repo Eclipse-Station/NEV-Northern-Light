@@ -14,7 +14,7 @@ var/global/excelsior_last_draft = 0
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 40
 	active_power_usage = 15000
-	circuit = /obj/item/weapon/electronics/circuitboard/excelsior_teleporter
+	circuit = /obj/item/weapon/circuitboard/excelsior_teleporter
 
 	var/max_energy = 100
 	var/energy_gain = 1
@@ -52,13 +52,13 @@ var/global/excelsior_last_draft = 0
 		/obj/item/weapon/stock_parts/micro_laser/excelsior = 350,
 		/obj/item/weapon/stock_parts/matter_bin/excelsior = 350,
 		/obj/item/clothing/under/excelsior = 100,
-		/obj/item/weapon/electronics/circuitboard/excelsior_teleporter = 500,
-		/obj/item/weapon/electronics/circuitboard/excelsiorautolathe = 150,
-		/obj/item/weapon/electronics/circuitboard/excelsiorreconstructor = 150,
-		/obj/item/weapon/electronics/circuitboard/excelsior_turret = 150,
-		/obj/item/weapon/electronics/circuitboard/excelsiorshieldwallgen = 150,
-		/obj/item/weapon/electronics/circuitboard/excelsior_boombox = 150,
-		/obj/item/weapon/electronics/circuitboard/diesel = 150
+		/obj/item/weapon/circuitboard/excelsior_teleporter = 500,
+		/obj/item/weapon/circuitboard/excelsiorautolathe = 150,
+		/obj/item/weapon/circuitboard/excelsiorreconstructor = 150,
+		/obj/item/weapon/circuitboard/excelsior_turret = 150,
+		/obj/item/weapon/circuitboard/excelsiorshieldwallgen = 150,
+		/obj/item/weapon/circuitboard/excelsior_boombox = 150,
+		/obj/item/weapon/circuitboard/diesel = 150
 		)
 
 /obj/machinery/complant_teleporter/Initialize()
@@ -322,10 +322,13 @@ var/global/excelsior_last_draft = 0
 			teleport_out(affecting, user)
 			excelsior_conscripts += 1
 			return
+<<<<<<< HEAD
 	if (is_excelsior(affecting))
 		teleport_out(affecting, user)
 		excelsior_conscripts += 1
 		return
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	
 	visible_message("\the [src] blinks, refusing [affecting].")
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 1 -3)

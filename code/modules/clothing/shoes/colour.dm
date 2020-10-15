@@ -8,12 +8,15 @@
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = LEGS
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
+<<<<<<< HEAD
 	bad_types = /obj/item/clothing/shoes/color
 	rarity_value = 10
 
 /obj/item/clothing/shoes/color/black
 	name = "black shoes"
 	icon_state = "black"
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 
 /obj/item/clothing/shoes/color/white
 	name = "white shoes"

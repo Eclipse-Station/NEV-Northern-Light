@@ -5,21 +5,23 @@
 	icon_state = "giskard"
 	item_state = "pistol"
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
+<<<<<<< HEAD
 	gun_tags = list(GUN_SILENCABLE)
+=======
+	gun_tags = list(GUN_PROJECTILE, GUN_SILENCABLE, GUN_CALIBRE_35)
+	caliber = CAL_PISTOL
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	w_class = ITEM_SIZE_SMALL
 	can_dual = 1
 	fire_delay = 0.6
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
-	caliber = CAL_PISTOL
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL
-	magazine_type = /obj/item/ammo_magazine/pistol
 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_WOOD = 4)
 	price_tag = 600
 	damage_multiplier = 1.3
 	penetration_multiplier = 0.8
 	recoil_buildup = 2
-	rarity_value = 8
 
 /obj/item/weapon/gun/projectile/giskard/update_icon()
 	..()

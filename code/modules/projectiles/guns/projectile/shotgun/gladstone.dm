@@ -13,5 +13,8 @@
 	price_tag = 2000
 	recoil_buildup = 14
 	one_hand_penalty = 15 //full sized shotgun level
+<<<<<<< HEAD
 	rarity_value = 20
 	rarity_value = 10.66
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop

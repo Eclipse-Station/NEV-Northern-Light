@@ -53,7 +53,7 @@
 	req_one_access = list()
 
 /obj/item/weapon/rig/industrial/equipped
-	rarity_value = 20
+
 	initial_modules = list(
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/orescanner,
@@ -95,7 +95,6 @@
 	req_one_access = list()
 
 /obj/item/weapon/rig/eva/equipped
-	rarity_value = 20
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/rcd,
@@ -111,7 +110,6 @@ Advanced Voidsuit: Chief Engineer
 	suit_type = "advanced voidsuit"
 	desc = "An advanced voidsuit that protects against hazardous, low pressure environments. Shines with a high polish."
 	icon_state = "ce_rig"
-	rarity_value = 20
 	armor = list(
 		melee = 30,
 		bullet = 30,
@@ -142,7 +140,6 @@ Advanced Voidsuit: Chief Engineer
 	req_one_access = list()
 
 /obj/item/weapon/rig/ce/equipped
-	rarity_value = 40
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
@@ -169,8 +166,6 @@ Advanced Voidsuit: Chief Engineer
 	suit_type = "hazmat hardsuit"
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
 	icon_state = "science_rig"
-	spawn_tags = SPAWN_TAG_RING_HAZMAT
-	rarity_value = 25
 	armor = list(
 		melee = 30,
 		bullet = 20,
@@ -203,8 +198,8 @@ Advanced Voidsuit: Chief Engineer
 	req_one_access = list()
 
 /obj/item/weapon/rig/hazmat/equipped
+
 	req_access = list(access_rd)
-	rarity_value = 40
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -245,7 +240,7 @@ Advanced Voidsuit: Chief Engineer
 /obj/item/weapon/rig/medical/equipped
 	req_access = list()
 	req_one_access = list()
-	rarity_value = 20
+
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/maneuvering_jets,

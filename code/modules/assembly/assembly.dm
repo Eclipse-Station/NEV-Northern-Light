@@ -11,13 +11,16 @@
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 1)
 
+<<<<<<< HEAD
 	bad_types = /obj/item/device/assembly
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_ASSEMBLY
 
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/secured = TRUE
-	var/list/attached_overlays
-	var/obj/item/device/assembly_holder/holder
+	var/list/attached_overlays = null
+	var/obj/item/device/assembly_holder/holder = null
 	var/cooldown = 0 //To prevent spam
 	var/wires = WIRE_RECEIVE | WIRE_PULSE
 
@@ -46,14 +49,14 @@
 	return TRUE
 
 
-/obj/item/device/assembly/proc/pulsed(radio = 0)
+/obj/item/device/assembly/proc/pulsed(var/radio = 0)
 	if(holder && wires & WIRE_RECEIVE)
 		activate()
 	if(radio && wires & WIRE_RADIO_RECEIVE)
 		activate()
 
 
-/obj/item/device/assembly/proc/pulse(radio = 0)
+/obj/item/device/assembly/proc/pulse(var/radio = 0)
 	if(holder && (wires & WIRE_PULSE))
 		holder.process_activation(src, 1, 0)
 	if(holder && (wires & WIRE_PULSE_SPECIAL))
@@ -67,7 +70,7 @@
 	return secured
 
 
-/obj/item/device/assembly/proc/attach_assembly(obj/item/device/assembly/A, mob/user)
+/obj/item/device/assembly/proc/attach_assembly(var/obj/item/device/assembly/A, var/mob/user)
 	holder = new/obj/item/device/assembly_holder(get_turf(src))
 	if(holder.attach(A, src, user))
 		to_chat(user, SPAN_NOTICE("You attach \the [A] to \the [src]!"))
@@ -101,7 +104,8 @@
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] can be attached!"))
 
-/obj/item/device/assembly/attack_self(mob/user)
+
+/obj/item/device/assembly/attack_self(mob/user as mob)
 	if(!user)
 		return 0
 	user.set_machine(src)
@@ -109,7 +113,7 @@
 	return 1
 
 
-/obj/item/device/assembly/interact(mob/user)
+/obj/item/device/assembly/interact(mob/user as mob)
 	return //HTML MENU FOR WIRES GOES HERE
 
 /obj/item/device/assembly/proc/holder_movement()

@@ -6,9 +6,13 @@
 	anchored = FALSE
 	matter = list(MATERIAL_STEEL = 5)
 	var/state = 0
+<<<<<<< HEAD
 	var/obj/item/weapon/electronics/circuitboard/circuit
 	spawn_tags = SPAWN_TAG_COMPUTERFRAME
 
+=======
+	var/obj/item/weapon/circuitboard/circuit = null
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 //	weight = 1.0E8
 
 /obj/structure/computerframe/verb/rotate()
@@ -134,8 +138,8 @@
 
 	switch(state)
 		if(1)
-			if(istype(I, /obj/item/weapon/electronics/circuitboard) && !circuit)
-				var/obj/item/weapon/electronics/circuitboard/B = I
+			if(istype(I, /obj/item/weapon/circuitboard) && !circuit)
+				var/obj/item/weapon/circuitboard/B = I
 				if(B.board_type == "computer")
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 					to_chat(user, SPAN_NOTICE("You place the circuit board inside the frame."))

@@ -3,8 +3,6 @@
 
 //endless reagents!
 /obj/item/weapon/reagent_containers/glass/replenishing
-	spawn_tags = SPAWN_TAG_XENOARCH_ITEM
-	spawn_blacklisted = TRUE
 	var/spawning_id
 
 /obj/item/weapon/reagent_containers/glass/replenishing/New()
@@ -19,8 +17,6 @@
 
 //a talking gas mask!
 /obj/item/clothing/mask/gas/poltergeist
-	spawn_tags = SPAWN_TAG_XENOARCH_ITEM
-	spawn_blacklisted = TRUE
 	var/list/heard_talk = list()
 	var/last_twitch = 0
 	var/max_stored_messages = 100
@@ -55,7 +51,6 @@
 	name = "statuette"
 	icon_state = "statuette"
 	icon = 'icons/obj/xenoarchaeology.dmi'
-	spawn_tags = SPAWN_TAG_XENOARCH_ITEM
 	var/charges = 0
 	var/list/nearby_mobs = list()
 	var/last_bloodcall = 0

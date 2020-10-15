@@ -7,12 +7,15 @@
 	name = "ore box"
 	desc = "A heavy box used for storing ore."
 	density = TRUE
+<<<<<<< HEAD
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_STRUCTURE_COMMON
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 	var/last_update = 0
 	var/list/stored_ore = list()
 
-/obj/structure/ore_box/attackby(obj/item/weapon/W, mob/user)
+/obj/structure/ore_box/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/ore))
 		user.remove_from_mob(W)
 		src.contents += W

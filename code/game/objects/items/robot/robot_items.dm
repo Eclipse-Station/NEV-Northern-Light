@@ -5,10 +5,13 @@
 ***********************************************************************/
 //Might want to move this into several files later but for now it works here
 // Consider changing this to a child of the stun baton class. ~Z
+<<<<<<< HEAD
 /obj/item/borg
 	bad_types = /obj/item/borg
 	spawn_tags = null
 
+=======
+>>>>>>> 57c0f65... Merge pull request #196 from SyzygyStation/revert-193-beep_boop
 /obj/item/borg/stun
 	name = "electrified arm"
 	icon = 'icons/obj/decals.dmi'
@@ -43,8 +46,8 @@
 /obj/item/borg/sight
 	icon = 'icons/obj/decals.dmi'
 	icon_state = "securearea"
-	var/sight_mode
-	var/obj/screen/overlay
+	var/sight_mode = null
+	var/obj/screen/overlay = null
 
 /obj/item/borg/sight/xray
 	name = "\proper x-ray vision"
@@ -81,7 +84,7 @@
 
 /obj/item/borg/sight/hud
 	name = "hud"
-	var/obj/item/clothing/glasses/hud/hud
+	var/obj/item/clothing/glasses/hud/hud = null
 
 
 

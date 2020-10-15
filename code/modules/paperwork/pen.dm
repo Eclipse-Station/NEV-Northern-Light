@@ -21,8 +21,6 @@
 	throw_speed = 7
 	throw_range = 15
 	matter = list(MATERIAL_STEEL = 1)
-	spawn_tags = SPAWN_TAG_JUNK
-	rarity_value = 6
 	var/colour = "black"	//what colour the ink is!
 
 
@@ -60,7 +58,7 @@
 	colour = "white"
 
 
-/obj/item/weapon/pen/attack(mob/M, mob/user)
+/obj/item/weapon/pen/attack(mob/M as mob, mob/user as mob)
 	if(!ismob(M))
 		return
 	to_chat(user, SPAN_WARNING("You stab [M] with the pen."))
@@ -78,13 +76,12 @@
 	reagent_flags = REFILLABLE | DRAINABLE
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COVERT = 5)
-	spawn_blacklisted = TRUE
 
 /obj/item/weapon/pen/reagent/New()
 	..()
 	create_reagents(30)
 
-/obj/item/weapon/pen/reagent/attack(mob/living/M, mob/user)
+/obj/item/weapon/pen/reagent/attack(mob/living/M as mob, mob/user as mob)
 
 	if(!istype(M))
 		return
@@ -126,9 +123,8 @@
  */
 /obj/item/weapon/pen/chameleon
 	var/signature = ""
-	spawn_blacklisted = TRUE
 
-/obj/item/weapon/pen/chameleon/attack_self(mob/user)
+/obj/item/weapon/pen/chameleon/attack_self(mob/user as mob)
 	/*
 	// Limit signatures to official crew members
 	var/personnel_list[] = list()
