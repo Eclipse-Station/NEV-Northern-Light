@@ -95,6 +95,27 @@
 	sort_string = "FAHAC"
 	category = CAT_MEDI
 
+<<<<<<< HEAD
+=======
+/datum/design/research/circuit/chemical_dispenser_industrial
+	name = "Industrial Chemical Dispenser"
+	build_path = /obj/item/weapon/electronics/circuitboard/chemical_dispenser/industrial
+	sort_string = "FAHAD"
+	category = CAT_MEDI
+
+/datum/design/research/circuit/chemical_dispenser_soda
+	name = "Soda Chemical Dispenser"
+	build_path = /obj/item/weapon/electronics/circuitboard/chemical_dispenser/soda
+	sort_string = "FAHAE"
+	category = CAT_MISC
+
+/datum/design/research/circuit/chemical_dispenser_beer
+	name = "Beer Chemical Dispenser"
+	build_path = /obj/item/weapon/electronics/circuitboard/chemical_dispenser/beer
+	sort_string = "FAHAF"
+	category = CAT_MISC
+
+>>>>>>> 96fa62d... Soda, beer, and industrial chem dispenser fixes (#5594)
 /datum/design/research/circuit/teleconsole
 	name = "teleporter control console"
 	build_path = /obj/item/weapon/electronics/circuitboard/teleporter

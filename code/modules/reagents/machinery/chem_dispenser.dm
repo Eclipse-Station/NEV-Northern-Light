@@ -183,6 +183,12 @@
 	desc = "A drink fabricating machine, capable of producing many sugary drinks with just one touch."
 	layer = OBJ_LAYER
 	ui_title = "Soda Dispens-o-matic"
+<<<<<<< HEAD
+=======
+
+	circuit = /obj/item/weapon/electronics/circuitboard/chemical_dispenser/soda
+
+>>>>>>> 96fa62d... Soda, beer, and industrial chem dispenser fixes (#5594)
 	accept_beaker = FALSE
 	density = FALSE
 	dispensable_reagents = list("water","ice","coffee","cream","tea","greentea","icetea","icegreentea","cola","spacemountainwind","dr_gibb","space_up","tonic","sodawater","lemon_lime","sugar","orangejuice","limejuice","watermelonjuice")
@@ -205,6 +211,12 @@
 	name = "booze dispenser"
 	layer = OBJ_LAYER
 	ui_title = "Booze Portal 9001"
+<<<<<<< HEAD
+=======
+
+	circuit = /obj/item/weapon/electronics/circuitboard/chemical_dispenser/beer
+
+>>>>>>> 96fa62d... Soda, beer, and industrial chem dispenser fixes (#5594)
 	accept_beaker = FALSE
 	density = FALSE
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
@@ -249,6 +261,12 @@
 	icon = 'icons/obj/machines/chemistry.dmi'
 	icon_state = "industrial_dispenser"
 	ui_title = "Industrial Dispenser 4835"
+<<<<<<< HEAD
+=======
+
+	circuit = /obj/item/weapon/electronics/circuitboard/chemical_dispenser/industrial
+
+>>>>>>> 96fa62d... Soda, beer, and industrial chem dispenser fixes (#5594)
 	dispensable_reagents = list(
 		"acetone","aluminum","ammonia",
 		"copper","ethanol","hydrazine",

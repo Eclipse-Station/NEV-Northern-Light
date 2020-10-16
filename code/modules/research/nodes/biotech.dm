@@ -223,7 +223,12 @@
 							/datum/design/research/item/medical/adv_mass_spectrometer,
 							/datum/design/research/item/medical/adv_reagent_scanner,
 							/datum/design/research/item/weapon/chemsprayer,
+<<<<<<< HEAD
 							/datum/design/research/item/weapon/rapidsyringe
+=======
+							/datum/design/research/item/weapon/rapidsyringe,
+							/datum/design/research/circuit/chemical_dispenser_industrial
+>>>>>>> 96fa62d... Soda, beer, and industrial chem dispenser fixes (#5594)
 							)
 
 /datum/technology/top_biotech
