@@ -236,6 +236,15 @@
 		FL.afterattack(A,src)
 	A.examine(src)
 
+/mob/verb/emptyHands()
+	set name = "Empty Hands"
+	set category = "IC"
+	// Subverting unEquip deliberately here because this works for forcibly removing bugged objects from hands and unEquip does not.
+	if (r_hand && r_hand.canremove)
+		src.drop_from_inventory(r_hand)
+	if (l_hand && l_hand.canremove)
+		src.drop_from_inventory(l_hand)
+
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
 	set category = "Object"

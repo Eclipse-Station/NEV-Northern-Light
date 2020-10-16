@@ -235,16 +235,17 @@
 			return
 
 		if(QUALITY_BOLT_TURNING)
-			if(I.use_tool(user, src, WORKTIME_NEAR_INSTANT, tool_type, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
-				anchored = !anchored
-				user.visible_message(SPAN_NOTICE("[user] [anchored ? "un" : ""]wrenches the solar assembly into place."))
-				return
+			if(isturf(loc)) // No anchoring to your hand/bag/etc.
+				if(I.use_tool(user, src, WORKTIME_NEAR_INSTANT, tool_type, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
+					anchored = !anchored
+					user.visible_message(SPAN_NOTICE("[user] [!anchored ? "un" : ""]wrenches the solar assembly [!anchored ? "out of" : "into"] place."))
+					return
 			return
 
 		if(ABORT_CHECK)
 			return
 
-	if(anchored && !isturf(loc))
+	if(anchored)
 		if(istype(I, /obj/item/stack/material) && (I.get_material_name() == "glass" || I.get_material_name() == "rglass"))
 			var/obj/item/stack/material/S = I
 			if(S.use(2))
