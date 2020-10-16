@@ -20,6 +20,7 @@
     max_shells = 3
     recoil_buildup = 20
     twohanded = TRUE
+    bad_type = /obj/item/weapon/gun/projectile/shotgun/pump/china
 
 
 
