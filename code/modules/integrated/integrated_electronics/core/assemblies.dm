@@ -40,7 +40,13 @@
 	w_class = ITEM_SIZE_TINY
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
+<<<<<<< HEAD
 	var/obj/item/weapon/implant/integrated_circuit/implant = null
+=======
+	var/obj/item/weapon/implant/integrated_circuit/implant
+	bad_type = /obj/item/device/electronic_assembly/implant
+	spawn_frequency = 0
+>>>>>>> 95af60b... biomes and trash rework. (#5574)
 
 /obj/item/device/electronic_assembly/New()
 	..()
