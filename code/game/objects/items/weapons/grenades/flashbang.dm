@@ -66,13 +66,14 @@
 			M.Stun(10*ear_stun_mult)
 			M.Weaken(3*ear_stun_mult)
 			if ((prob(14) || (M == loc && prob(70))))
-				M.ear_damage += rand(1, 10)
+				M.adjustEarDamage(rand(1, 10))
 			else
-				M.ear_damage += rand(0, 5)
+				M.adjustEarDamage(rand(0, 5))
 				M.ear_deaf = max(M.ear_deaf,15)
 
 	else if(get_dist(M, T) <= 5)
 		if(!ear_safety)
+<<<<<<< HEAD
 			M.Stun(8*ear_stun_mult)
 			M.ear_damage += rand(0, 3)
 			M.ear_deaf = max(M.ear_deaf,10)
@@ -80,6 +81,15 @@
 	else if(!ear_safety)
 		M.Stun(4*ear_stun_mult)
 		M.ear_damage += rand(0, 1)
+=======
+			M.Stun(4*ear_stun_mult)
+			M.adjustEarDamage(rand(0, 3))
+			M.ear_deaf = max(M.ear_deaf,10)
+
+	else if(!ear_safety)
+		M.Stun(2*ear_stun_mult)
+		M.adjustEarDamage(rand(0, 1))
+>>>>>>> 7ce7fcb... Atomize the repo (#5575)
 		M.ear_deaf = max(M.ear_deaf,5)
 
 	//This really should be in mob not every check
