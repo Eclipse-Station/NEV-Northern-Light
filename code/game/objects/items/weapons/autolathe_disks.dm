@@ -130,6 +130,10 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells
 	disk_name = "Robustcells"
 	icon_state = "guild"
+<<<<<<< HEAD
+=======
+	rarity_value = 2.5
+>>>>>>> e9bd031... Makes armor disks way rarer (#5601)
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 10
 	designs = list(
@@ -1224,3 +1228,61 @@
 		/datum/design/autolathe/ammo/dart_mag,
 	)
 
+<<<<<<< HEAD
+=======
+// ARMOR
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic
+	disk_name = "Ironhammer Combat Equipment - Standard Armor"
+	icon_state = "ironhammer"
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
+	rarity_value = 12 // one of the more common advanced disks
+	license = 6 // 6 pieces, or 3 sets if you use helm + vest
+	designs = list(
+		/datum/design/autolathe/clothing/generic_helmet_basic,
+		/datum/design/autolathe/clothing/generic_vest
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/bulletproof
+	disk_name = "Ironhammer Combat Equipment - Bulletproof Armor"
+	icon_state = "ironhammer"
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
+	rarity_value = 15 // about as rare as a advanced tool disk - remember that this takes from the 'advanced' pool (which is rare) instead of the 'common' pool like the normal armor disk does
+	license = 4 // 4 pieces, or 2 sets
+	designs = list(
+		/datum/design/autolathe/clothing/bulletproof_helmet_generic,
+		/datum/design/autolathe/clothing/bulletproof_vest_generic
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/ablative
+	disk_name = "Ironhammer Combat Equipment - Laserproof Armor"
+	icon_state = "ironhammer"
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
+	rarity_value = 16 // slightly rarer than bulletproof gear
+	license = 4 // 4 pieces, or 2 sets
+	designs = list(
+		/datum/design/autolathe/clothing/ablative_vest,
+		/datum/design/autolathe/clothing/ablative_helmet
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih
+	disk_name = "Ironhammer Combat Equipment - Operator Armor"
+	icon_state = "ironhammer"
+	spawn_blacklisted = TRUE //should only be obtainable from the sectech
+	license = 6
+	designs = list(
+		/datum/design/autolathe/clothing/ih_helmet_basic,
+		/datum/design/autolathe/clothing/ih_vest_basic
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof
+	disk_name = "Ironhammer Combat Equipment - Bulletproof Operator Armor"
+	icon_state = "ironhammer"
+	spawn_blacklisted = TRUE
+	license = 4
+	designs = list(
+		/datum/design/autolathe/clothing/ih_helmet_full,
+		/datum/design/autolathe/clothing/ih_vest_full
+	)
+
+>>>>>>> e9bd031... Makes armor disks way rarer (#5601)
