@@ -4,4 +4,4 @@
 	implant_type = /obj/item/weapon/implant/core_implant/cruciform
 	restricted_depts = IRONHAMMER | COMMAND
 	allowed_depts = CHURCH
-	allow_modifications = FALSE
+//	allow_modifications = FALSE

@@ -60,11 +60,11 @@ var/global/list/modifications_types = list(
 				return FALSE
 
 
-	if(!allow_nt)
+/*if(!allow_nt)
 		if(H?.mind?.assigned_job.department == DEPARTMENT_CHURCH)
 			return FALSE
 		if(H?.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform))
-			return FALSE
+			return TRUE*/
 
 	return TRUE
 
@@ -285,6 +285,7 @@ var/global/list/modifications_types = list(
 	var/obj/item/organ/internal/eyes/heterohromia/E = new(holder,organ_type,color)
 	E.second_color = color
 	return E
+<<<<<<< HEAD
 
 
 // Special heads
@@ -297,3 +298,5 @@ var/global/list/modifications_types = list(
 	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_monitor.dmi'
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
+=======
+>>>>>>> 7662414... Merge pull request #206 from ZeroNetAlpha/Mekhane-go-whirrrrrr
