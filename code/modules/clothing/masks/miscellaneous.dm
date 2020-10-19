@@ -179,10 +179,17 @@
 // Bandanas below
 /obj/item/clothing/mask/bandana
 	name = "black bandana"
+<<<<<<< HEAD
 	desc = "A fine bandana with nanotech lining. Can be worn on the head or face."
 	flags_inv = HIDEFACE
 	slot_flags = SLOT_MASK|SLOT_HEAD
 	body_parts_covered = FACE
+=======
+	desc = "A fine bandana with nanotech lining."	// SYZYGY EDIT - no more wearing your bandana on the face
+	flags_inv = null	// SYZYGY EDIT - Now ears and hair show through it
+	slot_flags = SLOT_HEAD	// SYZYGY EDIT - no more wearing your bandana on the face
+	body_parts_covered = HEAD	// SYZYGY EDIT - no more wearing your bandana on the face
+>>>>>>> 2d8391d... Merge pull request #200 from Michiyamenotehifunana/Feedbackpass1
 	icon_state = "bandblack"
 	item_state = "bandblack"
 	item_flags = FLEXIBLEMATERIAL
