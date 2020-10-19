@@ -4,10 +4,10 @@
 	sanity_gain = 0.5
 
 /datum/reagent/drug/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	if(sanity_gain)
+	if(sanity_gain && ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(istype(H))
-			H.sanity.onDrug(src, effect_multiplier)
+		H.sanity.onDrug(src, effect_multiplier)
+//	SEND_SIGNAL(M, COMSIG_CARBON_HAPPY, src, ON_MOB_DRUG)	//This is a Individual Objectives thing
 
 
 /datum/reagent/drug/space_drugs
@@ -124,13 +124,11 @@
 	M.confused = max(M.confused, 20 * effect_multiplier)
 	if(prob(5 * effect_multiplier) && isturf(M.loc) && !istype(M.loc, /turf/space) && M.canmove && !M.restrained())
 		step(M, pick(cardinal))
-	if(ishuman(M))
+	if(ishuman(M) && (prob(5 * effect_multiplier)))
 		var/mob/living/carbon/human/affected = M
-		if(prob(5 * effect_multiplier))
-			for(var/datum/breakdown/B in affected.sanity.breakdowns)
-				if(B)
-					B.finished = TRUE
-					to_chat(M, SPAN_NOTICE("You feel that something eases the strain on your sanity. But at which price?"))
+		for(var/datum/breakdown/B in affected.sanity.breakdowns)
+			B.finished = TRUE
+			to_chat(M, SPAN_NOTICE("You feel that something eases the strain on your sanity. But at which price?"))
 
 /datum/reagent/drug/psilocybin
 	name = "Psilocybin"
@@ -198,7 +196,7 @@
 /datum/reagent/drug/nicotine/withdrawal_act(mob/living/carbon/M)
 	M.stats.addTempStat(STAT_BIO, -STAT_LEVEL_BASIC, STIM_TIME, "nicotine_w")
 
-/datum/reagent/drug/nicotine/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/drug/nicotine/overdose(mob/living/carbon/M, alien)
 	M.add_side_effect("Headache", 11)
 	if(prob(5))
 		M.vomit()

@@ -24,12 +24,15 @@
 			if(!D.name)
 				continue
 			GLOB.chemical_reagents_list[D.id] = D
+<<<<<<< HEAD
 
 /datum/reagents/proc/get_price()
 	var/price = 0
 	for(var/datum/reagent/R in reagent_list)
 		price += R.volume * R.price_per_unit
 	return price
+=======
+>>>>>>> 0df10b8... Merge pull request #203 from Michiyamenotehifunana/moreUpdoot
 
 /datum/reagents/proc/get_average_reagents_state()
 	var/solid = 0

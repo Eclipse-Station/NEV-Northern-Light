@@ -354,4 +354,8 @@
 			gun_tags |= GUN_CALIBRE_35
 		//Others to be implemented when needed
 	if(max_shells)
+<<<<<<< HEAD
 		gun_tags |= GUN_INTERNAL_MAG
+=======
+		gun_tags |= GUN_INTERNAL_MAG
+>>>>>>> 0df10b8... Merge pull request #203 from Michiyamenotehifunana/moreUpdoot
