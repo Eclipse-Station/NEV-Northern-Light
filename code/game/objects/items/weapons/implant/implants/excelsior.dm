@@ -58,8 +58,8 @@
 	//This is handled seperately to account for the future possibility of non-humans having cruciforms. Like holy dogs!
 	if (is_neotheology_disciple(target))
 		//Cruciform blocks other implants
-		return FALSE
-
+		return TRUE
+//Szy Edit. Yeah, right. You thought you were safe?
 
 	//Thirdly an organic check. No implanting robots
 	//Any other organic creature is fine. This allows you to implant your pets so the turrets dont shoot them
