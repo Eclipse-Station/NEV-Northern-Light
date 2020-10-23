@@ -35,7 +35,7 @@
 //Checking for protections
 	var/eye_safety = 0
 	var/ear_safety = 0
-	var/ear_stun_mult = 1
+	var/stat_def = -STAT_LEVEL_ADEPT
 	if(iscarbon(M))
 		eye_safety = M.eyecheck()
 		if(ishuman(M))
@@ -46,25 +46,30 @@
 			if(istype(M:head, /obj/item/clothing/head/armor/helmet))
 				ear_safety += 1
 			if(M.stats.getPerk(PERK_EAR_OF_QUICKSILVER))
-				ear_stun_mult *= 2
+				stat_def *= 2
 
 //Flashing everyone
 	if(eye_safety < FLASH_PROTECTION_MODERATE)
 		if (M.HUDtech.Find("flash"))
 			flick("e_flash", M.HUDtech["flash"])
-		M.Stun(2)
-		M.Weaken(10)
+		M.eye_blurry = max(M.eye_blurry, 15)
+		M.eye_blind = max(M.eye_blind, 5)
 
 
 
 //Now applying sound
 	if((get_dist(M, T) <= 2 || loc == M.loc || loc == M))
+<<<<<<< HEAD
 		if(ear_safety > 0)
 			M.Stun(2*ear_stun_mult)
 			M.Weaken(1*ear_stun_mult)
 		else
 			M.Stun(10*ear_stun_mult)
 			M.Weaken(3*ear_stun_mult)
+=======
+		if(ear_safety <= 0)
+			stat_def *= 5
+>>>>>>> b586a49... Flashbangs no longer floor you, instead they render you blind, deaf, and confused (#5616)
 			if ((prob(14) || (M == loc && prob(70))))
 				M.ear_damage += rand(1, 10)
 			else
@@ -73,6 +78,7 @@
 
 	else if(get_dist(M, T) <= 5)
 		if(!ear_safety)
+<<<<<<< HEAD
 			M.Stun(8*ear_stun_mult)
 			M.ear_damage += rand(0, 3)
 			M.ear_deaf = max(M.ear_deaf,10)
@@ -80,6 +86,15 @@
 	else if(!ear_safety)
 		M.Stun(4*ear_stun_mult)
 		M.ear_damage += rand(0, 1)
+=======
+			stat_def *= 4
+			M.adjustEarDamage(rand(0, 3))
+			M.ear_deaf = max(M.ear_deaf,10)
+
+	else if(!ear_safety)
+		stat_def *= 2
+		M.adjustEarDamage(rand(0, 1))
+>>>>>>> b586a49... Flashbangs no longer floor you, instead they render you blind, deaf, and confused (#5616)
 		M.ear_deaf = max(M.ear_deaf,5)
 
 	//This really should be in mob not every check
@@ -93,4 +108,8 @@
 	else
 		if (M.ear_damage >= 5)
 			to_chat(M, SPAN_DANGER("Your ears start to ring!"))
+	M.stats.addTempStat(STAT_VIG, stat_def, 10 SECONDS, "flashbang")
+	M.stats.addTempStat(STAT_COG, stat_def, 10 SECONDS, "flashbang")
+	M.stats.addTempStat(STAT_BIO, stat_def, 10 SECONDS, "flashbang")
+	M.stats.addTempStat(STAT_MEC, stat_def, 10 SECONDS, "flashbang")
 	M.update_icons()
