@@ -1,7 +1,12 @@
 /obj/item/organ/internal
+	layer = ABOVE_LYING_MOB_LAYER
+<<<<<<< HEAD
+=======
+	origin_tech = list(TECH_BIO = 2)
+	bad_type = /obj/item/organ/internal
 	var/list/owner_verbs = list()
 	var/organ_efficiency = 100	//Efficency of an organ, should become the most important variable
-	layer = ABOVE_LYING_MOB_LAYER
+>>>>>>> 4b88393... loot rework update. (#5604)
 
 /obj/item/organ/internal/New(mob/living/carbon/human/holder, datum/organ_description/OD)
 	..()

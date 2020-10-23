@@ -8,7 +8,9 @@
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.6
 	price_tag = 200
+	rarity_value = 20
 	style = 1
+	bad_type = /obj/item/clothing/suit/armor
 	spawn_tags = SPAWN_TAG_CLOTHING_ARMOR
 
 /*
@@ -20,7 +22,6 @@
 	icon_state = "armor"
 	item_state = "armor"
 	blood_overlay_type = "armor"
-	rarity_value = 3.46
 	armor = list(
 		melee = 30,
 		bullet = 30,
@@ -45,6 +46,7 @@
 	icon_state = "warden_jacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	price_tag = 350
+	rarity_value = 35
 
 /obj/item/clothing/suit/armor/vest/ironhammer
 	name = "operator armor"
@@ -64,6 +66,7 @@
 		rad = 0
 	)
 	price_tag = 150
+	rarity_value = 15
 
 /obj/item/clothing/suit/armor/greatcoat
 	name = "armored coat"
@@ -80,6 +83,7 @@
 		rad = 0
 	)
 	price_tag = 600
+	rarity_value = 60
 
 /obj/item/clothing/suit/armor/greatcoat/ironhammer
 	icon_state = "greatcoat_ironhammer"
@@ -135,6 +139,14 @@
 		rad = 0
 	)
 	price_tag = 500
+<<<<<<< HEAD
+=======
+	matter = list(
+		MATERIAL_STEEL = 10, // costs a bit more steel than standard vest
+		MATERIAL_PLASTEEL = 3, // costs lots more plasteel than standard vest
+	)
+	rarity_value = 50
+>>>>>>> 4b88393... loot rework update. (#5604)
 
 /obj/item/clothing/suit/armor/bulletproof/ironhammer
 	name = "full bulletproof suit"
@@ -163,6 +175,7 @@
 		rad = 0
 	)
 	price_tag = 400
+	rarity_value = 40
 
 /obj/item/clothing/suit/armor/bulletproof/serbian/green
 	name = "green platecarrier vest"
@@ -190,6 +203,15 @@
 	)
 	siemens_coefficient = 0
 	price_tag = 650
+<<<<<<< HEAD
+=======
+	rarity_value = 65
+	matter = list(
+		MATERIAL_STEEL = 6, // slightly less steel cost to make room for reflective glass
+		MATERIAL_PLASTEEL = 1,
+		MATERIAL_GLASS = 15 // reflective material, lots of it
+	)
+>>>>>>> 4b88393... loot rework update. (#5604)
 
 /obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack") //TODO: Refactor this all into humandefense
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
@@ -254,6 +276,7 @@
 	)
 	equip_delay = 2 SECONDS
 	price_tag = 250
+	rarity_value = 25
 	style = 0
 
 /obj/item/clothing/suit/armor/heavy/red
@@ -287,6 +310,7 @@
 		rad = 0
 	)
 	price_tag = 500
+	rarity_value = 50
 
 /obj/item/clothing/suit/armor/heavy/riot/ironhammer
 	icon_state = "riot_ironhammer"
@@ -355,6 +379,7 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
 	price_tag = 600
+	rarity_value = 60
 	//Used ablative gear armor values and technomancer helmet/voidsuit values.
 
 /*

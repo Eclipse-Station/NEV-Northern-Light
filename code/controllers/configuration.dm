@@ -227,6 +227,8 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 	var/static/regex/ic_filter_regex //For the cringe filter.
 
+	var/generate_loot_data = FALSE //for loot rework
+
 /datum/configuration/New()
 	fill_storyevents_list()
 
@@ -732,6 +734,8 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if("ruins_start")
 					config.start_location = "space ruins"
+				if("generate_loot_data")
+					config.generate_loot_data = TRUE
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 

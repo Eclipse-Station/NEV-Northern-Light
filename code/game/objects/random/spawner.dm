@@ -99,6 +99,127 @@
 					price_tag += AMAO.price_tag
 	return spawns
 
+<<<<<<< HEAD
+=======
+/obj/spawner/proc/check_biome_type()
+	.=FALSE
+	if(biome && istype(biome, biome_type))
+		.=TRUE
+
+/obj/spawner/proc/find_biome()
+	var/distance = INFINITY
+	var/new_distance
+	if(GLOB.loot_biomes.len)
+		for(var/obj/landmark/loot_biomes/biome_candidate in GLOB.loot_biomes)
+			new_distance = get_dist(src, biome_candidate)
+			if(new_distance > biome_candidate.range)
+				continue
+			if(biome_candidate.z != z)
+				continue
+			if(get_area(src) != get_area(biome_candidate))
+				continue
+			if(check_biome_type() && !istype(biome_candidate, biome_type))
+				continue
+			if(new_distance > distance)
+				if(check_biome_type())
+					continue
+				if(!(!check_biome_type() && istype(biome_candidate, biome_type)))
+					continue
+				if(!check_biome_type() && !istype(biome_candidate, biome_type))
+					continue
+			distance = new_distance
+			biome = biome_candidate
+	if(biome_spawner && biome)
+		var/count = 1
+		if(istype(src, /obj/spawner/traps))
+			biome.spawner_trap_count++
+			count = biome.spawner_trap_count
+		else if(istype(src, /obj/spawner/mob))
+			biome.spawner_mob_count++
+			count = biome.spawner_mob_count
+		if(check_biome_type())
+			tags_to_spawn = biome.tags_to_spawn
+			allow_blacklist = biome.allow_blacklist
+			exclusion_paths = biome.exclusion_paths
+			restricted_tags = biome.restricted_tags
+			top_price = biome.top_price
+			low_price = biome.low_price
+			min_amount = max(1, biome.min_amount / count)
+			max_amount = min(biome.max_amount, max(3, biome.max_amount / count))
+			if(use_biome_range)
+				spread_range = biome.range
+				loc = biome.loc
+
+// this function should return a specific item to spawn
+/obj/spawner/proc/item_to_spawn()
+	if(biome)
+		biome.update()
+	if(biome_spawner && biome && biome.price_tag >= biome.cap_price)
+		return
+	var/list/candidates = valid_candidates()
+	if(biome_spawner && biome && biome.allowed_only_top)
+		var/count = 1
+		if(istype(src, /obj/spawner/traps))
+			count = biome.spawner_trap_count
+		else if(istype(src, /obj/spawner/mob))
+			count = biome.spawner_mob_count
+		if(count < 2)
+			var/top = round(candidates.len*spawn_count*biome.only_top)
+			if(top <= candidates.len)
+				var/top_spawn = CLAMP(top, 1, min(candidates.len,7))
+				candidates = lsd.only_top_candidates(candidates, top_spawn)
+	//if(!candidates.len)
+	//	return
+	return pick_spawn(candidates)
+
+/obj/spawner/proc/valid_candidates()
+	var/list/candidates = lsd.valid_candidates(tags_to_spawn, restricted_tags, allow_blacklist, low_price, top_price)
+	candidates -= exclusion_paths
+	candidates += include_paths
+	return candidates
+
+/obj/spawner/proc/pick_spawn(list/candidates)
+	var/selected = lsd.pick_spawn(candidates)
+	aditional_object = lsd.all_accompanying_obj_by_path[selected]
+	return selected
+
+/obj/spawner/proc/post_spawn(list/spawns)
+	return
+
+/proc/check_spawn_point(turf/T, check_density=FALSE)
+	.=TRUE
+	if(T.density  || T.is_wall || (T.is_hole && !T.is_solid_structure()))
+		if(check_density && !turf_clear(T))
+			return FALSE
+		.=FALSE
+
+/obj/spawner/proc/find_smart_point()
+	var/list/points_for_spawn = list()
+	for(var/turf/T in trange(spread_range, loc))
+		if(!check_spawn_point(T, check_density))
+			continue
+		if(check_density && !turf_clear(T))
+			continue
+		if(biome_spawner && biome)
+			if(get_area(src) != get_area(biome))
+				continue
+			if(get_dist(src, T) > biome.range)
+				continue
+			if(biome.check_room && !check_room(T, biome))
+				continue
+		points_for_spawn += T
+	return points_for_spawn
+
+/proc/check_room(atom/movable/source, atom/movable/target)
+	.=TRUE
+	var/ndist = get_dist(source, target)
+	var/turf/current = source
+	for(var/i in 1 to ndist)
+		current = get_step(current, get_dir(current, target))
+		if(!check_spawn_point(current))
+			return FALSE
+
+>>>>>>> 4b88393... loot rework update. (#5604)
 /obj/randomcatcher
 	name = "Random Catcher Object"
 	desc = "You should not see this."
