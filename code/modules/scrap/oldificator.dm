@@ -324,4 +324,3 @@
 	if (.)
 		salvage_num = max(1, salvage_num - pick(1, 2, 3))
 */
-
