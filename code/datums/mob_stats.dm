@@ -37,6 +37,11 @@
 /datum/stat_holder/proc/getStat(statName, pure = FALSE)
 	if (!islist(statName))
 		var/datum/stat/S = stat_list[statName]
+<<<<<<< HEAD
+=======
+		if(holder)
+			SEND_SIGNAL(holder, COMSIG_STAT, S.name, S.getValue(), S.getValue(TRUE))
+>>>>>>> 766b5a1... Fix runtime in mob_stats.dm, 46 and machines.dm, 485 (#5592)
 		return S ? S.getValue(pure) : 0
 
 //	Those are accept list of stats
