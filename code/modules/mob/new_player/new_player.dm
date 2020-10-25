@@ -411,6 +411,8 @@
 
 	new_character.name = real_name
 	new_character.dna.ready_dna(new_character)
+	new_character.dna.flavor_text = client.prefs.flavor_text
+	new_character.dna.age = client.prefs.age
 	new_character.dna.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
 	if(client.prefs.disabilities)

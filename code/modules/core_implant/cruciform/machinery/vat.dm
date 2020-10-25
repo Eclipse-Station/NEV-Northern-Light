@@ -1,6 +1,6 @@
-#define VAT_FILL_FULL 120
-#define VAT_FILL_HALF_FULL 80
-#define VAT_FILL_ALMOST_EMPTY 40
+#define VAT_FILL_FULL 240
+#define VAT_FILL_HALF_FULL 160
+#define VAT_FILL_ALMOST_EMPTY 80
 #define VAT_FILL_EMPTY 0
 #define VAT_FLUID_STEP 40
 
@@ -9,7 +9,6 @@
 	desc = "One of the most coveted Mekhanite technologies, this device is capable of restoring one's body from a mere fragment."
 	icon = 'icons/obj/machines/church_vat.dmi'
 	icon_state = "vat_gold_base"
-	layer = TABLE_LAYER
 	density = TRUE
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
@@ -126,11 +125,14 @@
 			adjust_fluid_level(- 1)
 			victim.vessel.add_reagent("blood", (victim.species.blood_volume - victim.vessel.total_volume) * 0.07)
 
-		var/bad_vital_organ = check_vital_organs(victim)
+		var/bad_vital_organ = check_vital_organs(victim, TRUE)
 		if(bad_vital_organ && istype(bad_vital_organ , /obj/item/organ))
 			var/obj/item/organ/O = bad_vital_organ
-			adjust_fluid_level(- 3)
+			adjust_fluid_level(- 2)
 			O.heal_damage(2 + O.damage * 0.07)
+		else
+			check_vital_organs(victim, FALSE)
+			adjust_fluid_level(- 1)
 
 		if(prob(20))
 			var/list/bad_limbs = list()
@@ -142,8 +144,8 @@
 						fixbase = TRUE
 				if(!fixbase)
 					for(var/name in BP_ALL_LIMBS)
-					if(!victim.has_appendage(name))
-						bad_limbs += name
+						if(!victim.has_appendage(name))
+							bad_limbs += name
 				if(bad_limbs.len)
 					var/luckyLimbName = pick(bad_limbs)
 
@@ -153,26 +155,31 @@
 						restore_organ_by_tag(luckyLimbName)
 			else
 				restore_organ_by_tag(BP_GROIN)
-			adjust_fluid_level(- 3)
+			adjust_fluid_level(- 1)
+
+		var/heal_modifier = 0.5
 
 
 		if(victim.stat == DEAD)
-			victim.adjustBruteLoss(- 0.5 * (fluid_level / VAT_FLUID_STEP))
-			victim.adjustFireLoss(- 0.5  * (fluid_level / VAT_FLUID_STEP))
-			victim.adjustOxyLoss(- 0.5  * (fluid_level / VAT_FLUID_STEP))
-			victim.adjustToxLoss(-0.3 * (fluid_level / VAT_FLUID_STEP))
-			adjust_fluid_level(- 2)
+			heal_modifier = 1
 			if(!bad_vital_organ && (victim.health - victim.getOxyLoss() >= HEALTH_THRESHOLD_DEAD))
 				var/blood_volume = round((victim.vessel.get_reagent_amount("blood")/victim.species.blood_volume)*100)
 				if(blood_volume > BLOOD_VOLUME_SURVIVE)
-					adjust_fluid_level(-20)
+					adjust_fluid_level(-15)
 					make_alive(victim)
 
-		if(victim.stat != DEAD && prob(20))
+		victim.adjustBruteLoss(- 2 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		victim.adjustFireLoss(- 1  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		victim.adjustOxyLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		victim.adjustToxLoss(-0.5 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		adjust_fluid_level(- 1)
+
+
+
+		if(victim.stat != DEAD && prob(10))
 			adjust_fluid_level(-1)
 			victim.reagents.add_reagent(reagent_injected, 1)
 			if(prob(30))
-				adjust_fluid_level(-1)
 				victim.reagents.add_reagent("kyphotorin", 1)
 		update_icon()
 
@@ -184,10 +191,12 @@
 	else
 		fluid_level += amount
 
-/obj/machinery/neotheology/clone_vat/proc/check_vital_organs(mob/living/carbon/human/H)
+/obj/machinery/neotheology/clone_vat/proc/check_vital_organs(mob/living/carbon/human/H, var/checkvital = FALSE)
 	for(var/organ_tag in H.species.has_organ)
 		var/obj/item/organ/O = H.species.has_organ[organ_tag]
-		var/vital = initial(O.vital) //check for vital organs
+		var/vital = TRUE
+		if(checkvital)
+			vital = initial(O.vital) //check for vital organs
 		if(vital)
 			O = H.internal_organs_by_name[organ_tag]
 			if(!O)
@@ -211,8 +220,8 @@
 	return null
 
 /obj/machinery/neotheology/clone_vat/proc/restore_organ_by_tag(var/organ_tag)
+	var/datum/organ_description/OD = victim.species.has_limbs[organ_tag]
 	if(organ_tag in victim.species.has_limbs)
-		var/datum/organ_description/OD = victim.species.has_limbs[organ_tag]
 		var/obj/item/I = victim.organs_by_name[organ_tag]
 		if(I)
 			if(I.type == OD.default_type)
@@ -232,7 +241,10 @@
 		new organ_type(victim)
 
 	victim.update_body()
-	victim.pain(organ_tag, 100, TRUE)
+	if(OD)
+		victim.pain(OD.name, 100, TRUE)
+	else
+		victim.pain(organ_tag, 100, TRUE)
 
 
 
@@ -253,7 +265,7 @@
 	M.Weaken(rand(10,25))
 	M.updatehealth()
 	M.sanity.level = 0
-	M.sanity.negative_prob += 10
+	M.sanity.negative_prob += 5
 	apply_brain_damage(M, deadtime)
 
 
@@ -265,7 +277,7 @@
 	if(!brain) return //no brain
 
 	var/brain_damage = CLAMP((deadtime - 2 MINUTES)/8 * brain.max_damage, H.getBrainLoss(), brain.max_damage)
-	H.setBrainLoss(brain_damage)
+	H.setBrainLoss(brain_damage / 2)
 
 /obj/machinery/neotheology/clone_vat/attack_hand(mob/user)
 	if (user.incapacitated(INCAPACITATION_DEFAULT))
@@ -295,12 +307,13 @@
 		newbody.dna = donor.dna.Clone()
 		newbody.set_species()
 		newbody.real_name = donor.dna.real_name
-//		newbody.age = donor.owner.age
+		newbody.age = donor.dna.age
+		newbody.flavor_text = donor.dna.flavor_text
+		newbody.stats = donor.dna.stats
 		newbody.UpdateAppearance()
 		newbody.sync_organ_dna()
 		newbody.stat = DEAD //So it doesn't display the "Seizes up" message
-//		newbody.flavor_text = donor.owner.flavor_text
-//		newbody.stats = donor.owner.stats
+		sleep(1) //Game needs time to process all this or it gives you a weird wrong named character
 		for(var/obj/item/organ/external/EO in newbody.organs)
 			if(EO.organ_tag == BP_CHEST || EO.organ_tag == BP_GROIN)
 				continue
@@ -318,7 +331,11 @@
 			//Containers with any reagents will get dumped in
 			if(C.reagents.total_volume)
 				var/wine_value = 0
-				wine_value += C.reagents.get_reagent_amount("ntcahors")//For now only NT cahors
+				wine_value += C.reagents.get_reagent_amount("ntcahors")
+				wine_value += C.reagents.get_reagent_amount("biomatter") * 0.5
+				wine_value += C.reagents.get_reagent_amount("uncap nanites") * 0.7
+				wine_value += C.reagents.get_reagent_amount("nanosymbiotes")
+				wine_value += C.reagents.get_reagent_amount("bouncer") * 0.5
 				var/message = ""
 				if(!wine_value)													//The container has no water value, clear everything in it
 					message = "The filtration process removes all reagents, leaving the fluid level unchanged."

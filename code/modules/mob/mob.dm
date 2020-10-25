@@ -364,6 +364,10 @@
 	if(msg != null)
 		flavor_text = msg
 
+/mob/living/carbon/human/update_flavor_text()
+	..()
+	dna.flavor_text = flavor_text
+
 /mob/proc/print_flavor_text()
 	if (flavor_text && flavor_text != "")
 		var/msg = trim(replacetext(flavor_text, "\n", " "))

@@ -107,6 +107,9 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	//Eclipse specific:
 	var/custom_species
 	var/list/body_markings = list()
+	var/flavor_text
+	var/age
+	var/stats
 
 // Make a copy of this strand.
 // USE THIS WHEN COPYING STUFF OR YOU'LL GET CORRUPTION!
@@ -117,6 +120,9 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	new_dna.real_name=real_name
 	new_dna.body_markings=body_markings.Copy() //Eclipse add
 	new_dna.custom_species=custom_species // Eclipse edit
+	new_dna.flavor_text=flavor_text // Eclipse edit
+	new_dna.age=age // Eclipse edit
+	new_dna.stats=stats // Eclipse edit
 	new_dna.species=species
 	for(var/b in 1 to DNA_SE_LENGTH)
 		new_dna.SE[b]=SE[b]
@@ -258,6 +264,11 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 	body_markings.Cut()
 	body_markings = character.body_markings.Copy()
+
+
+	flavor_text = character.flavor_text
+	age = character.age
+	stats = character.stats
 
 	//Eclipse edit end
 
