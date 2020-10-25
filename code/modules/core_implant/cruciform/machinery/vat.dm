@@ -33,6 +33,8 @@
 
 	var/fluid_level = VAT_FILL_EMPTY
 
+	var/obj/machinery/filler_object/clone_vat_dud/dud
+
 	var/image/faucet1
 	var/image/faucet2
 	var/image/faucet3
@@ -40,6 +42,7 @@
 	var/image/faucet5
 
 /obj/machinery/neotheology/clone_vat/New()
+	create_reagents(120)
 	faucet1 = image(icon, src, "[fluid_type]_1")
 	faucet2 = image(icon, src, "[fluid_type]_2")
 	faucet3 = image(icon, src, "[fluid_type]_3")
@@ -47,6 +50,12 @@
 	faucet5 = image(icon, src, "[fluid_type]_5")
 	update_icon()
 
+	dud = new/obj/machinery/filler_object/clone_vat_dud(get_step(loc, EAST))
+	dud.myvat = src
+	return ..()
+
+/obj/machinery/neotheology/clone_vat/Destroy()
+	qdel(dud)
 	return ..()
 
 /obj/machinery/neotheology/clone_vat/MouseDrop_T(mob/target, mob/user)
@@ -55,13 +64,14 @@
 	if(user.stat || user.restrained() || !check_table(user) || !iscarbon(target))
 		return
 	if(istype(M))
-		take_victim(target,user)
+		take_victim(target, user, FALSE)
 	else
 		return ..()
 
-/obj/machinery/neotheology/clone_vat/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user as mob)
+/obj/machinery/neotheology/clone_vat/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user as mob, var/is_restored = FALSE)
 	if (C == user)
-		user.visible_message("[user] climbs into \the [src].","You climb into \the [src].")
+		if(!is_restored)
+			user.visible_message("[user] climbs into \the [src].","You climb into \the [src].")
 	else
 		visible_message(SPAN_NOTICE("\The [C] has been put into \the [src] by [user]."), 3)
 		if (user.pulling == C)
@@ -107,30 +117,72 @@
 	return 1
 
 /obj/machinery/neotheology/clone_vat/Process()
+	if(!fluid_level)
+		return
 	if(check_victim())
 		if(victim.isSynthetic())
 			return //No robits :<
 		if(victim.vessel.total_volume < victim.species.blood_volume)
+			adjust_fluid_level(- 1)
 			victim.vessel.add_reagent("blood", (victim.species.blood_volume - victim.vessel.total_volume) * 0.07)
 
 		var/bad_vital_organ = check_vital_organs(victim)
 		if(bad_vital_organ && istype(bad_vital_organ , /obj/item/organ))
 			var/obj/item/organ/O = bad_vital_organ
+			adjust_fluid_level(- 3)
 			O.heal_damage(2 + O.damage * 0.07)
+
+		if(prob(20))
+			var/list/bad_limbs = list()
+			var/fixbase = FALSE
+			if(victim.has_appendage(BP_GROIN))
+				for(var/name in BP_BY_DEPTH)
+					if(!victim.has_appendage(name))
+						bad_limbs += name
+						fixbase = TRUE
+				if(!fixbase)
+					for(var/name in BP_ALL_LIMBS)
+					if(!victim.has_appendage(name))
+						bad_limbs += name
+				if(bad_limbs.len)
+					var/luckyLimbName = pick(bad_limbs)
+
+					var/obj/item/organ/O = victim.species.has_organ[luckyLimbName]
+					var/vital = initial(O.vital) //vital organs are handled separately
+					if(!vital)
+						restore_organ_by_tag(luckyLimbName)
+			else
+				restore_organ_by_tag(BP_GROIN)
+			adjust_fluid_level(- 3)
+
 
 		if(victim.stat == DEAD)
 			victim.adjustBruteLoss(- 0.5 * (fluid_level / VAT_FLUID_STEP))
 			victim.adjustFireLoss(- 0.5  * (fluid_level / VAT_FLUID_STEP))
 			victim.adjustOxyLoss(- 0.5  * (fluid_level / VAT_FLUID_STEP))
 			victim.adjustToxLoss(-0.3 * (fluid_level / VAT_FLUID_STEP))
+			adjust_fluid_level(- 2)
 			if(!bad_vital_organ && (victim.health - victim.getOxyLoss() >= HEALTH_THRESHOLD_DEAD))
 				var/blood_volume = round((victim.vessel.get_reagent_amount("blood")/victim.species.blood_volume)*100)
 				if(blood_volume > BLOOD_VOLUME_SURVIVE)
+					adjust_fluid_level(-20)
 					make_alive(victim)
 
-		if(victim.stat != DEAD && prob(30))
-			victim.reagents.add_reagent(reagent_injected, 2)
+		if(victim.stat != DEAD && prob(20))
+			adjust_fluid_level(-1)
+			victim.reagents.add_reagent(reagent_injected, 1)
+			if(prob(30))
+				adjust_fluid_level(-1)
+				victim.reagents.add_reagent("kyphotorin", 1)
+		update_icon()
 
+/obj/machinery/neotheology/clone_vat/proc/adjust_fluid_level(var/amount)
+	if(amount >= (VAT_FILL_FULL - fluid_level))
+		fluid_level = VAT_FILL_FULL
+	else if((fluid_level + amount) < VAT_FILL_EMPTY)
+		fluid_level = VAT_FILL_EMPTY
+	else
+		fluid_level += amount
 
 /obj/machinery/neotheology/clone_vat/proc/check_vital_organs(mob/living/carbon/human/H)
 	for(var/organ_tag in H.species.has_organ)
@@ -168,7 +220,7 @@
 			else
 				qdel(I)
 
-		victim.visible_message(SPAN_NOTICE("[victim]'s [organ_tag] reforms with a wet squelchy noise!"), "Your [organ_tag] reforms! Oh, god, the pain!", SPAN_DANGER("You hear wet squelching!")))
+		victim.visible_message(SPAN_NOTICE("[victim]'s [OD.name] reforms with a wet squelchy noise!"), "Your [OD.name] reforms! Oh, god, the pain!", SPAN_DANGER("You hear wet squelching!"))
 		OD.create_organ(victim)
 
 
@@ -200,6 +252,8 @@
 	M.emote("gasp")
 	M.Weaken(rand(10,25))
 	M.updatehealth()
+	M.sanity.level = 0
+	M.sanity.negative_prob += 10
 	apply_brain_damage(M, deadtime)
 
 
@@ -219,37 +273,107 @@
 	if (victim)
 		user_unbuckle_mob(user)
 		return
-	if(fluid_level < VAT_FILL_FULL)
+/*	if(fluid_level < VAT_FILL_FULL)
 		fluid_level += VAT_FLUID_STEP
 	else
-		fluid_level = VAT_FILL_EMPTY
+		fluid_level = VAT_FILL_EMPTY */
 	update_icon()
 
-/obj/machinery/neotheology/clone_vat/attackby(obj/item/I, mob/user)
+/obj/machinery/neotheology/clone_vat/attackby(obj/item/O, mob/user)
+	add_fingerprint(user)
+
+
+	if(istype(O, /obj/item/organ))
+		if(victim)
+			to_chat(usr, SPAN_WARNING("\The [src] is already occupied!"))
+			return
+		if(fluid_level < VAT_FILL_HALF_FULL)
+			to_chat(user, "The vat does not have enough fluids to restore the body!")
+			return
+		var/obj/item/organ/donor = O
+		var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
+		newbody.dna = donor.dna.Clone()
+		newbody.set_species()
+		newbody.real_name = donor.dna.real_name
+//		newbody.age = donor.owner.age
+		newbody.UpdateAppearance()
+		newbody.sync_organ_dna()
+		newbody.stat = DEAD //So it doesn't display the "Seizes up" message
+//		newbody.flavor_text = donor.owner.flavor_text
+//		newbody.stats = donor.owner.stats
+		for(var/obj/item/organ/external/EO in newbody.organs)
+			if(EO.organ_tag == BP_CHEST || EO.organ_tag == BP_GROIN)
+				continue
+			else
+				EO.removed()
+				qdel(EO)
+		take_victim(newbody, newbody, TRUE)
+		user.visible_message("[user.name] places \the [donor] \the [src].", "You place \the [donor] into the vat.")
+		qdel(O)
+		return
+
+	if(O.is_open_container())
+		if(istype(O, /obj/item/weapon/reagent_containers))
+			var/obj/item/weapon/reagent_containers/C = O
+			//Containers with any reagents will get dumped in
+			if(C.reagents.total_volume)
+				var/wine_value = 0
+				wine_value += C.reagents.get_reagent_amount("ntcahors")//For now only NT cahors
+				var/message = ""
+				if(!wine_value)													//The container has no water value, clear everything in it
+					message = "The filtration process removes all reagents, leaving the fluid level unchanged."
+					C.reagents.clear_reagents()
+				else
+					if(fluid_level == VAT_FILL_FULL)
+						to_chat(usr, "[src] is already full!")
+						return
+					else
+						message = "The filtration process purifies the reagents, raising the fluid level."
+						fluid_level += wine_value
+						if(fluid_level == VAT_FILL_FULL)
+							message += " You filled \the [src] to the brim!"
+						if(fluid_level > VAT_FILL_FULL)
+							message += " You overfilled \the [src] and some of the fluid runs down the side, wasted."
+							fluid_level = VAT_FILL_FULL
+						C.reagents.clear_reagents()
+				update_icon()
+				user.visible_message("[user.name] pours the contents of [C.name] into \the [src].", "[message]")
+				return
 	return
 
 /obj/machinery/neotheology/clone_vat/update_icon()
 	overlays.Cut()
-	switch(fluid_level)
-		if(VAT_FILL_EMPTY)
-			return
+	if(fluid_level == VAT_FILL_EMPTY)
+		return
 
-		if(VAT_FILL_ALMOST_EMPTY)
-			overlays += faucet1
-			overlays += faucet5
+	overlays += faucet1
+	overlays += faucet5
 
-		if(VAT_FILL_HALF_FULL)
-			overlays += faucet1
-			overlays += faucet2
-			overlays += faucet4
-			overlays += faucet5
+	if(fluid_level > VAT_FILL_HALF_FULL)
+		overlays += faucet2
+		overlays += faucet4
 
-		if(VAT_FILL_FULL)
-			overlays += faucet1
-			overlays += faucet2
-			overlays += faucet3
-			overlays += faucet4
-			overlays += faucet5
+	if(fluid_level >= VAT_FILL_FULL)
+		overlays += faucet3
 
 	var/image/juice = image(icon, src, fluid_type)
 	overlays += juice
+
+/obj/machinery/filler_object/clone_vat_dud
+	icon_state = ""
+	density = TRUE
+	var/obj/machinery/neotheology/clone_vat/myvat
+
+
+/obj/machinery/filler_object/clone_vat_dud/attack_hand(mob/user)
+	if(myvat)
+		myvat.attack_hand(user)
+	else
+		qdel(src)
+
+
+/obj/machinery/filler_object/clone_vat_dud/attackby(obj/item/I, mob/user)
+	if(myvat)
+		myvat.attackby(I, user)
+	else
+		qdel(src)
