@@ -162,7 +162,6 @@
 /datum/organ_description/hand
 	min_broken_damage = 40
 	w_class = ITEM_SIZE_SMALL
-//	can_grasp = TRUE
 	drop_on_remove = list(slot_gloves, slot_handcuffed)
 
 /datum/organ_description/hand/left
@@ -172,6 +171,7 @@
 	parent_organ = BP_L_ARM
 	joint = "left wrist"
 	amputation_point = "left wrist"
+	default_bone_type = /obj/item/organ/internal/bone/l_hand
 
 /datum/organ_description/hand/right
 	organ_tag = BP_R_HAND
@@ -180,10 +180,10 @@
 	parent_organ = BP_R_ARM
 	joint = "right wrist"
 	amputation_point = "right wrist"
+	default_bone_type = /obj/item/organ/internal/bone/r_hand
 
 /datum/organ_description/foot
 	min_broken_damage = 40
-//	can_stand = TRUE
 	drop_on_remove = list(slot_shoes, slot_legcuffed)
 
 /datum/organ_description/foot/left
@@ -194,6 +194,7 @@
 	parent_organ = BP_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
+	default_bone_type = /obj/item/organ/internal/bone/r_foot
 
 /datum/organ_description/foot/right
 	organ_tag = BP_R_FOOT
@@ -203,6 +204,7 @@
 	parent_organ = BP_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
+	default_bone_type = /obj/item/organ/internal/bone/l_foot
 
 ////SLIME////
 /datum/organ_description/chest/slime
