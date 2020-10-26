@@ -132,3 +132,6 @@ var/global/datum/computer_file/data/email_account/service/payroll/payroll_mailer
 	all_money_accounts.Add(department_account)
 
 	department_accounts[department.id] = department_account
+	//SYZYGY Edit
+	department_account.owner_name = department.name //This should stop EFTPOS from breaking
+	//End SYZYGY edit
