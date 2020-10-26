@@ -167,7 +167,7 @@
 		return FALSE
 
 	if(!CM.can_install(src))
-		return FALSE
+		return TRUE //Eclipse edit. Now you can actually implant yourself.
 
 	if(CM.unique)
 		for(var/datum/core_module/EM in modules)
