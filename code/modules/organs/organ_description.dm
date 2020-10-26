@@ -2,9 +2,10 @@
 	var/name = "limb"
 	var/surgery_name
 	var/organ_tag = "limb"
-	var/body_part = null
-	var/parent_organ = null
+	var/body_part
+	var/parent_organ
 	var/default_type = /obj/item/organ/external
+	var/default_bone_type = /obj/item/organ/internal/bone
 
 	var/max_damage = 0
 	var/min_broken_damage = 30
@@ -35,6 +36,7 @@
 	organ_tag = BP_CHEST
 	body_part = UPPER_TORSO
 	default_type = /obj/item/organ/external/chest
+	default_bone_type = /obj/item/organ/internal/bone/chest
 
 	gendered = TRUE
 
@@ -59,6 +61,7 @@
 	body_part = LOWER_TORSO
 	parent_organ = BP_CHEST
 	default_type = /obj/item/organ/external/groin
+	default_bone_type = /obj/item/organ/internal/bone/groin
 
 	gendered = TRUE
 
@@ -80,6 +83,7 @@
 	body_part = HEAD
 	parent_organ = BP_CHEST
 	default_type = /obj/item/organ/external/head
+	default_bone_type = /obj/item/organ/internal/bone/head
 
 	gendered = TRUE
 
@@ -111,6 +115,7 @@
 	name = "left arm"
 	organ_tag = BP_L_ARM
 	body_part = ARM_LEFT
+	default_bone_type = /obj/item/organ/internal/bone/l_arm
 
 	joint = "left elbow"
 	amputation_point = "left shoulder"
@@ -119,6 +124,7 @@
 	name = "right arm"
 	organ_tag = BP_R_ARM
 	body_part = ARM_RIGHT
+	default_bone_type = /obj/item/organ/internal/bone/r_arm
 
 	joint = "right elbow"
 	amputation_point = "right shoulder"
@@ -138,6 +144,7 @@
 	organ_tag = BP_L_LEG
 	body_part = LEG_LEFT
 	icon_position = LEFT
+	default_bone_type = /obj/item/organ/internal/bone/l_leg
 
 	joint = "left knee"
 	amputation_point = "left hip"
@@ -147,6 +154,7 @@
 	organ_tag = BP_R_LEG
 	body_part = LEG_RIGHT
 	icon_position = RIGHT
+	default_bone_type = /obj/item/organ/internal/bone/r_leg
 
 	joint = "right knee"
 	amputation_point = "right hip"
@@ -154,7 +162,6 @@
 /datum/organ_description/hand
 	min_broken_damage = 40
 	w_class = ITEM_SIZE_SMALL
-//	can_grasp = TRUE
 	drop_on_remove = list(slot_gloves, slot_handcuffed)
 
 /datum/organ_description/hand/left
@@ -164,6 +171,7 @@
 	parent_organ = BP_L_ARM
 	joint = "left wrist"
 	amputation_point = "left wrist"
+	default_bone_type = /obj/item/organ/internal/bone/l_hand
 
 /datum/organ_description/hand/right
 	organ_tag = BP_R_HAND
@@ -172,10 +180,10 @@
 	parent_organ = BP_R_ARM
 	joint = "right wrist"
 	amputation_point = "right wrist"
+	default_bone_type = /obj/item/organ/internal/bone/r_hand
 
 /datum/organ_description/foot
 	min_broken_damage = 40
-//	can_stand = TRUE
 	drop_on_remove = list(slot_shoes, slot_legcuffed)
 
 /datum/organ_description/foot/left
@@ -186,6 +194,7 @@
 	parent_organ = BP_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
+	default_bone_type = /obj/item/organ/internal/bone/r_foot
 
 /datum/organ_description/foot/right
 	organ_tag = BP_R_FOOT
@@ -195,6 +204,7 @@
 	parent_organ = BP_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
+	default_bone_type = /obj/item/organ/internal/bone/l_foot
 
 ////SLIME////
 /datum/organ_description/chest/slime

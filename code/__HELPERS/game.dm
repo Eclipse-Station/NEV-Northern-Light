@@ -174,11 +174,9 @@
 			if (!mobs[M])
 				mobs[M] = TRUE
 
-	for(var/o in hearing_objects)
-		var/obj/O = o
-		if(O && O.loc && hearturfs[O.locs[1]])
-			if (!objs[O])
-				objs[O] = TRUE
+	for(var/obj in GLOB.hearing_objects)
+		if(get_turf(obj) in hearturfs)
+			objs |= obj
 
 
 /proc/get_mobs_in_radio_ranges(list/obj/item/device/radio/radios)
@@ -292,20 +290,6 @@ proc/isInSight(atom/A, atom/B)
 			if(((G.client.inactivity/10)/60) <= buffer + i) // the most active players are more likely to become an alien
 				if(!(G.mind && G.mind.current && G.mind.current.stat != DEAD))
 					candidates += G.key
-		i++
-	return candidates
-
-// Same as above but for alien candidates.
-
-/proc/get_alien_candidates()
-	var/list/candidates = list() //List of candidate KEYS to assume control of the new larva ~Carn
-	var/i = 0
-	while(candidates.len <= 0 && i < 5)
-		for(var/mob/observer/ghost/G in GLOB.player_list)
-			if(ROLE_XENOMORPH in G.client.prefs.be_special_role)
-				if(((G.client.inactivity/10)/60) <= ALIEN_SELECT_AFK_BUFFER + i) // the most active players are more likely to become an alien
-					if(!(G.mind && G.mind.current && G.mind.current.stat != DEAD))
-						candidates += G.key
 		i++
 	return candidates
 
@@ -551,7 +535,7 @@ datum/projectile_data
 //Picks a single random landmark of a specified type
 /proc/pick_landmark(ltype)
 	var/list/L = list()
-	for(var/S in landmarks_list)
+	for(var/S in GLOB.landmarks_list)
 		if (istype(S, ltype))
 			L.Add(S)
 

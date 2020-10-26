@@ -24,7 +24,7 @@
 	var/blocks_air = 0          // Does this turf contain air/let air through?
 
 	// General properties.
-	var/icon_old = null
+	var/icon_old
 	var/pathweight = 1          // How much does it cost to pathfind over this turf?
 	var/blessed = 0             // Has the turf been blessed?
 
@@ -188,7 +188,7 @@ var/const/enterloopsanity = 100
 	return
 
 /turf/proc/is_plating()
-	return 0
+	return FALSE
 
 /turf/proc/inertial_drift(atom/movable/A as mob|obj)
 	if(!(A.last_move))	return
@@ -209,6 +209,7 @@ var/const/enterloopsanity = 100
 /turf/proc/levelupdate()
 	for(var/obj/O in src)
 		O.hide(O.hides_under_flooring() && !is_plating())
+		SEND_SIGNAL(O, CONSIG_TURF_LEVELUPDATE, !is_plating())
 
 /turf/proc/AdjacentTurfs()
 	var/L[] = new()

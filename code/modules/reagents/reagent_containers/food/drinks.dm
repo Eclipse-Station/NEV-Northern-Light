@@ -96,9 +96,9 @@
 		if(reagents.total_volume > 30) // 30 equates to 3 SECONDS.
 			usr.visible_message(SPAN_NOTICE("[usr] prepares to gulp down [src]."), SPAN_NOTICE("You prepare to gulp down [src]."))
 		if(!do_after(usr, reagents.total_volume))
-			if(!Adjacent(usr))
-				return
-			standard_splash_mob(src, src)
+			if(Adjacent(usr))
+				standard_splash_mob(src, src)
+			return
 
 		if(!Adjacent(usr))
 			return
@@ -181,7 +181,8 @@
 	base_icon = "cup"
 	filling_states = "100"
 	preloaded_reagents = list("dry_ramen" = 30)
-
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	rarity_value = 15
 
 /obj/item/weapon/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
@@ -277,6 +278,8 @@
 	icon_state = "barflask"
 	volume = 60
 	center_of_mass = list("x"=17, "y"=7)
+	spawn_tags = SPAWN_TAG_JUNK
+	rarity_value = 20
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
 	name = "vacuum flask"

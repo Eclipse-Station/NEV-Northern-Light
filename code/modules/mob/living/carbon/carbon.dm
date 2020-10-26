@@ -93,7 +93,7 @@
 			return
 
 
-/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null)
+/mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1, var/def_zone = null)
 	if(status_flags & GODMODE)	return 0	//godmode
 	shock_damage *= siemens_coeff
 	if (shock_damage<1)
@@ -219,7 +219,7 @@
 			else if((M.targeted_organ == BP_HEAD) && target_organ_exists)
 				M.visible_message(SPAN_NOTICE("[M] pats [src]'s head."), \
 									SPAN_NOTICE("You pat [src]'s head."))
-			else if(M.targeted_organ == BP_R_ARM || M.targeted_organ == BP_L_ARM)
+			else if(M.targeted_organ == BP_R_HAND || M.targeted_organ == BP_L_HAND) //Syz Edit
 				if(target_organ_exists)
 					M.visible_message(SPAN_NOTICE("[M] shakes hands with [src]."), \
 										SPAN_NOTICE("You shake hands with [src]."))

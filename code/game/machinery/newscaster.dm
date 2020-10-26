@@ -208,10 +208,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 /obj/machinery/newscaster/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			src.isbroken = 1
 			if(prob(50))
 				qdel(src)
@@ -792,13 +792,15 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	icon_state = "newspaper"
 	w_class = ITEM_SIZE_SMALL	//Let's make it fit in trashbags!
 	attack_verb = list("bapped")
+	spawn_tags = SPAWN_TAG_JUNK
+	rarity_value = 10
 	var/screen = 0
 	var/pages = 0
 	var/curr_page = 0
 	var/list/datum/feed_channel/news_content = list()
-	var/datum/feed_message/important_message = null
-	var/scribble=""
-	var/scribble_page = null
+	var/datum/feed_message/important_message
+	var/scribble= ""
+	var/scribble_page
 
 obj/item/weapon/newspaper/attack_self(mob/user as mob)
 	if(ishuman(user))
