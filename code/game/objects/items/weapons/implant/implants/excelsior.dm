@@ -59,7 +59,7 @@
 	if (is_neotheology_disciple(target))
 		//Cruciform blocks other implants
 		return TRUE
-//Szy Edit. Yeah, right. You thought you were safe?
+//Eclipse Edit. Yeah, right. You thought you were safe?
 
 	//Thirdly an organic check. No implanting robots
 	//Any other organic creature is fine. This allows you to implant your pets so the turrets dont shoot them
