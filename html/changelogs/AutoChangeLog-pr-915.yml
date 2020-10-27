@@ -1,0 +1,6 @@
+author: drexample
+delete-after: true
+changes:
+  - bugfix: Fixes church people spawning with normal limbs instead of robolimbs
+  - bugfix: Fixes people being able to attach meat limbs to robolimbs (meat feet to
+      robotic legs or meat arms to a robotic torso)
