@@ -45,7 +45,7 @@ var/global/list/modifications_types = list(
 
 /datum/body_modification/proc/get_mob_icon(organ, color="#ffffff", gender = MALE, species)	//Use in setup character only
 	return new/icon('icons/mob/human.dmi', "blank")
-
+	
 /datum/body_modification/proc/is_allowed(organ = "", datum/preferences/P, mob/living/carbon/human/H)
 	if(!organ || !(organ in body_parts))
 		//usr << "[name] isn't useable for [organ]"
@@ -58,14 +58,18 @@ var/global/list/modifications_types = list(
 			if(parent.nature == MODIFICATION_REMOVED)
 				to_chat(usr, "[name] can't be attached to [parent.name]")
 				return FALSE
+			if(parent.nature == MODIFICATION_SILICON && nature != MODIFICATION_SILICON)
+				to_chat(usr, "[name] can't be attached to [parent.name]")
+				return FALSE
 
 
+/*
 	if(!allow_nt)
 		if(H?.mind?.assigned_job.department == DEPARTMENT_CHURCH)
 			return FALSE
 		if(H?.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform))
 			return FALSE
-
+*/
 	return TRUE
 
 /datum/body_modification/proc/create_organ(var/mob/living/carbon/holder, var/organ, var/color)
