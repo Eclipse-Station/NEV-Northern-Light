@@ -160,8 +160,8 @@
 /datum/core_module/rituals/cruciform/base
 	ritual_types = list(/datum/ritual/cruciform/base,
 	/datum/ritual/targeted/cruciform/base,
-	/datum/ritual/group/cruciform,
-	/datum/ritual/cruciform/machines)
+	/datum/ritual/group/cruciform)
+//	/datum/ritual/cruciform/machines - Eclipse edit
 
 
 /datum/core_module/rituals/cruciform/priest

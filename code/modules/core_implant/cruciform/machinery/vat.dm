@@ -96,7 +96,7 @@
 	check_victim()
 
 /obj/machinery/neotheology/clone_vat/proc/check_victim()
-	if (istype(buckled_mob,/mob/living/carbon))
+	if (istype(buckled_mob,/mob/living/carbon/human))
 		victim = buckled_mob
 		occupied = TRUE
 		return 1
@@ -119,6 +119,12 @@
 	if(!fluid_level)
 		return
 	if(check_victim())
+		var/corruption = calucalte_genetic_corruption(victim)
+		if(corruption)
+			if (corruption > victim.genetic_corruption)
+				victim.genetic_corruption = corruption
+				corrupt_dna(victim)
+
 		if(victim.isSynthetic())
 			return //No robits :<
 		if(victim.vessel.total_volume < victim.species.blood_volume)
@@ -256,12 +262,23 @@
 	if((M in GLOB.living_mob_list) || (M in GLOB.dead_mob_list))
 		WARNING("Mob [M] was defibbed but already in the living or dead list still!")
 	GLOB.living_mob_list += M
-
+	for(var/mob/observer/ghost/ghost in GLOB.player_list)
+		if(ghost.mind == M.mind)
+			to_chat(ghost, {"
+				<font color = #330033 size = 3>
+				<b>Your corpse has been placed into a cloning vat.
+				Return to your body if you want to be resurrected/cloned!</b>
+				(Verbs -> Ghost -> Re-enter corpse)
+				</font>
+			"})
+			break
 	M.timeofdeath = 0
 	M.stat = UNCONSCIOUS //Life() can bring them back to consciousness if it needs to.
 	M.failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 
 	M.emote("gasp")
+	if(M.genetic_corruption < 21) //Even if you had no organs missing and just bled out, don't expect to wake up non-mutated
+		M.genetic_corruption = 21
 	M.Weaken(rand(10,25))
 	M.updatehealth()
 	M.sanity.level = 0
@@ -291,6 +308,29 @@
 		fluid_level = VAT_FILL_EMPTY */
 	update_icon()
 
+/obj/machinery/neotheology/clone_vat/proc/calucalte_genetic_corruption(mob/living/carbon/human/H)
+	var/corruption_counter = 0
+	for(var/organ_tag in H.species.has_organ)
+		var/obj/item/organ/O = H.internal_organs_by_name[organ_tag]
+		if(!O)
+			corruption_counter += 14
+	for(var/organ_tag in H.species.has_limbs)
+		var/obj/item/I = H.organs_by_name[organ_tag]
+		if(!I)
+			corruption_counter += 7
+
+	return corruption_counter
+
+
+/obj/machinery/neotheology/clone_vat/proc/corrupt_dna(mob/living/carbon/human/H)
+	var/corruption_points = H.genetic_corruption/7
+	if(corruption_points <= 3) //Two limbs/one organ are a safe threshold, everything else causes mutations
+		return
+	while(corruption_points > 0)
+		scramble(TRUE, H, 40)
+		corruption_points -= 1
+
+
 /obj/machinery/neotheology/clone_vat/attackby(obj/item/O, mob/user)
 	add_fingerprint(user)
 
@@ -303,6 +343,9 @@
 			to_chat(user, "The vat does not have enough fluids to restore the body!")
 			return
 		var/obj/item/organ/donor = O
+		if(!donor.dna)
+			to_chat(user, "\The [src] is rejected by the vat!")
+			return
 		var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
 		newbody.dna = donor.dna.Clone()
 		newbody.set_species()

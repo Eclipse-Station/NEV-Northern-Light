@@ -79,21 +79,21 @@ var/list/disciples = list()
 	if(!wearer || !activated)
 		return FALSE
 	var/datum/core_module/cruciform/cloning/data = get_module(CRUCIFORM_CLONING)
-	if(wearer.dna.unique_enzymes == data.dna.unique_enzymes)
-		for(var/mob/M in GLOB.player_list)
-			if(M.ckey == data.ckey)
-				if(M.stat != DEAD)
-					return FALSE
-		var/datum/mind/MN = data.mind
-		if(!istype(MN, /datum/mind))
-			return
-		MN.transfer_to(wearer)
-		wearer.ckey = data.ckey
-		for(var/datum/language/L in data.languages)
-			wearer.add_language(L.name)
-		update_data()
-		if (activate())
-			return TRUE
+	//if(wearer.dna.unique_enzymes == data.dna.unique_enzymes) Mekhanites are ultratranshumanists - Eclipse edit
+	for(var/mob/M in GLOB.player_list)
+		if(M.ckey == data.ckey)
+			if(M.stat != DEAD)
+				return FALSE
+	var/datum/mind/MN = data.mind
+	if(!istype(MN, /datum/mind))
+		return
+	MN.transfer_to(wearer)
+	wearer.ckey = data.ckey
+	for(var/datum/language/L in data.languages)
+		wearer.add_language(L.name)
+	update_data()
+	if (activate())
+		return TRUE
 
 /obj/item/weapon/implant/core_implant/cruciform/proc/remove_cyber()
 	if(!wearer)
