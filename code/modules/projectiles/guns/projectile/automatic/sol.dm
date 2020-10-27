@@ -19,8 +19,12 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	recoil_buildup = 5
 	penetration_multiplier = 1.1
+<<<<<<< HEAD
 	damage_multiplier = 1.15
 	one_hand_penalty = 8 //because otherwise you can shoot it one-handed in bursts and still be very accurate. One-handed recoil is now as much as it was back in the day when wielded.
+=======
+	one_hand_penalty = 5 //bullpup rifle (this one is smaller and carbine, so it's 5)
+>>>>>>> ca623b4... Merge pull request #210 from Michiyamenotehifunana/GuntagsFix
 
 	init_firemodes = list(
 		SEMI_AUTO_NODELAY,
@@ -46,6 +50,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/sol/generate_guntags()
 	..()
+<<<<<<< HEAD
 	gun_tags |= GUN_SOL
 
 /obj/item/weapon/gun/projectile/automatic/sol/rds
@@ -53,3 +58,6 @@
 	icon_state = "sol-eot"
 	price_tag = 2350
 	zoom_factor = 0.2
+=======
+	gun_tags |= GUN_SOL
+>>>>>>> ca623b4... Merge pull request #210 from Michiyamenotehifunana/GuntagsFix

@@ -19,9 +19,15 @@
 	rarity_value = 24
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
+<<<<<<< HEAD
 	damage_multiplier = 1.5
 	penetration_multiplier = 0.9
 	recoil_buildup = 10
+=======
+	damage_multiplier = 1.35
+	penetration_multiplier = 0.8
+	recoil_buildup = 20
+>>>>>>> ca623b4... Merge pull request #210 from Michiyamenotehifunana/GuntagsFix
 	gun_tags = list(GUN_SILENCABLE)
 
 /obj/item/weapon/gun/projectile/paco/update_icon()
