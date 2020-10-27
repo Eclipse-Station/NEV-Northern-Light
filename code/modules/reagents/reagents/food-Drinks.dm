@@ -1369,6 +1369,7 @@
 	M.adjust_hallucination(-0.9 * effect_multiplier)
 	M.adjustToxLoss(-0.5 * effect_multiplier)
 
+<<<<<<< HEAD
 /datum/reagent/ethanol/ntcahors/activated
 	name = "Saint's Wing Cahors"
 	id = "ntcahors_active"
@@ -1387,6 +1388,8 @@
 	M.adjustOxyLoss(- 2 * effect_multiplier)
 	M.adjustBruteLoss(- 1 * effect_multiplier)
 
+=======
+>>>>>>> cca27df... Merge pull request #214 from Michiyamenotehifunana/Plumbing
 // Cocktails
 /datum/reagent/ethanol/acid_spit
 	name = "Acid Spit"

@@ -418,6 +418,10 @@
 	icon_rotation = new_rotation
 	update_transform()
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cca27df... Merge pull request #214 from Michiyamenotehifunana/Plumbing
 ///Sets the anchored var and returns if it was sucessfully changed or not.
 /atom/movable/proc/set_anchored(anchorvalue)
 	SHOULD_CALL_PARENT(TRUE)
