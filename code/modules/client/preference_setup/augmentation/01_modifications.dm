@@ -141,6 +141,12 @@
 			else
 				modifications_data[child_organ] = get_default_modificaton(mod.nature)
 			check_child_modifications(child_organ)
+		if(mod.nature == MODIFICATION_SILICON && child_mod.nature == MODIFICATION_ORGANIC)
+			if(mod.is_allowed(child_organ, src))
+				modifications_data[child_organ] = mod
+			else
+				modifications_data[child_organ] = get_default_modificaton(mod.nature)
+			check_child_modifications(child_organ)
 	return
 
 /datum/category_item/player_setup_item/augmentation/modifications/OnTopic(var/href, list/href_list, mob/user)
