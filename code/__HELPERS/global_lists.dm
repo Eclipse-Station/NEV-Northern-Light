@@ -83,13 +83,13 @@ GLOBAL_DATUM_INIT(underwear, /datum/category_collection/underwear, new())
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
 var/global/list/organ_structure = list(
-	torso = list(name= "Torso", children=list()),
-	groin = list(name= "Groin",     parent=BP_CHEST, children=list()),
+	torso = list(name= "Torso", children=list(BP_GROIN, BP_HEAD, BP_R_ARM, BP_L_ARM)),
+	groin = list(name= "Groin",     parent=BP_CHEST, children=list(BP_L_LEG, BP_R_LEG)),
 	head  = list(name= "Head",      parent=BP_CHEST, children=list()),
-	r_arm = list(name= "Right arm", parent=BP_CHEST, children=list()),
-	l_arm = list(name= "Left arm",  parent=BP_CHEST, children=list()),
-	r_leg = list(name= "Right leg", parent=BP_GROIN, children=list()),
-	l_leg = list(name= "Left leg",  parent=BP_GROIN, children=list()),
+	r_arm = list(name= "Right arm", parent=BP_CHEST, children=list(BP_R_HAND)),
+	l_arm = list(name= "Left arm",  parent=BP_CHEST, children=list(BP_L_HAND)),
+	r_leg = list(name= "Right leg", parent=BP_GROIN, children=list(BP_R_FOOT)),
+	l_leg = list(name= "Left leg",  parent=BP_GROIN, children=list(BP_L_FOOT)),
 	l_foot = list(name= "Left Foot",  parent=BP_L_LEG, children=list()),
 	r_foot = list(name= "Right Foot",  parent=BP_R_LEG, children=list()),
 	r_hand = list(name= "Right Hand",  parent=BP_R_ARM, children=list()),
