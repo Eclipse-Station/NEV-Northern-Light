@@ -120,7 +120,7 @@
 		STAT_ROB = 10,
 	)
 
-	description = "You answer directly to the Mekhane Preacher.
+	description = "You answer directly to the Mekhane Preacher.<br>\
 	<br>\
 	You are the cultivator of the ship's plants, and assist in the production of the church's biomatter. All duties of plant growth fall to you, making your role critical.<br>\
 	<br>\
