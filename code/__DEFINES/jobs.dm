@@ -1,4 +1,4 @@
-#define ASSISTANT_TITLE "Vagabond"
+#define ASSISTANT_TITLE "Deckhand"
 
 //Jobs depatment lists for use in constant expressions
 #define JOBS_SECURITY "Aegis Commander","Gunnery Sergeant","Aegis Inspector","Brig Physician","Aegis Operative","Aegis Medical Specialist"

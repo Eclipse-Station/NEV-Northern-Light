@@ -228,7 +228,7 @@
 
 
 		if(progress >= CLONING_MEAT && !occupant)
-			var/obj/item/weapon/implant/soulcrypt/R = reader.implant
+			var/obj/item/weapon/implant/core_implant/soulcrypt/R = reader.implant
 			if(!R)
 				open_anim()
 				stop()
@@ -475,7 +475,7 @@
 	anchored = TRUE
 	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/reader
 
-	var/obj/item/weapon/implant/soulcrypt/implant
+	var/obj/item/weapon/implant/core_implant/soulcrypt/implant
 	var/reading = FALSE
 
 
@@ -487,8 +487,8 @@
 	if(default_part_replacement(I, user))
 		return
 
-	if(istype(I, /obj/item/weapon/implant/soulcrypt))
-		var/obj/item/weapon/implant/soulcrypt/C = I
+	if(istype(I, /obj/item/weapon/implant/core_implant/soulcrypt))
+		var/obj/item/weapon/implant/core_implant/soulcrypt/C = I
 		user.drop_item()
 		C.forceMove(src)
 		implant = C

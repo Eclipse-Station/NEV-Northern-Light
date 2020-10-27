@@ -31,7 +31,7 @@
 		return
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/target = A
-		var/obj/item/weapon/implant/soulcrypt/crypt = target.crypt
+		var/obj/item/weapon/implant/core_implant/soulcrypt/crypt = target.crypt
 		if(!crypt)
 			to_chat(user, SPAN_WARNING("[target] does not have a soulcrypt."))
 			return

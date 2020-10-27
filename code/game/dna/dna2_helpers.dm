@@ -225,6 +225,11 @@
 
 		H.update_icons()
 
+
+		H.flavor_text = dna.flavor_text
+		H.age = dna.age
+		H.stats = dna.stats
+
 		//Eclipse edit end
 
 		H.force_update_limbs()

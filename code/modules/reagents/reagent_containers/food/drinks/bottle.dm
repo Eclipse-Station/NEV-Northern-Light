@@ -264,8 +264,8 @@
 	spawn_tags = SPAWN_TAG_BOOZE
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors
-	name = "NanoTrasen Cahors Wine"
-	desc = "You'll need this after a shift."
+	name = "Saint's Wing Cahors"
+	desc = "Lift the body and lift the spirit."
 	icon_state = "ntcahors"
 	center_of_mass = list("x"=16, "y"=4)
 	preloaded_reagents = list("ntcahors" = 100)

@@ -194,7 +194,7 @@
 	parent_organ = BP_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
-	default_bone_type = /obj/item/organ/internal/bone/r_foot
+	default_bone_type = /obj/item/organ/internal/bone/l_foot
 
 /datum/organ_description/foot/right
 	organ_tag = BP_R_FOOT
@@ -204,7 +204,7 @@
 	parent_organ = BP_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
-	default_bone_type = /obj/item/organ/internal/bone/l_foot
+	default_bone_type = /obj/item/organ/internal/bone/r_foot
 
 ////SLIME////
 /datum/organ_description/chest/slime

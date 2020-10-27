@@ -139,7 +139,7 @@ SUBSYSTEM_DEF(job)
 
 		if(job in command_positions) //If you want a command position, select it!
 			continue
-		
+
 		if(job.is_restricted(player.client.prefs))
 			continue
 
@@ -226,7 +226,7 @@ SUBSYSTEM_DEF(job)
 			continue
 		var/mob/new_player/candidate = pick(candidates)
 		AssignRole(candidate, command_position)
-		
+
 		//eclipse todo: add a whitelist sanity check in here somewhere
 
 
