@@ -30,7 +30,7 @@ You remember boarding the Northern Light sometime in your past, when it had a di
 Over time you've become accustomed to the dangers of this ship.<br>\
 The ID you wear likely not even your own. At least as far as you can remember.<br>\
 But this chunk of plastic still can be a rare oddity, that can change your character.<br>\
-As an vagabond, you should strive to help out anyone you can. Or at least, anyone who offers you a paying job. Find a way to make money, stay out of trouble, and survive.<br>\
+As a vagabond, you should strive to help out anyone you can. Or at least, anyone who offers you a paying job. Find a way to make money, stay out of trouble, and survive.<br>\
 You can do anything, or be anyone. To be a Vagabond is to be free. Be wary of those that would take this freedom, for not all of the crew are your friends. You can trust in the Church of Mekhane to look out for you, but they are not all powerful.<br>\
 <br>\
 In another, you are an intern. In the rush to escape SolGov bureaucracy, NanoTrasen hired on as many laborers and crewmen as they could. Some of them adapted to maintenance life, but others still set out to better themselves.<br>\
