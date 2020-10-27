@@ -146,7 +146,7 @@
 		/obj/item/weapon/implant/tracking,
 		/obj/item/weapon/implant/core_implant/cruciform,
 		/obj/item/weapon/implant/excelsior,
-		/obj/item/weapon/implant/soulcrypt
+		/obj/item/weapon/implant/core_implant/soulcrypt
 	)//Eclipse add - soulcrypt
 	var/delete
 	var/temphtml

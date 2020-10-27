@@ -13,7 +13,7 @@
 	wage = WAGE_COMMAND
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihc
-	
+
 	wl_config_heads = TRUE		//Eclipse edit.
 	wl_config_sec = TRUE		//Eclipse edit.
 
@@ -72,7 +72,7 @@
 	selection_color = "#a7bbc6"
 	department_account_access = TRUE
 	wage = WAGE_LABOUR_HAZARD
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/gunserg
@@ -125,7 +125,7 @@
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/inspector
@@ -182,7 +182,7 @@
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/medspec
@@ -206,11 +206,11 @@
 
 	description = "You are a highly trained specialist within Aegis. You were probably a medical student or inexperienced doctor when you joined Aegis, and you thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated Aegis operative, but strike a balance inbetween. Balance is the nature of your existence.<br>\
 	<br>\
-	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - NanoTrasen Medical for roles 1 and 2, the Aegis Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
+	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - Lazarus Medical for roles 1 and 2, the Aegis Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
 	<br>\
 	1. Field Medic. <br>\
 	You may be expected to serve on the backlines in a combat situation, treating and stabilising the wounded, making the call as to whether they can return to combat or leave by medivac. You may need to perform emergency trauma surgery in undesireable conditions. <br>\
-	You are allowed to be armed, but remember that saving lives, not taking them, is your first duty. Don't be afraid to send patients to NanoTrasen medical for proper specialist care.<br>\
+	You are allowed to be armed, but remember that saving lives, not taking them, is your first duty. Don't be afraid to send patients to Lazarus medical for proper specialist care.<br>\
 	<br>\
 	2. Prison Doctor.<br>\
 	During quiet times, when inmates are serving in the brig, you will often be required to treat prisoners, criminal suspects, and the condemned. Suicide attempts are common in prison, and you will often be treating a patient against their will, who is attempting to escape. When serving in this role, stay on guard, work closely with the gunnery sergeant, and keep control of the situation<br>\
@@ -236,7 +236,7 @@
 	//alt_titles = list("Aegis Junior Operative")
 	selection_color = "#a7bbc6"
 	wage = WAGE_LABOUR_HAZARD
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihoper

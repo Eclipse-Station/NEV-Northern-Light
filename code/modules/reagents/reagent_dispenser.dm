@@ -274,11 +274,11 @@
 	price_tag = 50
 	contents_cost = 700
 	spawn_blacklisted = TRUE
-	
+
 
 /obj/structure/reagent_dispensers/cahorsbarrel
-	name = "NanoTrasen Cahors barrel"
-	desc = "Barrel a day - keeps liver away."
+	name = "Saint's Wing Cahors barrel"
+	desc = "A barrel of sweet church wine used in rituals. Mekhanites keep the recipe a secret, making it a rather coveted drink."
 	icon_state = "barrel"
 	volume = 400
 	starting_reagent = "ntcahors"

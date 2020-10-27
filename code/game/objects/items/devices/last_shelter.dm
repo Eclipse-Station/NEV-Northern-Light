@@ -17,7 +17,7 @@
 		to_chat(user, SPAN_NOTICE("The [src] scans deep space for core implants, it will take a while..."))
 		last_teleport = world.time
 		scan = TRUE
-		var/obj/item/weapon/implant/soulcrypt/soulcrypt = get_cruciform()
+		var/obj/item/weapon/implant/core_implant/soulcrypt/soulcrypt = get_cruciform()
 		if(soulcrypt)
 			scan = FALSE
 			if(istype(src.loc, /mob/living/carbon/human))
@@ -46,7 +46,7 @@
 	var/datum/perk/perk_random = pick(subtypesof(/datum/perk/oddity))
 	H.stats.addPerk(perk_random)
 	H.stats.addPerk(pick(/datum/perk/survivor, /datum/perk/selfmedicated, /datum/perk/vagabond, /datum/perk/merchant, /datum/perk/inspiration))
-	var/obj/item/weapon/implant/soulcrypt/soulcrypt = new /obj/item/weapon/implant/soulcrypt(src)
+	var/obj/item/weapon/implant/core_implant/soulcrypt/soulcrypt = new /obj/item/weapon/implant/core_implant/soulcrypt(src)
 	soulcrypt.install(H)
 	qdel(H)
 	return soulcrypt

@@ -70,6 +70,8 @@
 	for(var/perk in perks)
 		target.stats.addPerk(perk)
 
+	target.dna.stats = target.stats
+
 	return TRUE
 
 /datum/job/proc/add_additiional_language(var/mob/living/carbon/human/target)

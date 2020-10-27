@@ -10,7 +10,7 @@
 	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Head of Personnel"
+	supervisors = "the First Officer"
 	selection_color = "#dddddd"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 15, LANGUAGE_JIVE = 80)
 	access = list(access_bar, access_kitchen, access_maint_tunnels)
@@ -85,6 +85,7 @@
 	supervisors = "the Head of Personnel"
 	selection_color = "#dddddd"
 	access = list(access_maint_tunnels, access_theatre)
+	alt_titles = list("Clown", "Mime", "Musician", "Entertainer")
 
 	outfit_type = /decl/hierarchy/outfit/job/service/actor/clown
 	wage = WAGE_LABOUR_DUMB	//Barely a retaining fee. Actor can busk for credits to keep themselves fed
@@ -98,7 +99,7 @@
 	name = "Actor"
 	icon_state = "player-grey"
 	join_tag = /datum/job/actor
-
+/*
 /datum/job/hydro
 	title = "Botanist"
 	flag = BOTANIST
@@ -173,3 +174,4 @@
 	join_tag = /datum/job/janitor
 
 
+*/

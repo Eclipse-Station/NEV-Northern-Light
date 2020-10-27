@@ -10,7 +10,7 @@
 	selection_color = "#dddddd"
 	initial_balance	= 0 // This is now defined in code\modules\economy\cash.dm under spacecash/bundle/Vagabond as they carry cash on them.
 	wage = WAGE_NONE //Get a job ya lazy bum
-	//alt_titles = list("Technomancer Assistant","Medical Intern","Research Assistant")
+	alt_titles = list("Intern", "Vagabond", "Assistant")
 	access = list(access_maint_tunnels)
 	outfit_type = /decl/hierarchy/outfit/job/assistant
 
@@ -22,6 +22,7 @@
 		STAT_VIG = 8,
 		STAT_COG = 8
 	)
+
 
 	description = "There are two potential lives before you, and you must choose wisely.<br>\
 In one, you are a vagabond, journeying through the vast expanses of space upon the NEV Northern Light. You will not be paid a wage.<br>\
@@ -46,8 +47,9 @@ Thus, you seek guidance and training from one of the corporate departments on st
 	name = ASSISTANT_TITLE
 	icon_state = "player-grey"
 	join_tag = /datum/job/assistant
-
+/* None for now - Eclipse Edit
 /datum/job/assistant/New()
 	..()
 	for(var/alt in subtypesof(/datum/job_flavor/assistant))
 		random_flavors += new alt
+*/

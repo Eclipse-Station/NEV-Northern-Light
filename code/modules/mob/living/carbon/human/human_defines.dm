@@ -112,3 +112,5 @@
 
 	var/language_blackout = 0
 	var/suppress_communication = 0
+
+	var/genetic_corruption = 0  //Eclipse edit - Mekhanite's vat genetic corruption
