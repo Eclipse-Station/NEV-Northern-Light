@@ -107,7 +107,7 @@
 	faction = "NEV Northern Light"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Head of Personnel"
+	supervisors = "the Mekhane Preacher"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Hydroponicist")
 	access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
@@ -120,7 +120,9 @@
 		STAT_ROB = 10,
 	)
 
-	description = "You are the cultivator of the ship's plants, and assist in the production of biomatter. All duties of plant growth fall to you, making your role critical.<br>\
+	description = "You answer directly to the Mekhane Preacher.
+	<br>\
+	You are the cultivator of the ship's plants, and assist in the production of the church's biomatter. All duties of plant growth fall to you, making your role critical.<br>\
 	<br>\
 	Though the growing of plants and raising livestock is your primary concern, many others aboard the ship rely upon your work as well. The crew requires food, and the club manager seeks to provide. Though the manager cannot make food without fresh produce grown from the garden.<br>\
 	<br>\
@@ -142,7 +144,7 @@
 	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Head of Personnel"
+	supervisors = "the Mekhane Preacher"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Janitor","Sanitation Technician")
 	access = list(access_janitor, access_maint_tunnels, access_crematorium, access_morgue)
@@ -157,7 +159,9 @@
 
 	software_on_spawn = list(/datum/computer_file/program/camera_monitor)
 
-	description = "You are the Custodian, the person charged with keeping the entire ship clean.<br>\
+	description = "You answer directly to the Mekhane Preacher.<br>\
+	<br>\
+	You are the Custodian, the person charged with keeping the entire ship clean.<br>\
 	<br>\
 	Though dead roaches and dead spiders, like you, are more than what they seem. Their corpses are useful for biomatter, both for the bioreactor and for the cloner. Thus in your duty to keep the halls clean, you also provide precious biomatter for cloning."
 
