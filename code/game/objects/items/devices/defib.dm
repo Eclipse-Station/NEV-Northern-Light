@@ -1,6 +1,35 @@
+<<<<<<< HEAD:code/game/objects/items/devices/defib.dm
 #define DEFIB_TIME_LIMIT (8 MINUTES) //past this many seconds, defib is useless. Currently 8 Minutes
 #define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs. Currently 2 minutes
 
+=======
+#define DEFIB_TIME_LIMIT (10 MINUTES) //past this many seconds, defib is useless.
+#define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs.
+
+/*	brain tickers broke
+// Adds defib timers to brain, and ensures it ticks down when its owner is dead
+/obj/item/organ/internal/brain
+	var/defib_timer = -1
+
+/obj/item/organ/internal/brain/Process()
+	..()
+	if(owner && owner.stat != DEAD) // So there's a lower risk of ticking twice.
+		tick_defib_timer()
+
+// This is called by `process()` when the owner is alive, or brain is not in a body, and by `Life()` directly when dead.
+/obj/item/organ/internal/brain/proc/tick_defib_timer()
+// Commented out because Eris doesn't have functioning freezers.
+/*
+	if(preserved) // In an MMI/ice box/etc.
+		return
+*/
+
+	if(!owner || owner.stat == DEAD)
+		defib_timer = max(--defib_timer, 0)
+	else
+		defib_timer = min(++defib_timer, (15) / 2)
+*/
+>>>>>>> 6fcffc2... Merge pull request #201 from Michiyamenotehifunana/DefibTouchup:zzz_modular_syzygy/defib.dm
 
 //backpack item
 /obj/item/device/defib_kit
@@ -17,8 +46,59 @@
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
 	action_button_name = "Remove/Replace Paddles"
 
+<<<<<<< HEAD:code/game/objects/items/devices/defib.dm
 	var/chargecost = 500 //Charge drain level
 	var/oxygain = 50 //How much oxyloss should this thing heal?
+=======
+	var/obj/item/weapon/shockpaddles/linked/paddles
+	var/obj/item/weapon/cell/bcell = null
+	var/cooldown = 45 SECONDS
+	var/cooldown_timer
+
+	var/oxygain = 50 //How much oxyloss should this thing heal?
+
+	item_icons = list(
+		slot_l_hand_str = 'zzz_modular_syzygy/icons/mob/left_hand.dmi',
+		slot_r_hand_str = 'zzz_modular_syzygy/icons/mob/right_hand.dmi',
+		slot_back_str = 'zzz_modular_syzygy/icons/mob/back.dmi'
+		)
+
+
+/obj/item/device/defib_kit/proc/playaudiotutorial()
+	var/turf/T = get_turf(src)
+
+	if(world.time - cooldown_timer > cooldown)
+		cooldown_timer = world.time
+		T.audible_message("<font color = #00BA6E><B>AED Unit</B>: \"Before use of this Automated External Defibrillator unit, please ensure the shock area is cleared from any thick obstructions. Do not stop CPR until just before attaching the paddles. The process remains the same for any species.\"</font>")
+		sleep(80)
+		T = get_turf(src)
+		T.audible_message("<font color = #00BA6E><B>AED Unit</B>: \"Step 1. Place the unit on your back. Ensure the unit is safely strapped on your back at all times during the procedure.\"</font>")
+		sleep(60)
+		T = get_turf(src)
+		T.audible_message("<font color = #00BA6E><B>AED Unit</B>: \"Step 2. Retract the paddles from the unit. This will engage the unit and enable paddle charge up.\"</font>")
+		sleep(70)
+		T = get_turf(src)
+		T.audible_message("<font color = #00BA6E><B>AED Unit</B>: \"Step 3. Hold the paddles in both hands. The placement locations of the paddles are on the patient's upper-right sternal border below the clavicle, and lateral to their left nipple on the upper body.\"</font>")
+		sleep(80)
+		T = get_turf(src)
+		T.audible_message("<font color = #00BA6E><B>AED Unit</B>: \"Step 4. The paddles will automatically start charging once placed firmly against the patient's torso. Ensure that no one is touching the body before paddle charge up. Announce 'CLEAR' if there is another person performing CPR or standing close to the body.\"</font>")
+		sleep(70)
+		T = get_turf(src)
+		T.audible_message("<font color = #00BA6E><B>AED Unit</B>: \"Step 5. Once the paddles have charged, the area is clear, and the position is correct, press the SHOCK button on the paddles to deliver an electrical shock to the patient's body.\"</font>")
+		sleep(70)
+		T = get_turf(src)
+		T.audible_message("<font color = #00BA6E><B>AED Unit</B>: \"The AED unit will announce succession or failure in resuscitating the patient. If further attempts are potentially successful, continue CPR while the AED unit charges up again, then repeat from Step 3. Further attempts futile may require surgical action before becoming potentially successful.\"</font>")
+		sleep(70)
+		T = get_turf(src)
+		T.audible_message("<font color = #00BA6E><B>AED Unit</B>: \"This unit's default battery allows up to 5 shocks before requiring manual removal via screwdriver and recharging at a cell charging port.\"</font>")
+
+	else
+		to_chat(usr, SPAN_DANGER("The tutorial hasn't ended. Please wait for it to end before starting it again."))
+
+/obj/item/device/defib_kit/verb/tutorialbutton()
+	set name = "Activate Verbal Guidance"
+	set category = "Object"
+>>>>>>> 6fcffc2... Merge pull request #201 from Michiyamenotehifunana/DefibTouchup:zzz_modular_syzygy/defib.dm
 
 	var/suitable_cell = /obj/item/weapon/cell/large
 	var/obj/item/weapon/cell/cell_type = null
@@ -291,7 +371,10 @@
 	return null
 
 /obj/item/weapon/shockpaddles/proc/can_revive(mob/living/carbon/human/H) //This is checked right before attempting to revive
+<<<<<<< HEAD:code/game/objects/items/devices/defib.dm
 
+=======
+>>>>>>> 6fcffc2... Merge pull request #201 from Michiyamenotehifunana/DefibTouchup:zzz_modular_syzygy/defib.dm
 	var/deadtime = world.time - H.timeofdeath
 	if (deadtime > DEFIB_TIME_LIMIT && !H.isSynthetic())
 		return "buzzes, \"Resuscitation failed - Excessive neural degeneration. Further attempts futile.\""
@@ -358,11 +441,21 @@
 /obj/item/weapon/shockpaddles/proc/checked_use(var/charge_amt)
 	return 0
 
+<<<<<<< HEAD:code/game/objects/items/devices/defib.dm
 /obj/item/weapon/shockpaddles/proc/chargecost()
 	return chargecost
 
 /obj/item/weapon/shockpaddles/proc/defib_oxygain()
 	return 10
+=======
+/obj/item/weapon/shockpaddles/proc/defib_oxygain()
+	return 10
+
+/obj/item/weapon/shockpaddles/examine(mob/user)
+	..()
+	if(world.time - cooldown_timer < overchargecooldown)
+		to_chat(user, text(SPAN_WARNING("\The [src] are still scorching hot!")))
+>>>>>>> 6fcffc2... Merge pull request #201 from Michiyamenotehifunana/DefibTouchup:zzz_modular_syzygy/defib.dm
 
 /obj/item/weapon/shockpaddles/attack(mob/living/M, mob/living/user, var/target_zone)
 	var/mob/living/carbon/human/H = M
@@ -448,10 +541,26 @@
 		playsound(get_turf(src), 'sound/machines/defib_failed.ogg', 50, 0)
 		return
 
+<<<<<<< HEAD:code/game/objects/items/devices/defib.dm
 	make_alive(H)
+=======
+	H.apply_damage(burn_damage_amt, BURN, UPPER_TORSO)
+
+	//Whatever Polaris used to set oxyless to crit-level, it's not working here. So here's Eclipse's solution.
+	H.adjustOxyLoss(-defib_oxygain())
+
+	if(H.isSynthetic())
+		H.adjustToxLoss(-H.getToxLoss())
+>>>>>>> 6fcffc2... Merge pull request #201 from Michiyamenotehifunana/DefibTouchup:zzz_modular_syzygy/defib.dm
 
 	make_announcement("pings, \"Resuscitation successful.\"", "notice")
 	playsound(get_turf(src), 'sound/machines/defib_success.ogg', 50, 0)
+
+	//Reactivate the patient's cruciform, if they have one
+	var/obj/item/weapon/implant/core_implant/cruciform/CI = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform, FALSE)
+	if(CI)
+		to_chat(CI.wearer, "<span class='info'>Your Core Implant vibrates and warms up.</span>")
+		CI.activate()
 
 	log_and_message_admins("used \a [src] to revive [key_name(H)].")
 
@@ -511,6 +620,7 @@
 	M.Weaken(rand(10,25))
 	M.updatehealth()
 	apply_brain_damage(M, deadtime)
+<<<<<<< HEAD:code/game/objects/items/devices/defib.dm
 /*
 	switch(M.stats.getStat(STAT_TGH))
 		if(0 to 40)
@@ -528,6 +638,14 @@
 
 	if(!H.should_have_organ(BP_BRAIN)) return //no brain
 
+=======
+
+/obj/item/weapon/shockpaddles/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
+	if(deadtime < DEFIB_TIME_LOSS) return
+
+	if(!H.should_have_organ(BP_BRAIN)) return //no brain
+
+>>>>>>> 6fcffc2... Merge pull request #201 from Michiyamenotehifunana/DefibTouchup:zzz_modular_syzygy/defib.dm
 	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
 	if(!brain) return //no brain
 
@@ -621,6 +739,11 @@
 /obj/item/weapon/shockpaddles/linked/chargecost()
 	if(base_unit)
 		return base_unit.chargecost
+	. = ..()
+
+/obj/item/weapon/shockpaddles/linked/defib_oxygain()
+	if(base_unit)
+		return base_unit.oxygain
 	. = ..()
 
 /obj/item/weapon/shockpaddles/linked/defib_oxygain()
