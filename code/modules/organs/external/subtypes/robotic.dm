@@ -95,12 +95,16 @@
 
 /obj/item/organ/external/robotic/l_hand
 	default_description = /datum/organ_description/hand/left
+	w_class = ITEM_SIZE_SMALL
 
 /obj/item/organ/external/robotic/r_hand
 	default_description = /datum/organ_description/hand/right
+	w_class = ITEM_SIZE_SMALL
 
 /obj/item/organ/external/robotic/l_foot
 	default_description = /datum/organ_description/foot/left
+	w_class = ITEM_SIZE_SMALL
 
 /obj/item/organ/external/robotic/r_foot
 	default_description = /datum/organ_description/foot/right
+	w_class = ITEM_SIZE_SMALL
