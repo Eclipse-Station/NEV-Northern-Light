@@ -134,11 +134,9 @@
 		var/bad_vital_organ = check_vital_organs(victim, TRUE)
 		if(bad_vital_organ && istype(bad_vital_organ , /obj/item/organ))
 			var/obj/item/organ/O = bad_vital_organ
-			adjust_fluid_level(- 2)
 			O.heal_damage(2 + O.damage * 0.07)
 		else
 			check_vital_organs(victim, FALSE)
-			adjust_fluid_level(- 1)
 
 		if(prob(20))
 			var/list/bad_limbs = list()
