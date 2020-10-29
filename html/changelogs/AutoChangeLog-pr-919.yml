@@ -1,9 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - rscadd: Now having a cruciform benefits your genetic stability and makes the Vat's
-      effects less drastic
-  - tweak: Reduced amount of acolytes required for group rites
-  - tweak: Reduced vat fluid usage
-  - tweak: Reduced genetic corruption from missing organs
-  - bugfix: Fixed looping animations on Lazarus Cloner
