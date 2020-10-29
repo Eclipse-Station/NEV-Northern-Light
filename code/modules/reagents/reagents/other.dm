@@ -303,7 +303,11 @@
 			if(S.wet >= 2)
 				S.wet_floor(1, TRUE)
 		T.clean_blood()
-
+		//SYZYGY edit - Cleaning up decals properly too
+		for(var/obj/effect/O in T)
+			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+				qdel(O)
+		//end syzygy edit
 		for(var/mob/living/carbon/slime/M in T)
 			M.adjustToxLoss(rand(5, 10))
 
@@ -465,7 +469,7 @@
 					R.metabolism = initial(R.metabolism)
 					break
 
-/datum/reagent/other/arectine 
+/datum/reagent/other/arectine
 	name = "Arectine"
 	id = "arectine"
 	description = "Makes user emit light."
