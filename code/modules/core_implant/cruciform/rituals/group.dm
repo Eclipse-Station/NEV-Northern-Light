@@ -21,7 +21,7 @@
 	var/stat_buff
 
 /datum/group_ritual_effect/cruciform/stat/success(var/mob/living/M, var/cnt)
-	if(cnt < 3 || !stat_buff)
+	if(!cnt || !stat_buff) //Eclipse edit - what if we were two priests in mekhane church and held hands and chanted an incantation uwu
 		return
 	var/obj/machinery/power/nt_obelisk/O
 	O = O // "unused variable" yourself
@@ -145,7 +145,7 @@
 	effect_type = /datum/group_ritual_effect/cruciform/crusade
 
 /datum/group_ritual_effect/cruciform/crusade/success(var/mob/living/M, var/cnt)
-	if(cnt < 6)
+	if(cnt < 3) //Eclipse edit - FOUR PEOPLE IS STIL A CRUSADE
 		return
 	var/obj/item/weapon/implant/core_implant/CI = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 	if(CI)
