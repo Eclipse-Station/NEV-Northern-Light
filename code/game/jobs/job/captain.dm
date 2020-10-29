@@ -91,10 +91,17 @@ Your third loyalty is to your command officers. The heads of each faction. Liste
 
 	wl_config_heads = TRUE		//Eclipse edit.
 
+<<<<<<< HEAD
 	description = "You are the captain's right hand. Thier second in command. Where they goes, you follow. Where they lead, you drag everyone else along. You make sure their will is done, their orders obeyed, and their laws enforced.<br>\
 If they makes mistakes, discreetly inform them. Help to cover up their indiscretions and smooth relations with the crew, especially other command staff. Keep the captain safe, by endangering yourself in their stead if necessary.<br>\
 <br>\
 Do not embarass them or harm relations with faction leaders.<br>\
+=======
+	description = "You are the captain's right hand. Their second in command. Wherever they go, you follow. Wherever they lead, you drag everyone else along. You make sure their will is done, their orders obeyed, and their laws enforced.<br>\
+If they make mistakes, discreetly inform them. Help to cover up their indiscretions and smooth relations with the crew, especially other command staff. Keep the captain safe, by endangering yourself in their stead if necessary.<br>\
+<br>\
+Do not embarrass them or harm relations with faction leaders.<br>\
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 <br>\
 But who are you?<br>\
 Perhaps you are the captain's lifelong friend, or a trusted associate to whom they gave a position of power.<br>\

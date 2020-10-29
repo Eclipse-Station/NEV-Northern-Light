@@ -22,7 +22,11 @@
 			scan = FALSE
 			if(istype(src.loc, /mob/living/carbon/human))
 				user.put_in_hands(soulcrypt)
+<<<<<<< HEAD
 				to_chat(user, SPAN_NOTICE("The [src] has found a stranded core implant! The fate of this Child is now in your hands."))
+=======
+				to_chat(user, SPAN_NOTICE("The [src] has found the lost cruciform in a deep space. Now this fate of the disciple rests in your hands."))
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 			else
 				visible_message(SPAN_NOTICE("[src] drops [soulcrypt]."))
 				soulcrypt.forceMove(get_turf(src))

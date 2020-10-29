@@ -29,7 +29,11 @@ The module base code is held in module.dm
 
 	var/nutrition_usage_setting = NUTRITION_USAGE_LOW //These can be found in soulcrypt.dm, under DEFINES.
 
+<<<<<<< HEAD
 	var/stat //Status.
+=======
+	var/stat	//Status.
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 	external = FALSE
 	//Host variables, stored for cloning.
 	var/datum/dna/host_dna
@@ -106,6 +110,7 @@ The module base code is held in module.dm
 	stat = SOULCRYPT_ONLINE
 
 	if(!wearer.mind || hacked_snatcher) //We're in a blank body. Or we're a bad person.
+<<<<<<< HEAD
 
 		if(!hacked_snatcher)
 			for(var/mob/M in GLOB.player_list) //If they've respawned, we don't want to yoink them out of their current body.
@@ -113,6 +118,15 @@ The module base code is held in module.dm
 					if(M.stat != DEAD)
 						return
 
+=======
+
+		if(!hacked_snatcher)
+			for(var/mob/M in GLOB.player_list) //If they've respawned, we don't want to yoink them out of their current body.
+				if(M.ckey == host_mind.key)
+					if(M.stat != DEAD)
+						return
+
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 		host_mind.transfer_to(wearer)
 		wearer.ckey = host_mind.key
 		send_revive_notice()
@@ -265,7 +279,10 @@ The module base code is held in module.dm
 	integrity = CLAMP(integrity, 0, 100)
 
 /obj/item/weapon/implant/core_implant/soulcrypt/proc/send_host_message(var/message, var/message_type = MESSAGE_NOTICE)
+<<<<<<< HEAD
 	var/turf/T = get_turf(wearer)
+=======
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 	switch(message_type)
 		if(MESSAGE_NOTICE)
 			to_chat(wearer, SPAN_NOTICE("\icon[src] [src] transmits calmly, '[message]'"))

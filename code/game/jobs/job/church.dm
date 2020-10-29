@@ -27,7 +27,11 @@
 
 	stat_modifiers = list(
 		STAT_TGH = 10,
+<<<<<<< HEAD
 		STAT_BIO = 35,
+=======
+		STAT_BIO = 20,
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 		STAT_VIG = 15,
 		STAT_COG = 10,
 	)
@@ -55,7 +59,11 @@
 	Above all else, remember that Mekhane is a religion of tolerance."
 
 
+<<<<<<< HEAD
 	duties = "Represent the interests of the Mekhanite Council and your fellow disciples aboard the NEV Northern Light. Protect them from persecution and speak for them.<br>\
+=======
+	duties = "Represent the interests of Mekhane disciples aboard the NEV Northern Light. Protect them from persecution and speak for them.<br>\
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 		Hold mass, give sermons, preach to the faithful, and lead group ritual sessions.<br>\
 		Try to protect sapient life in all its myriad forms, especially the Vagabond for they are epitome of the downtrodden here.<br>\
 		Recover and clone the dead, for all sapient life is precious.<br>\
@@ -85,7 +93,11 @@
 
 	stat_modifiers = list(
 	STAT_MEC = 25,
+<<<<<<< HEAD
 	STAT_BIO = 25,
+=======
+	STAT_BIO = 15,
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 	STAT_VIG = 10,
 	STAT_TGH = 5,
 	)

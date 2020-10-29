@@ -146,8 +146,13 @@
 		/obj/item/weapon/implant/tracking,
 		/obj/item/weapon/implant/core_implant/cruciform,
 		/obj/item/weapon/implant/excelsior,
+<<<<<<< HEAD
 		/obj/item/weapon/implant/core_implant/soulcrypt
 	)//Eclipse add - soulcrypt
+=======
+		/obj/item/weapon/implant/core_implant/soulcrypt		//SYZYGY EDIT - Makes soulcrypts show up properly on scanners
+	)
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 	var/delete
 	var/temphtml
 	name = "Body Scanner Console"

@@ -103,7 +103,11 @@ var/list/disciples = list()
 	if (activate())
 		return TRUE
 
+<<<<<<< HEAD
 /obj/item/weapon/implant/core_implant/cruciform/proc/remove_cyber()
+=======
+/*/obj/item/weapon/implant/core_implant/cruciform/proc/remove_cyber()
+>>>>>>> 37f44aa... Merge pull request #215 from Michiyamenotehifunana/ChurchPort
 	if(!wearer)
 		return
 	for(var/obj/O in wearer)
