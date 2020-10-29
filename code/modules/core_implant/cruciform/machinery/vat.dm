@@ -284,9 +284,7 @@
 		M.sanity.level = 0
 		M.sanity.negative_prob += 5
 		apply_brain_damage(M, deadtime)
-		testing("NO CRUCIFORM DETECTED")
 	else
-		testing("CRUCIFORM DETECTED")
 		M.sanity.level = 30
 		apply_brain_damage(M, deadtime/3)
 		M.Weaken(rand(5, 10))
