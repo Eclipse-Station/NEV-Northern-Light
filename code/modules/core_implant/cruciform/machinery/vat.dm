@@ -134,11 +134,9 @@
 		var/bad_vital_organ = check_vital_organs(victim, TRUE)
 		if(bad_vital_organ && istype(bad_vital_organ , /obj/item/organ))
 			var/obj/item/organ/O = bad_vital_organ
-			adjust_fluid_level(- 2)
 			O.heal_damage(2 + O.damage * 0.07)
 		else
 			check_vital_organs(victim, FALSE)
-			adjust_fluid_level(- 1)
 
 		if(prob(20))
 			var/list/bad_limbs = list()
@@ -259,8 +257,6 @@
 	var/deadtime = world.time - M.timeofdeath
 
 	GLOB.dead_mob_list.Remove(M)
-	if((M in GLOB.living_mob_list) || (M in GLOB.dead_mob_list))
-		WARNING("Mob [M] was defibbed but already in the living or dead list still!")
 	GLOB.living_mob_list += M
 	for(var/mob/observer/ghost/ghost in GLOB.player_list)
 		if(ghost.mind == M.mind)
@@ -277,13 +273,20 @@
 	M.failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 
 	M.emote("gasp")
-	if(M.genetic_corruption < 21) //Even if you had no organs missing and just bled out, don't expect to wake up non-mutated
-		M.genetic_corruption = 21
-	M.Weaken(rand(10,25))
-	M.updatehealth()
-	M.sanity.level = 0
-	M.sanity.negative_prob += 5
-	apply_brain_damage(M, deadtime)
+	var/obj/item/weapon/implant/core_implant/cruciform/I = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+	if(!I)
+		if(M.genetic_corruption < 28) //Even if you had no organs missing and just bled out, don't expect to wake up non-mutated
+			M.genetic_corruption += 28
+		M.Weaken(rand(10, 25))
+		M.updatehealth()
+		M.sanity.level = 0
+		M.sanity.negative_prob += 5
+		apply_brain_damage(M, deadtime)
+	else
+		M.sanity.level = 30
+		apply_brain_damage(M, deadtime/3)
+		M.Weaken(rand(5, 10))
+		M.updatehealth()
 
 
 
@@ -313,7 +316,7 @@
 	for(var/organ_tag in H.species.has_organ)
 		var/obj/item/organ/O = H.internal_organs_by_name[organ_tag]
 		if(!O)
-			corruption_counter += 14
+			corruption_counter += 7
 	for(var/organ_tag in H.species.has_limbs)
 		var/obj/item/I = H.organs_by_name[organ_tag]
 		if(!I)
@@ -323,11 +326,17 @@
 
 
 /obj/machinery/neotheology/clone_vat/proc/corrupt_dna(mob/living/carbon/human/H)
-	var/corruption_points = H.genetic_corruption/7
-	if(corruption_points <= 3) //Two limbs/one organ are a safe threshold, everything else causes mutations
+	var/obj/item/weapon/implant/core_implant/cruciform/C = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+	var/corruption_points = 0
+	if(!C)
+		corruption_points = H.genetic_corruption/7
+	else
+		corruption_points = H.genetic_corruption/14 //CHURCH DISCOUNT YEEEEEEEEEEEEEEEEEEAH
+	if(corruption_points <= 3) //Essentially, regenerating a head shall be safer
 		return
+
 	while(corruption_points > 0)
-		scramble(TRUE, H, 40)
+		scramble(TRUE, H, 20 + corruption_points * 3)
 		corruption_points -= 1
 
 

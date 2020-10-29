@@ -58,6 +58,9 @@ var/list/disciples = list()
 	var/datum/core_module/cruciform/cloning/M = get_module(CRUCIFORM_CLONING)
 	if(M)
 		M.write_wearer(wearer) //writes all needed data to cloning module
+	if(ishuman(wearer)) //Eclipse add
+		var/mob/living/carbon/human/H = wearer
+		H.genetic_corruption = 0
 	return TRUE
 
 
@@ -71,8 +74,13 @@ var/list/disciples = list()
 	..()
 //	if(active && round(world.time) % 5 == 0)
 //		remove_cyber()   -- Eclipse Edit
-	if(wearer && wearer.stat == DEAD)
-		deactivate()
+	if(wearer)
+		if(wearer.stat == DEAD)
+			deactivate()
+		else if(ishuman(wearer)) //Eclipse add
+			var/mob/living/carbon/human/H = wearer
+			if(H.genetic_corruption > 49) //SEVEN BY SEVEN
+				H.genetic_corruption -= 1
 
 
 /obj/item/weapon/implant/core_implant/cruciform/proc/transfer_soul()

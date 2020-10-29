@@ -29,7 +29,7 @@ The module base code is held in module.dm
 
 	var/nutrition_usage_setting = NUTRITION_USAGE_LOW //These can be found in soulcrypt.dm, under DEFINES.
 
-	var/stat//Status.
+	var/stat //Status.
 	external = FALSE
 	//Host variables, stored for cloning.
 	var/datum/dna/host_dna
