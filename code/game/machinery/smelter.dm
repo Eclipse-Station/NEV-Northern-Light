@@ -241,7 +241,7 @@
 		ml_rating += ML.rating
 		++ml_count
 
-	scrap_multiplier = initial(scrap_multiplier)+(((ml_rating/ml_count)-1)*0.05)
+	scrap_multiplier = initial(scrap_multiplier)+(((ml_rating/ml_count)-1)*0.15)//SYZYGY Edit - Boosts smelter to 25/40/55/70/85/100% effeciency based on the laser. Max reachable tier is 55% in normal play.
 
 	var/mb_rating = 0
 	var/mb_count = 0

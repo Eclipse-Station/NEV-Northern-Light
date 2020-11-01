@@ -264,8 +264,9 @@
 	usr.set_machine(src)
 
 	if(href_list["insert"])
-		eat(usr)
-		return 1
+		if(istype(usr.get_active_hand(), /obj/item/stack) || istype(usr.get_active_hand(), /obj/item/trash) || istype(usr.get_active_hand(), /obj/item/weapon/material/shard)) //SYZYGY Edit: Prevent new NanouUI function from bypassing scrap code for lathes.
+			eat(usr)
+			return 1
 
 	if(href_list["disk"])
 		if(disk)
