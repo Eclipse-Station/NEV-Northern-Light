@@ -942,7 +942,6 @@ var/global/list/damage_icon_parts = list()
 /mob/living/carbon/human/update_inv_wear_mask(var/update_icons=1)
 	overlays_standing[FACEMASK_LAYER] = null
 	if(check_draw_mask())
-
 		var/image/standing
 		if(wear_mask.contained_sprite)
 			var/state = ""
@@ -954,7 +953,10 @@ var/global/list/damage_icon_parts = list()
 				standing = image("icon" = wear_mask.icon, "icon_state" = state)
 		else if(wear_mask.icon_override)
 			standing = image(icon = wear_mask.icon_override, icon_state = wear_mask.icon_state)
-
+//SYZYGY EDIT
+		else if((wear_mask.item_icons && slot_wear_mask_str) in wear_mask.item_icons)
+			standing = image(wear_mask.item_icons[slot_wear_mask_str], icon_state = wear_mask.icon_state)
+//END SYZYGY EDIT
 		else
 			standing = image(icon = get_gender_icon(gender, "mask"), icon_state = wear_mask.icon_state)
 		standing.color = wear_mask.color
