@@ -204,6 +204,7 @@
 	flags = WHITELISTED
 	//syllables are at the bottom of the file
 
+/* SYZYGY EDIT - No more listing out your words verbally
 /datum/language/human/get_spoken_verb(var/msg_end)
 	switch(msg_end)
 		if("!")
@@ -211,6 +212,7 @@
 		if("?")
 			return ask_verb
 	return speech_verb
+*/
 
 /datum/language/human/get_random_name(var/gender)
 	if (prob(80))
