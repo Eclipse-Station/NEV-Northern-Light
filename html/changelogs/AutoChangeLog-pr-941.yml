@@ -1,9 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - rscadd: Adds genetic stabilization
-  - bugfix: Cruciforms now properly carry ckeys
-  - rscadd: Cruciforms can now be uploaded into the vat
-  - rscadd: Adds un-husking to the vat
-  - tweak: The vat has been buffed as well as genetic instability toned down becausse
-      jesus christ those mutants.
