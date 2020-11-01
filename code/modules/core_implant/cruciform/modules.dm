@@ -79,8 +79,8 @@
 	if(ishuman(implant.wearer))
 		var/mob/living/carbon/human/H = implant.wearer
 		dna = H.dna
-		ckey = H.ckey
 		mind = H.mind
+		ckey = mind.key
 		languages = H.languages
 		flavor = H.flavor_text
 		age = H.age

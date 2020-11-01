@@ -287,8 +287,19 @@
 	M.failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 
 	M.emote("gasp")
-	var/obj/item/weapon/implant/core_implant/cruciform/I = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform, FALSE)
-	if(!I)
+	var/obj/item/weapon/implant/core_implant/cruciform/I
+	for(var/obj/item/weapon/implant/core_implant/cruciform/CR in M) //get_core_implant needs activated implants (and alive holder)
+		if(CR)
+			I = CR
+			break
+	if(I || M.stable_genes)
+		if(I)
+			I.activate()
+		M.sanity.level = 30
+		apply_brain_damage(M, deadtime/3)
+		M.Weaken(rand(5, 10))
+		M.updatehealth()
+	else
 		if(M.genetic_corruption < 28) //Even if you had no organs missing and just bled out, don't expect to wake up non-mutated
 			M.genetic_corruption += 28
 		M.Weaken(rand(10, 25))
@@ -296,12 +307,6 @@
 		M.sanity.level = 0
 		M.sanity.negative_prob += 5
 		apply_brain_damage(M, deadtime)
-	else
-		I.activate()
-		M.sanity.level = 30
-		apply_brain_damage(M, deadtime/3)
-		M.Weaken(rand(5, 10))
-		M.updatehealth()
 
 
 
@@ -319,6 +324,9 @@
 		return
 	if (victim)
 		user_unbuckle_mob(user)
+		if(ishuman(victim))
+			var/mob/living/carbon/human/H = victim
+			H.stable_genes = FALSE
 		return
 /*	if(fluid_level < VAT_FILL_FULL)
 		fluid_level += VAT_FLUID_STEP
@@ -331,7 +339,7 @@
 	for(var/organ_tag in H.species.has_organ)
 		var/obj/item/organ/O = H.internal_organs_by_name[organ_tag]
 		if(!O)
-			corruption_counter += 7
+			corruption_counter += 3.5
 	for(var/organ_tag in H.species.has_limbs)
 		var/obj/item/I = H.organs_by_name[organ_tag]
 		if(!I)
@@ -341,17 +349,22 @@
 
 
 /obj/machinery/neotheology/clone_vat/proc/corrupt_dna(mob/living/carbon/human/H)
-	var/obj/item/weapon/implant/core_implant/cruciform/C = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform, FALSE)
+	var/obj/item/weapon/implant/core_implant/cruciform/C
+	for(var/obj/item/weapon/implant/core_implant/cruciform/CR in H) //get_core_implant needs activated implants (and alive holder)
+		if(CR)
+			C = CR
+			break
 	var/corruption_points = 0
-	if(!C)
+	if(!C && !H.stable_genes)
 		corruption_points = H.genetic_corruption/7
 	else
-		corruption_points = H.genetic_corruption/14 //CHURCH DISCOUNT YEEEEEEEEEEEEEEEEEEAH
+		corruption_points = H.genetic_corruption/28 //CHURCH DISCOUNT YEEEEEEEEEEEEEEEEEEAH
+		testing("CHURCH DISCOUNT")
 	if(corruption_points <= 3) //Essentially, regenerating a head shall be safer
 		return
 
 	while(corruption_points > 0)
-		scramble(TRUE, H, 20 + corruption_points * 3)
+		scramble(TRUE, H, 20 + corruption_points * 2)
 		corruption_points -= 1
 
 
@@ -450,9 +463,9 @@
 			newbody.sync_organ_dna()
 			newbody.flavor_text = R.flavor
 			newbody.stats = R.stats
-			I.install(newbody)
 			newbody.update_implants()
 			newbody.stat = DEAD
+			newbody.stable_genes = TRUE
 			sleep(1) //Game needs time to process all this or it gives you a weird wrong named character
 			for(var/obj/item/organ/external/EO in newbody.organs)
 				if(EO.organ_tag == BP_CHEST || EO.organ_tag == BP_GROIN)
@@ -461,7 +474,7 @@
 					EO.removed()
 					qdel(EO)
 			take_victim(newbody, newbody, TRUE)
-			user.visible_message("[user.name] places \the [I] into \the [src]. A new body starts forming around the [I]!", "You place \the [I] into the vat.")
+			user.visible_message("[user.name] places \the [I] into \the [src]. It starts releasing something into the fluid!", "You upload \the [I] into the vat.")
 	return
 
 /obj/machinery/neotheology/clone_vat/update_icon()
