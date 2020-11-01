@@ -88,10 +88,10 @@ var/list/disciples = list()
 		return FALSE
 	var/datum/core_module/cruciform/cloning/data = get_module(CRUCIFORM_CLONING)
 	//if(wearer.dna.unique_enzymes == data.dna.unique_enzymes) Mekhanites are ultratranshumanists - Eclipse edit
-	for(var/mob/M in GLOB.player_list)
+/*	for(var/mob/M in GLOB.player_list)
 		if(M.ckey == data.ckey)
 			if(M.stat != DEAD)
-				return FALSE
+				return FALSE  */
 	var/datum/mind/MN = data.mind
 	if(!istype(MN, /datum/mind))
 		return

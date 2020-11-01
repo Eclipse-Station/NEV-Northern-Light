@@ -138,7 +138,7 @@
 		else
 			check_vital_organs(victim, FALSE)
 
-		if(prob(20))
+		if(prob(20))//Feex organs
 			var/list/bad_limbs = list()
 			var/fixbase = FALSE
 			if(victim.has_appendage(BP_GROIN))
@@ -161,6 +161,17 @@
 				restore_organ_by_tag(BP_GROIN)
 			adjust_fluid_level(- 1)
 
+		if(prob(10))//Feex bones
+			var/list/brokenBP = list()
+			for(var/obj/item/organ/external/E in victim.organs)
+				if(E.is_broken())
+					brokenBP += E
+			if(brokenBP.len)
+				var/obj/item/organ/external/E = pick(brokenBP)
+				E.mend_fracture()
+				victim.pain(E.name, 60, TRUE)
+				adjust_fluid_level(- 1)
+
 		var/heal_modifier = 0.5
 
 
@@ -172,19 +183,22 @@
 					adjust_fluid_level(-15)
 					make_alive(victim)
 
-		victim.adjustBruteLoss(- 2 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
-		victim.adjustFireLoss(- 1  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		victim.adjustBruteLoss(- 2.5 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		victim.adjustFireLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 		victim.adjustOxyLoss(- 2  * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
-		victim.adjustToxLoss(-0.5 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
+		victim.adjustToxLoss(- 1 * (fluid_level / VAT_FLUID_STEP) * heal_modifier)
 		adjust_fluid_level(- 1)
 
-
+		if(prob(10) && victim.UnHusk())
+			adjust_fluid_level(- 5)
+			victim.visible_message(SPAN_NOTICE("[victim]'s flesh reconstitutes!"), "Your flesh burns as it regenerates!", SPAN_DANGER("You hear wet squelching!"))
 
 		if(victim.stat != DEAD && prob(10))
 			adjust_fluid_level(-1)
 			victim.reagents.add_reagent(reagent_injected, 1)
 			if(prob(30))
 				victim.reagents.add_reagent("kyphotorin", 1)
+				victim.reagents.add_reagent("quickclot", 1)
 		update_icon()
 
 /obj/machinery/neotheology/clone_vat/proc/adjust_fluid_level(var/amount)
@@ -273,8 +287,19 @@
 	M.failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 
 	M.emote("gasp")
-	var/obj/item/weapon/implant/core_implant/cruciform/I = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
-	if(!I)
+	var/obj/item/weapon/implant/core_implant/cruciform/I
+	for(var/obj/item/weapon/implant/core_implant/cruciform/CR in M) //get_core_implant needs activated implants (and alive holder)
+		if(CR)
+			I = CR
+			break
+	if(I || M.stable_genes)
+		if(I)
+			I.activate()
+		M.sanity.level = 30
+		apply_brain_damage(M, deadtime/3)
+		M.Weaken(rand(5, 10))
+		M.updatehealth()
+	else
 		if(M.genetic_corruption < 28) //Even if you had no organs missing and just bled out, don't expect to wake up non-mutated
 			M.genetic_corruption += 28
 		M.Weaken(rand(10, 25))
@@ -282,11 +307,6 @@
 		M.sanity.level = 0
 		M.sanity.negative_prob += 5
 		apply_brain_damage(M, deadtime)
-	else
-		M.sanity.level = 30
-		apply_brain_damage(M, deadtime/3)
-		M.Weaken(rand(5, 10))
-		M.updatehealth()
 
 
 
@@ -304,6 +324,9 @@
 		return
 	if (victim)
 		user_unbuckle_mob(user)
+		if(ishuman(victim))
+			var/mob/living/carbon/human/H = victim
+			H.stable_genes = FALSE
 		return
 /*	if(fluid_level < VAT_FILL_FULL)
 		fluid_level += VAT_FLUID_STEP
@@ -316,7 +339,7 @@
 	for(var/organ_tag in H.species.has_organ)
 		var/obj/item/organ/O = H.internal_organs_by_name[organ_tag]
 		if(!O)
-			corruption_counter += 7
+			corruption_counter += 3.5
 	for(var/organ_tag in H.species.has_limbs)
 		var/obj/item/I = H.organs_by_name[organ_tag]
 		if(!I)
@@ -326,17 +349,22 @@
 
 
 /obj/machinery/neotheology/clone_vat/proc/corrupt_dna(mob/living/carbon/human/H)
-	var/obj/item/weapon/implant/core_implant/cruciform/C = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+	var/obj/item/weapon/implant/core_implant/cruciform/C
+	for(var/obj/item/weapon/implant/core_implant/cruciform/CR in H) //get_core_implant needs activated implants (and alive holder)
+		if(CR)
+			C = CR
+			break
 	var/corruption_points = 0
-	if(!C)
+	if(!C && !H.stable_genes)
 		corruption_points = H.genetic_corruption/7
 	else
-		corruption_points = H.genetic_corruption/14 //CHURCH DISCOUNT YEEEEEEEEEEEEEEEEEEAH
+		corruption_points = H.genetic_corruption/28 //CHURCH DISCOUNT YEEEEEEEEEEEEEEEEEEAH
+		testing("CHURCH DISCOUNT")
 	if(corruption_points <= 3) //Essentially, regenerating a head shall be safer
 		return
 
 	while(corruption_points > 0)
-		scramble(TRUE, H, 20 + corruption_points * 3)
+		scramble(TRUE, H, 20 + corruption_points * 2)
 		corruption_points -= 1
 
 
@@ -373,7 +401,7 @@
 				EO.removed()
 				qdel(EO)
 		take_victim(newbody, newbody, TRUE)
-		user.visible_message("[user.name] places \the [donor] \the [src].", "You place \the [donor] into the vat.")
+		user.visible_message("[user.name] places \the [donor] into \the [src].", "You place \the [donor] into the vat.")
 		qdel(O)
 		return
 
@@ -408,6 +436,45 @@
 				update_icon()
 				user.visible_message("[user.name] pours the contents of [C.name] into \the [src].", "[message]")
 				return
+
+	if(istype(O, /obj/item/weapon/implant/core_implant/cruciform))
+		if(victim)
+			to_chat(usr, SPAN_WARNING("\The [src] is already occupied!"))
+			return
+
+		if(fluid_level < VAT_FILL_HALF_FULL)
+			to_chat(user, "The vat does not have enough fluids to restore the body!")
+			return
+
+		var/obj/item/weapon/implant/core_implant/cruciform/I = O
+		var/datum/core_module/cruciform/cloning/R = I.get_module(CRUCIFORM_CLONING)
+		if(!R.dna)
+			to_chat(user, "\The [src] is rejected by the vat!")
+			return
+		else
+			user.drop_from_inventory(I)
+			I.forceMove(loc)
+			var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
+			newbody.dna = R.dna.Clone()
+			newbody.set_species()
+			newbody.real_name = R.dna.real_name
+			newbody.age = R.age
+			newbody.UpdateAppearance()
+			newbody.sync_organ_dna()
+			newbody.flavor_text = R.flavor
+			newbody.stats = R.stats
+			newbody.update_implants()
+			newbody.stat = DEAD
+			newbody.stable_genes = TRUE
+			sleep(1) //Game needs time to process all this or it gives you a weird wrong named character
+			for(var/obj/item/organ/external/EO in newbody.organs)
+				if(EO.organ_tag == BP_CHEST || EO.organ_tag == BP_GROIN)
+					continue
+				else
+					EO.removed()
+					qdel(EO)
+			take_victim(newbody, newbody, TRUE)
+			user.visible_message("[user.name] places \the [I] into \the [src]. It starts releasing something into the fluid!", "You upload \the [I] into the vat.")
 	return
 
 /obj/machinery/neotheology/clone_vat/update_icon()
