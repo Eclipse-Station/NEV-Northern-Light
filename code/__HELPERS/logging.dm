@@ -227,3 +227,7 @@
 		return "[a.loc] ([t.x],[t.y],[t.z]) ([a.loc.type])"
 	else if(a.loc)
 		return "[a.loc] (0,0,0) ([a.loc.type])"
+
+/proc/log_subtle(text, mob/speaker)
+	if (config.log_emote)
+		game_log("SUBTLE", text)
