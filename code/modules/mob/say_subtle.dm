@@ -50,7 +50,7 @@
 		get_mobs_and_objs_in_view_fast(get_turf(src),1, vis_mobs, vis_objs) //This proc is a shitcode incarnate
 		for(var/vismob in vis_mobs)
 			var/mob/M = vismob
-			if(isobserver(M) && !M.client?.holder)
+			if(isobserver(M) && !M.client?.holder && (M.get_preference_value(/datum/client_preference/ghost_subtle) == GLOB.PREF_NO))
 				spawn(0)
 					M.show_message(undisplayed_message, 2)
 			else

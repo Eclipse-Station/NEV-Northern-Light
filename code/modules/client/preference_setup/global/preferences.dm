@@ -119,6 +119,11 @@ var/list/_client_preferences_by_type
 	key = "CHAT_GHOSTRADIO"
 	options = list(GLOB.PREF_ALL_CHATTER, GLOB.PREF_NEARBY)
 
+/datum/client_preference/ghost_subtle
+	description ="Ghost subtle"
+	key = "CHAT_GHOSTSUBTLE"
+	options = list(GLOB.PREF_NO, GLOB.PREF_YES)
+
 /datum/client_preference/language_display
 	description = "Display Language Names"
 	key = "LANGUAGE_DISPLAY"
