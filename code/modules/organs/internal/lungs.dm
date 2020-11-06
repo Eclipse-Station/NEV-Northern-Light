@@ -2,22 +2,13 @@
 	name = "lungs"
 	icon_state = "lungs"
 	gender = PLURAL
-	organ_tag = BP_LUNGS
-	parent_organ = BP_CHEST
+	organ_efficiency = list(OP_LUNGS = 100)
+	parent_organ_base = BP_CHEST
+	specific_organ_size = 2
 	price_tag = 300
-
-	var/breath_type
-	var/poison_type
-	var/exhale_type
-
-	var/min_breath_pressure
-
-	var/safe_exhaled_max = 10
-	var/safe_toxins_max = 0.2
-	var/SA_para_min = 1
-	var/SA_sleep_min = 5
 	var/breath_modulo = 2
 
+<<<<<<< HEAD
 /obj/item/organ/internal/lungs/set_dna(var/datum/dna/new_dna)
 	..()
 	min_breath_pressure = species.breath_pressure
@@ -210,7 +201,11 @@
 	else if(breath.temperature <= species.cold_discomfort_level)
 		species.get_environment_discomfort(owner,"cold")
 
+=======
+>>>>>>> b38399e... Erismed part 2 - Organ Processes (#5609)
 /obj/item/organ/internal/lungs/long
 	name = "long lungs"
 	icon_state = "long_lungs"
+	organ_efficiency = list(OP_LUNGS = 133)
+	specific_organ_size = 3
 	breath_modulo = 8

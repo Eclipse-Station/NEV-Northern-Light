@@ -1,34 +1,20 @@
 /obj/item/organ/internal/heart
 	name = "heart"
 	icon_state = "heart-on"
-	organ_tag = BP_HEART
-	parent_organ = BP_CHEST
+	organ_efficiency = list(OP_HEART = 100)
+	parent_organ_base = BP_CHEST
 	dead_icon = "heart-off"
 	price_tag = 1000
-	var/pulse = PULSE_NORM
-	var/heartbeat = 0
-	var/efficiency = 1
+	specific_organ_size = 2
 	var/open
 
 /obj/item/organ/internal/heart/open
 	open = 1
-
-/obj/item/organ/internal/heart/Process()
-	if(owner)
-		handle_pulse()
-		if(pulse)	handle_heartbeat()
-		handle_blood()
-		//plug before baymed
-		var/blood_volume = owner.get_blood_oxygenation()
-		if(blood_volume < BLOOD_VOLUME_SURVIVE)
-			if(!owner.chem_effects[CE_STABLE] || prob(60))
-				owner.adjustBrainLoss(0.5)
-	..()
-
 /obj/item/organ/internal/heart/proc/is_working()
 	if(!is_usable())
 		return FALSE
 
+<<<<<<< HEAD
 	return pulse > PULSE_NONE || BP_IS_ROBOTIC(src) || (owner.status_flags & FAKEDEATH)
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
@@ -115,3 +101,6 @@
 			owner.nutrition -= 10
 		else if(owner.nutrition >= 200)
 			owner.nutrition -= 3
+=======
+	return owner.pulse > PULSE_NONE || BP_IS_ROBOTIC(src) || (owner.status_flags & FAKEDEATH)
+>>>>>>> b38399e... Erismed part 2 - Organ Processes (#5609)
