@@ -847,15 +847,7 @@
 	switch(buildstage)
 		if(2)
 			if (istype(I, /obj/item/weapon/card/id) || istype(I, /obj/item/modular_computer))// trying to unlock the interface with an ID card
-				if(stat & (NOPOWER|BROKEN))
-					to_chat(user, "It does nothing")
-					return
-				else
-					if(allowed(usr) && !wires.IsIndexCut(AALARM_WIRE_IDSCAN))
-						locked = !locked
-						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
-					else
-						to_chat(user, SPAN_WARNING("Access denied."))
+				toggle_lock(user)
 			return
 
 		if(1)
@@ -893,12 +885,32 @@
 	if (buildstage < 1)
 		to_chat(user, "The circuit is missing.")
 
+<<<<<<< HEAD
 // Eclipse proc - added to reduce impact to Process() call
 /obj/machinery/alarm/proc/play_audible()
 	last_sound_time = world.time
 	for(var/i in 1 to 3)		//plays 3 times always.
 		playsound(src.loc, 'sound/misc/airalarm.ogg', 40, 0, 5)
 		sleep(4 SECONDS)
+=======
+/obj/machinery/alarm/proc/toggle_lock(mob/user)
+	if(stat & (NOPOWER|BROKEN))
+		to_chat(user, "It does nothing")
+		return
+	else
+		if(allowed(user) && !wires.IsIndexCut(AALARM_WIRE_IDSCAN))
+			locked = !locked
+			to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the Air Alarm interface."))
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+
+/obj/machinery/alarm/AltClick(mob/user)
+	..()
+	if(issilicon(user) || !Adjacent(user))
+		return
+	toggle_lock(user)
+
+>>>>>>> f78e42c... Alt click for APC and Air Alarm (#5637)
 
 /*
 AIR ALARM CIRCUIT
