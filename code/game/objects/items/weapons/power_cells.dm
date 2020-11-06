@@ -7,7 +7,11 @@
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 3, MATERIAL_SILVER = 3)
 	price_tag = 200
 	spawn_tags = SPAWN_TAG_LARGE_POWERCELL
+<<<<<<< HEAD
 	spawn_frequency = 8
+=======
+	spawn_frequency = 9
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 
 /obj/item/weapon/cell/large/high
 	name = "\"Robustcell 5000L\""
@@ -120,7 +124,11 @@
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 2)
 	price_tag = 100
 	spawn_tags = SPAWN_TAG_MEDIUM_POWERCELL
+<<<<<<< HEAD
 	spawn_frequency = 8.5
+=======
+	spawn_frequency = 9.5
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 
 /obj/item/weapon/cell/medium/high
 	name = "\"Robustcell 800M\""
@@ -212,8 +220,12 @@
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1)
 	price_tag = 50
 	spawn_tags = SPAWN_TAG_SMALL_POWERCELL
+<<<<<<< HEAD
 	rarity_value = 2
 	spawn_frequency = 9
+=======
+	rarity_value = 2.5
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 
 /obj/item/weapon/cell/small/high
 	name = "\"Robustcell 200S\""

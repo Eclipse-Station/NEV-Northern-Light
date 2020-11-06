@@ -3,7 +3,12 @@
 	spawn_frequency = 10
 	spawn_tags = SPAWN_TAG_RANDOM_CLOSET
 	rarity_value = 10
+<<<<<<< HEAD
 	bad_types = /obj/structure/closet/random
+=======
+	bad_type = /obj/structure/closet/random
+	spawn_blacklisted = FALSE
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 
 /obj/structure/closet/random/miscellaneous
 	name = "\improper forgotten closet"

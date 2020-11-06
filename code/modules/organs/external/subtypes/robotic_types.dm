@@ -128,8 +128,13 @@
 	spawn_blacklisted = TRUE
 	rarity_value = 10
 	spawn_frequency = 10
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_OS_PROSTHETIC
 	bad_types = /obj/item/organ/external/robotic/one_star
+=======
+	spawn_tags = SPAWN_TAG_PROSTHETIC_OS
+	bad_type = /obj/item/organ/external/robotic/one_star
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 	price_tag = 900
 
 /obj/item/organ/external/robotic/one_star/l_arm

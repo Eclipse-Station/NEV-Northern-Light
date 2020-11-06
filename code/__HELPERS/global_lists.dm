@@ -155,8 +155,6 @@ var/global/list/string_slot_flags = list(
 //A list of slots where an item doesn't count as "worn" if it's in one of them
 var/global/list/unworn_slots = list(slot_l_hand,slot_r_hand, slot_l_store, slot_r_store,slot_robot_equip_1,slot_robot_equip_2,slot_robot_equip_3)
 
-GLOBAL_LIST_EMPTY(all_spawn_data)
-
 //////////////////////////
 /////Initial Building/////
 //////////////////////////
@@ -283,8 +281,6 @@ GLOBAL_LIST_EMPTY(all_spawn_data)
 		//Rituals which are just categories for subclasses will have a null phrase
 		if (R.phrase)
 			GLOB.all_rituals[R.name] = R
-
-	GLOB.all_spawn_data["loot_s_data"] = new /datum/loot_spawner_data
 
 	return 1
 

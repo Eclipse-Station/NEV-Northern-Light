@@ -34,7 +34,7 @@
 	disruptive = 0
 	activates_on_touch = 1
 	rarity_value = 2
-	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
+	spawn_tags = SPAWN_TAG_RIG_MODULE_COMMON
 
 
 	engage_string = "Eject AI"
@@ -244,8 +244,13 @@
 
 	interface_name = "contact datajack"
 	interface_desc = "An induction-powered high-throughput datalink suitable for hacking encrypted networks."
+<<<<<<< HEAD
 	rarity_value = 3.33
 	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
+=======
+	rarity_value = 3.5
+	spawn_tags = SPAWN_TAG_RIG_MODULE_COMMON
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 	var/datum/research/files
 
 /obj/item/rig_module/datajack/New()
@@ -350,8 +355,13 @@
 
 	interface_name = "niling d-sink"
 	interface_desc = "Colloquially known as a power siphon, this module drains power through the suit hands into the suit battery."
+<<<<<<< HEAD
 	rarity_value = 3.33
 	spawn_tags = SPAWN_TAG_RING_MODULE_COMMON
+=======
+	rarity_value = 3.5
+	spawn_tags = SPAWN_TAG_RIG_MODULE_COMMON
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 	var/atom/interfaced_with // Currently draining power from this device.
 	var/total_power_drained = 0
 	var/drain_loc

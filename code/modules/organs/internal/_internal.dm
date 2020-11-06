@@ -1,4 +1,11 @@
 /obj/item/organ/internal
+<<<<<<< HEAD
+=======
+	layer = ABOVE_LYING_MOB_LAYER
+	origin_tech = list(TECH_BIO = 2)
+	bad_type = /obj/item/organ/internal
+	spawn_tags = SPAWN_TAG_ORGAN_INTERNAL
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 	var/list/owner_verbs = list()
 	var/organ_efficiency = 100	//Efficency of an organ, should become the most important variable
 	layer = ABOVE_LYING_MOB_LAYER

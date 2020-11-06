@@ -867,8 +867,12 @@
 	disk_name = "Serbian Arms - .50 Pug Auto Shotgun"
 	icon_state = "serbian"
 	spawn_tags = SPAWN_TAG_DESING_ADVANCED
+<<<<<<< HEAD
 	rarity_value = 100
 	spawn_frequency = 8
+=======
+	rarity_value = 90
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 	license = 12
 	designs = list(
 		/datum/design/autolathe/gun/bojevic = 3, // "SA SG \"Bojevic\""
@@ -878,7 +882,6 @@
 		)
 
 // SMGs
-
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_paco
 	disk_name = "Frozen Star - .35 Paco HG"
 	icon_state = "frozenstar"

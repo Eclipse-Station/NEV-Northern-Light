@@ -5,7 +5,11 @@
 	desc = "A simple grasping tool specialized in construction and engineering work."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
+<<<<<<< HEAD
 	bad_types = /obj/item/weapon/gripper
+=======
+	spawn_tags = null
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 
 	flags = NOBLUDGEON
 

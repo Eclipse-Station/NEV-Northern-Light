@@ -2,6 +2,12 @@
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
 	germ_level = 0
+<<<<<<< HEAD
+=======
+	matter = list(MATERIAL_BIOMATTER = 20)
+	bad_type = /obj/item/organ
+	spawn_tags = SPAWN_TAG_ORGAN
+>>>>>>> e69b987... Spawn values fix V7.0 (#5625)
 
 	// Strings.
 	var/surgery_name					// A special name that replaces item name in surgery messages
