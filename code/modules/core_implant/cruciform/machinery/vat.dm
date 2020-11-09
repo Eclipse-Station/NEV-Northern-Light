@@ -5,7 +5,7 @@
 #define VAT_FLUID_STEP 40
 
 /obj/machinery/neotheology/clone_vat
-	name = "cito-revitalization basin"
+	name = "cyto-revitalization basin"	//SYZYGY EDIT - typo fix
 	desc = "One of the most coveted Mekhanite technologies, this device is capable of restoring one's body from a mere fragment."
 	icon = 'icons/obj/machines/church_vat.dmi'
 	icon_state = "vat_gold_base"
@@ -138,7 +138,11 @@
 		else
 			check_vital_organs(victim, FALSE)
 
+<<<<<<< HEAD
 		if(prob(20))//Feex organs
+=======
+		if(prob(20))	//Feex organs
+>>>>>>> ba41775... Merge pull request #226 from Michiyamenotehifunana/ChurchPatchPatchPort
 			var/list/bad_limbs = list()
 			var/fixbase = FALSE
 			if(victim.has_appendage(BP_GROIN))
@@ -161,7 +165,11 @@
 				restore_organ_by_tag(BP_GROIN)
 			adjust_fluid_level(- 1)
 
+<<<<<<< HEAD
 		if(prob(10))//Feex bones
+=======
+		if(prob(10))	//Feex bones
+>>>>>>> ba41775... Merge pull request #226 from Michiyamenotehifunana/ChurchPatchPatchPort
 			var/list/brokenBP = list()
 			for(var/obj/item/organ/external/E in victim.organs)
 				if(E.is_broken())
