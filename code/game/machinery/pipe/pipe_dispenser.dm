@@ -7,8 +7,8 @@
 	var/wait = 0
 
 /obj/machinery/pipedispenser/attack_hand(user as mob)
-	if(..())
-		return
+//	if(..()) SYZYGY EDIT - THIS BREAKS DISPENSERS
+//		return SYZYGY EDIT - THIS BREAKS DISPENSERS
 ///// Z-Level stuff
 	var/dat = {"
 <b>Regular pipes:</b><BR>
@@ -152,8 +152,8 @@ Nah
 	qdel(pipe)
 
 /obj/machinery/pipedispenser/disposal/attack_hand(user as mob)
-	if(..())
-		return
+//	if(..()) SYZYGY EDIT - THIS BREAKS DISPENSERS
+//		return SYZYGY EDIT - THIS BREAKS DISPENSERS
 
 ///// Z-Level stuff
 	var/dat = {"<b>Disposal Pipes</b><br><br>

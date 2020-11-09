@@ -135,9 +135,9 @@ var/list/custom_table_appearance = list(
 
 		if(QUALITY_PRYING)
 			if(custom_appearance)
-				if(custom_appearance[5] && !reinforced)
+				/*if(custom_appearance[5] && !reinforced) SYZYGY Edit - This was preventing people from modifying the bar tables at all. Fixed!
 					to_chat(user, SPAN_WARNING("This type of design can't be applied to simple tables. Reinforce it first."))
-					return
+					return*/
 				if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_EASY,  required_stat = STAT_MEC))
 					user.visible_message(
 						SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
