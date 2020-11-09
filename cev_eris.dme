@@ -2720,6 +2720,7 @@
 #include "maps\submaps\planetary_ruins\hut\hut.dm"
 #include "maps\submaps\planetary_ruins\tar_anomaly\tar_anomaly.dm"
 #include "zzz_modular_eclipse\code\game\turfs\flooring\flooring_decals.dm"
+#include "zzz_modular_eclipse\code\modules\mob\new_player\new_player.dm"
 #include "zzz_modular_eclipse\evac_sign\evacsign.dm"
 #include "zzz_modular_eclipse\gunvendor\gunkits.dm"
 #include "zzz_modular_eclipse\radio_sprites\radios.dm"
