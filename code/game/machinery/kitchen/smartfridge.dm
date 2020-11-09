@@ -247,6 +247,8 @@
 
 	if(panel_open && icon_panel)
 		overlays += image(icon, icon_panel)
+	if(!panel_open && icon_panel) //SYZYGY edit - Remove overlays if the panel isn't open!
+		overlays.Cut() //SYZYGY Edit - Remove overlays if the panel isn't open!
 
 /*******************
 *   Item Adding
