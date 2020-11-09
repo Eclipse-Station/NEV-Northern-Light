@@ -87,9 +87,9 @@
 	charge_meter = FALSE
 	w_class = ITEM_SIZE_NORMAL
 	twohanded = FALSE
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	suitable_cell = /obj/item/weapon/cell/small
-
-	projectile_type=/obj/item/projectile/plasma/light
+	projectile_type = /obj/item/projectile/plasma/light
 	projectile_color = "#00FFFF"
 
 	fire_sound='sound/weapons/Taser.ogg'
