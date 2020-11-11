@@ -146,7 +146,7 @@
 	setup_restricted = TRUE
 
 /obj/landmark/join/start/hydro
-	name = "NeoTheology Agrolyte"
+	name = "Mekhane Agrolyte"	//SYZYGY EDIT - Fixes landmarks
 	icon_state = "player-black"
 	join_tag = /datum/job/hydro
 
@@ -186,6 +186,6 @@
 	setup_restricted = TRUE
 
 /obj/landmark/join/start/janitor
-	name = "NeoTheology Custodian"
+	name = "Mekhane Custodian"	//SYZYGY EDIT - Fixes landmarks
 	icon_state = "player-black"
 	join_tag = /datum/job/janitor

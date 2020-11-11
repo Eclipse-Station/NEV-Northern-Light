@@ -1,5 +1,10 @@
+<<<<<<< HEAD:code/game/objects/items/devices/defib.dm
 #define DEFIB_TIME_LIMIT (8 MINUTES) //past this many seconds, defib is useless. Currently 8 Minutes
 #define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs. Currently 2 minutes
+=======
+#define DEFIB_TIME_LIMIT (15 MINUTES) //past this many seconds, defib is useless.
+#define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs.
+>>>>>>> 9e1fe9f... Merge pull request #239 from Michiyamenotehifunana/FixyTweaks:zzz_modular_syzygy/defib.dm
 
 
 //backpack item

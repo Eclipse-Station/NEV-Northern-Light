@@ -125,6 +125,6 @@ The Northern Light is your home, your life, and your livelihood. Take pride in i
 	perks = list(/datum/perk/inspiration)
 
 /obj/landmark/join/start/technomancer
-	name = "Engineer"
+	name = "Ship Engineer"	//SYZYGY EDIT - Fixes landmarks
 	icon_state = "player-orange"
 	join_tag = /datum/job/technomancer

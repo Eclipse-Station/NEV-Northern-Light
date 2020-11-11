@@ -54,7 +54,7 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 	outfit_type = /decl/hierarchy/outfit/job/cargo/merchant
 
 /obj/landmark/join/start/merchant
-	name = "Trade Union Merchant"
+	name = "Free Trade Union Merchant"	//SYZYGY EDIT - Fixes landmarks
 	icon_state = "player-beige-officer"
 	join_tag = /datum/job/merchant
 
@@ -108,7 +108,7 @@ Your main duties are to keep the local Union branch operational and profitable. 
 		Your second loyalty is to the merchant, he ensures you're well paid and respected, in a universe where workers are often treated as interchangeable parts."
 
 /obj/landmark/join/start/cargo_tech
-	name = "Union Technician"
+	name = "Union Cargo Technician"	//SYZYGY EDIT - Fixes landmarks
 	icon_state = "player-beige"
 	join_tag = /datum/job/cargo_tech
 
