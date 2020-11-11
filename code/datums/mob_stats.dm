@@ -29,7 +29,12 @@
 /datum/stat_holder/proc/changeStat(statName, Value)
 	var/datum/stat/S = stat_list[statName]
 	S.changeValue(Value)
+<<<<<<< HEAD
 	
+=======
+	SEND_SIGNAL(holder, COMSIG_STAT, S.name, S.getValue(), S.getValue(TRUE))
+
+>>>>>>> 3bc9eb9... Fixes the NT cruciform's odd interaction with stat holders (#5645)
 /datum/stat_holder/proc/setStat(statName, Value)
 	var/datum/stat/S = stat_list[statName]
 	S.setValue(Value)
@@ -80,6 +85,16 @@
 		return 0
 	var/avg = getSumOfStat(namesList, pure)
 	return avg / namesList.len
+
+/datum/stat_holder/proc/copyTo(var/datum/stat_holder/recipient)
+	for(var/i in stat_list)
+		var/datum/stat/S = stat_list[i]
+		var/datum/stat/RS = recipient.stat_list[i]
+		S.copyTo(RS)
+
+	for(var/datum/perk/P in perks)
+		recipient.addPerk(P.type)
+
 
 // return value from 0 to 1 based on value of stat, more stat value less return value
 // use this proc to get multiplier for decreasing delay time (exaple: "50 * getMult(STAT_ROB, STAT_LEVEL_ADEPT)"  this will result in 5 seconds if stat STAT_ROB = 0 and result will be 0 if STAT_ROB = STAT_LEVEL_ADEPT)
@@ -178,6 +193,9 @@
 
 /datum/stat/proc/setValue(value)
 	src.value = value
+
+/datum/stat/proc/copyTo(var/datum/stat/recipient)
+	recipient.value = getValue(TRUE)
 
 /datum/stat/productivity
 	name = STAT_MEC
