@@ -197,14 +197,24 @@
 /datum/reagent/nanites/trauma_control_system/will_occur(var/mob/living/carbon/M, var/alien, var/location)
 	if(..())
 		var/mob/living/carbon/human/H = M
+<<<<<<< HEAD
 		if(istype(H))
 			for(var/obj/item/organ/organ in H.organs) //Grab the organ holding the implant.
 				if(organ.damage > 0 && !BP_IS_ROBOTIC(organ))
 					return TRUE
+=======
+		for(var/obj/item/organ/organ in H.organs) //Grab the organ holding the implant.
+			if(organ.damage > 0 && !BP_IS_ROBOTIC(organ))
+				return TRUE
+		for(var/obj/item/organ/organ in H.internal_organs) //SYZYGY Edit
+			if(organ.damage > 0 && !BP_IS_ROBOTIC(organ)) //SYZYGY Edit
+				return TRUE // SYZYGY Edit
+>>>>>>> 7be9901... Merge pull request #237 from Jamini/jamini-TCS
 
 /datum/reagent/nanites/trauma_control_system/affect_blood(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
 	if(..())
 		var/mob/living/carbon/human/H = M
+<<<<<<< HEAD
 		if(istype(H))
 			for(var/obj/item/organ/organ in H.organs) //Grab the organ holding the implant.
 				if (istype(organ, /obj/item/organ/external) && organ.damage > 0 && !BP_IS_ROBOTIC(organ))
@@ -212,6 +222,16 @@
 				else if (istype(organ, /obj/item/organ/internal) && organ.damage > 0 && !BP_IS_ROBOTIC(organ))
 					organ.heal_damage((2 + organ.damage * 0.03)* effect_multiplier)
 
+=======
+		for(var/obj/item/organ/organ in H.organs) //Grab the organ holding the implant.
+			if (istype(organ, /obj/item/organ/external) && organ.damage > 0 && !BP_IS_ROBOTIC(organ))
+				organ.heal_damage((2 + organ.damage * 0.03)* effect_multiplier, (2 + organ.damage * 0.03)* effect_multiplier)
+			//else if (istype(organ, /obj/item/organ/internal) && organ.damage > 0 && !BP_IS_ROBOTIC(organ)) - SYZYGY Edit: Fix internal organs
+			//	organ.heal_damage((2 + organ.damage * 0.03)* effect_multiplier) - SYZY EDIT : Fix internal organs
+		for(var/obj/item/organ/organ in H.internal_organs) //SYZYGY EDIT - Grab Internal Organs
+			if((organ.damage > 0) && !BP_IS_ROBOTIC(organ)) //SYZYGY Edit
+				organ.heal_damage(((0.2 + organ.damage * 0.03) * effect_multiplier), FALSE) //SYZYGY Edit
+>>>>>>> 7be9901... Merge pull request #237 from Jamini/jamini-TCS
 /datum/reagent/nanites/purgers
 	name = "Purgers"
 	id = "nanopurgers"
