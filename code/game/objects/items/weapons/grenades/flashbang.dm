@@ -56,7 +56,6 @@
 		M.Weaken(10)
 
 
-
 //Now applying sound
 	if((get_dist(M, T) <= 2 || loc == M.loc || loc == M))
 		if(ear_safety > 0)
@@ -66,21 +65,40 @@
 			M.Stun(10*ear_stun_mult)
 			M.Weaken(3*ear_stun_mult)
 			if ((prob(14) || (M == loc && prob(70))))
+<<<<<<< HEAD
 				M.ear_damage += rand(1, 10)
+=======
+				M.adjustEarDamage(rand(1, 10))
+				M.confused = max(M.confused,8)
+>>>>>>> 763baef... Update flashbang.dm (#5670)
 			else
 				M.ear_damage += rand(0, 5)
 				M.ear_deaf = max(M.ear_deaf,15)
+				M.confused = max(M.confused,8)
+		else
+			stat_def *= 2
+			M.confused = max(M.confused,4)
 
 	else if(get_dist(M, T) <= 5)
+<<<<<<< HEAD
 		if(!ear_safety)
 			M.Stun(8*ear_stun_mult)
 			M.ear_damage += rand(0, 3)
+=======
+		if(ear_safety <= 0)
+			stat_def *= 4
+			M.adjustEarDamage(rand(0, 3))
+>>>>>>> 763baef... Update flashbang.dm (#5670)
 			M.ear_deaf = max(M.ear_deaf,10)
+			M.confused = max(M.confused,6)
+		else
+			M.confused = max(M.confused,2)
 
 	else if(!ear_safety)
 		M.Stun(4*ear_stun_mult)
 		M.ear_damage += rand(0, 1)
 		M.ear_deaf = max(M.ear_deaf,5)
+		M.confused = max(M.confused,5)
 
 	//This really should be in mob not every check
 	if(ishuman(M))
