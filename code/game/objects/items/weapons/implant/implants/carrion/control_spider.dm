@@ -48,7 +48,11 @@
 	active = TRUE
 	last_use = world.time
 
+<<<<<<< HEAD
 	addtimer(CALLBACK(src, .proc/return_mind), rand(45 SECONDS, 70 SECONDS))
+=======
+	addtimer(CALLBACK(src, .proc/return_mind), rand(50 SECONDS, 60 SECONDS))
+>>>>>>> aa0bf69... Control spider (#5658)
 
 /obj/item/weapon/implant/carrion_spider/control/on_uninstall()
 	..()
@@ -66,7 +70,7 @@
 		if(isghost(owner_mind_last.current))
 			to_chat(owner_mind_last.current, SPAN_NOTICE("You are yanked back to your body from beyond the void."))
 		owner_mind_last.transfer_to(owner_mob)
-	if(wearer_last)
+	if(wearer_last && !(wearer_last.stat == DEAD))
 		if(host_brain)
 			host_brain.mind?.transfer_to(wearer_last)
 			qdel(host_brain)
@@ -84,3 +88,8 @@
 				owner_mob.adjustFireLoss((wearer_last.fireloss - start_damage[4]) * 2)
 	else
 		owner_mob.gib()
+		spawn(1)
+			if(owner_core)
+				var/mob/living/L = owner_core.loc
+				if(istype(L))
+					L.gib()

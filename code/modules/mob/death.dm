@@ -67,13 +67,14 @@
 		for(var/obj/O in embedded)
 			O.forceMove(loc)
 		embedded = list()
-	for(var/obj/item/weapon/implant/carrion_spider/control/C in src)
-		C.return_mind()
 
 	for(var/mob/living/carbon/human/H in oviewers(src))
 		H.sanity.onSeeDeath(src)
 
 	stat = DEAD
+	for(var/obj/item/weapon/implant/carrion_spider/control/C in src)
+		C.return_mind()
+
 	update_lying_buckled_and_verb_status()
 	reset_plane_and_layer()
 
