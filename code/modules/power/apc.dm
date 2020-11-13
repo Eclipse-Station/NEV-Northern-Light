@@ -594,6 +594,7 @@
 			SPAN_NOTICE("You insert the power cell."))
 		chargecount = 0
 		update_icon()
+<<<<<<< HEAD
 
 	else if (istype(I, /obj/item/weapon/card/id)||istype(I, /obj/item/modular_computer))			// trying to unlock the interface with an ID card
 		if(emagged)
@@ -614,6 +615,10 @@
 			else
 				to_chat(user, SPAN_WARNING("Access denied."))
 
+=======
+	else if (istype(I, /obj/item/weapon/card/id)||istype(I, /obj/item/modular_computer))
+		toggle_lock(user)
+>>>>>>> 92de965... Make devices have cell support as inherent behavior (#5667)
 	else if (istype(I, /obj/item/stack/cable_coil) && !terminal && opened && has_electronics!=2)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
@@ -1063,7 +1068,7 @@
 	else
 		main_status = 2
 
-	if(!cell || cell.empty())
+	if(!cell || cell.is_empty())
 		if(need_sound == TRUE)
 			playsound(loc, 'sound/machines/Custom_apcnopower.ogg', 75, 0)
 			need_sound = FALSE
