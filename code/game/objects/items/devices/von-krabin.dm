@@ -23,6 +23,13 @@
 	var/stats_buff = list(STAT_BIO, STAT_COG, STAT_MEC)
 	var/list/mob/living/carbon/human/currently_affected = list()
 
+<<<<<<< HEAD
+=======
+/obj/item/device/von_krabin/New()
+	..()
+	GLOB.all_faction_items[src] = GLOB.department_moebius
+
+>>>>>>> 171348a... fix: badly initialized atoms. (#5669)
 /obj/item/device/von_krabin/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	check_for_faithful(list())
