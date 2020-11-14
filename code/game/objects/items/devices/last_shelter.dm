@@ -36,6 +36,7 @@
 	else
 		to_chat(user, SPAN_WARNING("The [src] needs time to recharge!"))
 
+
 /obj/item/device/last_shelter/proc/get_cruciform()
 	var/datum/mind/MN = request_player()
 	if(!MN)
@@ -46,10 +47,18 @@
 	var/datum/perk/perk_random = pick(subtypesof(/datum/perk/oddity))
 	H.stats.addPerk(perk_random)
 	H.stats.addPerk(pick(/datum/perk/survivor, /datum/perk/selfmedicated, /datum/perk/vagabond, /datum/perk/merchant, /datum/perk/inspiration))
-	var/obj/item/weapon/implant/core_implant/soulcrypt/soulcrypt = new /obj/item/weapon/implant/core_implant/soulcrypt(src)
-	soulcrypt.install(H)
+	var/obj/item/weapon/implant/core_implant/cruciform/cruciform = new /obj/item/weapon/implant/core_implant/cruciform(src)
+	cruciform.add_module(new CRUCIFORM_CLONING)
+	cruciform.activated = TRUE
+	MN.name = H.real_name
+	MN.assigned_role = "NT disciple"
+	MN.original = H
+	for(var/datum/core_module/cruciform/cloning/M in cruciform.modules)
+		M.write_wearer(H)
+		M.ckey = MN.key
+		M.mind = MN
 	qdel(H)
-	return soulcrypt
+	return cruciform
 
 /obj/item/device/last_shelter/proc/request_player()
 	var/agree_time_out = FALSE
@@ -59,7 +68,7 @@
 	for(var/mob/observer/ghost/O in GLOB.player_list)
 		if(O.client)
 			O << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever when he's chosen to decide.
-			if(alert(O, "Do you want to be cloned as NT disciple? Hurry up, you have 60 seconds to make choice!","Player Request","OH YES","No, I'm autist") == "OH YES")
+			if(alert(O, "Do you want to be cloned as Mekhane disciple? Hurry up, you have 60 seconds to make choice!","Player Request","OH YES","I am not worthy") == "OH YES")
 				if(!agree_time_out)
 					if(MN)
 						to_chat(O, SPAN_WARNING("Somebody already took this place."))
