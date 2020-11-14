@@ -1,0 +1,5 @@
+author: drexample
+delete-after: true
+changes:
+  - tweak: removes coarse language from antag popups
+  - tweak: restores old Last Shelter functionality
