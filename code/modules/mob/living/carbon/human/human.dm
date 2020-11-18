@@ -874,7 +874,7 @@ var/list/rank_prefix = list(\
 	rebuild_organs()
 
 	if(!client || !key) //Don't boot out anyone already in the mob.
-		for (var/obj/item/organ/internal/brain/H in world)
+		for(var/obj/item/organ/internal/brain/H in world)
 			if(H.brainmob)
 				if(H.brainmob.real_name == src.real_name)
 					if(H.brainmob.mind)
@@ -1225,12 +1225,21 @@ var/list/rank_prefix = list(\
 				var/organ_type = species.has_organ[tag]
 				new organ_type(src)
 
+<<<<<<< HEAD
 		if(checkprefcruciform)
 			var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
 			if(I.implant_type)
 				var/obj/item/weapon/implant/core_implant/C = new I.implant_type
 				C.install(src)
 				C.activate()
+=======
+		var/datum/category_item/setup_option/core_implant/I = Pref.get_option("Core implant")
+		if(I.implant_type && (!mind || mind.assigned_role != "Robot"))
+			var/obj/item/weapon/implant/core_implant/C = new I.implant_type
+			C.install(src)
+			C.activate()
+			if(mind)
+>>>>>>> 892dc61... fix robot (#5681)
 				C.install_default_modules_by_job(mind.assigned_job)
 				C.access.Add(mind.assigned_job.cruciform_access)
 	else
