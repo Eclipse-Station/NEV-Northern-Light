@@ -39,6 +39,13 @@
 	name = "mounted laser gun"
 	build_path = /obj/item/mech_equipment/mounted_system/taser/laser
 
+<<<<<<< HEAD
+=======
+/datum/design/research/item/exosuit/weapon/pk
+	name = "mounted rigged PK"
+	build_path = /obj/item/mech_equipment/mounted_system/ballistic/pk
+
+>>>>>>> a3fdac2... Prevents some parent objects from spawning in the loot tables. (#5688)
 //UTILITY
 /datum/design/research/item/exosuit/hydraulic_clamp
 	name = "hydraulic clamp"
