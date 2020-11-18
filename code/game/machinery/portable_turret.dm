@@ -770,11 +770,18 @@ var/list/turret_icons
 	name = "turret frame"
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "turret_frame"
+<<<<<<< HEAD
 	density=1
 	var/target_type = /obj/machinery/porta_turret	// The type we intend to build
 	var/build_step = 0			//the current step in the building process
 	var/finish_name="turret"	//the name applied to the product turret
 	var/installation = null		//the gun type installed
+=======
+	density = TRUE
+	var/build_step = 0			//the current step in the building process
+	var/finish_name="turret"	//the name applied to the product turret
+	var/obj/item/weapon/gun/energy/installation		//the gun type installed
+>>>>>>> 28cab40... Change some values for their corresponding definition.  (#5687)
 	var/gun_charge = 0			//the gun charge of the gun type installed
 
 

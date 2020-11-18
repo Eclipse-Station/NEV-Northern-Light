@@ -1,5 +1,5 @@
 /datum/species/human
-	name = "Human"
+	name = SPECIES_HUMAN
 	name_plural = "Humans"
 	primitive_form = "Monkey"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
@@ -16,6 +16,7 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
 /datum/species/human/get_bodytype()
+<<<<<<< HEAD
 	return "Human"
 
 
@@ -304,3 +305,6 @@
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE*/
+=======
+	return SPECIES_HUMAN
+>>>>>>> 28cab40... Change some values for their corresponding definition.  (#5687)

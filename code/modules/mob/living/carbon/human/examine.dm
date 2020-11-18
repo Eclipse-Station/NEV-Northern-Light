@@ -38,11 +38,16 @@
 		CRASH("Gender datum was null; key was '[(skipjumpsuit && skipface) ? PLURAL : gender]'")
 
 	msg += "<EM>[src.name]</EM>"
+<<<<<<< HEAD
 	if(species.name != "Human")
 		if(custom_species)
 			msg += ", a <b><font color='[species.flesh_color]'>[custom_species]</font></b>"
 		else
 			msg += ", a <b><font color='[species.flesh_color]'>[species.name]</font></b>"
+=======
+	if(species.name != SPECIES_HUMAN)
+		msg += ", a <b><font color='[species.flesh_color]'>[species.name]</font></b>"
+>>>>>>> 28cab40... Change some values for their corresponding definition.  (#5687)
 	msg += "!\n"
 
 	//uniform
