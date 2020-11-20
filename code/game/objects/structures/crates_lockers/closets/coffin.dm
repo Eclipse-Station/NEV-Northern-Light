@@ -6,8 +6,13 @@
 	spawn_blacklisted = TRUE
 	rarity_value = 10
 	spawn_frequency = 10
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_COFFIN_CLOSET
 	bad_types = /obj/structure/closet/coffin
+=======
+	spawn_tags = SPAWN_TAG_CLOSET_COFFIN
+	bad_type = /obj/structure/closet/coffin
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	var/mob/living/occupant = null
 
 /obj/structure/closet/coffin/close(mob/living/user)

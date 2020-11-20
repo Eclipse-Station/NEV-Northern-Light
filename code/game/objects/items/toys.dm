@@ -320,8 +320,12 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "sunflower"
 	item_state = "sunflower"
+<<<<<<< HEAD
+=======
+	flags // TODO??
+	preloaded_reagents = list("water" = 10)
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	var/empty = 0
-	flags
 
 /obj/item/toy/waterflower/New()
 	var/datum/reagents/R = new/datum/reagents(10)
@@ -404,6 +408,7 @@
 /obj/item/toy/prize
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "ripleytoy"
+	bad_type = /obj/item/toy/prize
 	var/cooldown = 0
 
 //all credit to skasi for toy mech fun ideas

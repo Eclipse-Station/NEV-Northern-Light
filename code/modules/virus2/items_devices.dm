@@ -107,7 +107,12 @@
 	var/stage = 1
 	var/analysed = 1
 
+<<<<<<< HEAD
 /obj/item/weapon/diseasedisk/premade/New()
+=======
+/obj/item/weapon/diseasedisk/premade/Initialize(mapload)
+	. = ..()
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	name = "blank GNA disk (stage: [stage])"
 	effect = new /datum/disease2/effectholder
 	effect.effect = new /datum/disease2/effect/invisible

@@ -40,10 +40,13 @@
 		/obj/item/weapon/rcd
 	)
 	helmet = /obj/item/clothing/head/space/void/engineering
+	rarity_value = 10.1
 
 /obj/item/clothing/suit/space/void/engineering/equipped
 	boots = /obj/item/clothing/shoes/magboots
 	tank = /obj/item/weapon/tank/jetpack/oxygen
+	accompanying_object = null
+	spawn_blacklisted = TRUE
 
 //Mining rig
 /obj/item/clothing/head/space/void/mining
@@ -80,6 +83,7 @@
 		rad = 75
 	)
 	helmet = /obj/item/clothing/head/space/void/mining
+	rarity_value = 10.11
 
 //Medical
 /obj/item/clothing/head/space/void/medical
@@ -121,10 +125,19 @@
 		rad = 75
 	)
 	helmet = /obj/item/clothing/head/space/void/medical
+<<<<<<< HEAD
 	rarity_value = 4.5
 
 /obj/item/clothing/suit/space/void/medical/equipped
 	boots = /obj/item/clothing/shoes/magboots
+=======
+	rarity_value = 8.7
+
+/obj/item/clothing/suit/space/void/medical/equipped
+	boots = /obj/item/clothing/shoes/magboots
+	accompanying_object = null
+	spawn_blacklisted = TRUE
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 
 	//Security
 /obj/item/clothing/head/space/void/security
@@ -168,6 +181,7 @@
 /obj/item/clothing/suit/space/void/security/equipped
 	boots = /obj/item/clothing/shoes/magboots
 	tank = /obj/item/weapon/tank/jetpack/oxygen
+	accompanying_object = null
 	spawn_blacklisted = TRUE
 
 //Atmospherics Rig (BS12)

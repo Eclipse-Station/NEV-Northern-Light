@@ -7,9 +7,15 @@
 	price_tag = 0
 	spawn_tags = SPAWN_TAG_ITEM
 	rarity_value = 10
+<<<<<<< HEAD
 	spawn_frequency = 10 //MAX
 	bad_types = /obj/item
+=======
+	spawn_frequency = 10
+	bad_type = /obj/item
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 
+	pass_flags = PASSTABLE
 	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/randpixel = 6
 	var/abstract = 0
@@ -21,7 +27,6 @@
 	var/hitsound
 	var/worksound
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
-	pass_flags = PASSTABLE
 
 	var/obj/item/master
 	var/list/origin_tech = list()	//Used by R&D to determine what research bonuses it grants.
@@ -114,15 +119,12 @@
 	switch(severity)
 		if(1)
 			qdel(src)
-			return
 		if(2)
 			if (prob(50))
 				qdel(src)
-				return
 		if(3)
 			if (prob(5))
 				qdel(src)
-				return
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"

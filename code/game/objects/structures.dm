@@ -3,8 +3,13 @@
 	w_class = ITEM_SIZE_GARGANTUAN
 	spawn_frequency = 10
 	rarity_value = 10
+<<<<<<< HEAD
 	spawn_tags = SPAWN_TAG_STRUCTURE
 	bad_types = /obj/structure
+=======
+	//spawn_tags = SPAWN_TAG_STRUCTURE
+	bad_type = /obj/structure
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	var/climbable
 	var/breakable
 	var/parts

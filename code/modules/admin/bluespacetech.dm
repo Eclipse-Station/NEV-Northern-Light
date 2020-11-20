@@ -302,8 +302,14 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_bst, R_ADMIN|R_DEBUG, TRUE)
 	spawn_blacklisted = TRUE
 	rarity_value = 100
 
+<<<<<<< HEAD
 /obj/item/weapon/card/id/bst/New()
 		access = get_all_accesses()+get_all_centcom_access()+get_all_syndicate_access()
+=======
+/obj/item/weapon/card/id/bst/Initialize(mapload)
+	. = ..()
+	access = get_all_accesses()+get_all_centcom_access()+get_all_syndicate_access()
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 
 /obj/item/weapon/card/id/bst/attack_hand()
 	if(!usr)

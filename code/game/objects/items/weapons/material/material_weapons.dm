@@ -10,7 +10,12 @@
 	w_class = ITEM_SIZE_NORMAL
 	sharp = FALSE
 	edge = FALSE
+<<<<<<< HEAD
 
+=======
+	bad_type = /obj/item/weapon/material
+	spawn_tags = SPAWN_TAG_WEAPON
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	var/applies_material_colour = 1
 	var/unbreakable
 	var/force_divisor = 1

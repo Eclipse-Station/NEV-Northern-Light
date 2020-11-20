@@ -40,6 +40,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	sanity_damage = 0.1
 	var/rare_item_chance = 70
 	var/rare_item = FALSE
+	var/prob_make_old = 80
 
 /obj/structure/scrap/proc/make_cube()
 	try_make_loot() //don't have a cube without materials
@@ -106,7 +107,11 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		else
 			big_item = CATCH.get_item(/obj/spawner/pack/junk_machine)
 		big_item.forceMove(src)
+<<<<<<< HEAD
 		if(prob(66))
+=======
+		if(prob(prob_make_old))
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 			big_item.make_old()
 		qdel(CATCH)
 
@@ -119,11 +124,50 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 
 	var/amt = rand(loot_min, loot_max)
 	for(var/x in 1 to amt)
+<<<<<<< HEAD
 		var/loot_path = pickweight(loot_list)
+=======
+		var/rare = FALSE
+		var/rare_items_amt = rand(1,2)
+		if((x >= amt-rare_items_amt) && prob(rare_item_chance))
+			rare = TRUE
+		var/list/loot_tags_copy = loot_tags.Copy()
+		if(rare)
+			loot_tags_copy -= junk_tags
+			loot_tags_copy |= rare_loot
+		var/list/true_loot_tags = list()
+		var/min_tags = min(loot_tags_copy.len,2)
+		var/tags_amt = max(round(loot_tags_copy.len*0.3),min_tags)
+		for(var/y in 1 to tags_amt)
+			true_loot_tags += pickweight_n_take(loot_tags_copy)
+		var/list/candidates = SSspawn_data.valid_candidates(true_loot_tags, restricted_tags, FALSE, null, null, TRUE)
+		if(SPAWN_ITEM in true_loot_tags)
+			var/top_price = 800
+			if(rare)
+				top_price = 2000
+			candidates -= SSspawn_data.spawns_upper_price(candidates, top_price)
+			var/list/old_tags = SSspawn_data.take_tags(candidates, list(SPAWN_OBJ))
+			var/new_tags_amt = max(round(old_tags.len*0.10),1)
+			true_loot_tags = list()
+			for(var/i in 1 to new_tags_amt)
+				true_loot_tags += pick_n_take(old_tags)
+			if(rare)
+				true_loot_tags -= junk_tags
+				true_loot_tags |= rare_loot
+			candidates = SSspawn_data.valid_candidates(true_loot_tags, restricted_tags, FALSE, 1, top_price, TRUE, list(/obj/item/stash_spawner))
+		if(rare)
+			var/top = CLAMP(round(candidates.len*0.3),1 ,10)
+			candidates = SSspawn_data.only_top_candidates(candidates, top) //top 10
+		var/loot_path = SSspawn_data.pick_spawn(candidates)
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 		new loot_path(src)
 
 	for(var/obj/item/loot in contents)
+<<<<<<< HEAD
 		if(prob(66))
+=======
+		if(prob(prob_make_old))
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 			loot.make_old()
 		if(istype(loot, /obj/item/weapon/reagent_containers/food/snacks))
 			var/obj/item/weapon/reagent_containers/food/snacks/S = loot
@@ -361,6 +405,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	desc = "Pile of used machinery. You could use tools from this to build something."
 	parts_icon = 'icons/obj/structures/scrap/vehicle.dmi'
 	rarity_value = 16.66
+<<<<<<< HEAD
 	loot_list = list(
 		/obj/spawner/pack/tech_loot = 3,
 		/obj/spawner/pouch,
@@ -372,6 +417,24 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/spawner/pack/rare = 0.3,
 		/obj/spawner/tool_upgrade = 1,
 		/obj/spawner/exosuit_equipment = 2
+=======
+	loot_tags = list(
+		SPAWN_DESING,
+		SPAWN_ELECTRONICS,
+		SPAWN_KNIFE,
+		SPAWN_ITEM,
+		SPAWN_MATERIAL,
+		SPAWN_MECH_QUIPMENT,
+		SPAWN_POWERCELL,
+		SPAWN_ASSEMBLY,SPAWN_STOCK_PARTS,SPAWN_DESING_COMMON,SPAWN_COMPUTER_HARDWERE,
+		SPAWN_TOOL, SPAWN_DIVICE, SPAWN_JETPACK, SPAWN_ITEM_UTILITY,SPAWN_TOOL_UPGRADE,SPAWN_TOOLBOX,SPAWN_VOID_SUIT,
+		SPAWN_GUN_UPGRADE,
+		SPAWN_POUCH,
+		SPAWN_MATERIAL_BUILDING = 2,
+		SPAWN_MATERIAL_BUILDING_ROD,
+		SPAWN_JUNK = 2, SPAWN_CLEANABLE = 2,
+		SPAWN_ORE,SPAWN_MATERIAL_JUNK = 2
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	)
 
 /obj/structure/scrap/food
@@ -414,6 +477,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	desc = "Pile of refuse from research department."
 	parts_icon = 'icons/obj/structures/scrap/science.dmi'
 	rarity_value = 25
+<<<<<<< HEAD
 	loot_list = list(
 		/obj/spawner/pack/tech_loot = 4,
 		/obj/spawner/powercell,
@@ -426,6 +490,33 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/spawner/exosuit_equipment)
 
 /obj/structure/scrap/cloth
+=======
+	loot_tags = list(
+		SPAWN_DESING,
+		SPAWN_ELECTRONICS,
+		SPAWN_KNIFE,
+		SPAWN_ITEM,
+		SPAWN_MATERIAL,
+		SPAWN_MECH_QUIPMENT,
+		SPAWN_POWERCELL,
+		SPAWN_ASSEMBLY,SPAWN_STOCK_PARTS,
+		SPAWN_DESING_COMMON,
+		SPAWN_COMPUTER_HARDWERE,
+		SPAWN_TOOL, SPAWN_DIVICE,
+		SPAWN_JETPACK,
+		SPAWN_ITEM_UTILITY,
+		SPAWN_TOOL_UPGRADE,
+		SPAWN_TOOLBOX,
+		SPAWN_VOID_SUIT,
+		SPAWN_GUN_UPGRADE,
+		SPAWN_SCIENCE,
+		SPAWN_ORE,
+		SPAWN_RARE_ITEM,
+		)
+	rare_loot = list(SPAWN_ODDITY, SPAWN_RARE_ITEM)
+
+/obj/structure/scrap_spawner/cloth
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	icontype = "cloth"
 	name = "cloth pile"
 	desc = "Pile of second hand clothing for charity."

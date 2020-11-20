@@ -7,7 +7,12 @@
 	var/sides = 6
 	attack_verb = list("diced")
 
+<<<<<<< HEAD
 /obj/item/weapon/dice/New()
+=======
+/obj/item/weapon/dice/Initialize(mapload)
+	. = ..()
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	icon_state = "[name][rand(1,sides)]"
 
 /obj/item/weapon/dice/d2

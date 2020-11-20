@@ -52,7 +52,12 @@
 /obj/item/weapon/card/id/merc
 	icon_state = "syndicate"
 
+<<<<<<< HEAD
 /obj/item/weapon/card/id/merc/New()
+=======
+/obj/item/weapon/card/id/merc/Initialize(mapload)
+	. = ..()
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	access = list(access_mercenary,//This access governs their ship and base
 	access_external_airlocks,
 	access_maint_tunnels)

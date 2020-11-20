@@ -3,6 +3,10 @@
 	icon_state = "trap-red"
 	alpha = 128
 	tags_to_spawn = list(SPAWN_TRAP_ARMED)
+<<<<<<< HEAD
+=======
+	check_density = FALSE
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 
 /obj/spawner/traps/item_to_spawn()
 	.=..()
@@ -23,7 +27,7 @@
 	name = "wire splicing"
 	icon_state = "trap-orange"
 	alpha = 128
-	tags_to_spawn = list(SPAWN_WIRE_TRAP)
+	tags_to_spawn = list(SPAWN_TRAP_WIRE)
 
 /obj/spawner/traps/wire_splicing/low_chance
 	name = "low chance wire splicing"
@@ -38,3 +42,31 @@
 		if (locate(/obj/structure/cable) in dview(3, T))
 			return TRUE
 		return FALSE
+<<<<<<< HEAD
+=======
+
+/obj/spawner/traps/find_smart_point(path)
+	var/list/spawn_points = ..()
+	if(!spawn_points.len)
+		return spawn_points
+	var/list/trap_points = list()
+	for(var/turf/T in spawn_points)
+		if(can_spawn_trap(T, path))
+			trap_points += T
+	return trap_points
+
+/obj/spawner/traps/update_tags()
+	..()
+	tags_to_spawn = biome.trap_tags
+
+/obj/spawner/traps/update_biome_vars()
+	tags_to_spawn = biome.trap_tags
+	biome.spawner_trap_count++
+	latejoin = TRUE
+	var/count = biome.spawner_trap_count
+	min_amount = max(1, biome.min_traps_amount / count)
+	max_amount = min(biome.max_traps_amount, max(3, biome.max_traps_amount / count))
+	if(use_biome_range)
+		spread_range = biome.range
+		loc = biome.loc
+>>>>>>> e41367c... Loot rework part 2. (#5664)

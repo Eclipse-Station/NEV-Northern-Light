@@ -20,6 +20,11 @@
     max_shells = 3
     recoil_buildup = 20
     twohanded = TRUE
+<<<<<<< HEAD
 
 
 
+=======
+    rarity_value = 30
+    accompanying_object = /obj/item/ammo_casing/grenade/frag
+>>>>>>> e41367c... Loot rework part 2. (#5664)

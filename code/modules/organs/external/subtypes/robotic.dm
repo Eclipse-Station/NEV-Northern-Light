@@ -8,6 +8,11 @@
 	nature = MODIFICATION_SILICON
 	armor = list(melee = 20, bullet = 20, energy = 20, bomb = 20, bio = 100, rad = 100)
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2) // Multiplied by w_class
+<<<<<<< HEAD
+=======
+	spawn_tags = SPAWN_TAG_PROSTHETIC
+	bad_type = /obj/item/organ/external/robotic
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	var/min_malfunction_damage = 20 // Any more damage than that and you start getting nasty random malfunctions
 
 /obj/item/organ/external/robotic/get_cache_key()

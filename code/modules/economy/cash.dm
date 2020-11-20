@@ -14,6 +14,11 @@
 	throw_speed = 1
 	throw_range = 2
 	w_class = ITEM_SIZE_SMALL
+<<<<<<< HEAD
+=======
+	bad_type = /obj/item/weapon/spacecash
+	spawn_tags = null
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	var/access = list()
 	access = access_crate_cash
 	var/worth = 0

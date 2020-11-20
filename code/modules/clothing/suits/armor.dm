@@ -8,7 +8,13 @@
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.6
 	price_tag = 200
+<<<<<<< HEAD
 	style = 1
+=======
+	rarity_value = 20
+	style = STYLE_LOW
+	bad_type = /obj/item/clothing/suit/armor
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	spawn_tags = SPAWN_TAG_CLOTHING_ARMOR
 
 /*
@@ -190,6 +196,16 @@
 	)
 	siemens_coefficient = 0
 	price_tag = 650
+<<<<<<< HEAD
+=======
+	rarity_value = 65
+	matter = list(
+		MATERIAL_STEEL = 6, // slightly less steel cost to make room for reflective glass
+		MATERIAL_PLASTEEL = 1,
+		MATERIAL_GLASS = 15 // reflective material, lots of it
+	)
+	//spawn_blacklisted = TRUE//antag_item_targets-crafteable?
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 
 /obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack") //TODO: Refactor this all into humandefense
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
@@ -254,7 +270,12 @@
 	)
 	equip_delay = 2 SECONDS
 	price_tag = 250
+<<<<<<< HEAD
 	style = 0
+=======
+	rarity_value = 25
+	style = STYLE_NONE
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 
 /obj/item/clothing/suit/armor/heavy/red
 	name = "Thunderdome suit (red)"
@@ -262,6 +283,7 @@
 	icon_state = "tdred"
 	item_state = "tdred"
 	siemens_coefficient = 1
+	spawn_frequency = 0//Thunderdome
 
 /obj/item/clothing/suit/armor/heavy/green
 	name = "Thunderdome suit (green)"
@@ -269,6 +291,7 @@
 	icon_state = "tdgreen"
 	item_state = "tdgreen"
 	siemens_coefficient = 1
+	spawn_frequency = 0//Thunderdome
 
 // Riot suit
 /obj/item/clothing/suit/armor/heavy/riot
@@ -317,6 +340,7 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.6
+	bad_type = /obj/item/clothing/suit/storage/vest
 
 //Provides the protection of a merc voidsuit, but only covers the chest/groin, and also takes up a suit slot. In exchange it has no slowdown and provides storage.
 /obj/item/clothing/suit/storage/vest/merc
@@ -364,7 +388,6 @@
 /obj/item/clothing/suit/armor/reactive
 	name = "reactive teleport armor"
 	desc = "Someone separated our Research Director's head from their body!"
-	var/active = FALSE
 	icon_state = "reactiveoff"
 	item_state = "reactiveoff"
 	blood_overlay_type = "armor"
@@ -376,6 +399,11 @@
 		bio = 0,
 		rad = 0
 	)
+<<<<<<< HEAD
+=======
+	var/active = FALSE
+	var/entropy_value = 2
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 
 /obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(prob(50))

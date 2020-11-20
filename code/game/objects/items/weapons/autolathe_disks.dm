@@ -38,7 +38,11 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/tools
 	disk_name = "Basic Tool Pack"
 	icon_state = "guild"
+<<<<<<< HEAD
 	rarity_value = 4.16
+=======
+	rarity_value = 5.5
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = -1
 	designs = list(
@@ -69,7 +73,11 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/misc
 	disk_name = "Miscellaneous Pack"
 	icon_state = "guild"
+<<<<<<< HEAD
 	rarity_value = 1.25
+=======
+	rarity_value = 3.5
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = -1
 	designs = list(
@@ -103,7 +111,11 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/devices
 	disk_name = "Devices and Instruments"
 	icon_state = "guild"
+<<<<<<< HEAD
 	rarity_value = 1.56
+=======
+	rarity_value = 3
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 10
 	designs = list(
@@ -130,6 +142,10 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells
 	disk_name = "Robustcells"
 	icon_state = "guild"
+<<<<<<< HEAD
+=======
+	rarity_value = 3
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 10
 	designs = list(
@@ -146,7 +162,11 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/components
 	disk_name = "Technomancers ARK-034 Components"
 	icon_state = "technomancers"
+<<<<<<< HEAD
 	rarity_value = 2.5
+=======
+	rarity_value = 4
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 20
 	designs = list(
@@ -171,6 +191,10 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools
 	disk_name = "Technomancers IJIRO-451 Advanced Tools"
 	icon_state = "technomancers"
+<<<<<<< HEAD
+=======
+	rarity_value = 11
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
 	license = 10
 	designs = list(
@@ -198,7 +222,11 @@
 	disk_name = "Technomancers ESPO-830 Circuits"
 	icon_state = "technomancers"
 	spawn_tags = SPAWN_TAG_DESING_COMMON
+<<<<<<< HEAD
 	rarity_value = 4.16
+=======
+	rarity_value = 5.5
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	license = 10
 	designs = list(
 		/datum/design/autolathe/circuit/airlockmodule = 0,
@@ -225,7 +253,11 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors
 	disk_name = "Technomancers LAT-018 Logistics"
 	icon_state = "technomancers"
+<<<<<<< HEAD
 	rarity_value = 2.5
+=======
+	rarity_value = 4
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 10
 	designs = list(
@@ -240,7 +272,11 @@
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/medical
 	disk_name = "NanoTrasen Medical Designs"
 	icon_state = "moebius"
+<<<<<<< HEAD
 	rarity_value = 3.125
+=======
+	rarity_value = 4.5
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	spawn_tags = SPAWN_TAG_DESING_COMMON
 	license = 20
 	designs = list(
@@ -278,7 +314,11 @@
 	disk_name = "NanoTrasen Computer Parts"
 	icon_state = "moebius"
 	spawn_tags = SPAWN_TAG_DESING_COMMON
+<<<<<<< HEAD
 	rarity_value = 3.125
+=======
+	rarity_value = 4.5
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 	license = 20
 	designs = list(
 		/datum/design/autolathe/computer_part/frame_pda,
@@ -1224,3 +1264,63 @@
 		/datum/design/autolathe/ammo/dart_mag,
 	)
 
+<<<<<<< HEAD
+=======
+// ARMOR
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor
+	bad_type = /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic
+	disk_name = "Ironhammer Combat Equipment - Standard Armor"
+	icon_state = "ironhammer"
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
+	rarity_value = 12 // one of the more common advanced disks
+	license = 6 // 6 pieces, or 3 sets if you use helm + vest
+	designs = list(
+		/datum/design/autolathe/clothing/generic_helmet_basic,
+		/datum/design/autolathe/clothing/generic_vest
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/bulletproof
+	disk_name = "Ironhammer Combat Equipment - Bulletproof Armor"
+	icon_state = "ironhammer"
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
+	rarity_value = 15 // about as rare as a advanced tool disk - remember that this takes from the 'advanced' pool (which is rare) instead of the 'common' pool like the normal armor disk does
+	license = 4 // 4 pieces, or 2 sets
+	designs = list(
+		/datum/design/autolathe/clothing/bulletproof_helmet_generic,
+		/datum/design/autolathe/clothing/bulletproof_vest_generic
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/ablative
+	disk_name = "Ironhammer Combat Equipment - Laserproof Armor"
+	icon_state = "ironhammer"
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
+	rarity_value = 16 // slightly rarer than bulletproof gear
+	license = 4 // 4 pieces, or 2 sets
+	designs = list(
+		/datum/design/autolathe/clothing/ablative_vest,
+		/datum/design/autolathe/clothing/ablative_helmet
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih
+	disk_name = "Ironhammer Combat Equipment - Operator Armor"
+	icon_state = "ironhammer"
+	spawn_blacklisted = TRUE //should only be obtainable from the sectech
+	license = 6
+	designs = list(
+		/datum/design/autolathe/clothing/ih_helmet_basic,
+		/datum/design/autolathe/clothing/ih_vest_basic
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof
+	disk_name = "Ironhammer Combat Equipment - Bulletproof Operator Armor"
+	icon_state = "ironhammer"
+	spawn_blacklisted = TRUE
+	license = 4
+	designs = list(
+		/datum/design/autolathe/clothing/ih_helmet_full,
+		/datum/design/autolathe/clothing/ih_vest_full
+	)
+
+>>>>>>> e41367c... Loot rework part 2. (#5664)

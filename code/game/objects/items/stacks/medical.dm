@@ -124,6 +124,7 @@
 	heal_brute = 4
 	preloaded_reagents = list("silicon" = 4, "ethanol" = 8)
 	rarity_value = 5
+	spawn_tags = SPAWN_TAG_MEDICINE_COMMON
 
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M, mob/living/user)
 	if(..())
@@ -271,6 +272,13 @@
 			else
 				to_chat(user, SPAN_NOTICE("The [affecting.name] is cut open, you'll need more than a [src]!"))
 
+<<<<<<< HEAD
+=======
+/obj/item/stack/medical/advanced
+	bad_type = /obj/item/stack/medical/advanced
+	spawn_tags = SPAWN_TAG_MEDICINE_ADVANCED
+
+>>>>>>> e41367c... Loot rework part 2. (#5664)
 /obj/item/stack/medical/advanced/bruise_pack
 	name = "advanced trauma kit"
 	singular_name = "advanced trauma kit"
@@ -283,7 +291,6 @@
 	splittable = FALSE	// Is the stack capable of being splitted?
 	preloaded_reagents = list("silicon" = 4, "ethanol" = 10, "lithium" = 4)
 	rarity_value = 10
-	spawn_tags = SPAWN_TAG_MEDICINE_COMMON
 
 /obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M, mob/living/user)
 	if(..())

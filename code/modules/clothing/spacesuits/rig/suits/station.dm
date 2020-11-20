@@ -140,6 +140,7 @@ Advanced Voidsuit: Chief Engineer
 
 	req_access = list(access_ce)
 	req_one_access = list()
+	spawn_blacklisted = TRUE//antag_item_targets
 
 /obj/item/weapon/rig/ce/equipped
 	rarity_value = 40
