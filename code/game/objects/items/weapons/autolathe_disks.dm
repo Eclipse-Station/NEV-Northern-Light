@@ -416,6 +416,7 @@
 
 		/datum/design/autolathe/device/headset_church
 	)
+<<<<<<< HEAD
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_boards
 	disk_name = "NanoTrasen Circuit Pack"
@@ -442,6 +443,9 @@
 		/datum/design/autolathe/circuit/biogen_console,
 	)
 
+=======
+	
+>>>>>>> 01a47c3... NT faith construction (#5475)
 // Ironhammer
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/security
 	disk_name = "Cobalt Miscellaneous Pack"

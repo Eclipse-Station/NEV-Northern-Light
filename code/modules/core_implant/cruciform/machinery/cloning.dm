@@ -16,9 +16,6 @@
 	density = TRUE
 	anchored = TRUE
 	layer = 2.8
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/cloner
-
-	frame_type = FRAME_VERTICAL
 
 	var/obj/machinery/neotheology/reader/reader
 	var/reader_loc
@@ -32,7 +29,7 @@
 
 	var/progress = 0
 
-	var/time_multiplier = 1	//Try to avoid use of non integer values
+	var/cloning_speed = 1	//Try to avoid use of non integer values
 
 	var/biomass_consumption = 2
 
@@ -51,18 +48,6 @@
 	if(occupant)
 		qdel(occupant)
 	return ..()
-
-
-/obj/machinery/neotheology/cloner/RefreshParts()
-	var/mn_rating = 0
-	var/mn_ammount = 0
-	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
-		mn_rating += M.rating
-		mn_ammount++
-	if (mn_ammount != 0) // Fail-check so we wont divide by 0 in future and get runtimes
-		time_multiplier = round(initial(time_multiplier)*(mn_rating/mn_ammount))
-	else
-		time_multiplier = 0 // ... so it wont work without manipulators
 
 /obj/machinery/neotheology/cloner/proc/find_container()
 	for(var/obj/machinery/neotheology/biomass_container/BC in orange(1,src))
@@ -198,9 +183,6 @@
 	if(stat & NOPOWER)
 		return
 
-	if(time_multiplier == 0) // We dont want to start if we wont have manipulators
-		return
-
 	if(cloning)
 		if(!reader || reader.loc != reader_loc || !reader.implant || !container || container.loc != container_loc)
 			open_anim()
@@ -208,7 +190,7 @@
 			update_icon()
 			return
 
-		progress += time_multiplier // I.e. 3 manipulators of tier 1 will increase progress by 1, 3 manipulators of tier 2 by 2 and so on
+		progress += cloning_speed 
 
 		if(progress <= CLONING_DONE)
 			if(container)
@@ -261,15 +243,6 @@
 		update_icon()
 
 	use_power(power_cost)
-
-
-/obj/machinery/neotheology/cloner/attackby(obj/item/I, mob/user as mob)
-
-	if(default_deconstruction(I, user))
-		return
-
-	if(default_part_replacement(I, user))
-		return
 
 /obj/machinery/neotheology/cloner/update_icon()
 	icon_state = "pod_base0"
@@ -377,7 +350,6 @@
 	icon_state = "biocan"
 	density = TRUE
 	anchored = TRUE
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/biocan
 
 	var/biomass_capacity = 600
 
@@ -406,12 +378,6 @@
 		P.dir = dir
 		. += P
 
-/obj/machinery/neotheology/biomass_container/RefreshParts()
-	var/T = 0
-	for(var/obj/item/weapon/stock_parts/matter_bin/M in component_parts)
-		T += M.rating * 200
-	biomass_capacity = T
-
 /obj/machinery/neotheology/biomass_container/examine(mob/user)
 	if(!..(user, 2))
 		return
@@ -422,13 +388,6 @@
 		to_chat(user, SPAN_NOTICE("Filled to [reagents.total_volume]/[biomass_capacity]."))
 
 /obj/machinery/neotheology/biomass_container/attackby(obj/item/I, mob/user)
-
-	if(default_deconstruction(I, user))
-		return
-
-	if(default_part_replacement(I, user))
-		return
-
 	if (istype(I, /obj/item/stack/material/biomatter))
 		var/obj/item/stack/material/biomatter/B = I
 		if (B.biomatter_in_sheet && B.amount)
@@ -473,13 +432,13 @@
 	icon_state = "reader_off"
 	density = TRUE
 	anchored = TRUE
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/reader
 
 	var/obj/item/weapon/implant/core_implant/soulcrypt/implant
 	var/reading = FALSE
 
 
 /obj/machinery/neotheology/reader/attackby(obj/item/I, mob/user as mob)
+<<<<<<< HEAD
 
 	if(default_deconstruction(I, user))
 		return
@@ -489,6 +448,10 @@
 
 	if(istype(I, /obj/item/weapon/implant/core_implant/soulcrypt))
 		var/obj/item/weapon/implant/core_implant/soulcrypt/C = I
+=======
+	if(istype(I, /obj/item/weapon/implant/core_implant/cruciform))
+		var/obj/item/weapon/implant/core_implant/cruciform/C = I
+>>>>>>> 01a47c3... NT faith construction (#5475)
 		user.drop_item()
 		C.forceMove(src)
 		implant = C

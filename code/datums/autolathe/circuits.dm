@@ -96,6 +96,7 @@
 /datum/design/autolathe/circuit/autolathe_excelsior
 	name = "excelsior autolathe"
 	build_path = /obj/item/weapon/electronics/circuitboard/excelsiorautolathe
+<<<<<<< HEAD
 
 //NT Circuits
 
@@ -154,3 +155,5 @@
 /datum/design/autolathe/circuit/bioreactor_platform
 	name = "NanoTrasen Biomatter Reactor, Platform"
 	build_path = /obj/item/weapon/electronics/circuitboard/neotheology/bioreactor_platform
+=======
+>>>>>>> 01a47c3... NT faith construction (#5475)
