@@ -1,8 +1,14 @@
 #include "deepmaint-1.dmm"
+<<<<<<< HEAD
 /*
 #include "deepmaint-2.dmm"
 #include "deepmaint-3.dmm"
 */
+=======
+//#include "deepmaint-2.dmm"
+//#include "deepmaint-3.dmm"
+
+>>>>>>> 579c97e... Update deepmaint.dm (#5710)
 /obj/map_data/deepmaint
 	name = "Deep Dark Marvelous"
 	is_player_level = TRUE
