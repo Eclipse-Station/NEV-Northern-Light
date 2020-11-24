@@ -1,4 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - server: replaces dead downstream with a newer one
