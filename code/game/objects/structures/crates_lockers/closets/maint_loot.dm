@@ -55,11 +55,15 @@
 	name = "\improper spare parts closet"
 	desc = "Somewhat old closet with spare parts in it."
 	icon_state = "eng"
+<<<<<<< HEAD
 	icon_door = "eng_secure_door"
+=======
+	icon_door = "eng_secure"
+>>>>>>> a77e62f... Removes the debug mining cart from maint loots (#5717)
 	old_chance = 10
 	rarity_value = 50
 
-/obj/structure/closet/random/tech/populate_contents()
+/obj/structure/closet/random/spareparts/populate_contents()
 	new /obj/spawner/lowkeyrandom/low_chance(src)
 	new /obj/spawner/lowkeyrandom/low_chance(src)
 	new /obj/spawner/lowkeyrandom/low_chance(src)
@@ -77,6 +81,7 @@
 	new /obj/spawner/lathe_disk/low_chance(src)
 	new /obj/spawner/pack/tech_loot/low_chance(src)
 	new /obj/spawner/pack/tech_loot/low_chance(src)
+
 
 
 
