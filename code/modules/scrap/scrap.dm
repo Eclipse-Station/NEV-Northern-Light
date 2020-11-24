@@ -119,7 +119,37 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 
 	var/amt = rand(loot_min, loot_max)
 	for(var/x in 1 to amt)
+<<<<<<< HEAD
 		var/loot_path = pickweight(loot_list)
+=======
+		var/rare = FALSE
+		var/rare_items_amt = rand(1,2)
+		if((x >= amt-rare_items_amt) && prob(rare_item_chance))
+			rare = TRUE
+		var/list/loot_tags_copy = loot_tags.Copy()
+		if(rare)
+			loot_tags_copy -= junk_tags
+			loot_tags_copy |= rare_loot
+		var/list/true_loot_tags = list()
+		var/min_tags = min(loot_tags_copy.len,2)
+		var/tags_amt = max(round(loot_tags_copy.len*0.3),min_tags)
+		for(var/y in 1 to tags_amt)
+			true_loot_tags += pickweight_n_take(loot_tags_copy)
+		var/list/candidates = SSspawn_data.valid_candidates(true_loot_tags, restricted_tags, FALSE, null, null, TRUE)
+		if(SPAWN_ITEM in true_loot_tags)
+			var/top_price = CHEAP_ITEM_PRICE
+			true_loot_tags = list()
+			var/list/tags = SSspawn_data.lowkeyrandom_tags.Copy()
+			var/new_tags_amt = max(round(tags.len*0.10),1)
+			for(var/i in 1 to new_tags_amt)
+				true_loot_tags += pick_n_take(tags)
+			if(rare)
+				top_price = 2000
+				true_loot_tags -= junk_tags
+				true_loot_tags |= rare_loot
+			candidates = SSspawn_data.valid_candidates(true_loot_tags, restricted_tags, FALSE, 1, top_price, TRUE, list(/obj/item/stash_spawner))
+		var/loot_path = SSspawn_data.pick_spawn(candidates)
+>>>>>>> 7d47de9... loot rework optimization. (#5709)
 		new loot_path(src)
 
 	for(var/obj/item/loot in contents)

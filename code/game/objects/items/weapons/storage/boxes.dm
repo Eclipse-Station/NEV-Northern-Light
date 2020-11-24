@@ -27,8 +27,6 @@
 	item_state = "box"
 	max_w_class = ITEM_SIZE_SMALL
 	max_storage_space = DEFAULT_SMALL_STORAGE + 1
-	var/foldable = /obj/item/stack/material/cardboard	//If set, can be folded (when empty) into the set object.
-	var/illustration = "writing"
 	contained_sprite = TRUE
 	health = 20
 	bad_types = /obj/item/weapon/storage/box
@@ -36,6 +34,13 @@
 	spawn_tags = SPAWN_TAG_BOX
 	rarity_value = 20
 	spawn_frequency = 10
+<<<<<<< HEAD
+=======
+	var/foldable = /obj/item/stack/material/cardboard	//If set, can be folded (when empty) into the set object.
+	var/illustration = "writing"
+	var/initial_amount = 0
+	var/spawn_type
+>>>>>>> 7d47de9... loot rework optimization. (#5709)
 
 /obj/item/weapon/storage/box/Initialize(mapload)
 	. = ..()
@@ -359,8 +364,6 @@
 	new /obj/item/weapon/implanter(src)
 	new /obj/item/weapon/implantpad(src)
 
-
-
 /obj/item/weapon/storage/box/rxglasses
 	name = "box of prescription glasses"
 	desc = "This box contains nerd glasses."
@@ -561,7 +564,12 @@
 	illustration = "lightmixed"
 	spawn_tags = SPAWN_TAG_BOX_TAG_JUNK
 	rarity_value = 6.66
+<<<<<<< HEAD
 	
+=======
+	initial_amount = 14
+	spawn_type = /obj/item/weapon/light/tube
+>>>>>>> 7d47de9... loot rework optimization. (#5709)
 
 /obj/item/weapon/storage/box/lights/mixed/populate_contents()
 	for(var/i in 1 to 14)
@@ -591,6 +599,12 @@
 /obj/item/weapon/storage/box/headset/church
 	name = "neotheology radio encryption key box"
 	illustration = "disk"
+<<<<<<< HEAD
+=======
+	initial_amount = 7
+	spawn_type = /obj/item/device/encryptionkey/headset_church
+	spawn_blacklisted = TRUE
+>>>>>>> 7d47de9... loot rework optimization. (#5709)
 
 /obj/item/weapon/storage/box/headset/church/populate_contents()
 	for(var/i in 1 to 7)

@@ -13,6 +13,10 @@
 	var/top_price = 0
 	var/low_price = 0
 	var/list/tags_to_spawn = list(SPAWN_ITEM, SPAWN_MOB, SPAWN_MACHINERY, SPAWN_STRUCTURE)
+<<<<<<< HEAD
+=======
+	var/list/should_be_include_tags = list()//TODO
+>>>>>>> 7d47de9... loot rework optimization. (#5709)
 	var/allow_blacklist = FALSE
 	var/list/aditional_object = list()
 	var/list/exclusion_paths = list()
@@ -99,6 +103,94 @@
 					price_tag += AMAO.price_tag
 	return spawns
 
+<<<<<<< HEAD
+=======
+/obj/spawner/proc/find_biome()
+	var/turf/T = get_turf(src)
+	if(T && T.biome)
+		biome = T.biome
+	if(check_biome_spawner())
+		update_biome_vars()
+
+/obj/spawner/proc/update_tags()
+	biome.update_tags()
+	tags_to_spawn = biome.tags_to_spawn
+
+/obj/spawner/proc/update_biome_vars()
+	update_tags()
+	tags_to_spawn = biome.tags_to_spawn
+	allow_blacklist = biome.allow_blacklist
+	exclusion_paths = biome.exclusion_paths
+	restricted_tags = biome.restricted_tags
+	top_price = min(biome.top_price, max(biome.cap_price - biome.price_tag, 0))
+	low_price = biome.low_price
+	min_amount = biome.min_loot_amount
+	max_amount = biome.max_loot_amount
+	if(use_biome_range)
+		spread_range = biome.range
+		loc = biome.loc
+
+// this function should return a specific item to spawn
+/obj/spawner/proc/item_to_spawn()
+	if(check_biome_spawner())
+		update_tags()
+		if(biome.price_tag + price_tag >= biome.cap_price && !istype(src, /obj/spawner/mob) && !istype(src, /obj/spawner/traps))
+			return
+	var/list/candidates = valid_candidates()
+	if(check_biome_spawner() && (istype(src, /obj/spawner/traps) || istype(src, /obj/spawner/mob)))
+		var/count = 1
+		if(istype(src, /obj/spawner/traps))
+			count = biome.spawner_trap_count
+		else if(istype(src, /obj/spawner/mob))
+			count = biome.spawner_mob_count
+		if(count < 2)
+			var/top = round(candidates.len*spawn_count*biome.only_top)
+			if(top <= candidates.len)
+				var/top_spawn = CLAMP(top, 1, min(candidates.len,7))
+				candidates = SSspawn_data.only_top_candidates(candidates, top_spawn)
+	//if(!candidates.len)
+	//	return
+	return pick_spawn(candidates)
+
+/obj/spawner/proc/valid_candidates()
+	var/list/candidates = SSspawn_data.valid_candidates(tags_to_spawn, restricted_tags, allow_blacklist, low_price, top_price, FALSE, include_paths, exclusion_paths, should_be_include_tags)
+	return candidates
+
+/obj/spawner/proc/pick_spawn(list/candidates)
+	var/selected = SSspawn_data.pick_spawn(candidates)
+	aditional_object = SSspawn_data.all_accompanying_obj_by_path[selected]
+	return selected
+
+/obj/spawner/proc/post_spawn(list/spawns)
+	return
+
+/proc/check_spawn_point(turf/T, check_density=FALSE)
+	. = TRUE
+	if(T.density  || T.is_wall || (T.is_hole && !T.is_solid_structure()))
+		. = FALSE
+	if(check_density && !turf_clear(T))
+		. = FALSE
+
+/obj/spawner/proc/find_smart_point()
+	var/list/points_for_spawn = list()
+	for(var/turf/T in trange(spread_range, loc))
+		if(check_biome_spawner() && !(T in biome.spawn_turfs))
+			continue
+		if(!check_spawn_point(T, check_density))
+			continue
+		points_for_spawn += T
+	return points_for_spawn
+
+/proc/check_room(atom/movable/source, atom/movable/target)
+	. = TRUE
+	var/ndist = get_dist(source, target)
+	var/turf/current = source
+	for(var/i in 1 to ndist)
+		current = get_step(current, get_dir(current, target))
+		if(!check_spawn_point(current))
+			return FALSE
+
+>>>>>>> 7d47de9... loot rework optimization. (#5709)
 /obj/randomcatcher
 	name = "Random Catcher Object"
 	desc = "You should not see this."

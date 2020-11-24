@@ -7,7 +7,11 @@
 	layer = BELOW_OBJ_LAYER
 	w_class = ITEM_SIZE_GARGANTUAN
 	matter = list(MATERIAL_STEEL = 10)
+<<<<<<< HEAD
 	bad_types = "/obj/structure/closet"
+=======
+	//bad_type = /obj/structure/closet
+>>>>>>> 7d47de9... loot rework optimization. (#5709)
 	spawn_tags = SPAWN_TAG_CLOSET
 	var/locked = FALSE
 	var/broken = FALSE
