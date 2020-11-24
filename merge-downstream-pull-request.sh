@@ -4,7 +4,7 @@ set -u # don't expand unbound variable
 set -f # disable pathname expansion
 set -C # noclobber
 
-readonly BASE_BRANCH_NAME="downstream-merge-"
+readonly BASE_BRANCH_NAME="downstream2-merge-"
 readonly BASE_PULL_URL="https://api.github.com/repos/Occulus-Server/Occulus-Eris/pulls"
 
 # Ensure the current directory is a git directory
