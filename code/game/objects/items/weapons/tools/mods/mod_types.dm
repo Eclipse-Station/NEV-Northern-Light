@@ -7,7 +7,7 @@
 //This can be attached to basically any long tool
 //This includes most mechanical ones
 /obj/item/weapon/tool_upgrade/reinforcement
-	bad_types = /obj/item/weapon/tool_upgrade/reinforcement
+	bad_type = /obj/item/weapon/tool_upgrade/reinforcement
 
 /obj/item/weapon/tool_upgrade/reinforcement/stick
 	name = "brace bar"
@@ -69,7 +69,7 @@
 	desc = "A bent piece of metal that wraps around sensitive parts of a tool, protecting it from impacts, debris, and stray fingers."
 	icon_state = "guard"
 	rarity_value = 20
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 	matter = list(MATERIAL_PLASTEEL = 5)
 
 /obj/item/weapon/tool_upgrade/reinforcement/guard/New()
@@ -121,14 +121,14 @@
 // 	 PRODUCTIVITY: INCREASES WORKSPEED
 //------------------------------------------------
 /obj/item/weapon/tool_upgrade/productivity
-	bad_types = /obj/item/weapon/tool_upgrade/productivity
+	bad_type = /obj/item/weapon/tool_upgrade/productivity
 
 /obj/item/weapon/tool_upgrade/productivity/ergonomic_grip
 	name = "ergonomic grip"
 	desc = "A replacement grip for a tool which allows it to be more precisely controlled with one hand."
 	icon_state = "ergonomic"
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 5)
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 
 /obj/item/weapon/tool_upgrade/productivity/ergonomic_grip/New()
 	..()
@@ -164,7 +164,7 @@
 	desc = "Do red tools really work faster, or is the effect purely psychological?"
 	icon_state = "paint_red"
 	rarity_value = 20
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 1)
 
 /obj/item/weapon/tool_upgrade/productivity/red_paint/New()
@@ -203,7 +203,7 @@
 	price_tag = 300
 	rarity_value = 60
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_DIAMOND = 4)
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 
 /obj/item/weapon/tool_upgrade/productivity/diamond_blade/New()
 	..()
@@ -242,7 +242,7 @@
 	desc = "A motor for power tools with a higher horsepower than usually expected. Significantly enhances productivity and lifespan, but more expensive to run and harder to control."
 	icon_state = "motor"
 	rarity_value = 20
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 	matter = list(MATERIAL_STEEL = 4, MATERIAL_PLASTEEL = 4)
 
 /obj/item/weapon/tool_upgrade/productivity/motor/New()
@@ -317,13 +317,13 @@
 // 	 REFINEMENT: INCREASES PRECISION
 //------------------------------------------------
 /obj/item/weapon/tool_upgrade/refinement
-	bad_types = /obj/item/weapon/tool_upgrade/refinement
+	bad_type = /obj/item/weapon/tool_upgrade/refinement
 
 /obj/item/weapon/tool_upgrade/refinement/laserguide
 	name = "\"Guiding Light\" laser guide"
 	desc = "A small visible laser which can be strapped onto any tool, giving an accurate representation of its target. Helps improve precision."
 	icon_state = "laser_guide"
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_URANIUM = 1)
 
 /obj/item/weapon/tool_upgrade/refinement/laserguide/New()
@@ -341,7 +341,7 @@
 	name = "gyrostabilized grip"
 	desc = "A fancy mechanical grip that partially floats around a tool, absorbing tremors and shocks. Allows precise work with a shaky hand."
 	icon_state = "stabilizing"
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 	matter = list(MATERIAL_PLASTIC = 3)
 
 /obj/item/weapon/tool_upgrade/refinement/stabilized_grip/New()
@@ -430,7 +430,7 @@
 
 //Allows the tool to use a cell one size category larger than it currently uses. Small to medium, medium to large, etc
 /obj/item/weapon/tool_upgrade/augment
-	bad_types = /obj/item/weapon/tool_upgrade/augment
+	bad_type = /obj/item/weapon/tool_upgrade/augment
 
 /obj/item/weapon/tool_upgrade/augment/cell_mount
 	name = "heavy cell mount"
@@ -475,7 +475,7 @@
 	desc = "Rare relic of OneStar uses the bluetech space to store additional 600 units of fuel at the cost of degradation."
 	icon_state = "canister_holding"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 4, MATERIAL_PLATINUM = 4)
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE_OS
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE_OS
 	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool_upgrade/augment/holding_tank/New()
@@ -489,6 +489,7 @@
 	)
 	I.prefix = "holding"
 	I.req_fuel_cell = REQ_FUEL
+	bluespace_entropy(5, get_turf(src))
 
 //Penalises the tool, but unlocks several more augment slots.
 /obj/item/weapon/tool_upgrade/augment/expansion
@@ -497,7 +498,7 @@
 	desc = "A bulky adapter which allows more modifications to be attached to the tool. A bit fragile but you can compensate."
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 1)
 	rarity_value = 60
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 
 /obj/item/weapon/tool_upgrade/augment/expansion/New()
 	..()
@@ -554,7 +555,7 @@
 	icon_state = "dampener"
 	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_PLASTEEL = 1, MATERIAL_PLATINUM = 1)
 	rarity_value = 30
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 
 /obj/item/weapon/tool_upgrade/augment/dampener/New()
 	..()
@@ -574,7 +575,7 @@
 	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_PLASTEEL = 1, MATERIAL_PLATINUM = 1)
 	spawn_blacklisted = TRUE
 	rarity_value = 50
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE_OS
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE_OS
 
 /obj/item/weapon/tool_upgrade/augment/ai_tool/New()
 	..()
@@ -603,7 +604,7 @@
 	desc = "Very rare tool mod from OneStar powered by their nanomachines. It repairs the tool while in use and makes it near unbreakable."
 	icon_state = "repair_nano"
 	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_PLASTEEL = 1, MATERIAL_PLATINUM = 1)
-	spawn_tags = SPAWN_TAG_RARE_TOOL_UPGRADE_OS
+	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE_OS
 	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool_upgrade/augment/repair_nano/New()

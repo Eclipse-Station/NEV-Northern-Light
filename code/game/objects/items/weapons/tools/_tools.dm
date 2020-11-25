@@ -15,7 +15,7 @@
 	w_class = ITEM_SIZE_SMALL
 
 	//spawn values
-	bad_types = /obj/item/weapon/tool
+	bad_type = /obj/item/weapon/tool
 	spawn_tags = SPAWN_TAG_TOOL
 
 	var/tool_in_use = FALSE
@@ -48,9 +48,9 @@
 
 
 	//Variables used for tool degradation
-	var/degradation = 0.8 //If nonzero, the health of the tool decreases by this amount after each tool operation
 	health = 0		// Health of a tool.
 	max_health = 1000
+	var/degradation = 0.8 //If nonzero, the health of the tool decreases by this amount after each tool operation
 	var/health_threshold  = 40 // threshold in percent on which tool health stops dropping
 	var/lastNearBreakMessage = 0 // used to show messages that tool is about to break
 	var/isBroken = FALSE
@@ -81,15 +81,13 @@
 		cell = new suitable_cell(src)
 
 	if(use_fuel_cost)
-		var/datum/reagents/R = new/datum/reagents(max_fuel)
-		reagents = R
-		R.my_atom = src
-		R.add_reagent("fuel", max_fuel)
+		create_reagents(max_fuel)
+		reagents.add_reagent("fuel", max_fuel)
 
-	if (use_stock_cost)
+	if(use_stock_cost)
 		stock = max_stock
 
-	if (max_health)
+	if(max_health)
 		health = max_health
 
 	update_icon()
@@ -476,7 +474,7 @@
 	if(istype(loc, /obj/machinery/door/airlock))
 		var/obj/machinery/door/airlock/AD = loc
 		AD.take_out_wedged_item()
-	playsound(get_turf(src), 'sound/effects/impacts/thud1.ogg', 50, 1 -3)
+	playsound(get_turf(src), 'sound/effects/impacts/thud1.ogg', 50, 1, -3)
 	isBroken = TRUE
 	return
 
@@ -487,7 +485,7 @@
 //Critical failure rolls. If you use use_tool_extended, you might want to call that proc as well.
 /obj/item/proc/handle_failure(mob/living/user, atom/target, required_stat, required_quality)
 	var/obj/item/weapon/tool/T
-	if(istype(src, /obj/item/weapon/tool))
+	if(istool(src))
 		T = src
 
 	var/crit_fail_chance = 25
@@ -937,7 +935,7 @@
 		return TRUE
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/internal/eyes/E = H.internal_organs_by_name[BP_EYES]
+		var/obj/item/organ/internal/eyes/E = H.random_organ_by_process(OP_EYES)
 		if(!E)
 			return
 		var/safety = H.eyecheck()
@@ -1033,6 +1031,7 @@
 	name = "Electric Boogaloo 3000"
 	icon_state = "omnitool"
 	item_state = "omnitool"
+	spawn_tags = null
 	tool_qualities = list(QUALITY_BOLT_TURNING = 100,
 							QUALITY_PRYING = 100,
 							QUALITY_WELDING = 100,

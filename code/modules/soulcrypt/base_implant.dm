@@ -36,7 +36,7 @@ The module base code is held in module.dm
 	var/datum/mind/host_mind
 	var/host_age
 	var/host_flavor_text
-	var/host_stats
+	var/datum/stat_holder/host_stats
 	var/list/host_languages = list()
 	var/host_name
 

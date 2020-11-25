@@ -11,7 +11,6 @@
 #define JOBS_LAZARUS "Lazarus Representive","Geneticist","Research Associate",
 #define JOBS_CHURCH "NeoTheology Magos","NeoTheology Enginseer","NeoTheology Acolyte",
 #define JOBS_NONHUMAN "AI","Robot","pAI"
-
 #define CREDITS "&cent;"
 #define CREDS "&cent;"
 

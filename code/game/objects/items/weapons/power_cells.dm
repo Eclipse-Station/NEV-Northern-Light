@@ -6,8 +6,7 @@
 	maxcharge = 1000
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 3, MATERIAL_SILVER = 3)
 	price_tag = 200
-	spawn_tags = SPAWN_TAG_LARGE_POWERCELL
-	spawn_frequency = 8
+	spawn_tags = SPAWN_TAG_POWERCELL_LARGE
 
 /obj/item/weapon/cell/large/high
 	name = "\"Robustcell 5000L\""
@@ -15,7 +14,7 @@
 	icon_state = "b_hi"
 	origin_tech = list(TECH_POWER = 2)
 	maxcharge = 5000
-	rarity_value = 4.5
+	rarity_value = 5.5
 
 /obj/item/weapon/cell/large/super
 	name = "\"Robustcell 15000L\""
@@ -38,7 +37,7 @@
 	desc = "An Experimental rechargeable L-standardized power cell. This one is cheap, yet better than the normal model for same price."
 	icon_state = "meb_b_st"
 	maxcharge = 2000
-	rarity_value = 4.5
+	rarity_value = 5.5
 
 /obj/item/weapon/cell/large/moebius/high
 	name = "\"Power-Geyser 7000L\""
@@ -46,7 +45,7 @@
 	icon_state = "meb_b_hi"
 	origin_tech = list(TECH_POWER = 2)
 	maxcharge = 7000
-	rarity_value = 6
+	rarity_value = 6.5
 
 /obj/item/weapon/cell/large/moebius/super
 	name = "\"Power-Geyser 13000L\""
@@ -119,8 +118,7 @@
 	maxcharge = 600
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 2)
 	price_tag = 100
-	spawn_tags = SPAWN_TAG_MEDIUM_POWERCELL
-	spawn_frequency = 8.5
+	spawn_tags = SPAWN_TAG_POWERCELL_MEDIUM
 
 /obj/item/weapon/cell/medium/high
 	name = "\"Robustcell 800M\""
@@ -128,8 +126,8 @@
 	icon_state = "m_hi"
 	origin_tech = list(TECH_POWER = 2)
 	maxcharge = 800
-	rarity_value = 4.5
-	spawn_tags = SPAWN_TAG_MEDIUM_POWERCELL_IH_AMMO
+	rarity_value = 5.5
+	spawn_tags = SPAWN_TAG_POWERCELL_MEDIUM_IH_AMMO
 
 /obj/item/weapon/cell/medium/super
 	name = "\"Robustcell 1000M\""
@@ -137,7 +135,7 @@
 	icon_state = "m_sup"
 	origin_tech = list(TECH_POWER = 5)
 	maxcharge = 1000
-	rarity_value = 7.5
+	rarity_value = 8
 
 /obj/item/weapon/cell/medium/hyper
 	name = "\"Robustcell-X 1500M\""
@@ -152,7 +150,7 @@
 	desc = "An Experimental rechargeable M-standardized power cell. This one is cheap, yet better than the normal model for the same price."
 	icon_state = "meb_m_st"
 	maxcharge = 700
-	rarity_value = 4.5
+	rarity_value = 5.5
 
 /obj/item/weapon/cell/medium/moebius/high
 	name = "\"Power-Geyser 900M\""
@@ -160,7 +158,7 @@
 	icon_state = "meb_m_hi"
 	origin_tech = list(TECH_POWER = 2)
 	maxcharge = 900
-	rarity_value = 6
+	rarity_value = 6.5
 
 
 /obj/item/weapon/cell/medium/moebius/super
@@ -211,9 +209,8 @@
 	maxcharge = 100
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1)
 	price_tag = 50
-	spawn_tags = SPAWN_TAG_SMALL_POWERCELL
-	rarity_value = 2
-	spawn_frequency = 9
+	spawn_tags = SPAWN_TAG_POWERCELL_SMALL
+	rarity_value = 3
 
 /obj/item/weapon/cell/small/high
 	name = "\"Robustcell 200S\""
@@ -221,7 +218,7 @@
 	icon_state = "s_hi"
 	origin_tech = list(TECH_POWER = 2)
 	maxcharge = 200
-	rarity_value = 3
+	rarity_value = 4
 
 /obj/item/weapon/cell/small/super
 	name = "\"Robustcell 300S\""
@@ -229,7 +226,7 @@
 	icon_state = "s_sup"
 	origin_tech = list(TECH_POWER = 5)
 	maxcharge = 300
-	rarity_value = 5
+	rarity_value = 7
 
 /obj/item/weapon/cell/small/hyper
 	name = "\"Robustcell-X 500S\""
@@ -244,7 +241,7 @@
 	desc = "NanoTrasen Laboratories branded rechargeable S-standardized power cell. This one is cheap, yet better than Aster model for same price."
 	icon_state = "meb_s_st"
 	maxcharge = 120
-	rarity_value = 2.6
+	rarity_value = 4
 
 /obj/item/weapon/cell/small/moebius/high
 	name = "\"Power-Geyser 250S\""
@@ -252,7 +249,7 @@
 	icon_state = "meb_s_hi"
 	origin_tech = list(TECH_POWER = 2)
 	maxcharge = 250
-	rarity_value = 4
+	rarity_value = 5
 
 /obj/item/weapon/cell/small/moebius/super
 	name = "\"Power-Geyser 300S\""
@@ -260,7 +257,7 @@
 	icon_state = "meb_s_sup"
 	origin_tech = list(TECH_POWER = 5)
 	maxcharge = 300
-	rarity_value = 5
+	rarity_value = 6
 
 /obj/item/weapon/cell/small/moebius/hyper
 	name = "\"Power-Geyser 400S\""

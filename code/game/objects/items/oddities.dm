@@ -16,10 +16,10 @@
 	spawn_blacklisted = TRUE
 	spawn_tags = SPAWN_TAG_ODDITY
 	rarity_value = 10
-	bad_types = /obj/item/weapon/oddity
+	bad_type = /obj/item/weapon/oddity
 
-//You choose what stat can be increased, and a maximum value that will be added to this stat
-//The minimum is defined above. The value of change will be decided by random
+	//You choose what stat can be increased, and a maximum value that will be added to this stat
+	//The minimum is defined above. The value of change will be decided by random
 	var/list/oddity_stats
 	var/sanity_value = 1
 	var/datum/perk/oddity/perk
@@ -47,7 +47,7 @@
 
 //Common - you can find those everywhere
 /obj/item/weapon/oddity/common
-	bad_types = /obj/item/weapon/oddity/common
+	bad_type = /obj/item/weapon/oddity/common
 	spawn_blacklisted = FALSE
 
 /obj/item/weapon/oddity/common/blueprint
@@ -231,7 +231,6 @@
 		STAT_TGH = 5,
 		STAT_VIG = 5,
 	)
-	spawn_tags = SPAWN_TAG_ODDITY_WEAPON
 	rarity_value = 22
 
 /obj/item/weapon/oddity/common/old_id
@@ -271,3 +270,63 @@
 /obj/item/weapon/oddity/techno/Initialize()
 	icon_state = "techno_part[rand(1,7)]"
 	.=..()
+
+/obj/item/weapon/oddity/broken_necklace
+	name = "Broken necklace"
+	desc = "A broken necklace that has a blue crystal as a trinket."
+	icon_state = "broken_necklace"
+	origin_tech = list(TECH_BLUESPACE = 9)
+	spawn_frequency = 0//unique
+	oddity_stats = list(
+		STAT_COG = 9,
+		STAT_VIG = 9,
+		STAT_ROB = 9,
+		STAT_TGH = 9,
+		STAT_BIO = 9,
+		STAT_MEC = 9
+	)
+	var/cooldown
+	var/entropy_value = 5
+	var/blink_range = 8
+
+/obj/item/weapon/oddity/broken_necklace/New()
+	..()
+	GLOB.bluespace_gift += 1
+	GLOB.bluespace_entropy -= rand(25, 50)
+
+/obj/item/weapon/oddity/broken_necklace/attack_self(mob/user)
+	if(world.time < cooldown)
+		return
+	cooldown = world.time + 3 SECONDS
+	user.visible_message(SPAN_WARNING("[user] crushes [src]!"), SPAN_DANGER("You crush [src]!"))
+	var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
+	sparks.set_up(3, 0, get_turf(user))
+	sparks.start()
+	var/turf/T = get_random_secure_turf_in_range(user, blink_range, 2)
+	go_to_bluespace(get_turf(user), entropy_value, TRUE, user, T)
+	for(var/obj/item/weapon/grab/G in user.contents)
+		if(G.affecting)
+			go_to_bluespace(get_turf(user), entropy_value, FALSE, G.affecting, locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
+	if(prob(1))
+		new /obj/item/bluespace_dust(user.loc)
+		new /obj/item/bluespace_dust(T)
+		GLOB.bluespace_gift -= 1
+		bluespace_entropy(50,T)
+		qdel(src)
+
+/obj/item/weapon/oddity/broken_necklace/throw_impact(atom/movable/hit_atom)
+	if(!..()) // not caught in mid-air
+		visible_message(SPAN_NOTICE("[src] fizzles upon impact!"))
+		var/turf/T = get_turf(hit_atom)
+		var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
+		sparks.set_up(3, 0, T)
+		sparks.start()
+		if(!hit_atom.anchored)
+			var/turf/NT = get_random_turf_in_range(hit_atom, blink_range, 2)
+			go_to_bluespace(T, entropy_value, TRUE, hit_atom, NT)
+		if(prob(1))
+			new /obj/item/bluespace_dust(T)
+			GLOB.bluespace_gift -= 1
+			bluespace_entropy(50,T)
+			qdel(src)
+

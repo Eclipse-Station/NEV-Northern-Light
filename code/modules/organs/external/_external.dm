@@ -14,6 +14,8 @@
 	dir = SOUTH
 	layer = BELOW_MOB_LAYER
 	organ_tag = "limb"
+	bad_type = /obj/item/organ/external
+	spawn_tags = SPAWN_TAG_ORGAN_EXTERNAL
 	var/tally = 0
 
 	var/list/s_col                     // skin colour
@@ -33,7 +35,7 @@
 	var/perma_injury = 0
 
 	// Appearance vars.
-	var/body_part = null               // Part flag
+	var/body_part               // Part flag
 	var/icon_position = 0              // Used in mob overlay layering calculations.
 	var/model                          // Used when caching robolimb icons.
 
@@ -52,11 +54,10 @@
 	var/list/embedded = list()			// Currently implanted objects that can be pulled out
 	var/max_size = 0
 
-	var/list/drop_on_remove = null
+	var/list/drop_on_remove
 
 	var/list/markings = list()         // Markings (body_markings) to apply to the icon
-
-	var/obj/item/organ_module/active/module = null
+	var/obj/item/organ_module/active/module
 
 	// Joint/state stuff.
 	var/functions = NONE	// Functions performed by body part. Bitflag, see _defines/damage_organs.dm for possible values.
@@ -70,7 +71,7 @@
 	var/encased				// Needs to be opened with a saw to access certain organs.
 
 	var/cavity_name = "cavity"				// Name of body part's cavity, displayed during cavity implant surgery
-	var/cavity_max_w_class = ITEM_SIZE_TINY	// Max w_class of cavity implanted items
+	var/max_volume = ITEM_SIZE_SMALL	// Max w_class of cavity implanted items
 
 	var/gendered = FALSE
 
@@ -81,7 +82,7 @@
 	var/cavity = 0
 
 	// Used for spawned robotic organs
-	var/default_description = null
+	var/default_description
 
 /obj/item/organ/external/New(mob/living/carbon/human/holder, datum/organ_description/OD)
 	if(OD)
@@ -115,7 +116,7 @@
 	src.surgery_name = desc.surgery_name
 	src.organ_tag = desc.organ_tag
 	src.body_part = desc.body_part
-	src.parent_organ = desc.parent_organ
+	src.parent_organ_base = desc.parent_organ_base
 	src.default_bone_type = desc.default_bone_type
 
 	src.max_damage = desc.max_damage
@@ -125,7 +126,7 @@
 	src.cannot_amputate = desc.cannot_amputate
 
 	src.w_class = desc.w_class
-	src.cavity_max_w_class = desc.cavity_max_w_class
+	src.max_volume = desc.max_volume
 
 	src.amputation_point = desc.amputation_point
 	src.joint = desc.joint
@@ -177,6 +178,10 @@
 	for(var/atom/movable/implant in implants)
 		//large items and non-item objs fall to the floor, everything else stays
 		var/obj/item/I = implant
+		if(istype(I, /obj/item/weapon/implant))
+			var/obj/item/weapon/implant/Imp = I
+			Imp.uninstall()
+			continue
 		if(istype(I) && I.w_class < ITEM_SIZE_NORMAL)
 			implant.forceMove(get_turf(owner))
 		else
@@ -254,7 +259,7 @@
 
 	if(internal_organs)
 		for(var/obj/item/organ/internal/int_organ in internal_organs)
-			int_organ.parent_organ = new_organ.organ_tag
+			int_organ.parent_organ_base = new_organ.organ_tag
 
 			src.internal_organs -= int_organ
 			new_organ.internal_organs += int_organ
@@ -829,8 +834,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 // Checks if the limb should get fractured by now
 /obj/item/organ/external/proc/should_fracture()
-	var/obj/item/organ/internal/bone/B = get_bone()
-	return config.bones_can_break && !BP_IS_ROBOTIC(src) && (brute_dam > ((min_broken_damage * ORGAN_HEALTH_MULTIPLIER) * (B ? (B.organ_efficiency / 100) : 1)))
+	var/bone_efficiency = owner.get_specific_organ_efficiency(OP_BONE, organ_tag)
+	return config.bones_can_break && !BP_IS_ROBOTIC(src) && (brute_dam > ((min_broken_damage * ORGAN_HEALTH_MULTIPLIER) * (bone_efficiency / 100)))
 
 // Fracture the bone in the limb
 /obj/item/organ/external/proc/fracture()

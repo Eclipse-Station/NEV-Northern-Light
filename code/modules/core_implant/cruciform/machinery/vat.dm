@@ -153,7 +153,7 @@
 				if(bad_limbs.len)
 					var/luckyLimbName = pick(bad_limbs)
 
-					var/obj/item/organ/O = victim.species.has_organ[luckyLimbName]
+					var/obj/item/organ/O = victim.species.has_process[luckyLimbName]
 					var/vital = initial(O.vital) //vital organs are handled separately
 					if(!vital)
 						restore_organ_by_tag(luckyLimbName)
@@ -210,13 +210,13 @@
 		fluid_level += amount
 
 /obj/machinery/neotheology/clone_vat/proc/check_vital_organs(mob/living/carbon/human/H, var/checkvital = FALSE)
-	for(var/organ_tag in H.species.has_organ)
-		var/obj/item/organ/O = H.species.has_organ[organ_tag]
+	for(var/organ_tag in H.species.has_process)
+		var/obj/item/organ/O = H.species.has_process[organ_tag]
 		var/vital = TRUE
 		if(checkvital)
 			vital = initial(O.vital) //check for vital organs
 		if(vital)
-			O = H.internal_organs_by_name[organ_tag]
+			O = H.random_organ_by_process(organ_tag)
 			if(!O)
 				if(prob(10))
 					if(organ_tag == BP_BRAIN)
@@ -251,9 +251,9 @@
 		OD.create_organ(victim)
 
 
-	if(organ_tag in victim.species.has_organ)
-		var/organ_type = victim.species.has_organ[organ_tag]
-		var/obj/item/I = victim.internal_organs_by_name[organ_tag]
+	if(organ_tag in victim.species.has_process)
+		var/organ_type = victim.species.has_process[organ_tag]
+		var/obj/item/I = victim.random_organ_by_process(organ_tag)
 		if(I && I.type == organ_type)
 			return
 		new organ_type(victim)
@@ -311,9 +311,9 @@
 
 
 /obj/machinery/neotheology/clone_vat/proc/apply_brain_damage(mob/living/carbon/human/H, var/deadtime)
-	if(!H.should_have_organ(BP_BRAIN)) return //no brain
+	if(!H.should_have_process(BP_BRAIN)) return //no brain
 
-	var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
+	var/obj/item/organ/internal/brain/brain = H.random_organ_by_process(BP_BRAIN)
 	if(!brain) return //no brain
 
 	var/brain_damage = CLAMP((deadtime - 2 MINUTES)/8 * brain.max_damage, H.getBrainLoss(), brain.max_damage)
@@ -336,8 +336,8 @@
 
 /obj/machinery/neotheology/clone_vat/proc/calucalte_genetic_corruption(mob/living/carbon/human/H)
 	var/corruption_counter = 0
-	for(var/organ_tag in H.species.has_organ)
-		var/obj/item/organ/O = H.internal_organs_by_name[organ_tag]
+	for(var/organ_tag in H.species.has_process)
+		var/obj/item/organ/O = H.random_organ_by_process(organ_tag)
 		if(!O)
 			corruption_counter += 3.5
 	for(var/organ_tag in H.species.has_limbs)
