@@ -382,8 +382,13 @@ var/list/datum/power/carrion/powerinstances = list()
 
 	if (Thepower.organpath)
 		var/obj/item/organ/internal/organ = new Thepower.organpath
+<<<<<<< HEAD
 		var/obj/item/organ/external/parentorgan =  owner.get_organ(organ.parent_organ)
 		parentorgan.add_item(organ, owner)
+=======
+		var/obj/item/organ/external/parentorgan =  owner.get_organ(organ.parent_organ_base)
+		parentorgan.add_item(organ, owner, FALSE)
+>>>>>>> 4b330e1... organ_space (#5715)
 
 	if(Thepower.spiderpath)
 		spiderlist |= Thepower.spiderpath
