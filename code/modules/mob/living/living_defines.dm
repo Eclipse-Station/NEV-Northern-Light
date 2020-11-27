@@ -79,4 +79,4 @@
 	var/noise_coeff = 1 //noise coefficient
 
 	spawn_frequency = 10
-	bad_types = /mob/living
+	bad_type = /mob/living

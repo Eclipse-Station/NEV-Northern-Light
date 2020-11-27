@@ -36,12 +36,27 @@
 #define ARMOR_RAD			"rad"
 
 
-// Organs.
+// Organ processes
+#define OP_EYES          "eyes"
+#define OP_HEART         "heart"
+#define OP_LUNGS         "lungs"
+#define OP_LIVER         "liver"
+#define OP_KIDNEYS       "kidneys"
+#define OP_APPENDIX      "appendix"
+#define OP_STOMACH       "stomach"
+#define OP_BONE          "bone"
+#define OP_MUSCLE        "muscle"
+#define OP_NERVE         "nerve"
+#define OP_BLOOD_VESSEL  "blood vessel"
+
+// Carrion organ processes
+#define OP_MAW       "carrion maw"
+#define OP_SPINNERET "carrion spinneret"
+#define OP_CHEMICALS "chemmical vessel"
+
+// Unique organs.
 #define BP_MOUTH    "mouth"
 #define BP_EYES     "eyes"
-#define BP_HEART    "heart"
-#define BP_LUNGS    "lungs"
-#define BP_TRACH	"tracheae"
 #define BP_BRAIN    "brain"
 #define BP_B_CHEST  "ribcage"
 #define BP_B_GROIN  "pelvis"
@@ -73,20 +88,8 @@
 #define BP_PHORONF   "phoron filter"
 #define BP_ACETONE  "acetone reactor"
 
-// Carrion Organs.
-#define BP_SPCORE       "spider core"
-#define BP_MAW          "carrion maw"
-#define BP_SPINNERET     "carrion spinneret"
-#define BP_CHEMICALS    "chemmical vessel"
-
-// Robo Organs.
-#define BP_POSIBRAIN	"posibrain"
-#define BP_VOICE		"vocal synthesiser"
-#define BP_STACK		"stack"
-#define BP_OPTICS		"optics"
-#define BP_FLOAT		"floatation disc"
-#define BP_JETS			"maneuvering jets"
-#define BP_COOLING_FINS "cooling fins"
+// Unique carrion Organs.
+#define BP_SPCORE   "spider core"
 
 //Augmetations
 #define BP_AUGMENT_R_ARM         "right arm augment"

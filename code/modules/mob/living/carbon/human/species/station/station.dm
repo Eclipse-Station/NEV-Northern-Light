@@ -1,5 +1,5 @@
 /datum/species/human
-	name = "Human"
+	name = SPECIES_HUMAN
 	name_plural = "Humans"
 	primitive_form = "Monkey"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
@@ -16,7 +16,7 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
 /datum/species/human/get_bodytype()
-	return "Human"
+	return SPECIES_HUMAN
 
 
 /datum/species/unathi
@@ -57,7 +57,7 @@
 	Most Unathi are guided by a complex Ethnoreligion called the Unity,\
 	which stresses honesty, bravery, and the perfection of one's craft. \
 	Discovered less then a generation ago by SolGov,\
-	an ensuring war against SolGov by the Unathi over the colony of Abelâ€™s Rest has led to cross-migration between the two powers."
+	an ensuring war against SolGov by the Unathi over the colony of Abel’s Rest has led to cross-migration between the two powers."
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200

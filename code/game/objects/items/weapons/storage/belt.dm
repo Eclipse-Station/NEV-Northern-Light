@@ -9,7 +9,7 @@
 	slot_flags = SLOT_BELT
 	matter = list(MATERIAL_BIOMATTER = 4, MATERIAL_PLASTIC = 5)
 	attack_verb = list("whipped", "lashed", "disciplined")
-	bad_types = /obj/item/weapon/storage/belt
+	bad_type = /obj/item/weapon/storage/belt
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_BELT
 
@@ -211,3 +211,7 @@
 	matter = list(MATERIAL_STEEL = 6, MATERIAL_GOLD = 6, MATERIAL_DIAMOND = 2, MATERIAL_URANIUM = 3)
 	origin_tech = list(TECH_BLUESPACE = 4)
 	spawn_blacklisted = TRUE
+
+/obj/item/weapon/storage/belt/holding/New()
+	..()
+	bluespace_entropy(4, get_turf(src))
