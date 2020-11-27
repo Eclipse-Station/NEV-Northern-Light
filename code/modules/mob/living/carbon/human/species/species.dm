@@ -144,11 +144,20 @@
 	var/gluttonous                // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING.
 	var/species_rarity_value = 1          // Relative rarity/collector value for this species.
 	                              // Determines the organs that the species spawns with and
+<<<<<<< HEAD
 	var/list/has_organ = list(    // which required-organ checks are conducted.
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+=======
+	var/list/has_process = list(    // which required-process checks are conducted and defalut organs for them.
+		OP_HEART =    /obj/item/organ/internal/heart,
+		OP_LUNGS =    /obj/item/organ/internal/lungs,
+		OP_STOMACH =  /obj/item/organ/internal/stomach,
+		OP_LIVER =    /obj/item/organ/internal/liver,
+		OP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+>>>>>>> 24384db... Erismed 2 : More organs (#5685)
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_APPENDIX = /obj/item/organ/internal/appendix,
 		BP_EYES =     /obj/item/organ/internal/eyes

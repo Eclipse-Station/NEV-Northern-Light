@@ -1540,7 +1540,11 @@ var/list/rank_prefix = list(\
 /mob/living/carbon/human/should_have_organ(var/organ_check)
 
 	var/obj/item/organ/external/affecting
+<<<<<<< HEAD
 	if(organ_check in list(BP_HEART, BP_LUNGS))
+=======
+	if(organ_check in list(OP_HEART, OP_LUNGS, OP_STOMACH))
+>>>>>>> 24384db... Erismed 2 : More organs (#5685)
 		affecting = organs_by_name[BP_CHEST]
 	else if(organ_check in list(BP_LIVER, BP_KIDNEYS))
 		affecting = organs_by_name[BP_GROIN]

@@ -212,6 +212,7 @@
 	if(on_fire)
 		msg += "<span class='warning'>[T.He] [T.is] on fire!.</span>\n"
 
+<<<<<<< HEAD
 	/*
 	msg += "<span class='warning'>"
 	if(nutrition < 100)
@@ -226,6 +227,9 @@
 	*/
 
 	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD)
+=======
+	if(species.show_ssd && (!species.has_process[BP_BRAIN] || has_brain()) && stat != DEAD)
+>>>>>>> 24384db... Erismed 2 : More organs (#5685)
 		if(!key)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
 		else if(!client)

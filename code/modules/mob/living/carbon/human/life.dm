@@ -61,6 +61,10 @@
 
 		//Organs and blood
 		handle_organs()
+<<<<<<< HEAD
+=======
+		process_internal_ograns()
+>>>>>>> 24384db... Erismed 2 : More organs (#5685)
 		handle_blood()
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
@@ -69,6 +73,10 @@
 		handle_pain()
 
 		handle_medical_side_effects()
+
+		if(life_tick % 3)	//Upadated every 3 life ticks, lots of for loops in this
+			for(var/obj/item/organ/external/E in organs)
+				E.update_limb_efficiency()
 
 		if(!client)
 			species.handle_npc(src)
@@ -597,10 +605,6 @@
 		else //heal in the dark
 			heal_overall_damage(1,1)
 
-	// nutrition decrease
-	if (nutrition > 0 && stat != 2)
-		nutrition = max (0, nutrition - species.hunger_factor)
-
 	// TODO: stomach and bloodstream organ.
 	handle_trace_chems()
 
@@ -786,6 +790,7 @@
 		if(T.get_lumcount() == 0)
 			playsound_local(src,pick(scarySounds),50, 1, -1)
 
+<<<<<<< HEAD
 /mob/living/carbon/human/handle_stomach()
 	spawn(0)
 		for(var/mob/living/M in stomach_contents)
@@ -804,6 +809,8 @@
 					nutrition += 10
 
 
+=======
+>>>>>>> 24384db... Erismed 2 : More organs (#5685)
 /mob/living/carbon/human/handle_shock()
 	..()
 	if(status_flags & GODMODE)	return 0	//godmode
