@@ -1,4 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - rscadd: Pixelshifting (Use CTRL + SHIFT + Direction keys)
