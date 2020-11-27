@@ -40,6 +40,10 @@
 		/obj/item/weapon/rcd
 	)
 	helmet = /obj/item/clothing/head/space/void/engineering
+<<<<<<< HEAD
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> f04e11b... Removes faction voidsuits from maint (#5726)
 
 /obj/item/clothing/suit/space/void/engineering/equipped
 	boots = /obj/item/clothing/shoes/magboots
@@ -80,6 +84,10 @@
 		rad = 75
 	)
 	helmet = /obj/item/clothing/head/space/void/mining
+<<<<<<< HEAD
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> f04e11b... Removes faction voidsuits from maint (#5726)
 
 //Medical
 /obj/item/clothing/head/space/void/medical
@@ -163,7 +171,11 @@
 	)
 	siemens_coefficient = 0.7
 	helmet = /obj/item/clothing/head/space/void/security
+<<<<<<< HEAD
 	rarity_value = 20
+=======
+	spawn_blacklisted = TRUE
+>>>>>>> f04e11b... Removes faction voidsuits from maint (#5726)
 
 /obj/item/clothing/suit/space/void/security/equipped
 	boots = /obj/item/clothing/shoes/magboots

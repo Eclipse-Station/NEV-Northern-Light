@@ -85,7 +85,11 @@
 	resilience = 0.08
 	species_restricted = list("Human")
 	helmet = /obj/item/clothing/head/space/void/merc
+<<<<<<< HEAD
 	rarity_value = 50
+=======
+	rarity_value = 160
+>>>>>>> f04e11b... Removes faction voidsuits from maint (#5726)
 
 /obj/item/clothing/suit/space/void/merc/equipped
 	boots = /obj/item/clothing/shoes/magboots
