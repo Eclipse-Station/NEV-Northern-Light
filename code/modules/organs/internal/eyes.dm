@@ -36,7 +36,7 @@
 	if(!owner)
 		return
 	eyes_color = rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
-	
+
 /obj/item/organ/internal/eyes/take_damage(amount, silent=0)
 	var/oldbroken = is_broken()
 	..()
@@ -44,10 +44,14 @@
 		to_chat(owner, SPAN_DANGER("You go blind!"))
 
 /obj/item/organ/internal/eyes/proc/get_colourmatrix() //Returns a special colour matrix if the eyes are organic and the mob is colourblind, otherwise it uses the current one.
-	if(!(BP_IS_ROBOTIC(src)) && owner.stats.getPerk(PERK_OBORIN_SYNDROME) && !owner.is_dead())
-		return colourblind_matrix
+	if(owner)
+		if(!(BP_IS_ROBOTIC(src)) && owner.stats.getPerk(PERK_OBORIN_SYNDROME) && !owner.is_dead())
+			return colourblind_matrix
+		else
+			return colourmatrix
 	else
 		return colourmatrix
+
 
 //Subtypes
 /obj/item/organ/internal/eyes/oneeye
