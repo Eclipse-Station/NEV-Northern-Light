@@ -4,8 +4,8 @@ set -u # don't expand unbound variable
 set -f # disable pathname expansion
 set -C # noclobber
 
-readonly BASE_BRANCH_NAME="downstream-merge-"
-readonly BASE_PULL_URL="https://api.github.com/repos/SyzygyStation/Syzygy-Eris/pulls"
+readonly BASE_BRANCH_NAME="downstream2-merge-"
+readonly BASE_PULL_URL="https://api.github.com/repos/Occulus-Server/Occulus-Eris/pulls"
 
 # Ensure the current directory is a git directory
 if [ ! -d .git ]; then
@@ -34,7 +34,7 @@ containsElement () {
 
 # Make sure we have our upstream remote
 if ! git remote | grep Downstream1 > /dev/null; then
-   git remote add Downstream1 https://github.com/SyzygyStation/Syzygy-Eris.git
+   git remote add Downstream1 https://github.com/Occulus-Server/Occulus-Eris.git
 fi
 
 # We need to make sure we are always on a clean master when creating the new branch.
