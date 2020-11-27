@@ -2,8 +2,8 @@
 	name = "Sword of Truth"
 	desc = "Sword out of unknown alloy, humming from unknown power source."
 	icon = 'icons/obj/faction_item.dmi'
-	icon_state = "nt_sword"
-	item_state = "nt_sword"
+	icon_state = "nt_sword_truth"
+	item_state = "nt_sword_truth"
 	slot_flags = FALSE
 	origin_tech = list(TECH_COMBAT = 5, TECH_POWER = 4, TECH_MATERIAL = 8)
 	price_tag = 20000
@@ -122,6 +122,7 @@
 
 /obj/structure/nt_pedestal/update_icon()
 	icon_state = "nt_pedestal[sword?"1":"0"]"
+<<<<<<< HEAD
 
 /obj/item/weapon/storage/pouch/nt_sheath
 	name = "Sword of Truth sheath"
@@ -146,3 +147,5 @@
 	icon_state = "nt_sheath[contents.len?"1":"0"]"
 	item_state = "nt_sheath[contents.len?"1":"0"]"
 	..()
+=======
+>>>>>>> fea2a04... NT equipment update (#5716)

@@ -94,3 +94,10 @@
 		if (M.ear_damage >= 5)
 			to_chat(M, SPAN_DANGER("Your ears start to ring!"))
 	M.update_icons()
+
+/obj/item/weapon/grenade/flashbang/nt
+	name = "NT FBG \"Holy Light\""
+	desc = "An old \"NanoTrasen\" flashbang granade, modified to spread the light of god."
+	icon_state = "flashbang_nt"
+	item_state = "flashbang_nt"
+	matter = list(MATERIAL_BIOMATTER = 75)

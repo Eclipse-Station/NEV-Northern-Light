@@ -417,6 +417,7 @@
 		/datum/design/autolathe/device/headset_church
 	)
 
+<<<<<<< HEAD
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_boards
 	disk_name = "NanoTrasen Circuit Pack"
 	icon_state = "neotheology"
@@ -442,6 +443,8 @@
 		/datum/design/autolathe/circuit/biogen_console,
 	)
 
+=======
+>>>>>>> fea2a04... NT equipment update (#5716)
 // Ironhammer
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/security
 	disk_name = "Cobalt Miscellaneous Pack"
@@ -1200,6 +1203,23 @@
 		/datum/design/autolathe/cell/medium/high,
 	)
 
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_melee
+	disk_name = "NeoTheology Armory - Melee Weapons"
+	icon_state = "neotheology"
+	spawn_blacklisted = TRUE
+	rarity_value = 50
+	license = -1
+	designs = list(
+		/datum/design/autolathe/sword/nt_sword,
+		/datum/design/autolathe/sword/nt_longsword,
+		/datum/design/autolathe/sword/nt_dagger,
+		/datum/design/autolathe/sword/nt_halberd,
+		/datum/design/autolathe/sword/nt_scourge,
+		/datum/design/autolathe/shield/nt_shield,
+		/datum/design/bioprinter/storage/sheath,
+		/datum/design/autolathe/tool_upgrade/sanctifier
+	)
+
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_cassad
 	disk_name = "Frozen Star - Cassad Plasma Rifle"
 	icon_state = "frozenstar"
@@ -1224,3 +1244,87 @@
 		/datum/design/autolathe/ammo/dart_mag,
 	)
 
+<<<<<<< HEAD
+=======
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_grenades
+	disk_name = "NeoTheology Armory - Grenades Pack"
+	icon_state = "neotheology"
+	spawn_blacklisted = TRUE
+	rarity_value = 50
+	license = 12
+	designs = list(
+		/datum/design/autolathe/grenade/nt_explosive = 3,
+		/datum/design/autolathe/grenade/nt_flashbang,
+		/datum/design/autolathe/grenade/nt_frag = 2,
+		/datum/design/autolathe/grenade/nt_smokebomb
+	)
+
+// ARMOR
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor
+	bad_type = /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/crusader
+	disk_name = "NeoTheology Armory - Crusader Armor"
+	icon_state = "neotheology"
+	spawn_blacklisted = TRUE
+	rarity_value = 12 // one of the more common advanced disks
+	license = 6 // 6 pieces, or 3 sets if you use helm + vest
+	designs = list(
+		/datum/design/autolathe/helmet/crusader,
+		/datum/design/autolathe/armor/crusader
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic
+	disk_name = "Ironhammer Combat Equipment - Standard Armor"
+	icon_state = "ironhammer"
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
+	rarity_value = 12 // one of the more common advanced disks
+	license = 6 // 6 pieces, or 3 sets if you use helm + vest
+	designs = list(
+		/datum/design/autolathe/clothing/generic_helmet_basic,
+		/datum/design/autolathe/clothing/generic_vest
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/bulletproof
+	disk_name = "Ironhammer Combat Equipment - Bulletproof Armor"
+	icon_state = "ironhammer"
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
+	rarity_value = 15 // about as rare as a advanced tool disk - remember that this takes from the 'advanced' pool (which is rare) instead of the 'common' pool like the normal armor disk does
+	license = 4 // 4 pieces, or 2 sets
+	designs = list(
+		/datum/design/autolathe/clothing/bulletproof_helmet_generic,
+		/datum/design/autolathe/clothing/bulletproof_vest_generic
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/ablative
+	disk_name = "Ironhammer Combat Equipment - Laserproof Armor"
+	icon_state = "ironhammer"
+	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
+	rarity_value = 16 // slightly rarer than bulletproof gear
+	license = 4 // 4 pieces, or 2 sets
+	designs = list(
+		/datum/design/autolathe/clothing/ablative_vest,
+		/datum/design/autolathe/clothing/ablative_helmet
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih
+	disk_name = "Ironhammer Combat Equipment - Operator Armor"
+	icon_state = "ironhammer"
+	spawn_blacklisted = TRUE //should only be obtainable from the sectech
+	license = 6
+	designs = list(
+		/datum/design/autolathe/clothing/ih_helmet_basic,
+		/datum/design/autolathe/clothing/ih_vest_basic
+	)
+
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof
+	disk_name = "Ironhammer Combat Equipment - Bulletproof Operator Armor"
+	icon_state = "ironhammer"
+	spawn_blacklisted = TRUE
+	license = 4
+	designs = list(
+		/datum/design/autolathe/clothing/ih_helmet_full,
+		/datum/design/autolathe/clothing/ih_vest_full
+	)
+
+>>>>>>> fea2a04... NT equipment update (#5716)
