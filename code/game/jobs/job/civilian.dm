@@ -74,6 +74,7 @@
 	icon_state = "player-grey"
 	join_tag = /datum/job/clubworker
 
+<<<<<<< HEAD
 /datum/job/actor
 	title = "Actor"
 	flag = ACTOR
@@ -172,6 +173,8 @@
 	name = "Custodian"
 	icon_state = "player-black"
 	join_tag = /datum/job/janitor
+=======
+>>>>>>> 3fddb3e... Actor to Artist (#5719)
 
 
 */
