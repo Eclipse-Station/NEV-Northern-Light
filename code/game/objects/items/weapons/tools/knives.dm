@@ -1,6 +1,10 @@
 
+<<<<<<< HEAD
 //Knives
 
+=======
+//Knifes
+>>>>>>> 07ee982... Loot rework improvements. (#5721)
 /obj/item/weapon/tool/knife
 	name = "kitchen knife"
 	desc = "A general purpose Chef's Knife made by the Free Trade Union. Guaranteed to stay sharp for years to come."
