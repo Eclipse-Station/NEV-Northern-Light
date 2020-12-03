@@ -197,6 +197,7 @@
 
 #define RANDOM_BLOOD_TYPE pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 
+<<<<<<< HEAD
 
 // 'Regular' species.
 #define SPECIES_HUMAN			"Human"
@@ -232,3 +233,6 @@
 #define SPECIES_CUSTOM			"Custom Species"
 #define SPECIES_PHORONMAN		"Phoronoid"
 #define SPECIES_MOTH			"Mothperson"
+=======
+#define NECROZTIME 	(5 MINUTES)
+>>>>>>> 5f6de56... Molitor-Riedel Enricher improved (#5749)
