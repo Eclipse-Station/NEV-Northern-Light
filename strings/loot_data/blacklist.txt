@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+=======
+/obj/item/weapon/gun/projectile/gyropistol
+/obj/item/weapon/gun/projectile/revolver/capgun
+/obj/item/weapon/gun/energy/chameleon
+/obj/item/weapon/gun/energy/taser/mounted/cyborg
+/obj/item/weapon/gun/energy/taser/mounted
+/obj/item/weapon/gun/energy/laser/practice/xenoarch
+/obj/item/weapon/gun/energy/laser/xenoarch
+/obj/item/weapon/gun/energy/plasma/stranger
+/obj/item/weapon/gun/energy/plasma/mounted
+/obj/item/weapon/gun/energy/gun/mounted
+/obj/item/weapon/gun/energy/gun/nuclear
+/obj/item/weapon/gun/energy/captain/xenoarch
+/obj/item/weapon/gun/energy/captain
+/obj/item/weapon/gun/energy/lasercannon/mounted
+/obj/item/weapon/gun/energy/psychic/lasercannon
+/obj/item/weapon/gun/energy/psychic
+/obj/item/weapon/gun/energy/shrapnel/mounted
+/obj/item/weapon/gun/energy/xray/xenoarch
+>>>>>>> c3338a4... update loot (#5751)
 /obj/item/weapon/tank/onestar_regenerator
 /obj/item/weapon/paper/manifest
 /obj/item/weapon/paper/monitorkey
