@@ -132,12 +132,26 @@
 	var/style_factor = owner.get_style_factor()
 	if(owner.stats.getPerk(PERK_MORALIST))
 		for(var/mob/living/carbon/human/H in view(owner))
+<<<<<<< HEAD
 			if(H)
 				if(H.sanity.level > 60)
 					moralist_factor += 0.02
 	insight += INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier * moralist_factor * style_factor * life_tick_modifier
 	while(insight >= 100)
 		to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? null : " Now you need to rest and rethink your life choices."]"))
+=======
+			if(H.sanity.level > 60)
+				moralist_factor += 0.02
+	give_insight(INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier * moralist_factor * style_factor * life_tick_modifier)
+	while(resting < max_resting && insight >= 100)
+		give_resting(1)
+		if(owner.stats.getPerk(PERK_ARTIST))
+			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? null : " Now you need to make art. You cannot gain more insight before you do."]"))
+		else
+			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? null : " Now you need to rest and rethink your life choices."]"))
+			pick_desires()
+			insight -= 100
+>>>>>>> 97ffcb2... Update sanity_mob.dm (#5760)
 		owner.playsound_local(get_turf(owner), 'sound/sanity/psychochimes.ogg', 100)
 		++resting
 		pick_desires()
