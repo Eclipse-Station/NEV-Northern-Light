@@ -34,3 +34,10 @@
 #define PERK_TOXIC_REVENGER /datum/perk/oddity/toxic_revenger
 #define PERK_ABSOLUTE_GRAB /datum/perk/oddity/absolute_grab
 #define PERK_SURE_STEP /datum/perk/oddity/sure_step
+<<<<<<< HEAD
+=======
+#define PERK_MARKET_PROF /datum/perk/oddity/market_prof
+
+//job perks
+#define PERK_ARTIST /datum/perk/job/artist
+>>>>>>> ea8bce6... See_the_price_make_the_money (#5754)

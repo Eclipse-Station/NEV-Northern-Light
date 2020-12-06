@@ -23,8 +23,16 @@
 		STAT_MEC = 15,
 		STAT_VIG = 10
 	)
+<<<<<<< HEAD
 	description = "You are the head of the local branch of Free Trade Union, and Northern Light's Union representative<br>\
 A staunch entrepreneur, you are motivated by profit, for the Union and especially for yourself. You are here firstly to make as much money as you can, and secondly to keep the crew supplied. You can order things at cargo using the local Union funds, these will not magically replenish so you will run out of money quickly if you don't charge. Take payments by card or cash, and deposit them into the Union account to enable more purchases.<br>\
+=======
+
+	perks = list(/datum/perk/merchant, /datum/perk/deep_connection, /datum/perk/oddity/market_prof)
+
+	description = "You are the head of the local branch of Asters Merchant Guild, and eris' guild representative<br>\
+A staunch entrepreneur, you are motivated by profit, for the guild and especially for yourself. You are here firstly to make as much money as you can, and secondly to keep the crew supplied. You can order things at cargo using the local guild funds, these will not magically replenish so you will run out of money quickly if you don't charge. Take payments by card or cash, and deposit them into the guild account to enable more purchases.<br>\
+>>>>>>> ea8bce6... See_the_price_make_the_money (#5754)
 <br>\
 The Union also operates all the vendors on the ship, every credit paid into them goes to your Union account. Naturally operating is a two way street, you are expected, when necessary, to refill those vendors. Or send a technician to do it<br>\
 <br>\
