@@ -82,7 +82,7 @@
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	item_charge_meter = TRUE
-	desc = "This weapon is old, yet still robust and reliable. it's strangly weathered despite the NanoTrasen logo."
+	desc = "This weapon is old, yet still robust and reliable. it's strangely weathered despite the NanoTrasen logo."
 	force = WEAPON_FORCE_PAINFUL
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT

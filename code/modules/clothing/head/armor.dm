@@ -214,7 +214,7 @@
 
 /obj/item/clothing/head/armor/bulletproof/ironhammer_full
 	name = "full ballistic helmet"
-	desc = "Standard-issue Ironhammer ballistic helmet with a basic HUD included, covers the operator's entire face."
+	desc = "Standard-issue Aegis ballistic helmet with a basic HUD included, covers the operator's entire face."
 	icon_state = "ironhammer_full"
 	armor = list(
 		melee = 40,
@@ -507,7 +507,7 @@
 
 /obj/item/clothing/head/armor/helmet/crusader
 	name = "crusader helmet"
-	desc = "May God guide you."
+	desc = "May Mekhane guide you."
 	icon_state = "crusader_hemet"
 	item_state = "crusader_hemet"
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHAIR
