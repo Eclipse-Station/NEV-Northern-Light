@@ -3,7 +3,23 @@
 	return objectsInView
 
 /mob/living/carbon/superior_animal/proc/getPotentialTargets()
+<<<<<<< HEAD
 	return hearers(src, viewRange)
+=======
+	var/turf/T = get_turf(src)
+	if(!T)
+		return //We're contained inside something, a locker perhaps.
+	return hearers(src, viewRange)
+
+
+	/* There was an attempt at optimization, but it was unsanitized, and was more expensive than just checking hearers.
+	var/list/list_to_return = new
+	for(var/atom/thing in SSmobs.mob_living_by_zlevel[((get_turf(src)).z)])
+		if(get_dist(src, thing) <= viewRange)
+			list_to_return += thing
+
+	return list_to_return*/
+>>>>>>> 175fb15... Reverts the ability for roaches to see through walls (#5778)
 
 /mob/living/carbon/superior_animal/proc/findTarget()
 	var/list/filteredTargets = new
