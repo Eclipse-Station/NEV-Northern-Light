@@ -33,10 +33,13 @@
 	var/list/datum/track/tracks = list()		// Available tracks
 	var/list/datum/track/secret_tracks = list() // Only visible if hacked
 
+	var/sanity_value = 0.3 //Eclipse add - Jukebox should restore sanity, no?
+
 /obj/machinery/media/jukebox/New()
 	. = ..()
 	wires = new/datum/wires/jukebox(src)
 	update_icon()
+	AddComponent(/datum/component/atom_sanity, sanity_value, "")
 
 /obj/machinery/media/jukebox/Destroy()
 	qdel(wires)

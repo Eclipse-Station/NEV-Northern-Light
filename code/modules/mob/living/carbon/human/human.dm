@@ -1251,7 +1251,7 @@ var/list/rank_prefix = list(\
 			if(I && I.type == organ_type)
 				continue
 			new organ_type(src)
-
+		/* Eclipse edit see above
 		if(checkprefcruciform)
 			var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
 			if(I.implant_type)
@@ -1260,6 +1260,8 @@ var/list/rank_prefix = list(\
 				C.activate()
 				C.install_default_modules_by_job(mind.assigned_job)
 				C.access.Add(mind.assigned_job.cruciform_access)
+
+		*/
 
 	for(var/obj/item/organ/internal/carrion/C in organs_to_readd)
 		C.replaced(get_organ(C.parent_organ_base))
