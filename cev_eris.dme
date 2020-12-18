@@ -1550,6 +1550,11 @@
 #include "code\modules\core_implant\cruciform\upgrades.dm"
 #include "code\modules\core_implant\cruciform\machinery\altar.dm"
 #include "code\modules\core_implant\cruciform\machinery\cloning.dm"
+<<<<<<< HEAD
+=======
+#include "code\modules\core_implant\cruciform\machinery\cruciformforge.dm"
+#include "code\modules\core_implant\cruciform\machinery\eotp.dm"
+>>>>>>> 9f97afa... Eye of the protector (#5780)
 #include "code\modules\core_implant\cruciform\machinery\obelisk.dm"
 #include "code\modules\core_implant\cruciform\machinery\vat.dm"
 #include "code\modules\core_implant\cruciform\rituals\base.dm"
