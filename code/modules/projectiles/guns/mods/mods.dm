@@ -370,7 +370,7 @@
 	I.req_gun_tags = list(GUN_ENERGY)
 
 /obj/item/weapon/gun_upgrade/scope
-	bad_types = /obj/item/weapon/gun_upgrade/scope
+	bad_type = /obj/item/weapon/gun_upgrade/scope
 
 /obj/item/weapon/gun_upgrade/scope/watchman
 	name = "Frozen Star \"Watchman\" scope"
