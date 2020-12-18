@@ -102071,11 +102071,6 @@
 /obj/machinery/camera/network/third_section,
 /turf/simulated/floor/hull,
 /area/space)
-"eBl" = (
-/obj/structure/table/standard,
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/neotheology/bioreactor)
 "eBm" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4;
@@ -126157,7 +126152,7 @@ ayM
 azW
 aCn
 bUI
-eBl
+btG
 ccZ
 ccZ
 cgo
@@ -160893,7 +160888,7 @@ bmd
 byR
 byR
 bQx
-bQx
+bsT
 bQx
 bQx
 bWP
