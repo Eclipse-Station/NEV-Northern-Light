@@ -335,7 +335,7 @@
 
 /obj/item/weapon/gun_upgrade/barrel/gauss
 	name = "Syndicate \"Gauss Coil\" barrel"
-	desc = "Accelerates projectiles to ludicrous speeds, making them pierce armour and walls much more easily, but at the cost of a greatly reduced rate of fire, and increased recoil.”
+	desc = "Accelerates projectiles to ludicrous speeds, making them pierce armour and walls much more easily, but at the cost of a greatly reduced rate of fire, and increased recoil."
 	icon_state = "Gauss"
 	spawn_blacklisted = TRUE
 
