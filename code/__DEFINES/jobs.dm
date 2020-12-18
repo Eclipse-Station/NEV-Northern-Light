@@ -24,8 +24,13 @@
 #define DEPARTMENT_CIVILIAN	"Civilian"
 #define DEPARTMENT_CHURCH	"Church"
 
+<<<<<<< HEAD
 //Eclipse Additions for manual whitelist behaviour
 //(refer to /code/game/jobs/job/job_eclipse.dm for manual and explanations)
 #define WHITELIST_AUTO 0
 #define WHITELIST_MANUAL_ON 1
 #define WHITELIST_MANUAL_OFF 2
+=======
+#define ALL_DEPARTMENTS list(DEPARTMENT_COMMAND, DEPARTMENT_MEDICAL, DEPARTMENT_ENGINEERING, DEPARTMENT_SCIENCE, DEPARTMENT_SECURITY, DEPARTMENT_GUILD, DEPARTMENT_CIVILIAN, DEPARTMENT_CHURCH)
+
+>>>>>>> cbd1634... Prosthetic stuff (#5779)
