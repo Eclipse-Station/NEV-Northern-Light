@@ -20,7 +20,7 @@
 	path = /obj/item/weapon/melee/energy/sword
 
 /datum/uplink_item/item/visible_weapons/pistol
-	name = "Silenced "Mandela" .25 Caseless Handgun"
+	name = "Silenced \"Mandela\" .25 Caseless Handgun"
 	item_cost = 6
 	path = /obj/item/weapon/storage/box/syndie_kit/pistol
 
