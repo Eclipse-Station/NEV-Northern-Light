@@ -80,7 +80,7 @@
 				was_triggired = TRUE
 				break
 	if (prob(80) && (locate(/obj/structure/wire_splicing) in view(7, H))) //Add more traps later
-		to_chat(H, SPAN_WARNING("Something wrong with this area. Tread carefully."))
+		to_chat(H, SPAN_WARNING("Something is wrong with this area. Tread carefully."))
 		was_triggired = TRUE
 	if (prob(20))
 		for(var/mob/living/carbon/human/target in range(14, H))

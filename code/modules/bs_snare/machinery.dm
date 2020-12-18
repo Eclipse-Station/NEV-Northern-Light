@@ -68,7 +68,7 @@
 	return mobs
 
 /obj/machinery/bssilk_hub/proc/teleport_back(mob/target)
-	to_chat(target, SPAN_WARNING("You feel like something pull you in bluespace."))
+	to_chat(target, SPAN_WARNING("You feel something pull you into bluespace."))
 	//Creat animation and move  mob into it and mob will not walking. Camera will follow animation.
 	var/obj/effect/temporary/A = new(get_turf(target), 24.5, animation_icon, back_animation)
 	target.dir = 2

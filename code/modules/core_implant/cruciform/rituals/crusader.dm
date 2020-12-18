@@ -60,7 +60,7 @@
 /datum/ritual/cruciform/crusader/flash/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	if(prob(100 - user.stats.getStat(STAT_VIG)))
 		user.Weaken(10)
-		to_chat(user, SPAN_WARNING("The flux of psy-energy knocks over you!"))
+		to_chat(user, SPAN_WARNING("The flux of psy-energy knocks you over!"))
 	else
 		to_chat(user, SPAN_NOTICE("The flux of psy-energy washed your mind, but you managed to keep focused!"))
 	playsound(user.loc, 'sound/effects/cascade.ogg', 65, 1)
@@ -68,7 +68,7 @@
 	for(var/mob/living/carbon/human/victim in view(user))
 		if(!victim.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform))
 			if(prob(100 - victim.stats.getStat(STAT_VIG)))
-				to_chat(victim, SPAN_WARNING("You feel that your knees bends!"))
+				to_chat(victim, SPAN_WARNING("You feel that your knees bend!"))
 				victim.Weaken(5)
 			else
 				to_chat(victim, SPAN_NOTICE("Your legs feel numb, but you managed to stay on your feet!"))

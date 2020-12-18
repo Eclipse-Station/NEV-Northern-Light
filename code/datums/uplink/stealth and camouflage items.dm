@@ -5,7 +5,7 @@
 	category = /datum/uplink_category/stealth_items
 
 /datum/uplink_item/item/stealth_items/syndigaloshes
-	name = "No-Slip sole"
+	name = "No-Slip Sole"
 	item_cost = 1
 	path = /obj/item/noslipmodule
 

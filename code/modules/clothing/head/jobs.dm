@@ -85,7 +85,7 @@
 
 /obj/item/clothing/head/beret/sec/navy/warden
 	name = "Sergeant beret"
-	desc = "Read beret with a Sergeant's rank emblem. For officers that are more inclined towards style than safety."
+	desc = "Red beret with a Sergeant's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "beret_navy_warden"
 	spawn_blacklisted = TRUE
 
