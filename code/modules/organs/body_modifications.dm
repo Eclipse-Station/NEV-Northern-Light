@@ -58,8 +58,26 @@ var/global/list/modifications_types = list(
 			if(parent.nature == MODIFICATION_REMOVED)
 				to_chat(usr, "[name] can't be attached to [parent.name]")
 				return FALSE
+<<<<<<< HEAD
 			if(parent.nature == MODIFICATION_SILICON && nature != MODIFICATION_SILICON)
 				to_chat(usr, "[name] can't be attached to [parent.name]")
+=======
+
+	if(department_specific.len)
+		if(H && H.mind)
+			var/department = H.mind.assigned_job.department
+			if(!department || !department_specific.Find(department))
+				to_chat(usr, "This body-mod does not match your chosen department.")
+				return FALSE
+		else if(P)
+			var/datum/job/J
+			if(ASSISTANT_TITLE in P.job_low)
+				J = SSjob.GetJob(ASSISTANT_TITLE)
+			else
+				J = SSjob.GetJob(P.job_high)
+			if(!J || !department_specific.Find(J.department))
+				to_chat(usr, "This body-mod does not match your highest-priority department.")
+>>>>>>> 7de1dba... Turns out vagabond status is stored in job_low (#5789)
 				return FALSE
 
 
