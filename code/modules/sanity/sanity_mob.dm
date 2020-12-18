@@ -40,6 +40,9 @@
 
 #define EAT_COOLDOWN_MESSAGE 15 SECONDS
 
+#define INSIGHT_DESIRE_MUSIC "music" //Eclipse add
+#define SANITY_GAIN_MUSIC 0.02//Eclipse add
+
 /datum/sanity
 	var/flags
 	var/mob/living/carbon/human/owner
@@ -196,6 +199,7 @@
 		INSIGHT_DESIRE_ALCOHOL,
 		INSIGHT_DESIRE_SMOKING,
 		INSIGHT_DESIRE_DRUGS,
+		INSIGHT_DESIRE_MUSIC //Eclipse add
 	)
 	for(var/i = 0; i < INSIGHT_DESIRE_COUNT; i++)
 		var/desire = pick_n_take(candidates)

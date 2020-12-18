@@ -1,5 +1,5 @@
 /datum/trade_station/caduceus
-	name_pool = list("MAV 'Caduceus'" = "Moebius Aid Vessel 'Caduceus'. They're sending a message. \"Hello there, we are from the Old Sol Republic. We will be leaving the system shortly but we can offer you any medical aid while we are still here.\".")
+	name_pool = list("LAV 'Caduceus'" = "Lazarus Aid Vessel 'Caduceus'. They're sending a message. \"Hello there! We're returning back to Sol from a rescue mission! We will be leaving the system shortly but we can offer you any medical aid while we are still here.\".")
 	icon_states = "ship"
 	start_discovered = TRUE
 	spawn_always = TRUE

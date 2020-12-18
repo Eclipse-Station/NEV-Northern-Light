@@ -1,5 +1,5 @@
 /datum/trade_station/McRonalds
-	name_pool = list("CTB 'Dionis'" = "Corporate Trade Beacon of food chain 'McRonalds'. You hope they still have Happy Meals with toy.")
+	name_pool = list("CTB 'Dionis'" = "Corporate Trade Beacon of NanoTrasen's subsidiary Getmore Chocolate Co. You hope they still have Happy Meals with toy.")
 	assortiment = list(
 		"Burgers" = list(
 			/obj/item/weapon/reagent_containers/food/snacks/bigbiteburger = custom_good_name("Big RBurger"),
@@ -15,12 +15,12 @@
 		"Cakes" = list(
 			/obj/item/weapon/reagent_containers/food/snacks/sliceable/plaincake = custom_good_name("Vanilla"),
 			/obj/item/weapon/reagent_containers/food/snacks/sliceable/chocolatecake = custom_good_name("Chocola"),
-			
+
 			/obj/item/weapon/reagent_containers/food/snacks/sliceable/carrotcake,
 			/obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesecake,
 			/obj/item/weapon/reagent_containers/food/snacks/sliceable/orangecake,
 			/obj/item/weapon/reagent_containers/food/snacks/sliceable/limecake,
-			/obj/item/weapon/reagent_containers/food/snacks/sliceable/lemoncake,	
+			/obj/item/weapon/reagent_containers/food/snacks/sliceable/lemoncake,
 		),
 		"Misc" = list(
 			/obj/item/weapon/reagent_containers/food/snacks/fishandchips = custom_good_name("Fishps"),

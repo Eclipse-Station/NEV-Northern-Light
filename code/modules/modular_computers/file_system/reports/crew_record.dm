@@ -26,7 +26,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	if(istype(H))
 		photo_front = getFlatIcon(H, SOUTH)
 		photo_side = getFlatIcon(H, WEST)
-		if(H.job == "Vagabond") // As stowaways, Vagabond do not show up on the crew manifest.
+		if(H.mind.role_alt_title == "Vagabond")  // As stowaways, Vagabond do not show up on the crew manifest. ECLIPSE EDIT
 			GLOB.all_crew_records.Remove(src)
 			return
 	else
@@ -59,10 +59,10 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	set_email((H && H.mind) ? H.mind.initial_email_login["login"] : "none")
 	set_account((H && H.mind) ? H.mind.initial_account.account_number : "000000")
 
-	// TODO: enable after baymed
-	//set_species(H ? H.get_species() : SPECIES_HUMAN)
+	// TODO: enable after baymed - Eclipse Edit enabled
+	set_species(H ? H.get_species() : SPECIES_HUMAN)
 
-	set_species(SPECIES_HUMAN)
+	//set_species(SPECIES_HUMAN) - //Eclipse edit - disabled
 	//set_branch(H ? (H.char_branch && H.char_branch.name) : "None")
 	//set_rank(H ? (H.char_rank && H.char_rank.name) : "None")
 

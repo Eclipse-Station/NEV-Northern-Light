@@ -1178,12 +1178,14 @@ var/list/rank_prefix = list(\
 			C.removed_mob()
 			organs_to_readd += C
 
+/* Eclipse edit - see core_implants.dm
 	var/obj/item/weapon/implant/core_implant/CI = get_core_implant()
 	var/checkprefcruciform = FALSE	// To reset the cruciform to original form
 	if(CI)
 		checkprefcruciform = TRUE
 		qdel(CI)
 
+*/
 
 	if(from_preference)
 		for(var/obj/item/organ/organ in (organs|internal_organs))
@@ -1223,7 +1225,7 @@ var/list/rank_prefix = list(\
 			else
 				var/organ_type = species.has_process[tag]
 				new organ_type(src)
-
+		/* see core_implants.dm
 		if(checkprefcruciform)
 			var/datum/category_item/setup_option/core_implant/I = client.prefs.get_option("Core implant")
 			if(I.implant_type)
@@ -1232,6 +1234,7 @@ var/list/rank_prefix = list(\
 				C.activate()
 				C.install_default_modules_by_job(mind.assigned_job)
 				C.access.Add(mind.assigned_job.cruciform_access)
+				*/
 	else
 		var/organ_type
 
