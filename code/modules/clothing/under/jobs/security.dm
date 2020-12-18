@@ -115,7 +115,6 @@
 	desc = "It's a jumpskirt worn by those few with the dedication to achieve the position of \"Aegis Commander\"."
 	icon_state = "hos_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	style = STYLE_LOW
 
 /obj/item/clothing/head/HoS
 	name = "Aegis Cobalt Commander Hat"

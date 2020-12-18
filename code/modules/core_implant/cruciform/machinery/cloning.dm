@@ -11,7 +11,7 @@
 /obj/machinery/neotheology/cloner
 	name = "SLT-73 Clonepod Prototype"
 	desc = "One of the more fruitful results of NT's investment in Lazarus, this baby puts a person back together from organic slurry just in a few minutes. Now with clear biomass fluids for all your gross anatomy viewing needs."
-	icon = 'icons/obj/neotheology_pod.dmi'
+	icon = 'zzz_modular_eclipse/icons/obj/neotheology_machinery.dmi'
 	icon_state = "preview"
 	density = TRUE
 	anchored = TRUE
@@ -41,7 +41,7 @@
 
 /obj/machinery/neotheology/cloner/New()
 	..()
-	icon = 'icons/obj/neotheology_machinery.dmi'
+	icon = 'zzz_modular_eclipse/icons/obj/neotheology_machinery.dmi'
 	update_icon()
 
 /obj/machinery/neotheology/cloner/Destroy()
@@ -190,7 +190,7 @@
 			update_icon()
 			return
 
-		progress += cloning_speed 
+		progress += cloning_speed
 
 		if(progress <= CLONING_DONE)
 			if(container)
@@ -427,6 +427,7 @@
 
 /obj/machinery/neotheology/reader
 	name = "SLT-73-B Core Implant Reader"
+	icon = 'zzz_modular_eclipse/icons/obj/neotheology_machinery.dmi'
 	desc = "A neat-looking device capable of extracting DNA and conciousness imprints from a core implant."
 	icon_state = "reader_off"
 	density = TRUE

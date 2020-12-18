@@ -232,3 +232,6 @@
 #define SPECIES_CUSTOM			"Custom Species"
 #define SPECIES_PHORONMAN		"Phoronoid"
 #define SPECIES_MOTH			"Mothperson"
+
+#define NECROZTIME 	(5 MINUTES)
+

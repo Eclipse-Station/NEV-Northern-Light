@@ -378,6 +378,16 @@
 		/datum/design/bioprinter/leather/holster/armpit,
 		/datum/design/bioprinter/leather/holster/waist,
 		/datum/design/bioprinter/leather/holster/hip,
+		
+		/datum/design/bioprinter/small_generic,
+		/datum/design/bioprinter/medium_generic,
+		/datum/design/bioprinter/large_generic,
+		/datum/design/bioprinter/medical_supply,
+		/datum/design/bioprinter/engineering_tools,
+		/datum/design/bioprinter/engineering_supply,
+		/datum/design/bioprinter/ammo,
+		/datum/design/bioprinter/tubular,
+		/datum/design/bioprinter/tubular/vial,
 
    		/datum/design/autolathe/device/headset_church,
 		/datum/design/bioprinter/leather/cash_bag
@@ -1250,7 +1260,8 @@
 	license = 6 // 6 pieces, or 3 sets if you use helm + vest
 	designs = list(
 		/datum/design/autolathe/clothing/generic_helmet_basic,
-		/datum/design/autolathe/clothing/generic_vest
+		/datum/design/autolathe/clothing/generic_vest,
+		/datum/design/autolathe/clothing/generic_vest_full = 2
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/bulletproof
@@ -1261,7 +1272,8 @@
 	license = 4 // 4 pieces, or 2 sets
 	designs = list(
 		/datum/design/autolathe/clothing/bulletproof_helmet_generic,
-		/datum/design/autolathe/clothing/bulletproof_vest_generic
+		/datum/design/autolathe/clothing/bulletproof_vest_generic,
+		/datum/design/autolathe/clothing/bulletproof_vest_generic_full = 2
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/ablative
@@ -1282,7 +1294,8 @@
 	license = 6
 	designs = list(
 		/datum/design/autolathe/clothing/ih_helmet_basic,
-		/datum/design/autolathe/clothing/ih_vest_basic
+		/datum/design/autolathe/clothing/ih_vest_basic,
+		/datum/design/autolathe/clothing/ih_vest_basic_full = 2
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof
