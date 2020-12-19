@@ -233,7 +233,11 @@
 	owner.status_flags |= FAKEDEATH
 	owner.update_lying_buckled_and_verb_status()
 	owner.emote("gasp")
+<<<<<<< HEAD
 	owner.tod = stationtime2text()
+=======
+	owner.timeofdeath = world.time
+>>>>>>> 52562e5... Fixes timeofdeath being nonstandard in carrion and zombiepowder (#5790)
 	var/last_owner = owner
 
 	spawn(rand(1 MINUTES, 3 MINUTES))

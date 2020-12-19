@@ -201,7 +201,11 @@
 	M.adjustOxyLoss(0.6 * effect_multiplier)
 	M.Weaken(10)
 	M.silent = max(M.silent, 10)
+<<<<<<< HEAD
 	M.tod = stationtime2text()
+=======
+	M.timeofdeath = world.time
+>>>>>>> 52562e5... Fixes timeofdeath being nonstandard in carrion and zombiepowder (#5790)
 	M.add_chemical_effect(CE_NOPULSE, 1)
 
 /datum/reagent/toxin/zombiepowder/Destroy()
