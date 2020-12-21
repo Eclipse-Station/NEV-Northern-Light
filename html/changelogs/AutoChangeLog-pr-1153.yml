@@ -1,0 +1,16 @@
+author: drexample
+delete-after: true
+changes:
+  - tweak: Changed flavours for propaganda chip and trade stations to be more sane
+      and fit our lore.
+  - bugfix: Alt titles now reflect in the id card
+  - rscadd: Musical instruments restore sanity
+  - rscadd: Makes juke restore sanity
+  - rscadd: Returns prosthesis back to mechfab
+  - tweak: Tweaks species movespeed and heat
+  - tweak: Doubles max text length
+  - rscadd: Adds craftable limbs
+  - tweak: nerfs maintshrooms
+  - rscadd: makes MMI implantable
+  - rscadd: Updates jobs
+  - rscadd: adds more privacy to the club rooms, makes starboard cryo safer
