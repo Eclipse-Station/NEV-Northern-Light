@@ -97,7 +97,7 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 							 /datum/computer_file/program/reports)
 
 
-	description = "You are a low ranking member of the Free Trade Union, and an apprentice to the local merchant.  You may one day take over his position. You are equal parts scavenger, loader, shopkeeper and salesman. Remember the guild's core role here. To keep everyone supplied with everything they could need, and to profit from this endeavour<br>\
+	description = "You are a low ranking member of the Free Trade Union, and an apprentice to the local merchant.  You may one day take over his position. You are equal parts scavenger, loader, shopkeeper and salesman. Remember the union's core role here. To keep everyone supplied with everything they could need, and to profit from this endeavour<br>\
 <br>\
 Your main duties are to keep the local Union branch operational and profitable. To that end you should look out for all of the following tasks:"
 
@@ -175,11 +175,11 @@ Character Expectations:<br>\
 	join_tag = /datum/job/mining
 
 /datum/job/artist
-	title = "Guild Artist"
+	title = "Union Artist"
 	flag = ARTIST
 	department = DEPARTMENT_GUILD
 	department_flag = GUILD
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 1
 	supervisors = "the Guild Merchant"
@@ -201,7 +201,7 @@ Character Expectations:<br>\
 							 /datum/computer_file/program/wordprocessor,
 							 /datum/computer_file/program/reports)
 
-	description = "You are a creative soul aboard this vessel. You have been conscripted by the Aster's Guild to create masterful works of art to be sold at mind-boggling prices... and something about the CEV Eris and it's doomed journey sparks the fire of creation within you.<br>\
+	description = "You are a creative soul aboard this vessel. You have been conscripted by the Aster's Guild to create masterful works of art to be sold at mind-boggling prices... and something about the NEV Northern Light and it's doomed journey sparks the fire of creation within you.<br>\
 	You do not gain desires like other members of the crew. Instead, you stop gaining insight once you max out at 100 points.<br>\
 	You can gain desires by spending this insight at your Artist's Bench to build a work of art, this art you create vary wildly in type, quality, and (most importantly, in the eyes of the Merchant) value. Sell your artwork to the unwashed masses, or give you work to the merchant to sell for a profit."
 
