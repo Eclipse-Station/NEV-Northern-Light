@@ -14,7 +14,7 @@
 	access = list(
 		access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_merchant, access_mining,
 		access_heads, access_mining_station, access_RC_announce, access_keycard_auth, access_sec_doors,
-		access_eva, access_external_airlocks, access_change_cargo
+		access_eva, access_external_airlocks, access_change_cargo, access_artist
 	)
 	ideal_character_age = 40
 	stat_modifiers = list(
@@ -25,6 +25,8 @@
 	)
 	description = "You are the head of the local branch of Free Trade Union, and Northern Light's Union representative<br>\
 A staunch entrepreneur, you are motivated by profit, for the Union and especially for yourself. You are here firstly to make as much money as you can, and secondly to keep the crew supplied. You can order things at cargo using the local Union funds, these will not magically replenish so you will run out of money quickly if you don't charge. Take payments by card or cash, and deposit them into the Union account to enable more purchases.<br>\
+
+
 <br>\
 The Union also operates all the vendors on the ship, every credit paid into them goes to your Union account. Naturally operating is a two way street, you are expected, when necessary, to refill those vendors. Or send a technician to do it<br>\
 <br>\
@@ -35,7 +37,8 @@ Things to bear in mind:<br>\
 	-NEV Northern Light has few laws on contraband. If someone wants something and they can afford it, you get it for them. Don't try to play moral guardian and don't ask questions. You are not responsible for whatever they do with your products.<br>\
 	-Loyalty is a priceless resource, yet cheap to maintain. Don't screw over the miners and technicians working under you. <br>\
 	-Charity is a weapon. Used correctly, it can do wonders for your public image.  A few gifts spread around makes for good returning customers"
-	perks = list(/datum/perk/merchant, /datum/perk/deep_connection)
+
+	perks = list(/datum/perk/merchant, /datum/perk/deep_connection, /datum/perk/oddity/market_prof)
 
 	duties = "Keep the crew supplied with anything they might need, at a healthy profit to you of course<br>\
 Buy up valueable items from scavengers, and make a profit reselling them<br>\
@@ -94,7 +97,7 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 							 /datum/computer_file/program/reports)
 
 
-	description = "You are a low ranking member of the Free Trade Union, and an apprentice to the local merchant.  You may one day take over his position. You are equal parts scavenger, loader, shopkeeper and salesman. Remember the guild's core role here. To keep everyone supplied with everything they could need, and to profit from this endeavour<br>\
+	description = "You are a low ranking member of the Free Trade Union, and an apprentice to the local merchant.  You may one day take over his position. You are equal parts scavenger, loader, shopkeeper and salesman. Remember the union's core role here. To keep everyone supplied with everything they could need, and to profit from this endeavour<br>\
 <br>\
 Your main duties are to keep the local Union branch operational and profitable. To that end you should look out for all of the following tasks:"
 
@@ -170,3 +173,46 @@ Character Expectations:<br>\
 	name = "Union Miner"
 	icon_state = "player-beige"
 	join_tag = /datum/job/mining
+
+/datum/job/artist
+	title = "Union Artist"
+	flag = ARTIST
+	department = DEPARTMENT_GUILD
+	department_flag = GUILD
+	faction = "NEV Northern Light"
+	total_positions = 2
+	spawn_positions = 1
+	supervisors = "the Guild Merchant"
+	selection_color = "#dddddd"
+	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_SERBIAN = 5, LANGUAGE_JIVE = 80)
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining, access_mining_station, access_artist, access_theatre)
+
+	outfit_type = /decl/hierarchy/outfit/job/cargo/artist
+	wage = WAGE_LABOUR_DUMB	//Barely a retaining fee. Actor can busk for credits to keep themselves fed
+	stat_modifiers = list(
+		STAT_TGH = 30,
+	)
+
+	perks = list(PERK_ARTIST)
+
+	software_on_spawn = list(///datum/computer_file/program/supply,
+							 ///datum/computer_file/program/deck_management,
+							 /datum/computer_file/program/scanner,
+							 /datum/computer_file/program/wordprocessor,
+							 /datum/computer_file/program/reports)
+
+	description = "You are a creative soul aboard this vessel. You have been conscripted by the Aster's Guild to create masterful works of art to be sold at mind-boggling prices... and something about the NEV Northern Light and it's doomed journey sparks the fire of creation within you.<br>\
+	You do not gain desires like other members of the crew. Instead, you stop gaining insight once you max out at 100 points.<br>\
+	You can gain desires by spending this insight at your Artist's Bench to build a work of art, this art you create vary wildly in type, quality, and (most importantly, in the eyes of the Merchant) value. Sell your artwork to the unwashed masses, or give you work to the merchant to sell for a profit."
+
+	duties = "Create works of art using your insight.<br>\
+	Sell your work, or give it to the merchant to sell for you.<br>\
+	Be in the midst of action or combat to level your insight faster."
+
+	loyalties = "You are loyal to your soul, first and foremost. You are fascinated by this cursed ship, and want to mold this interest into your works of art.<br>\
+	Your second loyalty is to the merchant and the Aster's Guild as a whole. After all, they're the ones giving you housing, payment, and materials to create your art."
+
+/obj/landmark/join/start/artist
+	name = "Guild Artist"
+	icon_state = "player-grey"
+	join_tag = /datum/job/artist

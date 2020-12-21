@@ -1,5 +1,5 @@
 /datum/trade_station/fs_factory
-	name_pool = list("FSMS 'Kaida'" = "Frozen Star Manufacturing Station 'Kaida'. It ")
+	name_pool = list("HMS 'Kaida'" = "Hephaestus Manufacturing Station 'Kaida'. Welcome, sir or madam. This is the UNDEFINED branch of the Hephaestus Industries, supplying the galaxy with only the finest armaments since 2155.")
 	markup = 0.5
 	assortiment = list(
 		"Projectiles" = list(
