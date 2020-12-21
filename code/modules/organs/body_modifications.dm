@@ -197,7 +197,7 @@ var/global/list/modifications_types = list(
 	name = "Xion"
 	desc = "Prosthesis with minimalist black and red casing."
 	prosthetic_model = "xion"
-
+/*
 /datum/body_modification/limb/prosthesis/moebius
 	id = "prosthesis_moebius"
 	replace_limb = /obj/item/organ/external/robotic/moebius
@@ -209,7 +209,7 @@ var/global/list/modifications_types = list(
 	id = "prosthesis_makeshift"
 	replace_limb = /obj/item/organ/external/robotic/makeshift
 	icon = 'icons/mob/human_races/cyberlimbs/ghetto.dmi'
-
+*/
 /datum/body_modification/limb/mutation/New()
 	short_name = "M: [name]"
 	name = "Mutation: [name]"

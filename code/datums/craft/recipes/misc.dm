@@ -277,6 +277,15 @@
 	name = "Makeshift prosthetic right leg"
 	result = /obj/item/organ/external/robotic/makeshift/r_leg
 
+/datum/craft_recipe/makeshift_leg/foot
+	name = "Makeshift prosthetic left foot"
+	result = /obj/item/organ/external/robotic/makeshift/l_foot
+
+/datum/craft_recipe/makeshift_leg/foot/right
+	name = "Makeshift prosthetic right foor"
+	result = /obj/item/organ/external/robotic/makeshift/r_foot
+
+
 /datum/craft_recipe/makeshift_arm
 	name = "Makeshift prosthetic left arm"
 	result = /obj/item/organ/external/robotic/makeshift/l_arm
@@ -295,4 +304,12 @@
 /datum/craft_recipe/makeshift_arm/right
 	name = "Makeshift prosthetic right arm"
 	result = /obj/item/organ/external/robotic/makeshift/r_arm
+
+/datum/craft_recipe/makeshift_arm/hand
+	name = "Makeshift prosthetic left hand"
+	result = /obj/item/organ/external/robotic/makeshift/l_hand
+
+/datum/craft_recipe/makeshift_arm/hand/right
+	name = "Makeshift prosthetic right hand"
+	result = /obj/item/organ/external/robotic/makeshift/r_hand
 

@@ -10,7 +10,7 @@ var/global/obj/machinery/power/eotp/eotp
 
 /obj/machinery/power/eotp
 	name = "Eye of the Protector"
-	desc = "He observe, he protects."
+	desc = "He observes, he protects."
 	icon = 'icons/obj/eotp.dmi'
 	icon_state = "Eye_of_the_Protector"
 
@@ -26,7 +26,7 @@ var/global/obj/machinery/power/eotp/eotp
 
 	var/list/materials = list(/obj/item/stack/material/gold = 60,
 							/obj/item/stack/material/uranium = 30,
-							/obj/item/stack/material/plasma = 30,
+							/obj/item/stack/material/phoron = 30,
 							/obj/item/stack/material/diamond = 30,
 							/obj/item/stack/material/plasteel = 120,
 							/obj/item/stack/material/silver = 60)
