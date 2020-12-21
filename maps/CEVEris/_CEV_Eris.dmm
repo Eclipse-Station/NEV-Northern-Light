@@ -49751,8 +49751,7 @@
 	id = "ClubRoom2";
 	name = "Door Lock";
 	pixel_y = -28;
-	specialfunctions = 4;
-	step_x = 0
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
@@ -50933,7 +50932,7 @@
 	name = "Door Lock";
 	pixel_y = -28;
 	specialfunctions = 4;
-	step_x = 0
+	
 	},
 /turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
