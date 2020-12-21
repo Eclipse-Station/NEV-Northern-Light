@@ -20,7 +20,7 @@
 	path = /obj/item/weapon/melee/energy/sword
 
 /datum/uplink_item/item/visible_weapons/pistol
-	name = "Silenced .25 Caseless Handgun"
+	name = "Silenced \"Mandela\" .25 Caseless Handgun"
 	item_cost = 6
 	path = /obj/item/weapon/storage/box/syndie_kit/pistol
 
@@ -36,7 +36,7 @@
 	path = /obj/item/weapon/storage/box/syndie_kit/revolver
 
 /datum/uplink_item/item/visible_weapons/submachinegun
-	name = "Submachine Gun"
+	name = "C20r Submachine Gun"
 	item_cost = 7
 	path = /obj/item/weapon/storage/box/syndie_kit/c20r
 
@@ -56,12 +56,12 @@
 	path = /obj/item/weapon/storage/box/syndie_kit/antimaterial_rifle
 
 /datum/uplink_item/item/visible_weapons/rigged
-	name = "Weapon reverse loader"
+	name = "Weapon Reverse Loader"
 	item_cost = 5
 	path = /obj/item/weapon/gun_upgrade/mechanism/reverse_loader
 
 /datum/uplink_item/item/visible_weapons/boom_trigger
-	name = "Syndicate \"Self Desturct\" trigger"
+	name = "Syndicate \"Self Destruct\" trigger"
 	item_cost = 5
 	path = /obj/item/weapon/gun_upgrade/trigger/boom
 
@@ -71,7 +71,7 @@
 	path = /obj/item/weapon/gun_upgrade/barrel/gauss
 
 /datum/uplink_item/item/visible_weapons/psychic_lasercannon
-	name = "Prototype: psychic laser cannon"
+	name = "Prototype: Psychic Laser Cannon"
 	desc = "A laser cannon that attacks the minds of people, causing sanity loss and inducing mental breakdowns. Also can be used to complete mind fryer contracts."
 	item_cost = 12
 	path = /obj/item/weapon/gun/energy/psychic/lasercannon

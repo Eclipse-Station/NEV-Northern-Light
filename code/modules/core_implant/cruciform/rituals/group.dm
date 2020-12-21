@@ -32,7 +32,7 @@
 
 /datum/ritual/group/cruciform/mechanical
 	name = "Mechanical"
-	desc = "Boosts Mechanical stat to 3 + 1 for each participant."
+	desc = "Boosts Mechanical stat by 3 + 1 for each participant."
 	phrase = "Omnia haec tractavi in corde meo ut curiose intellegerem sunt iusti atque sapientes et opera eorum in manu Dei et tamen nescit homo utrum amore an odio dignus sit."
 	phrases = list(
 		"Omnia haec tractavi in corde meo ut curiose intellegerem sunt iusti atque sapientes et opera eorum in manu Dei et tamen nescit homo utrum amore an odio dignus sit.",
@@ -54,7 +54,7 @@
 
 /datum/ritual/group/cruciform/cognition
 	name = "Cognition"
-	desc = "Boosts Cognition stat to 3 + 1 for each participant."
+	desc = "Boosts Cognition stat by 3 + 1 for each participant."
 	phrase = "Dedit quoque Deus sapientiam Salomoni et prudentiam multam nimis et latitudinem cordis quasi harenam quae est in litore maris."
 	phrases = list(
 		"Dedit quoque Deus sapientiam Salomoni et prudentiam multam nimis et latitudinem cordis quasi harenam quae est in litore maris.",
@@ -74,7 +74,7 @@
 
 /datum/ritual/group/cruciform/biology
 	name = "Biology"
-	desc = "Boosts Biology stat to 3 + 1 for each participant."
+	desc = "Boosts Biology stat by 3 + 1 for each participant."
 	phrase = "Convocatis autem duodecim apostolis dedit illis virtutem et potestatem super omnia daemonia et ut languores curarent."
 	phrases = list(
 		"Convocatis autem duodecim apostolis dedit illis virtutem et potestatem super omnia daemonia et ut languores curarent.",
@@ -93,7 +93,7 @@
 
 /datum/ritual/group/cruciform/robustness
 	name = "Robustness"
-	desc = "Boosts Robustness stat to 3 + 1 for each participant."
+	desc = "Boosts Robustness stat by 3 + 1 for each participant."
 	phrase = "Audi Israhel tu transgredieris hodie Iordanem ut possideas nationes maximas et fortiores te civitates ingentes et ad caelum usque muratas."
 	phrases = list(
 		"Audi Israhel tu transgredieris hodie Iordanem ut possideas nationes maximas et fortiores te civitates ingentes et ad caelum usque muratas.",
@@ -112,7 +112,7 @@
 
 /datum/ritual/group/cruciform/toughness
 	name = "Toughness"
-	desc = "Boosts Toughness stat to 3 + 1 for each participant."
+	desc = "Boosts Toughness stat by 3 + 1 for each participant."
 	phrase = "In finem psalmus David."
 	phrases = list(
 		"In finem psalmus David.",

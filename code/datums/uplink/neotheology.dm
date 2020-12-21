@@ -3,7 +3,7 @@
 *******************************/
 /*
 Intended for inquisitors and maybe future crusaders
-A small pool of thematically appropriate religious items that are generally cheaper than conventional equivilants
+A small pool of thematically appropriate religious items that are generally cheaper than conventional equivalants
 */
 
 

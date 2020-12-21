@@ -218,7 +218,7 @@
 
 /datum/uplink_item/item/tools/blitz_speed_upgrade
 	name = "Blitzshell Speed Upgrade"
-	desc = "Remove limiting factors on your motors, allowing you to move faster."
+	desc = "Download additional RAM, allowing you to move faster."
 	item_cost = 20
 	antag_roles = list(ROLE_BLITZ)
 

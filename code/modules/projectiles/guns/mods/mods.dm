@@ -96,7 +96,7 @@
 	desc = "It's time for us to shine."
 	icon_state = "Excruciator"
 	rarity_value = 50
-
+ 
 /obj/item/weapon/gun_upgrade/barrel/excruciator/New()
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
@@ -335,7 +335,7 @@
 
 /obj/item/weapon/gun_upgrade/barrel/gauss
 	name = "Syndicate \"Gauss Coil\" barrel"
-	desc = "Make bullet pierce through wall and penetrate armors easily, but losing rate of fire and increece recoil."
+	desc = "Accelerates projectiles to ludicrous speeds, making them pierce armour and walls much more easily, but at the cost of a greatly reduced rate of fire, and increased recoil."
 	icon_state = "Gauss"
 	spawn_blacklisted = TRUE
 
@@ -355,7 +355,7 @@
 
 /obj/item/weapon/gun_upgrade/trigger/boom
 	name = "Syndicate \"Self Destruct\" trigger"
-	desc = "Trigger that explode gun on shoot, only for enegry weapon."
+	desc = "Trigger that shorts the battery of an energy weapon, causing it to explode when fired."
 	icon_state = "Boom"
 	spawn_blacklisted = TRUE
 
@@ -374,7 +374,7 @@
 
 /obj/item/weapon/gun_upgrade/scope/watchman
 	name = "Frozen Star \"Watchman\" scope"
-	desc = "Scope that can be attachet to avarage gun."
+	desc = "Scope that can be attached to an average gun."
 	icon_state = "Watchman"
 
 /obj/item/weapon/gun_upgrade/scope/watchman/New()
