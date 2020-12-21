@@ -87,6 +87,29 @@
 
 		return TRUE
 
+	// MMI
+	if(istype(I, /obj/item/device/mmi))
+		var/obj/item/device/mmi/M = I
+
+		if(organ_tag != BP_HEAD)
+			to_chat(user, SPAN_WARNING("[M] can only be installed into the head."))
+			return FALSE
+
+		if(!owner)
+			return FALSE
+
+
+		for(var/obj/item/organ/internal/existing_organ in owner.internal_organs)
+			if(existing_organ.unique_tag == BP_BRAIN)
+				to_chat(user, SPAN_WARNING("[owner] already has a brain."))
+				return FALSE
+
+		if(!M.brainmob || !M.brainmob.client || !M.brainmob.ckey || M.brainmob.stat >= DEAD)
+			to_chat(user, SPAN_DANGER("That brain is not usable."))
+			return FALSE
+
+		return TRUE
+
 	// Organs
 	if(istype(I, /obj/item/organ/internal))
 		var/obj/item/organ/internal/organ = I
