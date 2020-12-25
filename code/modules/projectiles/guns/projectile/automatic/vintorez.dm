@@ -18,7 +18,11 @@
 	zoom_factor = 0.8 // double as IH_heavy
 	penetration_multiplier = 1.2
 	damage_multiplier = 1.2
+<<<<<<< HEAD
 	recoil_buildup = 8
+=======
+	recoil_buildup = 1.3
+>>>>>>> 915d9b5... Damage reduction (#5801)
 	one_hand_penalty = 15 //automatic rifle level
 	silenced = TRUE
 	init_firemodes = list(
