@@ -50931,8 +50931,7 @@
 	id = "ClubRoom1";
 	name = "Door Lock";
 	pixel_y = -28;
-	specialfunctions = 4;
-	
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
@@ -52141,7 +52140,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/fact_plaque/rnd1,
+/obj/effect/floor_decal/eclipse/laz3,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/mixing)
 "cph" = (
@@ -52154,7 +52153,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/effect/floor_decal/fact_plaque/rnd2,
+/obj/effect/floor_decal/eclipse/laz4,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/mixing)
 "cpi" = (
@@ -52515,12 +52514,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/fact_plaque/rnd3,
+/obj/effect/floor_decal/eclipse/laz1,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/mixing)
 "cqf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/fact_plaque/rnd4,
+/obj/effect/floor_decal/eclipse/laz2,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/mixing)
 "cqg" = (
@@ -79953,9 +79952,9 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/misc)
 "dCC" = (
-/obj/effect/floor_decal/fact_plaque/med1,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/eclipse/laz3,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dCD" = (
@@ -79980,10 +79979,10 @@
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
 "dCG" = (
-/obj/effect/floor_decal/fact_plaque/med2,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/eclipse/laz4,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dCH" = (
@@ -80175,7 +80174,6 @@
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/engineering/foyer)
 "dDf" = (
-/obj/effect/floor_decal/fact_plaque/med3,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -80183,13 +80181,14 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/eclipse/laz1,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dDg" = (
-/obj/effect/floor_decal/fact_plaque/med4,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/eclipse/laz2,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dDh" = (
