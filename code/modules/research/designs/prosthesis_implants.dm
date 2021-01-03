@@ -48,20 +48,28 @@
 	category = CAT_PROSTHESIS
 
 /datum/design/research/item/mechfab/prosthesis_moebius/r_arm
-	build_path = /obj/item/organ/external/robotic/moebius/r_arm
+	build_path = /obj/item/organ/external/robotic/moebius/reinforced/r_arm
 
 /datum/design/research/item/mechfab/prosthesis_moebius/l_arm
-	build_path = /obj/item/organ/external/robotic/moebius/l_arm
+	build_path = /obj/item/organ/external/robotic/moebius/reinforced/l_arm
 
 /datum/design/research/item/mechfab/prosthesis_moebius/r_leg
-	build_path = /obj/item/organ/external/robotic/moebius/r_leg
+	build_path = /obj/item/organ/external/robotic/moebius/reinforced/r_leg
 
 /datum/design/research/item/mechfab/prosthesis_moebius/l_leg
-	build_path = /obj/item/organ/external/robotic/moebius/l_leg
+	build_path = /obj/item/organ/external/robotic/moebius/reinforced/l_leg
 
 /datum/design/research/item/mechfab/prosthesis_moebius/groin
+<<<<<<< HEAD
 	build_path = /obj/item/organ/external/robotic/moebius/groin
 */
+=======
+	build_path = /obj/item/organ/external/robotic/moebius/reinforced/groin
+
+/datum/design/research/item/mechfab/prosthesis_moebius/head
+	build_path = /obj/item/organ/external/robotic/moebius/reinforced/head
+
+>>>>>>> aa2b741... Fixes the roundstart moebius FBP having armour (#5837)
 //Modules ====================================
 
 /datum/design/research/item/mechfab/modules
