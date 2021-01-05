@@ -182,6 +182,7 @@ var/global/list/modifications_types = list(
 	desc = "Prosthesis with militaristic black and green casing with gold stripes."
 	prosthetic_model = "hesphaistos"
 
+<<<<<<< HEAD
 /datum/body_modification/limb/prosthesis/zenghu
 	id = "prosthesis_zenghu"
 	replace_limb = /obj/item/organ/external/robotic
@@ -189,6 +190,14 @@ var/global/list/modifications_types = list(
 	name = "Zeng-Hu"
 	desc = "Prosthesis with rubbery fleshtone covering with visible seams."
 	prosthetic_model = "zenghu"
+=======
+/datum/body_modification/limb/prosthesis/technomancer
+	id = "prosthesis_technomancer"
+	replace_limb = /obj/item/organ/external/robotic/technomancer
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN, BP_HEAD)
+	department_specific = list(DEPARTMENT_ENGINEERING)
+	icon = 'icons/mob/human_races/cyberlimbs/technomancer.dmi'
+>>>>>>> 11d4c2c... Adds technomancer fullbody prosthetic, courtesy of SaltyWoodPecker (#5833)
 
 /datum/body_modification/limb/prosthesis/xion
 	id = "prosthesis_xion"
