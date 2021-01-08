@@ -3,6 +3,13 @@
 	desc = "Even the most devout deserve head protection."
 	icon_state = "acolyte"
 	item_state = "acolyte"
+<<<<<<< HEAD
+=======
+	flags_inv = BLOCKHEADHAIR
+	action_button_name = "Toggle Helmet Light"
+	light_overlay = "helmet_light"
+	brightness_on = 4
+>>>>>>> bfc9959... Minor NT armor tweaks (#5847)
 	armor = list(
 		melee = 35,
 		bullet = 30,
@@ -36,6 +43,13 @@
 	desc = "Don't want anything getting in your eyes."
 	icon_state = "botanist"
 	item_state = "botanist"
+<<<<<<< HEAD
+=======
+	flags_inv = BLOCKHEADHAIR
+	action_button_name = "Toggle Helmet Light"
+	light_overlay = "helmet_light"
+	brightness_on = 4
+>>>>>>> bfc9959... Minor NT armor tweaks (#5847)
 	armor = list(
 		melee = 25,
 		bullet = 25,
@@ -68,6 +82,13 @@
 	desc = "Cleaning floors is more dangerous than it looks."
 	icon_state = "custodian"
 	item_state = "custodian"
+<<<<<<< HEAD
+=======
+	action_button_name = "Toggle Helmet Light"
+	flags_inv = BLOCKHEADHAIR
+	light_overlay = "helmet_light"
+	brightness_on = 4
+>>>>>>> bfc9959... Minor NT armor tweaks (#5847)
 	armor = list(
 		melee = 25,
 		bullet = 25,
