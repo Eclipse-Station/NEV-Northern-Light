@@ -245,8 +245,13 @@
 		if(ABORT_CHECK)
 			return
 
+<<<<<<< HEAD
 	if(anchored)
 		if(istype(I, /obj/item/stack/material) && (I.get_material_name() == "glass" || I.get_material_name() == "rglass"))
+=======
+	if(anchored && !isturf(loc))
+		if(istype(I, /obj/item/stack/material) && (I.get_material_name() == MATERIAL_GLASS || I.get_material_name() == MATERIAL_RGLASS))
+>>>>>>> 02d30e7... change some values for their corresponding definition. (#5830)
 			var/obj/item/stack/material/S = I
 			if(S.use(2))
 				glass_type = I.type
