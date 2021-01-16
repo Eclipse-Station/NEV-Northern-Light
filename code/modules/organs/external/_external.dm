@@ -390,7 +390,13 @@
 	if(status & ORGAN_SPLINTED)
 		. += 0.5
 
+<<<<<<< HEAD
 	. += (-(limb_efficiency / 100 - 1) * 3)	//0 at 100 efficiency, -1.5 at 150, +1.5 at 50
+=======
+	var/muscle_eff = owner.get_specific_organ_efficiency(OP_MUSCLE, organ_tag)
+	muscle_eff = muscle_eff - (muscle_eff/(owner.get_specific_organ_efficiency(OP_NERVE, organ_tag)/100)) //Need more nerves to control those new muscles
+	. += max(-(muscle_eff/ 100)/4, MAX_MUSCLE_SPEED)
+>>>>>>> 8c2b817... Removes the accidental .25 slowdown players started with (#5868)
 
 	. += tally
 
