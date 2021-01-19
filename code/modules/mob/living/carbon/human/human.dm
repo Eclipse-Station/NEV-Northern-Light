@@ -1186,10 +1186,11 @@ var/list/rank_prefix = list(\
 		qdel(CI)
 
 */
+	for(var/obj/item/organ/organ in (organs|internal_organs)) //Whoops
+		qdel(organ)
 
 	if(from_preference)
-		for(var/obj/item/organ/organ in (organs|internal_organs))
-			qdel(organ)
+
 
 		if(organs.len)
 			organs.Cut()
