@@ -48,6 +48,7 @@
 	I.gun_loc_tag = GUN_BARREL
 	I.req_gun_tags = list(GUN_PROJECTILE)
 
+<<<<<<< HEAD
 //Increases penetration multiplier, projectile speed. Increases fire delay. Acquired via science
 /obj/item/weapon/gun_upgrade/barrel/mag_accel
 	name = "NanoTrasen \"Penetrator\" magnetic accelerator barrel"
@@ -89,6 +90,8 @@
 		)
 	I.gun_loc_tag = GUN_BARREL
 	I.req_gun_tags = list(GUN_PROJECTILE)
+=======
+>>>>>>> 07632ef... Moves the research gun mods to their own file (#5835)
 
 //For energy weapons, increases the damage output, but also the charge cost. Acquired through loot spawns.
 /obj/item/weapon/gun_upgrade/barrel/excruciator
@@ -231,6 +234,7 @@
 	new /obj/item/weapon/tool_upgrade/refinement/laserguide(src)
 	new /obj/item/weapon/tool_upgrade/augment/ai_tool(src)
 
+<<<<<<< HEAD
 // 	 EXPERIMENTAL WEAPON MODS
 //------------------------------------------------
 
@@ -356,6 +360,11 @@
 /obj/item/weapon/gun_upgrade/trigger/boom
 	name = "Syndicate \"Self Destruct\" trigger"
 	desc = "Trigger that shorts the battery of an energy weapon, causing it to explode when fired."
+=======
+/obj/item/weapon/gun_upgrade/trigger/boom
+	name = "Syndicate \"Self Destruct\" trigger"
+	desc = "Trigger that explode gun on shoot, only for energy weapon."
+>>>>>>> 07632ef... Moves the research gun mods to their own file (#5835)
 	icon_state = "Boom"
 	spawn_blacklisted = TRUE
 
