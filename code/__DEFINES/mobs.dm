@@ -236,3 +236,12 @@
 
 #define NECROZTIME 	(5 MINUTES)
 
+<<<<<<< HEAD
+=======
+
+
+//Surgery operation defines
+#define CAN_OPERATE_ALL 1 //All possible surgery types are available
+#define CAN_OPERATE_STANDING -1 //Only limited surgery types are available (gouging out shrapnel, for instance)
+
+>>>>>>> a231ac5... Adds emergency self-surgery (#5880)
