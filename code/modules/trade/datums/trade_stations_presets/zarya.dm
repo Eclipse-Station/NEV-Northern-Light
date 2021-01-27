@@ -1,5 +1,5 @@
 /datum/trade_station/station_zarya
-	name_pool = list("FTS 'Zarya'" = "Free Trade Station 'Zarya', they sending message \"Privet, this is free station 'Zarya'. We have everything for sale here, don't be afraid to come aboard and check our wares!\".")
+	name_pool = list("FTS 'Zarya'" = "Free Trade Station 'Zarya', they're sending a message. \"Privet, this is Free Trade Station 'Zarya'. We have everything for sale here, so don't be afraid to come aboard and check our wares!\".")
 	start_discovered = TRUE
 	spawn_always = TRUE
 	assortiment = list(
@@ -36,7 +36,8 @@
 			/obj/item/clothing/head/welding,
 			/obj/item/weapon/tool/omnitool,
 			/obj/structure/reagent_dispensers/fueltank,
-			/obj/machinery/floodlight
+			/obj/machinery/floodlight,
+			/obj/spawner/lathe_disk
 		)
 	)
 

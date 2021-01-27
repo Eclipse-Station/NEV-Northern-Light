@@ -411,6 +411,8 @@
 
 	new_character.name = real_name
 	new_character.dna.ready_dna(new_character)
+	new_character.dna.flavor_text = client.prefs.flavor_text
+	new_character.dna.age = client.prefs.age
 	new_character.dna.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
 	if(client.prefs.disabilities)
@@ -426,9 +428,9 @@
 	new_character.update_eyes()
 	new_character.regenerate_icons()
 	new_character.key = key//Manually transfer the key to log them in
-	if(new_character.client && new_character.client.prefs.has_soulcrypt)
+/*	if(new_character.client && new_character.client.prefs.has_soulcrypt)
 		new_character.create_soulcrypt()
-
+*/
 	return new_character
 
 /mob/new_player/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, var/glide_size_override = 0)
@@ -448,12 +450,12 @@
 		chosen_species = all_species[client.prefs.species]
 
 	if(!chosen_species)
-		return "Human"
+		return SPECIES_HUMAN
 
 	if(is_species_whitelisted(chosen_species) || has_admin_rights())
 		return chosen_species.name
 
-	return "Human"
+	return SPECIES_HUMAN
 
 /mob/new_player/get_gender()
 	if(!client || !client.prefs) ..()

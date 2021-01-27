@@ -531,7 +531,7 @@
 /obj/structure/window/phoronbasic
 	name = "phoron window"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
-	basestate = "pwindow"
+
 	icon_state = "plasmawindow"
 	shardtype = /obj/item/weapon/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronglass
@@ -543,6 +543,7 @@
 /obj/structure/window/phoronbasic/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
+	basestate = "pwindow"
 	icon_state = "plasmawindow_mask"
 	alpha = 150
 	maxhealth = 200
@@ -581,7 +582,7 @@
 /obj/structure/window/reinforced/phoron
 	name = "reinforced phoron window"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
-	basestate = "rpwindow"
+	basestate = "plasmarwindow"
 	icon_state = "plasmarwindow"
 	shardtype = /obj/item/weapon/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronrglass
@@ -593,6 +594,7 @@
 /obj/structure/window/reinforced/phoron/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
+	basestate = "rpwindow"
 	icon_state = "plasmarwindow_mask"
 	alpha = 150
 	maxhealth = 250
@@ -666,8 +668,8 @@
 
 /obj/machinery/button/windowtint
 	name = "window tint control"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "light0"
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "light1"
 	desc = "A remote control switch for polarized windows."
 	var/range = 7
 

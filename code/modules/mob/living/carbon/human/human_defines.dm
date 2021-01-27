@@ -112,3 +112,6 @@
 
 	var/language_blackout = 0
 	var/suppress_communication = 0
+
+	var/genetic_corruption = 0  //Eclipse add - Mekhanite's vat genetic corruption
+	var/stable_genes = FALSE //Eclipse add - Genetic stability

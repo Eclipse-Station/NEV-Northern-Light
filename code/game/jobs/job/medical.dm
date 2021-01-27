@@ -7,19 +7,19 @@
 	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Captain and NanoTrasen"
+	supervisors = "Lazarus Foundation"
 	selection_color = "#94a87f"
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
 	outfit_type = /decl/hierarchy/outfit/job/medical/cmo
-	
+
 	wl_config_heads = TRUE		//Eclipse edit.
 
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_genetics, access_heads,
 		access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
 		access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels,
-		access_external_airlocks, access_paramedic, access_research_equipment
+		access_external_airlocks, access_paramedic, access_research_equipment, access_change_medbay
 	)
 
 	ideal_character_age = 50
@@ -41,7 +41,7 @@
 	description = "You are the head of the Medical Bay on the NEV Northern Light and provide medical services to the crew.<br>\
 You are here to keep everyone alive and ideally, at work. You should make choices that preserve life as much as possible.<br>\
 
-The handling of the medbay is your domain, although remember that both medical and science are branches of NanoTrasen, so your colleagues have free access to your resources, and vice versa"
+The handling of the medbay is your domain, although remember that both medical and science are branches of Lazarus Foundation, so your colleagues have free access to your resources, and vice versa"
 
 	duties = "Organise the doctors under your command to help save lives. Assign patients, and check on their progress periodically<br>\
 Dispatch your paramedics to distress calls, and corpse recoveries as needed<br>\
@@ -52,7 +52,7 @@ In times of crisis, lock down the medbay to protect those within, from outside t
 
 	loyalties = "As a doctor, your first loyalty is to your conscience. You swore an oath to save lives and do no harm. It falls on you to be the ethical and moral core of the crew. You should speak up for prisoners, captured lifeforms, and test subjects. Nobody else will.<br>\
 
-Your second loyalty is to your career with NanoTrasen, and to your coworkers in both Medical and Research. Help out your scientific colleagues, and aid in their pursuit of knowledge."
+Your second loyalty is to your career with Lazarus, and to your coworkers in both Medical and Research. Help out your scientific colleagues, and aid in their pursuit of knowledge."
 
 /obj/landmark/join/start/cmo
 	name = "Chief Medical Officer"
@@ -71,6 +71,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#a8b69a"
 	wage = WAGE_PROFESSIONAL
+	alt_titles = list("Surgeon", "Nurse", "Medical Intern")
 	outfit_type = /decl/hierarchy/outfit/job/medical/doctor
 
 	access = list(
@@ -110,7 +111,7 @@ You are expected to be knowledgeable and competent in at least basic treatment, 
 
 	loyalties = "As a doctor, your first loyalty is to your conscience. You swore an oath to save lives and do no harm. It falls on you to be the ethical and moral core of the crew. You should speak up for prisoners, captured lifeforms, and test subjects. Nobody else will.<br>\
 
-Your second loyalty is to your career with NanoTrasen, and to your coworkers in both Medical and Research. Help out your scientific colleagues, and aid in their pursuit of knowledge."
+Your second loyalty is to your career with Lazarus, and to your coworkers in both Medical and Research. Help out your scientific colleagues, and aid in their pursuit of knowledge."
 
 /obj/landmark/join/start/doctor
 	name = "Medical Doctor"
@@ -151,18 +152,18 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 	<br>\
 	Your primary responsibility is working as a pharmacist. Prepare medicines for use by the medical staff, so that they can capably treat a broad variety of conditions. It's good to keep a stock of bicaridine, dexalin, peridaxon, and alkysine.<br>\
 	<br>\
-	Your secondary responsibility is as a chemical manufacturer for NanoTrasen generally. You may be requested to make non-medical chemicals for your colleagues in science, or even for other medical staff. Anyone within moebius should be freely and quickly provided with anything they request. Don't question why, it's above your paygrade.<br>\
+	Your secondary responsibility is as a chemical manufacturer for Lazarus generally. You may be requested to make non-medical chemicals for your colleagues in science, or even for other medical staff. Anyone within moebius should be freely and quickly provided with anything they request. Don't question why, it's above your paygrade.<br>\
 	<br>\
 	Your third duty is to run a chemical sales outlet. You may get requests from other crewmembers to make acid, chemical grenades, smoke, cleaning products, napalm, or perhaps even just to make medicines. You are fully licensed to sell any and all chemicals to those outside moebius. Sell being the operative word here. If someone isn't an employee of Moebius corp, charge them for their chemicals.<br>\
 	<br>\
 	Its worth noting that you don't always have everything you need on hand. Some recipes will require external ingredients. Bicaridine, most notably, requires the roach toxin blattedin, so you should gather up roach corpses to hack apart for their chemicals. Pay assistants to do this if necessary"
 
 	duties = "		Mix medicines for doctors<br>\
-		Fill chemical requests for NanoTrasen staff<br>\
+		Fill chemical requests for Lazarus staff<br>\
 		Sell chemicals and chem grenades to outsiders"
 
-	loyalties = "Your loyalty is to your career with NanoTrasen corp, and to your coworkers in both branches of NanoTrasen. Help out your scientific colleagues, and aid in their pursuit of knowledge."
-	
+	loyalties = "Your loyalty is to your career with Lazarus Foundation, and to your coworkers in both branches of Lazarus. Help out your scientific colleagues, and aid in their pursuit of knowledge."
+
 
 /obj/landmark/join/start/chemist
 	name = "Pharmacist"
@@ -236,7 +237,7 @@ Your second loyalty is to your career with NanoTrasen, and to your coworkers in 
 							/datum/computer_file/program/chem_catalog,
 							 /datum/computer_file/program/camera_monitor)
 
-	description = "You are a NanoTrasen Paramedic, The hero of the hour! While doctors largely spend their time cloistered away in medbay, your job is to be out there on the frontlines. You work in the field, sometimes treating people on the spot, sometimes bringing them back to medical for specialist treatment. <br>\
+	description = "You are a Lazarus Paramedic, The hero of the hour! While doctors largely spend their time cloistered away in medbay, your job is to be out there on the frontlines. You work in the field, sometimes treating people on the spot, sometimes bringing them back to medical for specialist treatment. <br>\
 
 You have significant medical training, but typically you are not a doctor, and will most likely lack a medical degree. The actual doctors have seniority, and you should follow their orders, especially concerning treatment and diagnosis of a patient<br>\
 <br>\

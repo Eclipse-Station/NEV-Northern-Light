@@ -1,7 +1,7 @@
 //Wizard Rig
 /obj/item/clothing/head/space/void/wizard
 	name = "gem-encrusted voidsuit helmet"
-	desc = "A bizarre gem-encrusted helmet that radiates magical energies."
+	desc = "A bizarre gem-encrusted helmet that radiates strange energy readings."
 	icon_state = "rig0-wiz"
 	item_state_slots = list(
 		slot_l_hand_str = "wiz_helm",
@@ -35,3 +35,4 @@
 	)
 	siemens_coefficient = 0.7
 	helmet = /obj/item/clothing/head/space/void/wizard
+	spawn_blacklisted = TRUE

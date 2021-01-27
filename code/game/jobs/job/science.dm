@@ -7,7 +7,7 @@
 	faction = "NEV Northern Light"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "The Captain and NanoTrasen"
+	supervisors = "Lazarus Foundation"
 	selection_color = "#b39aaf"
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
@@ -20,7 +20,8 @@
 		access_tox_storage, access_teleporter, access_sec_doors,
 		access_moebius, access_medical_equip, access_chemistry, access_virology, access_cmo, access_surgery, access_psychiatrist,
 		access_robotics, access_xenobiology, access_ai_upload, access_tech_storage, access_eva, access_external_airlocks,
-		access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_research_equipment
+		access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_research_equipment,
+		access_change_research
 	)
 	ideal_character_age = 50
 
@@ -40,13 +41,13 @@
 							/datum/computer_file/program/chem_catalog,
 							/datum/computer_file/program/reports)
 
-	description = "You are the head of NanoTrasen research on the Northern Light, tasked with directing shipboard research to new and profitable discoveries."
+	description = "You are the head of Lazarus research on the Northern Light, tasked with directing shipboard research to new and profitable discoveries."
 
 	duties = "Direct the scientists under your command, ensure they work efficiently towards the bettering of all mankind.<br>\
 Use department funds to purchase scientific curios, artefacts, and anything of interesting research value. As well as any equipment and supplies that would be useful for these ends<br>\
 Organise away missions to gather artefacts and research interesting environments. You have the right to request support from other departments as required"
 
-	loyalties = "Your first loyalty is to NanoTrasen. In order to ensure it can continue its mission of research, it must remain profitable. Ensure its interests are farthered, and take care of your colleagues in both the research and medical wings.<br>\
+	loyalties = "Your first loyalty is to Lazarus. In order to ensure it can continue its mission of research, it must remain profitable. Ensure its interests are farthered, and take care of your colleagues in both the research and medical wings.<br>\
 
 As a scientist, your first loyalty is to knowledge and Discovery, the ultimate good in the universe. Learning and developing new technologies is the greatest goal humanity can pursue, and no sacrifice is too great to achieve that end. Even the lives of others or yourself."
 /obj/landmark/join/start/rd
@@ -67,7 +68,7 @@ As a scientist, your first loyalty is to knowledge and Discovery, the ultimate g
 	supervisors = "the Chief Science Officer"
 	selection_color = "#bdb1bb"
 	wage = WAGE_PROFESSIONAL
-	//alt_titles = list("Xenobiologist")
+	alt_titles = list("Xenobiologist", "Xenoflorist", "Research Intern", "Anomalist")
 	outfit_type = /decl/hierarchy/outfit/job/science/scientist
 
 	software_on_spawn = list(/datum/computer_file/program/signaller, /datum/computer_file/program/chem_catalog)
@@ -83,7 +84,7 @@ As a scientist, your first loyalty is to knowledge and Discovery, the ultimate g
 		STAT_BIO = 20,
 	)
 
-	description = "You are a scientist, standing at the frontier of human advancement. Working for NanoTrasen to find new research opportunities in deep space. The science wing is located in the second section, starboard side, opposite medical, and your medical colleagues should be fast friends. The medical wing is part of NanoTrasen too, and so you fully share access with each other, and are free to use each others' supplies. (Just remember to ask first! They're probaly using it!)<br>\
+	description = "You are a scientist, standing at the frontier of human advancement. Working for Lazarus to find new research opportunities in deep space. The science wing is located in the second section, starboard side, opposite medical, and your medical colleagues should be fast friends. The medical wing is part of Lazarus too, and so you fully share access with each other, and are free to use each others' supplies. (Just remember to ask first! They're probaly using it!)<br>\
 <br>\
 As a scientist, your primary purpose is research, testing, and the advancement of knowledge. You can justify almost anything if its done for the purpose of science, and people have no reason to be suspicious if you stomp around wearing strange devices and carrying stranger weapons still. You should craft, lathe and print anything you can, toy around with it, and figure out how it works in detail. Deeply explore everything you can.<br>\
 <br>\
@@ -102,7 +103,7 @@ Explore, learn and adventure, do anything to advance the cause of knowledge"
 
 	loyalties = "As a scientist, your first loyalty is to knowledge, the ultimate good in the universe. Learning and developing new technologies is the greatest goal humanity can pursue, and no sacrifice is too great to achieve that end. Even the lives of others or yourself.<br>\
 
-	Your second loyalty is to NanoTrasen. In order to ensure it can continue its mission of research, it must remain profitable. Ensure its interests are farthered, and take care of your colleagues in both the research and medical wings"
+	Your second loyalty is to Lazarus Foundation. In order to ensure it can continue its mission of research, it must remain profitable. Ensure its interests are farthered, and take care of your colleagues in both the research and medical wings"
 
 /obj/landmark/join/start/scientist
 	name = "Scientist"

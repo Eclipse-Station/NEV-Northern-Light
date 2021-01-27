@@ -42,6 +42,7 @@
 	zoom_factor = 0
 	damage_multiplier = 1
 	charge_cost = 100
+	spawn_tags = null
 
 /obj/item/weapon/gun/energy/laser/practice
 	name = "NT LG \"Lightfall\" - P"
@@ -81,7 +82,7 @@
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	item_charge_meter = TRUE
-	desc = "This weapon is old, yet still robust and reliable. it's strangly weathered despite the NanoTrasen logo."
+	desc = "This weapon is old, yet still robust and reliable. it's strangely weathered despite the NanoTrasen logo."
 	force = WEAPON_FORCE_PAINFUL
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT
@@ -99,6 +100,7 @@
 		WEAPON_CHARGE
 	)
 	twohanded = FALSE
+	spawn_blacklisted = TRUE//antag_item_targets
 
 /obj/item/weapon/gun/energy/lasercannon
 	name = "Prototype: laser cannon"
@@ -180,7 +182,7 @@
 		break
 
 /obj/item/weapon/gun/energy/psychic/proc/reg_break(mob/living/carbon/human/victim)
-	if(victim.get_species() != "Human")
+	if(victim.get_species() != SPECIES_HUMAN)
 		return
 
 	if(!contract)

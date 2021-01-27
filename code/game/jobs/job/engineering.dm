@@ -13,7 +13,7 @@
 	also_known_languages = list(LANGUAGE_CYRILLIC = 100, LANGUAGE_SERBIAN = 25)
 	wage = WAGE_COMMAND
 	ideal_character_age = 50
-	
+
 	wl_config_heads = TRUE		//Eclipse edit.
 //	alt_titles = list()
 
@@ -23,7 +23,7 @@
 		access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 		access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 		access_heads, access_construction, access_sec_doors,
-		access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload
+		access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_change_engineering
 	)
 
 	stat_modifiers = list(
@@ -71,6 +71,8 @@ Your second loyalty is to your workers. Ensure they are paid, fed and safe. Don'
 	selection_color = "#d5c88f"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 100, LANGUAGE_SERBIAN = 5)
 	wage = WAGE_PROFESSIONAL
+	alt_titles = list("Engineering Apprentice", "Atmospherics Technician", "Electrician", "Maintenance Technician")
+
 
 	outfit_type = /decl/hierarchy/outfit/job/engineering/engineer
 

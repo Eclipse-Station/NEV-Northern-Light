@@ -2,11 +2,12 @@
 	implant_type = /obj/item/weapon/implant/core_implant/cruciform
 	success_message = "On the verge of audibility you hear pleasant music, your mind clears up and the spirit grows stronger. Your prayer was heard."
 	fail_message = "The Cruciform feels cold against your chest."
+	var/high_ritual = TRUE
 
 /datum/ritual/group/cruciform/pre_check(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C, targets)
 	if(!..())
 		return FALSE
-	if(!C.get_module(CRUCIFORM_PRIEST) && !C.get_module(CRUCIFORM_INQUISITOR))
+	if(high_ritual && !C.get_module(CRUCIFORM_PRIEST) && !C.get_module(CRUCIFORM_INQUISITOR))
 		return FALSE
 	return TRUE
 
@@ -21,15 +22,17 @@
 	var/stat_buff
 
 /datum/group_ritual_effect/cruciform/stat/success(var/mob/living/M, var/cnt)
-	if(cnt < 3 || !stat_buff)
+	if(!cnt || !stat_buff) //Eclipse edit - what if we were two priests in mekhane church and held hands and chanted an incantation uwu
 		return
 	var/obj/machinery/power/nt_obelisk/O
 	O = O // "unused variable" yourself
 	O.stat_buff = stat_buff
+	if(eotp)
+		eotp.addObservation(25)
 
 /datum/ritual/group/cruciform/mechanical
 	name = "Mechanical"
-	desc = "Boosts Mechanical stat to 3 + 1 for each participant."
+	desc = "Boosts Mechanical stat by 3 + 1 for each participant."
 	phrase = "Omnia haec tractavi in corde meo ut curiose intellegerem sunt iusti atque sapientes et opera eorum in manu Dei et tamen nescit homo utrum amore an odio dignus sit."
 	phrases = list(
 		"Omnia haec tractavi in corde meo ut curiose intellegerem sunt iusti atque sapientes et opera eorum in manu Dei et tamen nescit homo utrum amore an odio dignus sit.",
@@ -51,7 +54,7 @@
 
 /datum/ritual/group/cruciform/cognition
 	name = "Cognition"
-	desc = "Boosts Cognition stat to 3 + 1 for each participant."
+	desc = "Boosts Cognition stat by 3 + 1 for each participant."
 	phrase = "Dedit quoque Deus sapientiam Salomoni et prudentiam multam nimis et latitudinem cordis quasi harenam quae est in litore maris."
 	phrases = list(
 		"Dedit quoque Deus sapientiam Salomoni et prudentiam multam nimis et latitudinem cordis quasi harenam quae est in litore maris.",
@@ -71,7 +74,7 @@
 
 /datum/ritual/group/cruciform/biology
 	name = "Biology"
-	desc = "Boosts Biology stat to 3 + 1 for each participant."
+	desc = "Boosts Biology stat by 3 + 1 for each participant."
 	phrase = "Convocatis autem duodecim apostolis dedit illis virtutem et potestatem super omnia daemonia et ut languores curarent."
 	phrases = list(
 		"Convocatis autem duodecim apostolis dedit illis virtutem et potestatem super omnia daemonia et ut languores curarent.",
@@ -90,7 +93,7 @@
 
 /datum/ritual/group/cruciform/robustness
 	name = "Robustness"
-	desc = "Boosts Robustness stat to 3 + 1 for each participant."
+	desc = "Boosts Robustness stat by 3 + 1 for each participant."
 	phrase = "Audi Israhel tu transgredieris hodie Iordanem ut possideas nationes maximas et fortiores te civitates ingentes et ad caelum usque muratas."
 	phrases = list(
 		"Audi Israhel tu transgredieris hodie Iordanem ut possideas nationes maximas et fortiores te civitates ingentes et ad caelum usque muratas.",
@@ -109,7 +112,7 @@
 
 /datum/ritual/group/cruciform/toughness
 	name = "Toughness"
-	desc = "Boosts Toughness stat to 3 + 1 for each participant."
+	desc = "Boosts Toughness stat by 3 + 1 for each participant."
 	phrase = "In finem psalmus David."
 	phrases = list(
 		"In finem psalmus David.",
@@ -145,7 +148,7 @@
 	effect_type = /datum/group_ritual_effect/cruciform/crusade
 
 /datum/group_ritual_effect/cruciform/crusade/success(var/mob/living/M, var/cnt)
-	if(cnt < 6)
+	if(cnt < 3) //Eclipse edit - FOUR PEOPLE IS STIL A CRUSADE
 		return
 	var/obj/item/weapon/implant/core_implant/CI = M.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 	if(CI)
@@ -155,3 +158,28 @@
 		CI.known_rituals |= initial(C.name)
 		C = /datum/ritual/cruciform/crusader/flash
 		CI.known_rituals |= initial(C.name)
+
+/datum/ritual/group/cruciform/sanctify
+	name = "Sanctify"
+	desc = "Sanctify the land you tread."
+	phrase = "Benedicite loco isto."
+	phrases = list(
+		"Benedicite loco isto.",
+		"Benedic hoc petimus Patris.",
+		"Nos obsecro te removere percula huius loci.",
+		"Ne malorum tangere terram",
+		"Frase quinta",
+		"Frase sexta",
+		"Frase septima"
+	)
+	effect_type = /datum/group_ritual_effect/cruciform/sanctify
+	high_ritual = FALSE
+
+/datum/group_ritual_effect/cruciform/sanctify/trigger_success(var/mob/starter, var/list/participants)
+	..()
+	var/area/A = get_area(starter)
+	A?.sanctify()
+
+/area/proc/sanctify()
+	SEND_SIGNAL(src, COMSIG_AREA_SANCTIFY)
+	return

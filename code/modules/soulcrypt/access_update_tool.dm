@@ -28,7 +28,7 @@
 /obj/item/weapon/access_update_tool/afterattack(atom/A, mob/living/user)
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/person = A
-		var/obj/item/weapon/implant/soulcrypt/crypt = person.crypt
+		var/obj/item/weapon/implant/core_implant/soulcrypt/crypt = person.crypt
 		if(!crypt)
 			to_chat(user, SPAN_WARNING("[person] doesn't have a Soulcrypt to modify."))
 			return

@@ -50,6 +50,8 @@ var/list/disciples = list()
 	if(is_carrion(wearer))
 		playsound(wearer.loc, 'sound/hallucinations/wail.ogg', 55, 1)
 		wearer.gib()
+		if(eotp)
+			eotp.addObservation(200)
 		return
 	..()
 	add_module(new CRUCIFORM_COMMON)
@@ -58,6 +60,11 @@ var/list/disciples = list()
 	var/datum/core_module/cruciform/cloning/M = get_module(CRUCIFORM_CLONING)
 	if(M)
 		M.write_wearer(wearer) //writes all needed data to cloning module
+	if(ishuman(wearer)) //Eclipse add
+		var/mob/living/carbon/human/H = wearer
+		H.genetic_corruption = 0
+	if(eotp)
+		eotp.addObservation(50)
 	return TRUE
 
 
@@ -65,35 +72,42 @@ var/list/disciples = list()
 	if(!active || !wearer)
 		return
 	disciples.Remove(wearer)
+	if(eotp)
+		eotp.removeObservation(50)
 	..()
 
 /obj/item/weapon/implant/core_implant/cruciform/Process()
 	..()
 //	if(active && round(world.time) % 5 == 0)
 //		remove_cyber()   -- Eclipse Edit
-	if(wearer && wearer.stat == DEAD)
-		deactivate()
+	if(wearer)
+		if(wearer.stat == DEAD)
+			deactivate()
+		else if(ishuman(wearer)) //Eclipse add
+			var/mob/living/carbon/human/H = wearer
+			if(H.genetic_corruption > 49) //SEVEN BY SEVEN
+				H.genetic_corruption -= 1
 
 
 /obj/item/weapon/implant/core_implant/cruciform/proc/transfer_soul()
 	if(!wearer || !activated)
 		return FALSE
 	var/datum/core_module/cruciform/cloning/data = get_module(CRUCIFORM_CLONING)
-	if(wearer.dna.unique_enzymes == data.dna.unique_enzymes)
-		for(var/mob/M in GLOB.player_list)
-			if(M.ckey == data.ckey)
-				if(M.stat != DEAD)
-					return FALSE
-		var/datum/mind/MN = data.mind
-		if(!istype(MN, /datum/mind))
-			return
-		MN.transfer_to(wearer)
-		wearer.ckey = data.ckey
-		for(var/datum/language/L in data.languages)
-			wearer.add_language(L.name)
-		update_data()
-		if (activate())
-			return TRUE
+	//if(wearer.dna.unique_enzymes == data.dna.unique_enzymes) Mekhanites are ultratranshumanists - Eclipse edit
+/*	for(var/mob/M in GLOB.player_list)
+		if(M.ckey == data.ckey)
+			if(M.stat != DEAD)
+				return FALSE  */
+	var/datum/mind/MN = data.mind
+	if(!istype(MN, /datum/mind))
+		return
+	MN.transfer_to(wearer)
+	wearer.ckey = data.ckey
+	for(var/datum/language/L in data.languages)
+		wearer.add_language(L.name)
+	update_data()
+	if (activate())
+		return TRUE
 
 /obj/item/weapon/implant/core_implant/cruciform/proc/remove_cyber()
 	if(!wearer)

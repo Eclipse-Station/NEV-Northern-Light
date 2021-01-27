@@ -3,7 +3,7 @@ var/global/list/modifications_types = list(
 	BP_CHEST = "",  "chest2" = "", BP_HEAD = "",   BP_GROIN = "",
 	BP_L_ARM  = "", BP_R_ARM  = "", BP_L_HAND = "", BP_R_HAND = "",
 	BP_L_LEG  = "", BP_R_LEG  = "", BP_L_FOOT = "", BP_R_FOOT = "",
-	BP_HEART  = "", BP_LUNGS  = "", BP_LIVER  = "", BP_EYES   = ""
+	OP_HEART  = "", OP_LUNGS  = "", OP_LIVER  = "", OP_EYES   = ""
 )
 
 /proc/generate_body_modification_lists()
@@ -34,14 +34,15 @@ var/global/list/modifications_types = list(
 	var/desc = ""							// Description.
 	var/list/body_parts = list(				// For sorting'n'selection optimization.
 		BP_CHEST, "chest2", BP_HEAD, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG,\
-		BP_L_FOOT, BP_R_FOOT, BP_HEART, BP_LUNGS, BP_LIVER, BP_BRAIN, BP_EYES)
-	var/list/allowed_species = list("Human")// Species restriction.
+		BP_L_FOOT, BP_R_FOOT, OP_HEART, OP_LUNGS, OP_LIVER, BP_BRAIN, OP_EYES)
+	var/list/allowed_species = list(SPECIES_HUMAN)// Species restriction.
 	var/replace_limb = null					// To draw usual limb or not.
 	var/mob_icon = ""
 	var/icon/icon = 'icons/mob/human_races/body_modification.dmi'
 	var/nature = MODIFICATION_ORGANIC
 	var/hascolor = FALSE
 	var/allow_nt = TRUE
+	var/list/department_specific = ALL_DEPARTMENTS
 
 /datum/body_modification/proc/get_mob_icon(organ, color="#ffffff", gender = MALE, species)	//Use in setup character only
 	return new/icon('icons/mob/human.dmi', "blank")
@@ -58,13 +59,33 @@ var/global/list/modifications_types = list(
 			if(parent.nature == MODIFICATION_REMOVED)
 				to_chat(usr, "[name] can't be attached to [parent.name]")
 				return FALSE
+			if(parent.nature == MODIFICATION_SILICON && nature != MODIFICATION_SILICON)
+				to_chat(usr, "[name] can't be attached to [parent.name]")
+				return FALSE
 
 
+/*
 	if(!allow_nt)
 		if(H?.mind?.assigned_job.department == DEPARTMENT_CHURCH)
 			return FALSE
 		if(H?.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform))
 			return FALSE
+	if(department_specific.len)
+		if(H && H.mind)
+			var/department = H.mind.assigned_job.department
+			if(!department || !department_specific.Find(department))
+				to_chat(usr, "This body-mod does not match your chosen department.")
+				return FALSE
+		else if(P)
+			var/datum/job/J
+			if(ASSISTANT_TITLE in P.job_low)
+				J = SSjob.GetJob(ASSISTANT_TITLE)
+			else
+				J = SSjob.GetJob(P.job_high)
+			if(!J || !department_specific.Find(J.department))
+				to_chat(usr, "This body-mod does not match your highest-priority department.")
+				return FALSE
+*/
 
 	return TRUE
 
@@ -176,7 +197,19 @@ var/global/list/modifications_types = list(
 	name = "Xion"
 	desc = "Prosthesis with minimalist black and red casing."
 	prosthetic_model = "xion"
+/*
+/datum/body_modification/limb/prosthesis/moebius
+	id = "prosthesis_moebius"
+	replace_limb = /obj/item/organ/external/robotic/moebius
+	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN, BP_HEAD)
+	department_specific = list(DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE)
+	icon = 'icons/mob/human_races/cyberlimbs/moebius.dmi'
 
+/datum/body_modification/limb/prosthesis/makeshift
+	id = "prosthesis_makeshift"
+	replace_limb = /obj/item/organ/external/robotic/makeshift
+	icon = 'icons/mob/human_races/cyberlimbs/ghetto.dmi'
+*/
 /datum/body_modification/limb/mutation/New()
 	short_name = "M: [name]"
 	name = "Mutation: [name]"
@@ -206,7 +239,7 @@ var/global/list/modifications_types = list(
 	short_name = "P: assisted"
 	id = "assisted"
 	desc = "Assisted organ."
-	body_parts = list(BP_HEART, BP_LUNGS, BP_LIVER, BP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_LIVER, OP_EYES)
 	allow_nt = FALSE
 
 /datum/body_modification/organ/assisted/create_organ(var/mob/living/carbon/holder, var/O, var/color)
@@ -222,7 +255,7 @@ var/global/list/modifications_types = list(
 	short_name = "P: prosthesis"
 	id = "robotize_organ"
 	desc = "Robotic organ."
-	body_parts = list(BP_HEART, BP_LUNGS, BP_LIVER, BP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_LIVER, OP_EYES)
 	allow_nt = FALSE
 
 /datum/body_modification/organ/robotize_organ/create_organ(var/mob/living/carbon/holder, O, color)

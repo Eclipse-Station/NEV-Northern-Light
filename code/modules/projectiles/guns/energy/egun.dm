@@ -33,7 +33,7 @@
 
 /obj/item/weapon/gun/energy/gun/martin
 	name = "FS PDW E \"Martin\""
-	desc = "Martin is essentialy downscaled Spider Rose, made for Aegis employees and civilians to use it as personal self defence weapon."
+	desc = "Martin is essentialy a downscaled Spider Rose, made for Aegis employees and civilians to use as a personal self defence weapon."
 	icon = 'icons/obj/guns/energy/pdw.dmi'
 	icon_state = "PDW"
 	item_state = "gun"

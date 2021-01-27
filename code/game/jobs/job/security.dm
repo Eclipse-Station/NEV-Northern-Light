@@ -13,7 +13,7 @@
 	wage = WAGE_COMMAND
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihc
-	
+
 	wl_config_heads = TRUE		//Eclipse edit.
 	wl_config_sec = TRUE		//Eclipse edit.
 
@@ -22,7 +22,7 @@
 		access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 		access_moebius, access_engine, access_mining, access_construction, access_mailsorting,
 		access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway,
-		access_external_airlocks
+		access_external_airlocks, access_change_sec
 	)
 
 	stat_modifiers = list(
@@ -38,7 +38,7 @@
 							 /datum/computer_file/program/camera_monitor,
 							 /datum/computer_file/program/reports)
 
-	description = "You are the head of the Coblat Aegis Security division contracted to protect and serve aboard the NEV Northern Light. The company contracting you out, Cobalt Aegis Security serves as both an internal security force, and as a guard for expeditions outwith the ship.<br>\
+	description = "You are the head of the Aegis Security division contracted to protect and serve aboard the NEV Northern Light. The company contracting you out, Aegis Security serves as both an internal security force, and as a guard for expeditions out with the ship.<br>\
 	<br>\
 	Your goal is to keep everyone aboard the ship as safe as possible, and to eliminate any threats to safety."
 
@@ -72,7 +72,7 @@
 	selection_color = "#a7bbc6"
 	department_account_access = TRUE
 	wage = WAGE_LABOUR_HAZARD
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/gunserg
@@ -94,15 +94,15 @@
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)
 
-	description = "You are the Second-in-Command of the local Cobalt Aegis Security regiment, and the defacto leader if the commander isn't around. <br>\
-	Within Cobalt you largely hold a desk job, your duties will rarely take you outside of the Cobalt security wing, and you are not expected to interact with civilians. You have enough to deal with as is, and are probably the hardest working member of Cobalt.<br>\
+	description = "You are the Second-in-Command of the local Aegis Security regiment, and the defacto leader if the commander isn't around. <br>\
+	Within Aegis you largely hold a desk job, your duties will rarely take you outside of the Aegis security wing, and you are not expected to interact with civilians. You have enough to deal with as is, and are probably the hardest working member of Aegis.<br>\
 	<br>\
 	You have several core duties:<br>\
 		1. As second in command, any of the commander's duties may be delegated to you, if they decide to do so. This means that at any time, you may be expected to handle funding, paperwork, disciplinary matters, planning combat tactics, or even carrying out executions. If there's no commander, these duties fall naturally to you. If there is a commander on site though, you shouldn't make these kind of decisions without consulting them.<br>\
 		<br>\
-		2. You serve as the Cobalt quartermaster. And as such, it is your job to maintain the armoury, and stocks of other equipment. You should keep track of its contents, and who has what. Make sure weapons and equipment are returned at the end of a shift, and procure new armaments from the guild or from scavengers as necessary to keep supplies up and respond to new threat	s.<br>\
+		2. You serve as the Aegis quartermaster. And as such, it is your job to maintain the armoury, and stocks of other equipment. You should keep track of its contents, and who has what. Make sure weapons and equipment are returned at the end of a shift, and procure new armaments from the guild or from scavengers as necessary to keep supplies up and respond to new threat	s.<br>\
 		<br>\
-		3. You are the defacto warden, and if there are any prisoners being kept in the Cobalt brig, it is your responsibility to ensure they are fed, treated appropriately with regard to their legal rights, and ensure they have access to medical care. If necessary you may need to suppress riots or escape attempts within the brig too.<br>\
+		3. You are the defacto warden, and if there are any prisoners being kept in the Aegis brig, it is your responsibility to ensure they are fed, treated appropriately with regard to their legal rights, and ensure they have access to medical care. If necessary you may need to suppress riots or escape attempts within the brig too.<br>\
 		<br>\
 		4. In times of peace, prepare for war. To this end, you are also the onsite military instructor. If the ship is in a lull and there are no outstanding threats, you should take the initiative to order training drills. Allow junior operatives to train and learn with less conventional weapons and tactics, give lessons on aiming, trigger discipline, hand to hand combat. Conduct drills on threat response, squad tactics, and EVA manoeuvres.<br>\ "
 
@@ -125,7 +125,7 @@
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/inspector
@@ -152,7 +152,7 @@
 	description = "You are the ship's detective, here to take care of the cases that aren't always what they seem, and suspects that aren't always caught red handed or ready to confess.<br>\
 	The inspector's job is to interrogate suspects, gather witness statements,  harvest evidence and reach a conclusion about the nature and culprit of a crime.<br>\
 	<br>\
-	You are a higher ranking Cobalt officer, and you can give commands to operatives.  But this doesn't mean you should be commanding assaults. You're not any kind of tactical commander<br>\
+	You are a higher ranking Aegis operative, and you can give commands to operatives.  But this doesn't mean you should be commanding assaults. You're not any kind of tactical commander<br>\
 	<br>\
 	When there are no outstanding cases, your job is to go look for them. Mingle with civilians, interact and converse, sniff out leads about potential criminal activity. The Aegis budget can often include stipends to pay informers for any useful info"
 
@@ -182,7 +182,7 @@
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	wage = WAGE_PROFESSIONAL
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/medspec
@@ -206,11 +206,11 @@
 
 	description = "You are a highly trained specialist within Aegis. You were probably a medical student or inexperienced doctor when you joined Aegis, and you thusly have a combination of medical and military training. You are not quite as knowledgeable as a civilian career doctor, not quite as much of a fighter as a dedicated Aegis operative, but strike a balance inbetween. Balance is the nature of your existence.<br>\
 	<br>\
-	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - NanoTrasen Medical for roles 1 and 2, the Aegis Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
+	Within Aegis, you have three roles to undertake. All of your roles can be delegated to others when needed - Lazarus Medical for roles 1 and 2, the Aegis Inspector for role 3. But you are often the best positioned to carry out these tasks, especially when time is short<br>\
 	<br>\
 	1. Field Medic. <br>\
 	You may be expected to serve on the backlines in a combat situation, treating and stabilising the wounded, making the call as to whether they can return to combat or leave by medivac. You may need to perform emergency trauma surgery in undesireable conditions. <br>\
-	You are allowed to be armed, but remember that saving lives, not taking them, is your first duty. Don't be afraid to send patients to NanoTrasen medical for proper specialist care.<br>\
+	You are allowed to be armed, but remember that saving lives, not taking them, is your first duty. Don't be afraid to send patients to Lazarus medical for proper specialist care.<br>\
 	<br>\
 	2. Prison Doctor.<br>\
 	During quiet times, when inmates are serving in the brig, you will often be required to treat prisoners, criminal suspects, and the condemned. Suicide attempts are common in prison, and you will often be treating a patient against their will, who is attempting to escape. When serving in this role, stay on guard, work closely with the gunnery sergeant, and keep control of the situation<br>\
@@ -236,7 +236,7 @@
 	//alt_titles = list("Aegis Junior Operative")
 	selection_color = "#a7bbc6"
 	wage = WAGE_LABOUR_HAZARD
-	
+
 	wl_config_sec = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihoper
@@ -257,7 +257,7 @@
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)
 
-	description = "You are the boots on the ground, the rifle in the window, the long arm of the law. You are the hand of Aegis Cobalt, and the frontline against criminals, terrorists, and hostile lifeforms.<br>\
+	description = "You are the boots on the ground, the rifle in the window, the long arm of the law. You are the hand of Aegis, and the frontline against criminals, terrorists, and hostile lifeforms.<br>\
 	<br>\
 	You are a professional soldier and a hardened mercenary, no stranger to violence. You are required to employ your talents in order to bring an end to threats and conflict situations. As a consummate professional, you're often expected to put your pride aside, and work with others. Tactics and teamwork are vital.<br>\
 	<br>\
@@ -273,7 +273,7 @@
 		Follow orders from the chain of command<br>\
 		Obey the law. You are not above it"
 
-	loyalties = "		As a soldier, your first loyalty is to the chain of command, which ends with the Cobalt Commander. Their orders are supreme over all, even if they're currently leading a mutiny against the captain.<br>\
+	loyalties = "		As a soldier, your first loyalty is to the chain of command, which ends with the Aegis Commander. Their orders are supreme over all, even if they're currently leading a mutiny against the captain.<br>\
 		<br>\
 		Your second loyalty is to your fellow Aegis brothers in arms. As long as the company takes care of you, you should follow orders. But if you start being sent on suicide missions and treated as expendable fodder, that should change.<br>\
 		<br>\

@@ -11,14 +11,11 @@
 /obj/machinery/neotheology/cloner
 	name = "SLT-73 Clonepod Prototype"
 	desc = "One of the more fruitful results of NT's investment in Lazarus, this baby puts a person back together from organic slurry just in a few minutes. Now with clear biomass fluids for all your gross anatomy viewing needs."
-	icon = 'icons/obj/neotheology_pod.dmi'
+	icon = 'zzz_modular_eclipse/icons/obj/neotheology_machinery.dmi'
 	icon_state = "preview"
 	density = TRUE
 	anchored = TRUE
 	layer = 2.8
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/cloner
-
-	frame_type = FRAME_VERTICAL
 
 	var/obj/machinery/neotheology/reader/reader
 	var/reader_loc
@@ -32,7 +29,7 @@
 
 	var/progress = 0
 
-	var/time_multiplier = 1	//Try to avoid use of non integer values
+	var/cloning_speed = 1	//Try to avoid use of non integer values
 
 	var/biomass_consumption = 2
 
@@ -44,25 +41,13 @@
 
 /obj/machinery/neotheology/cloner/New()
 	..()
-	icon = 'icons/obj/neotheology_machinery.dmi'
+	icon = 'zzz_modular_eclipse/icons/obj/neotheology_machinery.dmi'
 	update_icon()
 
 /obj/machinery/neotheology/cloner/Destroy()
 	if(occupant)
 		qdel(occupant)
 	return ..()
-
-
-/obj/machinery/neotheology/cloner/RefreshParts()
-	var/mn_rating = 0
-	var/mn_ammount = 0
-	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
-		mn_rating += M.rating
-		mn_ammount++
-	if (mn_ammount != 0) // Fail-check so we wont divide by 0 in future and get runtimes
-		time_multiplier = round(initial(time_multiplier)*(mn_rating/mn_ammount))
-	else
-		time_multiplier = 0 // ... so it wont work without manipulators
 
 /obj/machinery/neotheology/cloner/proc/find_container()
 	for(var/obj/machinery/neotheology/biomass_container/BC in orange(1,src))
@@ -198,9 +183,6 @@
 	if(stat & NOPOWER)
 		return
 
-	if(time_multiplier == 0) // We dont want to start if we wont have manipulators
-		return
-
 	if(cloning)
 		if(!reader || reader.loc != reader_loc || !reader.implant || !container || container.loc != container_loc)
 			open_anim()
@@ -208,7 +190,7 @@
 			update_icon()
 			return
 
-		progress += time_multiplier // I.e. 3 manipulators of tier 1 will increase progress by 1, 3 manipulators of tier 2 by 2 and so on
+		progress += cloning_speed
 
 		if(progress <= CLONING_DONE)
 			if(container)
@@ -228,7 +210,7 @@
 
 
 		if(progress >= CLONING_MEAT && !occupant)
-			var/obj/item/weapon/implant/soulcrypt/R = reader.implant
+			var/obj/item/weapon/implant/core_implant/soulcrypt/R = reader.implant
 			if(!R)
 				open_anim()
 				stop()
@@ -243,8 +225,7 @@
 			occupant.UpdateAppearance()
 			occupant.sync_organ_dna()
 			occupant.flavor_text = R.host_flavor_text
-			occupant.stats = R.host_stats
-			occupant.stats = R.host_stats
+			R.host_stats.copyTo(occupant.stats)
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
 			var/datum/effect/effect/system/spark_spread/s = new
@@ -261,15 +242,6 @@
 		update_icon()
 
 	use_power(power_cost)
-
-
-/obj/machinery/neotheology/cloner/attackby(obj/item/I, mob/user as mob)
-
-	if(default_deconstruction(I, user))
-		return
-
-	if(default_part_replacement(I, user))
-		return
 
 /obj/machinery/neotheology/cloner/update_icon()
 	icon_state = "pod_base0"
@@ -377,7 +349,6 @@
 	icon_state = "biocan"
 	density = TRUE
 	anchored = TRUE
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/biocan
 
 	var/biomass_capacity = 600
 
@@ -406,12 +377,6 @@
 		P.dir = dir
 		. += P
 
-/obj/machinery/neotheology/biomass_container/RefreshParts()
-	var/T = 0
-	for(var/obj/item/weapon/stock_parts/matter_bin/M in component_parts)
-		T += M.rating * 200
-	biomass_capacity = T
-
 /obj/machinery/neotheology/biomass_container/examine(mob/user)
 	if(!..(user, 2))
 		return
@@ -422,13 +387,6 @@
 		to_chat(user, SPAN_NOTICE("Filled to [reagents.total_volume]/[biomass_capacity]."))
 
 /obj/machinery/neotheology/biomass_container/attackby(obj/item/I, mob/user)
-
-	if(default_deconstruction(I, user))
-		return
-
-	if(default_part_replacement(I, user))
-		return
-
 	if (istype(I, /obj/item/stack/material/biomatter))
 		var/obj/item/stack/material/biomatter/B = I
 		if (B.biomatter_in_sheet && B.amount)
@@ -469,26 +427,19 @@
 
 /obj/machinery/neotheology/reader
 	name = "SLT-73-B Core Implant Reader"
+	icon = 'zzz_modular_eclipse/icons/obj/neotheology_machinery.dmi'
 	desc = "A neat-looking device capable of extracting DNA and conciousness imprints from a core implant."
 	icon_state = "reader_off"
 	density = TRUE
 	anchored = TRUE
-	circuit = /obj/item/weapon/electronics/circuitboard/neotheology/reader
 
-	var/obj/item/weapon/implant/soulcrypt/implant
+	var/obj/item/weapon/implant/core_implant/soulcrypt/implant
 	var/reading = FALSE
 
 
 /obj/machinery/neotheology/reader/attackby(obj/item/I, mob/user as mob)
-
-	if(default_deconstruction(I, user))
-		return
-
-	if(default_part_replacement(I, user))
-		return
-
-	if(istype(I, /obj/item/weapon/implant/soulcrypt))
-		var/obj/item/weapon/implant/soulcrypt/C = I
+	if(istype(I, /obj/item/weapon/implant/core_implant/soulcrypt))
+		var/obj/item/weapon/implant/core_implant/soulcrypt/C = I
 		user.drop_item()
 		C.forceMove(src)
 		implant = C

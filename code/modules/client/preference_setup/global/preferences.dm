@@ -119,6 +119,11 @@ var/list/_client_preferences_by_type
 	key = "CHAT_GHOSTRADIO"
 	options = list(GLOB.PREF_ALL_CHATTER, GLOB.PREF_NEARBY)
 
+/datum/client_preference/ghost_subtle
+	description ="Ghost subtle"
+	key = "CHAT_GHOSTSUBTLE"
+	options = list(GLOB.PREF_NO, GLOB.PREF_YES)
+
 /datum/client_preference/language_display
 	description = "Display Language Names"
 	key = "LANGUAGE_DISPLAY"
@@ -210,6 +215,16 @@ var/list/_client_preferences_by_type
 /datum/client_preference/gun_cursor
 	description = "Enable gun crosshair"
 	key = "GUN_CURSOR"
+
+/datum/client_preference/play_jukebox
+	description ="Play jukebox music"
+	key = "SOUND_JUKEBOX"
+
+/datum/client_preference/play_jukebox/changed(var/mob/preference_mob, var/new_value)
+	if(new_value == GLOB.PREF_NO)
+		preference_mob.stop_all_music()
+	else
+		preference_mob.update_music()
 
 /********************
 * General Staff Preferences *

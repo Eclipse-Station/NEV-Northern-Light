@@ -45,7 +45,7 @@
 
 /obj/effect/overmap/ship/eris/Initialize()
 	.=..()
-	if(name == "CEV Eris")
+	if(name == "NEV Northern Light")
 		ships[eris] = src
 
 /obj/machinery/computer/shuttle_control/explore/exploration_shuttle

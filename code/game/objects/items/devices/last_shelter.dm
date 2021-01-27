@@ -12,12 +12,27 @@
 	var/last_teleport = -15 MINUTES
 	var/scan = FALSE
 
+/obj/item/device/last_shelter/New()
+	..()
+	GLOB.all_faction_items[src] = GLOB.department_church
+
+/obj/item/device/last_shelter/Destroy()
+	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
+		SEND_SIGNAL(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
+	GLOB.all_faction_items -= src
+	..()
+
+/obj/item/device/last_shelter/attackby(obj/item/I, mob/living/user, params)
+	if(nt_sword_attack(I, user))
+		return FALSE
+	..()
+
 /obj/item/device/last_shelter/attack_self(mob/user)
 	if(world.time >= (last_teleport + cooldown))
 		to_chat(user, SPAN_NOTICE("The [src] scans deep space for core implants, it will take a while..."))
 		last_teleport = world.time
 		scan = TRUE
-		var/obj/item/weapon/implant/soulcrypt/soulcrypt = get_cruciform()
+		var/obj/item/weapon/implant/core_implant/soulcrypt/soulcrypt = get_cruciform()
 		if(soulcrypt)
 			scan = FALSE
 			if(istype(src.loc, /mob/living/carbon/human))
@@ -36,6 +51,7 @@
 	else
 		to_chat(user, SPAN_WARNING("The [src] needs time to recharge!"))
 
+
 /obj/item/device/last_shelter/proc/get_cruciform()
 	var/datum/mind/MN = request_player()
 	if(!MN)
@@ -46,10 +62,18 @@
 	var/datum/perk/perk_random = pick(subtypesof(/datum/perk/oddity))
 	H.stats.addPerk(perk_random)
 	H.stats.addPerk(pick(/datum/perk/survivor, /datum/perk/selfmedicated, /datum/perk/vagabond, /datum/perk/merchant, /datum/perk/inspiration))
-	var/obj/item/weapon/implant/soulcrypt/soulcrypt = new /obj/item/weapon/implant/soulcrypt(src)
-	soulcrypt.install(H)
+	var/obj/item/weapon/implant/core_implant/cruciform/cruciform = new /obj/item/weapon/implant/core_implant/cruciform(src)
+	cruciform.add_module(new CRUCIFORM_CLONING)
+	cruciform.activated = TRUE
+	MN.name = H.real_name
+	MN.assigned_role = "NT disciple"
+	MN.original = H
+	for(var/datum/core_module/cruciform/cloning/M in cruciform.modules)
+		M.write_wearer(H)
+		M.ckey = MN.key
+		M.mind = MN
 	qdel(H)
-	return soulcrypt
+	return cruciform
 
 /obj/item/device/last_shelter/proc/request_player()
 	var/agree_time_out = FALSE
@@ -59,7 +83,7 @@
 	for(var/mob/observer/ghost/O in GLOB.player_list)
 		if(O.client)
 			O << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever when he's chosen to decide.
-			if(alert(O, "Do you want to be cloned as NT disciple? Hurry up, you have 60 seconds to make choice!","Player Request","OH YES","No, I'm autist") == "OH YES")
+			if(alert(O, "Do you want to be cloned as Mekhane disciple? Hurry up, you have 60 seconds to make choice!","Player Request","OH YES","I am not worthy") == "OH YES")
 				if(!agree_time_out)
 					if(MN)
 						to_chat(O, SPAN_WARNING("Somebody already took this place."))

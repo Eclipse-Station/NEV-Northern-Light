@@ -107,6 +107,10 @@
 		L |= M.GetAccess()
 	return L
 
+/obj/item/weapon/implant/core_implant/on_uninstall()
+	for(var/datum/core_module/M in modules)
+		M.on_implant_uninstall()
+
 /obj/item/weapon/implant/core_implant/hear_talk(mob/living/carbon/human/H, message, verb, datum/language/speaking, speech_volume)
 	var/group_ritual_leader = FALSE
 	for(var/datum/core_module/group_ritual/GR in src.modules)
@@ -167,7 +171,7 @@
 		return FALSE
 
 	if(!CM.can_install(src))
-		return FALSE
+		return TRUE //Eclipse edit. Now you can actually implant yourself.
 
 	if(CM.unique)
 		for(var/datum/core_module/EM in modules)
