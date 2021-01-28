@@ -502,11 +502,11 @@
 	icon_state = "interrogation"
 
 /obj/structure/sign/department/commander
-	name = "IHS COMMANDER"
+	name = "AEGIS COMMANDER"
 	icon_state = "commander"
 
 /obj/structure/sign/department/armory
-	name = "IHS ARMORY"
+	name = "AEGIS ARMORY"
 	icon_state = "armory"
 
 /obj/structure/sign/department/prison

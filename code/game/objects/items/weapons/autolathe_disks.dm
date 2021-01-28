@@ -315,7 +315,7 @@
 
 // Foodstuffs, fertilizers, medical and cleaning utilities
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
-	disk_name = "NanoTrasen Bioprinter Production"
+	disk_name = "Mekhane Bioprinter Production"
 	icon_state = "neotheology"
 
 	license = -1
@@ -343,7 +343,7 @@
 
 // Clothes, armor and accesories
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes
-	disk_name = "NeoTheology Bio-Fabric Designs"
+	disk_name = "Mekhane Bio-Fabric Designs"
 	icon_state = "neotheology"
 
 	license = -1
@@ -385,7 +385,7 @@
 
 // Kinda like the regular product NT disk, minus the grenades, soap and the cleaner carbine. Should spawn in public access bioprinters if they get added by any chance.
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_public
-	disk_name = "NanoTrasen Bioprinter Pack"
+	disk_name = "Mekhane Bioprinter Pack"
 	icon_state = "neotheology"
 
 	license = -1
@@ -664,7 +664,7 @@
 		)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_mk58
-	disk_name = "NeoTheology Armory - .35 MK58 Handgun Pack"
+	disk_name = "Nanotrasen Armory - .35 MK58 Handgun Pack"
 	icon_state = "neotheology"
 	rarity_value = 9
 	license = 12
@@ -810,7 +810,7 @@
 		)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_regulator
-	disk_name = "NeoTheology Armory - .50 Regulator Shotgun"
+	disk_name = "Nanotrasen Armory - .50 Regulator Shotgun"
 	icon_state = "neotheology"
 	rarity_value = 17
 	license = 12
@@ -931,7 +931,7 @@
 // .20 Rifles (AP)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/fs_bulldog
-	disk_name = "Frozen Star - .20 Bulldog Carabine"
+	disk_name = "Frozen Star - .20 Bulldog Carbine"
 	icon_state = "frozenstar"
 	spawn_tags = SPAWN_TAG_DESING_ADVANCED
 	license = 12
@@ -1067,7 +1067,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_svalinn
-	disk_name = "NeoTheology Armory - NT LP \"Svalinn\""
+	disk_name = "Nanotrasen Armory - NT LP \"Svalinn\""
 	icon_state = "neotheology"
 
 	license = 12
@@ -1174,7 +1174,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_melee
-	disk_name = "NeoTheology Armory - Melee Weapons"
+	disk_name = "Mekhane Armory - Melee Weapons"
 	icon_state = "neotheology"
 	spawn_blacklisted = TRUE
 	rarity_value = 50
@@ -1215,7 +1215,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_grenades
-	disk_name = "NeoTheology Armory - Grenades Pack"
+	disk_name = "Mekhane Armory - Grenades Pack"
 	icon_state = "neotheology"
 	spawn_blacklisted = TRUE
 	rarity_value = 50
@@ -1232,7 +1232,7 @@
 	bad_type = /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/crusader
-	disk_name = "NeoTheology Armory - Crusader Armor"
+	disk_name = "Mekhane Armory - Crusader Armor"
 	icon_state = "neotheology"
 	spawn_blacklisted = TRUE
 	rarity_value = 12 // one of the more common advanced disks
@@ -1243,7 +1243,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic
-	disk_name = "Ironhammer Combat Equipment - Standard Armor"
+	disk_name = "Aegis Combat Equipment - Standard Armor"
 	icon_state = "ironhammer"
 	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
 	rarity_value = 12 // one of the more common advanced disks
@@ -1254,7 +1254,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/bulletproof
-	disk_name = "Ironhammer Combat Equipment - Bulletproof Armor"
+	disk_name = "Aegis Combat Equipment - Bulletproof Armor"
 	icon_state = "ironhammer"
 	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
 	rarity_value = 15 // about as rare as a advanced tool disk - remember that this takes from the 'advanced' pool (which is rare) instead of the 'common' pool like the normal armor disk does
@@ -1265,7 +1265,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/ablative
-	disk_name = "Ironhammer Combat Equipment - Laserproof Armor"
+	disk_name = "Aegis Combat Equipment - Laserproof Armor"
 	icon_state = "ironhammer"
 	spawn_tags = SPAWN_TAG_DESING_ADVANCED_COMMON
 	rarity_value = 16 // slightly rarer than bulletproof gear
@@ -1276,7 +1276,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih
-	disk_name = "Ironhammer Combat Equipment - Operator Armor"
+	disk_name = "Aegis Combat Equipment - Operator Armor"
 	icon_state = "ironhammer"
 	spawn_blacklisted = TRUE //should only be obtainable from the sectech
 	license = 6
@@ -1286,7 +1286,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof
-	disk_name = "Ironhammer Combat Equipment - Bulletproof Operator Armor"
+	disk_name = "Aegis Combat Equipment - Bulletproof Operator Armor"
 	icon_state = "ironhammer"
 	spawn_blacklisted = TRUE
 	license = 4

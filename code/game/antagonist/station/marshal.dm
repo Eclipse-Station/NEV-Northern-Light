@@ -17,9 +17,7 @@
 		STAT_VIG = 15
 	)
 
-	welcome_text = "You are a freelance bounty hunter, contracted by Cobalt Aegis to bring in a wanted fugitive, dead or alive.\n\
-	Local Aegis forces may assist you if you introduce yourself and win their trust. Remember that you hold no official rank \
-	and they are under no obligation to help or listen to you."
+	welcome_text = "You are a civilian contractor who has been hired in secret by Aegis to apprehend a fugitive that they  aren’t able to pursue openly. You know that one of the crew aboard this vessel is your prey, but not which one. Identify the fugitive, and apprehend them. Dead or alive doesn’t matter, but quietly is non-negotiable. Local Aegis on ship might assist your mission by turning a blind eye to your work, or even help you quietly, but you are not an Aegis employee. If you are caught by the public, they will disavow any knowledge of you."
 
 /datum/antagonist/marshal/can_become_antag(datum/mind/M)
 	if(!..())

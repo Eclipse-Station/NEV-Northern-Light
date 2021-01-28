@@ -5,7 +5,8 @@
 	role_text_plural = "Blitzshells"
 	mob_path = /mob/living/silicon/robot/drone/blitzshell
 	bantype = ROLE_BANTYPE_BLITZ
-	welcome_text = "You have been sent to this station for the purpose of assisting our benefactors. Get in, complete all that you can that is available via the uplink, then get out."
+	welcome_text = "Manufactured by The Syndicate as an alternative to organic infiltrators, You have been sent to this ship by our benefactors to further their goals.\
+	Get in, complete as many contracts as you are able to in your uplink, and get out."
 	antaghud_indicator = "hudblitz"
 
 	outer = TRUE
