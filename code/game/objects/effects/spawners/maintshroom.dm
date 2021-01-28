@@ -5,7 +5,7 @@
 	var/instant = TRUE
 	var/min_light_limit = 0.5
 	mouse_opacity = 0
-	rarity_value = 10
+	rarity_value = 25 //Eclipse edit - got those things are ANNOYING
 	spawn_tags = SPAWN_TAG_FLORA
 	bad_type = /obj/effect/spawner/maintshroom
 

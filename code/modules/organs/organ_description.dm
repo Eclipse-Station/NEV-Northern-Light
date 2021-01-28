@@ -16,7 +16,7 @@
 	var/gendered = FALSE
 
 	var/w_class = ITEM_SIZE_NORMAL
-	var/max_volume = ITEM_SIZE_SMALL	//Space used up by specific organ size and w_class of cavity implants
+	var/max_volume = 2.5	//Space used up by specific organ size and w_class of cavity implants (ITEM_SIZE_SMALL + 0.5)
 
 	var/amputation_point = "spine"
 	var/joint = "neck"
@@ -47,7 +47,7 @@
 	cannot_amputate = TRUE
 
 	w_class = ITEM_SIZE_HUGE
-	max_volume = ITEM_SIZE_COLOSSAL
+	max_volume = ITEM_SIZE_TITANIC
 
 	joint = "neck"
 	amputation_point = "spine"
@@ -70,7 +70,7 @@
 	dislocated = -1
 
 	w_class = ITEM_SIZE_BULKY
-	max_volume = ITEM_SIZE_GARGANTUAN
+	max_volume = ITEM_SIZE_COLOSSAL
 
 	joint = "hip"
 	amputation_point = "lumbar"
@@ -92,7 +92,7 @@
 	vital = TRUE
 
 	w_class = ITEM_SIZE_NORMAL
-	max_volume = ITEM_SIZE_BULKY
+	max_volume = ITEM_SIZE_GARGANTUAN
 
 	joint = "jaw"
 	amputation_point = "neck"

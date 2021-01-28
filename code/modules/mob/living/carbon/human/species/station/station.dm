@@ -10,7 +10,7 @@
 	worlds tumultous at best."
 	num_alternate_languages = 2
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
-	min_age = 17
+	min_age = 18
 	max_age = 110
 	spawn_flags = CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
@@ -32,7 +32,7 @@
 	darksight = 3
 //	ambiguous_genders = TRUE
 	gluttonous = 1
-	slowdown = 0.5
+	slowdown = 0.4
 	total_health = 125
 	brute_mod = 0.85
 	burn_mod = 0.85
@@ -48,7 +48,7 @@
 //	species_language = LANGUAGE_UNATHI
 //	health_hud_intensity = 2.5
 
-	min_age = 32
+	min_age = 25
 	max_age = 260
 
 //	economic_modifier = 7
@@ -149,7 +149,7 @@
 	tail_blend = ICON_MULTIPLY								//Eclipse edit.
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
 	darksight = 8
-	slowdown = -0.5
+	slowdown = -0.3
 //	snow_movement = -1		//Ignores half of light snow
 	brute_mod = 1.15
 	burn_mod =  1.15
@@ -162,7 +162,7 @@
 //	species_language = LANGUAGE_SIIK
 //	health_hud_intensity = 2.5
 
-	min_age = 17
+	min_age = 18
 	max_age = 80
 
 //	economic_modifier = 7

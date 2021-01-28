@@ -91,6 +91,8 @@ SUBSYSTEM_DEF(job)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
 			player.mind.assigned_role = rank
 			player.mind.assigned_job = job
+			if(job.alt_titles)	// Eclipse add
+				player.mind.role_alt_title = player.client.prefs.GetPlayerAltTitle(job)// Eclipse add
 			unassigned -= player
 			job.current_positions++
 			return TRUE

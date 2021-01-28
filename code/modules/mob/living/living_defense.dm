@@ -30,7 +30,7 @@
 	var/sanctified_attack = FALSE
 
 	if(damagetype == HALLOSS)
-		effective_damage = round(effective_damage * (get_specific_organ_efficiency(OP_NERVE, def_zone) / 100))
+		effective_damage = round(effective_damage * max(0.5, (get_specific_organ_efficiency(OP_NERVE, def_zone) / 100)))
 
 	if(effective_damage <= 0)
 		armor_message(SPAN_NOTICE("Your armor absorbs the blow!"))
@@ -45,7 +45,7 @@
 	if(ishuman(src) && isitem(used_weapon))
 		var/mob/living/carbon/human/H = src
 		var/obj/item/I = used_weapon
-		if((H.get_organ_efficiency(BP_SPCORE) || mutations.len) && (SANCTIFIED in I.aspects))
+		if((H.has_organ(BP_SPCORE) || mutations.len) && (SANCTIFIED in I.aspects))
 			sanctified_attack = TRUE
 	//Feedback
 	//In order to show both target and everyone around that armor is actually working, we are going to send message for both of them
@@ -72,7 +72,7 @@
 		//Pain part of the damage, that simulates impact from armor absorbtion
 		//For balance purposes, it's lowered by ARMOR_AGONY_COEFFICIENT
 		if(!(damagetype == HALLOSS ))
-			var/agony_gamage = round( ( effective_damage * armor_effectiveness * ARMOR_AGONY_COEFFICIENT *(get_specific_organ_efficiency(OP_NERVE, def_zone) / 100) / 100))
+			var/agony_gamage = round( ( effective_damage * armor_effectiveness * ARMOR_AGONY_COEFFICIENT * max(0.5, (get_specific_organ_efficiency(OP_NERVE, def_zone) / 100)) / 100))
 			apply_effect(agony_gamage, AGONY)
 
 		//Actual part of the damage that passed through armor

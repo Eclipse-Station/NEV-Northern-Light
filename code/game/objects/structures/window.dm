@@ -668,8 +668,8 @@
 
 /obj/machinery/button/windowtint
 	name = "window tint control"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "light0"
+	icon = 'icons/obj/machines/buttons.dmi'
+	icon_state = "light1"
 	desc = "A remote control switch for polarized windows."
 	var/range = 7
 

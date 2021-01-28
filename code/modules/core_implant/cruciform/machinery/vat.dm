@@ -179,7 +179,7 @@
 			heal_modifier = 1
 			if(!bad_vital_organ && (victim.health - victim.getOxyLoss() >= HEALTH_THRESHOLD_DEAD))
 				var/blood_volume = round((victim.vessel.get_reagent_amount("blood")/victim.species.blood_volume)*100)
-				if(blood_volume > BLOOD_VOLUME_SURVIVE)
+				if(blood_volume > victim.total_blood_req + BLOOD_VOLUME_BAD_MODIFIER)
 					adjust_fluid_level(-15)
 					make_alive(victim)
 
