@@ -56945,14 +56945,11 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
 "cAp" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/railing/grey{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/bluegrid,
+/obj/structure/railing/grey,
+/turf/simulated/open,
 /area/eris/crew_quarters/bar)
 "cAq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -57148,19 +57145,11 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
 "cAL" = (
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/machinery/camera/network/third_section{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/multi_tile/metal{
-	dir = 2
-	},
-/turf/simulated/floor/bluegrid,
+/obj/structure/railing/grey,
+/turf/simulated/open,
 /area/eris/crew_quarters/bar)
 "cAM" = (
 /obj/structure/disposalpipe/sortjunction/wildcard{
@@ -74745,11 +74734,11 @@
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section1deck1central)
 "doS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/holoposter{
 	pixel_x = -32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
 "doT" = (
@@ -80028,6 +80017,11 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/medical/medbay)
+"dBh" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/bluegrid,
+/area/eris/hallway/main/section3)
 "dBi" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -80391,6 +80385,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patients_rooms)
+"dBV" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/bluegrid,
+/area/eris/crew_quarters/bar)
 "dBW" = (
 /obj/structure/closet/wardrobe/pjs,
 /obj/machinery/alarm{
@@ -80461,6 +80466,19 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck2central)
+"dCf" = (
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/bluegrid,
+/area/eris/crew_quarters/bar)
 "dCg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -80647,6 +80665,16 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/misc)
+"dCB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/steel/bar_dance,
+/area/eris/crew_quarters/bar)
 "dCC" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -89357,13 +89385,6 @@
 	},
 /turf/simulated/open,
 /area/eris/neotheology/chapel)
-"dWZ" = (
-/obj/structure/railing/grey,
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/eris/crew_quarters/bar)
 "dXa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -100143,13 +100164,6 @@
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/quartermaster/storage)
-"ewn" = (
-/obj/structure/railing/grey,
-/obj/machinery/camera/network/third_section{
-	dir = 8
-	},
-/turf/simulated/open,
-/area/eris/crew_quarters/bar)
 "ewo" = (
 /obj/machinery/vending/hydroseeds{
 	slogan_delay = 700
@@ -206206,8 +206220,8 @@ cil
 cil
 cil
 cil
-ckE
-czL
+cil
+dCB
 dXT
 cil
 cil
@@ -206609,8 +206623,8 @@ esK
 dRW
 dRW
 dRW
-dRW
-dWZ
+cAp
+ctE
 czR
 dXW
 dYh
@@ -206811,8 +206825,8 @@ dOO
 dOO
 dOO
 dOO
-dOO
 dTe
+ctE
 czR
 dXW
 dYi
@@ -207013,8 +207027,8 @@ dOO
 dOO
 dOO
 dOO
-dOO
 dTe
+ctE
 czR
 dXW
 dYi
@@ -207215,8 +207229,8 @@ dOO
 dOO
 dOO
 dOO
-dOO
 dTe
+ctE
 czR
 dXW
 dYi
@@ -207417,8 +207431,8 @@ dOO
 dOO
 dOO
 dOO
-dOO
-ewn
+cAL
+ctE
 czR
 dXW
 dYi
@@ -207619,10 +207633,10 @@ cwM
 cwM
 cwM
 cwM
-cwM
 buH
-cAp
-cAL
+dBh
+dBV
+dCf
 buH
 cwM
 chY
@@ -207821,8 +207835,8 @@ ctj
 ctj
 ctj
 ctj
-ctj
 doS
+ctj
 dDo
 dYa
 equ
