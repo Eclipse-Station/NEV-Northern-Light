@@ -217,3 +217,12 @@
 	ammo_type = /obj/item/ammo_casing/antim
 	max_ammo = 30
 
+<<<<<<< HEAD
+=======
+/obj/item/ammo_magazine/ammobox/antim/scrap
+	name = "ammunition box (old .60 Anti Material)"
+	icon_state = "antim_s"
+	ammo_type = /obj/item/ammo_casing/antim/scrap
+	max_ammo = 30
+	rarity_value = 1
+>>>>>>> 277f37e... Unfuck the junk .60 (#5897)
