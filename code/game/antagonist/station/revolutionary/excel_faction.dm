@@ -7,7 +7,7 @@
 	You are part of the Techno-communist Commune known as Excelsior. You are here to further The People’s goals aboard this vessel, with the final goal being to turn this vessel into our newest Commune. Secure our position, liberate the oppressed, and produce arms, armour, and propaganda in preparation for the final revolution. A slow, methodical approach is preferred, split into three phases: \n\n\
 	Phase One - Awakening: Seek out other members of the revolution, if present, by speaking to them through your cybernetic implant. Retrieve the cache of manufacturing materials and circuit boards. Without a means of production our revolution is in peril.\n\n\
 	Phase Two - Seize the Means: Create a fortified position in secret, The People will send additional resources through the teleporter once it is established. This and our autolathe will need to be protected with turrets, shield generators, and our loyal comrades.\n\n\
-	Phase Three - Liberate the Bourgeoisie: Complete mandates for power. Acquire implants, prosthetics, or robot parts to convert into new implants, These can be injected into the oppressed to formally induct them into the revolution. Use their labour to produce the weapons which will break the chains of their servitude.\n\n\
+	Phase Three - Liberate the Proletariat: Complete mandates for power. Acquire implants, prosthetics, or robot parts to convert into new implants, These can be injected into the oppressed to formally induct them into the revolution. Use their labour to produce the weapons which will break the chains of their servitude.\n\n\
 	When the People are ready, break the chains of the Oppressor, and seize the ship.\n\n\
 	Ever upward, comrade!"
 

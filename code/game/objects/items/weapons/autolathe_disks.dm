@@ -1184,7 +1184,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt
-	disk_name = "NeoTheology Armory - Blank"
+	disk_name = "Mekhane Armory - Blank"
 	rarity_value = 50
 	license = -1
 	spawn_blacklisted = TRUE
@@ -1192,7 +1192,7 @@
 	bad_type = /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee
-	disk_name = "NeoTheology Armory - Basic Melee Weapons"
+	disk_name = "Mekhane Armory - Basic Melee Weapons"
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/sword/nt_sword,
@@ -1202,7 +1202,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/longsword
-	disk_name = "NeoTheology Armory - NT Longsword"
+	disk_name = "Mekhane Armory - Longsword"
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/sword/nt_longsword,
@@ -1211,7 +1211,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/scourge
-	disk_name = "NeoTheology Armory - NT Scourge"
+	disk_name = "Mekhane Armory - Scourge"
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/sword/nt_scourge,
@@ -1220,7 +1220,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/halberd
-	disk_name = "NeoTheology Armory - NT Halberd"
+	disk_name = "Mekhane Armory - Halberd"
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/sword/nt_halberd,
@@ -1229,7 +1229,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/shield
-	disk_name = "NeoTheology Armory - NT Shield"
+	disk_name = "Mekhane Armory - Shield"
 	icon_state = "neotheology"
 	spawn_blacklisted = TRUE
 	designs = list(
@@ -1241,7 +1241,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/firstaid
-	disk_name = "NeoTheology Armory - NeoTheologian Medkit"
+	disk_name = "Mekhane Armory - Medkit"
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/firstaid/nt

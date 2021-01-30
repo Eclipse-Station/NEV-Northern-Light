@@ -255,12 +255,12 @@
 	icon_state = "erisblue"
 
 /area/eris/hallway/side/eschangara
-	name = "Escape Hangar A"
+	name = "Escape Hangar B"
 	icon_state = "erisred"
 	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
 /area/eris/hallway/side/eschangarb
-	name = "Escape Hangar B"
+	name = "Escape Hangar A"
 	icon_state = "erisred"
 	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
@@ -312,19 +312,19 @@
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/eris/command/meo/quarters
-	name = "\improper Research - CSO's Quarters"
+	name = "\improper Command - CSO's Quarters"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
 
 /area/eris/command/exultant
-	name = "\improper Engineering - Supervisor's Office"
+	name = "\improper Engineering - Chief Engineer's Office"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/eris/command/exultant/quarters
-	name = "\improper Engineering - Supervisor's Quarters"
+	name = "\improper Command - Chief Engineer's Quarters"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
@@ -336,7 +336,7 @@
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
 /area/eris/command/mbo/quarters
-	name = "\improper Medbay - CMO's Quarters"
+	name = "\improper Command - CMO's Quarters"
 	icon_state = "head_quarters"
 	sound_env = SMALL_SOFTFLOOR
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
@@ -685,10 +685,10 @@
 	icon_state = "propulsion"
 
 /area/eris/engineering/propulsion/left
-	name = "Left Propulsion Hangar"
+	name = "Port Propulsion Hangar"
 
 /area/eris/engineering/propulsion/right
-	name = "Right Propulsion Hangar"
+	name = "Starboard Propulsion Hangar"
 
 //MedBay
 /area/eris/medical/medbay
