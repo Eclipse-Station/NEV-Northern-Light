@@ -1,6 +1,6 @@
 /obj/item/weapon/storage/sheath
 	name = "sheath"
-	desc = "Made to store sword."
+	desc = "Made to store a sword."
 	icon = 'icons/obj/sheath.dmi'
 	icon_state = "sheath_0"
 	item_state = "sheath_0"
@@ -10,7 +10,7 @@
 	spawn_frequency = 0
 	storage_slots = 1
 	w_class = ITEM_SIZE_NORMAL
-	max_w_class = ITEM_SIZE_BULKY
+	max_w_class = ITEM_SIZE_HUGE
 
 	can_hold = list(
 		/obj/item/weapon/tool/sword/nt,
