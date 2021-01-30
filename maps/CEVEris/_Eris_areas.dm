@@ -342,14 +342,14 @@
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
 
 /area/eris/command/commander
-	name = "CSO's Office"
+	name = "Aegis Commander's Office"
 	icon_state = "hammerred"
 	sound_env = SMALL_SOFTFLOOR
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
 /area/eris/command/merchant
-	name = "\improper Cargo - Guild Office"
+	name = "\improper Cargo - Union Office"
 	icon_state = "quart"
 	sound_env = SMALL_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_CARGO
@@ -953,7 +953,7 @@
 	is_maintenance = TRUE
 
 /area/eris/security/barracks
-	name = "Ironhammer Barracks"
+	name = "Aegis Barracks"
 	icon_state = "hammerblue"
 
 /area/eris/security/prisoncells
@@ -966,11 +966,11 @@
 	area_light_color = COLOR_LIGHTING_SCI_DARK
 
 /area/eris/security/armory
-	name = "Armory"
+	name = "Armoury"
 	icon_state = "hammerred"
 
 /area/eris/security/exerooms
-	name = "Executive Rooms"
+	name = "Security Medical Office"
 	icon_state = "hammerred"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
 
@@ -992,7 +992,7 @@
 	icon_state = "quartoffice"
 
 /area/eris/quartermaster/artistoffice
-	name = "\improper Guild Artist Office"
+	name = "\improper Artist Office"
 	icon_state = "erisyellow"
 
 /area/eris/quartermaster/storage
