@@ -10,7 +10,7 @@
 	/datum/objective/assassinate/marshal = 100,
 	)
 
-	survive_objective = /datum/objective/escape
+	survive_objective = /datum/objective/survive
 
 	stat_modifiers = list(
 		STAT_ROB = 5,

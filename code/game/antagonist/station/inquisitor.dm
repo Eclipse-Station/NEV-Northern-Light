@@ -13,7 +13,7 @@
 		/datum/objective/baptize = 30,
 	)
 
-	survive_objective = /datum/objective/escape
+	survive_objective = /datum/objective/survive
 	var/was_priest = FALSE
 
 	stat_modifiers = list(
