@@ -1,0 +1,8 @@
+author: Apockelipse
+delete-after: true
+changes:
+  - rscadd: Added perma observation post to allow RP between officer and perma prisoner
+  - rscadd: Added spare cruciforms crate to acolyte locker area
+  - rscadd: re-added departmental lockdown buttons to bridge allowing an override
+  - rscadd: Added lightfalls to secure armoury along with extra medium batteries
+  - rscadd: Added fire extinguishers and a welding tank to Security
