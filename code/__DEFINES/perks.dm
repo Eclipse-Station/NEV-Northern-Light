@@ -38,3 +38,9 @@
 
 //job perks
 #define PERK_ARTIST /datum/perk/job/artist
+<<<<<<< HEAD
+=======
+#define PERK_SURVIVOR /datum/perk/survivor
+#define PERK_TECHNOMANCER /datum/perk/inspiration
+#define PERK_CLUB /datum/perk/job/club
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)

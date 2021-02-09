@@ -2448,10 +2448,6 @@
 /obj/spawner/flora/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/security/disposal)
-"afW" = (
-/obj/spawner/mob/roaches/cluster,
-/turf/simulated/floor/tiled/techmaint_cargo,
-/area/eris/maintenance/section3deck5port)
 "afX" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/simulated/floor/carpet/turcarpet,
@@ -9384,6 +9380,7 @@
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/hallway/side/section3starboard)
 "avK" = (
+<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -9397,6 +9394,11 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5port)
+=======
+/obj/machinery/neotheology/biomass_container,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/chapelritualroom)
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "avM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -11863,10 +11865,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5starboard)
-"aBK" = (
-/obj/spawner/oddities/low_chance,
-/turf/simulated/floor/tiled/techmaint_cargo,
-/area/eris/maintenance/section3deck5port)
 "aBL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15493,6 +15491,7 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
+<<<<<<< HEAD
 "aLp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/railing{
@@ -15501,6 +15500,8 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4port)
+=======
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "aLq" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Second Section Substation";
@@ -19528,9 +19529,6 @@
 /obj/spawner/traps/wire_splicing/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
-"aUH" = (
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/neotheology/chapelritualroom)
 "aUI" = (
 /obj/machinery/meter{
 	frequency = 1443;
@@ -27880,6 +27878,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+<<<<<<< HEAD
 "bmd" = (
 /obj/structure/table/woodentable,
 /obj/spawner/oddities/low_chance,
@@ -27888,6 +27887,8 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/ntcahors,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
+=======
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "bme" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -30697,6 +30698,7 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck1central)
+<<<<<<< HEAD
 "bsO" = (
 /obj/structure/table/rack,
 /obj/item/device/last_shelter,
@@ -30710,6 +30712,8 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
+=======
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "bsP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -30743,10 +30747,13 @@
 "bsS" = (
 /turf/simulated/wall,
 /area/eris/hallway/side/section3port)
+<<<<<<< HEAD
 "bsT" = (
 /obj/machinery/neotheology/biomass_container,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
+=======
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "bsU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -31079,10 +31086,13 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/disposaldrop)
+<<<<<<< HEAD
 "btG" = (
 /obj/machinery/neotheology/cloner,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/surgery)
+=======
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "btH" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -33347,10 +33357,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/command/courtroom)
-"byK" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/eris/quartermaster/hangarsupply)
 "byL" = (
 /obj/structure/table/rack,
 /obj/spawner/toolbox,
@@ -43998,11 +44004,21 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck3port)
 "bWf" = (
+<<<<<<< HEAD
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
+=======
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/railing{
+	dir = 4;
+	tag = "icon-railing0 (EAST)"
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section3deck4port)
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "bWg" = (
 /obj/structure/multiz/ladder/up,
 /turf/simulated/floor/tiled/techmaint,
@@ -46097,12 +46113,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/crew_quarters/sleep)
-"cbf" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/eris/quartermaster/hangarsupply)
 "cbg" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -60866,13 +60876,10 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck4port)
 "cJq" = (
-/obj/structure/catwalk,
 /obj/structure/table/rack,
-/obj/item/device/techno_tribalism,
-/obj/machinery/door/blast/shutters/glass{
-	id = "techno_tribalism"
-	},
-/turf/simulated/floor/plating/under,
+/obj/spawner/tool_upgrade/low_chance,
+/obj/spawner/tool_upgrade/rare/low_chance,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/breakroom)
 "cJr" = (
 /obj/machinery/vending/engineering,
@@ -60910,13 +60917,11 @@
 /turf/simulated/wall,
 /area/eris/maintenance/substation/section3)
 "cJx" = (
-/obj/structure/catwalk,
-/obj/structure/table/rack,
-/obj/spawner/tool_upgrade/rare/low_chance,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/plating/under,
+/obj/machinery/autolathe/nanoforge,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/breakroom)
 "cJy" = (
 /obj/spawner/pack/machine,
@@ -61481,10 +61486,9 @@
 	},
 /area/space)
 "cKI" = (
-/obj/structure/catwalk,
 /obj/structure/table/rack,
 /obj/spawner/tool_upgrade/low_chance,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/breakroom)
 "cKJ" = (
 /obj/structure/disposalpipe/segment,
@@ -61661,6 +61665,10 @@
 /obj/machinery/holoposter{
 	pixel_x = -32
 	},
+<<<<<<< HEAD
+=======
+/obj/structure/filingcabinet/filingcabinet,
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "cLh" = (
@@ -62029,7 +62037,6 @@
 /turf/simulated/floor/plating/under,
 /area/eris/medical/medbay)
 "cMc" = (
-/obj/structure/catwalk,
 /obj/machinery/button/remote/blast_door/id_card{
 	dir = 4;
 	id = "techno_tribalism";
@@ -62037,7 +62044,7 @@
 	pixel_x = -28;
 	req_access = list(23)
 	},
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/breakroom)
 "cMd" = (
 /obj/structure/table/standard,
@@ -62045,10 +62052,6 @@
 /obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section2deck2starboard)
-"cMe" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
-/area/eris/engineering/breakroom)
 "cMf" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
@@ -69475,21 +69478,35 @@
 /turf/simulated/floor/wood,
 /area/eris/command/bridgebar)
 "ddH" = (
+<<<<<<< HEAD
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+=======
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+<<<<<<< HEAD
 /turf/simulated/floor/wood,
 /area/eris/command/bridgebar)
 "ddI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+=======
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/eris/command/bridgebar)
+"ddI" = (
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+<<<<<<< HEAD
+=======
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 /turf/simulated/floor/wood,
 /area/eris/command/bridgebar)
 "ddJ" = (
@@ -88820,8 +88837,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/under,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/breakroom)
 "dVk" = (
 /obj/effect/shuttle_landmark/merc/northeast,
@@ -102873,6 +102889,12 @@
 /obj/machinery/camera/network/third_section,
 /turf/simulated/floor/hull,
 /area/space)
+"eBl" = (
+/obj/structure/table/standard,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes,
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/melee,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/bioreactor)
 "eBm" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4;
@@ -105319,14 +105341,6 @@
 	},
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
-"eQC" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/railing/grey,
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "eRb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/catwalk,
@@ -105361,6 +105375,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+"eZC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
 "fea" = (
 /obj/machinery/duct,
 /turf/simulated/floor/grass,
@@ -105374,14 +105394,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
-"fso" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
+"fpC" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/railing/grey{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel/monofloor,
+/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
 "fzU" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
@@ -105408,6 +105426,9 @@
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
 /area/eris/maintenance/section1deck4central)
+"fFd" = (
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
 "fJM" = (
 /obj/structure/table/standard,
 /obj/spawner/medical,
@@ -105416,17 +105437,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
+"fKW" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
 "fMl" = (
 /obj/effect/shuttle_landmark/merc/sec3east4,
 /turf/space,
 /area/space)
-"fRD" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "fUC" = (
 /obj/spawner/junk/low_chance,
 /obj/machinery/camera/network/command,
@@ -105478,12 +105499,6 @@
 /obj/machinery/camera/network/engineering,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
-"gga" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/eris/quartermaster/hangarsupply)
 "gjm" = (
 /obj/machinery/holomap{
 	pixel_y = 32
@@ -105499,15 +105514,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
-/area/eris/quartermaster/hangarsupply)
-"gln" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
 "gsO" = (
 /obj/machinery/door/airlock/glass_medical{
@@ -105527,6 +105533,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+<<<<<<< HEAD
 "gGt" = (
 /obj/item/modular_computer/console/preset/engineering/power{
 	icon_state = "console";
@@ -105539,6 +105546,8 @@
 /obj/structure/railing/grey,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
+=======
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "gPD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -105564,6 +105573,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics/garden)
+<<<<<<< HEAD
+=======
+"hgW" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/obj/structure/railing/grey,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"hlV" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/neotheology/cruciformforge,
+/turf/simulated/floor/tiled/dark/cargo,
+/area/eris/neotheology/chapelritualroom)
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "hqB" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
@@ -105591,6 +105618,15 @@
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"hIj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
 "hIx" = (
 /obj/structure/closet/crate/internals,
 /obj/spawner/contraband/low_chance,
@@ -105600,16 +105636,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/quartermaster/hangarsupply)
-"hJT" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
 "hMo" = (
 /obj/machinery/holomap{
@@ -105624,6 +105650,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section1deck4central)
+"hME" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
 "hNy" = (
 /obj/structure/closet/wall_mounted/firecloset{
 	pixel_x = 32
@@ -105641,13 +105674,6 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck2starboard)
-"hWY" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "iaf" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 1
@@ -105658,6 +105684,14 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/eschangarb)
+"ifZ" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/railing/grey,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
 "ijn" = (
 /obj/structure/table/bar_special,
 /obj/item/weapon/reagent_containers/food/condiment/peppermill{
@@ -105688,23 +105722,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
-"ilm" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
-"imV" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "ivC" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -105722,6 +105739,13 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/hallway/main/section2)
+"ize" = (
+/obj/machinery/door/airlock/maintenance_common{
+	req_access = list(27)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/neotheology/chapelritualroom)
 "iDJ" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 4;
@@ -105736,6 +105760,13 @@
 	},
 /turf/space,
 /area/space)
+"iFk" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
 "iFm" = (
 /turf/simulated/wall,
 /area/eris/maintenance/section3deck4central)
@@ -105747,6 +105778,10 @@
 /obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled/steel/panels,
 /area/eris/engineering/post)
+"iNx" = (
+/obj/spawner/oddities/low_chance,
+/turf/simulated/floor/tiled/techmaint_cargo,
+/area/eris/maintenance/section3deck5port)
 "iPY" = (
 /obj/machinery/light/small{
 	dir = 4;
@@ -105948,6 +105983,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+"kkR" = (
+/obj/item/modular_computer/console/preset/engineering/alarms{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/engine_room)
 "klx" = (
 /obj/machinery/holomap{
 	dir = 1;
@@ -105961,6 +106002,15 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
+"ksR" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
 "kEW" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -105982,6 +106032,14 @@
 /obj/item/weapon/storage/box,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
+"kGH" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"kJK" = (
+/obj/machinery/power/eotp,
+/turf/simulated/floor/carpet/bcarpet,
+/area/eris/neotheology/chapelritualroom)
 "kLT" = (
 /turf/simulated/floor/carpet/gaycarpet,
 /area/eris/crew_quarters/clownoffice)
@@ -106112,11 +106170,45 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/hangarsupply)
+"lPM" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
 "lUc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
+/area/eris/medical/chemistry)
+"lZF" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "maint_hatch_medchem";
+	layer = 3.3;
+	name = "Maintenance Hatch"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "MedbayTotalLockdown";
+	layer = 2.6;
+	name = "Medbay Total Lockdown";
+	opacity = 0
+	},
+/turf/simulated/floor/plating/under,
 /area/eris/medical/chemistry)
 "mjD" = (
 /obj/machinery/holomap{
@@ -106125,12 +106217,22 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/section3starboard)
-"mlt" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+"mkc" = (
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
+"mpe" = (
+/obj/item/modular_computer/console/preset/engineering/power{
+	dir = 8;
+	icon_state = "console"
+	},
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/engine_room)
 "msv" = (
 /obj/machinery/atmospherics/unary/heat_exchanger{
 	dir = 1
@@ -106205,14 +106307,6 @@
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
-"mDw" = (
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/eris/quartermaster/hangarsupply)
-"mHF" = (
-/obj/effect/window_lwall_spawn/smartspawn,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/hull,
-/area/eris/engineering/breakroom)
 "mNb" = (
 /obj/machinery/atmospherics/unary/heat_exchanger,
 /turf/simulated/floor/tiled/steel/danger,
@@ -106225,20 +106319,6 @@
 	tag = "icon-hullcenter18"
 	},
 /area/space)
-"mSJ" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/noticeboard{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/white/brown_platform,
-/area/eris/medical/chemistry)
 "mVq" = (
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/maintenance/section2deck1port)
@@ -106324,11 +106404,42 @@
 	},
 /turf/space,
 /area/space)
+<<<<<<< HEAD
 "nAL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
+=======
+"nuw" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/neotheology/chapelritualroom)
+"nGz" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 11
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/chemistry)
+"nJh" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
+"nJi" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -106349,6 +106460,7 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/medical/chemistry)
+<<<<<<< HEAD
 "nGz" = (
 /obj/structure/sink{
 	dir = 4;
@@ -106358,12 +106470,18 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+=======
+"nOH" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/railing/grey,
+/obj/structure/railing/grey{
+	dir = 8
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 	},
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/chemistry)
-"nJh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"nQZ" = (
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
 "nYI" = (
@@ -106449,6 +106567,16 @@
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
+"ozT" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/railing/grey{
+	dir = 1
+	},
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
 "ozX" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -106515,27 +106643,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/bridge)
-"oLw" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "oTl" = (
 /obj/structure/table/glass,
 /obj/item/weapon/storage/freezer/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
-"oVb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+"oUI" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
@@ -106544,6 +106659,11 @@
 /obj/structure/railing/grey{
 	dir = 4
 	},
+/obj/structure/railing/grey,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"oXs" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/railing/grey,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
@@ -106570,10 +106690,6 @@
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
-"plK" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "plN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/steel,
@@ -106584,11 +106700,21 @@
 	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
+<<<<<<< HEAD
 "pto" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/reinforced/polarized,
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
+=======
+"pqj" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/railing/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "ptL" = (
 /obj/structure/closet/self_pacification,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
@@ -106610,14 +106736,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/hull,
 /area/space)
-"pOq" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/railing/grey,
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "qaP" = (
 /obj/machinery/atmospherics/omni/filter{
 	tag_east = 2;
@@ -106667,20 +106785,14 @@
 /obj/effect/shuttle_landmark/merc/engieva,
 /turf/space,
 /area/space)
+"qtc" = (
+/obj/machinery/media/jukebox,
+/turf/simulated/floor/tiled/steel/bar_dance,
+/area/eris/crew_quarters/bar)
 "qBj" = (
 /obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
-"qFq" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/railing/grey{
-	dir = 1
-	},
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "qTX" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
@@ -106720,6 +106832,14 @@
 	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/crew_quarters/kitchen)
+"qZm" = (
+/obj/item/device/techno_tribalism,
+/obj/machinery/door/blast/shutters/glass{
+	id = "techno_tribalism"
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/eris/engineering/breakroom)
 "qZr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -106767,11 +106887,24 @@
 	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
+<<<<<<< HEAD
 "rAv" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/hull,
 /area/eris/command/exultant)
+=======
+"rsY" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/railing/grey{
+	dir = 1
+	},
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "rBd" = (
 /obj/machinery/duct,
 /turf/simulated/floor/wood,
@@ -106859,6 +106992,48 @@
 "rYg" = (
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
+"saY" = (
+/obj/spawner/mob/roaches/cluster,
+/turf/simulated/floor/tiled/techmaint_cargo,
+/area/eris/maintenance/section3deck5port)
+"sds" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/railing/grey{
+	dir = 4
+	},
+/obj/structure/railing/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
+"shD" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/hull,
+/area/eris/engineering/breakroom)
+"sio" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white/brown_platform,
+/area/eris/medical/chemistry)
+"smB" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
 "snG" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -106866,6 +107041,19 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"spV" = (
+/obj/structure/table/reinforced{
+	pixel_x = -5
+	},
+/obj/structure/complicator{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/structure/window/basic{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/eris/command/exultant)
 "sss" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -106935,6 +107123,7 @@
 /obj/machinery/slotmachine,
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
+<<<<<<< HEAD
 "sXb" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/railing/grey{
@@ -106949,6 +107138,8 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
+=======
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 "sZg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -106967,6 +107158,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/warden)
+"tcP" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
 "tdm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4;
@@ -106979,6 +107174,16 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"tdy" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/railing/grey{
+	dir = 1
+	},
+/obj/structure/railing/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
 "tea" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/meter,
@@ -107091,26 +107296,6 @@
 /obj/spawner/pack/tech_loot,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
-"ull" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
-"uqW" = (
-/obj/structure/table/reinforced{
-	pixel_x = -5
-	},
-/obj/structure/complicator{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/structure/window/basic{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/command/exultant)
 "uqX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -107150,19 +107335,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
-"uJV" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/eris/quartermaster/hangarsupply)
-"uTg" = (
-/obj/structure/railing/grey{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/eris/quartermaster/hangarsupply)
 "uYg" = (
 /obj/spawner/medical/low_chance,
 /obj/spawner/medical/low_chance,
@@ -107279,22 +107451,9 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
-"vwc" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/grey,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "vAE" = (
 /turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/clownoffice)
-"vES" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/grey{
-	dir = 8
-	},
-/obj/structure/railing/grey,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/quartermaster/hangarsupply)
 "vIB" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
@@ -107326,33 +107485,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/main/section3)
-"waf" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/window_lwall_spawn/smartspawn,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "maint_hatch_medchem";
-	layer = 3.3;
-	name = "Maintenance Hatch"
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "MedbayTotalLockdown";
-	layer = 2.6;
-	name = "Medbay Total Lockdown";
-	opacity = 0
-	},
-/turf/simulated/floor/plating/under,
-/area/eris/medical/chemistry)
 "wja" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/wall/r_wall,
@@ -107391,6 +107523,13 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"wwL" = (
+/obj/structure/railing{
+	dir = 1;
+	tag = "icon-railing0 (NORTH)"
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section3deck5port)
 "wxB" = (
 /obj/effect/window_lwall_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -107418,6 +107557,17 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/medical/chemstor)
+"wOZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/eris/quartermaster/hangarsupply)
+"wPN" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/railing/grey,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/quartermaster/hangarsupply)
 "wXf" = (
 /obj/structure/closet/secure_closet/medicine,
 /obj/machinery/light/small{
@@ -107472,18 +107622,15 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
+"xpe" = (
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/chapelritualroom)
 "xuA" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
-"xve" = (
-/obj/item/modular_computer/console/preset/engineering/alarms{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/engineering/engine_room)
 "xwS" = (
 /obj/machinery/status_display/supply_display{
 	pixel_x = -32
@@ -107493,18 +107640,9 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
-"xGU" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
+"xzg" = (
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/steel/monofloor,
-/area/eris/quartermaster/hangarsupply)
-"xGZ" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
 "xLv" = (
 /obj/effect/shuttle_landmark/merc/sec2west,
@@ -107543,6 +107681,18 @@
 	},
 /turf/simulated/open,
 /area/eris/medical/chemstor)
+<<<<<<< HEAD
+=======
+"ycs" = (
+/obj/machinery/duct,
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/neotheology/chapelritualroom)
+"ycT" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/hull,
+/area/eris/command/exultant)
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 
 (1,1,1) = {"
 aaa
@@ -119971,7 +120121,7 @@ aaa
 alg
 atX
 avv
-aBK
+iNx
 alg
 atj
 azf
@@ -120172,9 +120322,9 @@ aaa
 aaa
 alg
 avv
-afW
+saY
 avv
-avL
+wwL
 avk
 azh
 avN
@@ -120376,7 +120526,7 @@ alg
 avv
 avv
 avv
-avL
+wwL
 avp
 awC
 bBN
@@ -120578,7 +120728,7 @@ alg
 apt
 apt
 avv
-avL
+wwL
 awQ
 azk
 azk
@@ -123810,7 +123960,7 @@ apt
 apt
 apC
 apC
-avL
+wwL
 awR
 azn
 awR
@@ -124012,7 +124162,7 @@ arB
 arB
 apC
 apC
-avL
+wwL
 awR
 awR
 aCn
@@ -124214,7 +124364,7 @@ arB
 arB
 apC
 apC
-avL
+wwL
 awR
 awR
 aCn
@@ -126850,7 +127000,11 @@ ayM
 azW
 aCn
 bUI
+<<<<<<< HEAD
 bhz
+=======
+eBl
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 ccZ
 ccZ
 cgo
@@ -130283,9 +130437,9 @@ aBv
 aBv
 auV
 cJZ
-mDw
+fFd
 amn
-mDw
+fFd
 exL
 auV
 aaa
@@ -130687,9 +130841,9 @@ vdS
 fjl
 xwS
 erN
-mDw
+fFd
 atx
-mDw
+fFd
 exM
 auV
 auV
@@ -130885,11 +131039,11 @@ auV
 mBD
 ato
 ato
-byK
-cbf
-cbf
-cbf
-cbf
+nQZ
+oUI
+oUI
+oUI
+oUI
 cdm
 cef
 lOA
@@ -131087,13 +131241,13 @@ auV
 rPr
 ato
 ato
-uJV
-xGZ
-vwc
-xGZ
-fRD
-xGZ
-gga
+xzg
+kGH
+oXs
+kGH
+pqj
+kGH
+eZC
 voT
 cfs
 auV
@@ -131289,13 +131443,13 @@ auV
 fVv
 hIx
 ato
-uJV
+xzg
 vvC
 oXl
-xGZ
-hJT
+kGH
+sds
 vvC
-fso
+lPM
 lwW
 cgp
 auV
@@ -131492,14 +131646,14 @@ baH
 bta
 ato
 nqt
-xGZ
-xGZ
+kGH
+kGH
 bZl
-xGZ
-xGZ
+kGH
+kGH
 oZm
 pmS
-mDw
+fFd
 aHl
 cgM
 cgN
@@ -131694,14 +131848,14 @@ tEu
 ato
 tPR
 nJh
-ull
-vES
-xGZ
-oLw
-ull
+fKW
+hgW
+kGH
+tdy
+fKW
 oZm
 pmS
-mDw
+fFd
 aHl
 cgM
 cgN
@@ -131896,12 +132050,12 @@ avx
 apb
 bqy
 gTF
-xGZ
-vwc
-xGZ
-fRD
-xGZ
-oVb
+kGH
+oXs
+kGH
+pqj
+kGH
+hIj
 xaI
 jrc
 auV
@@ -132300,11 +132454,11 @@ avx
 apb
 bqA
 aBI
-plK
-gLA
-plK
-ilm
-plK
+tcP
+wPN
+tcP
+fpC
+tcP
 bBr
 bBP
 bRq
@@ -132502,11 +132656,11 @@ ato
 ato
 plN
 rUL
-sXb
-eQC
-plK
-imV
-sXb
+iFk
+ifZ
+tcP
+ozT
+iFk
 ceY
 axs
 bJn
@@ -132704,11 +132858,11 @@ btk
 ato
 ato
 obk
-plK
-plK
+tcP
+tcP
 bZD
-plK
-plK
+tcP
+tcP
 uqX
 gkN
 bJK
@@ -132905,12 +133059,12 @@ auV
 bsi
 aTu
 byL
-uJV
-hWY
-pOq
-plK
-qFq
-hWY
+xzg
+hME
+nOH
+tcP
+rsY
+hME
 uqX
 gkN
 cgt
@@ -133107,13 +133261,13 @@ auV
 auV
 auV
 auV
-uJV
-plK
-gLA
-plK
-ilm
-plK
-xGU
+xzg
+tcP
+wPN
+tcP
+fpC
+tcP
+smB
 ato
 bRr
 auV
@@ -133309,13 +133463,13 @@ aun
 aBM
 dhU
 auV
-gln
-mlt
-mlt
+ksR
+wOZ
+wOZ
 hqX
 hqX
 hqX
-uTg
+mkc
 cgf
 cgu
 ayL
@@ -160168,7 +160322,7 @@ bUG
 bVa
 bVB
 bVL
-aLp
+bWf
 clU
 cgk
 bUG
@@ -160982,6 +161136,10 @@ fgt
 ccU
 ccU
 ccU
+<<<<<<< HEAD
+=======
+ize
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 ccU
 ccU
 ccU
@@ -161178,6 +161336,15 @@ bWn
 cIS
 aaa
 ccU
+<<<<<<< HEAD
+=======
+xpe
+clY
+byR
+hlV
+cBm
+cxB
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 ccU
 ccU
 bty
@@ -161584,6 +161751,7 @@ aaa
 ccU
 aUH
 byR
+<<<<<<< HEAD
 byR
 bpq
 bQE
@@ -161591,6 +161759,13 @@ bQY
 bQY
 bUZ
 bVI
+=======
+onJ
+bQx
+kJK
+bQx
+bQx
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 bWP
 chU
 cHl
@@ -206848,8 +207023,13 @@ cil
 czL
 dXT
 cil
+<<<<<<< HEAD
 cil
 cil
+=======
+qtc
+cBa
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 etr
 anJ
 anJ
@@ -246168,7 +246348,11 @@ cvI
 czk
 cgb
 ddH
+<<<<<<< HEAD
 ded
+=======
+dee
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 dep
 deL
 deL
@@ -246370,7 +246554,11 @@ cyP
 czO
 cgb
 ddI
+<<<<<<< HEAD
 dee
+=======
+ded
+>>>>>>> fed61d6... Nanoforge 2.0 (#5899)
 dep
 deL
 deL
@@ -246813,8 +247001,8 @@ dHf
 dzV
 dAc
 chl
-waf
-nAL
+nJi
+lZF
 dte
 dte
 dte
@@ -247419,7 +247607,7 @@ dzU
 dzY
 dEQ
 chl
-mSJ
+sio
 dcB
 dkl
 dkl
@@ -279991,9 +280179,9 @@ aaa
 aaa
 aaa
 aaa
-rAv
-rAv
-rAv
+ycT
+ycT
+ycT
 aaa
 aaa
 aaa
@@ -280194,7 +280382,7 @@ eAs
 eAs
 esG
 esG
-uqW
+spV
 esG
 esG
 eAs
@@ -282011,7 +282199,7 @@ ezI
 bIP
 eAZ
 eBT
-xve
+kkR
 dpB
 eEt
 eEt
@@ -282617,7 +282805,7 @@ abF
 bNn
 eBa
 eEt
-gGt
+mpe
 dpB
 dIi
 eEt
@@ -284232,12 +284420,12 @@ cLY
 cMD
 cNC
 eyM
-cKI
+cJq
 cMc
 dVj
-cMe
-cMe
-mHF
+cLE
+cLE
+shD
 abF
 abF
 abF
@@ -284435,11 +284623,11 @@ cMr
 uiU
 eyM
 cJx
-cMe
+cLE
 dVj
-cMe
-cJq
-mHF
+cLE
+qZm
+shD
 abF
 abF
 abF
@@ -284637,11 +284825,11 @@ rYg
 cND
 eyM
 cKI
-cMe
+cLE
 dVj
-cMe
-cMe
-mHF
+cLE
+cLE
+shD
 abF
 abF
 abF
