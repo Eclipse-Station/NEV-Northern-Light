@@ -89,6 +89,7 @@
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
 	force = WEAPON_FORCE_PAINFUL
 	armor_penetration = ARMOR_PEN_MODERATE
+	embed_mult = 0.3
 	max_upgrades = 3
 
 /obj/item/weapon/tool/knife/dagger
@@ -98,8 +99,13 @@
 	icon_state = "dagger"
 	item_state = "dagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
+<<<<<<< HEAD
 	force = WEAPON_FORCE_NORMAL+2
 	armor_penetration = ARMOR_PEN_DEEP
+=======
+	force = WEAPON_FORCE_NORMAL * 1.3
+	armor_penetration = ARMOR_PEN_HALF
+>>>>>>> eb63904... Small melee balance changes (#5918)
 	rarity_value = 15
 
 /obj/item/weapon/tool/knife/dagger/ceremonial
@@ -108,6 +114,9 @@
 	icon_state = "fancydagger"
 	item_state = "fancydagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_GOLD = 1, MATERIAL_SILVER = 1)
+	armor_penetration = ARMOR_PEN_HALF
+	embed_mult = 0.3
+	max_upgrades = 4
 	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger/bluespace
@@ -197,6 +206,8 @@
 	armor_penetration = ARMOR_PEN_GRAZING
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL =6)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
+	w_class = ITEM_SIZE_TINY
+	var/switched_on_w_class = ITEM_SIZE_SMALL
 	tool_qualities = list()
 	toggleable = TRUE
 	rarity_value = 25
@@ -212,6 +223,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	switched_on = TRUE
 	tool_qualities = switched_on_qualities
+	w_class = switched_on_w_class
 	if (!isnull(switched_on_force))
 		force = switched_on_force
 	update_icon()
@@ -227,6 +239,7 @@
 	switched_on = FALSE
 	tool_qualities = switched_off_qualities
 	force = initial(force)
+	w_class = initial(w_class)
 	update_icon()
 	update_wear_icon()
 
@@ -240,8 +253,14 @@
 	edge = FALSE
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
+<<<<<<< HEAD
 	switched_on_force = WEAPON_FORCE_NORMAL
 	armor_penetration = ARMOR_PEN_GRAZING
+=======
+	switched_on_force = WEAPON_FORCE_PAINFUL
+	w_class = ITEM_SIZE_TINY
+	var/switched_on_w_class = ITEM_SIZE_SMALL
+>>>>>>> eb63904... Small melee balance changes (#5918)
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL = 6, MATERIAL_GOLD= 0.5)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
 	tool_qualities = list()
@@ -261,6 +280,7 @@
 	tool_qualities = switched_on_qualities
 	if (!isnull(switched_on_force))
 		force = switched_on_force
+	w_class = switched_on_w_class
 	update_icon()
 	update_wear_icon()
 
@@ -274,5 +294,6 @@
 	switched_on = FALSE
 	tool_qualities = switched_off_qualities
 	force = initial(force)
+	w_class = initial(w_class)
 	update_icon()
 	update_wear_icon()
