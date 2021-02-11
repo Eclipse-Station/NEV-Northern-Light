@@ -23,10 +23,17 @@
 		list(mode_name="stun", projectile_type=/obj/item/projectile/bullet/shotgun/beanbag, charge_cost=25, icon="stun"),
 		list(mode_name="blast", projectile_type=/obj/item/projectile/bullet/shotgun, charge_cost=null, icon="destroy"),
 	)
+<<<<<<< HEAD
 	var/consume_cell = FALSE
+=======
+>>>>>>> a9f4098... Loot rebalance ultimate edition (#5797)
 	price_tag = 2500
-	rarity_value = 20
 	spawn_tags = SPAWN_TAG_GUN_SHOTGUN_ENERGY
+<<<<<<< HEAD
+=======
+	twohanded = TRUE
+	var/consume_cell = TRUE
+>>>>>>> a9f4098... Loot rebalance ultimate edition (#5797)
 
 /obj/item/weapon/gun/energy/shrapnel/consume_next_projectile()
 	.=..()
@@ -37,7 +44,6 @@
 		playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 		new /obj/effect/decal/cleanable/ash(get_turf(src))
 	return .
-
 
 
 /obj/item/weapon/gun/energy/shrapnel/mounted

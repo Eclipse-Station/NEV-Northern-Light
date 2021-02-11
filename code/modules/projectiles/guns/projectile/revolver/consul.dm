@@ -14,4 +14,8 @@
 	damage_multiplier = 1.35
 	penetration_multiplier = 1.5
 	recoil_buildup = 35
+<<<<<<< HEAD
 	rarity_value = 8
+=======
+	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+>>>>>>> a9f4098... Loot rebalance ultimate edition (#5797)
