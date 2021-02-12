@@ -1,0 +1,10 @@
+author: Apockelipse
+delete-after: true
+changes:
+  - rscadd: Added a psychiatrist office waiting room
+  - rscadd: Added surgery patient rooms for storage of gear and place to rest post
+      surgery
+  - tweak: moved medbay security post to a more sensible location
+  - tweak: moved break room and doctor locker room
+  - tweak: resized chemistry to be a tad more sensible
+  - tweak: Moved psychiatrists office
