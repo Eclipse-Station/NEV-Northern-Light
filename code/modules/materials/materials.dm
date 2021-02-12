@@ -311,11 +311,19 @@ var/list/name_to_material
 		return 0
 	if(temperature < ignition_point)
 		return 0
+<<<<<<< HEAD
 	var/totalPhoron = 0
 	for(var/turf/simulated/floor/target_tile in trange(2, T))
 		var/phoronToDeduce = (temperature/30) * effect_multiplier
 		totalPhoron += phoronToDeduce
 		target_tile.assume_gas("phoron", phoronToDeduce, 200+T0C)
+=======
+	var/totalPlasma = 0
+	for(var/turf/simulated/floor/target_tile in RANGE_TURFS(2, T))
+		var/plasmaToDeduce = (temperature/30) * effect_multiplier
+		totalPlasma += plasmaToDeduce
+		target_tile.assume_gas("plasma", plasmaToDeduce, 200+T0C)
+>>>>>>> 604fb7a... trange del (#5857)
 		spawn (0)
 			target_tile.hotspot_expose(temperature, 400)
 	return round(totalPhoron/100)

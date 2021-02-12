@@ -48,15 +48,20 @@
 	//example: n2o triggerproc
 	//note: im lazy
 
-	for (var/turf/simulated/floor/target in trange(1,src))
+	for (var/turf/simulated/floor/target in RANGE_TURFS(1,src))
 		if(!target.blocks_air)
 			target.assume_gas("sleeping_agent", 30)
 
 	spawn(0)
 		qdel(src)
 
+<<<<<<< HEAD
 /obj/effect/mine/proc/triggerphoron(obj)
 	for (var/turf/simulated/floor/target in trange(1,src))
+=======
+/obj/effect/mine/proc/triggerplasma(obj)
+	for (var/turf/simulated/floor/target in RANGE_TURFS(1,src))
+>>>>>>> 604fb7a... trange del (#5857)
 		if(!target.blocks_air)
 			target.assume_gas("phoron", 30)
 
