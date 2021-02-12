@@ -1562,7 +1562,11 @@
 #include "code\modules\core_implant\cruciform\machinery\cruciformforge.dm"
 #include "code\modules\core_implant\cruciform\machinery\eotp.dm"
 #include "code\modules\core_implant\cruciform\machinery\obelisk.dm"
+<<<<<<< HEAD
 #include "code\modules\core_implant\cruciform\machinery\vat.dm"
+=======
+#include "code\modules\core_implant\cruciform\rituals\agrolyte.dm"
+>>>>>>> 0a08d5e... Two new perks and one new littany for NT (#5905)
 #include "code\modules\core_implant\cruciform\rituals\base.dm"
 #include "code\modules\core_implant\cruciform\rituals\construction.dm"
 #include "code\modules\core_implant\cruciform\rituals\crusader.dm"
