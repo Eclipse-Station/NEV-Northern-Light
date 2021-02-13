@@ -1,0 +1,4 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - bugfix: Fixed the welcome text for _**almost all**_ antags.
