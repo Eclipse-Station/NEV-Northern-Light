@@ -18146,6 +18146,8 @@
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
+/obj/item/weapon/gun/projectile/automatic/wintermute,
+/obj/item/weapon/gun/projectile/automatic/wintermute,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "aRz" = (
@@ -52008,7 +52010,16 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/medbay)
 "coM" = (
-/turf/simulated/floor/tiled/white/brown_perforated,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/firealarm{
+	pixel_y = 28
+	},
+/obj/structure/filingcabinet/security{
+	name = "Patient Files"
+	},
+/turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/reception)
 "coN" = (
 /obj/structure/disposalpipe/segment,
@@ -52034,14 +52045,11 @@
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/medical/reception)
 "coP" = (
+/obj/machinery/holoposter{
+	pixel_x = -32
+	},
 /obj/machinery/photocopier,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/firealarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/white/gray_platform,
+/turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "coQ" = (
 /obj/structure/disposalpipe/up,
@@ -53807,9 +53815,9 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4central)
 "csM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/bed/chair/office/light,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/table/rack/shelf,
+/obj/spawner/medical,
+/obj/spawner/medical,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "csN" = (
@@ -55302,8 +55310,10 @@
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section3deck4port)
 "cwC" = (
-/obj/structure/bed/chair/office/light,
-/turf/simulated/floor/tiled/white/brown_perforated,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "cwD" = (
 /obj/machinery/door/firedoor,
@@ -61703,10 +61713,13 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbay)
 "cLg" = (
-/obj/machinery/holoposter{
+/obj/structure/sign/faction/moebius{
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/table/rack/shelf,
+/obj/spawner/medical,
+/obj/spawner/medical,
+/turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "cLh" = (
 /obj/machinery/vending/powermat,
@@ -69998,6 +70011,11 @@
 	dir = 4;
 	pixel_x = -22
 	},
+/obj/item/weapon/gun/projectile/revolver,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/command/captain)
 "deH" = (
@@ -71179,6 +71197,11 @@
 "dhg" = (
 /obj/structure/closet/secure_closet/reinforced/hop,
 /obj/item/weapon/stamp/hop,
+/obj/item/weapon/gun/projectile/revolver/consul,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo/quarters)
 "dhh" = (
@@ -71784,14 +71807,12 @@
 /turf/simulated/floor/carpet,
 /area/eris/medical/psych)
 "diB" = (
-/obj/structure/sign/faction/moebius{
-	pixel_x = -32
-	},
 /obj/structure/table/rack/shelf,
 /obj/spawner/medical,
 /obj/spawner/medical,
-/obj/spawner/medical,
-/obj/spawner/medical,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "diC" = (
@@ -79208,11 +79229,12 @@
 /obj/structure/table/rack/shelf,
 /obj/spawner/medical,
 /obj/spawner/medical,
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
-/obj/spawner/medical,
-/obj/spawner/medical,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/reception)
 "dzd" = (
@@ -79419,10 +79441,10 @@
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/maintenance/section2deck3port)
 "dzF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/white/brown_perforated,
+/turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dzG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -79799,13 +79821,9 @@
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/command/captain)
 "dAz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white/brown_perforated,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dAA" = (
 /obj/structure/table/reinforced,
@@ -79837,10 +79855,8 @@
 /turf/simulated/floor/wood,
 /area/eris/medical/psych)
 "dAE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white/brown_perforated,
+/obj/structure/bed/chair/office/light,
+/turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dAF" = (
 /turf/simulated/floor/plating/under,
@@ -80328,8 +80344,9 @@
 /area/eris/medical/reception)
 "dBP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/bed/chair/office/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/white/brown_perforated,
+/turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dBQ" = (
 /obj/machinery/door/airlock/glass_command{
@@ -99154,10 +99171,23 @@
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "esT" = (
-/turf/space,
+/obj/machinery/door/blast/shutters/glass{
+	id = "Armoury";
+	name = "Armoury showcase"
+	},
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/laser,
+/obj/item/weapon/gun/energy/laser,
+/obj/item/weapon/gun/energy/laser,
+/obj/item/weapon/gun/energy/laser,
+/turf/simulated/floor/tiled/dark,
 /area/eris/security/warden)
 "esU" = (
 /obj/structure/table/reinforced,
+/obj/item/weapon/cell/medium/high,
+/obj/item/weapon/cell/medium/high,
+/obj/item/weapon/cell/medium/high,
+/obj/item/weapon/cell/medium/high,
 /obj/item/weapon/cell/medium/high,
 /obj/item/weapon/cell/medium/high,
 /obj/item/weapon/cell/medium/high,
@@ -106630,6 +106660,22 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/hangarsupply)
+"lRF" = (
+/obj/structure/table/rack,
+/obj/machinery/door/blast/shutters/glass{
+	id = "BridgeArmoury";
+	name = "Armoury showcase"
+	},
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/slmagnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "mjD" = (
 /obj/machinery/holomap{
 	dir = 4;
@@ -106922,6 +106968,22 @@
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
+"oAu" = (
+/obj/structure/table/rack,
+/obj/machinery/door/blast/shutters/glass{
+	id = "BridgeArmoury";
+	name = "Armoury showcase"
+	},
+/obj/item/ammo_magazine/slmagnum,
+/obj/item/ammo_magazine/slmagnum,
+/obj/item/ammo_magazine/slmagnum,
+/obj/item/ammo_magazine/slmagnum,
+/obj/item/ammo_magazine/slmagnum,
+/obj/item/ammo_magazine/slmagnum,
+/obj/item/ammo_magazine/ammobox/magnum,
+/obj/item/ammo_magazine/ammobox/magnum,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "oAW" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 4;
@@ -170407,7 +170469,7 @@ abF
 abF
 aaB
 aZh
-esT
+aaJ
 aaJ
 aaJ
 aTV
@@ -170609,7 +170671,7 @@ abF
 abF
 aaB
 aQY
-esT
+aaJ
 aaJ
 aSX
 aaB
@@ -170814,7 +170876,7 @@ aaB
 esT
 aRH
 aSw
-aaR
+aaB
 aTp
 aUe
 aTp
@@ -207415,11 +207477,11 @@ cml
 chl
 cqD
 kUI
+coP
 cLg
 diB
-dzc
 dBO
-cwC
+dAE
 dpf
 dCJ
 dDh
@@ -207618,10 +207680,10 @@ chl
 coJ
 kUI
 coS
-coM
-dzF
-coM
-coM
+coS
+cwC
+coS
+coS
 dno
 cqJ
 xdY
@@ -207819,11 +207881,11 @@ chl
 chl
 coO
 crC
-coS
-coM
+csM
+csM
+dzc
 dAz
 dBP
-csM
 dnh
 dwy
 dCK
@@ -208019,13 +208081,13 @@ aaa
 bSx
 cnx
 chM
-coP
+coM
 cqB
 coS
-coM
-dAE
-coM
-coM
+coS
+dzF
+coS
+coS
 dsd
 coS
 dEs
@@ -290607,8 +290669,8 @@ doD
 doD
 dyY
 dze
+oAu
 dVw
-abF
 abF
 abF
 abF
@@ -290809,8 +290871,8 @@ aaa
 dVw
 dyZ
 dzg
+lRF
 dVw
-abF
 abF
 abF
 abF
@@ -291012,7 +291074,7 @@ dVw
 dVw
 dVw
 dVw
-abF
+dVw
 abF
 abF
 abF
