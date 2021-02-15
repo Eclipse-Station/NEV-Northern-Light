@@ -7,6 +7,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "pet_rock.dm"
 #include "code\_macros.dm"
 #include "code\client_macros.dm"
 #include "code\global.dm"
