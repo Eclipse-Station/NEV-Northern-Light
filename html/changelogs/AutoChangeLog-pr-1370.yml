@@ -1,0 +1,8 @@
+author: Apockelipse
+delete-after: true
+changes:
+  - rscadd: Added Miller to Captains Locker with rubber speedloaders
+  - rscadd: Added Consul to FOs locker with rubber speedloaders
+  - tweak: Bridge armoury to include .40 rubber and lethal speedloaders
+  - bugfix: fixed a mapping issue with secure armoury created by yours truly due to
+      a crash.
