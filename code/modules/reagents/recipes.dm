@@ -1486,7 +1486,7 @@
 
 /datum/chemical_reaction/rockswhiskey
 	result = "rockswhiskey"
-	required_reagents = list("whiskey" = 3, "ice" = 1)
+	required_reagents = list("whiskey" = 2, "ice" = 1)
 	result_amount = 4
 
 /datum/chemical_reaction/brave_bull
