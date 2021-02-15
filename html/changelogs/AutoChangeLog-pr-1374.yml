@@ -1,0 +1,8 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - rscadd: Whiskey on the Rocks (one part Whiskey, two parts ice), Gunnery Sergeant's
+      Stamp (Placed in the Locker)
+  - tweak: Replaced the Armor in the Gunnery Sergeant's Locker with Webbed Armor,
+      as per suggestion, Tweaked the security announcements for Red and Blue to more
+      accurately reflect our lore
