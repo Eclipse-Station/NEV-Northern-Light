@@ -236,3 +236,9 @@
 
 #define NECROZTIME 	(5 MINUTES)
 
+
+
+//Surgery operation defines
+#define CAN_OPERATE_ALL 1 //All possible surgery types are available
+#define CAN_OPERATE_STANDING -1 //Only limited surgery types are available (gouging out shrapnel, for instance)
+

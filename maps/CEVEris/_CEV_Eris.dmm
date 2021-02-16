@@ -48630,6 +48630,7 @@
 /obj/machinery/holoposter{
 	pixel_y = 32
 	},
+/obj/machinery/autolathe/nanoforge,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/storage/tech)
 "cgz" = (
