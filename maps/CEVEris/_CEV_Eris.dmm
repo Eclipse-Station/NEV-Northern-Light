@@ -81,7 +81,7 @@
 	},
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/space)
+/area/eris/security/range)
 "aao" = (
 /obj/structure/closet/crate,
 /obj/item/target,
@@ -98,7 +98,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/space)
+/area/eris/security/range)
 "aap" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -76878,7 +76878,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/open,
+/turf/simulated/floor/tiled/white/cargo,
 /area/eris/security/checkpoint/medical)
 "dtB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -77774,14 +77774,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/maintenance/section2deck2port)
-"dvJ" = (
-/obj/machinery/door/airlock/maintenance_common{
-	name = "Service Maintenance";
-	req_access = list(12)
-	},
-/obj/machinery/door/firedoor,
-/turf/space,
-/area/eris/neotheology/chapel)
 "dvK" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -88331,10 +88323,21 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section3deck3starboard)
 "dTH" = (
-/obj/structure/mopbucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/mop,
-/turf/simulated/floor/tiled/techmaint,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1443;
+	icon_state = "map_vent_in";
+	id_tag = "air_out";
+	internal_pressure_bound = 2000;
+	internal_pressure_bound_default = 2000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/eris/engineering/atmos)
 "dTI" = (
 /obj/machinery/power/apc{
@@ -107235,6 +107238,11 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"rjb" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/eris/security/range)
 "rjC" = (
 /obj/structure/closet/wall_mounted/firecloset{
 	pixel_y = 32
@@ -128232,7 +128240,7 @@ aad
 aaa
 aaa
 aaa
-ddt
+rjb
 aan
 aaV
 aap
@@ -128434,7 +128442,7 @@ aad
 aaa
 aaa
 aaa
-aae
+aaG
 aao
 aaW
 abn
@@ -128636,8 +128644,8 @@ aad
 aad
 aad
 aaa
-aae
-aae
+aaG
+aaG
 aaG
 aaG
 aaE
@@ -243046,7 +243054,7 @@ dsa
 eFq
 dsl
 cmQ
-dvJ
+dsl
 dqB
 dqB
 dsh
