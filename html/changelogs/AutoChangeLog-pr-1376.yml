@@ -1,0 +1,5 @@
+author: drexample
+delete-after: true
+changes:
+  - rscadd: Enabled custom items
+  - bugfix: Kidneys should no longer dupe when using cytorev vat
