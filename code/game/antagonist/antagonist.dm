@@ -46,7 +46,7 @@
 		STAT_VIG = 5
 	)
 
-
+	var/list/perks = list()
 	// Misc.
 	var/bantype               // Ban to check when spawning this antag.
 	var/antaghud_indicator	  // Icon used for the antaghud
