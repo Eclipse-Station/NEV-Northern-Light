@@ -42966,11 +42966,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5starboard)
-"bTE" = (
-/obj/effect/window_lwall_spawn/smartspawn,
-/obj/machinery/door/firedoor,
-/turf/space,
-/area/eris/neotheology/chapelritualroom)
 "bTF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -76784,11 +76779,6 @@
 /area/eris/medical/reception)
 "dtq" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_medical{
-	id_tag = "";
-	name = "Break Room";
-	req_access = list(5)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/medical{
@@ -81120,7 +81110,7 @@
 	req_access = list(33)
 	},
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/medical/chemistry)
 "dDy" = (
 /obj/structure/table/rack,
@@ -99181,7 +99171,7 @@
 /obj/item/weapon/gun/energy/laser,
 /obj/item/weapon/gun/energy/laser,
 /obj/item/weapon/gun/energy/laser,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/warden)
 "esU" = (
 /obj/structure/table/reinforced,
@@ -105417,10 +105407,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
-"eFT" = (
-/obj/structure/catwalk,
-/turf/space,
-/area/eris/maintenance/section2deck1starboard)
 "eFW" = (
 /obj/machinery/atmospherics/pipe/zpipe/down{
 	dir = 8;
@@ -106513,8 +106499,8 @@
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
 "kmV" = (
-/obj/structure/multiz/stairs/enter{
-	dir = 8
+/obj/structure/multiz/stairs/active{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
@@ -108003,8 +107989,8 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/breakroom)
 "xZK" = (
-/obj/structure/multiz/stairs/active{
-	dir = 8
+/obj/structure/multiz/stairs/enter{
+	dir = 4
 	},
 /turf/simulated/open,
 /area/eris/medical/chemstor)
@@ -163265,9 +163251,9 @@ ccU
 bzF
 bzF
 bzF
-bTE
 bVk
-bTE
+bVk
+bVk
 bzF
 ccU
 cjZ
@@ -286473,7 +286459,7 @@ alG
 alG
 alG
 alG
-eFT
+ate
 ekQ
 elB
 emI
@@ -287086,7 +287072,7 @@ dSB
 nZb
 sJL
 enI
-aaa
+abF
 aaa
 vAE
 vAE
