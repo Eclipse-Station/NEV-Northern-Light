@@ -683,12 +683,6 @@
 /obj/spawner/powercell/low_chance,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/toilet/medbay)
-"abO" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/security/range)
 "abP" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/heavy/riot/ironhammer,
@@ -106883,6 +106877,11 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/medical/chemistry)
+"nBW" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/eris/security/range)
 "nJh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/industrial/warning,
@@ -107143,6 +107142,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/kitchen)
+"qdZ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/range)
 "qkR" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
@@ -107238,11 +107243,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
-"rjb" = (
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/eris/security/range)
 "rjC" = (
 /obj/structure/closet/wall_mounted/firecloset{
 	pixel_y = 32
@@ -128240,12 +128240,12 @@ aad
 aaa
 aaa
 aaa
-rjb
+nBW
 aan
 aaV
 aap
 aaq
-aaV
+qdZ
 aeG
 aaa
 aaa
@@ -128447,7 +128447,7 @@ aao
 aaW
 abn
 aaz
-abO
+aaV
 aeG
 aaa
 aaa
