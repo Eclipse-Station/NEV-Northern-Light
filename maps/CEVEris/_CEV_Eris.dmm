@@ -105417,10 +105417,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
-"eFT" = (
-/obj/structure/catwalk,
-/turf/space,
-/area/eris/maintenance/section2deck1starboard)
 "eFW" = (
 /obj/machinery/atmospherics/pipe/zpipe/down{
 	dir = 8;
@@ -286473,7 +286469,7 @@ alG
 alG
 alG
 alG
-eFT
+ate
 ekQ
 elB
 emI
@@ -287086,7 +287082,7 @@ dSB
 nZb
 sJL
 enI
-aaa
+abF
 aaa
 vAE
 vAE
