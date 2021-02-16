@@ -46001,7 +46001,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
+/obj/effect/window_lwall_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/eris/command/fo)
 "caS" = (
@@ -46032,7 +46032,7 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
+/obj/effect/window_lwall_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/eris/command/fo)
 "caW" = (
@@ -50704,9 +50704,6 @@
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
 "clR" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -50724,9 +50721,6 @@
 	id = "maint_hatch_medbay_rec";
 	layer = 3.3;
 	name = "Maintenance Hatch"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -53695,10 +53689,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck3port)
@@ -69046,6 +69036,7 @@
 	req_access = list(5);
 	resistance = 20
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patients_rooms)
 "dcE" = (
@@ -76807,6 +76798,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/psych)
 "dtt" = (
@@ -76872,6 +76864,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/security/checkpoint/medical)
 "dtB" = (
@@ -77621,6 +77614,7 @@
 	name = "Psychology Cabinet";
 	req_one_access = list(5)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/eris/medical/psych)
 "dvl" = (
@@ -80339,7 +80333,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/tiled/white/cargo,
 /area/eris/command/mbo)
 "dBR" = (
 /obj/structure/cable/green{
@@ -81558,6 +81552,7 @@
 	name = "Chemistry Lab";
 	req_access = list(33)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
 "dEx" = (
@@ -106067,6 +106062,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
+"gtg" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/eris/security/range)
 "gBc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -106127,12 +106127,6 @@
 /obj/spawner/scrap/sparse/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck5starboard)
-"hDd" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/security/range)
 "hHz" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -106251,6 +106245,12 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
+"isb" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/range)
 "ivC" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -106360,6 +106360,16 @@
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
+"jfS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_security{
+	name = "Security Lookout";
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/security/main)
 "jrc" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/caution{
@@ -106646,11 +106656,6 @@
 /obj/effect/shuttle_landmark/merc/junk,
 /turf/space,
 /area/space)
-"lKQ" = (
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/eris/security/range)
 "lOA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel/cargo,
@@ -107615,6 +107620,11 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
+"uGx" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/eris/command/fo)
 "uJV" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/steel/monofloor,
@@ -128240,12 +128250,12 @@ aad
 aaa
 aaa
 aaa
-lKQ
+gtg
 aan
 aaV
 aap
 aaq
-hDd
+isb
 aeG
 aaa
 aaa
@@ -168035,7 +168045,7 @@ aac
 esx
 aQK
 aQO
-aBq
+jfS
 aBq
 aYa
 aBk
@@ -209878,10 +209888,10 @@ bwr
 bwA
 caS
 caS
-caA
+uGx
 ccP
 caR
-caA
+uGx
 caV
 caS
 caS
