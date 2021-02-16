@@ -1484,6 +1484,11 @@
 	required_reagents = list("vodka" = 2, "gin" = 1, "whiskey" = 1, "cognac" = 1, "limejuice" = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/rockswhiskey
+	result = "rockswhiskey"
+	required_reagents = list("whiskey" = 2, "ice" = 1)
+	result_amount = 4
+
 /datum/chemical_reaction/brave_bull
 	result = "bravebull"
 	required_reagents = list("tequilla" = 2, "kahlua" = 1)
