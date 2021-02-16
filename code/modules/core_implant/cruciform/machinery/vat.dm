@@ -5,7 +5,7 @@
 #define VAT_FLUID_STEP 40
 
 /obj/machinery/neotheology/clone_vat
-	name = "cito-revitalization basin"
+	name = "cyto-revitalization basin" //APPARENTLY IT'S SPELLED CYTO INSTEAD OF CYTO GODDAMN
 	desc = "One of the most coveted Mekhanite technologies, this device is capable of restoring one's body from a mere fragment."
 	icon = 'icons/obj/machines/church_vat.dmi'
 	icon_state = "vat_gold_base"
