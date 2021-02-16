@@ -71423,7 +71423,7 @@
 "dhK" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/eris/crew_quarters/hydroponics)
 "dhL" = (
 /obj/structure/bed/padded,
@@ -106051,6 +106051,16 @@
 	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
+"gsx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_security{
+	name = "Security Lookout";
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/security/main)
 "gsO" = (
 /obj/machinery/door/airlock/glass_medical{
 	id_tag = null;
@@ -106062,11 +106072,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
-"gtg" = (
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/eris/security/range)
 "gBc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -106245,12 +106250,6 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
-"isb" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/security/range)
 "ivC" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -106360,16 +106359,6 @@
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
-"jfS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_security{
-	name = "Security Lookout";
-	req_access = list(1)
-	},
-/turf/simulated/floor/tiled/steel,
-/area/eris/security/main)
 "jrc" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/caution{
@@ -106517,6 +106506,12 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
+"ktc" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/range)
 "kEW" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -107529,6 +107524,11 @@
 /obj/machinery/vending/assist,
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
+"tUA" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/eris/command/fo)
 "ubu" = (
 /obj/machinery/holomap{
 	pixel_y = 32
@@ -107620,11 +107620,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
-"uGx" = (
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/eris/command/fo)
 "uJV" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/steel/monofloor,
@@ -107860,6 +107855,11 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"wuW" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/eris/security/range)
 "wxB" = (
 /obj/effect/window_lwall_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -128250,12 +128250,12 @@ aad
 aaa
 aaa
 aaa
-gtg
+wuW
 aan
 aaV
 aap
 aaq
-isb
+ktc
 aeG
 aaa
 aaa
@@ -168045,7 +168045,7 @@ aac
 esx
 aQK
 aQO
-jfS
+gsx
 aBq
 aYa
 aBk
@@ -209888,10 +209888,10 @@ bwr
 bwA
 caS
 caS
-uGx
+tUA
 ccP
 caR
-uGx
+tUA
 caV
 caS
 caS
