@@ -217,7 +217,7 @@
 
 /obj/item/weapon/cell/small/moebius
 	name = "NanoTrasen \"Power-Geyser 120S\""
-	desc = "NanoTrasen Laboratories branded rechargeable S-standardized power cell. This one is cheap, yet better than Aster model for same price."
+	desc = "Lazarus Laboratories branded rechargeable S-standardized power cell. This one is cheap, yet better than Aster model for same price."
 	icon_state = "meb_s_st"
 	maxcharge = 120
 
