@@ -10,20 +10,6 @@
 	meat_amount = 3
 	rarity_value = 5
 
-/mob/living/carbon/superior_animal/roach/nitro/Life()
-	. = ..()
-	if(stat != CONSCIOUS)
-		return
-
-	if(stat != AI_inactive)
-		return
-/mob/living/carbon/superior_animal/roach/nitro/Initialize(mapload)
-	. = ..()
-	set_light(0.5)
-
-
-/mob/living/carbon/superior_animal/roach/nitro/findTarget()
-	. = ..()
 
 /mob/living/carbon/superior_animal/roach/nitro/death()
 	..()

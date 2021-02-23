@@ -271,7 +271,7 @@ GLOBAL_VAR_INIT(score_technomancer_faction_item_loss, 0)
 
 	//ironhammer
 	dat += {"
-	<u>Ironhammer scores</u><br>
+	<u>Aegis scores</u><br>
 	<b>Base score:</b> [green_text(GLOB.initial_ironhammer_score)]<br>
 	<b>Lost faction items:</b> [GLOB.ironhammer_faction_item_loss] ([to_score_color(GLOB.score_ironhammer_faction_item_loss)] Points)<br>
 	<b>Faction objectives completed:</b> [GLOB.ironhammer_objectives_completed] ([to_score_color(GLOB.ironhammer_objectives_score)] Points)<br>
@@ -284,7 +284,7 @@ GLOBAL_VAR_INIT(score_technomancer_faction_item_loss, 0)
 
 	//moebius
 	dat += {"
-	<u>Moebius scores</u><br>
+	<u>Lazarus scores</u><br>
 	<b>Base score:</b> [green_text(GLOB.initial_moebius_score)]<br>
 	<b>Lost faction items:</b> [GLOB.moebius_faction_item_loss] ([to_score_color(GLOB.score_moebius_faction_item_loss)] Points)<br>
 	<b>Faction objectives completed:</b> [GLOB.moebius_objectives_completed] ([to_score_color(GLOB.moebius_objectives_score)] Points)<br>
@@ -296,7 +296,7 @@ GLOBAL_VAR_INIT(score_technomancer_faction_item_loss, 0)
 
 	//nt
 	dat += {"
-	<u>NeoTheology scores</u><br>
+	<u>Mekhane scores</u><br>
 	<b>Base score:</b> [green_text(GLOB.initial_neotheology_score)]<br>
 	<b>Lost faction items:</b> [GLOB.neotheology_faction_item_loss] ([to_score_color(GLOB.score_neotheology_faction_item_loss)] Points)<br>
 	<b>Faction objectives completed:</b> [GLOB.neotheology_objectives_completed] ([to_score_color(GLOB.neotheology_objectives_score)] Points)<br>
@@ -309,7 +309,7 @@ GLOBAL_VAR_INIT(score_technomancer_faction_item_loss, 0)
 
 	//guild
 	dat += {"
-	<u>Guild scores</u><br>
+	<u>Union scores</u><br>
 	<b>Base score:</b> [green_text(GLOB.initial_guild_score)]<br>
 	<b>Lost faction items:</b> [GLOB.guild_faction_item_loss] ([to_score_color(GLOB.score_guild_faction_item_loss)] Points)<br>
 	<b>Faction objectives completed:</b> [GLOB.guild_objectives_completed] ([to_score_color(GLOB.guild_objectives_score)] Points)<br>
@@ -320,7 +320,7 @@ GLOBAL_VAR_INIT(score_technomancer_faction_item_loss, 0)
 
 	//Technomancers
 	dat += {"
-	<u>Technomancers scores</u><br>
+	<u>Engineering scores</u><br>
 	<b>Base score:</b> [green_text(GLOB.initial_technomancer_score)]<br>
 	<b>Faction objectives completed:</b> [GLOB.technomancer_objectives_completed] ([to_score_color(GLOB.score_technomancer_objectives)] Points)<br>
 	<b>All SMES Charged:</b> [GLOB.all_smes_powered ? "Yes" : "No"] ([to_score_color(GLOB.score_smes_powered)] Points)<br>
