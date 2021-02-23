@@ -33,47 +33,47 @@
 
 //[CLOTHES, ARMOR AND ACCESORIES]
 /datum/design/bioprinter/nt_clothes/acolyte_armor
-	name = "NT Acolyte Armor"
+	name = "Acolyte Armor"
 	build_path = /obj/item/clothing/suit/armor/acolyte
 
 /datum/design/bioprinter/nt_clothes/agrolyte_armor
-	name = "NT Agrolyte Armor"
+	name = "Agrolyte Armor"
 	build_path = /obj/item/clothing/suit/armor/agrolyte
 
 /datum/design/bioprinter/nt_clothes/custodian_armor
-	name = "NT Custodian Armor"
+	name = "Custodian Armor"
 	build_path = /obj/item/clothing/suit/armor/custodian
 
 /datum/design/bioprinter/nt_clothes/preacher_coat
-	name = "NT Preacher Longcoat"
+	name = "Preacher Longcoat"
 	build_path = /obj/item/clothing/suit/storage/neotheology_coat
 
 /datum/design/bioprinter/nt_clothes/acolyte_jacket
-	name = "NT Acolyte Jacket"
+	name = "Acolyte Jacket"
 	build_path = /obj/item/clothing/suit/storage/neotheology_jacket
 
 /datum/design/bioprinter/nt_clothes/sports_jacket
-	name = "NT Sports Jacket"
+	name = "Sports Jacket"
 	build_path = /obj/item/clothing/suit/storage/neotheosports
 
 /datum/design/bioprinter/nt_clothes/acolyte_uniform
-	name = "NT Acolyte Garment"
+	name = "Acolyte Garment"
 	build_path = /obj/item/clothing/under/rank/acolyte
 
 /datum/design/bioprinter/nt_clothes/sports_uniform
-	name = "NT Sport Clothes"
+	name = "Sport Clothes"
 	build_path = /obj/item/clothing/under/rank/church/sport
 
 /datum/design/bioprinter/nt_clothes/church_uniform
-	name = "NT Church Garment"
+	name = "Church Garment"
 	build_path = /obj/item/clothing/under/rank/church
 
 /datum/design/bioprinter/belt/utility/neotheology
-	name = "Neotheologian utility belt"
+	name = "Mekhane utility belt"
 	build_path = /obj/item/weapon/storage/belt/utility/neotheology
 
 /datum/design/bioprinter/belt/security/neotheology
-	name = "Neotheologian tactical belt"
+	name = "Mekhane tactical belt"
 	build_path = /obj/item/weapon/storage/belt/tactical/neotheology
 
 // This separates regular clothes designs from NT clothes designs //
@@ -213,62 +213,62 @@
 	build_path = /obj/item/weapon/storage/firstaid/nt
 
 /datum/design/autolathe/excruciator
-	name = "NeoTheology \"EXCRUCIATOR\" giga lens"
+	name = "NanoTrasen \"EXCRUCIATOR\" giga lens"
 	build_path = /obj/item/weapon/gun_upgrade/barrel/excruciator
 
 //[MELEE]
 /datum/design/autolathe/sword/nt_sword
-	name = "NT Shortsword"
+	name = "Shortsword"
 	build_path = /obj/item/weapon/tool/sword/nt
 
 /datum/design/autolathe/sword/nt_longsword
-	name = "NT Longsword"
+	name = "Longsword"
 	build_path = /obj/item/weapon/tool/sword/nt/longsword
 
 /datum/design/autolathe/sword/nt_dagger
-	name = "NT Dagger"
+	name = "Dagger"
 	build_path = /obj/item/weapon/tool/knife/dagger/nt
 
 /datum/design/autolathe/sword/nt_halberd
-	name = "NT Halberd"
+	name = "Halberd"
 	build_path = /obj/item/weapon/tool/sword/nt/halberd
 
 /datum/design/autolathe/sword/nt_scourge
-	name = "NT Scourge"
+	name = "Scourge"
 	build_path = /obj/item/weapon/tool/sword/nt/scourge
 
 /datum/design/autolathe/shield/nt_shield
-	name = "NT Shield"
+	name = "Shield"
 	build_path = /obj/item/weapon/shield/riot/nt
 
 /datum/design/autolathe/tool_upgrade/sanctifier
-	name = "sanctifier"
+	name = "Sanctifier"
 	build_path = /obj/item/weapon/tool_upgrade/augment/sanctifier
 
 //[GRENADES]
 /datum/design/autolathe/grenade/nt_smokebomb
-	name = "NT SG \"Holy Fog\""
+	name = "CM SG \"Holy Fog\""
 	build_path = /obj/item/weapon/grenade/smokebomb/nt
 
 /datum/design/autolathe/grenade/nt_frag
-	name = "NT DFG \"Holy Thunder\""
+	name = "CM DFG \"Holy Thunder\""
 	build_path = /obj/item/weapon/grenade/frag/nt
 
 /datum/design/autolathe/grenade/nt_flashbang
-	name = "NT FBG \"Holy Light\""
+	name = "CM FBG \"Holy Light\""
 	build_path = /obj/item/weapon/grenade/flashbang/nt
 
 /datum/design/autolathe/grenade/nt_explosive
-	name = "NT OBG \"Holy Grail\""
+	name = "CM OBG \"Holy Grail\""
 	build_path = /obj/item/weapon/grenade/explosive/nt
 
 //[CRUSADE]
 /datum/design/autolathe/armor/crusader
-	name = "crusader armor"
+	name = "Crusader Armour"
 	build_path = /obj/item/clothing/suit/armor/crusader
 
 /datum/design/autolathe/helmet/crusader
-	name = "crusader helmet"
+	name = "Crusader Helmet"
 	build_path = /obj/item/clothing/head/armor/helmet/crusader
 
 //[MED]

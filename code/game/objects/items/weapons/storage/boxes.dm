@@ -640,7 +640,7 @@
 		new spawn_type(src)
 
 /obj/item/weapon/storage/box/headset/church
-	name = "neotheology radio encryption key box"
+	name = "mekhane radio encryption key box"
 	illustration = "disk"
 	initial_amount = 7
 	spawn_type = /obj/item/device/encryptionkey/headset_church
