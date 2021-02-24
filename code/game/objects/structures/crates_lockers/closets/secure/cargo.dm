@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/personal/cargotech
-	name = "guild technician's locker"
+	name = "union technician's locker"
 	req_access = list(access_merchant)
 	access_occupy = list(access_cargo)
 	icon_state = "cargo"
@@ -13,7 +13,7 @@
 	new /obj/item/device/scanner/price(src)
 
 /obj/structure/closet/secure_closet/reinforced/quartermaster
-	name = "guild merchant's locker"
+	name = "union merchant's locker"
 	req_access = list(access_merchant)
 	icon_state = "qm"
 
@@ -35,7 +35,7 @@
 	new /obj/item/device/scanner/price(src)
 
 /obj/structure/closet/secure_closet/personal/artist
-	name = "guild artist's locker"
+	name = "union artist's locker"
 	req_access = list(access_merchant)
 	access_occupy = list(access_artist)
 	icon_state = "cargo"

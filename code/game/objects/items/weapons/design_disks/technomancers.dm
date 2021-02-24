@@ -1,6 +1,6 @@
 // Technomancers
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/components
-	disk_name = "Technomancers ARK-034 Components"
+	disk_name = "Engineering ARK-034 Components"
 	icon_state = "technomancers"
 	rarity_value = 4
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
@@ -25,7 +25,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools
-	disk_name = "Technomancers IJIRO-451 Advanced Tools"
+	disk_name = "Engineering IJIRO-451 Advanced Tools"
 	icon_state = "technomancers"
 	rarity_value = 11
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED_COMMON
@@ -52,7 +52,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits
-	disk_name = "Technomancers ESPO-830 Circuits"
+	disk_name = "Engineering ESPO-830 Circuits"
 	icon_state = "technomancers"
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
 	rarity_value = 5.5
@@ -80,7 +80,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors
-	disk_name = "Technomancers LAT-018 Logistics"
+	disk_name = "Engineering LAT-018 Logistics"
 	icon_state = "technomancers"
 	rarity_value = 4
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
