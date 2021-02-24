@@ -54,6 +54,7 @@ There are important things regarding this file:
 
 /obj/item/projectile/bullet/srifle/nomuzzle
 	muzzle_type = null
+	noshake = TRUE
 
 /obj/item/projectile/bullet/srifle/practice
 	name = "practice bullet"
