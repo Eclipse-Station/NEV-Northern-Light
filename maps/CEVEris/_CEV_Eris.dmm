@@ -81,7 +81,7 @@
 	},
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/space)
+/area/eris/security/range)
 "aao" = (
 /obj/structure/closet/crate,
 /obj/item/target,
@@ -98,7 +98,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
-/area/space)
+/area/eris/security/range)
 "aap" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -684,11 +684,13 @@
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/toilet/medbay)
 "abO" = (
-/obj/machinery/light{
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/eris/security/range)
+/turf/simulated/floor/plating,
+/area/eris/medical/psych)
 "abP" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/heavy/riot/ironhammer,
@@ -37044,11 +37046,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/turf/simulated/floor/hull{
-	flooring_override = "hullcenter18";
-	icon_state = "hullcenter18";
-	tag = "icon-hullcenter18"
-	},
+/turf/simulated/floor/hull,
 /area/space)
 "bHf" = (
 /obj/machinery/atmospherics/pipe/zpipe/down,
@@ -46007,7 +46005,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
+/obj/effect/window_lwall_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/eris/command/fo)
 "caS" = (
@@ -46038,7 +46036,7 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
+/obj/effect/window_lwall_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/eris/command/fo)
 "caW" = (
@@ -50710,9 +50708,6 @@
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
 "clR" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -50730,9 +50725,6 @@
 	id = "maint_hatch_medbay_rec";
 	layer = 3.3;
 	name = "Maintenance Hatch"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -53701,10 +53693,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck3port)
@@ -69052,6 +69040,7 @@
 	req_access = list(5);
 	resistance = 20
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patients_rooms)
 "dcE" = (
@@ -71438,7 +71427,7 @@
 "dhK" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/eris/crew_quarters/hydroponics)
 "dhL" = (
 /obj/structure/bed/padded,
@@ -76813,6 +76802,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/psych)
 "dtt" = (
@@ -76878,7 +76868,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/open,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/white/cargo,
 /area/eris/security/checkpoint/medical)
 "dtB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -77627,6 +77618,7 @@
 	name = "Psychology Cabinet";
 	req_one_access = list(5)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
 /area/eris/medical/psych)
 "dvl" = (
@@ -77774,14 +77766,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/maintenance/section2deck2port)
-"dvJ" = (
-/obj/machinery/door/airlock/maintenance_common{
-	name = "Service Maintenance";
-	req_access = list(12)
-	},
-/obj/machinery/door/firedoor,
-/turf/space,
-/area/eris/neotheology/chapel)
 "dvK" = (
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -80353,7 +80337,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/tiled/white/cargo,
 /area/eris/command/mbo)
 "dBR" = (
 /obj/structure/cable/green{
@@ -81572,6 +81556,7 @@
 	name = "Chemistry Lab";
 	req_access = list(33)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
 "dEx" = (
@@ -88331,10 +88316,21 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/section3deck3starboard)
 "dTH" = (
-/obj/structure/mopbucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/mop,
-/turf/simulated/floor/tiled/techmaint,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1443;
+	icon_state = "map_vent_in";
+	id_tag = "air_out";
+	internal_pressure_bound = 2000;
+	internal_pressure_bound_default = 2000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/eris/engineering/atmos)
 "dTI" = (
 /obj/machinery/power/apc{
@@ -99117,9 +99113,6 @@
 /obj/structure/cyberplant,
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
-"esO" = (
-/turf/space,
-/area/eris/security/main)
 "esP" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -106059,6 +106052,16 @@
 	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
+"gsx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_security{
+	name = "Security Lookout";
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/security/main)
 "gsO" = (
 /obj/machinery/door/airlock/glass_medical{
 	id_tag = null;
@@ -106504,6 +106507,12 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/medical/chemstor)
+"ktc" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/security/range)
 "kEW" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -107516,6 +107525,11 @@
 /obj/machinery/vending/assist,
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
+"tUA" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/eris/command/fo)
 "ubu" = (
 /obj/machinery/holomap{
 	pixel_y = 32
@@ -107842,6 +107856,11 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"wuW" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/eris/security/range)
 "wxB" = (
 /obj/effect/window_lwall_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -128232,12 +128251,12 @@ aad
 aaa
 aaa
 aaa
-ddt
+wuW
 aan
 aaV
 aap
 aaq
-aaV
+ktc
 aeG
 aaa
 aaa
@@ -128434,12 +128453,12 @@ aad
 aaa
 aaa
 aaa
-aae
+aaG
 aao
 aaW
 abn
 aaz
-abO
+aaV
 aeG
 aaa
 aaa
@@ -128636,8 +128655,8 @@ aad
 aad
 aad
 aaa
-aae
-aae
+aaG
+aaG
 aaG
 aaG
 aaE
@@ -162620,7 +162639,7 @@ acR
 aaa
 aaa
 aaa
-crY
+abF
 abF
 abF
 bpE
@@ -163023,8 +163042,8 @@ aaa
 bfg
 aaa
 aaa
+cPb
 bHe
-abF
 abF
 abF
 bpE
@@ -163225,8 +163244,8 @@ cIS
 abF
 aaa
 aaa
+cPb
 bzV
-biG
 biG
 biG
 bsh
@@ -167624,7 +167643,7 @@ aac
 aac
 aac
 aab
-esO
+aaa
 aab
 aBj
 aXE
@@ -168027,7 +168046,7 @@ aac
 esx
 aQK
 aQO
-aBq
+gsx
 aBq
 aYa
 aBk
@@ -168432,7 +168451,7 @@ aac
 aac
 aac
 aab
-esO
+aaa
 aab
 aBm
 aBi
@@ -204651,7 +204670,7 @@ dtO
 diA
 dzM
 diA
-dBH
+abO
 abF
 aaa
 cmE
@@ -204853,7 +204872,7 @@ dtQ
 diA
 dAN
 dwC
-dBH
+abO
 abF
 aaa
 cmE
@@ -205055,7 +205074,7 @@ due
 diA
 dzO
 diA
-dBH
+abO
 abF
 aaa
 cmE
@@ -209870,10 +209889,10 @@ bwr
 bwA
 caS
 caS
-caA
+tUA
 ccP
 caR
-caA
+tUA
 caV
 caS
 caS
@@ -243046,7 +243065,7 @@ dsa
 eFq
 dsl
 cmQ
-dvJ
+dsl
 dqB
 dqB
 dsh
