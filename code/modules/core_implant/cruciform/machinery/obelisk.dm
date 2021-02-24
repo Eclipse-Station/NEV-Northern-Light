@@ -106,8 +106,8 @@
 
 			if(stat_buff)
 				var/buff_power = disciples.len
-				var/message
 				var/prev_stat
+				var/message
 				for(var/stat in ALL_STATS)
 					var/datum/stat_mod/SM = mob.stats.getTempStat(stat, "nt_obelisk")
 					if(stat == stat_buff)
@@ -124,7 +124,7 @@
 
 				if(prev_stat) // buff stat was replaced
 					message = "A wave of dizziness washes over you, and your mind is filled with a sudden insight into [stat_buff] as your knowledge of [prev_stat] feels lessened."
-				if(message)
+				if(message!="")
 					to_chat(mob, SPAN_NOTICE(message))
 
 			got_neoteo = TRUE
