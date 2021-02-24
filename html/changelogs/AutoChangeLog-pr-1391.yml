@@ -1,0 +1,6 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - balance: Drops Benzin spawn rate to make it less annoying. I heard you guys!
+  - balance: Drops explosion radius by 1 to make it less immediately deadly. Now only
+      blows up the tile it's on, AND the tile next to it!
