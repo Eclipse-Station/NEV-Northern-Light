@@ -6,26 +6,17 @@
 	maxHealth = 5
 	health = 5
 	melee_damage_upper = 3
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/seuche
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/nitro
 	meat_amount = 3
-	rarity_value = 5
+	rarity_value = 2
 
-/mob/living/carbon/superior_animal/roach/nitro/Life()
-	. = ..()
-	if(stat != CONSCIOUS)
-		return
-
-	if(stat != AI_inactive)
-		return
 /mob/living/carbon/superior_animal/roach/nitro/Initialize(mapload)
 	. = ..()
 	set_light(0.5)
 
 
-/mob/living/carbon/superior_animal/roach/nitro/findTarget()
-	. = ..()
 
 /mob/living/carbon/superior_animal/roach/nitro/death()
 	..()
-	explosion(get_turf(src), -1, -1, 2, 3) //explosion weaker than a welding tank, DO NOT TRY TO GIB THE ROACH
+	explosion(get_turf(src), -1, -1, 1, 3) //explosion weaker than a welding tank, DO NOT TRY TO GIB THE ROACH
 	qdel(src)

@@ -59,8 +59,12 @@
 /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/jager
 	preloaded_reagents = list("protein" = 6, "blattedin" = 6, "gewaltine" = 8, "diplopterum" = 2)
 
-/obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kraftwerk 
+/obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kraftwerk
 	preloaded_reagents = list("protein" = 6, "blattedin" = 6, "gewaltine" = 6, "uncap nanites" = 2, "nanites" = 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/nitro
+	preloaded_reagents = list("protein" = 4, "fuel" = 6)
+
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/spider
 	desc = "A bloated slab of sickly-green meat cut from a spider. The venom just gives it more flavor. Delicious!"
@@ -82,7 +86,7 @@
 	desc = "A bloated slab of sickly-green meat cut from a spider. The venom just gives it more flavor. Delicious!"
 	icon_state = "xenomeat"
 	filling_color = "#E2FFDE"
-	
+
 	bitesize = 6
 	preloaded_reagents = list("protein" = 8, "pararein" = 8)
 
