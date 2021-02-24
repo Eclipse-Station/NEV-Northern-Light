@@ -10,12 +10,6 @@
 	meat_amount = 3
 	rarity_value = 5
 
-/mob/living/carbon/superior_animal/roach/nitro/Initialize(mapload)
-	. = ..()
-	set_light(0.5)
-
-
-
 
 /mob/living/carbon/superior_animal/roach/nitro/death()
 	..()

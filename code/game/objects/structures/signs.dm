@@ -502,7 +502,7 @@
 	icon_state = "interrogation"
 
 /obj/structure/sign/department/commander
-	name = "IHS COMMANDER"
+	name = "AEGIS COMMANDER"
 	icon_state = "commander"
 
 /obj/structure/sign/department/armory
@@ -540,8 +540,8 @@
 	icon_state = "frozenstar"
 
 /obj/structure/sign/faction/moebius
-	name = "NanoTrasen Laboratories"
-	desc = "A shady megacorporation that owns the Northern Light "
+	name = "Lazarus Laboratories"
+	desc = "A shady megacorporation that has a stake in the Northern Light's expedition. "
 	icon_state = "moebius"
 
 /obj/structure/sign/faction/neotheology

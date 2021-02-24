@@ -9,6 +9,7 @@
 	spawn_positions = 1
 	supervisors = "the Captain"
 	selection_color = "#97b0be"
+	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
 
@@ -70,6 +71,7 @@
 	spawn_positions = 1
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
+	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	department_account_access = TRUE
 	wage = WAGE_LABOUR_HAZARD
 
@@ -124,6 +126,7 @@
 	spawn_positions = 2
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
+	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	wage = WAGE_PROFESSIONAL
 
 	wl_config_sec = TRUE		//Eclipse edit.
@@ -181,6 +184,7 @@
 	spawn_positions = 2
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
+	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	wage = WAGE_PROFESSIONAL
 
 	wl_config_sec = TRUE		//Eclipse edit.
@@ -235,6 +239,7 @@
 	supervisors = "the Aegis Commander"
 	//alt_titles = list("Aegis Junior Operative")
 	selection_color = "#a7bbc6"
+	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	wage = WAGE_LABOUR_HAZARD
 
 	wl_config_sec = TRUE		//Eclipse edit.
