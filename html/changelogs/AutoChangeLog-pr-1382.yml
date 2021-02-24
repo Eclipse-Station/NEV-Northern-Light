@@ -1,0 +1,11 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - rscadd: Yellow Level Alert (With colors!)
+  - rscadd: Violet Level Alert (With colors!)
+  - bugfix: Changed anything referring to IH or NanoTrasen Labs with Aegis or Lazarus.
+      You're welcome, nerds.
+  - bugfix: Removed the annoying bug with Obelisks. That's right baby, no more empty
+      text boxes!
+  - bugfix: Gave Aegis the ability to speak German again.
+  - imageadd: Added in overlays for the fire alarm to display yellow and violet alerts
