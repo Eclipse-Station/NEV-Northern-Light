@@ -96,7 +96,7 @@
 /datum/ritual/cruciform/base/sense_cruciform
 	name = "Cruciform sense"
 	phrase = "Et si medio umbrae"
-	desc = "Very short litany to identify NeoTheology followers. Targets individuals directly in front of caster or being grabbed by caster."
+	desc = "Very short litany to identify Mekhane followers. Targets individuals directly in front of caster or being grabbed by caster."
 	power = 20
 
 /datum/ritual/cruciform/base/sense_cruciform/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C)

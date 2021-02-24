@@ -169,7 +169,7 @@
 * The default security state and levels setup
 */
 /decl/security_state/default
-	all_security_levels = list(/decl/security_level/default/code_green, /decl/security_level/default/code_blue, /decl/security_level/default/code_red, /decl/security_level/default/code_delta)
+	all_security_levels = list(/decl/security_level/default/code_green, /decl/security_level/default/code_blue, /decl/security_level/default/code_red, /decl/security_level/default/code_violet,/decl/security_level/default/code_yellow, /decl/security_level/default/code_delta)
 
 /decl/security_level/default
 	icon = 'icons/misc/security_state.dmi'
@@ -241,8 +241,40 @@
 
 	overlay_status_display = "status_display_red"
 
-	up_description = "There is an immediate confirmed threat to the vessel. Everyone is required to follow Aegis instructions. Random searches are allowed and advised."
-	down_description = "There is an immediate confirmed threat to the vessel. Everyone is required to follow Aegis instructions. Random searches are allowed and advised."
+	up_description = "There is an immediate confirmed threat to the vessel. Everyone is required to follow Aegis Security's instructions. Random searches are allowed and advised."
+	down_description = "There is an immediate confirmed threat to the vessel. Everyone is required to follow Aegis Security's instructions. Random searches are allowed and advised."
+/decl/security_level/default/code_violet
+	name = "code violet"
+
+	light_max_bright = 0.5
+	light_inner_range = 0.1
+	light_outer_range = 2
+	light_color_alarm = COLOR_LIGHTING_VIOLET_MACHINERY
+	light_color_status_display = COLOR_LIGHTING_VIOLET_MACHINERY
+
+	overlay_alarm = "alarm_violet"
+	overlay_firealarm = "overlay_violet"
+
+	overlay_status_display = "status_display_violet"
+
+	up_description = "Attention! Alert level changed to code Violet!: Confirmed medical emergency on vessel. All personnel required to follow Lazarus Medical's instructions."
+	down_description = "Attention! Alert level changed to code Violet!: Confirmed medical emergency on vessel. All personnel required to follow Lazarus Medical's instructions."
+/decl/security_level/default/code_yellow
+	name = "code yellow"
+
+	light_max_bright = 0.5
+	light_inner_range = 0.1
+	light_outer_range = 2
+	light_color_alarm = COLOR_LIGHTING_ORANGE_MACHINERY
+	light_color_status_display = COLOR_LIGHTING_ORANGE_MACHINERY
+
+	overlay_alarm = "alarm_yellow"
+	overlay_firealarm = "overlay_yellow"
+
+	overlay_status_display = "status_display_yellow"
+
+	up_description = "Severe structural damage to vessel confirmed. All personnel are required to follow NanoTrasen Engineering's instructions."
+	down_description = "Severe structural damage to vessel confirmed. All personnel are required to follow NanoTrasen Engineering's instructions."
 /decl/security_level/default/code_delta
 	name = "code delta"
 

@@ -206,6 +206,7 @@
 	icon_state = "beacon_off"
 	var/victims_to_teleport = list()
 	var/turf/target = null
+	var/target_type = /obj/crawler/teleport_marker
 	var/active = FALSE
 	w_class = ITEM_SIZE_GARGANTUAN
 	anchored = TRUE
@@ -220,7 +221,7 @@
 
 /obj/rogue/telebeacon/attack_hand(mob/user)
 	if(!target)
-		target = locate(/obj/crawler/teleport_marker)
+		target = locate(target_type)
 	if(!active)
 		if(target)
 			to_chat(user, "You activate the beacon. It starts glowing softly.")
@@ -236,7 +237,7 @@
 
 		for(var/mob/living/silicon/robot/R in range(8, src))//Borgs too
 			victims_to_teleport += R
-			
+
 		for(var/obj/structure/closet/C in range(8, src))//Clostes as well, for transport and storage
 			victims_to_teleport += C
 		for(var/atom/movable/M in victims_to_teleport)
@@ -250,11 +251,12 @@
 /obj/rogue/telebeacon/return_beacon
 	name = "ancient return beacon"
 	desc = "A metallic pylon, covered in rust. It seems still operational. Barely."
+	target_type = (/obj/crawler/teleport_marker)
 
 
 /obj/rogue/telebeacon/return_beacon/attack_hand(mob/user)
 	if(!target)
-		target = locate(/obj/crawler/teleport_marker)
+		target = locate(target_type)
 	if(!active)
 		if(target)
 			to_chat(user, "You activate the beacon. It starts glowing softly.")
@@ -269,3 +271,10 @@
 		var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 		sparks.set_up(3, 0, get_turf(user))
 		sparks.start()
+
+
+/obj/rogue/telebeacon/return_beacon/bossfight
+	name = "OneStar Heavy Weaponry Testing Range Access Pylon"
+	target_type = /obj/crawler/bossfight_arena
+	desc = "A metallic pylon, covered in rust. It seems still operational. Barely. You have a very bad feeling about this. \
+	OOC NOTE: AFTER THIS IS A BOSSFIGHT WITHOUT ANY CONVENTIONAL MEANS OF ESCAPE. THIS IS YOUR ONLY WARNING."
