@@ -51,3 +51,14 @@ kit_desc: Looks like an overworked, under-maintained Ripley with some horrific d
 kit_icon: titan
 additional_data: ripley, firefighter
 }
+
+{
+ckey: Yeehawguvnah
+character_name: Lexus Laurenzi
+item_path: /obj/item/weapon/gun/projectile/boltgun/serbian/levergun
+item_name: SA BR .30 "Greener Grass"
+item_desc: Weapon for "hunting". 
+If you’re on a budget, it’s a darn good rifle for just about everything.
+This is a somewhat-modified (and visibly used) rifle, using a lever-operated action. There's an inscription on the side: "Wish you were here"
+additional_data: gun
+}
