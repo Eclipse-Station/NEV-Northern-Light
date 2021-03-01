@@ -1,0 +1,6 @@
+author: faaaay
+delete-after: true
+changes:
+  - rscadd: Added the "Greener Grass", a lever-action reskin of the Novakovic rifle.
+  - config: Set this custom item to spawn on the ckey Yeehawguvnah and the character
+      "Lexus Laurenzi"
