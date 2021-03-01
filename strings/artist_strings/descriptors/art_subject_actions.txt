@@ -93,9 +93,9 @@ converting [object] into a rebel
 turning [object] into a slave
 killing [object] using mercenary gear
 torturing [object] using inquisitor gear
-hunting down [object] using marshall gear
+hunting down [object] using bounty hunter gear
 slaying [object] using assassin gear
-beating [object] to death using Ironhammer gear
+beating [object] to death using Aegis gear
 throwing [object] into oblivion
 anathematizing
 firing
@@ -104,7 +104,7 @@ comforting
 putting [object] to sleep
 watching after
 analyzing
-analyzing [object] using Moebius gear
+analyzing [object] using Lazarus gear
 raising [object]\s salary
 promoting [object] in position
 awarding [object] the nobel prize of peace

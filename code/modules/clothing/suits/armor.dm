@@ -76,7 +76,7 @@
 
 /obj/item/clothing/suit/armor/vest/full/ironhammer
 	name = "full operator armor"
-	desc = "An armored vest painted in Ironhammer Security colors. This one has shoulderpads and knee pads included to protect all parts of the body."
+	desc = "An armored vest painted in Aegis Security colors. This one has shoulderpads and knee pads included to protect all parts of the body."
 	icon_state = "armor_ironhammer_fullbody"
 
 /obj/item/clothing/suit/armor/vest/handmade
@@ -202,7 +202,7 @@
 /obj/item/clothing/suit/armor/bulletproof/ironhammer
 	name = "full bulletproof suit"
 	desc = "A vest with hand and arm-guards attached that excels in protecting the wearer against high-velocity solid projectiles. \
-			This one has been done in Ironhammer Security colors."
+			This one has been done in Aegis Security colors."
 	icon_state = "bulletproof_ironhammer"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(

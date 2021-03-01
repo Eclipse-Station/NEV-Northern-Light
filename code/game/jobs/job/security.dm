@@ -102,7 +102,7 @@
 	You have several core duties:<br>\
 		1. As second in command, any of the commander's duties may be delegated to you, if they decide to do so. This means that at any time, you may be expected to handle funding, paperwork, disciplinary matters, planning combat tactics, or even carrying out executions. If there's no commander, these duties fall naturally to you. If there is a commander on site though, you shouldn't make these kind of decisions without consulting them.<br>\
 		<br>\
-		2. You serve as the Aegis quartermaster. And as such, it is your job to maintain the armoury, and stocks of other equipment. You should keep track of its contents, and who has what. Make sure weapons and equipment are returned at the end of a shift, and procure new armaments from the guild or from scavengers as necessary to keep supplies up and respond to new threat	s.<br>\
+		2. You serve as the Aegis quartermaster. And as such, it is your job to maintain the armoury, and stocks of other equipment. You should keep track of its contents, and who has what. Make sure weapons and equipment are returned at the end of a shift, and procure new armaments from the Union or from scavengers as necessary to keep supplies up and respond to new threat	s.<br>\
 		<br>\
 		3. You are the defacto warden, and if there are any prisoners being kept in the Aegis brig, it is your responsibility to ensure they are fed, treated appropriately with regard to their legal rights, and ensure they have access to medical care. If necessary you may need to suppress riots or escape attempts within the brig too.<br>\
 		<br>\
@@ -155,7 +155,7 @@
 	description = "You are the ship's detective, here to take care of the cases that aren't always what they seem, and suspects that aren't always caught red handed or ready to confess.<br>\
 	The inspector's job is to interrogate suspects, gather witness statements,  harvest evidence and reach a conclusion about the nature and culprit of a crime.<br>\
 	<br>\
-	You are a higher ranking Aegis operative, and you can give commands to operatives.  But this doesn't mean you should be commanding assaults. You're not any kind of tactical commander<br>\
+	You are a higher ranking Aegis operative, and you can give commands to operatives to aid you in your duties.  But this doesn't mean you should be commanding assaults. You're not any kind of tactical commander<br>\
 	<br>\
 	When there are no outstanding cases, your job is to go look for them. Mingle with civilians, interact and converse, sniff out leads about potential criminal activity. The Aegis budget can often include stipends to pay informers for any useful info"
 
@@ -270,7 +270,7 @@
 	<br>\
 	When there are no standing orders, your ongoing task is to patrol the ship and be on the lookout for threats. Check in at departments, ask if there are any concerns, break up fights and do your best to prevent trouble before it spirals out of control. Wipe out roaches and other dangerous creatures wherever you encounter them.<br>\
 	<br>\
-	You have almost-total access to the ship in order to carry out your duties and reach threats quickly. Do not abuse this. It does not mean you can walk into anywhere you like, many areas are full of sensitive machinery and entering unnanounced can be harmful to your health. Do not steal from departments either. If it's not in the Aegis wing, it doesn't belong to you. Stealing from the Guild is a good way to get shot in the back"
+	You have almost-total access to the ship in order to carry out your duties and reach threats quickly. Do not abuse this. It does not mean you can walk into anywhere you like, many areas are full of sensitive machinery and entering unnanounced can be harmful to your health. Do not steal from departments either. If it's not in the Aegis wing, it doesn't belong to you. Stealing from the Union is a good way to get shot in the back"
 
 	duties = "		Patrol the ship, provide a security presence, and look for trouble<br>\
 		Subdue and arrest criminals, terrorists, and other threats<br>\
