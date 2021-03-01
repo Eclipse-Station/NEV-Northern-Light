@@ -540,12 +540,3 @@
 
 /mob/living/carbon/slime/slip() //Can't slip something without legs.
 	return 0
-
-/*/mob/living/carbon/slime/proc/make_Friends(var/mob/living/carbon/user)//The Process to add someone to a friend if you feed them, testing with a simple pat on the head
-	if (user.a_intent == I_HELP)
-		if (!(user in Friends))
-			Friends.Add(user)
-			Friends[user] = 1
-		else
-			++Friends[user]
-	return 0*/
