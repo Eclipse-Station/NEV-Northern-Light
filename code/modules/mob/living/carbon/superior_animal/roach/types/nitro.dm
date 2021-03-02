@@ -15,5 +15,5 @@
 
 /mob/living/carbon/superior_animal/roach/nitro/death()
 	..()
-	explosion(get_turf(src), -1, -1, 1, 3) //explosion weaker than a welding tank, DO NOT TRY TO GIB THE ROACH
+	explosion(get_turf(src), -1, -1, 2, 3) //explosion weaker than a welding tank, DO NOT TRY TO GIB THE ROACH
 	qdel(src)
