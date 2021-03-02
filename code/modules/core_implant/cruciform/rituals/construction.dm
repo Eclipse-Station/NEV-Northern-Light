@@ -142,36 +142,37 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 		/obj/structure/reagent_dispensers/biomatter = 1
 	)
 	build_time = 9 SECONDS
+// Eclipse Change: removing the cloner from the ritual list, in Eclipse it's a Lazarus toy.
 //cloner
-/datum/nt_blueprint/machinery/cloner
-	name = "Cloner Pod"
-	build_path = /obj/machinery/neotheology/cloner
-	materials = list(
-		/obj/item/stack/material/glass = 15,
-		/obj/item/stack/material/plasteel = 10,
-		/obj/item/stack/material/gold = 5,
-		/obj/item/stack/material/glass/reinforced = 10,
-	)
-	build_time = 10 SECONDS
-/datum/nt_blueprint/machinery/reader
-	name = "Cruciform Reader"
-	build_path = /obj/machinery/neotheology/reader
-	materials = list(
-		/obj/item/stack/material/steel = 10,
-		/obj/item/stack/material/plasteel = 5,
-		/obj/item/stack/material/silver = 10,
-		/CRUCIFORM_TYPE = 1
-	)
-	build_time = 10 SECONDS
-/datum/nt_blueprint/machinery/biocan
-	name = "Biomass tank"
-	build_path = /obj/machinery/neotheology/biomass_container
-	materials = list(
-		/obj/item/stack/material/gold = 5,
-		/obj/item/stack/material/plasteel = 5,
-		/obj/structure/reagent_dispensers/biomatter/large = 1
-	)
-	build_time = 8 SECONDS
+///datum/nt_blueprint/machinery/cloner
+//	name = "Cloner Pod"
+//	build_path = /obj/machinery/neotheology/cloner
+//	materials = list(
+//		/obj/item/stack/material/glass = 15,
+//		/obj/item/stack/material/plasteel = 10,
+//		/obj/item/stack/material/gold = 5,
+//		/obj/item/stack/material/glass/reinforced = 10,
+//	)
+//	build_time = 10 SECONDS
+///datum/nt_blueprint/machinery/reader
+//	name = "Cruciform Reader"
+//	build_path = /obj/machinery/neotheology/reader
+//	materials = list(
+//		/obj/item/stack/material/steel = 10,
+//		/obj/item/stack/material/plasteel = 5,
+//		/obj/item/stack/material/silver = 10,
+//		/CRUCIFORM_TYPE = 1
+//	)
+//	build_time = 10 SECONDS
+///datum/nt_blueprint/machinery/biocan
+//	name = "Biomass tank"
+//	build_path = /obj/machinery/neotheology/biomass_container
+//	materials = list(
+//		/obj/item/stack/material/gold = 5,
+//		/obj/item/stack/material/plasteel = 5,
+//		/obj/structure/reagent_dispensers/biomatter/large = 1
+//	)
+//	build_time = 8 SECONDS
 //generator
 /datum/nt_blueprint/machinery/biogen
 	name = "Biomatter Power Generator"
