@@ -50,7 +50,7 @@
 //	if(!length(GLOB.skills))
 //		decls_repository.get_decl(/decl/hierarchy/skill)
 	player_setup = new(src)
-	gender = pick(MALE, FEMALE)
+	gender = pick(MALE, FEMALE, PLURAL)
 	family_name = random_last_name(species)									//Eclipse Edit
 	real_name = random_first_name(gender,species) + " " + family_name		//Re-work surname into clanname
 	b_type = RANDOM_BLOOD_TYPE
