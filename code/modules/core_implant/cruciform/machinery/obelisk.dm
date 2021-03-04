@@ -1,3 +1,4 @@
+
 /obj/machinery/power/nt_obelisk
 	name = "Mekhane obelisk"
 	desc = "The obelisk."
@@ -84,7 +85,7 @@
 	var/list/no_longer_affected = currently_affected - affected
 	for(var/i in no_longer_affected)
 		var/mob/living/carbon/human/H = i
-		H.stats.removePerk(/datum/perk/sanityboost)
+//		H.stats.removePerk(/datum/perk/sanityboost)
 	currently_affected -= no_longer_affected
 	for(var/mob/living/carbon/human/mob in affected)
 		var/obj/item/weapon/implant/core_implant/I = mob.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
@@ -98,7 +99,7 @@
 				eotp.addObservation(10)
 		if(I && I.active && I.wearer)
 			if(!(mob in currently_affected)) // the mob just entered the range of the obelisk
-				mob.stats.addPerk(/datum/perk/sanityboost)
+				//mob.stats.addPerk(/datum/perk/sanityboost)
 				currently_affected += mob
 			if(I.power < I.max_power)	I.power += nt_buff_power
 			for(var/r_tag in mob.personal_ritual_cooldowns)
@@ -124,7 +125,7 @@
 
 				if(prev_stat) // buff stat was replaced
 					message = "A wave of dizziness washes over you, and your mind is filled with a sudden insight into [stat_buff] as your knowledge of [prev_stat] feels lessened."
-				if(message!="")
+				if(message !="")
 					to_chat(mob, SPAN_NOTICE(message))
 
 			got_neoteo = TRUE
