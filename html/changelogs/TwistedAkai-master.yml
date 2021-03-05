@@ -1,6 +1,0 @@
-author: TwistedAkai
-
-changes:
- - bugfix: "Bioreactor metrics console should now Just Work after closing its panel, as long as the bioreactor is not missing components."
- - bugfix: "Bioreactor will now successfully remove chamber solution, even if it's broken."
- - bugfix: "Bioreactor chamber glass now uses the correct definition of opacity."
