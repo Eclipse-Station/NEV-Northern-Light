@@ -78,6 +78,7 @@
 	var/matrix/effect_transform			// matrix to rotate and scale projectile effects - putting it here so it doesn't
 										//  have to be recreated multiple times
 
+	var/noshake = FALSE //Eclipse add
 
 /obj/item/projectile/is_hot()
 	if (damage_types[BURN])
@@ -117,6 +118,11 @@
 			irradiate += damage_type[IRRADIATE]
 			continue
 		damage_types[damage_type] += newdamages[damage_type]
+
+/obj/item/projectile/proc/adjust_ricochet(noricochet)
+	if(noricochet)
+		can_ricochet = FALSE
+		return
 
 /obj/item/projectile/proc/on_hit(atom/target, def_zone = null)
 	if(!isliving(target))	return 0

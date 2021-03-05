@@ -60,6 +60,7 @@
 	var/ear_damage	//Carbon
 	var/stuttering	//Carbon
 	var/slurring		//Carbon
+	var/slowdown = 0
 
 	var/job //Living
 

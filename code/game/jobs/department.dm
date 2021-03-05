@@ -76,7 +76,7 @@
 	id = DEPARTMENT_ENGINEERING
 
 /datum/department/ironhammer
-	name = "Cobalt Aegis Security Mercenary Company"
+	name = "Aegis Security Solutions"
 	id = DEPARTMENT_SECURITY
 
 /datum/department/civilian
@@ -92,13 +92,13 @@
 *******************/
 //Departments subsidised by an external organisation. These pay their own employees
 /datum/department/moebius_medical
-	name = "NanoTrasen: Medical Division"
+	name = "Lazarus Foundation: Medical Division"
 	id = DEPARTMENT_MEDICAL
 	funding_type = FUNDING_EXTERNAL
 	funding_source = "NanoTrasen."
 
 /datum/department/moebius_research
-	name = "NanoTrasen: Research Division"
+	name = "Lazarus Foundation: Research Division"
 	id = DEPARTMENT_SCIENCE
 	account_budget = 5000 //For buying materials and components and things of scientific value
 	funding_type = FUNDING_EXTERNAL

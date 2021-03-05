@@ -2327,3 +2327,17 @@
 	..()
 	if(!M.stats.getTempStat(STAT_TGH, "atomvodka") && M.stats.getPerk(/datum/perk/sommelier))
 		M.stats.addTempStat(STAT_TGH, STAT_LEVEL_ADEPT, 10 MINUTES, "atomvodka")
+
+/datum/reagent/ethanol/rockswhiskey
+	name = "Whiskey On The Rocks"
+	id = "rockswhiskey"
+	description = "An old fashioned, just the way a bar patron likes it."
+	taste_description = "smokey whiskey with a hint of cold."
+	color = "#664300"
+	strength = 20
+
+	glass_icon_state = "whiskeyglass"
+	glass_name = "whiskey on the rocks"
+	glass_desc = "When all you need is a classic whiskey over ice. Bottoms up."
+	glass_center_of_mass = list("x"=16, "y"=12)
+	taste_tag = list(TASTE_STRONG)

@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/nt_svalinn
 	name = "NT LP \"Svalinn\""
-	desc = "\"NeoTheology\" brand laser pistol. Small and easily concealable, it's still a reasonable punch for a laser weapon."
+	desc = "\"Mekhane\" brand laser pistol manufactured by NanoTrasen for use by the Children of Mekhane. Small and easily concealable, it's still a reasonable punch for a laser weapon."
 	icon = 'icons/obj/guns/energy/nt_svalinn.dmi'
 	icon_state = "nt_svalinn"
 	item_state = "nt_svalinn"
@@ -11,7 +11,7 @@
 	slot_flags = SLOT_HOLSTER|SLOT_BELT
 	projectile_type = /obj/item/projectile/beam
 	charge_cost = 50
-	can_dual = 1
+	can_dual = TRUE
 	zoom_factor = 0
 	damage_multiplier = 1
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_WOOD = 4, MATERIAL_SILVER = 2)

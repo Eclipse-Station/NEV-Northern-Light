@@ -8,7 +8,7 @@
 /datum/reagent/stim/mbr
 	name = "Machine binding ritual"
 	id = "machine binding ritual"
-	description = "A ethanol based stimulator. Said to be used as ritual drink during the technomancers' initiation into a tribe."		//Need to make this less of a reference to technos
+	description = "A ethanol based stimulator. Rumoured to be used as ritual drink during certain machine cult initiation rites."		//Need to make this less of a reference to technos
 	taste_description = "bitterness"
 	reagent_state = LIQUID
 	color = "#5f95e2"
@@ -16,12 +16,12 @@
 	addiction_chance = 20
 	nerve_system_accumulations = 15
 
-/datum/reagent/stim/stim/mbr/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+/datum/reagent/stim/mbr/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.stats.addTempStat(STAT_MEC, STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "mbr")
 	M.stats.addTempStat(STAT_BIO, -STAT_LEVEL_ADEPT * effect_multiplier, STIM_TIME, "mbr")
 	sanity_gain = 1
 
-/datum/reagent/stim/stim/mbr/withdrawal_act(mob/living/carbon/M)
+/datum/reagent/stim/mbr/withdrawal_act(mob/living/carbon/M)
 	M.stats.addTempStat(STAT_MEC, -STAT_LEVEL_BASIC, STIM_TIME, "mbr_w")
 	M.stats.addTempStat(STAT_TGH, -STAT_LEVEL_BASIC, STIM_TIME, "mbr_w")
 	sanity_gain = -1.5

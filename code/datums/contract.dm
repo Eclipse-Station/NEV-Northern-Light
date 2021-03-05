@@ -7,19 +7,19 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a jetpack" = /obj/item/weapon/tank/jetpack,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
-		"the Technomancer Exultant's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
+		"the Chief Engineer's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
 		"the station blueprints" = /obj/item/blueprints,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
-		"a Moebius expedition overseer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
-		"a exultant's jumpsuit" = /obj/item/clothing/under/rank/exultant,
-		"a Moebius biolab officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
-		"a Ironhammer commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
+		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
+		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
+		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
+		"an Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
 		"a First Officer's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"an Ironhammer hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
+		"an Aegis hardsuit control module" = /obj/item/weapon/rig/combat/ironhammer
 	))
 GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Miller revolver" = /obj/item/weapon/gun/projectile/revolver,
@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Straylight sub machine gun" = /obj/item/weapon/gun/projectile/automatic/straylight,
 		"a Sol carbine" = /obj/item/weapon/gun/projectile/automatic/sol,
 		"a Colt handgun" = /obj/item/weapon/gun/projectile/colt,
-		"a Lenar granade launcher" = /obj/item/weapon/gun/launcher/grenade/lenar,
+		"a Lenar grenade launcher" = /obj/item/weapon/gun/launcher/grenade/lenar,
 		"an RCD" = /obj/item/weapon/rcd,
 		"a cruciform" = /obj/item/weapon/implant/core_implant/cruciform,
 		"the station blueprints" = /obj/item/blueprints,
@@ -71,11 +71,15 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 /datum/antag_contract/proc/complete(datum/mind/M)
 	if(completed)
 		warning("Contract completed twice: [name] [desc]")
+	else
+		GLOB.completed_antag_contracts++
 	completed = TRUE
 	completed_by = M
 
-	if(M && M.current)
-		to_chat(M.current, SPAN_NOTICE("Contract completed: [name] ([reward] TC)"))
+	if(M)
+		M.contracts_completed++
+		if(M.current)
+			to_chat(M.current, SPAN_NOTICE("Contract completed: [name] ([reward] TC)"))
 
 	for(var/obj/item/device/uplink/U in world_uplinks)
 		if(U.uplink_owner != M)

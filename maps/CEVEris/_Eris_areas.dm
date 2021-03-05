@@ -342,7 +342,7 @@
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
 
 /area/eris/command/commander
-	name = "CSO's Office"
+	name = "Aegis Commander's Office"
 	icon_state = "hammerred"
 	sound_env = SMALL_SOFTFLOOR
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
@@ -953,7 +953,7 @@
 	is_maintenance = TRUE
 
 /area/eris/security/barracks
-	name = "Ironhammer Barracks"
+	name = "Security Barracks"
 	icon_state = "hammerblue"
 
 /area/eris/security/prisoncells
@@ -970,7 +970,7 @@
 	icon_state = "hammerred"
 
 /area/eris/security/exerooms
-	name = "Executive Rooms"
+	name = "Security Interrogation and Treatment"
 	icon_state = "hammerred"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
 

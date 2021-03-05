@@ -349,7 +349,7 @@ ADMIN_VERB_ADD(/client/proc/respawn_character, R_FUN, FALSE)
 		new_character.age = record_found.fields["age"]
 		new_character.b_type = record_found.fields["b_type"]
 	else
-		new_character.gender = pick(MALE,FEMALE)
+		new_character.gender = pick(MALE,FEMALE,PLURAL)
 		var/datum/preferences/A = new()
 		A.randomize_appearance_and_body_for(new_character)
 		new_character.real_name = G_found.real_name
@@ -458,7 +458,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_rejuvenate, R_ADMIN, FALSE)
 	if(!istype(M))
 		alert("Cannot revive a ghost")
 		return
-		
+
 	M.revive()
 
 	log_admin("[key_name(usr)] healed / revived [key_name(M)]")

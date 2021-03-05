@@ -16,9 +16,9 @@
 	var/list/dept_data = list(
 
 		list("names" = list(), "header" = "Command Staff", "flag" = COMMAND),
-		list("names" = list(), "header" = "Cobalt Aegis Security", "flag" = IRONHAMMER),
-		list("names" = list(), "header" = "NanoTrasen Medical", "flag" = MEDICAL),
-		list("names" = list(), "header" = "NanoTrasen Research", "flag" = SCIENCE),
+		list("names" = list(), "header" = "Aegis Security", "flag" = IRONHAMMER),
+		list("names" = list(), "header" = "Lazarus Medical", "flag" = MEDICAL),
+		list("names" = list(), "header" = "Lazarus Research", "flag" = SCIENCE),
 		list("names" = list(), "header" = "Children of Mekhane", "flag" = CHURCH),
 		list("names" = list(), "header" = "Free Trade Union", "flag" = GUILD),
 		list("names" = list(), "header" = "Civilian", "flag" = CIVILIAN),
