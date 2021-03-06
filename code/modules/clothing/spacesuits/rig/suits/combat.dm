@@ -43,7 +43,7 @@
 	desc = "Standard operative suit issued to Aegis mercenaries. Provides balanced overall protection against various threats and widely used on planets surface, space stations or in open space."
 	icon_state = "ihs_rig"
 	helm_type = /obj/item/clothing/head/space/rig/combat/ironhammer
-	suit_type = "ironhammer hardsuit"
+	suit_type = "aegis hardsuit"
 	spawn_blacklisted = TRUE//antag_item_targets
 
 /obj/item/weapon/rig/combat/ironhammer/equipped
