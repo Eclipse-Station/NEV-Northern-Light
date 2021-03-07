@@ -72,13 +72,14 @@ var/global/obj/machinery/power/eotp/eotp
 
 	if(world.time >= (last_rescan + rescan_cooldown) && length(scanned))
 		var/mob/living/carbon/human/H = pick(scanned)
-		var/obj/item/weapon/implant/core_implant/I = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
-		if(I && I.active && I.wearer)
-			eotp.removeObservation(20)
-		else if(is_carrion(H))
-			eotp.addObservation(20)
-		else
-			eotp.removeObservation(10)
+		if(H) // scanned sometimes contains null entries.
+			var/obj/item/weapon/implant/core_implant/I = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+			if(I && I.active && I.wearer)
+				eotp.removeObservation(20)
+			else if(is_carrion(H))
+				eotp.addObservation(20)
+			else
+				eotp.removeObservation(10)
 
 		scanned.Remove(H)
 		last_rescan = world.time
