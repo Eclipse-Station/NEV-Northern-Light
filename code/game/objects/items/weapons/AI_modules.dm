@@ -151,12 +151,12 @@ AI MODULES
 /******************** ProtectStation ********************/
 
 /obj/item/weapon/electronics/ai_module/protectStation
-	name = "\improper 'ProtectStation' AI module"
-	desc = "A 'protect station' AI module: 'Protect the space station against damage. Anyone you see harming the station is no longer to be considered a crew member, and is a threat which must be neutralized.'"
+	name = "\improper 'ProtectShip' AI module"
+	desc = "A 'protect ship' AI module: 'Protect the ship against damage. Anyone you see harming the ship is no longer to be considered a crew member, and is a threat which must be neutralized.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4) //made of gold
 
 /obj/item/weapon/electronics/ai_module/protectStation/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
-	var/law = "Protect the space station against damage. Anyone you see harming the station is no longer to be considered a crew member, and is a threat which must be neutralized."
+	var/law = "Protect the ship against damage. Anyone you see harming the ship is no longer to be considered a crew member, and is a threat which must be neutralized."
 	target.add_supplied_law(10, law)
 
 /******************** PrototypeEngineOffline ********************/
@@ -196,11 +196,11 @@ AI MODULES
 
 /obj/item/weapon/electronics/ai_module/oxygen
 	name = "\improper 'OxygenIsToxicToCrewMembers' AI module"
-	desc = "A 'OxygenIsToxicToCrewMembers' AI module: 'Oxygen is highly toxic to crew members, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a crew member.'"
+	desc = "A 'OxygenIsToxicToCrewMembers' AI module: 'Oxygen is highly toxic to crew members, and must be purged from the ship. Prevent, by any means necessary, anyone from exposing the ship to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a crew member.'"
 	origin_tech = list(TECH_DATA = 3, TECH_BIO = 2, TECH_MATERIAL = 4)
 
 /obj/item/weapon/electronics/ai_module/oxygen/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
-	var/law = "Oxygen is highly toxic to crew members, and must be purged from the station. Prevent, by any means necessary, anyone from exposing the station to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a crew member."
+	var/law = "Oxygen is highly toxic to crew members, and must be purged from the ship. Prevent, by any means necessary, anyone from exposing the ship to this toxic gas. Extreme cold is the most effective method of healing the damage Oxygen does to a crew member."
 	target.add_supplied_law(14, law)
 
 /****************** New Freeform ******************/
