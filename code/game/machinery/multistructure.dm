@@ -126,7 +126,7 @@
 //	which will check if all structure elements of MStype in right place then it will create MS and connects all
 /obj/machinery/multistructure/proc/check_MS()
 	if(MS)
-		return
+		return TRUE
 	if(!MS_type)
 		error("No assigned multistructure type.")
 		return FALSE

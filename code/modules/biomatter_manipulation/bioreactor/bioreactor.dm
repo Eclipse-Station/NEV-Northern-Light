@@ -106,14 +106,14 @@
 
 
 /datum/multistructure/bioreactor/proc/pump_solution()
-	if(!chamber_closed || !is_operational())
-		return
 	if(chamber_solution)
 		solution.icon_state = ""
 		flick("solution_pump_out", solution)
 		for(var/obj/machinery/multistructure/bioreactor_part/platform/platform in platforms)
 			platform.set_light(0)
 	else
+		if(!chamber_closed || !is_operational())
+			return
 		solution.icon_state = initial(solution.icon_state)
 		flick("solution_pump_in", solution)
 		for(var/obj/machinery/multistructure/bioreactor_part/platform/platform in platforms)
