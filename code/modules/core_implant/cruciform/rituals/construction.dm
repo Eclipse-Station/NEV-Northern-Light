@@ -166,6 +166,16 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 	)
 	build_time = 10 SECONDS
 */
+
+/datum/nt_blueprint/machinery/biocan
+	name = "Biomass tank"
+	build_path = /obj/machinery/neotheology/biomass_container
+	materials = list(
+		/obj/item/stack/material/gold = 5,
+		/obj/item/stack/material/plasteel = 5,
+		/obj/structure/reagent_dispensers/biomatter/large = 1
+	)
+	build_time = 8 SECONDS
 //generator
 /datum/nt_blueprint/machinery/biogen
 	name = "Biomatter Power Generator"
