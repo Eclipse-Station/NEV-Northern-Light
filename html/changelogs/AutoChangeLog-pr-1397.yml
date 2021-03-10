@@ -1,5 +1,0 @@
-author: MciReloaded
-delete-after: true
-changes:
-  - bugfix: changed many references to 'station' in books and vending machines to
-      'ship'. This one is for free, lore team!
