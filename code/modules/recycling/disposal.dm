@@ -216,6 +216,13 @@
 		if(!I)
 			return
 
+		// ensure it's on the ground first, so we don't break things, also so we have a chance to interact with the air we're passing through.
+		if(istype(I.loc,/obj/item/weapon/storage))
+			var/obj/item/weapon/storage/oldLoc = I.loc
+			oldLoc.remove_from_storage(I)
+		if(I.loc == usr && !user.unEquip(I))
+			return FALSE
+
 		I.add_fingerprint(user)
 		I.forceMove(src)
 		to_chat(user, "You place \the [I] into the [src].")
