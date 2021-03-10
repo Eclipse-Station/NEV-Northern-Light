@@ -1,5 +1,0 @@
-author: TwistedAkai
-delete-after: true
-changes:
-  - bugfix: Gloves no longer cover ears.
-  - bugfix: Hand and foot coverage already existed. Now it shows in item info.
