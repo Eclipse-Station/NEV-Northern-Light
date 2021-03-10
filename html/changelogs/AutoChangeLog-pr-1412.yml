@@ -1,0 +1,4 @@
+author: TwistedAkai
+delete-after: true
+changes:
+  - bugfix: Fixed a couple of runtimes, including one for the Eye of the Protector.
