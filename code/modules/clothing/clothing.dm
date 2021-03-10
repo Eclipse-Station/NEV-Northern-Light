@@ -116,6 +116,20 @@
 			body_partsL.Add("left arm")
 		if(body_parts & ARM_RIGHT)
 			body_partsL.Add("right arm")
+	if(body_parts & FEET)
+		body_partsL.Add("feet")
+	else
+		if(body_parts & FOOT_LEFT)
+			body_partsL.Add("left foot")
+		if(body_parts & FOOT_RIGHT)
+			body_partsL.Add("right foot")
+	if(body_parts & HANDS)
+		body_partsL.Add("hands")
+	else
+		if(body_parts & HAND_LEFT)
+			body_partsL.Add("left hand")
+		if(body_parts & HAND_RIGHT)
+			body_partsL.Add("right hand")
 
 	return english_list(body_partsL)
 

@@ -140,7 +140,7 @@
 #define HAND_LEFT   0x800
 #define HAND_RIGHT  0x1000
 #define HANDS       0x1800 // HAND_LEFT | HAND_RIGHT
-#define EARS		0x3000
+#define EARS		0x2000
 #define FULL_BODY   0xFFFF
 
 // Bitflags for the percentual amount of protection a piece of clothing which covers the body part offers.
