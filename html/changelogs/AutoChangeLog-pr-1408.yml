@@ -1,0 +1,7 @@
+author: TwistedAkai
+delete-after: true
+changes:
+  - tweak: Made Empty Hands go nuclear if the item in your hand is actually somewhere
+      else.
+  - admin: Empty Hands will now send a message to online admins if it fails to remove
+      something removable from a person's hand.
