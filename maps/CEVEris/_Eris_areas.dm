@@ -1119,3 +1119,64 @@
 /area/eris/storage/tech
 	name = "Technical Storage"
 	icon_state = "auxstorage"
+
+//Drydock
+/area/eris/drydock/arrival
+	name = "Drydock - Arrivals"
+	icon_state = "Sleep"
+
+/area/eris/drydock/quartoffice
+	name = "Drydock - Cargo Office"
+	icon_state = "quartoffice"
+
+/area/eris/drydock/engineering
+	name = "Drydock - Engineering"
+	icon_state = "engineering_workshop"
+
+/area/eris/drydock/chapel
+	name = "Drydock - Chapel"
+	icon_state = "chapel"
+
+/area/eris/drydock/security/office
+	name = "Drydock - Security Office"
+	icon_state = "security"
+
+/area/eris/drydock/security/cells
+	name = "Drydock - Security Brig"
+	icon_state = "hammerblue"
+
+/area/eris/drydock/medical
+	name = "Drydock - Medbay"
+	icon_state = "medbay"
+
+/area/eris/drydock/bar
+	name = "Drydock - Bar"
+	icon_state = "bar"
+
+/area/eris/drydock/hallway
+	name = "Drydock - Corridor"
+	icon_state = "hallway2"
+
+/area/eris/drydock/auxstorage
+	name = "Drydock - Tech Storage"
+	icon_state = "auxstorage"
+
+/area/eris/drydock/sleep
+	name = "Drydock - Dormitories"
+	icon_state = "Sleep"
+
+/area/eris/drydock/command/bridge
+	name = "Drydock - Bridge"
+	icon_state = "bridge"
+
+/area/eris/drydock/command/quarters
+	name = "Drydock - Command Dorms"
+	icon_state = "head_quarters"
+
+/area/eris/drydock/command/bar
+	name = "Drydock - VIP Bar"
+	icon_state = "erisblue"
+
+/area/eris/drydock/fitness
+	name = "Drydock - Beach"
+	icon_state = "fitness"
