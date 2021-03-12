@@ -1,5 +1,0 @@
-author: TwistedAkai
-delete-after: true
-changes:
-  - bugfix: disposal units now properly remove items from their prior location when
-      you drag and drop the item onto the disposal.
