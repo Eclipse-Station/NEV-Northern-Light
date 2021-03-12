@@ -158,7 +158,7 @@
 				to_chat(src, SPAN_NOTICE("You are observer now."))
 				observer.forceMove(T)
 			else
-				to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
+				to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the ship map.</span>")
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 			announce_ghost_joinleave(src)
@@ -193,7 +193,7 @@
 				return 0
 
 			if(!(S.spawn_flags & CAN_JOIN))
-				src << alert("Your current species, [client.prefs.species], is not available for play on the station.")
+				src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
 				return 0
 
 		LateChoices()
@@ -207,7 +207,7 @@
 			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 			return
 		else if(SSticker.nuke_in_progress)
-			to_chat(usr, "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>")
+			to_chat(usr, "<span class='danger'>The ship is currently exploding. Joining would go poorly.</span>")
 			return
 
 		var/datum/species/S = all_species[client.prefs.species]
@@ -216,7 +216,7 @@
 			return 0
 
 		if(!(S.spawn_flags & CAN_JOIN))
-			src << alert("Your current species, [client.prefs.species], is not available for play on the station.")
+			src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
 			return 0
 
 		AttemptLateSpawn(href_list["SelectedJob"], client.prefs.spawnpoint)

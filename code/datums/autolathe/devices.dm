@@ -63,7 +63,7 @@
 	build_path = /obj/item/weapon/melee/baton/excelbaton
 
 /datum/design/autolathe/device/headset_church
-	name = "NeoTheology Radio Encryption Key"
+	name = "Mekhane Radio Encryption Key"
 	build_path = /obj/item/device/encryptionkey/headset_church
 
 /datum/design/autolathe/device/excelsiormine

@@ -1,5 +1,5 @@
 /obj/machinery/recharge_station
-	name = "cyborg recharging station"
+	name = "cyborg recharging ship"
 	desc = "A heavy duty rapid charging system, designed to quickly recharge cyborg power reserves."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "borgcharger0"
