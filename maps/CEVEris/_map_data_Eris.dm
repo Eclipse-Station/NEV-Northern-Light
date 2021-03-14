@@ -1,4 +1,4 @@
 #include "overmap-eris.dm"
 #include "shuttles-eris.dm"
-#include "Dockside.dmm"
+#include "_CEV_Eris.dmm"
 #include "centcomm.dmm"
