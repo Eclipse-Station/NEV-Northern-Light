@@ -51,3 +51,33 @@ kit_desc: Looks like an overworked, under-maintained Ripley with some horrific d
 kit_icon: titan
 additional_data: ripley, firefighter
 }
+
+{
+ckey: Yeehawguvnah
+character_name: Lexus Laurenzi
+item_path: /obj/item/weapon/gun/projectile/boltgun/serbian/levergun
+item_name: SA BR .30 "Greener Grass"
+item_desc: Weapon for "hunting". 
+If you’re on a budget, it’s a darn good rifle for just about everything.
+This is a somewhat-modified (and visibly used) rifle, using a lever-operated action. There's an inscription on the side: "Wish you were here"
+additional_data: gun
+}
+
+{
+ckey: Ambug4269
+character_name: Bellow Rose
+item_path: /obj/item/clothing/shoes/jackboots/bugboots
+}
+
+{
+ckey: Twin-Blade-Apock
+character_name: Leah Ripley
+item_path: /obj/item/clothing/suit/storage/leather_jacket/ripley
+additional_data: ripley
+}
+
+{
+ckey: flamingwaffle
+character_name: Marilene Endsley
+item_path: /obj/item/clothing/head/hardhat/visor/pinkwaffle
+}

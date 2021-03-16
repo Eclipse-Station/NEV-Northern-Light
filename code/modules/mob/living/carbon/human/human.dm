@@ -773,10 +773,12 @@ var/list/rank_prefix = list(\
 	if(new_style)
 		f_style = new_style
 
-	var/new_gender = alert(usr, "Please select gender.", "Character Generation", "Male", "Female")
+	var/new_gender = alert(usr, "Please select gender.", "Character Generation", "Male", "Female", "Neutral")
 	if (new_gender)
 		if(new_gender == "Male")
 			gender = MALE
+		if(new_gender == "Neutral")
+			gender = PLURAL
 		else
 			gender = FEMALE
 	regenerate_icons()

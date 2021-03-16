@@ -403,7 +403,7 @@
 
 /obj/item/weapon/reagent_containers/syringe/stim/mbr
 	name = "syringe (Machine binding ritual)"
-	desc = "Contains ethanol based stimulator. Used as ritual drink during technomancers initiation into tribe."
+	desc = "Contains ethanol based stimulator. Rumoured to be used as a ritual drink during certain machine cult initiation rites."
 	preloaded_reagents = list("machine binding ritual" = 15)
 
 /obj/item/weapon/reagent_containers/syringe/stim/cherrydrops
@@ -433,7 +433,7 @@
 
 /obj/item/weapon/reagent_containers/syringe/stim/machine_spirit
 	name = "syringe (Machine Spirit)"
-	desc = "Contains ethanol based stimulator. Used to initiate technomancer into inner cirle."
+	desc = "Contains ethanol based stimulator. Rumoured to be used as a ritual drink during certain machine cult rites of ascension."
 	preloaded_reagents = list("machine spirit" = 15)
 
 /obj/item/weapon/reagent_containers/syringe/stim/grape_drops

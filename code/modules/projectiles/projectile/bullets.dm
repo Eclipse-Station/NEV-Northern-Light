@@ -14,7 +14,8 @@
 /obj/item/projectile/bullet/on_hit(atom/target)
 	if (..(target))
 		var/mob/living/L = target
-		shake_camera(L, 1, 1, 0.5)
+		if(!noshake)
+			shake_camera(L, 1, 1, 0.5)
 
 /obj/item/projectile/bullet/attack_mob(var/mob/living/target_mob, distance, miss_modifier)
 	if(damage_types[BRUTE] > 20 && prob(damage_types[BRUTE]*penetrating))
