@@ -1,7 +1,7 @@
 /datum/antagonist/marshal
 	id = ROLE_MARSHAL
-	role_text = "Aegis Marshal"
-	role_text_plural = "Aegis Marshals"
+	role_text = "Aegis Bounty Hunter"
+	role_text_plural = "Aegis Bounty Hunters"
 	bantype = ROLE_BANTYPE_CREW_SIDED
 	protected_jobs = list(JOBS_COMMAND, JOBS_SECURITY)
 	antaghud_indicator = "huddeathsquad"
@@ -10,7 +10,7 @@
 	/datum/objective/assassinate/marshal = 100,
 	)
 
-	survive_objective = /datum/objective/escape
+	survive_objective = /datum/objective/survive
 
 	stat_modifiers = list(
 		STAT_ROB = 5,
