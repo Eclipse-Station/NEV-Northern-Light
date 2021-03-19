@@ -15514,8 +15514,8 @@
 "aLp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/railing{
-	dir = 4;
-	tag = "icon-railing0 (EAST)"
+	tag = "icon-railing0 (EAST)";
+	dir = 4
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4port)
@@ -36808,8 +36808,8 @@
 /area/eris/maintenance/substation/section4)
 "bGu" = (
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/surgery)
@@ -40028,17 +40028,17 @@
 /area/eris/maintenance/section4deck4port)
 "bMZ" = (
 /obj/structure/cryofeed{
-	dir = 4;
+	tag = "icon-cryo_rear (EAST)";
 	icon_state = "cryo_rear";
-	tag = "icon-cryo_rear (EAST)"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/sleep/cryo)
 "bNa" = (
 /obj/machinery/cryopod{
-	dir = 4;
+	tag = "icon-cryopod_0 (EAST)";
 	icon_state = "cryopod_0";
-	tag = "icon-cryopod_0 (EAST)"
+	dir = 4
 	},
 /obj/machinery/holoposter{
 	pixel_y = 32
@@ -40808,9 +40808,9 @@
 /area/eris/maintenance/section4deck4port)
 "bOE" = (
 /obj/machinery/cryopod{
-	dir = 4;
+	tag = "icon-cryopod_0 (EAST)";
 	icon_state = "cryopod_0";
-	tag = "icon-cryopod_0 (EAST)"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/sleep/cryo)
@@ -41029,8 +41029,8 @@
 /area/eris/crew_quarters/sleep/cryo)
 "bPj" = (
 /obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-y"
+	icon_state = "pipe-y";
+	dir = 1
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -41622,8 +41622,8 @@
 /area/eris/maintenance/section1deck3central)
 "bQx" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/neotheology/chapelritualroom)
@@ -41668,6 +41668,10 @@
 "bQD" = (
 /turf/simulated/floor/dirt,
 /area/eris/crew_quarters/hydroponics/garden)
+"bQE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/turcarpet,
+/area/eris/medical/surgery)
 "bQF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/catwalk,
@@ -44117,9 +44121,9 @@
 /area/eris/rnd/server)
 "bWs" = (
 /obj/machinery/cryopod{
-	dir = 8;
+	tag = "icon-cryopod_0 (EAST)";
 	icon_state = "cryopod_0";
-	tag = "icon-cryopod_0 (EAST)"
+	dir = 8
 	},
 /obj/machinery/computer/cryopod{
 	density = 0;
@@ -44632,9 +44636,9 @@
 /area/eris/security/lobby)
 "bXz" = (
 /obj/machinery/cryopod{
-	dir = 8;
+	tag = "icon-cryopod_0 (EAST)";
 	icon_state = "cryopod_0";
-	tag = "icon-cryopod_0 (EAST)"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
@@ -52551,6 +52555,17 @@
 	},
 /turf/simulated/open,
 /area/eris/neotheology/chapel)
+"cpT" = (
+/obj/structure/railing{
+	dir = 1;
+	tag = "icon-railing0 (NORTH)"
+	},
+/obj/structure/railing{
+	dir = 4;
+	tag = "icon-railing0 (EAST)"
+	},
+/turf/simulated/open,
+/area/eris/neotheology/chapel)
 "cpU" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
@@ -55813,8 +55828,8 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/chapel)
@@ -59989,8 +60004,8 @@
 	dir = 1
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/chapel)
@@ -60636,8 +60651,8 @@
 /area/eris/maintenance/section2deck2starboard)
 "cIH" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -70376,6 +70391,14 @@
 /obj/spawner/pack/machine,
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/crew_quarters/hydroponics)
+"dfG" = (
+/obj/structure/railing{
+	tag = "icon-railing0 (EAST)";
+	dir = 4
+	},
+/obj/structure/railing,
+/turf/simulated/open,
+/area/eris/neotheology/chapel)
 "dfH" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -75869,8 +75892,8 @@
 	tag = "icon-railing0 (NORTH)"
 	},
 /obj/structure/railing{
-	dir = 4;
-	tag = "icon-railing0 (EAST)"
+	tag = "icon-railing0 (EAST)";
+	dir = 4
 	},
 /turf/simulated/open,
 /area/eris/neotheology/chapel)
@@ -106085,8 +106108,8 @@
 /area/eris/engineering/construction)
 "gGt" = (
 /obj/item/modular_computer/console/preset/engineering/power{
-	dir = 8;
-	icon_state = "console"
+	icon_state = "console";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
@@ -107911,8 +107934,8 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/fitness)
@@ -108101,8 +108124,8 @@
 /area/eris/command/fo)
 "uaP" = (
 /obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/fitness)
@@ -162809,7 +162832,7 @@ aUH
 byR
 byR
 bpq
-bQY
+bQE
 bQY
 bQY
 bUZ
@@ -205036,7 +205059,7 @@ cuc
 cvh
 cws
 czg
-dXh
+dfG
 dUH
 dmY
 dYt
@@ -205632,7 +205655,7 @@ cmE
 cnE
 cor
 cor
-dry
+cpT
 cqi
 cmQ
 cDY
