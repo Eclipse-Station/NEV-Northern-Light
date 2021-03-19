@@ -255,7 +255,7 @@
 /var/const/access_merchant = 41
 /datum/access/merchant
 	id = access_merchant
-	desc = "Guild Merchant"
+	desc = "Union Merchant"
 	region = ACCESS_REGION_SUPPLY
 
 /var/const/access_network = 42
@@ -273,7 +273,7 @@
 /var/const/access_artist = 44
 /datum/access/artist_office
 	id = access_artist
-	desc = "Guild Artist"
+	desc = "Union Artist"
 	region = ACCESS_REGION_SUPPLY
 
 /var/const/access_surgery = 45

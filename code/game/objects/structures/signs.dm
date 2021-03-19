@@ -502,7 +502,7 @@
 	icon_state = "interrogation"
 
 /obj/structure/sign/department/commander
-	name = "IHS COMMANDER"
+	name = "AEGIS COMMANDER"
 	icon_state = "commander"
 
 /obj/structure/sign/department/armory
@@ -540,8 +540,8 @@
 	icon_state = "frozenstar"
 
 /obj/structure/sign/faction/moebius
-	name = "NanoTrasen Laboratories"
-	desc = "A shady megacorporation that owns the Northern Light "
+	name = "Lazarus Laboratories"
+	desc = "A shady megacorporation that has a stake in the Northern Light's expedition. "
 	icon_state = "moebius"
 
 /obj/structure/sign/faction/neotheology
@@ -563,8 +563,8 @@
 	icon_state = "wall_cross_gold"
 
 /obj/structure/sign/faction/astersguild
-	name = "Asters Guild"
-	desc = "Asters Guild - monopolists of far space transportation."
+	name = "Free Trade Union"
+	desc = "The Free Trade Union - monopolists of far space transportation."
 	icon_state = "astersguild"
 
 /obj/structure/sign/faction/technomancers

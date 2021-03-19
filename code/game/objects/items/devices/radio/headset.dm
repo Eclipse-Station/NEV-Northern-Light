@@ -180,7 +180,7 @@
 	ks2type = /obj/item/device/encryptionkey/heads/hop
 
 /obj/item/device/radio/headset/heads/merchant
-	name = "guild merchant's headset"
+	name = "Union merchant's headset"
 	desc = "The headset of the guy who know price for everything."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -202,7 +202,9 @@
 
 /obj/item/device/radio/headset/headset_service
 	name = "service radio headset"
+
 	desc = "Headset used by the service staff, tasked with keeping the ship full and happy."
+
 	icon_state = "srv_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_service

@@ -142,6 +142,8 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 		/obj/structure/reagent_dispensers/biomatter = 1
 	)
 	build_time = 9 SECONDS
+// Eclipse Change: removing the cloner from the ritual list, in Eclipse it's a Lazarus toy.
+/*
 //cloner
 /datum/nt_blueprint/machinery/cloner
 	name = "Cloner Pod"
@@ -163,6 +165,8 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 		/CRUCIFORM_TYPE = 1
 	)
 	build_time = 10 SECONDS
+*/
+
 /datum/nt_blueprint/machinery/biocan
 	name = "Biomass tank"
 	build_path = /obj/machinery/neotheology/biomass_container

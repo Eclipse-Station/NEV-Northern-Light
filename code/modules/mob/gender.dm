@@ -43,6 +43,18 @@
 	is   = "is"
 	does = "does"
 
+/datum/gender/neutral
+	key  = "neutral"
+
+	He   = "They"
+	he   = "they"
+	His  = "Their"
+	his  = "their"
+	him  = "them"
+	has  = "have"
+	is   = "are"
+	does = "do"
+
 /datum/gender/neuter
 	key = "neuter"
 

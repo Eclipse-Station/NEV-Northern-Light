@@ -21,7 +21,7 @@
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/space/void/engineering
-	name = "Technomancer voidsuit"
+	name = "Old Technomancer voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding and extra plating."
 	icon_state = "technosuit_old"
 	item_state = "technosuit_old"

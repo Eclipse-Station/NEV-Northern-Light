@@ -105,6 +105,7 @@
 			busy = 0
 			stop_automated_movement = 0
 
+
 #undef MOVING_TO_TARGET
 #undef EATING_TARGET
 #undef LAYING_EGG

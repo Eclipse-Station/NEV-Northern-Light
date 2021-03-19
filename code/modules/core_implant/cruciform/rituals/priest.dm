@@ -14,7 +14,9 @@
 /datum/ritual/cruciform/priest/epiphany
 	name = "Epiphany"
 	phrase = "In nomine Patris et Filii et Spiritus sancti"
+
 	desc = "Mekhane's principal sacrament is a ritual of baptism and merging with the Core Implant. A body, relieved of clothes should be placed on Mekhane's special altar."
+
 
 /datum/ritual/cruciform/priest/epiphany/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
 	var/obj/item/weapon/implant/core_implant/cruciform/CI = get_implant_from_victim(user, /obj/item/weapon/implant/core_implant/cruciform, FALSE)

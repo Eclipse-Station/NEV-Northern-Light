@@ -101,3 +101,18 @@
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_WOOD = 10)
 	wielded_item_state = "_doble_wood"
 	rarity_value = 48
+
+
+//Custom item for Yeehawguvnah
+/obj/item/weapon/gun/projectile/boltgun/serbian/levergun
+	name = "SA BR .30 \"Greener Grass\""
+	desc = "Weapon for \"hunting\". \
+			If you’re on a budget, it’s a darn good rifle for just about everything. \
+			This is a somewhat-modified (and visibly used) rifle, using a lever-operated action. There's an inscription on the side: \"Wish you were here\""
+	icon = 'icons/vore/customguns_eclipse/levergun.dmi'
+	icon_state = "levergun"
+	item_state = "levergun"
+	recoil_buildup = 0.4 // Double the excel variant
+	matter = list(MATERIAL_STEEL = 20, MATERIAL_WOOD = 10)
+	wielded_item_state = "_doble"
+	rarity_value = 48

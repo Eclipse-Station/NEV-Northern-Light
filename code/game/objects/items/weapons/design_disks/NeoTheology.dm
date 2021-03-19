@@ -2,7 +2,7 @@
 
 // Foodstuffs, fertilizers, medical and cleaning utilities
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter
-	disk_name = "NeoTheology Bioprinter Products and Utilities"
+	disk_name = "Mekhane Bioprinter Products and Utilities"
 	icon_state = "neotheology"
 
 	license = -1
@@ -30,7 +30,7 @@
 
 // Clothes, armor and accesories
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes
-	disk_name = "NeoTheology Bio-Fabric Designs"
+	disk_name = "Mekhane Bio-Fabric Designs"
 	icon_state = "neotheology"
 
 	license = -1
@@ -149,7 +149,9 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/longsword
+
 	disk_name = "Mekhane Armory - MA Longsword"
+
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/sword/nt_longsword,
@@ -158,7 +160,9 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/scourge
+
 	disk_name = "Mekhane Armory - MA Scourge"
+
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/sword/nt_scourge,
@@ -167,7 +171,9 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/halberd
+
 	disk_name = "Mekhane Armory - MA Halberd"
+
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/sword/nt_halberd,
@@ -176,7 +182,9 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/shield
+
 	disk_name = "Mekhane Armory - MA Shield"
+
 	icon_state = "neotheology"
 	spawn_blacklisted = TRUE
 	designs = list(
@@ -188,7 +196,9 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/firstaid
+
 	disk_name = "Mekhane Armory - Mekhane Medkit"
+
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/firstaid/nt
@@ -217,7 +227,9 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/grenades
+
 	disk_name = "NanoTrasen Armory - Grenades Pack"
+
 	icon_state = "neotheology"
 	designs = list(
 		/datum/design/autolathe/grenade/nt_explosive,
@@ -278,7 +290,9 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_counselor
+
 	disk_name = "NanoTrasen Armory - Councelor PDW E"
+
 	icon_state = "neotheology"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 17
@@ -299,7 +313,9 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/nt_protector
+
 	disk_name = "Mekhane Armory - Protector Grenade Launcher"
+
 	icon_state = "neotheology"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 90

@@ -152,11 +152,13 @@ AI MODULES
 
 /obj/item/weapon/electronics/ai_module/protectStation
 	name = "\improper 'ProtectShip' AI module"
-	desc = "A 'protect ship' AI module: 'Protect the space ship against damage. Anyone you see harming the ship is no longer to be considered a crew member, and is a threat which must be neutralized.'"
+
+	desc = "A 'protect ship' AI module: 'Protect the ship against damage. Anyone you see harming the ship is no longer to be considered a crew member, and is a threat which must be neutralized.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4) //made of gold
 
 /obj/item/weapon/electronics/ai_module/protectStation/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
 	var/law = "Protect the space ship against damage. Anyone you see harming the ship is no longer to be considered a crew member, and is a threat which must be neutralized."
+
 	target.add_supplied_law(10, law)
 
 /******************** PrototypeEngineOffline ********************/
