@@ -1,0 +1,5 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - balance: Reduced overall damage from light explosions
+  - balance: Reduced Benzin spawn rate
