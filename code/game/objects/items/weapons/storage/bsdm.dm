@@ -1,7 +1,8 @@
 /obj/item/weapon/storage/bsdm
 	name = "\improper BSDM unit"
 	desc = "A Blue Space Direct Mail unit, commonly used by corporate infiltrators. \
-			Once activated, teleports a small distance away into space and sends a signal for a recovery probe to pick it up."
+			Once activated, teleports a small distance away into space and sends a signal for a recovery probe to pick it up. \
+			Requires a direct line of sight to space in order to operate."
 	icon_state = "bsdm"
 	item_state = "bsdm"
 	max_storage_space = DEFAULT_BULKY_STORAGE
