@@ -138,7 +138,7 @@
 /datum/category_item/underwear/undershirt/shirt_blue_striped
 	name = "Shirt, blue stripes"
 	icon_state = "shirt_stripes_s"
-
+/*
 /datum/category_item/underwear/undershirt/bowling
 	name = "Bowling Shirt, Red"
 	icon_state = "bowling"
@@ -154,7 +154,7 @@
 /datum/category_item/underwear/undershirt/bowlingw
 	name = "Bowling Shirt, White"
 	icon_state = "bowlingw"
-
+*/
 /datum/category_item/underwear/undershirt/longjon
 	name = "Long John Shirt"
 	icon_state = "ljont"
