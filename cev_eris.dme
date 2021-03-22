@@ -1566,6 +1566,7 @@
 #include "code\modules\core_implant\verb_ritual.dm"
 #include "code\modules\core_implant\cruciform\bible.dm"
 #include "code\modules\core_implant\cruciform\cruciform.dm"
+#include "code\modules\core_implant\cruciform\lesser_cruciform.dm"
 #include "code\modules\core_implant\cruciform\modules.dm"
 #include "code\modules\core_implant\cruciform\upgrades.dm"
 #include "code\modules\core_implant\cruciform\machinery\altar.dm"
