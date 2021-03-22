@@ -246,6 +246,7 @@
 
 /area/eris/hallway/side/atmosphericshallway
 	name = "Atmospherics Hallway"
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/eris/hallway/side/cryo
 	name = "Cryo Hallway"
@@ -253,6 +254,7 @@
 /area/eris/hallway/side/bridgehallway
 	name = "Bridge Hallway"
 	icon_state = "erisblue"
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/eris/hallway/side/eschangara
 	name = "Escape Hangar A"
@@ -381,7 +383,7 @@
 	name = "\improper Dormitories"
 	icon_state = "Sleep"
 	area_light_color = COLOR_LIGHTING_CREW_SOFT
-	holomap_color = HOLOMAP_AREACOLOR_DORMS
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 /area/eris/crew_quarters/toilet
 	name = "\improper Dormitory Toilets"
@@ -487,10 +489,12 @@
 /area/eris/crew_quarters/janitor/
 	name = "\improper Custodial Closet"
 	icon_state = "janitor"
+	holomap_color = HOLOMAP_AREACOLOR_CHURCH
 
 /area/eris/crew_quarters/hydroponics
 	name = "\improper Hydroponics"
 	icon_state = "hydro"
+	holomap_color = HOLOMAP_AREACOLOR_CHURCH
 
 /area/eris/crew_quarters/hydroponics/garden
 	name = "\improper Garden"
@@ -512,7 +516,7 @@
 /area/eris/neotheology
 	icon_state = "erisgreen"
 	area_light_color = COLOR_LIGHTING_NEOTHEOLOGY_BRIGHT
-	holomap_color = COLOR_LIGHTING_NEOTHEOLOGY_DARK
+	holomap_color = HOLOMAP_AREACOLOR_CHURCH
 
 /area/eris/neotheology/chapel
 	name = "\improper Chapel"
@@ -691,7 +695,7 @@
 	name = "Right Propulsion Hangar"
 
 //MedBay
-/area/eris/medical/medbay
+/area/eris/medical
 	name = "\improper Medical"
 	icon_state = "erisgreen"
 	area_light_color = COLOR_LIGHTING_SCI_BRIGHT
@@ -1115,10 +1119,12 @@
 /area/eris/storage/primary
 	name = "Primary Tool Storage"
 	icon_state = "primarystorage"
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 /area/eris/storage/tech
 	name = "Technical Storage"
 	icon_state = "auxstorage"
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 //Drydock
 /area/eris/drydock/arrival
