@@ -1,0 +1,8 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - rscadd: All forms of fishnet undergarments
+  - rscadd: striped undergarments
+  - rscadd: Something else. I can't recall what it is.
+  - rscdel: removed the bowling shirts as undershirt types. Why would you wear that
+      as an undershirt? What is wrong with you?
