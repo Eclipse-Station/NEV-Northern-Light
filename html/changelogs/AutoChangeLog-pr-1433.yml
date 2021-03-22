@@ -1,0 +1,5 @@
+author: drexample
+delete-after: true
+changes:
+  - rscadd: Lesser Cruciform
+  - bugfix: Lazarus members can no longer spawn with the normal cruciform
