@@ -17,4 +17,3 @@
 	gender = (gender == MALE) ? "m" : "f"
 	return image('zzz_modular_eclipse/icons/obj/discount_cruciform.dmi', "lesser_body_on")
 
-	lesser_body_on
