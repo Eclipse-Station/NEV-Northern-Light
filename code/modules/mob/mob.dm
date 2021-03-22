@@ -246,6 +246,16 @@
 		src.drop_from_inventory(r_hand)
 	if (l_hand && l_hand.canremove)
 		src.drop_from_inventory(l_hand)
+	// Disown, but don't drop because we can get here with UI elements and probably other things.
+	if (r_hand && r_hand.loc != usr)
+		if (client) client.screen.Remove(r_hand)
+		r_hand = null
+	if (l_hand && l_hand.loc != usr)
+		if (client) client.screen.Remove(r_hand)
+		l_hand = null
+	// Still there? Double-check it's supposed to be removable before calling admins to debug.
+	if ((r_hand && r_hand.canremove) || (l_hand && l_hand.canremove))
+		message_admins("[usr.name] has something removable stuck in their hand after using empty hands! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"

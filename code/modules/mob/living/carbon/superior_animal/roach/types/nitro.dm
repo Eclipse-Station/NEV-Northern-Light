@@ -9,7 +9,7 @@
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/nitro
 	meat_amount = 3
 
-	rarity_value = 15
+	rarity_value = 40
 
 
 
