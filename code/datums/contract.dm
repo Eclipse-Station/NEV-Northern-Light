@@ -8,13 +8,17 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
 		"the Chief Engineer's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
-		"the station blueprints" = /obj/item/blueprints,
+
+		"the ship blueprints" = /obj/item/blueprints,
+
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
 		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
 		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
 		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
+
 		"an Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
+
 		"a First Officer's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
@@ -36,7 +40,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Lenar grenade launcher" = /obj/item/weapon/gun/launcher/grenade/lenar,
 		"an RCD" = /obj/item/weapon/rcd,
 		"a cruciform" = /obj/item/weapon/implant/core_implant/cruciform,
-		"the station blueprints" = /obj/item/blueprints,
+		"the ship blueprints" = /obj/item/blueprints,
 		"a hand teleporter" = /obj/item/weapon/hand_tele,
 		"a bluespace Harpoon" = /obj/item/weapon/bluespace_harpoon,
 		"a rocket-powered charge hammer" = /obj/item/weapon/tool/hammer/charge,

@@ -1,6 +1,8 @@
 /obj/item/weapon/gun/energy/nt_svalinn
 	name = "NT LP \"Svalinn\""
+
 	desc = "\"Mekhane\" brand laser pistol manufactured by NanoTrasen for use by the Children of Mekhane. Small and easily concealable, it's still a reasonable punch for a laser weapon."
+
 	icon = 'icons/obj/guns/energy/nt_svalinn.dmi'
 	icon_state = "nt_svalinn"
 	item_state = "nt_svalinn"

@@ -6,7 +6,7 @@
 	network = "eris"
 
 /obj/machinery/telecomms/relay/preset/station
-	id = "Station Relay"
+	id = "Ship Relay"
 	listening_levels = list(1,2,3,4,5)
 	autolinkers = list("s_relay")
 

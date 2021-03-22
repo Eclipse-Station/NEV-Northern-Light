@@ -152,7 +152,7 @@
 	setup_restricted = TRUE
 
 /obj/landmark/join/start/hydro
-	name = "NeoTheology Agrolyte"
+	name = "Mekhane Agrolyte"
 	icon_state = "player-black"
 	join_tag = /datum/job/hydro
 
@@ -194,6 +194,6 @@
 	setup_restricted = TRUE
 
 /obj/landmark/join/start/janitor
-	name = "NeoTheology Custodian"
+	name = "Mekhane Custodian"
 	icon_state = "player-black"
 	join_tag = /datum/job/janitor

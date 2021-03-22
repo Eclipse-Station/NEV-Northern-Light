@@ -15,7 +15,6 @@
 	/obj/item/weapon/tool/chainofcommand = 65,
 	/obj/item/weapon/reagent_containers/food/drinks/flask = 50,
 	/obj/item/weapon/gun/energy/captain = 65,
-	/obj/item/weapon/card/id/captains_spare = 10,
 	/obj/item/clothing/under/captainformal = 65,
 	/obj/item/clothing/head/caphat/formal = 65,
 	/obj/item/device/radio/headset/heads/captain = 40,
