@@ -13,7 +13,7 @@
 		/datum/objective/baptize = 30,
 	)
 
-	survive_objective = /datum/objective/escape
+	survive_objective = /datum/objective/survive
 	var/was_priest = FALSE
 
 	stat_modifiers = list(
@@ -65,7 +65,7 @@
 	// Basic intro text.
 	to_chat(player, "<span class='danger'><font size=3>You are a [role_text]!</font></span>")
 
-	to_chat(player, "The Inquisitors are Mekhane’s chosen agents, selected from the ranks of the faithful by Mekhane himself to expand the church’s interests and protect its followers. <br> <br>\
+	to_chat(player, "The Inquisitors are Mekhane’s chosen agents, selected from the ranks of the faithful by The Mekhanite Council to expand the church’s interests and protect its followers. <br> <br>\
 You are here to not only accomplish your assigned objectives, but also root out spies, saboteurs, and criminals within the church’s ranks. Interrogate Children of Mekhane followers, and deal with those who ould tarnish the public image of the church, or betray its principles.  <br> <br> \
 Any local church staff are your subordinates, and should obey your commands. With other disciples, hings are less clear. People may put their shipboard duties above their loyalty to the church. You should e discreet with the ship’s command staff, revealing your role may tarnish the church’s reputation. It is pften best to deal with internal problems quietly.")
 
