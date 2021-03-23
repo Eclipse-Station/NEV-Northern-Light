@@ -2780,6 +2780,7 @@
 #include "maps\submaps\planetary_ruins\hut\hut.dm"
 #include "maps\submaps\planetary_ruins\tar_anomaly\tar_anomaly.dm"
 #include "zzz_modular_eclipse\code\game\turfs\flooring\flooring_decals.dm"
+#include "zzz_modular_eclipse\code\modules\custom_items\itemlist.dm"
 #include "zzz_modular_eclipse\code\modules\mob\pixelshift.dm"
 #include "zzz_modular_eclipse\code\modules\mob\new_player\new_player.dm"
 #include "zzz_modular_eclipse\code\modules\organs\external\subtypes\robotic_types.dm"
