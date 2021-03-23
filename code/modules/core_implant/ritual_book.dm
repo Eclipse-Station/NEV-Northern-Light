@@ -23,6 +23,8 @@
 	if(isliving(user))
 		var/mob/living/L = user
 		CI = L.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
+		if(!CI)
+			CI = L.get_core_implant(/obj/item/weapon/implant/core_implant/lesser_cruciform)
 
 	var/list/data = list(
 		"refmode" = reference_mode,

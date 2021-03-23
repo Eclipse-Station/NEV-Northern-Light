@@ -303,8 +303,10 @@
 	icon_state = "grenade"
 
 /obj/item/weapon/grenade/chem_grenade/antiweed/nt_antiweed
-	name = "NanoTrasen \"Kudzu Killer\""
-	desc = "NT brand weedkiller grenades. Designed to deal with Kudzu infestations back in New Rome. Mixes toxic biomatter with plasticides for great results"
+
+	name = "Mekhane \"Kudzu Killer\""
+	desc = "MA brand weedkiller grenades. Designed to deal with Kudzu infestations back in New Rome. Mixes toxic biomatter with plasticides for great results"
+
 	icon_state = "foam"
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_BIOMATTER = 5)
 	matter_reagents = list("water" = 30)
@@ -334,8 +336,10 @@
 	beakers += B2
 
 /obj/item/weapon/grenade/chem_grenade/cleaner/nt_cleaner
-	name = "NanoTrasen \"Cleanse Capsule\""
-	desc = "NT brand cleaner grenades. Designed to deal with laboratory accidents and the aftermaths of containment breaches."
+
+	name = "Mekhane \"Cleanse Capsule\""
+	desc = "MA brand cleaner grenades. Designed to deal with Biogenerator accidents and the aftermaths of gang wars inside the New Rome slums."
+
 	icon_state = "foam"
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_BIOMATTER = 5)
 	matter_reagents = list("water" = 30)

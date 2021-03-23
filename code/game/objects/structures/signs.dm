@@ -63,8 +63,8 @@
 	else ..()
 
 /obj/structure/sign/double/map
-	name = "station map"
-	desc = "A framed picture of the station."
+	name = "ship map"
+	desc = "A framed picture of the ship."
 
 /obj/structure/sign/double/map/left
 	icon_state = "map-left"
@@ -589,5 +589,5 @@
 
 /obj/structure/sign/derelict2
 	name = "Old sign"
-	desc = "Looks like a planet crashing by some station above it. Its kinda scary."
+	desc = "Looks like a planet crashing by some ship above it. Its kinda scary."
 	icon_state = "something-old2"

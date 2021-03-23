@@ -16,6 +16,8 @@
 	var/list/known_rituals = list() //A list of names of rituals which are recorded in this cruciform
 	//These are used to retrieve the actual ritual datums from the global all_rituals list
 
+	var/type_override //Eclipse add - what the core implant PRETENDS to be
+
 	var/list/modules = list()
 	var/list/upgrades = list()
 
@@ -53,7 +55,7 @@
 /obj/item/weapon/implant/core_implant/proc/update_rituals()
 	known_rituals = list()
 	for(var/datum/core_module/rituals/M in modules)
-		if(istype(src,M.implant_type))
+		if(istype(src,M.implant_type) || M.implant_type == type_override)
 			for(var/R in M.module_rituals)
 				known_rituals |= R
 
@@ -167,8 +169,9 @@
 	process_modules()
 
 /obj/item/weapon/implant/core_implant/proc/add_module(var/datum/core_module/CM)
-	if(!istype(src,CM.implant_type))
-		return FALSE
+	if(!istype(src, CM.implant_type))
+		if(CM.implant_type != type_override)
+			return FALSE
 
 	if(!CM.can_install(src))
 		return TRUE //Eclipse edit. Now you can actually implant yourself.

@@ -152,11 +152,13 @@ AI MODULES
 
 /obj/item/weapon/electronics/ai_module/protectStation
 	name = "\improper 'ProtectShip' AI module"
+
 	desc = "A 'protect ship' AI module: 'Protect the ship against damage. Anyone you see harming the ship is no longer to be considered a crew member, and is a threat which must be neutralized.'"
 	origin_tech = list(TECH_DATA = 3, TECH_MATERIAL = 4) //made of gold
 
 /obj/item/weapon/electronics/ai_module/protectStation/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
-	var/law = "Protect the ship against damage. Anyone you see harming the ship is no longer to be considered a crew member, and is a threat which must be neutralized."
+	var/law = "Protect the space ship against damage. Anyone you see harming the ship is no longer to be considered a crew member, and is a threat which must be neutralized."
+
 	target.add_supplied_law(10, law)
 
 /******************** PrototypeEngineOffline ********************/
@@ -185,11 +187,11 @@ AI MODULES
 
 /obj/item/weapon/electronics/ai_module/quarantine
 	name = "\improper 'Quarantine' AI module"
-	desc = "A 'quarantine' AI module: 'The station is under a quarantine. Do not permit anyone to leave. Prevent, by any means necessary, crew members from leaving. It is impossible to harm crew members while preventing them from leaving.'"
+	desc = "A 'quarantine' AI module: 'The ship is under a quarantine. Do not permit anyone to leave. Prevent, by any means necessary, crew members from leaving. It is impossible to harm crew members while preventing them from leaving.'"
 	origin_tech = list(TECH_DATA = 3, TECH_BIO = 2, TECH_MATERIAL = 4)
 
 /obj/item/weapon/electronics/ai_module/quarantine/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
-	var/law = "The station is under a quarantine. Do not permit anyone to leave. Prevent, by any means necessary, crew members from leaving. It is impossible to harm crew members while preventing them from leaving."
+	var/law = "The ship is under a quarantine. Do not permit anyone to leave. Prevent, by any means necessary, crew members from leaving. It is impossible to harm crew members while preventing them from leaving."
 	target.add_supplied_law(13, law)
 
 /******************** OxygenIsToxicToCrewMembers ********************/

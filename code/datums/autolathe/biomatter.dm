@@ -205,11 +205,11 @@
 
 //[/THINGS]
 /datum/design/autolathe/gun/plasma/martyr
-	name = "NT PR \"Martyr\""
+	name = "MA PR \"Martyr\""
 	build_path = /obj/item/weapon/gun/energy/plasma/martyr
 
 /datum/design/autolathe/firstaid/nt
-	name = "NeoTheologian Medkit"
+	name = "Mekhane Medkit"
 	build_path = /obj/item/weapon/storage/firstaid/nt
 
 /datum/design/autolathe/excruciator
@@ -218,27 +218,29 @@
 
 //[MELEE]
 /datum/design/autolathe/sword/nt_sword
-	name = "Shortsword"
+
+	name = "Mekhane Shortsword"
 	build_path = /obj/item/weapon/tool/sword/nt
 
 /datum/design/autolathe/sword/nt_longsword
-	name = "Longsword"
+	name = "Mekhane Longsword"
 	build_path = /obj/item/weapon/tool/sword/nt/longsword
 
 /datum/design/autolathe/sword/nt_dagger
-	name = "Dagger"
+	name = "Mekhane Dagger"
 	build_path = /obj/item/weapon/tool/knife/dagger/nt
 
 /datum/design/autolathe/sword/nt_halberd
-	name = "Halberd"
+	name = "Mekhane Halberd"
 	build_path = /obj/item/weapon/tool/sword/nt/halberd
 
 /datum/design/autolathe/sword/nt_scourge
-	name = "Scourge"
+	name = "Mekhane Scourge"
 	build_path = /obj/item/weapon/tool/sword/nt/scourge
 
 /datum/design/autolathe/shield/nt_shield
-	name = "Shield"
+	name = "Mekhane Shield"
+
 	build_path = /obj/item/weapon/shield/riot/nt
 
 /datum/design/autolathe/tool_upgrade/sanctifier
@@ -247,19 +249,20 @@
 
 //[GRENADES]
 /datum/design/autolathe/grenade/nt_smokebomb
-	name = "CM SG \"Holy Fog\""
+	name = "MA SG \"Holy Fog\""
 	build_path = /obj/item/weapon/grenade/smokebomb/nt
 
 /datum/design/autolathe/grenade/nt_frag
-	name = "CM DFG \"Holy Thunder\""
+	name = "MA DFG \"Holy Thunder\""
 	build_path = /obj/item/weapon/grenade/frag/nt
 
 /datum/design/autolathe/grenade/nt_flashbang
-	name = "CM FBG \"Holy Light\""
+	name = "MA FBG \"Holy Light\""
 	build_path = /obj/item/weapon/grenade/flashbang/nt
 
 /datum/design/autolathe/grenade/nt_explosive
-	name = "CM OBG \"Holy Grail\""
+	name = "MA OBG \"Holy Grail\""
+
 	build_path = /obj/item/weapon/grenade/explosive/nt
 
 //[CRUSADE]

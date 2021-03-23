@@ -90,7 +90,7 @@ var/global/list/limb_icon_cache = list()
 			mob_icon.Blend(eyes.get_icon(), ICON_OVERLAY)
 
 	if(owner.lip_style && (species && (species.appearance_flags & HAS_LIPS)))
-		var/icon/lip_icon = new/icon('icons/mob/human_face.dmi', "lips[owner.lip_style]")
+		var/icon/lip_icon = new/icon('icons/mob/human_face.dmi', "lips_[owner.lip_style]_s")
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
 
 	if(!BP_IS_ROBOTIC(src))

@@ -26,7 +26,7 @@
 
 /obj/machinery/teleport/station
 	name = "Teleporter Station"
-	desc = "It's the teleporter engagement/testfire station." 
+	desc = "It's the teleporter engagement/testfire station."
 	icon_state = "controller"
 	var/active = 0
 	var/engaged = 0
@@ -110,7 +110,7 @@
 		mconsole.mhub = null
 	underlays.Cut()
 	. = ..()
-	
+
 
 /obj/machinery/teleport/station/on_deconstruction()
 	if(engaged)
@@ -129,7 +129,7 @@
 	if(mhub)
 		mhub.mconsole = null
 	. = ..()
-		
+
 
 /obj/machinery/teleport/hub/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction(I, user))
@@ -165,7 +165,7 @@
 
 		if(istype(L, /obj/landmark/) && istype(L.loc, /turf))
 			to_chat(usr, "You insert the coordinates into the machine.")
-			to_chat(usr, "A message flashes across the screen reminding the traveller that the nuclear authentication disk is to remain on the station at all times.")
+			to_chat(usr, "A message flashes across the screen reminding the traveller that the nuclear authentication disk is to remain on the ship at all times.")
 			user.drop_item()
 			qdel(I)
 
@@ -340,7 +340,7 @@
 		for(var/mob/O in hearers(src, null))
 			O.show_message(SPAN_NOTICE("Teleporter engaged!"), 2)
 	src.add_fingerprint(usr)
-	
+
 	return
 
 /obj/machinery/teleport/station/proc/disengage()
@@ -356,7 +356,7 @@
 		for(var/mob/O in hearers(src, null))
 			O.show_message(SPAN_NOTICE("Teleporter disengaged!"), 2)
 	src.add_fingerprint(usr)
-	
+
 	return
 
 /obj/machinery/teleport/station/verb/testfire()

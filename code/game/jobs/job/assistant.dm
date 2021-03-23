@@ -37,7 +37,7 @@ You can do anything, or be anyone. To be a Vagabond is to be free. Be wary of th
 In another, you are an intern. In the rush to escape SolGov bureaucracy, NanoTrasen hired on as many laborers and crewmen as they could. Some of them adapted to maintenance life, but others still set out to better themselves.<br>\
 Not all of those laborers and crewman were qualified for the journey ahead. You are untrained or uncertified, and unpaid, but unlike vagabonds you have a chance.<br>\
 The crew are dismissive of interns, but not unfriendly. You, unlike vagabonds, seek to insert yourselves into the established order in any way you can. Order, above all else, will keep this ship flying, and you understand that.<br>\
-Thus, you seek guidance and training from one of the corporate departments on station. You have many options to choose from, and not all of them may be willing to take you. Only you can prove yourself worthy."
+Thus, you seek guidance and training from one of the corporate departments on ship. You have many options to choose from, and not all of them may be willing to take you. Only you can prove yourself worthy."
 
 
 	perks = list(/datum/perk/vagabond)

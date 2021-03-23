@@ -123,7 +123,7 @@
 
 /obj/item/integrated_circuit/time/clock
 	name = "integrated clock"
-	desc = "Tells you what the local time is, specific to your station or planet."
+	desc = "Tells you what the local time is, specific to your ship or planet."
 	icon_state = "clock"
 	inputs = list()
 	outputs = list("\<TEXT\> time", "\<NUM\> hours", "\<NUM\> minutes", "\<NUM\> seconds")
