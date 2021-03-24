@@ -3,7 +3,8 @@ var/global/list/modifications_types = list(
 	BP_CHEST = "",  "chest2" = "", BP_HEAD = "",   BP_GROIN = "",
 	BP_L_ARM  = "", BP_R_ARM  = "", BP_L_HAND = "", BP_R_HAND = "",
 	BP_L_LEG  = "", BP_R_LEG  = "", BP_L_FOOT = "", BP_R_FOOT = "",
-	OP_HEART  = "", OP_LUNGS  = "", OP_LIVER  = "", OP_EYES   = ""
+	OP_HEART  = "", OP_LUNGS  = "", OP_LIVER  = "", OP_EYES   = "",
+	BP_BRAIN  = ""
 )
 
 /proc/generate_body_modification_lists()
@@ -328,5 +329,17 @@ var/global/list/modifications_types = list(
 	body_parts = list(BP_HEAD)
 	replace_limb = /obj/item/organ/external/robotic
 	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_monitor.dmi'
+	nature = MODIFICATION_SILICON
+	allow_nt = FALSE
+
+// Synth brains
+
+/datum/body_modification/organ/brain/posibrain
+	name = "Positronic brain"
+	id = "carbonposibrain"
+	short_name = "Positronic brain"
+	desc = "An artificial mind, typically used in silicon beings. This particular model is designed to be used in humanoid chassis."
+	body_parts = list(BP_BRAIN)
+	replace_limb = /obj/item/organ/internal/brain/synth
 	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
