@@ -1,5 +1,0 @@
-author: MciReloaded
-delete-after: true
-changes:
-  - balance: rebalanced the Benzin movement speed to make them slightly slower.
-  - bugfix: no more infini boom.
