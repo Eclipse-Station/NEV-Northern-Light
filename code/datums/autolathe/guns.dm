@@ -110,7 +110,7 @@
 	build_path = /obj/item/weapon/gun/projectile/automatic/molly
 
 /datum/design/autolathe/gun/drozd
-	name = "Excelsior.35 \"Drozd\""
+	name = "Excelsior SMG .40 Magnum \"Drozd\""
 	build_path = /obj/item/weapon/gun/projectile/automatic/drozd
 
 // .20 Rifles
