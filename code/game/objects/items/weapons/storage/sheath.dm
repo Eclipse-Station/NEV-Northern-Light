@@ -1,6 +1,6 @@
 /obj/item/weapon/storage/sheath
 	name = "sheath"
-	desc = "Made to store sword."
+	desc = "Made to store a sword."
 	icon = 'icons/obj/sheath.dmi'
 	icon_state = "sheath_0"
 	item_state = "sheath_0"
@@ -14,10 +14,13 @@
 
 	can_hold = list(
 		/obj/item/weapon/tool/sword/nt,
-		/obj/item/weapon/tool/sword/nt_sword
+		/obj/item/weapon/tool/sword/nt_sword,
+		/obj/item/weapon/tool/sword/katana,
+		/obj/item/weapon/tool/sword
 		)
 	cant_hold = list(
 		/obj/item/weapon/tool/knife/dagger/nt,
+		/obj/item/weapon/tool/sword/katana/nano,
 		/obj/item/weapon/tool/sword/nt/halberd
 		)
 /obj/item/weapon/storage/sheath/attack_hand(mob/living/carbon/human/user)
