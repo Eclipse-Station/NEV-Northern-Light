@@ -2,7 +2,7 @@
 
 //Jobs depatment lists for use in constant expressions
 #define JOBS_SECURITY "Aegis Commander","Gunnery Sergeant","Aegis Inspector","Brig Physician","Aegis Operative","Aegis Medical Specialist"
-#define JOBS_COMMAND "Captain","Head of Personnel","Aegis Commander","Supply Manager","Chief Engineer","Chief Medical Officer","Chief Science Officer","Lazarus Representive"
+#define JOBS_COMMAND "Captain","Head of Personnel","Aegis Commander","Supply Manager","Chief Engineer","Chief Medical Officer","Chief Science Officer","Bridge Officer"
 #define JOBS_ENGINEERING "Chief Engineer","Ship Engineer"
 #define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Pharmacist","Paramedic"
 #define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist"

@@ -20,6 +20,7 @@ var/const/CHURCH           	=(1<<9)
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
+var/const/BRIDGEOFFICER  	=(1<<2)
 var/const/CC				=(1<<1)
 var/const/GUNSERG			=(1<<2)
 var/const/INSPECTOR			=(1<<3)

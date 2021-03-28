@@ -38,6 +38,14 @@
 	icon_state = "hopcap"
 	spawn_blacklisted = TRUE
 
+//Bridge Officer
+/obj/item/clothing/head/beret/boff
+	name = "bridge officer's beret"
+	desc = "A beret worn by bridge officers."
+	icon_state = "beret_bridge_off"
+	body_parts_covered = 0
+	spawn_blacklisted = TRUE
+
 //Chaplain
 /obj/item/clothing/head/chaplain_hood
 	name = "preacher's hood"
