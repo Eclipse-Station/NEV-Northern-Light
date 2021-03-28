@@ -9,20 +9,25 @@
 	display_name = "workboots"
 	path = /obj/item/clothing/shoes/workboots
 
+/datum/gear/shoes/galoshes
+	display_name = "galoshes"
+	path = /obj/item/clothing/shoes/galoshes
+
 /datum/gear/shoes/sandals
 	display_name = "sandals"
 	path = /obj/item/clothing/shoes/sandal
 
-
-/datum/gear/shoes/lacey
-	display_name = "shoes, classy"
+/datum/gear/shoes/reinforced
+	display_name = "reinforced shoes"
 	path = /obj/item/clothing/shoes/reinforced
 
-/*//Same with /datum/gear/shoes/lacey
+/datum/gear/shoes/slippers
+	display_name = "slippers"
+	path = /obj/item/clothing/shoes/slippers
 
-/datum/gear/shoes/dress
-	display_name = "shoes, dress"
-	path = /obj/item/clothing/shoes/reinforced*/
+/datum/gear/shoes/slippers_worn
+	display_name = "worn slippers"
+	path = /obj/item/clothing/shoes/slippers_worn
 
 /datum/gear/shoes/leather
 	display_name = "shoes, leather"

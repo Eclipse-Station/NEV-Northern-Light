@@ -68,19 +68,11 @@
 	path = /obj/item/clothing/accessory/armband/science
 	allowed_roles = list(JOBS_SCIENCE)
 
-/datum/gear/accessory/holster
-	display_name = "holster, armpit"
-	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Head of Personnel", JOBS_SECURITY)
-
-/datum/gear/accessory/holster/New()
-	..()
-	var/ties = list(
-		"Armpit"	=	/obj/item/clothing/accessory/holster/armpit,
-		"Hip"		=	/obj/item/clothing/accessory/holster/hip,
-		"Waist"		=	/obj/item/clothing/accessory/holster/waist,
-	)
-	gear_tweaks += new/datum/gear_tweak/path(ties)
+/datum/gear/accessory/holster/
+	display_name = "holster selection"
+	path = /obj/item/clothing/accessory/holster
+	slot = slot_wear_mask
+	flags = GEAR_HAS_TYPE_SELECTION
 
 /datum/gear/accessory/tie/blue
 	display_name = "tie, blue"
@@ -110,3 +102,56 @@
 	path = /obj/item/clothing/mask/bandana
 	slot = slot_wear_mask
 	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/accessory/locket
+	display_name = "silver locket"
+	path = /obj/item/clothing/accessory/locket
+
+/datum/gear/accessory/stethoscope
+	display_name = "stethoscope"
+	path = /obj/item/clothing/accessory/stethoscope
+	allowed_roles = list (JOBS_MEDICAL)
+
+/datum/gear/accessory/medal
+	display_name = "bronze medal"
+	path = /obj/item/clothing/accessory/medal
+
+/datum/gear/accessory/medal/conduct
+	display_name = "distinguished conduct medal"
+	path = /obj/item/clothing/accessory/medal/conduct
+
+/datum/gear/accessory/medal/heart
+	display_name = "bronze heart medal"
+	path = /obj/item/clothing/accessory/medal/bronze_heart
+
+/datum/gear/accessory/medal/valor
+	display_name = "medal of valor"
+	path = /obj/item/clothing/accessory/medal/silver/valor
+	cost = 2
+
+/datum/gear/accessory/medal/security
+	display_name = "robust security award"
+	path = /obj/item/clothing/accessory/medal/silver/security
+	allowed_roles = list(JOBS_SECURITY)
+	cost = 2
+
+/datum/gear/accessory/medal/silver
+	display_name = "silver medal"
+	path = /obj/item/clothing/accessory/medal/silver
+	cost = 2
+
+/datum/gear/accessory/medal/nobel
+	display_name = "nobel sciences award"
+	path = /obj/item/clothing/accessory/medal/nobel_science
+	allowed_roles = list(JOBS_SCIENCE, JOBS_ENGINEERING)
+
+/datum/gear/accessory/medal/captain
+	display_name = "medal of captaincy"
+	path = /obj/item/clothing/accessory/medal/gold/captain
+	allowed_roles = list("Captain")
+	cost = 3
+
+/datum/gear/accessory/medal/gold
+	display_name = "gold medal"
+	path = /obj/item/clothing/accessory/medal/gold
+	cost = 3
