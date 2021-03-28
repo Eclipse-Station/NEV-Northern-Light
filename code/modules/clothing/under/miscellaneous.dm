@@ -168,6 +168,24 @@
 	icon_state = "summerdress3"
 	item_state = "summerdress3"
 
+/obj/item/clothing/under/dress/plaid_blue
+	name = "blue plaid dress"
+	desc = "a classy blue plaid dress"
+	icon_state = "plaid_blue"
+	item_state = "plaid_blue"
+
+/obj/item/clothing/under/dress/plaid_purple
+	name = "purple plaid dress"
+	desc = "a classy purple plaid dress"
+	icon_state = "plaid_purple"
+	item_state = "plaid_purple"
+
+/obj/item/clothing/under/dress/plaid_red
+	name = "red plaid dress"
+	desc = "a classy red plaid dress"
+	icon_state = "plaid_red"
+	item_state = "plaid_red"
+
 obj/item/clothing/under/leisure
 	name = "leisure outfit"
 	desc = "A leisure outfit with brown jacket. Sometimes you just want to wear what is comfortable."

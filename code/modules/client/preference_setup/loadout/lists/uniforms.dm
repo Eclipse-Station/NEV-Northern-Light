@@ -94,7 +94,12 @@
 	path = /obj/item/clothing/under/rank/ih_commander/skirt
 	allowed_roles = list("Aegis Commander")
 
-/*/datum/gear/uniform/skirt
+/datum/gear/uniform/boff_skirt
+	display_name = "jumpskirt, bridge officer"
+	path = /obj/item/clothing/under/rank/bridge_officer_skirt
+	allowed_roles = list("Bridge Officer")
+
+/datum/gear/uniform/skirt
 	display_name = "plaid skirt, blue"
 	path = /obj/item/clothing/under/dress/plaid_blue
 
@@ -104,7 +109,7 @@
 
 /datum/gear/uniform/skirt/red
 	display_name = "plaid skirt, red"
-	path = /obj/item/clothing/under/dress/plaid_red*/
+	path = /obj/item/clothing/under/dress/plaid_red
 
 /*/datum/gear/uniform/suit  //amish
 	display_name = "suit, amish"
