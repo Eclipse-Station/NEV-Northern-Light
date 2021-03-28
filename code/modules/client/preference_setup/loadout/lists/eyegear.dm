@@ -47,10 +47,6 @@
 	display_name = "HUDsunglasses"
 	path = /obj/item/clothing/glasses/sunglasses/sechud
 
-/datum/gear/eyes/security/jensen
-	display_name = "augmented shades"
-	path = /obj/item/clothing/glasses/hud/security/jensenshades
-
 /datum/gear/eyes/medical
 	display_name = "Medical HUD"
 	path = /obj/item/clothing/glasses/hud/health
