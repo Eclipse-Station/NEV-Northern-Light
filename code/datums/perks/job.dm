@@ -234,3 +234,18 @@
 	if(holder)
 		holder.sanity_damage += 2
 	..()
+
+/datum/perk/boff
+	name = "Nerves of Plasteel"
+	desc = "You've seen it all, and nothing surprises you. The horrors of this vessel seem to affect you less than everyone around you."
+	icon_state = "vagabond" // https://game-icons.net/1x1/lorc/eye-shield.html
+
+/datum/perk/boff/assign(mob/living/carbon/human/H)
+	..()
+	if(holder)
+		holder.sanity.view_damage_threshold += 20
+
+/datum/perk/boff/remove()
+	if(holder)
+		holder.sanity.view_damage_threshold -= 20
+	..()

@@ -153,8 +153,8 @@ Act as the captain's sidekick, bodyguard, and last line of defense in a crisis o
 	req_admin_notify = 1
 	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_CYRILLIC = 20, LANGUAGE_SERBIAN = 15)
-	perks = list(/datum/perk/sommelier)
-	ideal_character_age = 50
+	perks = list(/datum/perk/boff)
+	ideal_character_age = 30
 
 	wl_config_heads = TRUE		//Eclipse edit.
 
@@ -186,19 +186,19 @@ Assist other departments from the bridge when the Captain has no work for you. Y
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/camera_monitor,
-							 /datum/computer_file/program/reports)
+							 /datum/computer_file/program/reports,
+							 /datum/computer_file/program/alarm_monitor)
 
 
-	get_access()
-		return get_all_station_access()
+	access = list(access_RC_announce, access_keycard_auth, access_heads, access_external_airlocks, access_bar, access_kitchen, access_network, access_engine, access_moebius, access_rd, access_security)
 
 	stat_modifiers = list(
 		STAT_ROB = 15,
 		STAT_TGH = 15,
-		STAT_BIO = 10,
-		STAT_MEC = 10,
+		STAT_BIO = 5,
+		STAT_MEC = 5,
 		STAT_VIG = 20,
-		STAT_COG = 10
+		STAT_COG = 5
 	)
 
 /obj/landmark/join/start/boff

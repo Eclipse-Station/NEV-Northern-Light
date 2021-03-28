@@ -291,3 +291,22 @@
 	)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	price_tag = 50
+
+//Bridge Officer
+/obj/item/clothing/suit/storage/boff
+	name = "bridge officer's coat"
+	desc = "A crisp, smart, dress coat. designed to make you look authoritative and professional, even if you aren't."
+	icon_state = "boff"
+	item_state = "boff"
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	armor = list(
+		melee = 30,
+		bullet = 20,
+		energy = 20,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
+	siemens_coefficient = 0.8
+	price_tag = 250

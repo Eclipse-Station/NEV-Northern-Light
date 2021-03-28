@@ -41,6 +41,7 @@
 /decl/hierarchy/outfit/job/boff
 	name = OUTFIT_JOB_NAME("Bridge Officer")
 	head = /obj/item/clothing/head/beret/boff
+	suit = /obj/item/clothing/suit/storage/boff
 	uniform = /obj/item/clothing/under/rank/bridge_officer
 	l_ear = /obj/item/device/radio/headset/heads/boff
 	shoes = /obj/item/clothing/shoes/reinforced

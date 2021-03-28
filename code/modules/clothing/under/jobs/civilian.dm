@@ -22,6 +22,12 @@
 	name = "bridge officer's jumpsuit"
 	icon_state = "boff"
 	item_state = "boff"
+
+/obj/item/clothing/under/rank/bridge_officer_skirt
+	desc = "It's a jumpskirt worn by a person with the title \"Bridge Officer\"."
+	name = "bridge officer's jumpskirt"
+	icon_state = "boff_skirt"
+	item_state = "boff_skirt"
 	
 /obj/item/clothing/under/rank/captain //Alright, technically not a 'civilian' but its better then giving a .dm file for a single define.
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
