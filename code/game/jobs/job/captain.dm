@@ -139,6 +139,8 @@ Act as the captain's sidekick, bodyguard, and last line of defense in a crisis o
 	icon_state = "player-gold"
 	join_tag = /datum/job/hop
 
+
+
 /datum/job/boff
 	title = "Bridge Officer"
 	flag = BRIDGEOFFICER
@@ -148,7 +150,7 @@ Act as the captain's sidekick, bodyguard, and last line of defense in a crisis o
 	faction = "NEV Northern Light"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the captain"
+	supervisors = "the Captain"
 	selection_color = "#ddddff"
 	req_admin_notify = 1
 	wage = WAGE_PROFESSIONAL
