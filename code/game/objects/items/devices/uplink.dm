@@ -249,7 +249,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 /obj/item/device/radio/uplink/New(loc, mind, crystal_amount)
 	..(loc)
 	hidden_uplink = new(src, mind, crystal_amount)
-	icon_state = "radio"
+	icon_state = "xprgrey"
 
 /obj/item/device/radio/uplink/attack_self(mob/user)
 	if(hidden_uplink)
