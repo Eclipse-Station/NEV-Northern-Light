@@ -80,6 +80,7 @@
 	selection_color = "#ecd37d"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
 	cruciform_access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
+	access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
 	wage = WAGE_PROFESSIONAL
 	outfit_type = /decl/hierarchy/outfit/job/church/acolyte
 
@@ -124,6 +125,7 @@
 	//alt_titles = list("Hydroponicist")
 	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
 	cruciform_access = list(access_hydroponics, access_morgue, access_crematorium, access_maint_tunnels)
+	access = list(access_hydroponics, access_morgue, access_crematorium, access_maint_tunnels)
 	wage = WAGE_PROFESSIONAL
 
 	outfit_type = /decl/hierarchy/outfit/job/church/gardener
@@ -169,6 +171,7 @@
 	//alt_titles = list("Custodian","Sanitation Technician")
 	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
 	cruciform_access = list(access_janitor, access_maint_tunnels, access_morgue, access_crematorium)
+	access = list(access_janitor, access_maint_tunnels, access_morgue, access_crematorium)
 	wage = WAGE_PROFESSIONAL
 	outfit_type = /decl/hierarchy/outfit/job/church/janitor
 
