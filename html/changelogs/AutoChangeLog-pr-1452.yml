@@ -1,0 +1,4 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - bugfix: Fixed the traitor uplink (Station bounced radio)
