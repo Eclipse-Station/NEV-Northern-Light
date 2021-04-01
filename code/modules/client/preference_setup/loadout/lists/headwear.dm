@@ -102,6 +102,11 @@
 	)
 	gear_tweaks += new /datum/gear_tweak/path(hardhat)
 
+/datum/gear/head/welding
+	display_name = "welding mask"
+	path = /obj/item/clothing/head/welding
+	cost = 2
+
 /datum/gear/head/boater
 	display_name = "hat, boatsman"
 	path = /obj/item/clothing/head/boaterhat
@@ -117,6 +122,14 @@
 /datum/gear/head/tophat
 	display_name = "hat, tophat"
 	path = /obj/item/clothing/head/that
+
+/datum/gear/head/fedora
+	display_name = "fedora"
+	path = /obj/item/clothing/head/fedora
+
+/datum/gear/head/trilby
+	display_name = "feather trilby"
+	path = /obj/item/clothing/head/feathertrilby
 
 /datum/gear/head/philosopher_wig
 	display_name = "natural philosopher's wig"
@@ -136,6 +149,12 @@
 	path = /obj/item/clothing/head/soft/sarge2soft
 	allowed_roles = list("Aegis Commander","Aegis Gunnery Sergeant")
 
+/datum/gear/head/dermal
+	display_name = "dermal armour patch"
+	path = /obj/item/clothing/head/armor/helmet/dermal
+	allowed_roles = list("Aegis Commander","Aegis Gunnery Sergeant")
+	cost = 2
+
 /datum/gear/head/cyberpunkgoggle
 	display_name = "Type-34C Semi-Enclosed Headwear"
 	path = /obj/item/clothing/head/armor/helmet/visor/cyberpunkgoggle
@@ -144,7 +163,6 @@
 /datum/gear/head/tanker_helmet/color_presets
 	display_name = "tanker helmet, color presets"
 	path = /obj/item/clothing/head/armor/helmet/tanker
-	allowed_roles = list("Moebius Roboticist", "Guild Technician", "Technomancer", "Technomancer Exultant", ASSISTANT_TITLE)
 	cost = 2
 
 /datum/gear/head/tanker_helmet/color_presets/New()
@@ -156,3 +174,69 @@
 		"Gray"		=	/obj/item/clothing/head/armor/helmet/tanker/gray,
 	)
 	gear_tweaks += new /datum/gear_tweak/path(tanker_helmet)
+
+/datum/gear/head/festive
+	display_name = "festive paper hat"
+	path = /obj/item/clothing/head/festive
+
+/datum/gear/head/church/chaplain
+	display_name = "chaplain's hood"
+	path = /obj/item/clothing/head/chaplain_hood
+	allowed_roles = list(JOBS_CHURCH)
+
+/datum/gear/head/church/nun
+	display_name = "nun's hood"
+	path = /obj/item/clothing/head/nun_hood
+
+/datum/gear/head/surgery/color_presets
+	display_name = "surgery cap, color presets"
+	path = /obj/item/clothing/head/surgery
+	allowed_roles = list(JOBS_MEDICAL)
+
+/datum/gear/head/surgery/color_presets/New()
+	..()
+	var/surgery = list(
+		"Dark Green"	=	/obj/item/clothing/head/surgery/green,
+		"Baby Blue"		=	/obj/item/clothing/head/surgery/blue,
+		"Deep Purple"	=	/obj/item/clothing/head/surgery/purple,
+	)
+	gear_tweaks += new /datum/gear_tweak/path(surgery)
+
+/datum/gear/head/nurse
+	display_name = "nurse's hat"
+	path = /obj/item/clothing/head/nursehat
+	allowed_roles = list(JOBS_MEDICAL)
+
+/datum/gear/head/hastur
+	display_name = "hastur's hood"
+	path = /obj/item/clothing/head/hasturhood
+
+/datum/gear/head/plague
+	display_name = "plague doctor's hat"
+	path = /obj/item/clothing/head/plaguedoctorhat
+
+/datum/gear/head/rabbit
+	display_name = "rabbit ears"
+	path = /obj/item/clothing/head/rabbitears
+
+/datum/gear/head/beaverhat
+	display_name = "beaver hat"
+	path = /obj/item/clothing/head/beaverhat
+
+/datum/gear/head/piratehat
+	display_name = "pirate hat"
+	path = /obj/item/clothing/head/hgpiratecap
+
+/datum/gear/head/witch
+	display_name = "witch hat"
+	path = /obj/item/clothing/head/witchwig
+
+/datum/gear/head/bearpelt
+	display_name = "bear pelt hat"
+	path = /obj/item/clothing/head/bearpelt
+	cost = 2
+
+/datum/gear/head/kitty
+	display_name = "kitty ears"
+	path = /obj/item/clothing/head/kitty
+

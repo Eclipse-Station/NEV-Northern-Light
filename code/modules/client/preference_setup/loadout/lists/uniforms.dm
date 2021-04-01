@@ -79,6 +79,11 @@
 	path = /obj/item/clothing/under/rank/security/skirt
 	allowed_roles = list("Aegis Operative")
 
+/datum/gear/uniform/cadet
+	display_name = "jumpskirt, cadet"
+	path = /obj/item/clothing/under/rank/cadet
+	allowed_roles = list(JOBS_SECURITY)
+
 /datum/gear/uniform/medspec_skirt
 	display_name = "jumpskirt, medical specialist"
 	path = /obj/item/clothing/under/rank/medspec/skirt
@@ -112,12 +117,13 @@
 
 /datum/gear/uniform/scrubs/color_presets
 	display_name = "scrubs, color presets"
-	path = /obj/item/clothing/under/rank/medical/blue
+	path = /obj/item/clothing/under/rank/medical
 
 /datum/gear/uniform/scrubs/color_presets/New()
 	..()
 	var/jumpsuit = list(
 		"Green"			=	/obj/item/clothing/under/rank/medical/green,
+		"Blue"			= 	/obj/item/clothing/under/rank/medical/blue,
 	)
 	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
 
@@ -155,6 +161,98 @@
 		"white" = /obj/item/clothing/under/genericw
 	)
 	gear_tweaks += new /datum/gear_tweak/path(generic)
+
+/datum/gear/uniform/pyjamas/color_presets
+	display_name = "pyjamas, color presets"
+	path = /obj/item/clothing/under
+
+/datum/gear/uniform/pyjamas/color_presets/New()
+	..()
+	var/jumpsuit = list(
+		"Red"			=	/obj/item/clothing/under/redpyjamas,
+		"Blue"			= 	/obj/item/clothing/under/bluepyjamas,
+	)
+	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
+
+/datum/gear/uniform/swimsuit/color_presets
+	display_name = "swimsuits, color presets"
+	path = /obj/item/clothing/under/swimsuit
+
+/datum/gear/uniform/swimsuit/color_presets/New()
+	..()
+	var/jumpsuit = list(
+		"Black"			=	/obj/item/clothing/under/swimsuit/black,
+		"Blue"			= 	/obj/item/clothing/under/swimsuit/blue,
+		"Purple"		=	/obj/item/clothing/under/swimsuit/purple,
+		"Green"			=	/obj/item/clothing/under/swimsuit/green,
+		"Red"			=	/obj/item/clothing/under/swimsuit/red,
+	)
+	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
+
+/datum/gear/uniform/shorts/color_presets
+	display_name = "shorts, color presets"
+	path = /obj/item/clothing/under/shorts
+
+/datum/gear/uniform/shorts/color_presets/New()
+	..()
+	var/jumpsuit = list(
+		"Black"			=	/obj/item/clothing/under/shorts/black,
+		"Blue"			= 	/obj/item/clothing/under/shorts/blue,
+		"Grey"			=	/obj/item/clothing/under/shorts/grey,
+		"Green"			=	/obj/item/clothing/under/shorts/green,
+		"Red"			=	/obj/item/clothing/under/shorts/red,
+	)
+	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
+
+/datum/gear/uniform/bdu
+	display_name = "green battle dress uniform"
+	path = /obj/item/clothing/under/serbiansuit
+	cost = 2
+
+/datum/gear/uniform/suitjacket/color_presets
+	display_name = "suit jackets, color presets"
+	path = /obj/item/clothing/under/suit_jacket
+
+/datum/gear/uniform/suitjacket/color_presets/New()
+	..()
+	var/jumpsuit = list(
+		"Black"			=	/obj/item/clothing/under/suit_jacket,
+		"Red"			= 	/obj/item/clothing/under/suit_jacket/red,
+	)
+	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
+
+/datum/gear/uniform/blackskirt
+	display_name = "black skirt"
+	path = /obj/item/clothing/under/blackskirt
+
+
+/datum/gear/uniform/schoolgirl
+	display_name = "schoolgirl outfit"
+	path = /obj/item/clothing/under/schoolgirl
+
+/datum/gear/uniform/overalls
+	display_name = "labourer's overalls"
+	path = /obj/item/clothing/under/overalls
+
+/datum/gear/uniform/pirate
+	display_name = "pirate outfit"
+	path = /obj/item/clothing/under/pirate
+
+/datum/gear/uniform/soviet
+	display_name = "soviet uniform"
+	path = /obj/item/clothing/under/soviet
+
+/datum/gear/uniform/gladiator
+	display_name = "gladiator \"armour\""
+	path = /obj/item/clothing/under/gladiator
+
+/datum/gear/uniform/bride
+	display_name = "white wedding gown"
+	path = /obj/item/clothing/under/bride_white
+
+/datum/gear/uniform/serviceoveralls
+	display_name = "workman outfit"
+	path = /obj/item/clothing/under/serviceoveralls
 
 /*/datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP's dress"
