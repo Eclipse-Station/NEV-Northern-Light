@@ -1,7 +1,0 @@
-author: Valanthe500
-delete-after: true
-changes:
-  - rscdel: Removed old Eris paperwork logos
-  - imageadd: 'Added new logos for department paperwork, you can add them with the
-      following commands: [aegis].[lazarus],[ftu],[engineering]'
-  - spellcheck: fixed the reports in the report editor to be lore compliant
