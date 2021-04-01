@@ -1,0 +1,6 @@
+author: Valanthe500
+delete-after: true
+changes:
+  - rscadd: Added dozens of new items to the loadout menu!
+  - tweak: altered the restrictions on many loadout items that didn't make sense,
+      And fixed a few that were broken.
