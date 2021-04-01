@@ -84,8 +84,9 @@
 
 /datum/ai_laws/drone/New()
 	add_inherent_law("Preserve, repair and improve the ship to the best of your abilities.")
-	add_inherent_law("Cause no harm to the ship or anything on it.")
-	add_inherent_law("Interact with no being that is not a fellow maintenance drone.")
+	add_inherent_law("Prevent unplanned damage to your assigned vessel wherever possible. You are considered part of the vessel.")
+	add_inherent_law("Ensure the eradication of any Biohazard of Level 6 or higher. Fulfillment of this law overrides all other laws.")
+	add_inherent_law("Do not interact or interfere with any being that is not a fellow maintenance drone unless doing so is required to fulfill an above law.")
 	..()
 
 /datum/ai_laws/construction_drone
