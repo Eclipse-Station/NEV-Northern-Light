@@ -1,0 +1,4 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - rscadd: Returned the radio noise when using the headset. Woo!
