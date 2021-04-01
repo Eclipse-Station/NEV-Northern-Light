@@ -10,10 +10,17 @@
 	meat_amount = 3
 
 	rarity_value = 40
+	var/exploded = FALSE
 
-
+/mob/living/carbon/superior_animal/roach/nitro/ex_act()
+	if(!exploded)
+		visible_message(SPAN_DANGER("\the [src] violently detonates!"))
+		death()
 
 /mob/living/carbon/superior_animal/roach/nitro/death()
-	..()
-	explosion(get_turf(src), -1, -1, 2, 3) //explosion weaker than a welding tank, DO NOT TRY TO GIB THE ROACH
+	. = ..()
+	if(src)
+		if(!exploded)
+			exploded = TRUE
+			explosion(src.loc, -1, -1, 2, 3) //explosion weaker than a welding tank
 
