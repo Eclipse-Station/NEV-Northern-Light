@@ -19,3 +19,22 @@
 	It has been painted pink and the protective visor has a green hue. The initials M.E. are engraved on the back."
 	icon_override = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
 	spawn_blacklisted = TRUE
+
+
+/obj/item/weapon/gun/projectile/revolver/capgun/jk47
+	name = "FS AR .30 \"Kalashnikov\""
+	icon = 'icons/obj/guns/projectile/ak.dmi'
+	icon_state = "AK"
+	item_state = "AK"
+	desc = "Long, flat, gun shaped noodle. A staple of Oberth cuisine. \
+	However, Oberthians have a culturally embedded fear of being hit by a spinning gun-noodle, \
+	as adolescent Oberthians claim that the limp and wiggly properties of the noodle are transferred to new carriers on contact. \
+	There is an engraving near the stock - \"I.O.U. 1 Gun - Nestor\""
+	caliber = CAL_CAP
+	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
+	price_tag = 200
+	handle_casings = CYCLE_CASINGS
+	max_shells = 7
+	ammo_type = /obj/item/ammo_casing/cap
+	spawn_tags = SPAWN_TAG_ITEM_TOY
+	spawn_blacklisted = TRUE

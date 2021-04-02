@@ -63,15 +63,15 @@
 	desc = "An emergency radio for quick, one-way contact with the medbay. This radio has been programmed with a frequency lock, which prevents it from changing channels."		//Short of admin intervention, anyway...
 	frequency = MED_I_FREQ
 	freqlock = TRUE
-	
+
 /obj/item/device/radio/color/lightblue/emergency/update_icon()
-	icon_state = initial(icon_state)		//No 'off' sprite. 
+	icon_state = initial(icon_state)		//No 'off' sprite.
 
 /obj/item/device/radio/color/purple		//Research
 	icon_state = "xprviolet"
 	desc = "A basic two-way radio. This one in particular is an experimental purple."
 
-	
+
 ///////////////// END OF FUNCTIONAL CODE /////////////////
 
 // These are not redefined elsewhere, so we need to stick these here to prevent from breaking the sprites.
@@ -80,10 +80,10 @@
 
 /obj/item/device/radio/electropack
 	icon = 'icons/obj/radio.dmi'
-	
+
 /obj/item/device/radio/headset
 	icon = 'icons/obj/radio.dmi'
-	
+
 /obj/item/device/radio/intercom
 	icon = 'icons/obj/radio.dmi'
 

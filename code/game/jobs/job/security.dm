@@ -133,11 +133,7 @@
 
 	outfit_type = /decl/hierarchy/outfit/job/security/inspector
 
-	access = list(
-		access_security, access_moebius, access_medspec, access_engine, access_mailsorting,
-		access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels,
-		access_external_airlocks
-	)
+	access = list(access_security, access_moebius, access_medspec, access_engine, access_mailsorting, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks)
 
 	stat_modifiers = list(
 		STAT_BIO = 15,
@@ -191,9 +187,7 @@
 
 	outfit_type = /decl/hierarchy/outfit/job/security/medspec
 
-	access = list(
-		access_security, access_moebius, access_sec_doors, access_medspec, access_morgue, access_maint_tunnels, access_medical_equip
-	)
+	access = list(access_security, access_moebius, access_medspec, access_engine, access_mailsorting, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_medical_equip)
 
 	stat_modifiers = list(
 		STAT_BIO = 25,

@@ -257,8 +257,8 @@
 
 	overlay_status_display = "status_display_violet"
 
-	up_description = "Attention! Alert level changed to code Violet!: Confirmed medical emergency on vessel. All personnel required to follow Lazarus Medical's instructions."
-	down_description = "Attention! Alert level changed to code Violet!: Confirmed medical emergency on vessel. All personnel required to follow Lazarus Medical's instructions."
+	up_description = "Confirmed medical emergency on vessel. All personnel required to follow Lazarus Medical's instructions."
+	down_description = "Confirmed medical emergency on vessel. All personnel required to follow Lazarus Medical's instructions."
 /decl/security_level/default/code_yellow
 	name = "code yellow"
 

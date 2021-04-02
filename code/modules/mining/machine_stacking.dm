@@ -6,6 +6,7 @@
 	icon_state = "console"
 	density = TRUE
 	anchored = TRUE
+	climbable = 1
 	var/obj/machinery/mineral/stacking_machine/machine = null
 
 /obj/machinery/mineral/stacking_unit_console/New()

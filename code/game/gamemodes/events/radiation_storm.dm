@@ -28,7 +28,7 @@
 	//ic_name = "radiation"
 
 /datum/event/radiation_storm/announce()
-	command_announcement.Announce("High levels of radiation detected near the shhip. Please evacuate into one of the shielded maintenance tunnels.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
+	command_announcement.Announce("High levels of radiation detected near the ship. Please evacuate into one of the shielded maintenance tunnels.", "Anomaly Alert", new_sound = 'sound/AI/radiation.ogg')
 
 /datum/event/radiation_storm/start()
 	make_maint_all_access()

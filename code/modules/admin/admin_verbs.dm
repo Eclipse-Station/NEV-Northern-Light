@@ -371,7 +371,7 @@ ADMIN_VERB_ADD(/client/proc/kill_air, R_DEBUG, FALSE)
 		deadmin_holder.reassociate()
 		log_admin("[src] re-admined themself.")
 		message_admins("[src] re-admined themself.", 1)
-		to_chat(src, "<span class='interface'>You now have the keys to control the planet, or atleast a small space station</span>")
+		to_chat(src, "<span class='interface'>You now have the keys to control the planet, or atleast a small space ship</span>")
 		verbs -= /client/proc/readmin_self
 
 

@@ -39,12 +39,20 @@
 	path = /obj/item/clothing/glasses/hud/security
 	allowed_roles = list(JOBS_SECURITY)
 
+/datum/gear/eyes/security/tactical
+	display_name = "Tactical HUD"
+	path = /obj/item/clothing/glasses/sunglasses/sechud/tactical
+
+/datum/gear/eyes/security/hudsunglasses
+	display_name = "HUDsunglasses"
+	path = /obj/item/clothing/glasses/sunglasses/sechud
+
 /datum/gear/eyes/medical
 	display_name = "Medical HUD"
 	path = /obj/item/clothing/glasses/hud/health
 	allowed_roles = list(JOBS_MEDICAL)
 
-/datum/gear/eyes/shades
+/datum/gear/eyes/shades/fat
 	display_name = "Sunglasses, fat"
 	path = /obj/item/clothing/glasses/sunglasses/big
 	allowed_roles = list("Aegis Operative","Aegis Commander","Aegis Gunnery Sergeant","Captain","Head of Personnel","Quartermaster","Aegis Inspector")
@@ -52,4 +60,17 @@
 /datum/gear/eyes/shades/prescriptionsun
 	display_name = "sunglasses, presciption"
 	path = /obj/item/clothing/glasses/sunglasses/prescription
+	cost = 2
+
+/datum/gear/eyes/threed
+	display_name = "3D Glasses"
+	path = /obj/item/clothing/glasses/threedglasses
+
+/datum/gear/eyes/gglasses
+	display_name = "green glasses"
+	path = /obj/item/clothing/glasses/gglasses
+
+/datum/gear/eyes/welding
+	display_name = "welding goggles"
+	path = /obj/item/clothing/glasses/welding
 	cost = 2

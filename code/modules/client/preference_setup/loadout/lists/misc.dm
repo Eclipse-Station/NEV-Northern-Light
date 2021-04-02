@@ -141,6 +141,10 @@
 	display_name = "zippo"
 	path = /obj/item/weapon/flame/lighter/zippo
 
+/datum/gear/cigarettes
+	display_name = "pack of cigarettes"
+	path = /obj/item/weapon/storage/fancy/cigarettes
+
 /datum/gear/cigars
 	display_name = "fancy cigar case"
 	path = /obj/item/weapon/storage/fancy/cigar

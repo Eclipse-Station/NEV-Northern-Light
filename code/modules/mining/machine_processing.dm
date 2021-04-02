@@ -6,6 +6,7 @@
 	icon_state = "console"
 	density = TRUE
 	anchored = TRUE
+	climbable = 1
 
 	var/obj/machinery/mineral/processing_unit/machine = null
 	var/show_all_ores = 0
