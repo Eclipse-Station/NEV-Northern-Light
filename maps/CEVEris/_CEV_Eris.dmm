@@ -46366,11 +46366,8 @@
 "cbw" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/standard,
-/obj/machinery/door/window/eastleft{
-	dir = 1
-	},
 /obj/machinery/door/window/westleft{
-	dir = 7;
+	dir = 1;
 	name = "hydroponics windoor";
 	req_access = list(35)
 	},
