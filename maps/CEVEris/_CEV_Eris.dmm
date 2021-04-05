@@ -58631,6 +58631,9 @@
 	d2 = 4;
 	icon_state = "32-4"
 	},
+/obj/machinery/atmospherics/pipe/zpipe/down{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/eris/maintenance/section3deck3starboard)
 "cDB" = (
@@ -82206,6 +82209,9 @@
 /obj/structure/disposalpipe/down{
 	dir = 4;
 	tag = "icon-pipe-d (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down{
+	dir = 4
 	},
 /turf/simulated/open,
 /area/eris/maintenance/section3deck3starboard)
