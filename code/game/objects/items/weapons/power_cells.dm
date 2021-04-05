@@ -297,7 +297,7 @@
 	autorecharge_rate = 1 // charges 100% of itself every tick
 	bad_type = /obj/item/weapon/cell/large/moebius/nuclear/infinite // really shouldn't spawn in maint, or anywhere else
 	maxcharge = 99999 // unlimited power! well, not really, but i dont think anything consumed 99999 watts a tick
-	matter = list(MATERIAL_PLASMA = 12, MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 3, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 12) // might as well give them material values
+	matter = list(MATERIAL_PHORON = 12, MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 3, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 12) // might as well give them material values
 
 /obj/item/weapon/cell/medium/moebius/nuclear/infinite
 	name = "BSL \"Nullcell 9999L\""
@@ -306,7 +306,7 @@
 	autorecharge_rate = 1
 	bad_type = /obj/item/weapon/cell/medium/moebius/nuclear/infinite
 	maxcharge = 9999
-	matter = list(MATERIAL_PLASMA = 8, MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 2, MATERIAL_URANIUM = 8)
+	matter = list(MATERIAL_PHORON = 8, MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 2, MATERIAL_URANIUM = 8)
 
 /obj/item/weapon/cell/small/moebius/nuclear/infinite
 	name = "BSL \"Nullcell 999L\""
@@ -315,4 +315,4 @@
 	autorecharge_rate = 1
 	bad_type = /obj/item/weapon/cell/small/moebius/nuclear/infinite
 	maxcharge = 999
-	matter = list(MATERIAL_PLASMA = 4, MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1, MATERIAL_URANIUM = 4)
+	matter = list(MATERIAL_PHORON = 4, MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1, MATERIAL_SILVER = 1, MATERIAL_URANIUM = 4)

@@ -304,7 +304,7 @@
 	icon_state = "debug_capacitor"
 	origin_tech = list(TECH_POWER = 6, TECH_MATERIAL = 6)
 	rating = 100 // rating doesn't really matter past a certain point - this makes autolathes print stuff at 1/5th the normal cost (item that costs 5 steel now costs 1 steel)
-	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 3, MATERIAL_PLASMA = 1)
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 1, MATERIAL_GLASS = 3, MATERIAL_PHORON = 1)
 	bad_type = /obj/item/weapon/stock_parts/capacitor/debug
 
 /obj/item/weapon/stock_parts/scanning_module/debug
@@ -313,7 +313,7 @@
 	icon_state = "debug_scan_module"
 	origin_tech = list(TECH_MAGNET = 6)
 	rating = 100
-	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1, MATERIAL_PLASMA = 1)
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1, MATERIAL_PHORON = 1)
 	bad_type = /obj/item/weapon/stock_parts/scanning_module/debug
 
 /obj/item/weapon/stock_parts/manipulator/debug
@@ -322,7 +322,7 @@
 	icon_state = "debug_mani"
 	origin_tech = list(TECH_MATERIAL = 6, TECH_DATA = 3)
 	rating = 100
-	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_PLASMA = 1)
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_PHORON = 1)
 	bad_type = /obj/item/weapon/stock_parts/manipulator/debug
 
 /obj/item/weapon/stock_parts/micro_laser/debug
@@ -331,7 +331,7 @@
 	desc = "An ultra-advanced device that emits a laser that can emit any kind of laser on the spectrum, and several lasers off the spectrum. Used in construction of certain devices."
 	origin_tech = list(TECH_MAGNET = 6)
 	rating = 100
-	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1, MATERIAL_PLASMA = 1)
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2, MATERIAL_GLASS = 1, MATERIAL_PHORON = 1)
 	bad_type = /obj/item/weapon/stock_parts/micro_laser/debug
 
 /obj/item/weapon/stock_parts/matter_bin/debug
@@ -340,7 +340,7 @@
 	icon_state = "debug_matter_bin"
 	origin_tech = list(TECH_MATERIAL = 6)
 	rating = 100
-	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1, MATERIAL_PLASMA = 1)
+	matter = list(MATERIAL_PLASTIC = 3, MATERIAL_GLASS = 1, MATERIAL_PHORON = 1)
 	bad_type = /obj/item/weapon/stock_parts/matter_bin/debug
 
 // Subspace stock parts
