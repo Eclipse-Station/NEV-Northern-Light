@@ -5,7 +5,6 @@
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "case"
 	item_state = "case"
-	storage_slots = 14
 	price_tag = 50
 	rarity_value = 20
 	spawn_frequency = 10
