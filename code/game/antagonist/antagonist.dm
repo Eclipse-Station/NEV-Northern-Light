@@ -16,7 +16,7 @@
 	var/list/story_ineligible =	list()	// Denies the job from getting the antag status by story teller itself but allows become antag via different means.
 
 	// Strings.
-	var/welcome_text = "The Syndicate has been a thorn in the collected sides of every megacorp in the Galaxy, a band of highly\
+	var/welcome_text = "The Syndicate has been a thorn in the collected sides of every megacorp in the Galaxy, a band of highly \
 						organized criminals who cause havoc and chaos across the stars. <br><br> \
 						That’s what they want you to believe anyway.<br><br>\
 						The Syndicate makes most of its money from the corporations themselves, who pay them to steal from their rivals. You are one of their operatives, contracted through a dizzying array of middle-men and backroom deals to further the Syndicate’s goals aboard the NEV Northern Light.\
