@@ -1,0 +1,4 @@
+author: drexample
+delete-after: true
+changes:
+  - tweak: Updates the restart message!
