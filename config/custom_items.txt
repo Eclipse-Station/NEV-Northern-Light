@@ -101,14 +101,6 @@ item_path: /obj/item/weapon/reagent_containers/food/snacks/fortunecookie/catcook
 }
 
 {
-ckey: Selahkitty
-character_name: Matthias Qubassi
-item_path: /obj/item/weapon/reagent_containers/food/snacks/fortunecookie/catcookie
-}
-
-
-
-{
 ckey: selahkitty
 character_name: Sela Sparks
 item_path: /obj/item/clothing/head/beret/purple
