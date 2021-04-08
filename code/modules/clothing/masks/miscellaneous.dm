@@ -194,10 +194,12 @@
 /obj/item/clothing/mask/bandana/equipped(var/mob/user, var/slot)
 	switch(slot)
 		if(slot_wear_mask) //Mask is the default for all the settings
+			icon_override = null
 			flags_inv = HIDEFACE
 			body_parts_covered = FACE
 			icon_state = initial(icon_state)
 		if(slot_head)
+			icon_override = 'icons/mob/head.dmi'
 			flags_inv = 0
 			body_parts_covered = HEAD
 			icon_state = "[initial(icon_state)]_up"
