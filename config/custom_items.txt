@@ -108,3 +108,10 @@ item_path: /obj/item/weapon/reagent_containers/food/snacks/fortunecookie/catcook
 
 
 
+{
+ckey: selahkitty
+character_name: Sela Sparks
+item_path: /obj/item/clothing/head/beret/purple
+item_name: worn squadron leader beret
+item_desc: What might seem like a just another worn-out piece of headwear, reveals to be much more upon closer inspection. This beret seems to be connected to an unidentified fighter wing, the emblem on the front of the beret's been worn down to the point that it's only distinct feature are three small chevrons flying in formation with each other. Though age has taken it's toll, the beret seems to be lovingly cared for, as there are small signs of repair upon the fabric.
+}
