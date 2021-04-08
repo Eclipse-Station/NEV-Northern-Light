@@ -18564,6 +18564,8 @@
 /turf/simulated/floor/hull,
 /area/eris/maintenance/junk)
 "aSe" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "aSf" = (
@@ -60221,6 +60223,7 @@
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
 	},
+/obj/landmark/join/start/boff,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "cHl" = (
@@ -77788,7 +77791,7 @@
 /turf/simulated/open,
 /area/eris/neotheology/chapel)
 "dvH" = (
-/obj/item/modular_computer/console/preset/engineering,
+/obj/structure/closet/secure_closet/personal/boff,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dvI" = (
@@ -78409,9 +78412,7 @@
 /area/eris/maintenance/oldbridge)
 "dxa" = (
 /obj/machinery/light,
-/obj/item/modular_computer/console/preset/civilian/professional{
-	dir = 1
-	},
+/obj/structure/closet/secure_closet/personal/boff,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "dxb" = (
@@ -99358,9 +99359,8 @@
 /turf/simulated/floor/plating,
 /area/eris/security/armory)
 "eth" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/box/donut,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "eti" = (
@@ -99979,7 +99979,9 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/hallway/main/section2)
 "eux" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/table/reinforced,
+/obj/item/device/radio,
+/obj/item/device/radio,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridge)
 "euy" = (
@@ -106085,6 +106087,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/quartermaster/hangarsupply)
+"flx" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/obj/landmark/join/start/boff,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/command/bridge)
 "fnF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel,
@@ -290592,7 +290601,7 @@ abF
 dUv
 dUv
 cHH
-cIq
+flx
 dVP
 dWi
 daA

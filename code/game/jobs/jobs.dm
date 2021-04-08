@@ -33,7 +33,7 @@ var/const/CYBORG			=(1<<9)
 
 var/const/MEDSCI			=(1<<1)
 
-var/const/CSO			=(1<<0)
+var/const/CSO				=(1<<0)
 var/const/SCIENTIST			=(1<<1)
 var/const/CHEMIST			=(1<<2)
 var/const/CMO				=(1<<3)
@@ -51,7 +51,7 @@ var/const/GUILDTECH			=(1<<4)
 var/const/MINER				=(1<<5)
 var/const/ARTIST			=(1<<6)
 var/const/ASSISTANT			=(1<<7)
-
+var/const/BRIDGEOFFICER  	=(1<<8)
 
 var/const/CHAPLAIN			=(1<<0)
 var/const/ACOLYTE			=(1<<1)

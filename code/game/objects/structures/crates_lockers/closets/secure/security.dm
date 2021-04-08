@@ -224,3 +224,29 @@
 	new /obj/item/clothing/suit/judgerobe(src)
 	new /obj/item/clothing/head/powdered_wig(src)
 	new /obj/item/weapon/storage/briefcase(src)
+
+/obj/structure/closet/secure_closet/personal/boff
+	name = "Bridge Officer's locker"
+	req_access = list(access_captain)
+	access_occupy = list(access_heads)
+	icon_state = "boff"
+
+/obj/structure/closet/secure_closet/personal/boff/populate_contents()
+	if(prob(50))
+		new /obj/item/weapon/storage/backpack(src)
+	else
+		new /obj/item/weapon/storage/backpack/sport(src)
+	new /obj/item/weapon/storage/backpack/satchel(src)
+	new /obj/item/device/radio/headset/heads/boff(src)
+	new /obj/item/weapon/storage/belt/tactical/ironhammer(src)
+	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/ammo_magazine/ihclrifle(src)
+	new /obj/item/ammo_magazine/ihclrifle(src)
+	new /obj/item/weapon/gun/projectile/automatic/sol(src)
+	new /obj/item/ammo_magazine/pistol/rubber(src)
+	new /obj/item/ammo_magazine/pistol/rubber(src)
+	new	/obj/item/weapon/gun/projectile/colt(src)
+	new /obj/item/weapon/storage/pouch/pistol_holster(src)
+	new /obj/item/clothing/under/rank/bridge_officer(src)
+	new /obj/item/clothing/suit/storage/boff(src)
+	new /obj/item/clothing/under/rank/bridge_officer_skirt(src)
