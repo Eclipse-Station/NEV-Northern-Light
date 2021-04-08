@@ -1,0 +1,4 @@
+author: SoloStryker
+delete-after: true
+changes:
+  - bugfix: Readded forensic access to Inspector
