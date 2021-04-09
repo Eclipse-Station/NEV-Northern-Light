@@ -653,7 +653,7 @@
 	name = "BSL \"Randomizer\" tool polish"
 	desc = "This unidentified tar-like liquid warps and bends reality around it. Applying it to a tool may have unexpected results."
 	icon_state = "randomizer"
-	matter = list(MATERIAL_PLASMA = 4, MATERIAL_URANIUM = 4)
+	matter = list(MATERIAL_PHORON = 4, MATERIAL_URANIUM = 4)
 	rarity_value = 80
 	spawn_tags = SPAWN_TAG_TOOL_UPGRADE_RARE
 

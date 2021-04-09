@@ -1369,7 +1369,7 @@
 	filling_color = "#631212"
 	bitesize = 2
 	center_of_mass = list("x"=15, "y"=9)
-	preloaded_reagents = list("protein" = 4, "ammonia" = 2)
+	preloaded_reagents = list("protein" = 4)
 	junk_food = TRUE
 	spawn_tags = SPAWN_TAG_JUNKFOOD
 

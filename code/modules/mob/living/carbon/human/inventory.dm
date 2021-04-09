@@ -96,7 +96,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if (HUDinv.slot_id == slot_id)
 			return (HUDinv.invisibility == 101) ? null : HUDinv.screen_loc
 	log_admin("[src] try find_inv_position a [slot_id], but not have that slot!")
-	to_chat(src, "Some problem hase accure, change UI style pls or call admins.")
+	to_chat(src, "A problem has occured, change UI style to default. Call admins if the issue persists.")
 	return "7,7"
 
 //Mannequins have no hud, this was causing a lot of spam in the logs
