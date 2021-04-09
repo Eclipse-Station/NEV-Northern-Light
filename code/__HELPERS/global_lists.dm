@@ -121,7 +121,7 @@ var/global/list/organ_tag_to_name = list(
 	eyes  = "eyes", l_arm = "left arm", l_hand = "left hand",
 	groin = "groin",l_leg = "left leg", l_foot = "left foot",
 	chest2= "back", heart = "heart",    lungs  = "lungs",
-	liver = "liver"
+	liver = "liver", brain = "brain"
 	)
 
 // Visual nets

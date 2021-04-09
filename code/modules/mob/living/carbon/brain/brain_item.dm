@@ -95,3 +95,9 @@
 	desc = "A tightly furled roll of paper, covered with indecipherable runes."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll"
+
+/obj/item/organ/internal/brain/synth
+	name = "humanoid positronic brain"
+	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves. This particular model is designed to be used in humanoid chassis."
+	icon = 'icons/obj/assemblies.dmi'
+	icon_state = "posibrain-occupied"
