@@ -1,6 +1,0 @@
-author: Valanthe500
-delete-after: true
-changes:
-  - bugfix: fixed the Hydroponics windoor
-  - bugfix: fixed the missing sprite on the sol/rds
-  - soundadd: re-added the voice alert on the Hivemind
