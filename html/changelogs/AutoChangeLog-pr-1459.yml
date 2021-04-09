@@ -1,0 +1,8 @@
+author: Valanthe500
+delete-after: true
+changes:
+  - rscadd: Added missing downwards atmos pipes near cargo
+  - rscdel: Removed ammonia from vending machine jerky
+  - bugfix: Changed material list on many items from MATERIAL_PLASMA to MATERIAL_PHORON
+  - balance: Crime scene kit is now a proper briefcase, not a magic bluespace container.
+  - spellcheck: fixed typos in some error messages
