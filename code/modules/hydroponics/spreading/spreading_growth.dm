@@ -18,6 +18,9 @@
 		if(get_dist(parent, floor) > spread_distance)
 			continue
 
+		if((locate(/obj/structure/window) in zdest.contents))
+			continue
+
 		//We check zdest, not floor, for existing plants
 		if((locate(/obj/effect/plant) in zdest.contents) || (locate(/obj/effect/dead_plant) in zdest.contents))
 			if(!(seed.get_trait(TRAIT_INVASIVE)))//Invasive ones can invade onto other tiles
