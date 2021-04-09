@@ -1,0 +1,7 @@
+author: Valanthe500
+delete-after: true
+changes:
+  - spellcheck: fixed a typo in the Syndicate Operative welcome text
+  - spellcheck: Mekhane First aid kit now has Mekhane components in it
+  - spellcheck: Aegis holobadges no longer say Ironhammer or Cobalt
+  - spellcheck: Thirteen Loko no longer references the MBO
