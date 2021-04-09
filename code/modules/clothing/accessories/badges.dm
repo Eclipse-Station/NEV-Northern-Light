@@ -13,7 +13,7 @@
 	price_tag = 200
 
 	var/stored_name
-	var/badge_string = "Ironhammer Security"
+	var/badge_string = "Aegis Security"
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
@@ -96,7 +96,7 @@
 
 /obj/item/clothing/accessory/badge/warden
 	name = "Gunnery Sergeant badge"
-	desc = "A silver Cobalt Security badge. Stamped with the words 'Sergeant.'"
+	desc = "A silver Aegis Security badge. Stamped with the words 'Sergeant.'"
 	icon_state = "silverbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
 	spawn_blacklisted = TRUE
@@ -104,7 +104,7 @@
 
 /obj/item/clothing/accessory/badge/hos
 	name = "Commander's badge"
-	desc = "An immaculately polished gold Aegis Cobalt Security badge. Labeled 'Commander.'"
+	desc = "An immaculately polished gold Aegis Security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
 	spawn_blacklisted = TRUE
@@ -113,5 +113,5 @@
 	name = "Marshal's badge"
 	desc = "A leather-backed gold badge displaying the crest of the Aegis Marshals."
 	icon_state = "marshalbadge"
-	badge_string = "Ironhammer Marshal Bureau"
+	badge_string = "Aegis Bounty Bureau"
 	spawn_blacklisted = TRUE
