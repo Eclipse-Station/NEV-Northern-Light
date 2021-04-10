@@ -11,7 +11,8 @@
 	base_idle_power_usage = 100
 	base_active_power_usage = 500
 	max_hardware_size = 3
-	steel_sheet_cost = 20
+	steel_sheet_cost = 10
+	glass_sheet_cost = 4
 	screen_light_strength = 2.8
 	screen_light_range = 2.1
 	max_damage = 300
