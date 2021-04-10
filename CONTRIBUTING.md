@@ -3,7 +3,8 @@
 * Pull requests should not contain commented code except TODOs and explanation comments.
 * Pull requests should not contain any debug output, variables or procs, unless these are of value to admins/coders for live debugging.
 * Pull requests should not contain changes that do not relate with functionality described in commit messages.
-* If pull request relates with existing github issue, it should be specified in commit message, for example, "Fix broken floor sprites, close #23" (see https://help.github.com/articles/closing-issues-via-commit-messages/ for additional info).
+* **If your pull request relates with an existing github issue, it should be specified in commit message**, for example, "Fix broken floor sprites, close #23" (see https://help.github.com/articles/closing-issues-via-commit-messages/ for additional info).
+  * If your pull request fixes or closes an issue that's been reported on the "Issues" tab, please include "Fixes #1234" (with the 1234 replaced by the issue number). This allows us to keep a paper trail as to what's been done to fix or patch an issue, and allows us to easily close issue tickets without having to remember to go in and do it.
 * If pull request contains map files changes, it should be previously proccessed by mapmerger tool (see /tool/mapmerger/install.txt for additional info). Pull request description should contain screenshots of map changes if it's not obvious from map files diff.
 * If pull request contains icon files changes, it should be previously proccessed by icon merger tool (see /tool/dmitool/merging.txt for additional info). Pull request description should contain screenshots of changed icon files.
 * If you have the permissions, please set appropriate labels on your PRs. Including, at the very least, Ready for Review to indicate that its done.
@@ -21,7 +22,9 @@ Ask for help whenever you need it. No man is an island. Don't try to struggle al
 
 
 # Changelog Entries
-Any pull requests which add or change user-visible features should have a changelog written up. See example.yml in the html/changelogs directory. Make a copy of it, insert your own name, and write about what you've changed. Include it with your pull request. Not everything needs a changelog, only features that players will notice or care about. Minor bugfixes or code refactors can usually go without.
+Any pull requests which add or change user-visible features should have a changelog written up. See the pre-filled PR template for more details. You can freely duplicate the lines within the PR template to indicate more than one thing that has been changed.
+
+Not everything needs a changelog, only features that players will notice or care about. Minor bugfixes or code refactors can usually go without. 
 
 
 # Coding Policies
