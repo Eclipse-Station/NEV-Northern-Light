@@ -346,7 +346,7 @@ var/global/list/damage_icon_parts = list()
 			var/obj/item/underwear/UW = entry
 			var/icon/I = new /icon(get_gender_icon(gender, "underwear"), UW.icon_state)
 			if(UW.color)
-				I.Blend(UW.color, ICON_ADD)
+				I.Blend(UW.color, ICON_MULTIPLY)
 			underwear.Blend(I, ICON_OVERLAY)
 		overlays_standing[UNDERWEAR_LAYER] = image(underwear)
 	if(update_icons)
