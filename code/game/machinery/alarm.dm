@@ -891,6 +891,8 @@
 		return
 	last_sound_time = world.time
 	for(var/i in 1 to 3)		//plays 3 times always.
+		if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)		//Check again here in case the power was cut while the audibles were going off.
+			return
 		playsound(src.loc, 'sound/misc/airalarm.ogg', 40, 0, 5)
 		sleep(4 SECONDS)
 
@@ -1227,6 +1229,8 @@ FIRE ALARM
 	var/area/coverage_area = get_area(src)
 	for(var/i in 1 to rand(4,6))		//plays 4 to 6 times.
 		if (!coverage_area.fire)
+			return
+		if(stat & (NOPOWER|BROKEN))		//Check again in case the power was cut while the audible loop was running
 			return
 		playsound(src.loc, 'sound/misc/firealarm.ogg', 40, 0, 5)
 		sleep(4 SECONDS)
