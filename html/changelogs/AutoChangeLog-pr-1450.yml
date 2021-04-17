@@ -1,0 +1,4 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - bugfix: Allows Mercenaries to toggle their magboots on and off.
