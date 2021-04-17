@@ -1,0 +1,5 @@
+author: Valanthe500
+delete-after: true
+changes:
+  - bugfix: Deconstructing a modular console will no longer give you more materials
+      than you put into it.
