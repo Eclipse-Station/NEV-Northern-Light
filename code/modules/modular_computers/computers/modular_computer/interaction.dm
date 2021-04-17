@@ -228,6 +228,7 @@
 					return
 				if(tool.use_tool(user, src, WORKTIME_SLOW, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_EASY, required_stat = STAT_COG))
 					new /obj/item/stack/material/steel( get_turf(src.loc), steel_sheet_cost )
+					new /obj/item/stack/material/glass( get_turf(src.loc), glass_sheet_cost )
 					src.visible_message("\The [src] has been disassembled by [user].")
 					qdel(src)
 					return
