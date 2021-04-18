@@ -101,7 +101,7 @@ item_path: /obj/item/weapon/reagent_containers/food/snacks/fortunecookie/catcook
 }
 
 {
-ckey: selahkitty
+ckey: Selakitteh
 character_name: Sela Sparks
 item_path: /obj/item/clothing/head/beret/purple
 item_name: worn squadron leader beret
