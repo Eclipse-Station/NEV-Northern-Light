@@ -887,8 +887,12 @@
 
 // Eclipse proc - added to reduce impact to Process() call
 /obj/machinery/alarm/proc/play_audible()
+	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)		//Don't play audibles if we can't play audibles (no power, broken, et cetera)
+		return
 	last_sound_time = world.time
 	for(var/i in 1 to 3)		//plays 3 times always.
+		if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)		//Check again here in case the power was cut while the audibles were going off.
+			return
 		playsound(src.loc, 'sound/misc/airalarm.ogg', 40, 0, 5)
 		sleep(4 SECONDS)
 
@@ -1219,10 +1223,14 @@ FIRE ALARM
 
 //Eclipse proc - added to reduce overhead on Process()
 /obj/machinery/firealarm/proc/play_audible()
-	last_sound_time = world.time		//at the stert to prevent overlap
+	if(stat & (NOPOWER|BROKEN))		//Don't play audibles if we can't play audibles (no power or broken)
+		return
+	last_sound_time = world.time		//at the start to reduce overlap
 	var/area/coverage_area = get_area(src)
 	for(var/i in 1 to rand(4,6))		//plays 4 to 6 times.
 		if (!coverage_area.fire)
+			return
+		if(stat & (NOPOWER|BROKEN))		//Check again in case the power was cut while the audible loop was running
 			return
 		playsound(src.loc, 'sound/misc/firealarm.ogg', 40, 0, 5)
 		sleep(4 SECONDS)
