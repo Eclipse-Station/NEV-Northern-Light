@@ -23,7 +23,7 @@
 /datum/ritual/cruciform/crusader/battle_call
 	name = "Call to Battle"
 	phrase = "Si exieritis ad bellum de terra vestra contra hostes qui dimicant adversum vos clangetis ululantibus tubis et erit recordatio vestri coram Domino Deo vestro ut eruamini de manibus inimicorum vestrorum."
-	desc = "Inspires the prayer and gives him strength to protect the other disciples. True strength in unity."
+	desc = "Inspires the prayer and gives them strength to protect the other disciples. True strength in unity."
 	cooldown = TRUE
 	cooldown_time = 10 MINUTES
 	cooldown_category = "battle call"
