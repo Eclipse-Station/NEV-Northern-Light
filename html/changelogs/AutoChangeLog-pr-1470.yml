@@ -1,0 +1,5 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - bugfix: Fire and air alarm audibles will no longer play if depowered, broken,
+      et cetera
