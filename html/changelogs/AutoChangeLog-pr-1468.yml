@@ -1,0 +1,7 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - bugfix: Fix the code that originally nerfed the maintenance mushrooms' growth
+      rate.
+  - tweak: Doubled the rate that the original nerf allowed maintenance mushrooms to
+      grow at. (Now 120/hour max, from 60/hour max)
