@@ -185,6 +185,8 @@
 	for(var/obj/O in orange(1, src))
 		if(O.density && O.anchored)
 			return TRUE
+		if(istype(O, /obj/structure/closet) && O.density)
+			return TRUE
 
 	return FALSE
 
