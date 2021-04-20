@@ -563,7 +563,7 @@
 				//If it's a stack, we eat multiple sheets.
 				if(istype(O, /obj/item/stack))
 					var/obj/item/stack/material/stack = O
-					if(stack.get_amount() <= 1) //This stops users from putting in only half of a material.
+					if(stack.get_amount() < 1) //This stops users from putting in only half of a material.
 						to_chat(user, SPAN_NOTICE("\The [src] only takes full sheets of materials!"))
 						return
 					total_material *= stack.get_amount()
