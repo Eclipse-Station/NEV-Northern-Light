@@ -3553,9 +3553,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Ironhammer Commander's Desk";
+	department = "Aegis Commander's Desk";
 	departmentType = 4;
-	name = "Ironhammer Commander RC";
+	name = "Aegis Commander RC";
 	pixel_x = -30
 	},
 /obj/machinery/light{
@@ -7869,6 +7869,11 @@
 "arK" = (
 /obj/structure/table/standard,
 /obj/item/weapon/deck/cards,
+/obj/machinery/requests_console{
+	dir = 1;
+	name = "Dorms Requests Console";
+	pixel_y = -32
+	},
 /turf/simulated/floor/carpet/turcarpet,
 /area/eris/crew_quarters/sleep)
 "arL" = (
@@ -13624,6 +13629,12 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/requests_console{
+	department = "Engineering";
+	departmentType = 3;
+	name = "Atmospherics RC";
+	pixel_x = 30
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
@@ -28515,6 +28526,13 @@
 /area/eris/crew_quarters/sleep)
 "bnb" = (
 /obj/machinery/vending/tool,
+/obj/machinery/requests_console{
+	department = "Science";
+	departmentType = 3;
+	dir = 1;
+	name = "Science Requests Console";
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/rnd/lab)
 "bnc" = (
@@ -39372,11 +39390,14 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/inspectors_office)
 "bLv" = (
-/obj/machinery/requests_console{
-	pixel_x = 30
-	},
 /obj/machinery/camera/network/security{
 	dir = 8
+	},
+/obj/machinery/requests_console{
+	department = "Security";
+	departmentType = 3;
+	name = "Forensics Office RC";
+	pixel_x = 30;
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/inspectors_office)
@@ -44819,6 +44840,12 @@
 /obj/structure/table/woodentable,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
+/obj/machinery/requests_console{
+	department = "Security";
+	departmentType = 3;
+	name = "Forensics Office RC";
+	pixel_x = -30;
+	},
 /turf/simulated/floor/carpet,
 /area/eris/security/inspectors_office)
 "bXL" = (
@@ -54616,9 +54643,9 @@
 "cuD" = (
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Moebius Expedition Overseer's Desk";
+	department = "Chief Science Officer's Desk";
 	departmentType = 4;
-	name = "Moebius Expedition Overseer RC";
+	name = "Chief Science Officer RC";
 	pixel_x = -30
 	},
 /turf/simulated/floor/carpet/purcarpet,
@@ -61662,6 +61689,12 @@
 "cKR" = (
 /obj/structure/table/woodentable,
 /obj/item/device/lighting/toggleable/lamp/green,
+/obj/machinery/requests_console{
+	department = "Church";
+	departmentType = 7;
+	name = "Chapel Office RC";
+	pixel_y = 32
+	},
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/neotheology/office)
 "cKS" = (
@@ -79126,9 +79159,9 @@
 "dyS" = (
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Moebius Biolab Officer's Desk";
+	department = "Chief Medical Officer's Desk";
 	departmentType = 4;
-	name = "Moebius Biolab Officer RC";
+	name = "Chief Medical Officer RC";
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white/brown_perforated,
@@ -81368,6 +81401,10 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/centrifuge,
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
 "dEa" = (
@@ -92775,6 +92812,9 @@
 	icon_state = "0-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/medbay{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/chemistry)
 "edS" = (
@@ -99370,6 +99410,12 @@
 /obj/structure/table/bar_special,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/requests_console{
+	department = "Service";
+	departmentType = 2;
+	name = "Bar Requests Console";
+	pixel_x = -30
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
@@ -106170,6 +106216,16 @@
 "fHk" = (
 /turf/simulated/wall/r_wall,
 /area/eris/security/checkpoint/engineering)
+"fIz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/requests_console{
+	name = "Holodeck Requests Console";
+	pixel_x = -30
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/fitness)
 "fKJ" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -106335,6 +106391,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+"gGp" = (
+/obj/machinery/requests_console{
+	department = "Church";
+	departmentType = 7;
+	dir = 1;
+	name = "Bioreactor RC";
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/bioreactor)
 "gGt" = (
 /obj/item/modular_computer/console/preset/engineering/power{
 	dir = 8;
@@ -106597,6 +106663,16 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
+"ilx" = (
+/obj/machinery/requests_console{
+	department = "Medbay";
+	departmentType = 3;
+	dir = 1;
+	name = "Morgue RC";
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/medical/morgue)
 "imV" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/railing/grey{
@@ -107029,6 +107105,17 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/reception)
+"kXK" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/machinery/requests_console{
+	dir = 1;
+	name = "Library Requests Console";
+	pixel_y = -32
+	},
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/library)
 "kZT" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -107711,6 +107798,19 @@
 /obj/landmark/storyevent/hidden_vent_antag,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+"nZL" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/requests_console{
+	department = "Church";
+	departmentType = 7;
+	name = "Hydroponics RC";
+	pixel_x = 30
+	},
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics)
 "nZP" = (
 /obj/structure/reagent_dispensers/fueltank/huge,
 /turf/simulated/floor,
@@ -107817,9 +107917,9 @@
 "owS" = (
 /obj/machinery/requests_console{
 	announcementConsole = 1;
-	department = "Technomancer Exultant's Desk";
+	department = "Chief Engineer's Desk";
 	departmentType = 4;
-	name = "Technomancer Exultant RC";
+	name = "Chief Engineer RC";
 	pixel_x = 30
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -108153,6 +108253,18 @@
 /obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
+"qDK" = (
+/obj/machinery/camera/network/engineering{
+	dir = 8
+	},
+/obj/machinery/requests_console{
+	department = "Engineering";
+	departmentType = 3;
+	name = "Engineering RC";
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/engine_room)
 "qEt" = (
 /turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/sleep_male/toilet_male)
@@ -108567,6 +108679,16 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
+"sLE" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/requests_console{
+	name = "Courtroom RC";
+	pixel_x = 30
+	},
+/turf/simulated/floor/wood,
+/area/eris/command/courtroom)
 "sMI" = (
 /obj/structure/multiz/stairs/active{
 	dir = 8
@@ -128068,7 +128190,7 @@ bYZ
 ccA
 cdO
 bts
-bts
+gGp
 aCn
 bPZ
 bRI
@@ -166244,7 +166366,7 @@ bxH
 bQq
 cpQ
 chs
-cCA
+nZL
 chs
 cjP
 cCA
@@ -167236,7 +167358,7 @@ boi
 bpl
 boi
 boi
-boi
+ilx
 bmx
 aaa
 aaa
@@ -213236,7 +213358,7 @@ abF
 abF
 bSo
 bpA
-bSB
+sLE
 bSt
 cUV
 bTK
@@ -246059,7 +246181,7 @@ rNq
 dMe
 dHZ
 dNM
-dQI
+qDK
 dMe
 dPJ
 dMD
@@ -247054,7 +247176,7 @@ euu
 axW
 eFD
 azg
-azg
+kXK
 ayg
 abF
 cAO
@@ -248059,7 +248181,7 @@ cDi
 cDi
 cEy
 euq
-cEy
+fIz
 cDi
 cDi
 eqJ
