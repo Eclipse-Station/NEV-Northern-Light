@@ -176,7 +176,7 @@ SUBSYSTEM_DEF(dispatcher)
 		tracked_players_crg += M
 	if(M.mind.assigned_role in engineering_positions)
 		tracked_players_eng += M
-	if(M.mind.assigned role in church_positions)
+	if(M.mind.assigned_role in church_positions)
 		tracked_players_chr += M
 	if(M.mind.assigned_role in civilian_positions)
 		if(M.mind.assigned_role != (ASSISTANT_TITLE))		//vagabonds are not staff
