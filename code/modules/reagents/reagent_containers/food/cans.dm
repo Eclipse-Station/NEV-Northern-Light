@@ -2,6 +2,8 @@
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	reagent_flags = NONE //starts closed
+	spawn_tags = SPAWN_TAG_DRINK_SODA
+	bad_type = /obj/item/weapon/reagent_containers/food/drinks/cans
 
 //DRINKS
 
@@ -28,7 +30,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko
 	name = "\improper Thirteen Loko"
-	desc = "The MBO has advised crew members that consumption of Thirteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly."
+	desc = "The Lazarus Medical Division has advised crew members that consumption of Thirteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly."
 	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=8)
 	preloaded_reagents = list("thirteenloko" = 30)

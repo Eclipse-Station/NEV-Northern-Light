@@ -10,7 +10,7 @@
 	icon_state = "infected_machine"
 	density = TRUE
 	anchored = TRUE
-	use_power = FALSE
+	use_power = NO_POWER_USE
 	var/illumination_color = 	COLOR_LIGHTING_CYAN_MACHINERY
 	var/wireweeds_required =	TRUE		//machine got damage if there's no any wireweed on it's turf
 	var/health = 				60
@@ -28,7 +28,7 @@
 	var/cooldown = 0						//cooldown in world.time value
 	var/time_until_regen = 0
 	var/obj/assimilated_machinery
-	var/obj/item/weapon/circuitboard/saved_circuit
+	var/obj/item/weapon/electronics/circuitboard/saved_circuit
 
 /obj/machinery/hivemind_machine/Initialize()
 	. = ..()
@@ -296,11 +296,11 @@
 //CORE-GENERATOR
 //generate evopoints, spread weeds
 /obj/machinery/hivemind_machine/node
-	name = "processing core"
+	name = "Processing Core"
 	desc = "Its cold eye seeks to dominate what it surveys."
 	icon_state = "core"
-	max_health = 360
-	resistance = RESISTANCE_AVERAGE
+	max_health = 420
+	resistance = RESISTANCE_TOUGH
 	can_regenerate = FALSE
 	wireweeds_required = FALSE
 	//internals
@@ -331,7 +331,7 @@
 
 	//self-defense protocol setting
 	var/list/possible_sdps = subtypesof(/datum/hivemind_sdp)
-	if(hive_mind_ai.evo_level > 3)
+	if(hive_mind_ai.evo_level > 6) //level required to be able to teleport away
 		possible_sdps -= /datum/hivemind_sdp/emergency_jump
 	var/picked_sdp = pick(possible_sdps)
 	SDP = new picked_sdp(src)
@@ -409,12 +409,13 @@
 //TURRET
 //shooting the target with toxic goo
 /obj/machinery/hivemind_machine/turret
-	name = "projector"
+	name = "Projector"
 	desc = "This mass of machinery is topped with some sort of nozzle."
-	max_health = 140
+	max_health = 220
+	resistance = RESISTANCE_IMPROVED
 	icon_state = "turret"
-	cooldown_time = 3 SECONDS
-	spawn_weight  =	60
+	cooldown_time = 5 SECONDS
+	spawn_weight  =	55
 	var/proj_type = /obj/item/projectile/goo
 
 
@@ -438,19 +439,24 @@
 //MOB PRODUCER
 //spawns mobs from list
 /obj/machinery/hivemind_machine/mob_spawner
-	name = "assembler"
+	name = "Assembler"
 	desc = "This cylindrical machine has lights around a small portal. The sound of tools comes from inside."
-	max_health = 160
+	max_health = 260
+	resistance = RESISTANCE_IMPROVED
 	icon_state = "spawner"
-	cooldown_time = 30 SECONDS
-	spawn_weight  =	45
+	cooldown_time = 25 SECONDS
+	spawn_weight  =	60
+	density = FALSE //So mobs can walk over it
 	var/mob_to_spawn
-	var/mob_amount = 3
+	var/mob_amount = 4
+
+/obj/spawner/mob/assembled
+	name = "random hivemob"
+	tags_to_spawn = list(SPAWN_MOB_HIVEMIND)
 
 /obj/machinery/hivemind_machine/mob_spawner/Initialize()
 	..()
-	mob_to_spawn = pick(/mob/living/simple_animal/hostile/hivemind/stinger, /mob/living/simple_animal/hostile/hivemind/bomber)
-
+	mob_to_spawn = /obj/spawner/mob/assembled //randomly chooses a mob according to their rarity_value
 
 /obj/machinery/hivemind_machine/mob_spawner/Process()
 	if(!..())
@@ -462,10 +468,10 @@
 		return
 
 	//here we upgrading our spawner and rise controled mob amount, based on EP
-	if(hive_mind_ai.evo_level > 3)
+	if(hive_mind_ai.evo_level > 6)
+		mob_amount = 6
+	else if(hive_mind_ai.evo_level > 3)
 		mob_amount = 5
-	else if(hive_mind_ai.evo_level > 1)
-		mob_amount = 4
 
 	var/mob/living/target = locate() in targets_in_range(world.view, in_hear_range = TRUE)
 	if(target && target.stat != DEAD && target.faction != HIVE_FACTION)
@@ -474,21 +480,24 @@
 
 
 /obj/machinery/hivemind_machine/mob_spawner/use_ability()
-	var/mob/living/simple_animal/hostile/hivemind/spawned_mob = new mob_to_spawn(loc)
+	var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
+	var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
+	spawned_mob.loc = loc
 	spawned_creatures.Add(spawned_mob)
 	spawned_mob.master = src
 	flick("[icon_state]-anim", src)
+	qdel(CATCH)
 
 
 
 //MACHINE PREACHER
 //creepy radio talk, it's okay if they have no sense sometimes
 /obj/machinery/hivemind_machine/babbler
-	name = "jammer"
+	name = "Jammer"
 	desc = "A column-like structure with lights. You can see streams of energy moving inside."
-	max_health = 60
-	evo_level_required = 2 //it's better to wait a bit
-	cooldown_time = 120 SECONDS
+	max_health = 100
+	evo_level_required = 3 //it's better to wait a bit
+	cooldown_time = 90 SECONDS
 	spawn_weight  =	20
 	global_cooldown = TRUE
 	icon_state = "antenna"
@@ -552,12 +561,12 @@
 //SHRIEKER
 //this machine just stuns enemies
 /obj/machinery/hivemind_machine/screamer
-	name = "tormentor"
+	name = "Tormentor"
 	desc = "A head impaled on a metal tendril. Still twitching, still living, still screaming."
 	icon_state = "head"
 	max_health = 100
-	evo_level_required = 2
-	cooldown_time = 30 SECONDS
+	evo_level_required = 3
+	cooldown_time = 20 SECONDS
 	spawn_weight  =	35
 
 
@@ -587,12 +596,12 @@
 	var/mob/living/carbon/human/H = target
 	if(istype(H))
 		if(prob(100 - H.stats.getStat(STAT_VIG)))
-			H.Weaken(8)
+			H.Weaken(5)
 			to_chat(H, SPAN_WARNING("A terrible howl tears through your mind, the voice senseless, soulless."))
 		else
 			to_chat(H, SPAN_NOTICE("A terrible howl tears through your mind, but you refuse to listen to it!"))
 	else
-		target.Weaken(8)
+		target.Weaken(5)
 		to_chat(target, SPAN_WARNING("A terrible howl tears through your mind, the voice senseless, soulless."))
 
 
@@ -600,12 +609,12 @@
 //MIND BREAKER
 //Talks with people in attempt to persuade them doing something.
 /obj/machinery/hivemind_machine/supplicant
-	name = "whisperer"
+	name = "Whisperer"
 	desc = "A small pulsating orb with no apparent purpose. It emits an almost inaudible whisper."
 	max_health = 80
 	icon_state = "orb"
 	evo_level_required = 2
-	cooldown_time = 4 MINUTES
+	cooldown_time = 1 MINUTES
 	global_cooldown = TRUE
 	spawn_weight  =	20
 	var/list/join_quotes = list(
@@ -640,7 +649,7 @@
 //PSI-MODULATOR
 //sends hallucinations to target
 /obj/machinery/hivemind_machine/distractor
-	name = "psi-modulator"
+	name = "Psi-Modulator"
 	desc = "A strange machine shaped like a pyramid. Somehow the pulsating lights shine brighter through closed eyelids."
 	max_health = 110
 	icon_state = "psy"

@@ -1,6 +1,5 @@
 
-//Knifes
-
+//Knives
 /obj/item/weapon/tool/knife
 	name = "kitchen knife"
 	desc = "A general purpose Chef's Knife made by the Free Trade Union. Guaranteed to stay sharp for years to come."
@@ -21,6 +20,10 @@
 	slot_flags = SLOT_BELT
 	structure_damage_factor = STRUCTURE_DAMAGE_BLADE
 
+	//spawn values
+	rarity_value = 10
+	spawn_tags = SPAWN_TAG_KNIFE
+
 /obj/item/weapon/tool/knife/boot
 	name = "boot knife"
 	desc = "A small fixed-blade knife for putting inside a boot."
@@ -29,45 +32,53 @@
 	item_state = "knife"
 	matter = list(MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 1)
 	force = WEAPON_FORCE_PAINFUL
+	armor_penetration = ARMOR_PEN_SHALLOW
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 15)
+	rarity_value = 20
 
 /obj/item/weapon/tool/knife/hook
 	name = "meat hook"
-	desc = "A sharp, metal hook what sticks into things."
+	desc = "A sharp, metal hook that sticks into things."
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
 	matter = list(MATERIAL_PLASTEEL = 5, MATERIAL_PLASTIC = 2)
 	force = WEAPON_FORCE_DANGEROUS
-	armor_penetration = ARMOR_PEN_EXTREME //Should be countered be embedding
+	armor_penetration = ARMOR_PEN_DEEP //Should be countered be embedding
 	embed_mult = 1.5 //This is designed for embedding
+	rarity_value = 5
 
 /obj/item/weapon/tool/knife/ritual
 	name = "ritual knife"
 	desc = "The unearthly energies that once powered this blade are now dormant."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "render"
-	force = WEAPON_FORCE_PAINFUL
+	force = WEAPON_FORCE_NORMAL+2
+	armor_penetration = ARMOR_PEN_SHALLOW
+	rarity_value = 20
 
 /obj/item/weapon/tool/knife/butch
 	name = "butcher's cleaver"
 	icon_state = "butch"
-	desc = "A huge thing used for chopping and chopping up meat. This includes roaches and roach-by-products."
+	desc = "A huge thing used for chopping and chopping up meat. This includes roaches and roach byproducts."
 	force = WEAPON_FORCE_DANGEROUS
-	throwforce = WEAPON_FORCE_NORMAL
-	armor_penetration = ARMOR_PEN_MODERATE
+	throwforce = WEAPON_FORCE_DANGEROUS
+	armor_penetration = ARMOR_PEN_GRAZING
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	matter = list(MATERIAL_STEEL = 5, MATERIAL_PLASTIC = 1)
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 15)
+	rarity_value = 5
 
 /obj/item/weapon/tool/knife/neotritual
-	name = "NeoTheology ritual knife"
+	name = "Mekhane ritual knife"
 	desc = "The sweet embrace of mercy, for relieving the soul from a tortured vessel."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "neot-knife"
 	item_state = "knife"
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_PLASTIC = 1)
-	force = WEAPON_FORCE_PAINFUL
+	force = WEAPON_FORCE_NORMAL
+	armor_penetration = ARMOR_PEN_GRAZING
 	max_upgrades = 3
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/tacknife
 	name = "tactical knife"
@@ -78,6 +89,7 @@
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
 	force = WEAPON_FORCE_PAINFUL
 	armor_penetration = ARMOR_PEN_MODERATE
+	embed_mult = 0.3
 	max_upgrades = 3
 
 /obj/item/weapon/tool/knife/dagger
@@ -87,8 +99,9 @@
 	icon_state = "dagger"
 	item_state = "dagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2)
-	force = WEAPON_FORCE_NORMAL
-	armor_penetration = ARMOR_PEN_DEEP
+	force = WEAPON_FORCE_NORMAL * 1.3
+	armor_penetration = ARMOR_PEN_HALF
+	rarity_value = 15
 
 /obj/item/weapon/tool/knife/dagger/ceremonial
 	name = "ceremonial dagger"
@@ -96,6 +109,10 @@
 	icon_state = "fancydagger"
 	item_state = "fancydagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_GOLD = 1, MATERIAL_SILVER = 1)
+	armor_penetration = ARMOR_PEN_HALF
+	embed_mult = 0.3
+	max_upgrades = 4
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger/bluespace
 	name = "NanoTrasen \"Displacement Dagger\""
@@ -103,20 +120,23 @@
 	icon_state = "bluespace_dagger"
 	item_state = "bluespace_dagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PHORON = 20)
-	force = WEAPON_FORCE_NORMAL+1
+	switched_on_force = WEAPON_FORCE_NORMAL+1
+	armor_penetration = ARMOR_PEN_DEEP
 	embed_mult = 25 //You WANT it to embed
 	suitable_cell = /obj/item/weapon/cell/small
 	toggleable = TRUE
 	use_power_cost = 0.4
 	passive_power_cost = 0.4
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2, TECH_BLUESPACE = 4)
+	spawn_blacklisted = TRUE
 	var/mob/living/embedded
 	var/last_teleport
+	var/entropy_value = 3
 
-/obj/item/weapon/tool/knife/dagger/bluespace/on_embed(var/mob/user)
+/obj/item/weapon/tool/knife/dagger/bluespace/on_embed(mob/user)
 	embedded = user
 
-/obj/item/weapon/tool/knife/dagger/bluespace/on_embed_removal(var/mob/user)
+/obj/item/weapon/tool/knife/dagger/bluespace/on_embed_removal(mob/user)
 	embedded = null
 
 /obj/item/weapon/tool/knife/dagger/bluespace/Process()
@@ -129,9 +149,7 @@
 				last_teleport = world.time
 				playsound(T, "sparks", 50, 1)
 				anim(T,embedded,'icons/mob/mob.dmi',,"phaseout",,embedded.dir)
-				embedded.forceMove(T)
-				playsound(T, 'sound/effects/phasein.ogg', 25, 1)
-				playsound(T, 'sound/effects/sparks2.ogg', 50, 1)
+				go_to_bluespace(get_turf(embedded), entropy_value, TRUE, embedded, T)
 				anim(T,embedded,'icons/mob/mob.dmi',,"phasein",,embedded.dir)
 
 /obj/item/weapon/tool/knife/dagger/assassin
@@ -139,7 +157,9 @@
 	desc = "A sharp implement, with a twist; The handle acts as a reservoir for reagents, and the blade injects those that it hits."
 	icon_state = "assdagger"
 	item_state = "ass_dagger"
+	force = WEAPON_FORCE_HARMLESS+2
 	reagent_flags = INJECTABLE|TRANSPARENT
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/tool/knife/dagger/assassin/New()
 	..()
@@ -177,11 +197,16 @@
 	edge = FALSE
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
-	switched_on_force = WEAPON_FORCE_PAINFUL
+	switched_on_force = WEAPON_FORCE_NORMAL+2
+	armor_penetration = ARMOR_PEN_GRAZING
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL =6)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
-	tool_qualities = null
+	w_class = ITEM_SIZE_TINY
+	var/switched_on_w_class = ITEM_SIZE_SMALL
+	tool_qualities = list()
 	toggleable = TRUE
+	rarity_value = 25
+	spawn_tags = SPAWN_TAG_KNIFE_CONTRABAND
 
 /obj/item/weapon/tool/knife/butterfly/turn_on(mob/user)
 	item_state = "[initial(item_state)]_on"
@@ -193,6 +218,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	switched_on = TRUE
 	tool_qualities = switched_on_qualities
+	w_class = switched_on_w_class
 	if (!isnull(switched_on_force))
 		force = switched_on_force
 	update_icon()
@@ -208,6 +234,7 @@
 	switched_on = FALSE
 	tool_qualities = switched_off_qualities
 	force = initial(force)
+	w_class = initial(w_class)
 	update_icon()
 	update_wear_icon()
 
@@ -221,11 +248,16 @@
 	edge = FALSE
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
-	switched_on_force = WEAPON_FORCE_PAINFUL
+	switched_on_force = WEAPON_FORCE_NORMAL
+	armor_penetration = ARMOR_PEN_GRAZING
+	w_class = ITEM_SIZE_TINY
+	var/switched_on_w_class = ITEM_SIZE_SMALL
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL = 6, MATERIAL_GOLD= 0.5)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
-	tool_qualities = null
+	tool_qualities = list()
 	toggleable = TRUE
+	rarity_value = 30
+	spawn_tags = SPAWN_TAG_KNIFE_CONTRABAND
 
 /obj/item/weapon/tool/knife/switchblade/turn_on(mob/user)
 	item_state = "[initial(item_state)]_on"
@@ -239,6 +271,7 @@
 	tool_qualities = switched_on_qualities
 	if (!isnull(switched_on_force))
 		force = switched_on_force
+	w_class = switched_on_w_class
 	update_icon()
 	update_wear_icon()
 
@@ -252,5 +285,6 @@
 	switched_on = FALSE
 	tool_qualities = switched_off_qualities
 	force = initial(force)
+	w_class = initial(w_class)
 	update_icon()
 	update_wear_icon()

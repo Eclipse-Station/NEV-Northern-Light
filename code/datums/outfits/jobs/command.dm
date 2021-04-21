@@ -37,3 +37,15 @@
 	id_type = /obj/item/weapon/card/id/hop
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/weapon/storage/box/ids = 1, /obj/item/weapon/tool/knife/dagger/ceremonial = 1)
+
+/decl/hierarchy/outfit/job/boff
+	name = OUTFIT_JOB_NAME("Bridge Officer")
+	head = /obj/item/clothing/head/beret/boff
+	suit = /obj/item/clothing/suit/storage/boff
+	uniform = /obj/item/clothing/under/rank/bridge_officer
+	l_ear = /obj/item/device/radio/headset/heads/boff
+	shoes = /obj/item/clothing/shoes/reinforced
+	gloves = /obj/item/clothing/gloves/thick
+	id_type = /obj/item/weapon/card/id/boff
+	pda_type = /obj/item/modular_computer/pda/heads/boff
+	backpack_contents = list(/obj/item/weapon/gun/energy/gun/martin =  1, /obj/item/weapon/cell/small/super = 1)

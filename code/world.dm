@@ -16,8 +16,8 @@ var/global/datum/global_init/init = new ()
 
 /datum/global_init/New()
 	generate_gameid()
-	makeDatumRefLists()
 	load_configuration()
+	makeDatumRefLists()
 
 	initialize_chemical_reagents()
 	initialize_chemical_reactions()
@@ -28,7 +28,7 @@ var/global/datum/global_init/init = new ()
 /datum/global_init/Destroy()
 	return 1
 
-var/game_id = null
+var/game_id
 /proc/generate_gameid()
 	if(game_id != null)
 		return
@@ -69,6 +69,8 @@ var/game_id = null
 	diary = file("data/logs/[date_string].log")
 	diary << "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [time2text(world.timeofday, "hh:mm.ss")][log_end]\n---------------------[log_end]"
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
+
+	world_qdel_log = file("data/logs/[date_string] qdel.log")	// GC Shutdown log
 
 	if(byond_version < RECOMMENDED_VERSION)
 		log_world("Your server's byond version does not meet the recommended requirements for this server. Please update BYOND")
@@ -235,11 +237,11 @@ var/world_topic_spam_protect_time = world.timeofday
 	if (config && config.server_name)
 		s += "<b>[config.server_name]</b> &#8212; "
 
-	s += "<b>[station_name()]</b>";
+	s += "<b>Eclipse - NEV Northern Light</b>";
 	s += " ("
-	s += "<a href=\"http://\">" //Change this to wherever you want the hub to link to.
+	s += "<a href=\"https://discord.gg/xuS4t9U\">" //Change this to wherever you want the hub to link to.
 //	s += "[game_version]"
-	s += "Default"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "<br><small>18+ The beacon in the dark, flung far from civilization. A heavy roleplay experience. Anthro-friendly.</small><br>"
 	s += "</a>"
 	s += ")"
 
@@ -327,3 +329,7 @@ proc/establish_db_connection()
 		return setup_database_connection()
 	else
 		return 1
+
+/world/proc/incrementMaxZ()
+	maxz++
+	SSmobs.MaxZChanged()

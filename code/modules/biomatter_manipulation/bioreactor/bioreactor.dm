@@ -106,14 +106,14 @@
 
 
 /datum/multistructure/bioreactor/proc/pump_solution()
-	if(!chamber_closed || !is_operational())
-		return
 	if(chamber_solution)
 		solution.icon_state = ""
 		flick("solution_pump_out", solution)
 		for(var/obj/machinery/multistructure/bioreactor_part/platform/platform in platforms)
 			platform.set_light(0)
 	else
+		if(!chamber_closed || !is_operational())
+			return
 		solution.icon_state = initial(solution.icon_state)
 		flick("solution_pump_in", solution)
 		for(var/obj/machinery/multistructure/bioreactor_part/platform/platform in platforms)
@@ -142,6 +142,7 @@
 	icon_state = "biomatter_tank_medium"
 	amount_per_transfer_from_this = 50
 	volume = 400
+	spawn_blacklisted = TRUE
 
 
 /obj/structure/reagent_dispensers/biomatter/large

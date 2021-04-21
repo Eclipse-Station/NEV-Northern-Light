@@ -3,7 +3,7 @@
 *******************************/
 /*
 Intended for inquisitors and maybe future crusaders
-A small pool of thematically appropriate religious items that are generally cheaper than conventional equivilants
+A small pool of thematically appropriate religious items that are generally cheaper than conventional equivalants
 */
 
 
@@ -72,7 +72,7 @@ A small pool of thematically appropriate religious items that are generally chea
 /datum/uplink_item/item/neotheology/coat
 	name = "Preacher Coat"
 	item_cost = 3
-	path = /obj/item/clothing/suit/neotheology_coat
+	path = /obj/item/clothing/suit/storage/neotheology_coat
 
 /datum/uplink_item/item/neotheology/hat
 	name = "Preacher Hat"

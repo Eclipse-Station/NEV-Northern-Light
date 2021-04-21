@@ -9,11 +9,11 @@
 	if(.)
 		log_and_message_admins("has triggered a falsified [src]", user)
 
-/datum/uplink_item/abstract/announcements/announce/New()
-	..()
+/datum/uplink_item/abstract/announcements/announce
 	name = "Shipwide Announcement"
 	item_cost = 2
 	desc = "Broadcasts a message anonymously to the entire vessel. Triggers immediately after supplying additional data."
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 
 /datum/uplink_item/abstract/announcements/announce/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
 	var/message = input(user, "What would you like the text of the announcement to be? Write as much as you like, The title will appear as Unknown Broadcast", "False Announcement") as text|null
@@ -82,7 +82,7 @@
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm
 	name = "Ion Storm Announcement"
-	desc = "Interferes with the station's ion sensors. Triggers immediately upon investment."
+	desc = "Interferes with the ship's ion sensors. Triggers immediately upon investment."
 	item_cost = 2
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm/get_goods(var/obj/item/device/uplink/U, var/loc)
@@ -91,10 +91,21 @@
 
 /datum/uplink_item/abstract/announcements/fake_radiation
 	name = "Radiation Storm Announcement"
-	desc = "Interferes with the station's radiation sensors. Triggers immediately upon investment."
+	desc = "Interferes with the ship's radiation sensors. Triggers immediately upon investment."
 	item_cost = 7
 
 /datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/device/uplink/U, var/loc)
 	var/datum/event/radiation_storm/syndicate/S =  new(null, EVENT_LEVEL_MODERATE)
 	S.Initialize()
+	return 1
+
+/datum/uplink_item/abstract/announcements/fake_serb
+	name = "Unknown ship Announcement"
+	desc = "Interferes with the ship's array sensors. Triggers immediately upon investment."
+	item_cost = 8
+
+/datum/uplink_item/abstract/announcements/fake_serb/get_goods(var/obj/item/device/uplink/U, var/loc)
+	var/datum/shuttle/autodock/multi/antag/mercenary/merc = /datum/shuttle/autodock/multi/antag/mercenary
+	command_announcement.Announce(initial(merc.arrival_message), initial(merc.announcer) || "[boss_name]")
+	qdel(merc)
 	return 1

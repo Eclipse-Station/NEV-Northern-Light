@@ -1,3 +1,6 @@
+/obj/item/modular_computer/console/preset
+	bad_type = /obj/item/modular_computer/console/preset
+
 /obj/item/modular_computer/console/preset/install_default_hardware()
 	..()
 	processor_unit = new/obj/item/weapon/computer_hardware/processor_unit(src)
@@ -179,6 +182,16 @@
 /obj/item/modular_computer/console/preset/civilian/professional/library/install_default_programs()
 	..()
 	hard_drive.store_file(new/datum/computer_file/program/library())
+
+// Trade Console
+/obj/item/modular_computer/console/preset/trade/install_default_hardware()
+	..()
+	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+
+/obj/item/modular_computer/console/preset/trade/install_default_programs()
+	..()
+	hard_drive.store_file(new /datum/computer_file/program/trade())
+	set_autorun("trade")
 
 //Dock control
 /*

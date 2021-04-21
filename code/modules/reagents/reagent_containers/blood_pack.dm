@@ -2,15 +2,13 @@
 	name = "blood packs bags"
 	desc = "This box contains blood packs."
 	icon_state = "sterile"
+	rarity_value = 10
+	initial_amount = 7
+	spawn_type = /obj/item/weapon/reagent_containers/blood
 
 /obj/item/weapon/storage/box/bloodpacks/populate_contents()
-	new /obj/item/weapon/reagent_containers/blood(src)
-	new /obj/item/weapon/reagent_containers/blood(src)
-	new /obj/item/weapon/reagent_containers/blood(src)
-	new /obj/item/weapon/reagent_containers/blood(src)
-	new /obj/item/weapon/reagent_containers/blood(src)
-	new /obj/item/weapon/reagent_containers/blood(src)
-	new /obj/item/weapon/reagent_containers/blood(src)
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)
 
 /obj/item/weapon/reagent_containers/blood
 	name = "blood pack"
@@ -20,7 +18,8 @@
 	volume = 200
 	reagent_flags = OPENCONTAINER
 	filling_states = "-10;10;25;50;75;80;100"
-	var/blood_type = null
+	bad_type = /obj/item/weapon/reagent_containers/blood
+	var/blood_type
 
 /obj/item/weapon/reagent_containers/blood/Initialize()
 	. = ..()
@@ -36,7 +35,7 @@
 /obj/item/weapon/reagent_containers/blood/update_icon()
 	cut_overlays()
 
-	if(!reagents.total_volume)
+	if(!reagents || !reagents.total_volume)
 		return
 
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state][get_filling_state()]")
@@ -51,23 +50,25 @@
 	else
 		name = "blood pack"
 
-
+#define bloodtypeandpackname(bloodtype) name = "blood pack ("+bloodtype+")"; blood_type = bloodtype;
 /obj/item/weapon/reagent_containers/blood/APlus
-	blood_type = "A+"
+	bloodtypeandpackname("A+")
 
 /obj/item/weapon/reagent_containers/blood/AMinus
-	blood_type = "A-"
+	bloodtypeandpackname("A-")
 
 /obj/item/weapon/reagent_containers/blood/BPlus
-	blood_type = "B+"
+	bloodtypeandpackname("B+")
 
 /obj/item/weapon/reagent_containers/blood/BMinus
-	blood_type = "B-"
+	bloodtypeandpackname("B-")
 
 /obj/item/weapon/reagent_containers/blood/OPlus
-	blood_type = "O+"
+	bloodtypeandpackname("O+")
 
 /obj/item/weapon/reagent_containers/blood/OMinus
-	blood_type = "O-"
+	bloodtypeandpackname("O-")
 
 /obj/item/weapon/reagent_containers/blood/empty
+	spawn_tags = SPAWN_TAG_JUNK
+	rarity_value = 20

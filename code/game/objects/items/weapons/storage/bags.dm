@@ -53,6 +53,7 @@
 //The custodial robot gets a larger bag since it only has one and no cart
 /obj/item/weapon/storage/bag/trash/robot
 	max_storage_space = DEFAULT_BULKY_STORAGE * 2
+	spawn_tags = null
 
 /obj/item/weapon/storage/bag/trash/robot/update_icon()
 	if(contents.len == 0)
@@ -64,6 +65,21 @@
 	else
 		icon_state = "trashbag3"
 
+/obj/item/weapon/storage/bag/trash/holding
+	name = "trash bag of holding"
+	desc = "The latest and greatest in custodial convenience, a trashbag that is capable of holding vast quantities of garbage."
+	icon_state = "bluetrashbag"
+	max_w_class = ITEM_SIZE_BULKY
+	max_storage_space = DEFAULT_HUGE_STORAGE * 1.25
+	matter = list(MATERIAL_STEEL = 6, MATERIAL_GOLD = 6, MATERIAL_DIAMOND = 2, MATERIAL_URANIUM = 2)
+	spawn_blacklisted = TRUE
+
+/obj/item/weapon/storage/bag/trash/holding/New()
+	..()
+	bluespace_entropy(4, get_turf(src))
+
+/obj/item/weapon/storage/bag/trash/holding/update_icon()
+	return
 
 // -----------------------------
 //        Plastic Bag
@@ -97,6 +113,24 @@
 	max_w_class = ITEM_SIZE_NORMAL
 	can_hold = list(/obj/item/weapon/ore)
 
+/obj/item/weapon/storage/bag/ore/holding
+	name = "satchel of holding"
+	desc = "A revolution in convenience, this satchel allows for infinite ore or produce storage. It's been outfitted with anti-malfunction safety measures."
+	icon_state = "satchel_bspace"
+	max_storage_space = INFINITY
+	max_w_class = ITEM_SIZE_BULKY
+	matter = list(MATERIAL_STEEL = 4, MATERIAL_GOLD = 4, MATERIAL_DIAMOND = 2, MATERIAL_URANIUM = 2)
+	origin_tech = list(TECH_BLUESPACE = 4)
+	can_hold = list(/obj/item/weapon/ore,
+	                /obj/item/weapon/reagent_containers/food/snacks/grown,
+	                /obj/item/seeds,
+	                /obj/item/weapon/grown,
+	                /obj/item/weapon/reagent_containers/food/snacks/egg,
+	                /obj/item/weapon/reagent_containers/food/snacks/meat)
+
+/obj/item/weapon/storage/bag/ore/holding/New()
+	..()
+	bluespace_entropy(10, get_turf(src))
 
 // -----------------------------
 //          Produce bag
@@ -224,6 +258,7 @@
 /obj/item/weapon/storage/bag/sheetsnatcher/borg
 	name = "sheet snatcher 9000"
 	capacity = 500//Borgs get more because >specialization
+	spawn_frequency = 0
 
 // -----------------------------
 //           Cash Bag

@@ -67,6 +67,8 @@
 #define PHORONGUARD        	0x10 	// Does not get contaminated by phoron.
 #define PROXMOVE           	0x20  	// Does this object require proximity checking in Enter()?
 #define SILENT				0x40 	// Sneaky shoes and silenced tools
+#define LOUD			    0x80 	// Loud as hell tools
+#define HONKING			    0x100 	// Honking tools
 
 //Flags for items (equipment)
 #define THICKMATERIAL              0x1  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
@@ -138,7 +140,7 @@
 #define HAND_LEFT   0x800
 #define HAND_RIGHT  0x1000
 #define HANDS       0x1800 // HAND_LEFT | HAND_RIGHT
-#define EARS		0x3000
+#define EARS		0x2000
 #define FULL_BODY   0xFFFF
 
 // Bitflags for the percentual amount of protection a piece of clothing which covers the body part offers.

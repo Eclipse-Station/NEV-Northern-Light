@@ -20,11 +20,11 @@
 	var/selfdestructing = 0
 	var/charges = 1
 
-/obj/machinery/syndicate_beacon/attack_hand(var/mob/user as mob)
+/obj/machinery/syndicate_beacon/attack_hand(mob/user)
 	usr.set_machine(src)
 	var/dat = "<font color=#005500><i>Scanning [pick("retina pattern", "voice print", "fingerprints", "dna sequence")]...<br>Identity confirmed,<br></i></font>"
 	if(ishuman(user) || isAI(user))
-		if(is_special_character(user))
+		if(is_special_character(user) > LIMITED_ANTAG)
 			dat += "<font color=#07700><i>Operative record found. Greetings, Agent [user.name].</i></font><br>"
 		else if(charges < 1)
 			dat += "<TT>Connection severed.</TT><BR>"
@@ -60,7 +60,7 @@
 				return
 		if(ishuman(M))
 			var/mob/living/carbon/human/N = M
-			M << "<B>You have joined the ranks of the Syndicate and become a traitor to the station!</B>"
+			M << "<B>You have joined the ranks of the Syndicate and become a traitor to the ship!</B>"
 			traitors.add_antagonist(N.mind)
 			traitors.equip(N)
 			message_admins("[N]/([N.ckey]) has accepted a traitor objective from a syndicate beacon.")

@@ -176,6 +176,7 @@
 /obj/item/weapon/book/manual/wiki
 	var/page_link = ""
 	window_size = "970x710"
+	bad_type = /obj/item/weapon/book/manual/wiki
 
 /obj/item/weapon/book/manual/wiki/attack_self()
 	if(!dat)
@@ -214,10 +215,10 @@
 	page_link = "Guide_to_Engineering"
 
 /obj/item/weapon/book/manual/wiki/engineering_construction
-	name = "Station Repairs and Construction"
+	name = "Ship Repairs and Construction"
 	icon_state = "book_construction"
 	author = "Engineering Encyclopedia"
-	title = "Station Repairs and Construction"
+	title = "Ship Repairs and Construction"
 	page_link = "Guide_to_Construction"
 
 /obj/item/weapon/book/manual/wiki/engineering_atmos

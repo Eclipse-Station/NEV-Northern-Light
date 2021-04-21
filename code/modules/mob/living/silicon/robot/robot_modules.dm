@@ -14,11 +14,13 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module
 	name = "robot module"
+	desc = "This is a robot module parent class. You shouldn't see this description"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_module"
-	w_class = 100.0
+	w_class = 100
 	item_state = "electronic"
 	flags = CONDUCT
+	bad_type = /obj/item/weapon/robot_module
 	var/hide_on_manifest = FALSE
 	var/channels = list()
 	var/networks = list()
@@ -41,9 +43,9 @@ var/global/list/robot_modules = list(
 	var/no_slip = 0
 	var/list/modules = list()
 	var/list/datum/matter_synth/synths = list()
-	var/obj/item/emag = null
-	var/obj/item/malfAImodule = null
-	var/obj/item/borg/upgrade/jetpack = null
+	var/obj/item/emag
+	var/obj/item/malfAImodule
+	var/obj/item/borg/upgrade/jetpack
 	var/list/subsystems = list()
 	var/list/obj/item/borg/upgrade/supported_upgrades = list()
 
@@ -53,8 +55,8 @@ var/global/list/robot_modules = list(
 
 	//Module stats, these are applied to the robot
 	health = 200 //Max health. Apparently this is already defined in item.dm
-	var/speed_factor = 1.0 //Speed factor, applied as a divisor on movement delay
-	var/power_efficiency = 1.0 //Power efficiency, applied as a divisor on power taken from the internal cell
+	var/speed_factor = 1 //Speed factor, applied as a divisor on movement delay
+	var/power_efficiency = 1 //Power efficiency, applied as a divisor on power taken from the internal cell
 
 	//Stat modifiers for skillchecks
 	var/list/stat_modifiers = list(
@@ -66,12 +68,9 @@ var/global/list/robot_modules = list(
 	)
 
 
-
-	desc = "This is a robot module parent class. You shouldn't see this description"
-
 /obj/item/weapon/robot_module/New(var/mob/living/silicon/robot/R)
 	..()
-	if (!istype(R))
+	if(!istype(R))
 		return
 
 	R.module = src
@@ -102,20 +101,21 @@ var/global/list/robot_modules = list(
 
 
 /obj/item/weapon/robot_module/Initialize()
+	. = ..()
 	for(var/obj/item/I in modules)
 		I.canremove = 0
 		I.set_plane(ABOVE_HUD_PLANE)
 		I.layer = ABOVE_HUD_LAYER
 
-	for (var/obj/item/weapon/tool/T in modules)
+	for(var/obj/item/weapon/tool/T in modules)
 		T.degradation = 0 //We don't want robot tools breaking
 
 	//A quick hack to stop robot modules running out of power
 	//Later they'll be wired to the robot's central battery once we code functionality for that
 	//Setting it to infinity causes errors, so just a high number is fine
-	for (var/obj/item/I in modules)
+	for(var/obj/item/I in modules)
 		if(!istype(I, /obj/item/weapon/gun/energy)) // Guns have their own code for drawing charge from cyborg cell
-			for (var/obj/item/weapon/cell/C in I)
+			for(var/obj/item/weapon/cell/C in I)
 				C.charge = 999999999
 	// I wanna make component cell holders soooo bad, but it's going to be a big refactor, and I don't have the time -- ACCount
 
@@ -160,7 +160,7 @@ var/global/list/robot_modules = list(
 	..()
 	return
 
-/obj/item/weapon/robot_module/proc/respawn_consumable(var/mob/living/silicon/robot/R, var/rate)
+/obj/item/weapon/robot_module/proc/respawn_consumable(mob/living/silicon/robot/R, var/rate)
 	var/obj/item/device/flash/F = locate() in src.modules
 	if(F)
 		if(F.broken)
@@ -228,10 +228,6 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/proc/remove_status_flags(var/mob/living/silicon/robot/R)
 	if(!can_be_pushed)
 		R.status_flags |= CANPUSH
-
-
-
-
 
 
 //The generic robot, a good choice for any situation. Moderately good at everything
@@ -369,7 +365,7 @@ var/global/list/robot_modules = list(
 	..(R)
 
 
-/obj/item/weapon/robot_module/medical/general/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+/obj/item/weapon/robot_module/medical/general/respawn_consumable(mob/living/silicon/robot/R, var/amount)
 	var/obj/item/weapon/reagent_containers/syringe/S = locate() in src.modules
 	if(S.mode == 2)
 		S.reagents.clear_reagents()
@@ -437,6 +433,17 @@ var/global/list/robot_modules = list(
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
 	synths += medicine
+
+	var/obj/item/stack/medical/advanced/bruise_pack/B = new /obj/item/stack/medical/advanced/bruise_pack(src)
+	var/obj/item/stack/medical/advanced/ointment/O = new /obj/item/stack/medical/advanced/ointment(src)
+	B.uses_charge = 1
+	B.charge_costs = list(1000)
+	B.synths = list(medicine)
+	O.uses_charge = 1
+	O.charge_costs = list(1000)
+	O.synths = list(medicine)
+	src.modules += B
+	src.modules += O
 
 	var/obj/item/stack/medical/splint/S = new /obj/item/stack/medical/splint(src)
 	S.uses_charge = 1
@@ -541,6 +548,10 @@ var/global/list/robot_modules = list(
 	var/obj/item/stack/material/cyborg/steel/M = new (src)
 	M.synths = list(metal)
 	src.modules += M
+
+	var/obj/item/stack/material/cyborg/glass/G = new (src)
+	G.synths = list(glass)
+	src.modules += G
 
 	var/obj/item/stack/rods/cyborg/Ro = new /obj/item/stack/rods/cyborg(src)
 	Ro.synths = list(metal)
@@ -734,7 +745,7 @@ var/global/list/robot_modules = list(
 					"Maid" = "maidbot"
 					)
 	health = 250 //Bulky
-	speed_factor = 0.85 //Slow
+	speed_factor = 1.0 // Normal speed, its a cleaning unit and you wouldnt choose it if you sweep floors with ultra slow movement
 	power_efficiency = 0.8 //Poor
 
 	stat_modifiers = list(
@@ -832,6 +843,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/hand_labeler(src)
 	src.modules += new /obj/item/weapon/tool/tape_roll(src) //allows it to place flyers
 	src.modules += new /obj/item/weapon/stamp/denied(src) //why was this even a emagged item before smh
+	src.modules += new /obj/item/device/synthesized_instrument/synthesizer
 
 	var/obj/item/weapon/rsf/M = new /obj/item/weapon/rsf(src)
 	M.stored_matter = 30
@@ -920,7 +932,7 @@ var/global/list/robot_modules = list(
 					)
 
 	health = 160 //Weak
-	speed_factor = 1.0 //Average
+	speed_factor = 1 //Average
 	power_efficiency = 0.75 //Poor efficiency
 
 	desc = "Built for working in a well-equipped lab, and designed to handle a wide variety of research \
@@ -987,6 +999,7 @@ var/global/list/robot_modules = list(
 					"Heavy" = "syndi-heavy",
 					"Artillery" = "spidersyndi"
 					)
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
 	src.modules += new /obj/item/device/flash(src)
@@ -1152,9 +1165,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/tool/pickaxe/drill(src)
 	src.modules += new /obj/item/borg/sight/thermal(src)
-	//src.modules += new /obj/item/weapon/gun/energy/net/mounted(src)
-	//src.modules += new /obj/item/weapon/gun/energy/mountedcannon(src)
-	//src.modules += new /obj/item/weapon/melee/energy/glaive(src)
 	src.modules += new /obj/item/weapon/tool/crowbar/robotic(src)
 	src.modules += new /obj/item/weapon/tool/wrench/robotic(src)
 	src.modules += new /obj/item/weapon/tool/screwdriver/robotic(src)

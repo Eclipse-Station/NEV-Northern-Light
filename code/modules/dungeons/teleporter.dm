@@ -20,7 +20,7 @@
 		/mob/living/simple_animal/hostile/viscerator)//duplicates to rig chances towards spawning more weaker enemies, but in favour of generally spawning more enemies
 	var/turfs_around = list()
 	var/victims_to_teleport = list()
-	var/obj/crawler/spawnpoint/target = null
+	var/obj/crawler/spawnpoint/target
 	anchored = TRUE
 	unacidable = 1
 	density = TRUE
@@ -29,7 +29,7 @@
 	for(var/turf/T in orange(7, src))
 		turfs_around += T
 
-/obj/rogue/teleporter/attack_hand(var/mob/user as mob)
+/obj/rogue/teleporter/attack_hand(mob/user)
 	if(!charge)
 		target = locate(/obj/crawler/spawnpoint)
 		if(target)
@@ -116,9 +116,9 @@
 		victims_to_teleport += E
 
 	for(var/mob/living/M in victims_to_teleport)
-		M.forceMove(get_turf(target))
+		go_to_bluespace(get_turf(src), 3, FALSE, M, get_turf(target))
 
-	new /obj/structure/scrap/science/large(src.loc)
+	new /obj/structure/scrap_spawner/science/large(src.loc)
 
 	sleep(2)
 	var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
@@ -181,13 +181,13 @@
 			if(!H.eyecheck() <= 0)
 				continue
 			flash_time *= H.species.flash_mod
-			var/obj/item/organ/internal/eyes/E = H.internal_organs_by_name[BP_EYES]
-			if(!E)
+			var/eye_efficiency = H.get_organ_efficiency(OP_EYES)
+			if(!eye_efficiency)
 				return
-			if(E.is_bruised() && prob(E.damage + 50))
+			if(eye_efficiency < 50 && prob(100 - eye_efficiency  + 20))
 				if (O.HUDtech.Find("flash"))
 					flick("e_flash", O.HUDtech["flash"])
-				E.damage += rand(1, 5)
+
 		else
 			if(!O.blinded)
 				if (istype(O,/mob/living/silicon/ai))
@@ -206,6 +206,7 @@
 	icon_state = "beacon_off"
 	var/victims_to_teleport = list()
 	var/turf/target = null
+	var/target_type = /obj/crawler/teleport_marker
 	var/active = FALSE
 	w_class = ITEM_SIZE_GARGANTUAN
 	anchored = TRUE
@@ -218,9 +219,9 @@
 
 
 
-/obj/rogue/telebeacon/attack_hand(var/mob/user as mob)
+/obj/rogue/telebeacon/attack_hand(mob/user)
 	if(!target)
-		target = locate(/obj/crawler/teleport_marker)
+		target = locate(target_type)
 	if(!active)
 		if(target)
 			to_chat(user, "You activate the beacon. It starts glowing softly.")
@@ -237,10 +238,10 @@
 		for(var/mob/living/silicon/robot/R in range(8, src))//Borgs too
 			victims_to_teleport += R
 
-		for(var/mob/living/M in victims_to_teleport)
-			M.x = target.x
-			M.y = target.y
-			M.z = target.z
+		for(var/obj/structure/closet/C in range(8, src))//Clostes as well, for transport and storage
+			victims_to_teleport += C
+		for(var/atom/movable/M in victims_to_teleport)
+			go_to_bluespace(get_turf(src), 3, FALSE, M, get_turf(target))
 			sleep(1)
 			var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 			sparks.set_up(3, 0, get_turf(loc))
@@ -250,11 +251,12 @@
 /obj/rogue/telebeacon/return_beacon
 	name = "ancient return beacon"
 	desc = "A metallic pylon, covered in rust. It seems still operational. Barely."
+	target_type = (/obj/crawler/teleport_marker)
 
 
-/obj/rogue/telebeacon/return_beacon/attack_hand(var/mob/user as mob)
+/obj/rogue/telebeacon/return_beacon/attack_hand(mob/user)
 	if(!target)
-		target = locate(/obj/crawler/teleport_marker)
+		target = locate(target_type)
 	if(!active)
 		if(target)
 			to_chat(user, "You activate the beacon. It starts glowing softly.")
@@ -264,8 +266,15 @@
 			to_chat(user, "The beacon has no destination, Ahelp this.")
 	else if(active)
 		to_chat(user, "You reach out and touch the beacon. A strange feeling envelops you.")
-		user.forceMove(get_turf(target))
+		go_to_bluespace(get_turf(src), 3, FALSE, user, get_turf(target))
 		sleep(1)
 		var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 		sparks.set_up(3, 0, get_turf(user))
 		sparks.start()
+
+
+/obj/rogue/telebeacon/return_beacon/bossfight
+	name = "OneStar Heavy Weaponry Testing Range Access Pylon"
+	target_type = /obj/crawler/bossfight_arena
+	desc = "A metallic pylon, covered in rust. It seems still operational. Barely. You have a very bad feeling about this. \
+	OOC NOTE: AFTER THIS IS A BOSSFIGHT WITHOUT ANY CONVENTIONAL MEANS OF ESCAPE. THIS IS YOUR ONLY WARNING."

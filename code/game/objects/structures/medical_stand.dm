@@ -120,7 +120,7 @@
 					return
 				if (breather)
 					src.add_fingerprint(usr)
-					if(!do_mob(usr, target, 30) || !can_apply_to_target(target, usr))
+					if(!do_mob(usr, target, 20) || !can_apply_to_target(target, usr))
 						return
 					if(tank)
 						tank.forceMove(src)
@@ -136,7 +136,7 @@
 					return
 				usr.visible_message(SPAN_NOTICE("\The [usr] begins carefully placing the mask onto [target]."),
 							SPAN_NOTICE("You begin carefully placing the mask onto [target]."))
-				if(!do_mob(usr, target, 100) || !can_apply_to_target(target, usr))
+				if(!do_mob(usr, target, 20) || !can_apply_to_target(target, usr))
 					return
 				// place mask and add fingerprints
 				usr.visible_message(SPAN_NOTICE("\The [usr] has placed \the mask on [target]'s mouth."),
@@ -148,14 +148,14 @@
 				return
 			if("Drip needle")
 				if(attached)
-					if(!do_mob(usr, target, 20))
+					if(!do_mob(usr, target, 10))
 						return
 					visible_message("\The [attached] is taken off \the [src]")
 					attached = null
 				else if(ishuman(target))
 					usr.visible_message(SPAN_NOTICE("\The [usr] begins inserting needle into [target]'s vein."),
 									SPAN_NOTICE("You begin inserting needle into [target]'s vein."))
-					if(!do_mob(usr, target, 50))
+					if(!do_mob(usr, target, 10))
 						usr.visible_message(SPAN_NOTICE("\The [usr]'s hand slips and pricks \the [target]."),
 									SPAN_NOTICE("Your hand slips and pricks \the [target]."))
 						target.apply_damage(3, BRUTE, pick(BP_R_ARM, BP_L_ARM), used_weapon = "Drip needle")
@@ -295,15 +295,15 @@
 		return
 	return 1
 
-/obj/structure/medical_stand/attackby(var/obj/item/weapon/W, var/mob/user)
-	if(istype (W, /obj/item/weapon/tool))
-		if (valve_opened)
+/obj/structure/medical_stand/attackby(obj/item/weapon/W, mob/user)
+	if(istool(W))
+		if(valve_opened)
 			to_chat(user, SPAN_WARNING("Close the valve first."))
 			return
-		if (tank)
+		if(tank)
 			if(!W.use_tool(user, src, WORKTIME_NEAR_INSTANT, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
 				return
-			if (!is_loosen)
+			if(!is_loosen)
 				is_loosen = TRUE
 			else
 				is_loosen = FALSE
@@ -341,7 +341,7 @@
 	else
 		return ..()
 
-/obj/structure/medical_stand/examine(var/mob/user)
+/obj/structure/medical_stand/examine(mob/user)
 	. = ..()
 
 	if (get_dist(src, user) > 2)
@@ -392,7 +392,7 @@
 			if(internalsHud)
 				internalsHud.icon_state = "internal0"
 			breather.internal = null
-	else if (valve_opened)
+	else if (tank && valve_opened)
 		var/datum/gas_mixture/removed = tank.remove_air(0.01)
 		var/datum/gas_mixture/environment = loc.return_air()
 		environment.merge(removed)
@@ -427,11 +427,11 @@
 				return
 			if(H.species.flags & NO_BLOOD)
 				return
-			if(!H.should_have_organ(BP_HEART))
+			if(!H.should_have_process(OP_HEART))
 				return
 
 			// If the human is losing too much blood, beep.
-			if(H.get_blood_volume() < BLOOD_VOLUME_SAFE * 1.05)
+			if(H.get_blood_volume() < (H.total_blood_req + BLOOD_VOLUME_SAFE_MODIFIER) * 1.05)
 				visible_message("\The [src] beeps loudly.")
 
 			var/datum/reagent/B = H.take_blood(beaker,amount)

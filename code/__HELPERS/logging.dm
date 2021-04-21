@@ -2,7 +2,6 @@
 #define DIRECT_OUTPUT(A, B) A << B
 #define SEND_TEXT(target, text) DIRECT_OUTPUT(target, text)
 #define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
-#define WRITE_LOG(log, text) DIRECT_OUTPUT(log, text)		//Eclipse addition for backwards-compatibility with ES13 code
 //print an error message to world.log
 
 
@@ -99,7 +98,7 @@
 	log_debug(text)
 
 /proc/log_qdel(text)
-	WRITE_FILE(world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
+	world_qdel_log << "\[[time_stamp()]] [game_id] QDEL: [text][log_end]"
 
 //pretty print a direction bitflag, can be useful for debugging.
 /proc/print_dir(var/dir)
@@ -212,10 +211,10 @@
 
 
 // Helper proc for building detailed log lines
-/proc/datum_info_line(var/datum/d)
+/proc/datum_info_line(datum/d)
 	if(!istype(d))
 		return
-	if(!istype(d, /mob))
+	if(!ismob(d))
 		return "[d] ([d.type])"
 	var/mob/m = d
 	return "[m] ([m.ckey]) ([m.type])"
@@ -228,3 +227,7 @@
 		return "[a.loc] ([t.x],[t.y],[t.z]) ([a.loc.type])"
 	else if(a.loc)
 		return "[a.loc] (0,0,0) ([a.loc.type])"
+
+/proc/log_subtle(text, mob/speaker)
+	if (config.log_emote)
+		game_log("SUBTLE", text)

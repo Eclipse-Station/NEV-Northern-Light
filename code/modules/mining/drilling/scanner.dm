@@ -32,7 +32,7 @@
 		)
 	var/list/lines = list("Ore deposits found at [source.x], [source.y]:")
 
-	for(var/turf/simulated/T in trange(2, source))
+	for(var/turf/simulated/T in RANGE_TURFS(2, source))
 		if(!T.has_resources)
 			continue
 
@@ -40,13 +40,13 @@
 			var/ore_type
 
 			switch(metal)
-				if("silicates", "carbonaceous rock", "iron")
+				if(MATERIAL_GLASS, MATERIAL_PLASTIC, MATERIAL_IRON)
 					ore_type = "surface minerals"
 				if(MATERIAL_GOLD, MATERIAL_SILVER, MATERIAL_DIAMOND)
 					ore_type = "precious metals"
 				if(MATERIAL_URANIUM)
 					ore_type = "nuclear fuel"
-				if("phoron", "osmium", "hydrogen")
+				if(MATERIAL_PHORON, MATERIAL_OSMIUM, MATERIAL_TRITIUM)
 					ore_type = "exotic matter"
 
 			if(ore_type)
@@ -67,7 +67,7 @@
 /proc/mining_scan_action_precise(turf/source, mob/user)
 	var/list/lines = list("Ore deposits found at [source.x], [source.y]:")
 	var/list/metals = list()
-	for(var/turf/simulated/T in trange(2, source))
+	for(var/turf/simulated/T in RANGE_TURFS(2, source))
 		if(!T.has_resources)
 			continue
 

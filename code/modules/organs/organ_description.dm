@@ -2,9 +2,10 @@
 	var/name = "limb"
 	var/surgery_name
 	var/organ_tag = "limb"
-	var/body_part = null
-	var/parent_organ = null
+	var/body_part
+	var/parent_organ_base
 	var/default_type = /obj/item/organ/external
+	var/default_bone_type = /obj/item/organ/internal/bone
 
 	var/max_damage = 0
 	var/min_broken_damage = 30
@@ -15,7 +16,7 @@
 	var/gendered = FALSE
 
 	var/w_class = ITEM_SIZE_NORMAL
-	var/cavity_max_w_class = ITEM_SIZE_TINY
+	var/max_volume = 2.5	//Space used up by specific organ size and w_class of cavity implants (ITEM_SIZE_SMALL + 0.5)
 
 	var/amputation_point = "spine"
 	var/joint = "neck"
@@ -35,6 +36,7 @@
 	organ_tag = BP_CHEST
 	body_part = UPPER_TORSO
 	default_type = /obj/item/organ/external/chest
+	default_bone_type = /obj/item/organ/internal/bone/chest
 
 	gendered = TRUE
 
@@ -45,7 +47,7 @@
 	cannot_amputate = TRUE
 
 	w_class = ITEM_SIZE_HUGE
-	cavity_max_w_class = ITEM_SIZE_NORMAL
+	max_volume = ITEM_SIZE_TITANIC
 
 	joint = "neck"
 	amputation_point = "spine"
@@ -57,8 +59,9 @@
 	surgery_name = "lower abdomen"
 	organ_tag = BP_GROIN
 	body_part = LOWER_TORSO
-	parent_organ = BP_CHEST
+	parent_organ_base = BP_CHEST
 	default_type = /obj/item/organ/external/groin
+	default_bone_type = /obj/item/organ/internal/bone/groin
 
 	gendered = TRUE
 
@@ -67,7 +70,7 @@
 	dislocated = -1
 
 	w_class = ITEM_SIZE_BULKY
-	cavity_max_w_class = ITEM_SIZE_SMALL
+	max_volume = ITEM_SIZE_COLOSSAL
 
 	joint = "hip"
 	amputation_point = "lumbar"
@@ -78,8 +81,9 @@
 	surgery_name = "head" // Prevents "Unknown's Unkonwn's head" from popping up if the head was amputated and then reattached
 	organ_tag = BP_HEAD
 	body_part = HEAD
-	parent_organ = BP_CHEST
+	parent_organ_base = BP_CHEST
 	default_type = /obj/item/organ/external/head
+	default_bone_type = /obj/item/organ/internal/bone/head
 
 	gendered = TRUE
 
@@ -88,6 +92,7 @@
 	vital = TRUE
 
 	w_class = ITEM_SIZE_NORMAL
+	max_volume = ITEM_SIZE_GARGANTUAN
 
 	joint = "jaw"
 	amputation_point = "neck"
@@ -98,7 +103,7 @@
 	functions = BODYPART_REAGENT_INTAKE | BODYPART_GAS_INTAKE
 
 /datum/organ_description/arm
-	parent_organ = BP_CHEST
+	parent_organ_base = BP_CHEST
 
 	w_class = ITEM_SIZE_NORMAL
 
@@ -111,6 +116,7 @@
 	name = "left arm"
 	organ_tag = BP_L_ARM
 	body_part = ARM_LEFT
+	default_bone_type = /obj/item/organ/internal/bone/l_arm
 
 	joint = "left elbow"
 	amputation_point = "left shoulder"
@@ -119,12 +125,13 @@
 	name = "right arm"
 	organ_tag = BP_R_ARM
 	body_part = ARM_RIGHT
+	default_bone_type = /obj/item/organ/internal/bone/r_arm
 
 	joint = "right elbow"
 	amputation_point = "right shoulder"
 
 /datum/organ_description/leg
-	parent_organ = BP_GROIN
+	parent_organ_base = BP_GROIN
 
 	w_class = ITEM_SIZE_NORMAL
 
@@ -138,6 +145,7 @@
 	organ_tag = BP_L_LEG
 	body_part = LEG_LEFT
 	icon_position = LEFT
+	default_bone_type = /obj/item/organ/internal/bone/l_leg
 
 	joint = "left knee"
 	amputation_point = "left hip"
@@ -147,6 +155,7 @@
 	organ_tag = BP_R_LEG
 	body_part = LEG_RIGHT
 	icon_position = RIGHT
+	default_bone_type = /obj/item/organ/internal/bone/r_leg
 
 	joint = "right knee"
 	amputation_point = "right hip"
@@ -154,28 +163,28 @@
 /datum/organ_description/hand
 	min_broken_damage = 40
 	w_class = ITEM_SIZE_SMALL
-//	can_grasp = TRUE
 	drop_on_remove = list(slot_gloves, slot_handcuffed)
 
 /datum/organ_description/hand/left
 	organ_tag = BP_L_HAND
 	name = "left hand"
 	body_part = HAND_LEFT
-	parent_organ = BP_L_ARM
+	parent_organ_base = BP_L_ARM
 	joint = "left wrist"
 	amputation_point = "left wrist"
+	default_bone_type = /obj/item/organ/internal/bone/l_hand
 
 /datum/organ_description/hand/right
 	organ_tag = BP_R_HAND
 	name = "right hand"
 	body_part = HAND_RIGHT
-	parent_organ = BP_R_ARM
+	parent_organ_base = BP_R_ARM
 	joint = "right wrist"
 	amputation_point = "right wrist"
+	default_bone_type = /obj/item/organ/internal/bone/r_hand
 
 /datum/organ_description/foot
 	min_broken_damage = 40
-//	can_stand = TRUE
 	drop_on_remove = list(slot_shoes, slot_legcuffed)
 
 /datum/organ_description/foot/left
@@ -183,18 +192,20 @@
 	name = "left foot"
 	body_part = FOOT_LEFT
 	icon_position = LEFT
-	parent_organ = BP_L_LEG
+	parent_organ_base = BP_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
+	default_bone_type = /obj/item/organ/internal/bone/l_foot
 
 /datum/organ_description/foot/right
 	organ_tag = BP_R_FOOT
 	name = "right foot"
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
-	parent_organ = BP_R_LEG
+	parent_organ_base = BP_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
+	default_bone_type = /obj/item/organ/internal/bone/r_foot
 
 ////SLIME////
 /datum/organ_description/chest/slime

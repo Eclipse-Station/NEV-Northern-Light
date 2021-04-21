@@ -120,7 +120,6 @@
 	desc = "A white wedding gown made from the finest silk."
 	icon_state = "bride_white"
 	item_state = "nursesuit"
-	flags_inv = HIDESHOES
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 
@@ -169,6 +168,24 @@
 	icon_state = "summerdress3"
 	item_state = "summerdress3"
 
+/obj/item/clothing/under/dress/plaid_blue
+	name = "blue plaid dress"
+	desc = "a classy blue plaid dress"
+	icon_state = "plaid_blue"
+	item_state = "plaid_blue"
+
+/obj/item/clothing/under/dress/plaid_purple
+	name = "purple plaid dress"
+	desc = "a classy purple plaid dress"
+	icon_state = "plaid_purple"
+	item_state = "plaid_purple"
+
+/obj/item/clothing/under/dress/plaid_red
+	name = "red plaid dress"
+	desc = "a classy red plaid dress"
+	icon_state = "plaid_red"
+	item_state = "plaid_red"
+
 obj/item/clothing/under/leisure
 	name = "leisure outfit"
 	desc = "A leisure outfit with brown jacket. Sometimes you just want to wear what is comfortable."
@@ -186,3 +203,64 @@ obj/item/clothing/under/leisure/pullover
 	desc = "Brown pullover with indeterminable pattern."
 	icon_state = "pullover"
 	item_state = "pullover"
+
+obj/item/clothing/under/neon
+	name = "green neon tracksuit"
+	desc = "A tracksuit lined with green neon fibers. Slightly luminescent."
+	icon_state = "neon"
+	item_state = "bl_suit"
+
+obj/item/clothing/under/neon/yellow
+	name = "yellow neon tracksuit"
+	desc = "A tracksuit lined with yellow neon fibers. Slightly luminescent."
+	icon_state = "neony"
+	item_state = "bl_suit"
+
+obj/item/clothing/under/neon/blue
+	name = "blue neon tracksuit"
+	desc = "A tracksuit lined with blue neon fibers. Slightly luminescent."
+	icon_state = "neonb"
+	item_state = "bl_suit"
+
+obj/item/clothing/under/neon/red
+	name = "red neon tracksuit"
+	desc = "A tracksuit lined with red neon fibers. Slightly luminescent."
+	icon_state = "neonr"
+	item_state = "bl_suit"
+
+obj/item/clothing/under/jersey
+	name = "revealing jersey"
+	desc = "For showing your devotion to god, or the opposite for that matter"
+	icon_state = "jersey"
+	item_state = "jersey"
+
+obj/item/clothing/under/cyber
+	name = "augmented jumpsuit"
+	desc = "I wanted a jumpsuit. It gave me THIS."
+	icon_state = "cyber"
+	item_state = "cyber"
+
+obj/item/clothing/under/genericb
+	name = "blue generic outfit"
+	desc = "A simple blue shirt with brown pants."
+	icon_state = "genericb"
+	item_state = "genericb"
+
+obj/item/clothing/under/genericw
+	name = "white generic outfit"
+	desc = "A simple white shirt with grey pants."
+	icon_state = "genericw"
+	item_state = "genericw"
+
+obj/item/clothing/under/genericr
+	name = "red generic outfit"
+	desc = "A simple red shirt with black pants."
+	icon_state = "genericr"
+	item_state = "genericr"
+
+/obj/item/clothing/under/gnome
+	name = "gnome outfit"
+	desc = "Against the gnome there is no reception, if there is no other gnomes."
+	icon_state = "gnome"
+	item_state = "gnome"
+	style = STYLE_HIGH

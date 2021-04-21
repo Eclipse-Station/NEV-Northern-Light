@@ -9,8 +9,9 @@
 	reagent_flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
-	var/base_name = null // Name to put in front of drinks, i.e. "[base_name] of [contents]"
-	var/base_icon = null // Base icon name for fill states
+	bad_type = /obj/item/weapon/reagent_containers/food/drinks
+	var/base_name // Name to put in front of drinks, i.e. "[base_name] of [contents]"
+	var/base_icon // Base icon name for fill states
 
 /obj/item/weapon/reagent_containers/food/drinks/Initialize()
 	. = ..()
@@ -60,7 +61,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/update_icon()
 	cut_overlays()
-	if(reagents.total_volume)
+	if(reagents && reagents.total_volume)
 		if(base_name)
 			var/datum/reagent/R = reagents.get_master_reagent()
 			SetName("[base_name] of [R.glass_name ? R.glass_name : "something"]")
@@ -79,7 +80,7 @@
 	set src in view(1)
 
 	if(isghost(usr))
-		to_chat(usr, "Ghosts can't gulp down drinks!")		//this was originally "You ghost!" verbatim, and I kinda wanted to keep that but felt it more professional to change it
+		to_chat(usr, "You ghost!")
 		return
 
 	if(is_drainable())
@@ -96,9 +97,9 @@
 		if(reagents.total_volume > 30) // 30 equates to 3 SECONDS.
 			usr.visible_message(SPAN_NOTICE("[usr] prepares to gulp down [src]."), SPAN_NOTICE("You prepare to gulp down [src]."))
 		if(!do_after(usr, reagents.total_volume))
-			if(!Adjacent(usr))
-				return
-			standard_splash_mob(src, src)
+			if(Adjacent(usr))
+				standard_splash_mob(src, src)
+			return
 
 		if(!Adjacent(usr))
 			return
@@ -181,7 +182,8 @@
 	base_icon = "cup"
 	filling_states = "100"
 	preloaded_reagents = list("dry_ramen" = 30)
-
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	rarity_value = 15
 
 /obj/item/weapon/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
@@ -192,7 +194,7 @@
 	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/weapon/reagent_containers/food/drinks/sillycup/update_icon()
-	if(reagents.total_volume)
+	if(reagents && reagents.total_volume)
 		icon_state = "water_cup"
 	else
 		icon_state = "water_cup_e"
@@ -277,6 +279,8 @@
 	icon_state = "barflask"
 	volume = 60
 	center_of_mass = list("x"=17, "y"=7)
+	spawn_tags = SPAWN_TAG_JUNK
+	rarity_value = 20
 
 /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
 	name = "vacuum flask"
@@ -351,8 +355,8 @@
 	icon_state = "britmug"
 
 /obj/item/weapon/reagent_containers/food/drinks/mug/moebius
-	name = "\improper NanoTrasen mug"
-	desc = "A mug with a NanoTrasen logo, scribbled to have an M on it. Not even your morning coffee is safe from corporate advertising."
+	name = "\improper Moebius mug"
+	desc = "A mug with a Moebius Laboratories logo on it. Not even your morning coffee is safe from corporate advertising."
 	icon_state = "mug_moebius"
 
 /obj/item/weapon/reagent_containers/food/drinks/mug/teacup

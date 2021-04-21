@@ -4,12 +4,13 @@
 	phrase = null
 	power = 0
 	category = "Group"
-	var/list/phrases = list()
-	var/effect_type = null
 
 	cooldown = TRUE
 	cooldown_time = 1 SECONDS
 	cooldown_category = "group"
+	var/list/phrases = list()
+	var/effect_type
+	var/override_type
 
 /datum/ritual/group/pre_check(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C, targets)
 	if(is_on_cooldown(H))
@@ -63,6 +64,7 @@
 
 	var/datum/ritual/group/ritual
 	var/datum/group_ritual_effect/effect = null
+	var/override_type
 
 /datum/core_module/group_ritual/set_up()
 	first = TRUE
@@ -130,8 +132,9 @@
 	success(starter, participants.len)
 
 	for(var/mob/affected in participants)
-		to_chat(affected, fail_message)
+		to_chat(affected, succ_message)
 		success(affected, participants.len)
+	GLOB.grup_ritual_performed++
 
 /datum/group_ritual_effect/proc/success(var/mob/affected, var/part_len)
 	return

@@ -8,7 +8,7 @@
 		body_part = limb.body_part
 		amputation_point = limb.amputation_point
 		joint = limb.joint
-		parent_organ = limb.parent_organ
+		parent_organ_base = limb.parent_organ_base
 		wounds = limb.wounds.Copy()
 	..(holder, null)
 	if(istype(limb))
@@ -31,7 +31,9 @@
 
 /obj/item/organ/external/stump/removed()
 	..()
-	qdel(src)
+	if(owner)
+		qdel(src)
+	owner = null //To stop infinate deletion loop.
 
 /obj/item/organ/external/stump/is_usable()
 	return FALSE

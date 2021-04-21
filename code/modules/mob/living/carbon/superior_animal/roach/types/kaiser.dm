@@ -9,33 +9,36 @@ Has ability of every roach.
 	icon = 'icons/mob/64x64.dmi'
 	icon_state = "kaiser_roach"
 	icon_living = "kaiser_roach"
-	icon_dead = "kiaser_roach_dead"
+	icon_dead = "kaiser_roach_dead"
 	density = TRUE
+	spawn_blacklisted = TRUE
+	rarity_value = 100
 
-	turns_per_move = 4
+	turns_per_move = 6
 	maxHealth = 2000
 	health = 2000
 	contaminant_immunity = TRUE
 
 	var/datum/reagents/gas_sac
 
-	melee_damage_lower = 10
-	melee_damage_upper = 20
+	melee_damage_lower = 20
+	melee_damage_upper = 35
 	move_to_delay = 8
 	mob_size = MOB_HUGE
+	status_flags = 0
+	mouse_opacity = MOUSE_OPACITY_OPAQUE // Easier to click on in melee, they're giant targets anyway
+
+	blattedin_revives_left = 0
+
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kaiser
+	meat_amount = 15
+	sanity_damage = 3
 
 	var/distress_call_stage = 3
 
 	var/health_marker_1 = 1500
 	var/health_marker_2 = 1000
 	var/health_marker_3 = 500
-
-	blattedin_revives_left = 0
-
-	// TODO: Add a special type of meat for Kaiser
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/fuhrer
-	meat_amount = 15
-	sanity_damage = 3
 
 /mob/living/carbon/superior_animal/roach/kaiser/New()
 	..()

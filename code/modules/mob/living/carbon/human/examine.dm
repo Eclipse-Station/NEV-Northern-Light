@@ -38,7 +38,7 @@
 		CRASH("Gender datum was null; key was '[(skipjumpsuit && skipface) ? PLURAL : gender]'")
 
 	msg += "<EM>[src.name]</EM>"
-	if(species.name != "Human")
+	if(species.name != SPECIES_HUMAN)
 		if(custom_species)
 			msg += ", a <b><font color='[species.flesh_color]'>[custom_species]</font></b>"
 		else
@@ -183,20 +183,26 @@
 		if(o && o.status & ORGAN_SPLINTED)
 			msg += "<span class='warning'>[T.He] [T.has] a splint on [T.his] [o.name]!</span>\n"
 
+	if(!wear_suit && !w_uniform && !(T == src))
+		if(locate(/obj/item/weapon/implant/carrion_spider) in src)
+			msg += SPAN_DANGER("[T.He] [T.has] a strange growth on [T.his] chest!") + "\n"
+
 	if(mSmallsize in mutations)
 		msg += "[T.He] [T.is] small halfling!\n"
 
 	var/distance = get_dist(usr,src)
 	if(isghost(usr) || usr.stat == DEAD) // ghosts can see anything
 		distance = 1
-	if (src.stat)
+	if(src.stat || (status_flags & FAKEDEATH))
 		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be asleep.</span>\n"
-		if((stat == DEAD || src.losebreath) && distance <= 3)
+		if((stat == DEAD || src.losebreath || (status_flags & FAKEDEATH)) && distance <= 3)
 			msg += "<span class='warning'>[T.He] [T.does] not appear to be breathing.</span>\n"
 		if(ishuman(usr) && !usr.stat && Adjacent(usr))
 			usr.visible_message("<b>[usr]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
 		if(distance<=1 && do_mob(usr,src,15,progress=0))
-			if(pulse() == PULSE_NONE)
+			if(status_flags & FAKEDEATH)
+				to_chat(usr, "<span class='deadsay'>[T.He] [T.has] no pulse and [T.his] soul has departed...</span>")
+			else if(pulse() == PULSE_NONE)
 				to_chat(usr, "<span class='deadsay'>[T.He] [T.has] no pulse[src.client ? "" : " and [T.his] soul has departed"]...</span>")
 			else
 				to_chat(usr, "<span class='deadsay'>[T.He] [T.has] a pulse!</span>")
@@ -206,20 +212,7 @@
 	if(on_fire)
 		msg += "<span class='warning'>[T.He] [T.is] on fire!.</span>\n"
 
-	/*
-	msg += "<span class='warning'>"
-	if(nutrition < 100)
-		msg += "[T.He] [T.is] severely malnourished.\n"
-	else if(nutrition >= 500)
-		/*if(usr.nutrition < 100)
-			msg += "[T.He] [T.is] plump and delicious looking - Like a fat little piggy. A tasty piggy.\n"
-		else*/
-		msg += "[T.He] [T.is] quite chubby.\n"
-
-	msg += "</span>"
-	*/
-
-	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD)
+	if(species.show_ssd && (!species.has_process[BP_BRAIN] || has_brain()) && stat != DEAD)
 		if(!key)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
 		else if(!client)
@@ -255,9 +248,8 @@
 				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [part_display_name]. It has [temp.get_wounds_desc()]!</span>\n"
 			continue
 		else if(temp.wounds.len > 0 || temp.open)
-			if(temp.is_stump() && temp.parent_organ && organs_by_name[temp.parent_organ])
-				var/obj/item/organ/external/parent = organs_by_name[temp.parent_organ]
-				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [parent.name].</span><br>"
+			if(temp.is_stump() && temp.parent)
+				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.parent.name].</span><br>"
 			else
 				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.name].</span><br>"
 			if(temp.status & ORGAN_BLEEDING)

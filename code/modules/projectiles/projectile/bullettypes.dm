@@ -14,11 +14,11 @@ There are important things regarding this file:
 	damage_types = list(BRUTE = 28)
 	armor_penetration = 10
 	can_ricochet = TRUE
+	penetrating = 1
 
 /obj/item/projectile/bullet/pistol/hv
 	damage_types = list(BRUTE = 32)
 	armor_penetration = 20
-	penetrating = 1
 	step_delay = 0.75
 
 /obj/item/projectile/bullet/pistol/practice
@@ -31,12 +31,16 @@ There are important things regarding this file:
 	can_ricochet = FALSE
 
 /obj/item/projectile/bullet/pistol/rubber
+	icon_state = "rubber"
 	name = "rubber bullet"
 	damage_types = list(BRUTE = 3)
 	agony = 25
 	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
+
+/obj/item/projectile/bullet/pistol/scrap
+	damage_types = list(BRUTE = 25)
 
 //Carbines and rifles
 
@@ -45,11 +49,12 @@ There are important things regarding this file:
 /obj/item/projectile/bullet/srifle
 	damage_types = list(BRUTE = 25)
 	armor_penetration = 25
-	penetrating = 2
+	penetrating = 1
 	can_ricochet = TRUE
 
 /obj/item/projectile/bullet/srifle/nomuzzle
 	muzzle_type = null
+	noshake = TRUE
 
 /obj/item/projectile/bullet/srifle/practice
 	name = "practice bullet"
@@ -63,16 +68,19 @@ There are important things regarding this file:
 /obj/item/projectile/bullet/srifle/hv
 	damage_types = list(BRUTE = 30)
 	armor_penetration = 30
-	penetrating = 4
 	step_delay = 0.75
 
 /obj/item/projectile/bullet/srifle/rubber
+	icon_state = "rubber"
 	name = "rubber bullet"
 	damage_types = list(BRUTE = 3)
 	agony = 30
 	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
+
+/obj/item/projectile/bullet/srifle/scrap
+	damage_types = list(BRUTE = 22)
 
 // .25 caseless rifle
 
@@ -95,11 +103,11 @@ There are important things regarding this file:
 /obj/item/projectile/bullet/clrifle/hv
 	damage_types = list(BRUTE = 32)
 	armor_penetration = 20
-	penetrating = 2
 	step_delay = 0.75
 	can_ricochet = TRUE
 
 /obj/item/projectile/bullet/clrifle/rubber
+	icon_state = "rubber"
 	name = "rubber bullet"
 	damage_types = list(BRUTE = 3)
 	agony = 22
@@ -107,6 +115,9 @@ There are important things regarding this file:
 	embed = FALSE
 	sharp = FALSE
 	can_ricochet = TRUE
+
+/obj/item/projectile/bullet/clrifle/scrap
+	damage_types = list(BRUTE = 24)
 
 // .30 rifle
 
@@ -128,10 +139,10 @@ There are important things regarding this file:
 /obj/item/projectile/bullet/lrifle/hv
 	damage_types = list(BRUTE = 30)
 	armor_penetration = 30
-	penetrating = 2
 	step_delay = 0.75
 
 /obj/item/projectile/bullet/lrifle/rubber
+	icon_state = "rubber"
 	name = "rubber bullet"
 	damage_types = list(BRUTE = 3)
 	agony = 25
@@ -139,11 +150,15 @@ There are important things regarding this file:
 	embed = FALSE
 	sharp = FALSE
 
+/obj/item/projectile/bullet/lrifle/scrap
+	damage_types = list(BRUTE = 25)
+
 //Revolvers and high-caliber pistols .40
 /obj/item/projectile/bullet/magnum
 	damage_types = list(BRUTE = 34)
 	armor_penetration = 15
 	can_ricochet = TRUE
+	penetrating = 1
 
 /obj/item/projectile/bullet/magnum/practice
 	name = "practice bullet"
@@ -157,10 +172,10 @@ There are important things regarding this file:
 /obj/item/projectile/bullet/magnum/hv
 	damage_types = list(BRUTE = 39)
 	armor_penetration = 20
-	penetrating = 1
 	step_delay = 0.75
 
 /obj/item/projectile/bullet/magnum/rubber
+	icon_state = "rubber"
 	name = "rubber bullet"
 	damage_types = list(BRUTE = 8)
 	agony = 32
@@ -168,33 +183,46 @@ There are important things regarding this file:
 	embed = FALSE
 	sharp = FALSE
 
+/obj/item/projectile/bullet/magnum/scrap
+	damage_types = list(BRUTE = 30)
+
 //Sniper rifles .60
 /obj/item/projectile/bullet/antim
 	damage_types = list(BRUTE = 70)
 	armor_penetration = 50
 	stun = 3
 	weaken = 3
-	penetrating = 5
+	penetrating = 1
 	hitscan = TRUE //so the PTR isn't useless as a sniper weapon
+
+/obj/item/projectile/bullet/antim/scrap
+	damage_types = list(BRUTE = 63)
 
 //Shotguns .50
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	icon_state = "slug"
 	damage_types = list(BRUTE = 54)
-	armor_penetration = 10
+	armor_penetration = 15
 	knockback = 1
-	step_delay = 1.65
+	step_delay = 1.1
 
-/obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
+/obj/item/projectile/bullet/shotgun/scrap
+	damage_types = list(BRUTE = 48)
+
+/obj/item/projectile/bullet/shotgun/beanbag
 	name = "beanbag"
 	icon_state = "buckshot"
-	check_armour = ARMOR_MELEE
+	check_armour = ARMOR_BULLET //neverforget
 	damage_types = list(BRUTE = 10)
 	agony = 60
 	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
+
+/obj/item/projectile/bullet/shotgun/beanbag/scrap
+	damage_types = list(BRUTE = 9)
+	agony = 55
 
 /obj/item/projectile/bullet/shotgun/practice
 	name = "practice slug"
@@ -233,6 +261,9 @@ There are important things regarding this file:
 /obj/item/projectile/bullet/pellet/shotgun/Initialize()
 	. = ..()
 	icon_state = "birdshot-[rand(1,4)]"
+
+/obj/item/projectile/bullet/pellet/shotgun/scrap
+	damage_types = list(BRUTE = 9)
 
 //Miscellaneous
 /obj/item/projectile/bullet/blank

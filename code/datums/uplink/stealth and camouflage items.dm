@@ -5,7 +5,7 @@
 	category = /datum/uplink_category/stealth_items
 
 /datum/uplink_item/item/stealth_items/syndigaloshes
-	name = "No-Slip sole"
+	name = "No-Slip Sole"
 	item_cost = 1
 	path = /obj/item/noslipmodule
 
@@ -18,11 +18,13 @@
 	name = "Agent ID card"
 	item_cost = 3
 	path = /obj/item/weapon/card/id/syndicate
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 
 /datum/uplink_item/item/stealth_items/chameleon_kit
 	name = "Chameleon Kit"
 	item_cost = 5
 	path = /obj/item/weapon/storage/box/syndie_kit/chameleon
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 
 /datum/uplink_item/item/stealth_items/voice
 	name = "Voice Changer"
@@ -38,3 +40,13 @@
 	name = "Tool Upgrade: Aural Dampener"
 	item_cost = 1
 	path = /obj/item/weapon/tool_upgrade/augment/dampener
+
+/datum/uplink_item/item/stealth_items/silencer
+    name = "Silencer"
+    item_cost = 2
+    path = /obj/item/weapon/gun_upgrade/muzzle/silencer
+
+/datum/uplink_item/item/stealth_items/killer
+    name = "Syndicate \"Proffesional Killer\" scope"
+    item_cost = 2
+    path = /obj/item/weapon/gun_upgrade/scope/killer

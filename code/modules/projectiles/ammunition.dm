@@ -12,8 +12,8 @@
 	var/is_caseless = FALSE
 	var/caliber = ""					//Which kind of guns it can be loaded into
 	var/projectile_type					//The bullet type to create when New() is called
-	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
-	var/spent_icon = null
+	var/obj/item/projectile/BB			//The loaded bullet - make it so that the projectiles are created only when needed?
+	var/spent_icon
 	var/amount = 1
 	var/maxamount = 15
 	var/reload_delay = 0
@@ -162,6 +162,10 @@
 	throw_speed = 4
 	throw_range = 10
 
+	spawn_tags = SPAWN_TAG_AMMO
+	rarity_value = 10
+	bad_type = /obj/item/ammo_magazine
+
 	var/ammo_color = ""		//For use in modular sprites
 
 	var/list/stored_ammo = list()
@@ -173,7 +177,7 @@
 	var/reload_delay = 0 //when we need to make reload slower
 
 	var/ammo_type = /obj/item/ammo_casing //ammo type that is initially loaded
-	var/initial_ammo = null
+	var/initial_ammo
 
 	var/multiple_sprites = 0
 	//because BYOND doesn't support numbers as keys in associative lists
@@ -283,7 +287,7 @@
 		inserted_casing.update_icon()
 		stored_ammo.Insert(1, inserted_casing)
 	else
-		if(istype(C.loc,/mob))
+		if(ismob(C.loc))
 			var/mob/M = C.loc
 			M.remove_from_mob(C)
 		C.forceMove(src)

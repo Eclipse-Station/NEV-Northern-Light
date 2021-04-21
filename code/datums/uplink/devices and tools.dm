@@ -9,6 +9,7 @@
 	item_cost = 5
 	path = /obj/item/weapon/storage/toolbox/syndicate
 	desc = "Danger. Very robust. Filled with advanced tools."
+
 /datum/uplink_item/item/tools/shield_diffuser
 	name = "Shield Diffuser"
 	item_cost = 4
@@ -41,6 +42,11 @@
 	name = "Heavy Armor Vest"
 	item_cost = 6
 	path = /obj/item/clothing/suit/storage/vest/merc
+	
+/datum/uplink_item/item/tools/full_heavy_vest
+	name = "Fullbody Heavy Armor Vest"
+	item_cost = 8
+	path = /obj/item/clothing/suit/storage/vest/merc/full
 
 /datum/uplink_item/item/tools/heavy_helmet
 	name = "Heavy Armor Helmet"
@@ -93,7 +99,7 @@
 /datum/uplink_item/item/tools/teleporter
 	name = "Teleporter Circuit Board"
 	item_cost = 8
-	path = /obj/item/weapon/circuitboard/teleporter
+	path = /obj/item/weapon/electronics/circuitboard/teleporter
 
 /datum/uplink_item/item/tools/teleporter/New()
 	..()
@@ -102,7 +108,7 @@
 /datum/uplink_item/item/tools/ai_module
 	name = "Hacked AI Upload Module"
 	item_cost = 14
-	path = /obj/item/weapon/aiModule/syndicate
+	path = /obj/item/weapon/electronics/ai_module/syndicate
 
 /datum/uplink_item/item/tools/supply_beacon
 	name = "Hacked Supply Beacon (DANGER!)"
@@ -115,7 +121,7 @@
 			The device owner is immune to this effect."
 	item_cost = 3
 	path = /obj/item/device/mind_fryer
-	antag_roles = list()
+	antag_roles = list(ROLE_TRAITOR, ROLE_BLITZ)
 
 /datum/uplink_item/item/tools/mind_fryer/buy(obj/item/device/uplink/U)
 	. = ..()
@@ -129,7 +135,7 @@
 			Place the sensors in target area, make sure to activate each one and do not move or otherwise disturb them."
 	item_cost = 1
 	path = /obj/item/weapon/storage/box/syndie_kit/spy_sensor
-	antag_roles = ROLES_CONTRACT
+	antag_roles = list(ROLE_TRAITOR, ROLE_BLITZ)
 
 /datum/uplink_item/item/tools/spy_sensor/buy(obj/item/device/uplink/U)
 	. = ..()
@@ -173,6 +179,7 @@
 	name = "Mental Imprinter"
 	item_cost = 5
 	path = /obj/item/device/mental_imprinter
+	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 
 //********** Blitzshell unique uplink items **********//
 
@@ -186,7 +193,7 @@
 /datum/uplink_item/item/tools/blitz_hp_upgrade/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
 	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
 		var/mob/living/silicon/robot/drone/blitzshell/BS = user
-		BS.maxHealth *= 2
+		BS.adjustMaxHealth(30)
 		to_chat(BS, SPAN_NOTICE("Your chassis armour is augmented."))
 		return 1
 	return 0
@@ -211,7 +218,7 @@
 
 /datum/uplink_item/item/tools/blitz_speed_upgrade
 	name = "Blitzshell Speed Upgrade"
-	desc = "Remove limiting factors on your motors, allowing you to move faster."
+	desc = "Download additional RAM, allowing you to move faster."
 	item_cost = 20
 	antag_roles = list(ROLE_BLITZ)
 
@@ -219,7 +226,7 @@
 /datum/uplink_item/item/tools/blitz_speed_upgrade/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
 	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
 		var/mob/living/silicon/robot/drone/blitzshell/BS = user
-		BS.speed_factor += 1
+		BS.speed_factor += 0.2
 		return 1
 	return 0
 
@@ -237,6 +244,22 @@
 			to_chat(BS, SPAN_WARNING("You already have a laser system installed."))
 			return 0
 		BS.module.modules += new /obj/item/weapon/gun/energy/laser/mounted/blitz(BS.module)
+		return 1
+	return 0
+
+/datum/uplink_item/item/tools/blitz_shotgun
+	name = "Blitzshell electro-shrapnel cannon"
+	desc = "Activates the embedded pneumatic weapon system."
+	item_cost = 30
+	antag_roles = list(ROLE_BLITZ)
+
+/datum/uplink_item/item/tools/blitz_shotgun/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
+	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
+		var/mob/living/silicon/robot/drone/blitzshell/BS = user
+		if(locate(/obj/item/weapon/gun/energy/shrapnel/mounted) in BS.module.modules)
+			to_chat(BS, SPAN_WARNING("You already have a shrapnel cannon installed."))
+			return 0
+		BS.module.modules += new /obj/item/weapon/gun/energy/shrapnel/mounted(BS.module)
 		return 1
 	return 0
 
@@ -309,3 +332,24 @@
 		var/mob/living/silicon/robot/drone/blitzshell/BS = new /mob/living/silicon/robot/drone/blitzshell(loc)
 		BS.request_player()
 	return 1
+
+/datum/uplink_item/item/tools/blitz_harpoon
+	name = "Blitzshell Blue Space Harpoon"
+	desc = "Activates the embedded bluespace harpoon."
+	item_cost = 12
+	antag_roles = list(ROLE_BLITZ)
+
+/datum/uplink_item/item/tools/blitz_harpoon/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/living/user)
+	if(user && istype(user, /mob/living/silicon/robot/drone/blitzshell))
+		var/mob/living/silicon/robot/drone/blitzshell/BS = user
+		if(locate(/obj/item/weapon/bluespace_harpoon/mounted/blitz) in BS.module.modules)
+			to_chat(BS, SPAN_WARNING("You already have a bluespace harpoon installed."))
+			return
+		BS.module.modules += new /obj/item/weapon/bluespace_harpoon/mounted/blitz(BS.module)
+		return TRUE
+
+/datum/uplink_item/item/tools/mindreader
+	name = "Mindreader"
+	desc = "Place on your victim's head to extract memories from their brain after a mental breakdown."
+	item_cost = 20
+	path = /obj/item/clothing/head/mindreader

@@ -3,7 +3,7 @@
 /datum/stash/valueable
 	base_type = /datum/stash/valueable
 	loot_type = "Valueables"
-	contents_list_base = list(/obj/random/credits/c5000 = 1)
+	contents_list_base = list(/obj/spawner/credits/c5000 = 1)
 
 	contents_list_random = list(/obj/item/stack/material/diamond/random = 10,
 	/obj/item/stack/telecrystal/random = 5,
@@ -11,9 +11,9 @@
 	/obj/item/stack/material/gold/random = 15,
 	/obj/item/stack/material/silver/random = 25,
 	/obj/item/weapon/moneybag/vault = 15,
-	/obj/random/credits/c5000 = 30,
-	/obj/random/credits/c1000 = 60,
-	/obj/random/credits/c500 = 90)
+	/obj/spawner/credits/c5000 = 30,
+	/obj/spawner/credits/c1000 = 60,
+	/obj/spawner/credits/c500 = 90)
 
 /datum/stash/valueable/poker
 
@@ -38,14 +38,14 @@
 	contents_list_extra = list(/obj/item/weapon/tool/knife/neotritual = 2,
 	/obj/item/weapon/implant/core_implant/cruciform = 4,
 	/obj/item/weapon/book/ritual/cruciform = 4,
-	/obj/item/clothing/suit/neotheology_jacket = 2)
+	/obj/item/clothing/suit/storage/neotheology_jacket = 2)
 	lore = "Acolyte, pirates have taken the ship.<br>\
  When you awaken, avoid arousing any suspicion.<br>\
- Focus on recovering crosses from the faithful. <br>\
+ Focus on recovering cruciforms from the faithful. <br>\
 I have taken the Church relics and secreted them here <br>\
 %D.<br>\
- It should be enough that I am a man of God, but if not, have faith.<br>\
- With or without recovering my cross, I am certain of the immortal reward that awaits us all when this mortal coil passes.<br>\
+ It should be enough that I am a Child of Mekhane, but if not, have faith.<br>\
+ With or without recovering my Cruciform, I am certain of the immortal reward that awaits us all when this mortal coil passes.<br>\
  Steel yourself for the trials ahead, and godspeed."
 
 

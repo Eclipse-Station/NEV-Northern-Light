@@ -42,7 +42,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	icon_keyboard = "rd_key"
 	icon_screen = "rdcomp"
 	light_color = COLOR_LIGHTING_PURPLE_MACHINERY
-	circuit = /obj/item/weapon/circuitboard/rdconsole
+	circuit = /obj/item/weapon/electronics/circuitboard/rdconsole
 	var/datum/research/files								//Stores all the collected research data.
 	var/obj/item/weapon/computer_hardware/hard_drive/portable/disk = null	//Stores the data disk.
 
@@ -54,6 +54,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/id     = 0			//ID of the computer (for server restrictions).
 	var/sync   = 1		//If sync = 0, it doesn't show up on Server Control Console
 	var/can_research = TRUE   //Is this console capable of researching
+	var/hacked = 0 // If this console has had its access requirements hacked or not.
 
 	req_access = list(access_research_equipment) //Data and setting manipulation requires scientist access.
 
@@ -93,7 +94,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		C.files.download_from(files)
 
 /obj/machinery/computer/rdconsole/Initialize()
-	..()
+	. = ..()
 	files = new /datum/research(src) //Setup the research data holder.
 	SyncRDevices()
 
@@ -125,7 +126,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		var/research_points = files.experiments.read_science_tool(D)
 		if(research_points > 0)
 			to_chat(user, SPAN_NOTICE("[name] received [research_points] research points from uploaded data."))
-			files.research_points += research_points
+			files.adjust_research_points(research_points)
 		else
 			to_chat(user, SPAN_NOTICE("There was no useful data inside [D.name]'s buffer."))
 	else
@@ -148,7 +149,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/machinery/computer/rdconsole/proc/handle_item_analysis(obj/item/I) // handles deconstructing items.
 	files.check_item_for_tech(I)
-	files.research_points += files.experiments.get_object_research_value(I)
+	files.adjust_research_points(files.experiments.get_object_research_value(I))
 	files.experiments.do_research_object(I)
 	var/list/matter = I.get_matter()
 	if(linked_lathe && matter)
@@ -424,7 +425,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(linked_destroy)
 			if(linked_destroy.loaded_item)
 				// TODO: If you're refactoring origin_tech, remove this shit. Thank you from the past!
-				var/list/tech_names = list(TECH_MATERIAL = "Materials", TECH_ENGINEERING = "Engineering", TECH_PHORON = "Phoron", TECH_POWER = "Power", TECH_BLUESPACE = "Blue-space", TECH_BIO = "Biotech", TECH_COMBAT = "Combat", TECH_MAGNET = "Electromagnetic", TECH_DATA = "Programming", TECH_COVERT = "Covert")
+				var/list/tech_names = list(TECH_MATERIAL = "Materials", TECH_ENGINEERING = "Engineering", TECH_PLASMA = "Plasma", TECH_POWER = "Power", TECH_BLUESPACE = "Blue-space", TECH_BIO = "Biotech", TECH_COMBAT = "Combat", TECH_MAGNET = "Electromagnetic", TECH_DATA = "Programming", TECH_COVERT = "Covert")
 
 				var/list/temp_tech = linked_destroy.loaded_item.origin_tech
 				var/list/item_data = list()

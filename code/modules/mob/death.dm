@@ -70,8 +70,12 @@
 
 	for(var/mob/living/carbon/human/H in oviewers(src))
 		H.sanity.onSeeDeath(src)
+		SEND_SIGNAL(H, COMSIG_MOB_DEATH, src)
 
 	stat = DEAD
+	for(var/obj/item/weapon/implant/carrion_spider/control/C in src)
+		C.return_mind()
+
 	update_lying_buckled_and_verb_status()
 	reset_plane_and_layer()
 

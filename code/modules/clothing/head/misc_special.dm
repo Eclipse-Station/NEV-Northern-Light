@@ -15,6 +15,7 @@
 	name = "welding helmet"
 	desc = "A head-mounted face cover designed to protect the wearer completely from space-arc eye."
 	icon_state = "welding"
+	rarity_value = 10
 	item_state_slots = list(
 		slot_l_hand_str = "welding",
 		slot_r_hand_str = "welding",
@@ -34,9 +35,10 @@
 	action_button_name = "Flip Welding Mask"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
-	var/base_state
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	style = STYLE_NEG_LOW
+	var/base_state
 
 /obj/item/clothing/head/welding/attack_self()
 	if(!base_state)
@@ -119,8 +121,9 @@
 	desc = "Perfect for winter in Siberia, da?"
 	icon_state = "ushankadown"
 	flags_inv = HIDEEARS
+	rarity_value = 16.66
 
-/obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
+/obj/item/clothing/head/ushanka/attack_self(mob/user)
 	if(src.icon_state == "ushankadown")
 		src.icon_state = "ushankaup"
 		to_chat(user, "You raise the ear flaps on the ushanka.")
@@ -151,6 +154,7 @@
 	body_parts_covered = 0
 	siemens_coefficient = 1.5
 	item_icons = list()
+	rarity_value = 50
 
 /obj/item/clothing/head/kitty/equipped(mob/user, slot)
 	if(slot == slot_head)

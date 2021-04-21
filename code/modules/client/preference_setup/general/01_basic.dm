@@ -74,7 +74,7 @@ datum/preferences
 				pref.real_name = new_name
 				return TOPIC_REFRESH
 			else
-				to_chat(user, SPAN_WARNING("Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
+				to_chat(user, SPAN_WARNING("Invalid first name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
 			return TOPIC_NOACTION
 
 	if(href_list["famname"])		//Eclipse Rework: Family name
@@ -94,7 +94,9 @@ datum/preferences
 					return TOPIC_NOACTION
 
 	else if(href_list["random_name"])
-		pref.real_name = random_name(pref.gender, pref.species)
+		pref.real_name = random_first_name(pref.gender, pref.species)
+		pref.family_name = random_last_name(pref.gender, pref.species)
+		pref.real_name = pref.real_name + " " + pref.family_name
 		return TOPIC_REFRESH
 
 // // // END PARTIAL ECLIPSE REVERT // // //

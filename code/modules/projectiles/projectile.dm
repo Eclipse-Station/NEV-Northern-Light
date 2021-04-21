@@ -17,6 +17,9 @@
 	anchored = TRUE //There's a reason this is here, Mport. God fucking damn it -Agouri. Find&Fix by Pete. The reason this is here is to stop the curving of emitter shots.
 	pass_flags = PASSTABLE
 	mouse_opacity = 0
+	spawn_blacklisted = TRUE
+	spawn_frequency = 0
+	spawn_tags = null
 	var/bumped = FALSE		//Prevents it from hitting more than one guy at once
 	var/hitsound_wall = "ricochet"
 	var/list/mob_hit_sound = list('sound/effects/gore/bullethit2.ogg', 'sound/effects/gore/bullethit3.ogg') //Sound it makes when it hits a mob. It's a list so you can put multiple hit sounds there.
@@ -75,6 +78,7 @@
 	var/matrix/effect_transform			// matrix to rotate and scale projectile effects - putting it here so it doesn't
 										//  have to be recreated multiple times
 
+	var/noshake = FALSE //Eclipse add
 
 /obj/item/projectile/is_hot()
 	if (damage_types[BURN])
@@ -115,6 +119,11 @@
 			continue
 		damage_types[damage_type] += newdamages[damage_type]
 
+/obj/item/projectile/proc/adjust_ricochet(noricochet)
+	if(noricochet)
+		can_ricochet = FALSE
+		return
+
 /obj/item/projectile/proc/on_hit(atom/target, def_zone = null)
 	if(!isliving(target))	return 0
 	if(isanimal(target))	return 0
@@ -132,7 +141,7 @@
 //Checks if the projectile is eligible for embedding. Not that it necessarily will.
 /obj/item/projectile/proc/can_embed()
 	//embed must be enabled and damage type must be brute
-	if(!embed || damage_types[BRUTE] != 0)
+	if(!embed || damage_types[BRUTE] <= 0)
 		return FALSE
 	return TRUE
 
@@ -192,7 +201,7 @@
 	return launch(target, target_zone, x_offset, y_offset, angle_offset)
 
 //Used to change the direction of the projectile in flight.
-/obj/item/projectile/proc/redirect(new_x, new_y, atom/starting_loc, mob/new_firer=null)
+/obj/item/projectile/proc/redirect(new_x, new_y, atom/starting_loc, mob/new_firer)
 	var/turf/new_target = locate(new_x, new_y, src.z)
 
 	original = new_target
@@ -597,8 +606,14 @@
 				var/mob/living/carbon/human/H = target_mob
 				blood_color = H.species.blood_color
 			new /obj/effect/overlay/temp/dir_setting/bloodsplatter(target_mob.loc, splatter_dir, blood_color)
-			if(prob(50))
+			if(target_loca && prob(50))
 				target_loca.add_blood(L)
+
+	if(istype(src, /obj/item/projectile/beam/psychic) && istype(target_mob, /mob/living/carbon/human))
+		var/obj/item/projectile/beam/psychic/psy = src
+		var/mob/living/carbon/human/H = target_mob
+		if(psy.traitor && result && (H.sanity.level <= 0))
+			psy.holder.reg_break(H)
 
 	return TRUE
 

@@ -24,19 +24,19 @@ GLOBAL_LIST_EMPTY(wedge_icon_cache)
 	var/lights = 1 // bolt lights show by default
 	var/aiDisabledIdScanner = 0
 	var/aiHacking = 0
-	var/obj/machinery/door/airlock/closeOther = null
-	var/closeOtherId = null
+	var/obj/machinery/door/airlock/closeOther
+	var/closeOtherId
 	var/lockdownbyai = 0
 	autoclose = 1
 	var/assembly_type = /obj/structure/door_assembly
-	var/mineral = null
+	var/mineral
 	var/justzap = 0
 	var/safe = 1
 	normalspeed = 1
-	var/obj/item/weapon/airlock_electronics/electronics = null
+	var/obj/item/weapon/electronics/airlock/electronics
 	var/hasShocked = 0 //Prevents multiple shocks from happening
 	var/secured_wires = 0
-	var/datum/wires/airlock/wires = null
+	var/datum/wires/airlock/wires
 	var/open_sound_powered = 'sound/machines/airlock_open.ogg'
 	var/close_sound = 'sound/machines/airlock_close.ogg'
 	var/open_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
@@ -348,10 +348,10 @@ GLOBAL_LIST_EMPTY(wedge_icon_cache)
 		PhoronBurn(exposed_temperature)
 
 /obj/machinery/door/airlock/phoron/proc/PhoronBurn(temperature)
-	for(var/turf/simulated/floor/target_tile in trange(2,loc))
+	for(var/turf/simulated/floor/target_tile in RANGE_TURFS(2,loc))
 		target_tile.assume_gas("phoron", 35, 400+T0C)
 		spawn (0) target_tile.hotspot_expose(temperature, 400)
-	for(var/turf/simulated/wall/W in trange(3,src))
+	for(var/turf/simulated/wall/W in RANGE_TURFS(3,src))
 		W.burn((temperature/4))//Added so that you can't set off a massive chain reaction with a small flame
 	for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
 		D.ignite(temperature/4)
@@ -717,7 +717,8 @@ There are 9 wires.
 	return
 
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)
-	ui_interact(user)
+	if(!isblitzshell(user))
+		ui_interact(user)
 
 /obj/machinery/door/airlock/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/topic_state/state = GLOB.default_state)
 	var/data[0]
@@ -995,7 +996,7 @@ There are 9 wires.
 						da.update_state()
 
 						if(operating == -1 || (stat & BROKEN))
-							new /obj/item/weapon/circuitboard/broken(src.loc)
+							new /obj/item/weapon/electronics/circuitboard/broken(src.loc)
 							operating = 0
 						else
 							if (!electronics) create_electronics()
@@ -1046,7 +1047,7 @@ There are 9 wires.
 		if(ABORT_CHECK)
 			return
 
-	if(istype(I, /obj/item/weapon/tool))
+	if(istool(I))
 		return src.attack_hand(user)
 	else if(istype(I, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
@@ -1058,7 +1059,7 @@ There are 9 wires.
 		..()
 	return
 
-/obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob)
+/obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user)
 	if(C)
 		ignite(is_hot(C))
 	..()
@@ -1086,7 +1087,7 @@ There are 9 wires.
 	update_icon()
 	return
 
-/obj/machinery/door/airlock/open(var/forced=0)
+/obj/machinery/door/airlock/open(forced=0)
 	if(!can_open(forced))
 		return 0
 	use_power(360)	//360 W seems much more appropriate for an actuator moving an industrial door capable of crushing people
@@ -1098,14 +1099,20 @@ There are 9 wires.
 		var/obj/item/weapon/tool/T = forced
 		if (istype(T) && T.item_flags & SILENT)
 			playsound(src.loc, open_sound_unpowered, 3, 1, -5) //Silenced tools can force open airlocks silently
+		else if (istype(T) && T.item_flags & LOUD)
+			playsound(src.loc, open_sound_unpowered, 500, 1, 10) //Loud tools can force open airlocks LOUDLY
 		else
 			playsound(src.loc, open_sound_unpowered, 70, 1, -1)
+
+	var/obj/item/weapon/tool/T = forced
+	if (istype(T) && T.item_flags & HONKING)
+		playsound(src.loc, WORKSOUND_HONK, 70, 1, -2)
 
 	if(src.closeOther != null && istype(src.closeOther, /obj/machinery/door/airlock/) && !src.closeOther.density)
 		src.closeOther.close()
 	return ..()
 
-/obj/machinery/door/airlock/can_open(var/forced=0)
+/obj/machinery/door/airlock/can_open(forced=0)
 	if(!forced)
 		if(!arePowerSystemsOn() || isWireCut(AIRLOCK_WIRE_OPEN_DOOR))
 			return 0
@@ -1114,7 +1121,7 @@ There are 9 wires.
 		return 0
 	return ..()
 
-/obj/machinery/door/airlock/can_close(var/forced=0)
+/obj/machinery/door/airlock/can_close(forced=0)
 	if(locked || welded)
 		return FALSE
 
@@ -1148,13 +1155,13 @@ There are 9 wires.
 /mob/living/simple_animal/blocks_airlock() //Airlocks crush cockroahes and mouses.
 	return mob_size > MOB_SMALL
 
-/atom/movable/proc/airlock_crush(var/crush_damage)
+/atom/movable/proc/airlock_crush(crush_damage)
 	return 0
 
-/obj/structure/window/airlock_crush(var/crush_damage)
+/obj/structure/window/airlock_crush(crush_damage)
 	ex_act(2)//Smashin windows
 
-/obj/machinery/portable_atmospherics/canister/airlock_crush(var/crush_damage)
+/obj/machinery/portable_atmospherics/canister/airlock_crush(crush_damage)
 	. = ..()
 	health -= crush_damage
 	healthcheck()
@@ -1208,7 +1215,7 @@ There are 9 wires.
 						next_beep_at = world.time + SecondsToTicks(10)
 					close_door_at = world.time + 6
 					return
-				if(istype(AM, /obj/item/weapon/tool))
+				if(istool(AM))
 					var/obj/item/weapon/tool/T = AM
 					if(T.w_class >= ITEM_SIZE_NORMAL)
 						operating = TRUE
@@ -1237,8 +1244,14 @@ There are 9 wires.
 		var/obj/item/weapon/tool/T = forced
 		if (istype(T) && T.item_flags & SILENT)
 			playsound(src.loc, open_sound_unpowered, 3, 1, -5) //Silenced tools can force airlocks silently
+		else if (istype(T) && T.item_flags & LOUD)
+			playsound(src.loc, open_sound_unpowered, 500, 1, 10) //Loud tools can force open airlocks LOUDLY
 		else
 			playsound(src.loc, open_sound_unpowered, 70, 1, -2)
+
+	var/obj/item/weapon/tool/T = forced
+	if (istype(T) && T.item_flags & HONKING)
+		playsound(src.loc, WORKSOUND_HONK, 70, 1, -2)
 
 	..()
 
@@ -1332,9 +1345,9 @@ There are 9 wires.
 /obj/machinery/door/airlock/proc/create_electronics()
 	//create new electronics
 	if (secured_wires)
-		src.electronics = new/obj/item/weapon/airlock_electronics/secure( src.loc )
+		src.electronics = new/obj/item/weapon/electronics/airlock/secure( src.loc )
 	else
-		src.electronics = new/obj/item/weapon/airlock_electronics( src.loc )
+		src.electronics = new/obj/item/weapon/electronics/airlock( src.loc )
 
 	//update the electronics to match the door's access
 	if(!src.req_access)
@@ -1390,7 +1403,7 @@ There are 9 wires.
 		quiet ? null : playsound(src.loc, hitsound, 20, 1)
 	else
 		user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
-		playsound(src.loc, hitsound, quiet? 3: calc_damage*2.0, 1, 3,quiet?-5 :2)
+		playsound(src.loc, hitsound, quiet? 3: calc_damage*2, 1, 3,quiet?-5 :2)
 		take_damage(W.force)
 
 

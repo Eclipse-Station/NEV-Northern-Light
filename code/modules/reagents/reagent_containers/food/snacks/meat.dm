@@ -8,6 +8,7 @@
 	bitesize = 3
 	matter = list(MATERIAL_BIOMATTER = 20)
 	preloaded_reagents = list("protein" = 9)
+	taste_tag = list(MEAT_FOOD)
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/attackby(obj/item/I, mob/user)
 	if(QUALITY_CUTTING in I.tool_qualities)
@@ -52,11 +53,16 @@
 /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/fuhrer
 	preloaded_reagents = list("protein" = 6, "seligitillin" = 6, "fuhrerole" = 12, "diplopterum" = 6)
 
+/obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kaiser
+	preloaded_reagents = list("protein" = 6, "blattedin" = 12, "seligitillin" = 6, "starkellin" = 15, "fuhrerole" = 12, "diplopterum" = 6)
+
 /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/jager
 	preloaded_reagents = list("protein" = 6, "blattedin" = 6, "gewaltine" = 8, "diplopterum" = 2)
 
-/obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kraftwerk 
+/obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/kraftwerk
 	preloaded_reagents = list("protein" = 6, "blattedin" = 6, "gewaltine" = 6, "uncap nanites" = 2, "nanites" = 3)
+/obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/nitro
+	preloaded_reagents = list("protein" = 6, "fuel" = 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/meat/spider
 	desc = "A bloated slab of sickly-green meat cut from a spider. The venom just gives it more flavor. Delicious!"
@@ -78,7 +84,7 @@
 	desc = "A bloated slab of sickly-green meat cut from a spider. The venom just gives it more flavor. Delicious!"
 	icon_state = "xenomeat"
 	filling_color = "#E2FFDE"
-	
+
 	bitesize = 6
 	preloaded_reagents = list("protein" = 8, "pararein" = 8)
 

@@ -7,7 +7,7 @@
 	throw_speed = 10
 	throw_range = 15
 	sharp = TRUE
-	edge =  1
+	edge = TRUE
 	embed_mult = 5 //We want these to embed
 
 /obj/item/weapon/material/star/New()
@@ -17,7 +17,7 @@
 
 /obj/item/weapon/material/star/throw_impact(atom/hit_atom)
 	..()
-	if(material.radioactivity>0 && isliving(hit_atom))
+	if(material && material.radioactivity>0 && isliving(hit_atom))
 		var/mob/living/M = hit_atom
 		M.adjustToxLoss(rand(20,40))
 

@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/hivebot
-	name = "One Star Autonomous Drone"
-	desc = "Old machine of long time fallen empire. Looks like its just attack everything on sight."
+	name = "hivedrone"
+	desc = "A weird-looking drone of unknown design. Looks hostile."
 	icon = 'icons/mob/hivebot.dmi'
 	icon_state = "melee"
 	icon_dead = "melee_broken"

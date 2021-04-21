@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/roomba
-	name = "One Star RMB-A unit"
+	name = "RMB-A unit"
 	desc = "A small round drone, usually tasked with carrying out menial tasks. This one seems pretty harmless"
 	icon = 'icons/mob/battle_roomba.dmi'
 	icon_state = "roomba"
@@ -26,6 +26,8 @@
 	maxHealth = 25
 	melee_damage_lower = 5
 	melee_damage_upper = 10
+	rarity_value = 36
+	spawn_tags = SPAWN_TAG_MOB_ROOMBA
 
 /mob/living/simple_animal/hostile/roomba/death()
 	..()
@@ -39,7 +41,7 @@
 
 
 /mob/living/simple_animal/hostile/roomba/slayer
-	name = "One Star RMB-A unit"
+	name = "RMB-A unit"
 	desc = "A small round drone, usually tasked with carrying out menial tasks. This one seems to have a knife taped to it..?"
 	icon_state = "roomba_knife"
 	health = 35
@@ -47,11 +49,11 @@
 	speed = 2
 	melee_damage_lower = 12
 	melee_damage_upper = 17
-
+	rarity_value = 39.66
 
 
 /mob/living/simple_animal/hostile/roomba/boomba
-	name = "One Star RMB-A unit"
+	name = "RMB-A unit"
 	desc = "A small round drone, usually tasked with carrying out menial tasks. Is that a fucking anti-personel mine?!"
 	icon_state = "boomba"
 	health = 15
@@ -59,6 +61,7 @@
 	speed = 0
 	melee_damage_lower = 10
 	melee_damage_upper = 10
+	rarity_value = 85
 
 /mob/living/simple_animal/hostile/roomba/boomba/AttackTarget()
 	. = ..()
@@ -68,7 +71,7 @@
 		death()
 
 /mob/living/simple_animal/hostile/roomba/gun_ba
-	name = "One Star RMB-A unit"
+	name = "RMB-A unit"
 	desc = "A small round drone, usually tasked with carrying out menial tasks. And this one has a gun."
 	icon_state = "roomba_lmg"
 	health = 30
@@ -76,25 +79,15 @@
 	speed = 3
 	melee_damage_lower = 5
 	melee_damage_upper = 10
-	ranged = 1
+	ranged = TRUE
+	rarity_value = 59.5
 
-
-/obj/random/mob/roomba
+/obj/spawner/mob/roomba
 	name = "random roomba"
-	icon_state = "hostilemob-black"
-	has_postspawn = TRUE
+	icon_state = "hostilemob-blue"
 	alpha = 128
+	tags_to_spawn = list(SPAWN_MOB_ROOMBA,SPAWN_MOB_OS_CUSTODIAN)
 
-/obj/random/mob/roomba/item_to_spawn()
-	return pickweight(list(/mob/living/simple_animal/hostile/roomba = 17,
-				/mob/living/simple_animal/hostile/roomba/slayer = 15,
-				/mob/living/simple_animal/hostile/roomba/boomba = 7,
-				/mob/living/simple_animal/hostile/roomba/gun_ba = 10,
-				/mob/living/simple_animal/hostile/onestar_custodian = 25,
-				/mob/living/simple_animal/hostile/onestar_custodian/chef = 10,
-				/mob/living/simple_animal/hostile/onestar_custodian/engineer = 15,
-				))
-
-/obj/random/mob/roomba/post_spawn(var/list/spawns)
+/obj/spawner/mob/roomba/post_spawn(list/spawns)
 	for(var/mob/living/simple_animal/A in spawns)
 		A.stasis = TRUE

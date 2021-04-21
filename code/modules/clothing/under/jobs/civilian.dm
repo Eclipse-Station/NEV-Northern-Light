@@ -1,5 +1,4 @@
 //Alphabetical order of civilian jobs.
-
 /obj/item/clothing/under/rank/assistant
 	desc = "Filled with hatred and envy."
 	name = "assistant's uniform"
@@ -18,6 +17,18 @@
 	icon_state = "ba_skirt"
 	item_state = "ba_skirt"
 
+/obj/item/clothing/under/rank/bridge_officer
+	desc = "It's a jumpsuit worn by a person with the title \"Bridge Officer\"."
+	name = "bridge officer's jumpsuit"
+	icon_state = "boff"
+	item_state = "boff"
+
+/obj/item/clothing/under/rank/bridge_officer_skirt
+	desc = "It's a jumpskirt worn by a person with the title \"Bridge Officer\"."
+	name = "bridge officer's jumpskirt"
+	icon_state = "boff_skirt"
+	item_state = "boff_skirt"
+	
 /obj/item/clothing/under/rank/captain //Alright, technically not a 'civilian' but its better then giving a .dm file for a single define.
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
 	name = "captain's jumpsuit"
@@ -50,7 +61,7 @@
 	item_state = "church"
 
 /obj/item/clothing/under/rank/church/sport
-	desc = "smells like lilac."
+	desc = "Smells like lilac."
 	name = "church sports vestment"
 	icon_state = "nt_sports"
 	item_state = "nt_sports"
@@ -60,6 +71,13 @@
 	name = "chef's uniform"
 	icon_state = "chef"
 	item_state = "w_suit"
+
+/obj/item/clothing/under/rank/artist
+	name = "Jester's Garments"
+	desc = "The bright colors are almost distracting."
+	icon_state = "artist"
+	item_state = "artist"
+	spawn_frequency = 0
 
 /obj/item/clothing/under/rank/clown
 	name = "clown suit"
@@ -81,7 +99,7 @@
 	permeability_coefficient = 0.50
 
 /obj/item/clothing/under/rank/janitor
-	desc = "It's the official uniform of the station's janitor."
+	desc = "It's the official uniform of the ship's janitor."
 	name = "janitor's jumpsuit"
 	icon_state = "janitor"
 	item_state = "janitor"
@@ -109,6 +127,6 @@
 
 /obj/item/clothing/under/rank/miner
 	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."
-	name = "guild miner's jumpsuit"
+	name = "Union miner's jumpsuit"
 	icon_state = "miner"
 	item_state = "lb_suit"

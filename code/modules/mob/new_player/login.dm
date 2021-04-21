@@ -18,6 +18,8 @@
 	GLOB.player_list |= src
 
 	new_player_panel()
+	if(!my_client.get_player_age())//Eclipse add
+		new_player_panel_eclipse()
 
 	GLOB.lobbyScreen.play_music(client)
 	GLOB.lobbyScreen.show_titlescreen(client)

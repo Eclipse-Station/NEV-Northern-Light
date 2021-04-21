@@ -14,10 +14,11 @@
 /obj/item/projectile/bullet/on_hit(atom/target)
 	if (..(target))
 		var/mob/living/L = target
-		shake_camera(L, 1, 1, 0.5)
+		if(!noshake)
+			shake_camera(L, 1, 1, 0.5)
 
 /obj/item/projectile/bullet/attack_mob(var/mob/living/target_mob, distance, miss_modifier)
-	if(penetrating > 0 && damage_types[BRUTE] > 20 && prob(damage_types[BRUTE]))
+	if(damage_types[BRUTE] > 20 && prob(damage_types[BRUTE]*penetrating))
 		mob_passthrough_check = 1
 	else
 		var/obj/item/weapon/grab/G = locate() in target_mob
@@ -30,7 +31,7 @@
 /obj/item/projectile/bullet/can_embed()
 	//prevent embedding if the projectile is passing through the mob
 	if(mob_passthrough_check)
-		return 0
+		return FALSE
 	return ..()
 
 /obj/item/projectile/bullet/check_penetrate(var/atom/A)
@@ -49,15 +50,15 @@
 	var/chance = 0
 	if(istype(A, /turf/simulated/wall))
 		var/turf/simulated/wall/W = A
-		chance = round(damage/W.material.integrity*180)
+		chance = round(penetrating*damage/W.material.integrity*180)
 	else if(istype(A, /obj/machinery/door))
 		var/obj/machinery/door/D = A
-		chance = round(damage/D.maxhealth*180)
+		chance = round(penetrating*damage/D.maxhealth*180)
 		if(D.glass) chance *= 2
 	else if(istype(A, /obj/structure/girder))
 		chance = 100
 	else if(istype(A, /obj/machinery) || istype(A, /obj/structure))
-		chance = damage
+		chance = damage*penetrating
 
 	if(prob(chance))
 		if(A.opacity)
@@ -110,7 +111,15 @@
 		//whether the pellet actually hits the def_zone or a different zone should still be determined by the parent using get_zone_with_miss_chance().
 		var/old_zone = def_zone
 		def_zone = ran_zone(def_zone, spread)
-		if (..()) hits++
+		//eclipse edit START - this is what makes shotgun buckshot target mobs randomly on the target tile. It adds all mobs on the target mob tile to a list, checks if they're dead or alive, and then hits them randomly.
+		var/list/collateraltargets = list()
+		for (var/mob/living/M in get_turf(target_mob))
+			if (M.stat != DEAD)
+				collateraltargets += M
+		if (collateraltargets.len > 1)
+			if (..(collateraltargets[rand(1,collateraltargets.len)])) hits++
+		//eclipse edit END
+		else if (..()) hits++
 		def_zone = old_zone //restore the original zone the projectile was aimed at
 
 	pellets -= hits //each hit reduces the number of pellets left

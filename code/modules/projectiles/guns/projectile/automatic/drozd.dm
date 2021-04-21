@@ -8,20 +8,20 @@
 	item_state = "drozd"
 	w_class = ITEM_SIZE_NORMAL
 	force = WEAPON_FORCE_PAINFUL
-	caliber = CAL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
+	caliber = CAL_MAGNUM
 	load_method = MAGAZINE
-
 	mag_well = MAG_WELL_SMG
+	magazine_type = /obj/item/ammo_magazine/msmg
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_STEEL = 4, MATERIAL_PLASTIC = 4)
 	price_tag = 2200
 	damage_multiplier = 0.8 	 //25,6 lethal, 28 HV //damage
 	penetration_multiplier = 1.5 //22.5 lethal, 30 HV //AP
-	recoil_buildup = 6
-	
+	recoil_buildup = 1.2
+
 	twohanded = FALSE
 	one_hand_penalty = 5 //smg level
-	gun_tags = list(GUN_PROJECTILE, GUN_SILENCABLE)
+	gun_tags = list(GUN_SILENCABLE)
 
 	init_firemodes = list(
 		FULL_AUTO_300,

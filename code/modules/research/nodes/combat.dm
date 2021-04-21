@@ -39,8 +39,7 @@
 	icon = "recharger"
 
 	required_technologies = list(
-								/datum/technology/basic_combat
-								)
+								/datum/technology/basic_nonlethal)
 	required_tech_levels = list()
 	cost = 1000
 
@@ -98,7 +97,7 @@
 						)
 
 /datum/technology/exotic_weaponry
-	name = "Experemental Weaponry"
+	name = "Experimental Weaponry"
 	desc = "Remote temperature controling weapon."
 	tech_type = RESEARCH_COMBAT
 
@@ -113,8 +112,8 @@
 	unlocks_designs = list(/datum/design/research/item/weapon/temp_gun)
 
 /datum/technology/adv_exotic_weaponry
-	name = "Advanced Experemental Weaponry"
-	desc = "Specisl weapon system using phoron as catalyst. Special weapon core prototipe that deal DNA damage to target."
+	name = "Advanced Experimental Weaponry"
+	desc = "Special weapon system using plasma as catalyst. Special weapon core prototype that deal DNA damage to target."
 	tech_type = RESEARCH_COMBAT
 
 	x = 0.8
@@ -126,8 +125,30 @@
 	cost = 5000
 
 	unlocks_designs = list(	/datum/design/research/item/weapon/decloner,
-							/datum/design/research/item/weapon/phoronpistol,
-							/datum/design/research/item/weapon_upgrade/penetrator)
+							/datum/design/research/item/weapon/plasmapistol,
+							/datum/design/research/item/weapon/gunmod/penetrator
+						)
+
+/datum/technology/exotic_gunmods
+	name = "Experimental Gunmods"
+	desc = "Experimental gunmods that can grant a wide variety of effects. Use at your own risks."
+	tech_type = RESEARCH_COMBAT
+
+	x = 0.8
+	y = 0.4
+	icon = "toxincoater"
+
+	required_technologies = list(/datum/technology/adv_exotic_weaponry)
+	required_tech_levels = list()
+	cost = 4000
+
+	unlocks_designs = list(
+							/datum/design/research/item/weapon/gunmod/battery_shunt,
+							/datum/design/research/item/weapon/gunmod/overdrive,
+							/datum/design/research/item/weapon/gunmod/toxin_coater,
+							/datum/design/research/item/weapon/gunmod/isotope_diffuser,
+							/datum/design/research/item/weapon/gunmod/psionic_catalyst
+						)
 
 /datum/technology/temp
 	name = "Basic Temperature Ammunition"
@@ -144,7 +165,7 @@
 
 	unlocks_designs = list(
 							/datum/design/research/item/ammo/shotgun_incendiary,
-							/datum/design/research/item/weapon_upgrade/overheat
+							/datum/design/research/item/weapon/gunmod/overheat
 						)
 
 
@@ -181,4 +202,18 @@
 	cost = 5000
 
 	unlocks_designs = list(/datum/design/research/item/weapon/nuclear_gun, /datum/design/research/item/weapon/lasercannon)
+
+/datum/technology/advanced_armor
+	name = "Advanced Armor Solutions"
+	desc = "Advanced voidsuit with combined ballistic and ablative plating."
+	tech_type = RESEARCH_COMBAT
+
+	x = 0.8
+	y = 0.5
+	icon = "moebiushelm"
+
+	required_technologies = list(/datum/technology/laser_weaponry)
+	required_tech_levels = list()
+	cost = 2500
+	unlocks_designs = list(/datum/design/research/item/science_voidsuit)
 

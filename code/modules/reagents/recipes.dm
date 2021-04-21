@@ -7,7 +7,7 @@
 // more than one chemical it will still only appear in only one of the sublists.
 /proc/initialize_chemical_reactions()
 	var/paths = typesof(/datum/chemical_reaction) - /datum/chemical_reaction
-	chemical_reactions_list = list()
+	GLOB.chemical_reactions_list = list()
 
 	for(var/path in paths)
 		var/datum/chemical_reaction/D = new path()
@@ -29,13 +29,13 @@
 					GLOB.chemical_reactions_list_by_result[D.result] = list()
 				GLOB.chemical_reactions_list_by_result[D.result] += D
 			var/reagent_id = D.required_reagents[1]
-			if(!chemical_reactions_list[reagent_id])
-				chemical_reactions_list[reagent_id] = list()
-			chemical_reactions_list[reagent_id] += D
+			if(!GLOB.chemical_reactions_list[reagent_id])
+				GLOB.chemical_reactions_list[reagent_id] = list()
+			GLOB.chemical_reactions_list[reagent_id] += D
 
 //helper that ensures the reaction rate holds after iterating
 //Ex. REACTION_RATE(0.3) means that 30% of the reagents will react each chemistry tick (~2 seconds by default).
-#define REACTION_RATE(rate) (1.0 - (1.0-rate)**(1.0/PROCESS_REACTION_ITER))
+#define REACTION_RATE(rate) (1 - (1-rate)**(1/PROCESS_REACTION_ITER))
 
 //helper to define reaction rate in terms of half-life
 //Ex.
@@ -43,7 +43,7 @@
 //HALF_LIFE(1) -> Half of the reagents react immediately, the rest over the following ticks.
 //HALF_LIFE(2) -> Half of the reagents are consumed after 2 chemistry ticks.
 //HALF_LIFE(3) -> Half of the reagents are consumed after 3 chemistry ticks.
-#define HALF_LIFE(ticks) (ticks? 1.0 - (0.5)**(1.0/(ticks*PROCESS_REACTION_ITER)) : 1.0)
+#define HALF_LIFE(ticks) (ticks? 1 - (0.5)**(1/(ticks*PROCESS_REACTION_ITER)) : 1)
 
 /datum/chemical_reaction
 	var/result = null
@@ -58,7 +58,7 @@
 
 	//if less than 1, the reaction will be inhibited if the ratio of products/reagents is too high.
 	//0.5 = 50% yield -> reaction will only proceed halfway until products are removed.
-	var/yield = 1.0
+	var/yield = 1
 
 	// Reaction thermal requirements
 	var/maximum_temperature = INFINITY
@@ -257,7 +257,7 @@
 /datum/chemical_reaction/toxin
 	result = "toxin"
 	required_reagents = list("ammonia" = 1, "mercury" = 1, "ethanol" = 1)
-	catalysts = list("plasma" = 5)
+	catalysts = list("phoron" = 5)
 	result_amount = 3
 
 /datum/chemical_reaction/sterilizine
@@ -288,7 +288,7 @@
 /datum/chemical_reaction/nicotine
     result = "nicotine"
     required_reagents = list("toxin" = 1, "carbon" = 1, "capsaicin" = 1, "mercury" = 1)
-    result_amount = 4
+    result_amount = 8
 
 /datum/chemical_reaction/lube
 	result = "lube"
@@ -411,7 +411,7 @@
 /datum/chemical_reaction/positive_ling/can_happen(datum/reagents/holder)
 	if(..())
 		var/list/blood_data = holder.get_data("blood")
-		if(blood_data["ling"])
+		if(blood_data["carrion"])
 			return TRUE
 
 	return FALSE
@@ -475,8 +475,9 @@
 
 /datum/chemical_reaction/mindwipe
 	result = "mindwipe"
-	required_reagents = list("mindbreaker" = 1, "psilocybin" = 1, "sanguinum" = 1 , "anti_toxin" = 1, "ethanol" = 1)
-	result_amount = 5
+	required_reagents = list("mindbreaker" = 1, "anti_toxin" = 1, "ethanol" = 1)
+	catalysts = list("whiskey" = 5)
+	result_amount = 1
 
 /datum/chemical_reaction/lipozine
 	result = "lipozine"
@@ -1483,6 +1484,11 @@
 	required_reagents = list("vodka" = 2, "gin" = 1, "whiskey" = 1, "cognac" = 1, "limejuice" = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/rockswhiskey
+	result = "rockswhiskey"
+	required_reagents = list("whiskey" = 2, "ice" = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/brave_bull
 	result = "bravebull"
 	required_reagents = list("tequilla" = 2, "kahlua" = 1)
@@ -1781,8 +1787,8 @@
 
 /datum/chemical_reaction/mbr
 	result = "machine binding ritual"
-	required_reagents = list("coffee" = 2, "diplopterum" = 1, "sugar" = 1, "ethanol" = 1)
-	result_amount = 5
+	required_reagents = list("coffee" = 1, "carbon" = 1, "sugar" = 1, "ethanol" = 1)
+	result_amount = 4
 	maximum_temperature = 343
 	minimum_temperature = 323
 
@@ -1796,20 +1802,19 @@
 /datum/chemical_reaction/party_drops
 	result = "party drops"
 	required_reagents = list("grape drops" = 1, "machine spirit" = 1, "ultrasurgeon" = 1)
-	catalysts = list("honey" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/cherry_drops
 	result = "cherry drops"
-	required_reagents = list("iron" = 1, "psilocybin" = 1, "plantbgone" = 1)
+	required_reagents = list("iron" = 1, "nicotine" = 1, "vodka" = 1)
 	result_amount = 3
 	maximum_temperature = 333
 	minimum_temperature = 303
 
 /datum/chemical_reaction/grape_drops
 	result = "grape drops"
-	required_reagents = list("honey" = 1, "cherry drops" = 2, "ethanol" = 2)
-	result_amount = 5
+	required_reagents = list("nanites" = 1, "cherry drops" = 1, "ethanol" = 1)
+	result_amount = 3
 	maximum_temperature = 343
 	minimum_temperature = 338
 
@@ -1827,47 +1832,49 @@
 
 /datum/chemical_reaction/noexcutite
 	result = "noexcutite"
-	required_reagents = list("oxycodone" = 1, "anti_toxin" = 1)
+	required_reagents = list("tramadol" = 1, "anti_toxin" = 1)
+	maximum_temperature = 150
+	minimum_temperature = 120
 	result_amount = 2
 
 /datum/chemical_reaction/violence
 	result = "violence"
-	required_reagents = list("blood" = 3, "ammonia" = 1, "gewaltine" = 1)
-	result_amount = 5
+	required_reagents = list("acetone" = 1, "ammonia" = 1, "vodka" = 1)
+	result_amount = 6
 	maximum_temperature = 423
 	minimum_temperature = 393
 
 /datum/chemical_reaction/violence_ultra
 	result = "violence ultra"
-	required_reagents = list("violence" = 1, "fuhrerole" = 1, "hyperzine" = 1)
+	required_reagents = list("violence" = 1, "gewaltine" = 1, "tramadol" = 1)
 	result_amount = 3
 	maximum_temperature = 258
 	minimum_temperature = 243
 
 /datum/chemical_reaction/bouncer
 	result = "bouncer"
-	required_reagents = list("violence" = 1, "fuhrerole" = 1, "hyperzine" = 1)
+	required_reagents = list("inaprovaline" = 1, "vodka" = 1, "tramadol" = 1)
 	result_amount = 3
 	maximum_temperature = 333
 	minimum_temperature = 303
 
 /datum/chemical_reaction/boxer
 	result = "boxer"
-	required_reagents = list("bouncer" = 2, "phoron" = 1, "amatoxin" = 2)
-	result_amount = 5
+	required_reagents = list("bouncer" = 1, "starkellin" = 1, "toxin" = 1)
+	result_amount = 3
 	maximum_temperature = 328
 	minimum_temperature = 323
 
 /datum/chemical_reaction/steady
 	result = "steady"
-	required_reagents = list("pararein" = 1, "carpotoxin" = 1, "copper" = 1, "hydrazine" = 1)
+	required_reagents = list("nicotine" = 1, "copper" = 1, "tramadol" = 1)
 	result_amount = 4
 	maximum_temperature = 338
 	minimum_temperature = 323
 
 /datum/chemical_reaction/turbo
 	result = "turbo"
-	required_reagents = list("steady" = 1, "adrenaline" = 1, "synaptizine" = 1)
+	required_reagents = list("steady" = 1, "kelotane" = 1, "pararein" = 1)
 	result_amount = 3
 	maximum_temperature = 293
 	minimum_temperature = 288
@@ -2094,3 +2101,8 @@
 	result = "nanovoice"
 	required_reagents = list("uncap nanites" = 1, "synaptizine" = 1)
 	result_amount = 1
+
+/datum/chemical_reaction/rejuvenating_agent
+	result = "rejuvetaning_agent"
+	required_reagents = list("cleaner" = 2, "pacid" = 1, "sulfur" = 1)
+	result_amount = 2

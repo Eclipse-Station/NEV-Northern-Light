@@ -42,7 +42,7 @@
 				/obj/structure/table,
 				/obj/structure/closet/crate
 			)
-			var/atom/helper = null
+			var/atom/helper
 			var/area/location = get_area(loc)
 			if(!location.has_gravity)
 				helper = src
@@ -67,9 +67,11 @@
 			return
 
 	//PERK_ABSOLUTE_GRAB
-	if(ishuman(A) && stats.getPerk(PERK_ABSOLUTE_GRAB) && a_intent == I_GRAB)
-		absolute_grab(A) // moved into a proc below
-		return
+	
+	if(get_dist_euclidian(get_turf(A), get_turf(src)) < 3 && ishuman(A))
+		if(stats.getPerk(PERK_ABSOLUTE_GRAB) && a_intent == I_GRAB)
+			absolute_grab(A) // moved into a proc belowaa
+			return
 	if(!gloves && !mutations.len) return
 	var/obj/item/clothing/gloves/G = gloves
 	if((LASER in mutations) && a_intent == I_HURT)
@@ -83,20 +85,6 @@
 
 /mob/living/RestrainedClickOn(var/atom/A)
 	return
-
-/*
-	Aliens
-*/
-
-/mob/living/carbon/alien/RestrainedClickOn(var/atom/A)
-	return
-
-/mob/living/carbon/alien/UnarmedAttack(var/atom/A, var/proximity)
-
-	if(!..())
-		return 0
-
-	A.attack_generic(src, rand(5, 6), "bitten")
 
 /*
 	Slimes

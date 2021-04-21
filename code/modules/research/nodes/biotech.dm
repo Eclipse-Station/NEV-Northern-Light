@@ -95,9 +95,12 @@
 
 	unlocks_designs = list(	/datum/design/research/circuit/chemmaster,
 							/datum/design/research/circuit/chemical_dispenser,
+							/datum/design/research/circuit/chemical_dispenser_beer,
+							/datum/design/research/circuit/chemical_dispenser_soda,
 							/datum/design/research/circuit/chem_heater,
 							/datum/design/research/item/makeshift_centrifuge,
-							/datum/design/research/structure/bidon
+							/datum/design/research/structure/bidon,
+							/datum/design/research/structure/bidonadv
 							)
 /*
 /datum/technology/basic_food_processing
@@ -154,7 +157,7 @@
 	desc = "Improved micro manipulations, advaced scanning method. Chemical implant, be careful."
 	tech_type = RESEARCH_BIOTECH
 
-	x = 0.55
+	x = 0.5
 	y = 0.6
 	icon = "handheldmonitor"
 
@@ -172,7 +175,7 @@
 	desc = "Portable injection and scan method, capitalists' and not capitalists portable sleeper. Integrated medical sensors hud with hardsuits' systems."
 	tech_type = RESEARCH_BIOTECH
 
-	x = 0.65
+	x = 0.55
 	y = 0.8
 	icon = "rignuclearreactor"
 
@@ -210,7 +213,7 @@
 	desc = "Top-tier micro manipulations systems. Top-tier scan method. Upgraded mass spectrometry. Advaced sprayer. Machinegunlike syringe-gun."
 	tech_type = RESEARCH_BIOTECH
 
-	x = 0.7
+	x = 0.6
 	y = 0.7
 	icon = "rapidsyringegun"
 
@@ -223,7 +226,8 @@
 							/datum/design/research/item/medical/adv_mass_spectrometer,
 							/datum/design/research/item/medical/adv_reagent_scanner,
 							/datum/design/research/item/weapon/chemsprayer,
-							/datum/design/research/item/weapon/rapidsyringe
+							/datum/design/research/item/weapon/rapidsyringe,
+							/datum/design/research/circuit/chemical_dispenser_industrial
 							)
 
 /datum/technology/top_biotech
@@ -231,7 +235,7 @@
 	desc = "Augmentations for body, this tech using almost all previous technologies."
 	tech_type = RESEARCH_BIOTECH
 
-	x = 0.85
+	x = 0.7
 	y = 0.7
 	icon = "scalpelmanager"
 
@@ -248,3 +252,19 @@
 							/datum/design/research/item/mechfab/modules/multitool/engineer,
 							/datum/design/research/item/mechfab/modules/multitool/miner
 							)
+
+/datum/technology/mind_biotech
+	name = "Mind Biotech"
+	desc = "Experimental biotechnology that explores the inner workings of sentient minds"
+	tech_type = RESEARCH_BIOTECH
+
+	x = 0.7
+	y = 0.6
+	icon = "mindswapper"
+
+	required_technologies = list(	/datum/technology/top_biotech)
+
+	required_tech_levels = list()
+	cost = 3000
+
+	unlocks_designs = list(	/datum/design/research/circuit/mindswapper)

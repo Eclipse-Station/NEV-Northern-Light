@@ -28,16 +28,17 @@
 	desc = "Seems to have some unusal strata evident throughout it."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "strange"
+	spawn_tags = SPAWN_TAG_XENOARCH_ITEM_FOSSIL
+	spawn_blacklisted = TRUE
+	origin_tech = list(TECH_MATERIAL = 5)
 	var/obj/item/weapon/inside
 	var/method = 0// 0 = fire, 1 = brush, 2 = pick
-	origin_tech = list(TECH_MATERIAL = 5)
 
 /obj/item/weapon/ore/strangerock/New(loc, var/inside_item_type = 0)
 	..(loc)
-
 	//method = rand(0,2)
 	if(inside_item_type)
-		inside = new/obj/item/weapon/archaeological_find(src, new_item_type = inside_item_type)
+		inside = new/obj/item/weapon/archaeological_find(src, inside_item_type)
 		if(!inside)
 			inside = locate() in contents
 
@@ -79,16 +80,19 @@
 	name = "object"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "ano01"
+	spawn_tags = SPAWN_TAG_XENOARCH_ITEM_FOSSIL
+	spawn_blacklisted = TRUE
 	var/find_type = 0
 
-/obj/item/weapon/archaeological_find/New(loc, var/new_item_type)
+/obj/item/weapon/archaeological_find/Initialize(mapload, new_item_type)
+	. = ..()
 	if(new_item_type)
 		find_type = new_item_type
 	else
 		find_type = rand(1,34)	//update this when you add new find types
 
-	var/item_type = "object"
 	icon_state = "unknown[rand(1,4)]"
+	var/item_type = "object"
 	var/additional_desc = ""
 	var/obj/item/weapon/new_item
 	var/source_material = ""
@@ -524,7 +528,7 @@
 		if(talkative)
 			new_item.talking_atom = new(new_item)
 
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
 
 	else if(talkative)
 		src.talking_atom = new(src)

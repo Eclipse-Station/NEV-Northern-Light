@@ -6,7 +6,7 @@
 	network = "eris"
 
 /obj/machinery/telecomms/relay/preset/station
-	id = "Station Relay"
+	id = "Ship Relay"
 	listening_levels = list(1,2,3,4,5)
 	autolinkers = list("s_relay")
 
@@ -29,7 +29,7 @@
 	hide = 1
 	toggled = 1
 	//anchored = TRUE
-	//use_power = 0
+	//use_power = NO_POWER_USE
 	//idle_power_usage = 0
 	produces_heat = 0
 	autolinkers = list("c_relay")

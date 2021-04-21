@@ -61,4 +61,12 @@
 	path = /obj/item/modular_computer/laptop/preset/custom_loadout/advanced/golden
 	cost = 5
 
+/datum/gear/utility/ducttape
+	display_name = "duct tape"
+	path = /obj/item/weapon/tool/tape_roll
+	cost = 3
 
+/datum/gear/utility/implant/lesser_cruciform
+	display_name = "Cruciform Luminare"
+	path = /obj/item/weapon/implant/core_implant/lesser_cruciform
+	cost = 3

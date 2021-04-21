@@ -3,10 +3,11 @@
 /obj/item/modular_computer
 	name = "Modular Computer"
 	desc = "A modular computer. You shouldn't see this."
-
+	spawn_blacklisted = TRUE
+	bad_type = /obj/item/modular_computer
 	var/enabled = 0											// Whether the computer is turned on.
 	var/screen_on = 1										// Whether the computer is active/opened/it's screen is on.
-	var/datum/computer_file/program/active_program = null	// A currently active program running on the computer.
+	var/datum/computer_file/program/active_program			// A currently active program running on the computer.
 	var/hardware_flag = 0									// A flag that describes this device type
 	var/last_power_usage = 0								// Last tick power usage of this computer
 	var/last_battery_percent = 0							// Used for deciding if battery percentage has chandged
@@ -31,6 +32,7 @@
 	var/icon_state_screensaver = "standby"
 	var/max_hardware_size = 0								// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
 	var/steel_sheet_cost = 5								// Amount of steel sheets refunded when disassembling an empty frame of this computer.
+	var/glass_sheet_cost = 5								// Amount of glass sheets refunded when dissassembling an empty frame
 	var/screen_light_strength = 0							// Intensity of light this computer emits. Comparable to numbers light fixtures use.
 	var/screen_light_range = 2								// Intensity of light this computer emits. Comparable to numbers light fixtures use.
 	var/list/all_threads = list()							// All running programs, including the ones running in background

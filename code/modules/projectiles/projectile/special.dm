@@ -125,7 +125,7 @@
 	if(ishuman(target)) //These rays make plantmen fat.
 		var/mob/living/carbon/human/H = M
 		if((H.species.flags & IS_PLANT) && (H.nutrition < 500))
-			H.nutrition += 30
+			H.adjustNutrition(30)
 	else if (istype(target, /mob/living/carbon/))
 		M.show_message("\blue The radiation beam dissipates harmlessly through your body.")
 	else
@@ -160,13 +160,20 @@
 /obj/item/projectile/flamer_lob/New()
 	.=..()
 
-/obj/item/projectile/flamer_lob/Move(var/atom/A)
+/obj/item/projectile/flamer_lob/Move(atom/A)
 	.=..()
 	life--
 	var/turf/T = get_turf(src)
-	new/obj/effect/decal/cleanable/liquid_fuel(T, 1 , 1)
-	T.hotspot_expose((T20C*2) + 380,500)
+	if(T)
+		new/obj/effect/decal/cleanable/liquid_fuel(T, 1 , 1)
+		T.hotspot_expose((T20C*2) + 380,500)
 	if(!life)
 		qdel(src)
 
+
+/obj/item/projectile/coin
+	name = "coin"
+	desc = "Keep the change, ya filthy animal."
+	damage_types = list(BRUTE = 5)
+	embed = 0
 

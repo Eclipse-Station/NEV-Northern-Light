@@ -60,6 +60,24 @@
 	var/datum/mind/mind = null
 	var/languages = list()
 	var/flavor = ""
+	var/datum/stat_holder/stats
+
+/datum/core_module/cruciform/cloning/proc/write_wearer(var/mob/living/carbon/human/H)
+	dna = H.dna
+	if(H.ckey)
+		ckey = H.ckey
+	if(H.mind)
+		mind = H.mind
+	languages = H.languages
+	flavor = H.flavor_text
+	age = H.age
+	QDEL_NULL(stats)
+	stats = new /datum/stat_holder()
+	H.stats.copyTo(stats)
+
+/datum/core_module/cruciform/cloning/on_implant_uninstall()
+	if(ishuman(implant.wearer))
+		write_wearer(implant.wearer)
 
 /datum/core_module/cruciform/cloning/preinstall()
 	if(ishuman(implant.wearer))
@@ -67,14 +85,7 @@
 
 /datum/core_module/cruciform/cloning/install()
 	if(ishuman(implant.wearer))
-		var/mob/living/carbon/human/H = implant.wearer
-		dna = H.dna
-		ckey = H.ckey
-		mind = H.mind
-		languages = H.languages
-		flavor = H.flavor_text
-		age = H.age
-
+		write_wearer(implant.wearer)
 
 /datum/core_module/cruciform/obey/install()
 	var/laws = list("You are enslaved. You must obey the laws below.",
@@ -149,9 +160,12 @@
 /datum/core_module/rituals/cruciform/base
 	ritual_types = list(/datum/ritual/cruciform/base,
 	/datum/ritual/targeted/cruciform/base,
-	/datum/ritual/group/cruciform,
-	/datum/ritual/cruciform/machines)
+	/datum/ritual/group/cruciform)
+//	/datum/ritual/cruciform/machines - Eclipse edit
 
+/datum/core_module/rituals/cruciform/agrolyte
+	access = list(access_nt_agrolyte)
+	ritual_types = list(/datum/ritual/cruciform/agrolyte)
 
 /datum/core_module/rituals/cruciform/priest
 	access = list(access_nt_preacher, access_nt_custodian, access_nt_agrolyte)

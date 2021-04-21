@@ -166,6 +166,8 @@
 			return "Supply"
 		if(ACCESS_REGION_CHURCH) //Neotheo
 			return "NeoTheology"
+		if(ACCESS_REGION_CLUB) //service
+			return "Club"
 
 /proc/get_access_desc(id)
 	var/list/AS = get_all_access_datums_by_id()
@@ -224,7 +226,11 @@ var/obj/item/weapon/card/id/all_access/ghost_all_access
 	for(var/obj/item/I in HUMAN_ID_CARDS)
 		. |= I.GetAccess()
 
-	var/obj/item/weapon/implant/soulcrypt/C = get_soulcrypt()
+	var/obj/item/weapon/implant/core_implant/soulcrypt/S = get_soulcrypt()
+	if(S)
+		. |= S.GetAccess() //Eclipse add
+
+	var/obj/item/weapon/implant/core_implant/C = get_core_implant()
 	if(C)
 		. |= C.GetAccess()
 
@@ -243,7 +249,7 @@ proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
 	return missing_id_name
 
 proc/get_all_job_icons() //For all existing HUD icons
-	return joblist + list("Prisoner")
+	return GLOB.joblist + list("Prisoner")
 
 /obj/proc/GetJobName() //Used in secHUD icon generation
 	var/obj/item/weapon/card/id/I = GetIdCard()

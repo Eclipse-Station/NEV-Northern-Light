@@ -52,7 +52,7 @@
 	. = ..()
 
 
-/obj/item/weapon/storage/deferred/rations //DO this before merging 
+/obj/item/weapon/storage/deferred/rations //DO this before merging
 	name = "infantryman's rations kit"
 	icon_state = "irp_box"
 	item_state = "irp_box"
@@ -64,14 +64,14 @@
 	name = "tool modifications kit"
 	desc = "A sturdy container full of contraptions, bits of material, components and add-ons for modifying tools."
 	icon_state = "box_tools"
-	initial_contents = list(/obj/random/tool_upgrade = 12,
-	/obj/random/tool_upgrade/rare = 3)
+	initial_contents = list(/obj/spawner/tool_upgrade = 12,
+	/obj/spawner/tool_upgrade/rare = 3)
 
 
 /obj/item/weapon/storage/deferred/pouches
 	name = "uniform modification kit"
 	desc = "A box full of hard-wearing pouches designed for easy attachment to clothing and armor. Good for carrying extra ammo or tools in the field."
-	initial_contents = list(/obj/random/pouch = 8, /obj/item/weapon/storage/pouch/pistol_holster = 1)
+	initial_contents = list(/obj/spawner/pouch = 8, /obj/item/weapon/storage/pouch/pistol_holster = 1)
 	//One guaranteed holster and plenty of randoms
 
 /obj/item/weapon/storage/deferred/comms
@@ -145,8 +145,8 @@
 	name = "tool storage box"
 	desc = "A moderately sized crate full of assorted tools."
 	icon_state = "serbcrate_deferred_brown"
-	initial_contents = list(/obj/random/tool = 13,
-	/obj/random/tool/advanced = 2)
+	initial_contents = list(/obj/spawner/tool = 13,
+	/obj/spawner/tool/advanced = 2)
 
 
 /obj/item/weapon/storage/deferred/crate/saw
@@ -205,7 +205,7 @@
 	name = "sidearm crate"
 	desc = "A crate containing six Makarov .35 pistols, 200 rounds of .35 ammunition, and six fixed-blade combat knives."
 	icon_state = "serbcrate_deferred_green"
-	initial_contents = list(/obj/item/weapon/gun/projectile/clarissa/makarov = 6,
+	initial_contents = list(/obj/item/weapon/gun/projectile/selfload/makarov = 6,
 	/obj/item/ammo_magazine/hpistol = 20,
 	/obj/item/weapon/tool/knife/boot = 6)
 
@@ -223,15 +223,15 @@
 	name = "power cell bin"
 	desc = "A moderately sized crate full of various power cells."
 	icon_state = "serbcrate_deferred_worn"
-	initial_contents = list(/obj/random/powercell = 16)
+	initial_contents = list(/obj/spawner/powercell = 16)
 
 
 /obj/item/weapon/storage/deferred/crate/alcohol
 	name = "liquor crate"
 	desc = "A moderately sized crate full of various alcoholic drinks."
 	icon_state = "serbcrate_deferred_worn"
-	initial_contents = list(/obj/random/booze = 10,
-	/obj/random/booze/low_chance = 10,
+	initial_contents = list(/obj/spawner/booze = 10,
+	/obj/spawner/booze/low_chance = 10,
 	/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 3)
 
 /obj/item/weapon/storage/deferred/crate/uniform_green
@@ -242,7 +242,7 @@
 	/obj/item/clothing/under/serbiansuit = 1,
 	/obj/item/clothing/head/soft/green2soft = 1,
 	/obj/item/clothing/suit/armor/bulletproof/serbian/green = 1,
-	/obj/item/clothing/head/armor/altyn = 1,
+	/obj/item/clothing/head/armor/faceshield/altyn = 1,
 	/obj/item/clothing/mask/balaclava/tactical = 1,
 	/obj/item/clothing/shoes/jackboots = 1,
 	/obj/item/clothing/gloves/fingerless = 1)
@@ -255,7 +255,7 @@
 	/obj/item/clothing/under/serbiansuit/brown = 1,
 	/obj/item/clothing/head/soft/tan2soft = 1,
 	/obj/item/clothing/suit/armor/bulletproof/serbian/tan = 1,
-	/obj/item/clothing/head/armor/altyn/brown = 1,
+	/obj/item/clothing/head/armor/faceshield/altyn/brown = 1,
 	/obj/item/clothing/mask/balaclava/tactical = 1,
 	/obj/item/clothing/shoes/jackboots = 1,
 	/obj/item/clothing/suit/armor/greatcoat/serbian_overcoat_brown = 1)
@@ -267,7 +267,7 @@
 	initial_contents = list(
 	/obj/item/clothing/under/serbiansuit/black = 1,
 	/obj/item/clothing/suit/armor/bulletproof/serbian = 1,
-	/obj/item/clothing/head/armor/altyn/black = 1,
+	/obj/item/clothing/head/armor/faceshield/altyn/black = 1,
 	/obj/item/clothing/mask/balaclava/tactical = 1,
 	/obj/item/clothing/shoes/jackboots = 1,
 	/obj/item/clothing/gloves/fingerless = 1,
@@ -280,7 +280,7 @@
 	initial_contents = list(
 	/obj/item/clothing/under/serbiansuit = 1,
 	/obj/item/clothing/suit/armor/flak/green = 1,
-	/obj/item/clothing/head/armor/altyn/maska = 1,
+	/obj/item/clothing/head/armor/faceshield/altyn/maska = 1,
 	/obj/item/clothing/mask/balaclava/tactical = 1,
 	/obj/item/clothing/shoes/jackboots = 1,
 	/obj/item/clothing/gloves/fingerless = 1,
@@ -298,3 +298,16 @@
 	/obj/item/clothing/shoes/jackboots = 1,
 	/obj/item/clothing/gloves/fingerless = 1,
 	/obj/item/weapon/storage/fancy/cigarettes = 1)
+
+/obj/item/weapon/storage/deferred/crate/german_uniform
+	name = "german uniform crate"
+	desc = "A moderately sized crate full of clothes."
+	icon_state = "germancrate_deferred"
+	initial_contents = list(
+	/obj/item/clothing/gloves/german = 1,
+	/obj/item/clothing/head/beret/german = 1,
+	/obj/item/clothing/mask/gas/german = 1,
+	/obj/item/clothing/shoes/jackboots/german = 1,
+	/obj/item/clothing/suit/armor/greatcoat/german_overcoat = 1,
+	/obj/item/clothing/under/germansuit = 1)
+

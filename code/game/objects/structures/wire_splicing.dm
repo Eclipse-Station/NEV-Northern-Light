@@ -7,6 +7,9 @@
 	anchored = TRUE
 	flags = CONDUCT
 	layer = TURF_LAYER + 0.45
+	rarity_value = 10
+	spawn_frequency = 10
+	spawn_tags = SPAWN_TAG_TRAP_ARMED_WIRE
 	var/messiness = 0 // How bad the splicing was, determines the chance of shock
 
 /obj/structure/wire_splicing/Initialize(roundstart)
@@ -80,7 +83,7 @@
 		var/mob/living/L = AM
 		var/turf/T = get_turf(src)
 		var/chance_to_shock = messiness * 10
-		chance_to_shock -= L.skill_to_evade_traps(chance_to_shock)
+		chance_to_shock -= L.skill_to_evade_traps()
 		if(locate(/obj/structure/catwalk) in T)
 			chance_to_shock -= 20
 		if(prob(chance_to_shock))
@@ -113,6 +116,10 @@
 				qdel(src)
 
 	if(istype(I, /obj/item/stack/cable_coil) && user.a_intent == I_HURT)
+		if(used_now)
+			to_chat(user, "The [src.name] is already being manipulated!") //so people with low stats can't spam their way past the failure chance
+			return
+		used_now = TRUE
 		if(messiness >= 10)
 			messiness = 10
 			to_chat(user, SPAN_WARNING("Enough."))
@@ -122,14 +129,17 @@
 		if(coil.get_amount() >= 1)
 			to_chat(user, SPAN_NOTICE("You started to wire to this pile of wires..."))
 			if(shock(user)) //check if he got his insulation gloves
+				used_now = FALSE
 				return 		//he didn't
-			if(do_after(src, 20))
+			if(do_after(user, 20, src))
 				if(shock(user)) //check if he got his insulation gloves. Again.
+					used_now = FALSE
 					return
 				var/fail_chance = FAILCHANCE_HARD - user.stats.getStat(STAT_MEC) // 72 for assistant
 				if(prob(fail_chance))
 					if(!shock(user, FALSE)) //why not
 						to_chat(user, SPAN_WARNING("You failed to finish your task with [src.name]! There was a [fail_chance]% chance to screw this up."))
+					used_now = FALSE
 					return
 				if(messiness >= 10)
 					messiness = 10
@@ -138,3 +148,5 @@
 				messiness += 1
 				icon_state = "wire_splicing[messiness]"
 				to_chat(user, SPAN_NOTICE("You added one more wire."))
+				used_now = FALSE
+

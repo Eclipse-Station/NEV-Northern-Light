@@ -41,7 +41,7 @@ var/global/list/whitelisted_jobs = ()	//Eclipse var - used in debug proc
 				J.whitelist_only = TRUE
 				whitelisted_jobs += J
 			// // // END ECLIPSE EDITS // // //
-			
+
 			var/datum/job/job = new J()
 			if(job.faction != faction)
 				continue
@@ -278,7 +278,7 @@ var/global/list/whitelisted_jobs = ()	//Eclipse var - used in debug proc
 					/*if(!job || ticker.mode.disabled_jobs.Find(job.title) )
 						continue
 					*/
-					
+
 					if(!is_job_whitelisted(player, job.title))		//Eclipse addition this iteration - whitelisting
 						Debug("DO is_job_whitelisted failed, Player: [player], Job:[job.title]")
 						continue
@@ -618,8 +618,8 @@ var/global/list/whitelisted_jobs = ()	//Eclipse var - used in debug proc
 		else
 			if(H)
 				H.forceMove(pickSpawnLocation())
-			return "has arrived on the station"
-			
+			return "has arrived on the ship"
+
 /datum/controller/occupations/proc/print_whitelisted_jobs(mob/user)		//Eclipse Addition for debug purposes.
 	user = usr
 	return whitelisted_jobs

@@ -24,6 +24,7 @@
 	selectable = 1
 	toggleable = 0
 	disruptive = 0
+	bad_type = /obj/item/rig_module/device
 
 
 	var/device_type
@@ -35,9 +36,9 @@
 	icon_state = "scanner"
 	interface_name = "health scanner"
 	interface_desc = "Shows an informative health readout when used on a subject."
-
-
 	device_type = /obj/item/device/scanner/health
+	rarity_value = 2.5
+	spawn_tags = SPAWN_TAG_RIG_MODULE_COMMON
 
 /obj/item/rig_module/device/drill
 	name = "hardsuit drill mount"
@@ -48,6 +49,7 @@
 	suit_overlay_active = "mounted-drill"
 	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
+	rarity_value = 10
 
 
 	device_type = /obj/item/weapon/tool/pickaxe/diamonddrill/rig
@@ -62,6 +64,7 @@
 	usable = 1
 	selectable = 0
 	device_type = /obj/item/device/ano_scanner
+	spawn_tags = SPAWN_TAG_RIG_MODULE_COMMON
 
 
 /obj/item/rig_module/device/orescanner
@@ -74,6 +77,7 @@
 	usable = 1
 	selectable = 0
 	device_type = /obj/item/device/scanner/mining
+	spawn_tags = SPAWN_TAG_RIG_MODULE_COMMON
 
 
 /obj/item/rig_module/device/rcd
@@ -86,6 +90,7 @@
 	engage_string = "Configure RCD"
 
 	device_type = /obj/item/weapon/rcd/mounted
+	rarity_value = 20
 
 /obj/item/rig_module/device/New()
 	..()
@@ -136,6 +141,7 @@
 		list("radium",        "radium",        0, 80)
 		)
 
+	rarity_value = 12.5
 	var/max_reagent_volume = 80 //Used when refilling.
 
 /obj/item/rig_module/chem_dispenser/ninja
@@ -152,6 +158,8 @@
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
+	rarity_value = 5
+	spawn_tags = SPAWN_TAG_RIG_MODULE_COMMON
 
 /obj/item/rig_module/chem_dispenser/accepts_item(var/obj/item/input_item, var/mob/living/user)
 
@@ -202,7 +210,7 @@
 	if(!charge)
 		return 0
 
-	var/chems_to_use = 10
+	var/chems_to_use = 5
 	if(charge.charges <= 0)
 		to_chat(H, SPAN_DANGER("Insufficient chems!"))
 		return 0
@@ -229,7 +237,6 @@
 	return 1
 
 /obj/item/rig_module/chem_dispenser/combat
-
 	name = "combat chemical injector"
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 
@@ -242,10 +249,9 @@
 
 	interface_name = "combat chem dispenser"
 	interface_desc = "Dispenses loaded chemicals directly into the bloodstream."
-
+	rarity_value = 12.5
 
 /obj/item/rig_module/chem_dispenser/injector
-
 	name = "mounted chemical injector"
 	desc = "A complex web of tubing and a large needle suitable for hardsuit use."
 	usable = 0
@@ -254,9 +260,9 @@
 
 	interface_name = "mounted chem injector"
 	interface_desc = "Dispenses loaded chemicals via an arm-mounted injector."
+	rarity_value = 20
 
 /obj/item/rig_module/voice
-
 	name = "hardsuit voice synthesiser"
 	desc = "A speaker box and sound processor."
 	icon_state = "megaphone"
@@ -270,7 +276,7 @@
 
 	interface_name = "voice synthesiser"
 	interface_desc = "A flexible and powerful voice modulator system."
-
+	rarity_value = 5
 	var/obj/item/voice_changer/voice_holder
 
 /obj/item/rig_module/voice/New()
@@ -310,7 +316,6 @@
 	return 1
 
 /obj/item/rig_module/maneuvering_jets
-
 	name = "hardsuit maneuvering jets"
 	desc = "A compact gas thruster system for a hardsuit."
 	icon_state = "thrusters"
@@ -329,7 +334,8 @@
 
 	interface_name = "maneuvering jets"
 	interface_desc = "An inbuilt EVA maneuvering system that runs off the rig air supply."
-
+	rarity_value = 2
+	spawn_tags = SPAWN_TAG_RIG_MODULE_COMMON
 	var/obj/item/weapon/tank/jetpack/rig/jets
 
 /obj/item/rig_module/maneuvering_jets/engage()
@@ -399,7 +405,7 @@
 	interface_desc = "Module with set of instruments that is capable to preform surgery on user"
 	var/datum/autodoc/autodoc_processor
 	var/autodoc_type = /datum/autodoc
-	var/turf/wearer_loc = null
+	var/turf/wearer_loc
 
 /obj/item/rig_module/autodoc/Initialize()
 	. = ..()
@@ -446,21 +452,21 @@
 /obj/item/rig_module/autodoc/commercial
 	autodoc_type = /datum/autodoc/capitalist_autodoc
 
-
 /obj/item/rig_module/cape
 	name = "cape"
 	desc = "A cape designed to be attached to hardsuits."
-  
+
 	interface_name = "Hardsuit Cape"
 	interface_desc = "A generic cape for a hardsuit."
+	rarity_value = 80
 
 /obj/item/rig_module/cape/te
 	name = "engineering cape"
-	desc = "A tough regal cape, imprinted with a large wrench emblem."
+	desc = "A tough regal cape, imprinted with the emblem of the NT engineering corps."
 	suit_overlay_active = "cape_te"
 	suit_overlay_inactive = "cape_te"
 	suit_overlay_mob_only = 1
 
 	interface_name = "Engineering Cape"
 	interface_desc = "A grand yet hardy cape."
-
+	rarity_value = 100

@@ -19,7 +19,7 @@
 	icon_state = "centrifuge"
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 20
-	circuit = /obj/item/weapon/circuitboard/centrifuge
+	circuit = /obj/item/weapon/electronics/circuitboard/centrifuge
 	layer = BELOW_OBJ_LAYER
 	var/obj/item/weapon/reagent_containers/mainBeaker
 	var/list/obj/item/weapon/reagent_containers/separationBeakers = list()
@@ -188,7 +188,7 @@
 				var/obj/item/weapon/virusdish/dish = new (loc)
 				dish.virus2 = virus[ID].getcopy()
 	stop()
-	playsound(src.loc, 'sound/machines/ping.ogg', 50, 1 -3)
+	playsound(src.loc, 'sound/machines/ping.ogg', 50, 1, -3)
 	visible_message("\icon[src]\The [src] pings indicating that cycle is complete.")
 
 /obj/machinery/centrifuge/Topic(href, href_list)
@@ -228,6 +228,7 @@
 	icon = 'icons/obj/machines/chemistry.dmi'
 	icon_state = "centrifuge_makeshift"
 	matter = list(MATERIAL_STEEL = 4)
+	rarity_value = 50
 	var/obj/item/weapon/reagent_containers/mainBeaker
 	var/list/obj/item/weapon/reagent_containers/separationBeakers = list()
 	var/beakerSlots = 2

@@ -19,16 +19,19 @@
 	name = "standard magazine (.35 Auto practice)"
 	icon_state = "pistol_p"
 	ammo_type = /obj/item/ammo_casing/pistol/practice
+	rarity_value = 5
 
 /obj/item/ammo_magazine/pistol/highvelocity
 	name = "standard magazine (.35 Auto high-velocity)"
 	icon_state = "pistol_hv"
 	ammo_type = /obj/item/ammo_casing/pistol/hv
+	rarity_value = 80
 
 /obj/item/ammo_magazine/pistol/rubber
 	name = "standard magazine (.35 Auto rubber)"
 	icon_state = "pistol_r"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
+	rarity_value = 5
 
 
 /////////////HighCap/////////////
@@ -43,6 +46,7 @@
 	ammo_type = /obj/item/ammo_casing/pistol
 	max_ammo = 16
 	multiple_sprites = 1
+	rarity_value = 20
 
 /obj/item/ammo_magazine/hpistol/empty
 	icon_state = "hpistol"
@@ -52,16 +56,19 @@
 	name = "highcap magazine (.35 Auto practice)"
 	icon_state = "hpistol_p"
 	ammo_type = /obj/item/ammo_casing/pistol/practice
+	rarity_value = 10
 
 /obj/item/ammo_magazine/hpistol/highvelocity
 	name = "highcap magazine (.35 Auto high-velocity)"
 	icon_state = "hpistol_hv"
 	ammo_type = /obj/item/ammo_casing/pistol/hv
+	rarity_value = 80
 
 /obj/item/ammo_magazine/hpistol/rubber
 	name = "highcap magazine (.35 Auto rubber)"
 	icon_state = "hpistol_r"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
+	rarity_value = 10
 
 /////////////.35 SMG/////////////
 
@@ -152,6 +159,8 @@
 	caliber = CAL_MAGNUM
 	max_ammo = 10
 	multiple_sprites = 1
+	rarity_value = 5
+	spawn_tags = SPAWN_TAG_AMMO_IH
 
 /obj/item/ammo_magazine/magnum/empty
 	icon_state = "magnum"
@@ -161,16 +170,19 @@
 	name = "magazine (40 Magnum practice)"
 	icon_state = "magnum_p"
 	ammo_type = /obj/item/ammo_casing/magnum/practice
+	spawn_tags = null
 
 /obj/item/ammo_magazine/magnum/hv
 	name = "magazine (40 Magnum high-velocity)"
 	icon_state = "magnum_hv"
 	ammo_type = /obj/item/ammo_casing/magnum/hv
+	spawn_tags = null
 
 /obj/item/ammo_magazine/magnum/rubber
 	name = "magazine (40 Magnum rubber)"
 	icon_state = "magnum_r"
 	ammo_type = /obj/item/ammo_casing/magnum/rubber
+	rarity_value = 3
 
 ///////////// .20 RIFLE /////////////
 
@@ -229,6 +241,8 @@
 	caliber = CAL_CLRIFLE
 	max_ammo = 30
 	multiple_sprites = 1
+	spawn_tags = SPAWN_TAG_AMMO_IH
+	rarity_value = 5
 
 /obj/item/ammo_magazine/ihclrifle/empty
 	icon_state = "ihclrifle"
@@ -238,16 +252,20 @@
 	name = "magazine (.25 Caseless Rifle practice)"
 	icon_state = "ihclrifle_p"
 	ammo_type = /obj/item/ammo_casing/clrifle/practice
+	spawn_frequency = 5
 
 /obj/item/ammo_magazine/ihclrifle/hv
 	name = "magazine (.25 Caseless Rifle high-velocity)"
 	icon_state = "ihclrifle_hv"
 	ammo_type = /obj/item/ammo_casing/clrifle/hv
+	spawn_tags = null
 
 /obj/item/ammo_magazine/ihclrifle/rubber
 	name = "magazine (.25 Caseless Rifle rubber)"
 	icon_state = "ihclrifle_r"
 	ammo_type = /obj/item/ammo_casing/clrifle/rubber
+
+
 
 ////////// .25 PISTOL //////////
 
@@ -380,6 +398,11 @@
 	ammo_type = /obj/item/ammo_casing/pistol
 	max_ammo = 6
 	multiple_sprites = 1
+	rarity_value = 6.66
+
+/obj/item/ammo_magazine/slpistol/empty
+	icon_state = "slpistol"
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/slpistol/practice
 	name = "speed loader (.35 Special practice)"
@@ -390,11 +413,13 @@
 	name = "speed loader (.35 Special high-velocity)"
 	icon_state = "slpistol_hv"
 	ammo_type = /obj/item/ammo_casing/pistol/hv
+	rarity_value = 80
 
 /obj/item/ammo_magazine/slpistol/rubber
 	name = "speed loader (.35 Special rubber)"
 	icon_state = "slpistol_r"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
+	rarity_value = 5
 
 //////// .40 SPEEDLOADERS //////////
 
@@ -407,16 +432,24 @@
 	matter = list(MATERIAL_STEEL = 3)
 	max_ammo = 6
 	multiple_sprites = 1
+	spawn_tags = SPAWN_TAG_AMMO_IH
+	rarity_value = 5
+
+/obj/item/ammo_magazine/slmagnum/empty
+	icon_state = "slmagnum"
+	initial_ammo = 0
 
 /obj/item/ammo_magazine/slmagnum/practice
 	name = "speed loader (.40 Magnum practice)"
 	icon_state = "slmagnum_p"
 	ammo_type = /obj/item/ammo_casing/magnum/practice
+	spawn_tags = null
 
 /obj/item/ammo_magazine/slmagnum/highvelocity
 	name = "speed loader (.40 Magnum high-velocity)"
 	icon_state = "slmagnum_hv"
 	ammo_type = /obj/item/ammo_casing/magnum/hv
+	spawn_tags = null
 
 /obj/item/ammo_magazine/slmagnum/rubber
 	name = "speed loader (.40 Magnum rubber)"
@@ -449,16 +482,19 @@
 
 /obj/item/ammo_magazine/a75
 	name = "ammo magazine (.70 Gyro)"
-	icon_state = "75"
+	icon_state = "gyropistol"
+	icon = 'icons/obj/ammo_mags.dmi'
 	mag_type = MAGAZINE
 	mag_well = MAG_WELL_PISTOL
 	caliber = CAL_70
 	ammo_type = /obj/item/ammo_casing/a75
 	multiple_sprites = 1
 	max_ammo = 4
+	rarity_value = 100
 
 /obj/item/ammo_magazine/a75/empty
 	initial_ammo = 0
+	icon_state = "gyropistol-0"
 
 ////////////Shotguns!////////////
 

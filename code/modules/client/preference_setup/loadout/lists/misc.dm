@@ -98,7 +98,6 @@
 		"kitten plush"	=	/obj/item/toy/plushie/kitten,
 		"lizard plush"	=	/obj/item/toy/plushie/lizard,
 		"spider plush"	=	/obj/item/toy/plushie/spider,
-		"farwa plush"	=	/obj/item/toy/plushie/farwa,
 	)
 	gear_tweaks += new /datum/gear_tweak/path(plushes)
 
@@ -141,6 +140,10 @@
 /datum/gear/zippo
 	display_name = "zippo"
 	path = /obj/item/weapon/flame/lighter/zippo
+
+/datum/gear/cigarettes
+	display_name = "pack of cigarettes"
+	path = /obj/item/weapon/storage/fancy/cigarettes
 
 /datum/gear/cigars
 	display_name = "fancy cigar case"

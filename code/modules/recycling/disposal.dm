@@ -144,7 +144,7 @@
 // mouse drop another mob or self
 //
 /obj/machinery/disposal/MouseDrop_T(atom/movable/A, mob/user)
-	if(istype(A, /mob))
+	if(ismob(A))
 		var/mob/target = A
 		if(user.stat || !user.canmove)
 			return
@@ -153,6 +153,9 @@
 
 		//animals cannot put mobs other than themselves into disposal
 		if(isanimal(user) && target != user)
+			return
+
+		if (target.mob_size == MOB_HUGE)
 			return
 
 		src.add_fingerprint(user)
@@ -212,6 +215,13 @@
 
 		if(!I)
 			return
+
+		// ensure it's on the ground first, so we don't break things, also so we have a chance to interact with the air we're passing through.
+		if(istype(I.loc,/obj/item/weapon/storage))
+			var/obj/item/weapon/storage/oldLoc = I.loc
+			oldLoc.remove_from_storage(I)
+		if(I.loc == usr && !user.unEquip(I))
+			return FALSE
 
 		I.add_fingerprint(user)
 		I.forceMove(src)
@@ -885,14 +895,14 @@
 /obj/structure/disposalpipe/ex_act(severity)
 
 	switch(severity)
-		if(1.0)
+		if(1)
 			broken(0)
 			return
-		if(2.0)
+		if(2)
 			health -= rand(5,15)
 			healthcheck()
 			return
-		if(3.0)
+		if(3)
 			health -= rand(0,15)
 			healthcheck()
 			return

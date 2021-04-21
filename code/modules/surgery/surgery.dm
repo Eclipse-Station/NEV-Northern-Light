@@ -112,9 +112,9 @@
 	if(owner && user == owner)
 		difficulty_adjust = 20
 
-		// ...unless you are a changeling
+		// ...unless you are a carrion
 		// It makes sense that lings have a way of making their flesh cooperate
-		if(user.check_special_role(ROLE_CHANGELING))
+		if(is_carrion(user))
 			difficulty_adjust = -50
 
 	var/atom/surgery_target = get_surgery_target()
@@ -153,7 +153,7 @@
 	return TRUE
 
 
-proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
+proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/surgery_status = CAN_OPERATE_ALL)
 	if(!istype(M))
 		return FALSE
 	if(user.a_intent != I_HELP)	//check for Hippocratic Oath
@@ -180,7 +180,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 					to_chat(user, SPAN_WARNING("You cannot operate on your [affected.name] while holding [held_item] in it!"))
 					return TRUE
 
-			if(affected.do_surgery(user, tool))
+			if(affected.do_surgery(user, tool, surgery_status))
 				return TRUE
 
 	// Invoke legacy surgery code
@@ -197,15 +197,24 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 
 // Some surgery steps can be ran just by clicking a limb with a tool, old surgery style
 // Those are handled here
-/obj/item/organ/external/do_surgery(mob/living/user, obj/item/tool)
+/obj/item/organ/external/do_surgery(mob/living/user, obj/item/tool, var/surgery_status = CAN_OPERATE_ALL)
 	if(!tool)
 		if(is_open())
 			ui_interact(user)
 			return TRUE
 		return FALSE
-
 	var/list/possible_steps
-
+	if(surgery_status == CAN_OPERATE_STANDING)
+		possible_steps = list(QUALITY_CUTTING, QUALITY_CAUTERIZING)
+		var/tool_type = tool.get_tool_type(user, possible_steps, get_surgery_target())
+		switch(tool_type)
+			if(QUALITY_CUTTING)
+				try_surgery_step(/datum/surgery_step/remove_shrapnel, user, tool)
+				return TRUE
+			if(QUALITY_CAUTERIZING)
+				try_surgery_step(/datum/surgery_step/close_wounds, user, tool)
+				return TRUE
+		return FALSE
 	if(BP_IS_ROBOTIC(src))
 		possible_steps = list(QUALITY_SCREW_DRIVING, QUALITY_WELDING)
 
@@ -272,8 +281,8 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 
 /obj/item/organ/external/proc/try_autodiagnose(mob/living/user)
 	if(istype(user))
-		// Changelings know their flesh, as long as it is connected to their bodies
-		if(!BP_IS_ROBOTIC(src) && user == owner && user.check_special_role(ROLE_CHANGELING))
+		// Carrions should keep this power as they control the whole body
+		if(!BP_IS_ROBOTIC(src) && user == owner && is_carrion(user))
 			diagnosed = TRUE
 			return TRUE
 
@@ -289,11 +298,11 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 	if(M == user)	// Self-surgery
 
 		// Lings don't need to sit in a chair to perform a surgery on themselves
-		if(user.check_special_role(ROLE_CHANGELING))
+		if(is_carrion(user))
 			return TRUE
 
 		// Normal humans do
 		var/atom/chair = locate(/obj/structure/bed/chair, M.loc)
-		return chair && chair.buckled_mob == M
+		return (chair && chair.buckled_mob == M) ? CAN_OPERATE_ALL : CAN_OPERATE_STANDING
 
 	return M.lying && (locate(/obj/machinery/optable, M.loc) || (locate(/obj/structure/bed, M.loc)) || locate(/obj/structure/table, M.loc))

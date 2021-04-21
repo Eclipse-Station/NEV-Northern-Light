@@ -346,7 +346,7 @@ var/global/list/damage_icon_parts = list()
 			var/obj/item/underwear/UW = entry
 			var/icon/I = new /icon(get_gender_icon(gender, "underwear"), UW.icon_state)
 			if(UW.color)
-				I.Blend(UW.color, ICON_ADD)
+				I.Blend(UW.color, ICON_MULTIPLY)
 			underwear.Blend(I, ICON_OVERLAY)
 		overlays_standing[UNDERWEAR_LAYER] = image(underwear)
 	if(update_icons)
@@ -517,14 +517,14 @@ var/global/list/damage_icon_parts = list()
 		"glasses"		= 'icons/inventory/eyes/mob.dmi',
 		"ears"			= 'icons/inventory/ears/mob.dmi',
 		"mask"			= 'icons/inventory/face/mob.dmi',
-		"hat"			= 'icons/inventory/head/mob_eclipse.dmi',
+		"hat"			= 'icons/inventory/head/mob.dmi',
 		"shoes"			= 'icons/inventory/feet/mob.dmi',
 		"misk"			= 'icons/mob/mob.dmi',
 		"belt"			= 'icons/inventory/belt/mob.dmi',
 		"s_store"		= 'icons/inventory/on_suit/mob.dmi',
 		"backpack"		= 'icons/inventory/back/mob.dmi',
 		"underwear"		= 'icons/inventory/underwear/mob.dmi'
-		)		//Eclipse edit: Tweaked hat slot to use _eclipse to prevent conflicts
+		)
 	return icons[slot]
 
 //contained sprite gender icons
@@ -1167,7 +1167,7 @@ var/global/list/damage_icon_parts = list()
 	var/standing = null
 
 	var/image/vr_tail_image = get_tail_image()
-	if(vr_tail_image && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
+	if(vr_tail_image)
 		standing = vr_tail_image
 	else
 		var/species_tail = species.get_tail(src)

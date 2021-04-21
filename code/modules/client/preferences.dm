@@ -50,7 +50,7 @@
 //	if(!length(GLOB.skills))
 //		decls_repository.get_decl(/decl/hierarchy/skill)
 	player_setup = new(src)
-	gender = pick(MALE, FEMALE)
+	gender = pick(MALE, FEMALE, PLURAL)
 	family_name = random_last_name(species)									//Eclipse Edit
 	real_name = random_first_name(gender,species) + " " + family_name		//Re-work surname into clanname
 	b_type = RANDOM_BLOOD_TYPE
@@ -175,6 +175,9 @@
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
 	character.set_species(species)
+	var/random_first = random_first_name(gender, species)
+	var/random_last = random_last_name(gender, species)
+	var/random_full = random_first + " " + random_last
 
 // // // BEGIN ECLIPSE EDITS // // //
 // Refactor full name system into family name system.
@@ -182,13 +185,15 @@
 		family_name = random_last_name(gender, species)
 		real_name = random_first_name(gender,species) + " " + family_name
 
+	if(GLOB.in_character_filter.len) //This does not always work correctly but is here as a backup in case the first two attempts to catch bad names fail.
+		if(findtext(real_name, config.ic_filter_regex))
+			family_name = random_last
+			real_name = random_full
+
 	if(config.humans_need_surnames)
-		var/firstspace = findtext(real_name, " ")
-		var/name_length = length(real_name)
-		if(!firstspace)	//we need a surname
-			real_name += " [pick(GLOB.last_names)]"
-		else if(firstspace == name_length)
-			real_name += "[pick(GLOB.last_names)]"
+		if(!family_name)	//we need a surname
+			family_name = "[pick(GLOB.last_names)]"
+			real_name += " [family_name]"
 	character.fully_replace_character_name(newname = real_name)
 	character.family_name = family_name
 
@@ -306,7 +311,11 @@
 		character.nutrition = rand(250, 450)
 
 	for(var/options_name in setup_options)
+		if(!get_option(options_name))
+			continue
 		get_option(options_name).apply(character)
+
+	character.post_prefinit()
 
 
 /datum/preferences/proc/open_load_dialog(mob/user)

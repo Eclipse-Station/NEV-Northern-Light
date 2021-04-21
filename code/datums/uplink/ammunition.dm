@@ -98,13 +98,13 @@
 
 /datum/uplink_item/item/ammo/ihclrifle
 	name = ".25 caseless magazine"
-	desc = "Standard .25 magazine with lethal ammunition. Used mostly in IHS carabines. Can fit 30 bullets."
+	desc = "Standard .25 magazine with lethal ammunition. Used mostly in Aegis carbines. Can fit 30 bullets."
 	item_cost = 2
 	path = /obj/item/ammo_magazine/ihclrifle
 
 /datum/uplink_item/item/ammo/ihclrifle/highvelocity
 	name = ".25 caseless HV magazine"
-	desc = "Standard .25 magazine with high velocity ammunition. Used mostly in IHS carabines. Can fit 30 bullets."
+	desc = "Standard .25 magazine with high velocity ammunition. Used mostly in Aegis carbines. Can fit 30 bullets."
 	item_cost = 3
 	path = /obj/item/ammo_magazine/ihclrifle/hv
 
@@ -193,7 +193,7 @@
 
 /datum/uplink_item/item/ammo/sniperammo
 	name = ".60 Anti material"
-	desc = "A box full of .60 AMR bullets. Have 5 bullets inside."
+	desc = "A box full of .60 AMR bullets. Has 5 bullets inside."
 	item_cost = 3
 	path = /obj/item/weapon/storage/box/sniperammo
 

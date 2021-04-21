@@ -93,3 +93,40 @@
 	display_name = "bomj coat"
 	path = /obj/item/clothing/suit/storage/bomj
 	cost = 2
+
+/datum/gear/suit/punkvest
+	display_name = "punk vest"
+	path = /obj/item/clothing/suit/punkvest
+	cost = 1
+
+/datum/gear/suit/punkvest/New()
+	..()
+	var/punkvest = list(
+		"Punk"			=	/obj/item/clothing/suit/punkvest,
+		"Cyberpunk"			=	/obj/item/clothing/suit/punkvest/cyber,
+		"Windbreaker"			=	/obj/item/clothing/suit/storage/toggle/windbreaker,
+	)
+	gear_tweaks += new /datum/gear_tweak/path(punkvest)
+
+/datum/gear/suit/armored
+	display_name = "armoured coat"
+	path = /obj/item/clothing/suit/armor/greatcoat
+	cost = 2
+
+/datum/gear/suit/serbian
+	display_name = "black serbian overcoat"
+	path = /obj/item/clothing/suit/armor/greatcoat/serbian_overcoat
+	cost = 2
+
+/datum/gear/suit/serbian/brown
+	display_name = "brown serbian overcoat"
+	path = /obj/item/clothing/suit/armor/greatcoat/serbian_overcoat_brown
+
+/datum/gear/suit/nun
+	display_name = "nun's robe"
+	path = /obj/item/clothing/suit/nun
+	allowed_roles = list(JOBS_CHURCH)
+
+/datum/gear/suit/pirate
+	display_name = "pirate coat"
+	path = /obj/item/clothing/suit/pirate

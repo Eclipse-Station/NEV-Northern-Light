@@ -14,12 +14,14 @@
  *		MRE containers
  */
 
-/obj/item/weapon/storage/fancy/
+/obj/item/weapon/storage/fancy
 	icon = 'icons/obj/food.dmi'
 	icon_state = "donutbox6"
 	name = "donut box"
 	max_storage_space = 8
+	bad_type = /obj/item/weapon/storage/fancy
 	var/icon_type = "donut"
+	var/item_obj				// It can take a path or a list, the populate_contents() must be added when using item_obj in order to work.
 
 /obj/item/weapon/storage/fancy/update_icon(var/itemremoved = 0)
 	var/total_contents = src.contents.len - itemremoved
@@ -49,6 +51,7 @@
 	icon_type = "egg"
 	name = "egg box"
 	storage_slots = 12
+	item_obj = /obj/item/weapon/reagent_containers/food/snacks/egg
 	can_hold = list(
 		/obj/item/weapon/reagent_containers/food/snacks/egg,
 		/obj/item/weapon/reagent_containers/food/snacks/boiledegg
@@ -56,7 +59,7 @@
 
 /obj/item/weapon/storage/fancy/egg_box/populate_contents()
 	for(var/i in 1 to storage_slots)
-		new /obj/item/weapon/reagent_containers/food/snacks/egg(src)
+		new item_obj(src)
 
 //MRE food
 /obj/item/weapon/storage/fancy/mre_cracker
@@ -64,13 +67,14 @@
 	name = "enriched crackers pack"
 	storage_slots = 5
 	icon_type = "crackers"
+	item_obj = /obj/item/weapon/reagent_containers/food/snacks/mre_cracker
 	can_hold = list(
 		/obj/item/weapon/reagent_containers/food/snacks/mre_cracker
 		)
 
 /obj/item/weapon/storage/fancy/mre_cracker/populate_contents()
 	for(var/i in 1 to storage_slots)
-		new /obj/item/weapon/reagent_containers/food/snacks/mre_cracker(src)
+		new item_obj(src)
 
 /*
  * Candle Box
@@ -85,11 +89,13 @@
 	item_state = "candlebox5"
 	throwforce = WEAPON_FORCE_HARMLESS
 	slot_flags = SLOT_BELT
+	storage_slots = 5
+	item_obj = /obj/item/weapon/flame/candle
 
 
 /obj/item/weapon/storage/fancy/candle_box/populate_contents()
-	for(var/i in 1 to 5)
-		new /obj/item/weapon/flame/candle(src)
+	for(var/i in 1 to storage_slots)
+		new item_obj(src)
 
 /*
  * Crayon Box
@@ -145,18 +151,48 @@
 	throwforce = WEAPON_FORCE_HARMLESS
 	slot_flags = SLOT_BELT
 	storage_slots = 6
+	item_obj = /obj/item/clothing/mask/smokable/cigarette
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/weapon/flame/lighter)
 	icon_type = "cigarette"
 	reagent_flags = REFILLABLE | NO_REACT
+	var/open = FALSE
+
+/obj/item/weapon/storage/fancy/cigarettes/attack_self(mob/user)
+	if(open)
+		close_all()
+	else
+		..()
+	update_icon()
+
+/obj/item/weapon/storage/fancy/cigarettes/open(mob/user)
+	. = ..()
+	open = TRUE
+
+/obj/item/weapon/storage/fancy/cigarettes/close_all()
+	. = ..()
+	if(contents.len)
+		open = FALSE
+
+/obj/item/weapon/storage/fancy/cigarettes/show_to(mob/user)
+	. = ..()
+	update_icon()
 
 /obj/item/weapon/storage/fancy/cigarettes/populate_contents()
 	for(var/i in 1 to storage_slots)
-		new /obj/item/clothing/mask/smokable/cigarette(src)
+		new item_obj(src)
 	create_reagents(15 * storage_slots)//so people can inject cigarettes without opening a packet, now with being able to inject the whole one
 
 /obj/item/weapon/storage/fancy/cigarettes/update_icon()
-	icon_state = "[initial(icon_state)][contents.len]"
-	return
+	if(open)
+		icon_state = "[initial(icon_state)][contents.len]"
+	else
+		icon_state = "[initial(icon_state)]"
+
+/obj/item/weapon/storage/fancy/cigarettes/can_be_inserted(obj/item/W, stop_messages = 0)
+	if(!open)
+		to_chat(usr, SPAN_WARNING("Open [src] first!"))
+		return FALSE
+	return ..()
 
 /obj/item/weapon/storage/fancy/cigarettes/remove_from_storage(obj/item/W as obj, atom/new_location)
 	// Don't try to transfer reagents to lighters
@@ -186,16 +222,67 @@
 	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
 	icon_state = "Dpacket"
 	item_state = "Dpacket"
+	item_obj = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
 /obj/item/weapon/storage/fancy/cigarettes/killthroat
 	name = "\improper AcmeCo packet"
 	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
 	icon_state = "Bpacket"
 	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	item_obj = /obj/item/clothing/mask/smokable/cigarette/killthroat
 
-/obj/item/weapon/storage/fancy/cigarettes/killthroat/Initialize()
-	. = ..()
-	fill_cigarre_package(src, list("fuel" = 15))
+/obj/item/weapon/storage/fancy/cigarettes/homeless
+	name = "\improper Nomads packet"
+	desc = "A packet of six Nomads cigarettes. Nomads's Extra strong for when your life is more extra hard"
+	icon_state = "Cpacket"
+	item_state = "Cpacket"
+	item_obj = /obj/item/clothing/mask/smokable/cigarette/homeless
+
+/obj/item/weapon/storage/fancy/cigcartons
+	name = "carton of cigarettes"
+	desc = "A box containing 10 packets of cigarettes."
+	icon_state = "cigpacketcarton"
+	item_state = "cigpacketcarton"
+	icon = 'icons/obj/cigarettes.dmi'
+	w_class = ITEM_SIZE_NORMAL
+	throwforce = WEAPON_FORCE_HARMLESS
+	storage_slots = 10
+	item_obj = /obj/item/weapon/storage/fancy/cigarettes
+	can_hold = list(/obj/item/weapon/storage/fancy/cigarettes)
+	icon_type = "packet"
+	reagent_flags = REFILLABLE | NO_REACT
+
+/obj/item/weapon/storage/fancy/cigcartons/update_icon()
+	if(contents.len > 0)
+		icon_state = "[initial(icon_state)]1"
+	else
+		icon_state = "[initial(icon_state)]"
+
+/obj/item/weapon/storage/fancy/cigcartons/populate_contents()
+	for(var/i in 1 to storage_slots)
+		new item_obj(src)
+	update_icon()
+
+/obj/item/weapon/storage/fancy/cigcartons/dromedaryco
+	name = "carton of Dromedaryco cigarettes"
+	desc = "A box containing 10 packets of Dromedarycos cigarettes."
+	icon_state = "Dpacketcarton"
+	item_state = "Dpacketcarton"
+	item_obj = /obj/item/weapon/storage/fancy/cigarettes/dromedaryco
+
+/obj/item/weapon/storage/fancy/cigcartons/killthroat
+	name = "carton of AcmeCo cigarettes"
+	desc = "A box containing 10 packets of AcmeCo cigarettes."
+	icon_state = "Bpacketcarton"
+	item_state = "Bpacketcarton"
+	item_obj = /obj/item/weapon/storage/fancy/cigarettes/killthroat
+
+/obj/item/weapon/storage/fancy/cigcartons/homeless
+	name = "carton of Nomad cigarettes"
+	desc = "A box containing 10 packets of Nomad cigarettes."
+	icon_state = "Cpacketcarton"
+	item_state = "Cpacketcarton"
+	item_obj = /obj/item/weapon/storage/fancy/cigarettes/homeless
 
 /obj/item/weapon/storage/fancy/cigar
 	name = "cigar case"
@@ -210,10 +297,11 @@
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar)
 	icon_type = "cigar"
 	reagent_flags = REFILLABLE | NO_REACT
+	item_obj = /obj/item/clothing/mask/smokable/cigarette/cigar
 
 /obj/item/weapon/storage/fancy/cigar/populate_contents()
 	for(var/i in 1 to storage_slots)
-		new /obj/item/clothing/mask/smokable/cigarette/cigar(src)
+		new item_obj(src)
 	create_reagents(15 * storage_slots)
 	update_icon()
 
@@ -237,11 +325,11 @@
 	name = "vial storage box"
 	storage_slots = 6
 	can_hold = list(/obj/item/weapon/reagent_containers/glass/beaker/vial)
-
+	item_obj = /obj/item/weapon/reagent_containers/glass/beaker/vial
 
 /obj/item/weapon/storage/fancy/vials/populate_contents()
 	for(var/i in 1 to storage_slots)
-		new /obj/item/weapon/reagent_containers/glass/beaker/vial(src)
+		new item_obj(src)
 
 /obj/item/weapon/storage/lockbox/vials
 	name = "secure vial storage box"

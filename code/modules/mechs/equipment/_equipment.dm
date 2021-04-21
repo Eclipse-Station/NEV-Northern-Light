@@ -6,6 +6,10 @@
 	icon_state = ""
 	matter = list(MATERIAL_STEEL = 40)
 	force = 10
+	bad_type = /obj/item/mech_equipment
+	spawn_tags = SPAWN_TAG_MECH_QUIPMENT
+	rarity_value = 10
+	spawn_frequency = 10
 
 	var/restricted_hardpoints
 	var/mob/living/exosuit/owner
@@ -18,7 +22,7 @@
 /obj/item/mech_equipment/attack() //Generally it's not desired to be able to attack with items
 	return 0
 
-/obj/item/mech_equipment/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
+/obj/item/mech_equipment/afterattack(atom/target, mob/living/user, inrange, params)
 
 	if (owner && loc == owner && ((user in owner.pilots) || user == owner))
 		if(target in owner.contents)
@@ -64,6 +68,7 @@
 /obj/item/mech_equipment/mounted_system
 	var/holding_type
 	var/obj/item/holding
+	bad_type = /obj/item/mech_equipment/mounted_system
 
 /obj/item/mech_equipment/mounted_system/attack_self(var/mob/user)
 	. = ..()

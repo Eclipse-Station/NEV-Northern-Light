@@ -6,9 +6,12 @@
 	item_flags = AIRTIGHT|FLEXIBLEMATERIAL
 	body_parts_covered = FACE
 	w_class = ITEM_SIZE_SMALL
+	action_button_name = "Adjust mask"
 	gas_transfer_coefficient = 0.10
 	permeability_coefficient = 0.50
+	rarity_value = 10
 	var/hanging = 0
+	style = STYLE_NEG_LOW
 
 /obj/item/clothing/mask/breath/proc/adjust_mask(mob/user)
 	if(!usr.incapacitated())
@@ -42,4 +45,5 @@
 	name = "medical mask"
 	icon_state = "medical"
 	item_state = "medical"
+	rarity_value = 40
 	permeability_coefficient = 0.01

@@ -164,7 +164,7 @@
 	else if(!enabled && screen_on)
 		turn_on(user)
 
-/obj/item/modular_computer/attackby(obj/item/W, mob/user)
+/obj/item/modular_computer/attackby(obj/item/W, mob/user, sound_mute = FALSE)
 	if(istype(W, /obj/item/weapon/card/id)) // ID Card, try to insert it.
 		var/obj/item/weapon/card/id/I = W
 		if(!card_slot)
@@ -182,7 +182,8 @@
 		update_label()
 		update_uis()
 		update_verbs()
-		playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
+		if(sound_mute == FALSE) // This is here so that the sound doesn't play every time you spawn in because ID's now get moved in to PDA's on spawn.
+			playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		to_chat(user, "You insert [I] into [src].")
 
 		return
@@ -227,6 +228,7 @@
 					return
 				if(tool.use_tool(user, src, WORKTIME_SLOW, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_EASY, required_stat = STAT_COG))
 					new /obj/item/stack/material/steel( get_turf(src.loc), steel_sheet_cost )
+					new /obj/item/stack/material/glass( get_turf(src.loc), glass_sheet_cost )
 					src.visible_message("\The [src] has been disassembled by [user].")
 					qdel(src)
 					return

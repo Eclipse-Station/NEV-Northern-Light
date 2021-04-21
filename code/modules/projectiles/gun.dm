@@ -11,7 +11,7 @@
 		slot_back_str   = "back",
 		slot_s_store_str= "onsuit",
 		)
-	flags =  CONDUCT
+	flags = CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(MATERIAL_STEEL = 6)
 	w_class = ITEM_SIZE_NORMAL
@@ -23,6 +23,10 @@
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
 	hud_actions = list()
+	bad_type = /obj/item/weapon/gun
+	spawn_tags = SPAWN_TAG_GUN
+	rarity_value = 5
+	spawn_frequency = 10
 
 	var/damage_multiplier = 1 //Multiplies damage of projectiles fired from this gun
 	var/penetration_multiplier = 1 //Multiplies armor penetration of projectiles fired from this gun
@@ -38,7 +42,7 @@
 
 	var/muzzle_flash = 3
 	var/dual_wielding
-	var/can_dual = 0 // Controls whether guns can be dual-wielded (firing two at once).
+	var/can_dual = FALSE // Controls whether guns can be dual-wielded (firing two at once).
 	var/zoom_factor = 0 //How much to scope in when using weapon
 
 	var/suppress_delay_warning = FALSE
@@ -63,7 +67,7 @@
 
 	var/icon_contained = TRUE
 	var/static/list/item_icons_cache = list()
-	var/wielded_item_state = null
+	var/wielded_item_state
 	var/one_hand_penalty = 0 //The higher this number is, the more severe the accuracy penalty for shooting it one handed. 5 is a good baseline for this, but var edit it live and play with it yourself.
 
 	var/projectile_color //Set by a firemode. Sets the fired projectiles color
@@ -72,7 +76,7 @@
 	var/recentwield = 0 // to prevent spammage
 	var/proj_step_multiplier = 1
 	var/list/proj_damage_adjust = list() //What additional damage do we give to the bullet. Type(string) -> Amount(int)
-
+	var/noricochet = FALSE // wether or not bullets fired from this gun can ricochet off of walls
 /obj/item/weapon/gun/get_item_cost(export)
 	if(export)
 		return ..() * 0.5 //Guns should be sold in the player market.
@@ -81,6 +85,7 @@
 /obj/item/weapon/gun/Initialize()
 	. = ..()
 	initialize_firemodes()
+	initialize_scope()
 	//Properly initialize the default firing mode
 	if (firemodes.len)
 		set_firemode(sel_mode)
@@ -93,11 +98,6 @@
 		hud_actions += action
 
 
-	if(zoom_factor)
-		var/obj/screen/item_action/action = new /obj/screen/item_action/top_bar/gun/scope
-		action.owner = src
-		hud_actions += action
-
 	if(icon_contained)
 		if(!item_icons_cache[type])
 			item_icons_cache[type] = list(
@@ -107,9 +107,9 @@
 				slot_s_store_str = icon,
 			)
 		item_icons = item_icons_cache[type]
-	if(one_hand_penalty && (!wielded_item_state))//If the gun has a one handed penalty but no wielded item state then use this generic one.
+	if(one_hand_penalty || twohanded && (!wielded_item_state))//If the gun has a one handed penalty or is twohanded, but has no wielded item state then use this generic one.
 		wielded_item_state = "_doble" //Someone mispelled double but they did it so consistently it's staying this way.
-
+	generate_guntags()
 	var/obj/screen/item_action/action = new /obj/screen/item_action/top_bar/weapon_info
 	action.owner = src
 	hud_actions += action
@@ -123,7 +123,7 @@
 
 
 /obj/item/weapon/gun/proc/set_item_state(state, hands = FALSE, back = FALSE, onsuit = FALSE)
-	var/wield_state = null
+	var/wield_state
 	if(wielded_item_state)
 		wield_state = wielded_item_state
 	if(!(hands || back || onsuit))
@@ -163,7 +163,7 @@
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
 //Otherwise, if you want handle_click_empty() to be called, check in consume_next_projectile() and return null there.
-/obj/item/weapon/gun/proc/special_check(var/mob/user)
+/obj/item/weapon/gun/proc/special_check(mob/user)
 
 	if(!isliving(user))
 		return FALSE
@@ -226,11 +226,11 @@
 	if(ishuman(user) && user.a_intent == "harm")
 		var/mob/living/carbon/human/H = user
 
-		if(H.r_hand == src && istype(H.l_hand, /obj/item/weapon/gun))
+		if(H.r_hand == src && isgun(H.l_hand))
 			off_hand = H.l_hand
 			dual_wielding = TRUE
 
-		else if(H.l_hand == src && istype(H.r_hand, /obj/item/weapon/gun))
+		else if(H.l_hand == src && isgun(H.r_hand))
 			off_hand = H.r_hand
 			dual_wielding = TRUE
 		else
@@ -286,7 +286,7 @@
 
 		projectile.multiply_projectile_damage(damage_multiplier)
 
-		projectile.multiply_projectile_penetration(penetration_multiplier)
+		projectile.multiply_projectile_penetration(penetration_multiplier + user.stats.getStat(STAT_VIG) * 0.02)
 
 		projectile.multiply_pierce_penetration(pierce_multiplier)
 
@@ -295,6 +295,7 @@
 		if(istype(projectile, /obj/item/projectile))
 			var/obj/item/projectile/P = projectile
 			P.adjust_damages(proj_damage_adjust)
+			P.adjust_ricochet(noricochet)
 
 		if(pointblank)
 			process_point_blank(projectile, user, target)
@@ -330,7 +331,7 @@
 	return null
 
 //used by aiming code
-/obj/item/weapon/gun/proc/can_hit(atom/target as mob, var/mob/living/user as mob)
+/obj/item/weapon/gun/proc/can_hit(atom/target, mob/living/user)
 	if(!special_check(user))
 		return 2
 	//just assume we can shoot through glass and stuff. No big deal, the player can just choose to not target someone
@@ -347,7 +348,7 @@
 	update_firemode() //Stops automatic weapons spamming this shit endlessly
 
 //called after successfully firing
-/obj/item/weapon/gun/proc/handle_post_fire(mob/living/user, atom/target, var/pointblank=0, var/reflex=0)
+/obj/item/weapon/gun/proc/handle_post_fire(mob/living/user, atom/target, pointblank=0, reflex=0)
 	if(silenced)
 		//Silenced shots have a lower range and volume
 		playsound(user, fire_sound_silenced, 15, 1, -3)
@@ -386,7 +387,7 @@
 	user.handle_recoil(src)
 	update_icon()
 
-/obj/item/weapon/gun/proc/process_point_blank(var/obj/item/projectile/P, mob/user, atom/target)
+/obj/item/weapon/gun/proc/process_point_blank(obj/item/projectile/P, mob/user, atom/target)
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
@@ -411,14 +412,14 @@
 
 
 //does the actual launching of the projectile
-/obj/item/weapon/gun/proc/process_projectile(var/obj/item/projectile/P, mob/living/user, atom/target, var/target_zone, var/params=null)
+/obj/item/weapon/gun/proc/process_projectile(obj/item/projectile/P, mob/living/user, atom/target, var/target_zone, var/params=null)
 	if(!istype(P))
 		return FALSE //default behaviour only applies to true projectiles
 
 	if(params)
 		P.set_clickpoint(params)
 	var/offset = init_offset
-	if(user.calc_recoil())
+	if(user.recoil)
 		offset += user.recoil
 	offset = min(offset, MAX_ACCURACY_OFFSET)
 	offset = rand(-offset, offset)
@@ -520,7 +521,24 @@
 		qdel(action)
 		hud_actions -= action
 
-/obj/item/weapon/gun/proc/add_firemode(var/list/firemode)
+/obj/item/weapon/gun/proc/initialize_scope()
+	var/obj/screen/item_action/action = locate(/obj/screen/item_action/top_bar/gun/scope) in hud_actions
+	if(zoom_factor > 0)
+		if(!action)
+			action = new /obj/screen/item_action/top_bar/gun/scope
+			action.owner = src
+			hud_actions += action
+			if(ismob(src.loc))
+				var/mob/user = src.loc
+				user.client.screen += action
+	else
+		if(ismob(src.loc))
+			var/mob/user = src.loc
+			user.client.screen -= action
+		hud_actions -= action
+		qdel(action)
+
+/obj/item/weapon/gun/proc/add_firemode(list/firemode)
 	//If this var is set, it means spawn a specific subclass of firemode
 	if (firemode["mode_type"])
 		var/newtype = firemode["mode_type"]
@@ -537,7 +555,8 @@
 		sel_mode = 1
 	return set_firemode(sel_mode)
 
-/obj/item/weapon/gun/proc/set_firemode(var/index)
+/obj/item/weapon/gun/proc/set_firemode(index)
+	refresh_upgrades()
 	if(index > firemodes.len)
 		index = 1
 	var/datum/firemode/new_mode = firemodes[sel_mode]
@@ -574,13 +593,19 @@
 	else
 		user.update_cursor()
 
+/obj/item/weapon/gun/proc/get_total_damage_adjust()
+	var/val = 0
+	for(var/i in proj_damage_adjust)
+		val += proj_damage_adjust[i]
+	return val
+
 
 //Finds the current firemode and calls update on it. This is called from a few places:
 //When firemode is changed
 //When safety is toggled
 //When gun is picked up
 //When gun is readied
-/obj/item/weapon/gun/proc/update_firemode(var/force_state = null)
+/obj/item/weapon/gun/proc/update_firemode(force_state = null)
 	if (sel_mode && firemodes && firemodes.len)
 		var/datum/firemode/new_mode = firemodes[sel_mode]
 		new_mode.update(force_state)
@@ -634,19 +659,27 @@
 	data["recoil_buildup"] = recoil_buildup
 	data["recoil_buildup_max"] = initial(recoil_buildup)*10
 
+	data += ui_data_projectile(get_dud_projectile())
+
 	if(firemodes.len)
 		var/list/firemodes_info = list()
 		for(var/i = 1 to firemodes.len)
 			data["firemode_count"] += 1
 			var/datum/firemode/F = firemodes[i]
-			firemodes_info += list(list(
+			var/list/firemode_info = list(
 				"index" = i,
 				"current" = (i == sel_mode),
 				"name" = F.name,
+				"desc" = F.desc,
 				"burst" = F.settings["burst"],
 				"fire_delay" = F.settings["fire_delay"],
 				"move_delay" = F.settings["move_delay"],
-				))
+				)
+			if(F.settings["projectile_type"])
+				var/proj_path = F.settings["projectile_type"]
+				var/list/proj_data = ui_data_projectile(new proj_path)
+				firemode_info += proj_data
+			firemodes_info += list(firemode_info)
 		data["firemode_info"] = firemodes_info
 
 	if(item_upgrades.len)
@@ -654,10 +687,9 @@
 		for(var/atom/A in item_upgrades)
 			data["attachments"] += list(list("name" = A.name, "icon" = getAtomCacheFilename(A)))
 
-
 	return data
 
-/obj/item/weapon/gun/Topic(href, href_list, var/datum/topic_state/state)
+/obj/item/weapon/gun/Topic(href, href_list, datum/topic_state/state)
 	if(..(href, href_list, state))
 		return 1
 
@@ -665,6 +697,21 @@
 		sel_mode = text2num(href_list["firemode"])
 		set_firemode(sel_mode)
 		return 1
+
+//Returns a projectile that's not for active usage.
+/obj/item/weapon/gun/proc/get_dud_projectile()
+	return null
+
+/obj/item/weapon/gun/proc/ui_data_projectile(var/obj/item/projectile/P)
+	if(!P)
+		return list()
+	var/list/data = list()
+	data["projectile_name"] = P.name
+	data["projectile_damage"] = (P.get_total_damage() * damage_multiplier) + get_total_damage_adjust()
+	data["projectile_AP"] = P.armor_penetration * penetration_multiplier
+	qdel(P)
+	return data
+
 
 /obj/item/weapon/gun/refresh_upgrades()
 	//First of all, lets reset any var that could possibly be altered by an upgrade
@@ -683,6 +730,8 @@
 	fire_sound = initial(fire_sound)
 	restrict_safety = initial(restrict_safety)
 	rigged = initial(rigged)
+	zoom_factor = initial(zoom_factor)
+	initialize_scope()
 	initialize_firemodes()
 
 	//Now lets have each upgrade reapply its modifications
@@ -692,3 +741,9 @@
 	update_icon()
 	//then update any UIs with the new stats
 	SSnano.update_uis(src)
+
+/obj/item/weapon/gun/proc/generate_guntags()
+	if(one_hand_penalty)
+		gun_tags |= GUN_GRIP
+	if(!zoom_factor && !(slot_flags & SLOT_HOLSTER))
+		gun_tags |= GUN_SCOPE

@@ -18,6 +18,9 @@
 		if(get_dist(parent, floor) > spread_distance)
 			continue
 
+		if((locate(/obj/structure/window) in zdest.contents))
+			continue
+
 		//We check zdest, not floor, for existing plants
 		if((locate(/obj/effect/plant) in zdest.contents) || (locate(/obj/effect/dead_plant) in zdest.contents))
 			if(!(seed.get_trait(TRAIT_INVASIVE)))//Invasive ones can invade onto other tiles
@@ -125,12 +128,12 @@
 	// // // BEGIN ECLIPSE EDITS // // //
 	//Maintenance fungus spread nerfs.
 	
-	//If the seed is our favourite maintenance fungus and the world time is less than 60 seconds after our last growth, abort
-	if(seed.name == "fungoartiglieria" && (world.time < SSmigration.last_fungus_growth + 60 SECONDS))	//this gives us up to 60 growths per hour.
+	//If the seed is our favourite maintenance fungus and the world time is less than 30 seconds after our last growth, abort
+	if(istype(seed, /datum/seed/mushroom/maintshroom) && (world.time < SSmigration.last_fungus_growth + 30 SECONDS))	//this gives us up to 120 growths per hour.
 		return
 
 	if(is_mature() && neighbors.len && prob(spread_chance))
-		if(seed.name == "fungoartiglieria")
+		if(istype(seed, /datum/seed/mushroom/maintshroom))
 			SSmigration.last_fungus_growth = world.time			//Set our last growth time to world time.
 	// // // END ECLIPSE EDITS // // //
 		spawn()

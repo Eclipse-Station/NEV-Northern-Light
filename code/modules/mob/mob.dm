@@ -2,6 +2,7 @@
 	STOP_PROCESSING(SSmobs, src)
 	GLOB.dead_mob_list -= src
 	GLOB.living_mob_list -= src
+	GLOB.mob_list -= src
 	unset_machine()
 	qdel(hud_used)
 	if(client)
@@ -31,6 +32,7 @@
 		GLOB.dead_mob_list += src
 	else
 		GLOB.living_mob_list += src
+	GLOB.mob_list += src
 	move_intent = decls_repository.get_decl(move_intent)
 	. = ..()
 
@@ -236,6 +238,25 @@
 		FL.afterattack(A,src)
 	A.examine(src)
 
+/mob/verb/emptyHands()
+	set name = "Empty Hands"
+	set category = "IC"
+	// Subverting unEquip deliberately here because this works for forcibly removing bugged objects from hands and unEquip does not.
+	if (r_hand && r_hand.canremove)
+		src.drop_from_inventory(r_hand)
+	if (l_hand && l_hand.canremove)
+		src.drop_from_inventory(l_hand)
+	// Disown, but don't drop because we can get here with UI elements and probably other things.
+	if (r_hand && r_hand.loc != usr)
+		if (client) client.screen.Remove(r_hand)
+		r_hand = null
+	if (l_hand && l_hand.loc != usr)
+		if (client) client.screen.Remove(r_hand)
+		l_hand = null
+	// Still there? Double-check it's supposed to be removable before calling admins to debug.
+	if ((r_hand && r_hand.canremove) || (l_hand && l_hand.canremove))
+		message_admins("[usr.name] has something removable stuck in their hand after using empty hands! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
 	set category = "Object"
@@ -354,6 +375,10 @@
 
 	if(msg != null)
 		flavor_text = msg
+
+/mob/living/carbon/human/update_flavor_text()
+	..()
+	dna.flavor_text = flavor_text
 
 /mob/proc/print_flavor_text()
 	if (flavor_text && flavor_text != "")
@@ -643,7 +668,7 @@
 	if(.)
 		if(statpanel("Status") && SSticker.current_state != GAME_STATE_PREGAME)
 			stat("Storyteller", "[master_storyteller]")
-			stat("Station Time", stationtime2text())
+			stat("Ship Time", stationtime2text())
 			stat("Round Duration", roundduration2text())
 
 		if(client.holder)
@@ -1006,6 +1031,7 @@ mob/proc/yank_out_object()
 	handle_silent()
 	handle_drugged()
 	handle_slurring()
+	handle_slowdown()
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
@@ -1041,6 +1067,11 @@ mob/proc/yank_out_object()
 	if(paralysis)
 		AdjustParalysis(-1)
 	return paralysis
+
+/mob/living/proc/handle_slowdown()
+	if(slowdown)
+		slowdown = max(slowdown-1, 0)
+	return slowdown
 
 //Check for brain worms in head.
 /mob/proc/has_brain_worms()
@@ -1276,3 +1307,6 @@ mob/proc/yank_out_object()
 /mob/proc/set_stat(var/new_stat)
 	. = stat != new_stat
 	stat = new_stat
+
+/mob/proc/ssd_check()
+	return !client && !teleop

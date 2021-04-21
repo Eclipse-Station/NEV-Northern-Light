@@ -1,0 +1,41 @@
+bar
+ship
+Serbian ship
+rage cage
+garden
+farm
+hydroponics farm
+village
+city
+skyscraper
+shuttle
+muddy trench
+snowy trench
+prison cell
+engine compartment
+escape pod
+Lazarus Medical Division
+Lazarus Research Division
+Free Trade Union
+NanoTrasen Engineering
+Aegis Security
+Church of Mekhane
+Vasily Dokuchaev
+Mining hulk
+NEV Northern Light
+Bar
+Brig of a ship
+Engineering Department
+Medical Department
+Cargo Department
+Research Department
+Security Department
+Primary tool storage
+Maintenance
+Deep maintenance
+Bluespace
+cyberspace
+mountains
+pool
+dump
+madness

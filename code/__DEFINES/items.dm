@@ -19,13 +19,17 @@
 
 #define UPGRADE_MAXUPGRADES "max_upgrades"
 
-#define UPGRADE_SHARP "sharp"
+#define UPGRADE_SANCTIFY "sanctify"
 
 #define UPGRADE_COLOR "color"
 
-#define UPGRADE_ITEMFLAGPLUS "item_flag_add"
+//boolean
+#define UPGRADE_SHARP "sharp"
 
 #define UPGRADE_CELLPLUS "cell_hold_upgrade"
+
+//flags
+#define UPGRADE_ITEMFLAGPLUS "item_flag_add"
 
 
 
@@ -55,8 +59,10 @@
 #define GUN_UPGRADE_DAMAGE_CLONE "clone_damage"
 #define GUN_UPGRADE_DAMAGE_HALLOSS "hallucination_damage"
 #define GUN_UPGRADE_DAMAGE_RADIATION "radiation_damage"
+#define GUN_UPGRADE_DAMAGE_PSY "psy_damage"
 
 #define GUN_UPGRADE_OFFSET "offset" //Constant offset, in degrees
+#define GUN_UPGRADE_ZOOM "zoom"
 
 
 
@@ -92,20 +98,25 @@
 
 // A rare, random item
 #define RANDOM_RARE_ITEM list(\
-					/obj/random/common_oddities = 8,\
-					/obj/random/material_rare = 3,\
-					/obj/random/tool/advanced = 5,\
-					/obj/random/gun_normal = 3,\
-					/obj/random/lathe_disk/advanced = 2,\
+					/obj/spawner/oddities = 8,\
+					/obj/spawner/material/resources/rare = 3,\
+					/obj/spawner/tool/advanced = 5,\
+					/obj/spawner/gun/normal = 3,\
+					/obj/spawner/lathe_disk/advanced = 2,\
 					/obj/item/weapon/cell/small/moebius/nuclear = 1,\
 					/obj/item/weapon/cell/medium/moebius/hyper = 1,\
-					/obj/random/rig = 1.5,\
-					/obj/random/rig/damaged = 1.5,\
-					/obj/random/voidsuit = 4,\
-					/obj/random/pouch = 2,\
-					/obj/random/tool_upgrade/rare = 4,\
-					/obj/random/rig_module/rare = 4,\
-					/obj/random/credits/c1000 = 3,\
-					/obj/random/exosuit_equipment = 3,\
-					/obj/random/cloth/holster = 4,\
-					/obj/item/stash_spawner = 4)
+					/obj/spawner/rig = 1.5,\
+					/obj/spawner/rig/damaged = 1.5,\
+					/obj/spawner/voidsuit = 4,\
+					/obj/spawner/pouch = 2,\
+					/obj/spawner/tool_upgrade/rare = 4,\
+					/obj/spawner/rig_module/rare = 4,\
+					/obj/spawner/credits/c1000 = 3,\
+					/obj/spawner/exosuit_equipment = 3,\
+					/obj/spawner/cloth/holster = 4,\
+					/obj/item/stash_spawner = 4,\
+					/obj/item/weapon/storage/deferred/crate/german_uniform = 4)
+
+GLOBAL_LIST_INIT(tool_aspects_blacklist, list(UPGRADE_COLOR, UPGRADE_ITEMFLAGPLUS, UPGRADE_CELLPLUS, UPGRADE_SHARP, UPGRADE_BULK))
+GLOBAL_LIST_INIT(weapon_aspects_blacklist, list(GUN_UPGRADE_SILENCER, GUN_UPGRADE_FORCESAFETY, GUN_UPGRADE_HONK, GUN_UPGRADE_FULLAUTO,
+											GUN_UPGRADE_EXPLODE, GUN_UPGRADE_RIGGED, UPGRADE_SANCTIFY))

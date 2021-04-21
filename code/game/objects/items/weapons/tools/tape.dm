@@ -12,6 +12,7 @@
 	degradation = 0 //its consumable anyway
 	flags = NOBLUDGEON //Its not a weapon
 	max_upgrades = 0 //These are consumable, so no wasting upgrades on them
+	rarity_value = 4
 
 /obj/item/weapon/tool/tape_roll/web
 	name = "web tape"
@@ -20,6 +21,8 @@
 	use_stock_cost = 0.17
 	max_stock = 30
 	alpha = 150
+	rarity_value = 2
+	spawn_tags = SPAWN_TAG_JUNKTOOL
 
 /obj/item/weapon/tool/tape_roll/fiber
 	name = "fiber tape"
@@ -29,8 +32,20 @@
 	matter = list(MATERIAL_PLASTIC = 20)
 	use_stock_cost = 0.10
 	max_stock = 100
+	spawn_frequency = 8
+	rarity_value = 24
+	spawn_tags = SPAWN_TAG_TOOL_ADVANCED
 
-/obj/item/weapon/tool/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user)
+/obj/item/weapon/tool/tape_roll/glue
+	name = "superglue"
+	desc = "A bucket of milky white fluid. Can be used to stick things together, but unlike tape, it cannot be used to seal things."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "glue"
+	tool_qualities = list(QUALITY_ADHESIVE = 40, QUALITY_CAUTERIZING = 5) // Better than duct tape, but can't seal things and is mostly used in crafting - also, it's glue, so it can be used as an extremely shitty way of sealing wounds
+	matter = list(MATERIAL_BIOMATTER = 30)
+	worksound = NO_WORKSOUND
+
+/obj/item/weapon/tool/tape_roll/attack(mob/living/carbon/human/H, mob/user)
 	if(istype(H))
 		if(user.targeted_organ == BP_EYES)
 
@@ -93,7 +108,7 @@
 			return ..()
 		return 1
 
-/obj/item/weapon/tool/tape_roll/stick(var/obj/item/target, var/mob/user)
+/obj/item/weapon/tool/tape_roll/stick(obj/item/target, mob/user)
 	if (!istype(target) || target.anchored)
 		return
 
@@ -116,10 +131,12 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape"
 	w_class = ITEM_SIZE_TINY
-	layer = 4
-	anchored = 1 //it's sticky, no you cant move it
+	layer = BELOW_MOB_LAYER
+	anchored = TRUE //it's sticky, no you cant move it
+	spawn_frequency = 0
+	bad_type = /obj/item/weapon/ducttape
 
-	var/obj/item/weapon/stuck = null
+	var/obj/item/weapon/stuck
 
 /obj/item/weapon/ducttape/New()
 	..()
@@ -133,7 +150,7 @@
 /obj/item/weapon/ducttape/examine(mob/user)
 	return stuck.examine(user)
 
-/obj/item/weapon/ducttape/proc/attach(var/obj/item/weapon/W)
+/obj/item/weapon/ducttape/proc/attach(obj/item/weapon/W)
 	stuck = W
 	W.forceMove(src)
 	update_icon()
@@ -169,7 +186,7 @@
 	overlays = null
 	qdel(src)
 
-/obj/item/weapon/ducttape/afterattack(var/A, mob/user, flag, params)
+/obj/item/weapon/ducttape/afterattack(A, mob/user, flag, params)
 
 	if(!in_range(user, A) || istype(A, /obj/machinery/door) || !stuck)
 		return

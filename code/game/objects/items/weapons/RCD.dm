@@ -16,6 +16,7 @@
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_PHORON = 10, MATERIAL_URANIUM = 10)
 	price_tag = 2000
+	spawn_blacklisted = TRUE//antag_item_targets
 	var/datum/effect/effect/system/spark_spread/spark_system
 	var/stored_matter = 0
 	var/working = 0
@@ -218,8 +219,9 @@
 
 /obj/item/weapon/rcd/borg
 	canRwall = 1
+	spawn_tags = null
 
-/obj/item/weapon/rcd/borg/useResource(var/amount, var/mob/user, var/checkOnly)
+/obj/item/weapon/rcd/borg/useResource(var/amount, mob/user, var/checkOnly)
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
@@ -236,8 +238,10 @@
 /obj/item/weapon/rcd/borg/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat)
 
+/obj/item/weapon/rcd/mounted
+	spawn_tags = null//mech item
 
-/obj/item/weapon/rcd/mounted/useResource(var/amount, var/mob/user, var/checkOnly)
+/obj/item/weapon/rcd/mounted/useResource(var/amount, mob/user, var/checkOnly)
 	var/cost = amount*130 //so that a rig with default powercell can build ~2.5x the stuff a fully-loaded RCD can.
 	if(istype(loc,/obj/item/rig_module))
 		var/obj/item/rig_module/module = loc

@@ -46,7 +46,7 @@
 
 	//Things to configure
 	var/event_type
-	var/weight = 1
+	var/weight = 1 //Our base weight coefficient, which affects how likely we are to be picked from a list of other story events
 
 	//Which event pools this story event can appear in.
 	//Multiple options allowed, can be any combination of
@@ -104,7 +104,7 @@
 
 	return FALSE
 
-/datum/storyevent/proc/cancel(var/type, var/completion = 0.0)
+/datum/storyevent/proc/cancel(var/type, var/completion = 0)
 	//This proc refunds the cost of this event
 	if (GLOB.storyteller)
 		GLOB.storyteller.modify_points(get_cost(type)*(1 - completion), type)

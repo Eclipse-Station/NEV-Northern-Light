@@ -84,13 +84,15 @@
 			break
 
 	canmove = 1
-	anchored = 0
+	anchored = FALSE
 
 	if(M && invalidFeedTarget(M)) // This means that the slime drained the victim
 		if(!client)
 			if(Victim && !rabid && !attacked && Victim.LAssailant && Victim.LAssailant != Victim && prob(50))
 				if(!(Victim.LAssailant in Friends))
+					Friends.Add(Victim.LAssailant)
 					Friends[Victim.LAssailant] = 1
+
 				else
 					++Friends[Victim.LAssailant]
 

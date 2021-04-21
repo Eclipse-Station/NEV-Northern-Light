@@ -6,8 +6,9 @@
 	has_sensor = 0
 	price_tag = 50
 
-/obj/item/clothing/under/turtleneck/New()
-	if (prob(50))
+/obj/item/clothing/under/turtleneck/Initialize(mapload, ...)
+	. = ..()
+	if(prob(50))
 		name = "black turtleneck"
 		icon_state = "blackturtle"
 
@@ -28,3 +29,11 @@
 	name = "black Battle Dress Uniform"
 	desc = "A tough, wear-resistant battle dress uniform in urban colors. Typically worn underneath armour"
 	icon_state = "serbiansuit_black"
+
+/obj/item/clothing/under/germansuit
+	name = "Oberth Republic Battle Dress Uniform"
+	desc = "A tough, wear-resistant battle dress uniform in brown colors. Typically worn underneath armour."
+	icon_state = "germansuit_brown"
+	item_state = "germansuit_brown"
+	has_sensor = 0
+

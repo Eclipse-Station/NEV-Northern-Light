@@ -113,7 +113,7 @@
 //Drag and drop onto low walls. Copied from tables
 //This is mainly so that janiborg can put things on tables
 /obj/structure/low_wall/MouseDrop_T(atom/A, mob/user, src_location, over_location, src_control, over_control, params)
-	if(istype(A.loc, /mob))
+	if(ismob(A.loc))
 		user.unEquip(A, loc)
 		set_pixel_click_offset(A, params)
 		return
@@ -241,7 +241,7 @@
 			for(var/obj/structure/low_wall/T in oview(src, 1))
 				T.update_connections()
 
-			for(var/turf/simulated/wall/T in trange(1, src) - src)
+			for(var/turf/simulated/wall/T in RANGE_TURFS(1, src) - src)
 				T.update_connections()
 		return
 
@@ -283,7 +283,7 @@
 	var/list/connected_cardinals = list()
 
 	//Now we loop through all the full walls near us. Everything here automatically meets condition 1
-	for(var/turf/simulated/wall/T in trange(1, src) - src)
+	for(var/turf/simulated/wall/T in RANGE_TURFS(1, src) - src)
 		var/T_dir = get_dir(src, T)
 
 		//If this wall is cardinal to us, it meets condition 2a and passes

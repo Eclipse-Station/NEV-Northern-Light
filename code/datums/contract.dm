@@ -1,4 +1,4 @@
-GLOBAL_LIST_EMPTY(various_antag_contracts)	//Contracts from "Various" emloyers, currently used by Traitors, Changelings and Blitzshells
+GLOBAL_LIST_EMPTY(various_antag_contracts)	//Contracts from "Various" emloyers, currently used by Traitors, Carrions and Blitzshells
 GLOBAL_LIST_EMPTY(excel_antag_contracts)	//Excelsior contracts
 GLOBAL_LIST_INIT(antag_item_targets,list(
 		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
@@ -8,13 +8,17 @@ GLOBAL_LIST_INIT(antag_item_targets,list(
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
 		"the Chief Engineer's advanced voidsuit control module" = /obj/item/weapon/rig/ce,
-		"the station blueprints" = /obj/item/blueprints,
+
+		"the ship blueprints" = /obj/item/blueprints,
+
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
 		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
 		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
-		"a Chief Medical OFficer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
-		"a Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
+		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
+
+		"an Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
+
 		"a First Officer's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/weapon/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/weapon/pinpointer,
@@ -33,10 +37,10 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		"a Straylight sub machine gun" = /obj/item/weapon/gun/projectile/automatic/straylight,
 		"a Sol carbine" = /obj/item/weapon/gun/projectile/automatic/sol,
 		"a Colt handgun" = /obj/item/weapon/gun/projectile/colt,
-		"a Lenar granade launcher" = /obj/item/weapon/gun/launcher/grenade/lenar,
+		"a Lenar grenade launcher" = /obj/item/weapon/gun/launcher/grenade/lenar,
 		"an RCD" = /obj/item/weapon/rcd,
 		"a cruciform" = /obj/item/weapon/implant/core_implant/cruciform,
-		"the station blueprints" = /obj/item/blueprints,
+		"the ship blueprints" = /obj/item/blueprints,
 		"a hand teleporter" = /obj/item/weapon/hand_tele,
 		"a bluespace Harpoon" = /obj/item/weapon/bluespace_harpoon,
 		"a rocket-powered charge hammer" = /obj/item/weapon/tool/hammer/charge,
@@ -48,7 +52,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	var/desc
 	var/reward = 0
 	var/completed = FALSE
-	var/datum/mind/completed_by = null
+	var/datum/mind/completed_by
 	var/unique = FALSE
 
 /datum/antag_contract/proc/can_place()
@@ -71,11 +75,15 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 /datum/antag_contract/proc/complete(datum/mind/M)
 	if(completed)
 		warning("Contract completed twice: [name] [desc]")
+	else
+		GLOB.completed_antag_contracts++
 	completed = TRUE
 	completed_by = M
 
-	if(M && M.current)
-		to_chat(M.current, SPAN_NOTICE("Contract completed: [name] ([reward] TC)"))
+	if(M)
+		M.contracts_completed++
+		if(M.current)
+			to_chat(M.current, SPAN_NOTICE("Contract completed: [name] ([reward] TC)"))
 
 	for(var/obj/item/device/uplink/U in world_uplinks)
 		if(U.uplink_owner != M)
@@ -132,7 +140,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		candidates -= candidate_mind
 
 		// Implant contracts are 75% less likely to target contract-based antags to reduce the amount of cheesy self-implants
-		if((player_is_antag_id(candidate_mind, ROLE_TRAITOR) || player_is_antag_id(candidate_mind, ROLE_CHANGELING)) && prob(75))
+		if((player_is_antag_id(candidate_mind, ROLE_TRAITOR) || player_is_antag_id(candidate_mind, ROLE_CARRION)) && prob(75))
 			continue
 
 		// No check for cruciform because the spying implant can bypass it
@@ -142,6 +150,8 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 
 		target_mind = candidate_mind
 		desc = "Implant [H.real_name] with a spying implant."
+		if(H.stats.getPerk(PERK_NOBLE))
+			reward *= 1.5
 		break
 	..()
 
@@ -228,6 +238,8 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 		if(!target)
 			target = H.organs_by_name[BP_HEAD]
 		desc = "Assasinate [target_mind.current.real_name] and send [gender_datums[target_mind.current.gender].his] [target.name] via BSDM as a proof."
+		if(H.stats.getPerk(PERK_NOBLE))
+			reward *= 1.5
 		break
 
 /datum/antag_contract/item/assasinate/can_place()
@@ -305,7 +317,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	var/list/samples = list()
 	for(var/obj/item/weapon/reagent_containers/C in contents)
 		var/list/data = C.reagents?.get_data("blood")
-		if(!data || data["species"] != "Human" || (data["blood_DNA"] in samples))
+		if(!data || data["species"] != SPECIES_HUMAN || (data["blood_DNA"] in samples))
 			continue
 		samples += data["blood_DNA"]
 		if(samples.len >= count)
@@ -366,7 +378,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	excelsior_energy += reward
 	for (var/obj/machinery/complant_teleporter/t in excelsior_teleporters)
 		t.update_nano_data()
-	
+
 /datum/antag_contract/excel/appropriate
 	name = "Appropriate"
 	reward = 400
@@ -403,29 +415,31 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	var/targets_command = prob(command_bias)
 	for(var/datum/antag_contract/excel/targeted/M in GLOB.excel_antag_contracts)
 		candidates -= M.target_mind
-	
+
 	while(candidates.len)
 		var/datum/mind/candidate_mind = pick(candidates)
 		candidates -= candidate_mind
-		
+
 		if(player_is_antag_id(candidate_mind, ROLE_EXCELSIOR_REV))
 			continue
 
 		var/mob/living/carbon/human/H = candidate_mind.current
 		if(!istype(H) || H.stat == DEAD || !isOnStationLevel(H))
 			continue
-		
+
 		if (targets_command)
 			if(!(candidate_mind.assigned_role in list(JOBS_COMMAND + JOBS_SECURITY)))
 				continue
-		
+
 		if (cruciform_check)
 			var/cruciform = H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)
 			if(cruciform)
 				continue
-		
+
 		target_mind = candidate_mind
 		desc = "[name] [target_mind.current.real_name] [desc_text]"
+		if(H.stats.getPerk(PERK_NOBLE))
+			reward *= 1.5
 		break
 
 /datum/antag_contract/excel/targeted/can_place()
@@ -452,7 +466,7 @@ GLOBAL_LIST_INIT(excel_item_targets,list(
 	name = "Propaganda"
 	reward = 600
 	var/list/area/targets = list()
-	
+
 /datum/antag_contract/excel/propaganda/New()
 	var/list/candidates = ship_areas.Copy()
 	for(var/datum/antag_contract/excel/propaganda/M in GLOB.excel_antag_contracts)

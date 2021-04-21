@@ -2,11 +2,14 @@
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
 	germ_level = 0
+	matter = list(MATERIAL_BIOMATTER = 20)
+	bad_type = /obj/item/organ
+	spawn_tags = SPAWN_TAG_ORGAN
 
 	// Strings.
 	var/surgery_name					// A special name that replaces item name in surgery messages
 	var/organ_tag = "organ"				// Unique identifier.
-	var/parent_organ = BP_CHEST			// Organ holding this object.
+	var/parent_organ_base = BP_CHEST	// Base organ holding this object.
 	var/dead_icon
 
 	// Status tracking.
@@ -31,7 +34,6 @@
 	var/min_broken_damage = 30			// Damage before becoming broken
 	var/max_damage						// Damage cap
 	var/rejecting						// Is this organ already being rejected?
-	matter = list(MATERIAL_BIOMATTER = 20)
 
 	var/death_time						// limits organ self recovery
 
@@ -55,7 +57,7 @@
 		max_damage = min_broken_damage * 2
 
 	if(istype(holder))
-		species = all_species["Human"]
+		species = all_species[SPECIES_HUMAN]
 		if(holder.dna)
 			dna = holder.dna.Clone()
 			species = all_species[dna.species]
@@ -66,8 +68,8 @@
 		else
 			log_debug("[src] at [loc] spawned without a proper DNA.")
 
-		if(parent_organ)
-			replaced(holder.get_organ(parent_organ))
+		if(parent_organ_base)
+			replaced(holder.get_organ(parent_organ_base))
 		else
 			replaced_mob(holder)
 
@@ -105,14 +107,14 @@
 		owner.death()
 
 /obj/item/organ/get_item_cost()
-	if((status & ORGAN_DEAD) || species != all_species["Human"]) //No dead or monkey organs!
+	if((status & ORGAN_DEAD) || species != all_species[SPECIES_HUMAN]) //No dead or monkey organs!
 		return 0
 	return ..()
 
 
 // Checks if the organ is in a freezer, an MMI or a stasis bag - it will not be processed then
 /obj/item/organ/proc/is_in_stasis()
-	if(istype(loc, /obj/item/device/mmi))
+	if(istype(loc, /obj/item/device/mmi) || istype(loc, /mob/living/simple_animal/spider_core))
 		return TRUE
 
 	if(istype(loc, /obj/structure/closet/body_bag/cryobag) || istype(loc, /obj/structure/closet/crate/freezer) || istype(loc, /obj/item/weapon/storage/freezer))
@@ -139,10 +141,11 @@
 		return
 
 	if(!owner)
-		var/datum/reagent/organic/blood/B = locate(/datum/reagent/organic/blood) in reagents.reagent_list
-		if(B && prob(40))
-			reagents.remove_reagent("blood",0.1)
-			blood_splatter(src,B,1)
+		if(reagents)
+			var/datum/reagent/organic/blood/B = locate(/datum/reagent/organic/blood) in reagents.reagent_list
+			if(B && prob(40))
+				reagents.remove_reagent("blood",0.1)
+				blood_splatter(src,B,1)
 		if(config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
@@ -184,7 +187,6 @@
 		owner.bodytemperature += between(0, (fever_temperature - T20C)/BODYTEMP_COLD_DIVISOR + 1, fever_temperature - owner.bodytemperature)
 
 	if (germ_level >= INFECTION_LEVEL_TWO)
-		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 		//spread germs
 		if (antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))
 			parent.germ_level++
@@ -264,10 +266,8 @@
 		src.damage = between(0, src.damage + amount, max_damage)
 
 		//only show this if the organ is not robotic
-		if(owner && parent_organ && amount > 0)
-			var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
-			if(parent && !silent)
-				owner.custom_pain("Something inside your [parent.name] hurts a lot.", 1)
+		if(owner && parent && amount > 0 && !silent)
+			owner.custom_pain("Something inside your [parent.name] hurts a lot.", 1)
 
 /obj/item/organ/proc/bruise()
 	damage = max(damage, min_bruised_damage)
@@ -289,7 +289,7 @@
 		return parent
 
 	if(owner)
-		return owner.get_organ(parent_organ)
+		return owner.get_organ(parent_organ_base)
 
 	else if(istype(loc, /obj/item/organ/external))
 		return loc
@@ -313,7 +313,7 @@
 
 
 /obj/item/organ/proc/removed_mob(mob/living/user)
-	var/datum/reagent/organic/blood/organ_blood = locate(/datum/reagent/organic/blood) in reagents.reagent_list
+	var/datum/reagent/organic/blood/organ_blood = locate(/datum/reagent/organic/blood) in reagents?.reagent_list
 	if(!organ_blood || !organ_blood.data["blood_DNA"])
 		owner.vessel.trans_to(src, 5, 1, 1)
 
@@ -342,8 +342,10 @@
 	owner = target
 	forceMove(owner)
 	STOP_PROCESSING(SSobj, src)
+	if(BP_IS_ROBOTIC(src))
+		SEND_SIGNAL(owner, COMSIG_HUMAN_ROBOTIC_MODIFICATION)
 
-	var/datum/reagent/organic/blood/transplant_blood = locate(/datum/reagent/organic/blood) in reagents.reagent_list
+	var/datum/reagent/organic/blood/transplant_blood = locate(/datum/reagent/organic/blood) in reagents?.reagent_list
 	transplant_data = list()
 	if(!transplant_blood)
 		transplant_data["species"] =    owner.species.name

@@ -20,10 +20,13 @@
 	min_air_pressure = 0
 	min_bodytemperature = 0
 
+	spawn_tags = SPAWN_TAG_ROACH_NANITE
+	rarity_value = 22.5
+
 	var/list/nanite_swarms = list()
 	var/max_swarms = 5
 
-/mob/living/carbon/superior_animal/roach/nanite/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/carbon/superior_animal/roach/nanite/UnarmedAttack(atom/A, var/proximity)
 	. = ..()
 
 	if(isliving(A))
@@ -32,7 +35,7 @@
 			var/sound/screech = pick('sound/machines/robots/robot_talk_light1.ogg','sound/machines/robots/robot_talk_light2.ogg','sound/machines/robots/robot_talk_heavy4.ogg')
 			playsound(src, screech, 30, 1, -3)
 			nanite_swarms.Add(new /mob/living/simple_animal/hostile/naniteswarm(get_turf(src), src))
-			say("10101010011100010101")
+			say("010100110101010101000010010011010100100101010100")
 
 /mob/living/carbon/superior_animal/roach/nanite/death()
 	for(var/mob/living/simple_animal/hostile/naniteswarm/NS in nanite_swarms)

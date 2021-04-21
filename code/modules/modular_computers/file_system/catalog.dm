@@ -14,8 +14,8 @@ GLOBAL_LIST_EMPTY(all_catalog_entries_by_type)
 
 /hook/startup/proc/createCatalogs()
 	// Reagents
-	for(var/V in chemical_reagents_list)
-		var/datum/reagent/D = chemical_reagents_list[V]
+	for(var/V in GLOB.chemical_reagents_list)
+		var/datum/reagent/D = GLOB.chemical_reagents_list[V]
 		if(D.appear_in_default_catalog)
 			create_catalog_entry(D, CATALOG_REAGENTS)
 			create_catalog_entry(D, CATALOG_ALL)
@@ -26,8 +26,8 @@ GLOBAL_LIST_EMPTY(all_catalog_entries_by_type)
 			else
 				create_catalog_entry(D, CATALOG_CHEMISTRY)
 	// second run to add decompose results
-	for(var/V in chemical_reagents_list)
-		var/datum/reagent/D = chemical_reagents_list[V]
+	for(var/V in GLOB.chemical_reagents_list)
+		var/datum/reagent/D = GLOB.chemical_reagents_list[V]
 		if(D.heating_products && D.heating_point)
 			for(var/id in D.heating_products)
 				var/datum/catalog_entry/reagent/E = get_catalog_entry(get_reagent_type_by_id(id))
@@ -232,7 +232,7 @@ GLOBAL_LIST_EMPTY(all_catalog_entries_by_type)
 		recipe_data = list()
 		for(var/datum/chemical_reaction/R in recipes)
 			recipe_data += list(R.ui_data())
-	var/list/used_in = chemical_reactions_list[V.id]
+	var/list/used_in = GLOB.chemical_reactions_list[V.id]
 	if(used_in)
 		for(var/datum/chemical_reaction/R in used_in)
 			if(R.result)
@@ -315,12 +315,16 @@ GLOBAL_LIST_EMPTY(all_catalog_entries_by_type)
 	var/taste
 	var/strength
 	var/list/recipe_data
+	var/list/taste_tag
 
 /datum/catalog_entry/drink/search_value(var/value)
 	if(..())
 		return TRUE
 	if(findtext(strength, value))
 		return TRUE
+	for(var/i in taste_tag)
+		if(findtext(i, value))
+			return TRUE
 
 /datum/catalog_entry/drink/New(var/datum/reagent/V)
 	if(!istype(V))
@@ -348,7 +352,10 @@ GLOBAL_LIST_EMPTY(all_catalog_entries_by_type)
 			nutrition = E.nutriment_factor > 1 ? "High" : "Low"
 		strength = E.strength <= 15 ? "Light" : E.strength <= 50 ? "Strong" : "Knocking out"
 		thing_nature = "Alchohol drink"
-
+		if(E.taste_tag.len)
+			taste_tag = list()
+			for(var/tastes in E.taste_tag)
+				taste_tag += tastes
 	var/list/recipes = GLOB.chemical_reactions_list_by_result[V.id]
 	if(recipes)
 		recipe_data = list()
@@ -367,6 +374,7 @@ GLOBAL_LIST_EMPTY(all_catalog_entries_by_type)
 	data["taste"] = taste
 	data["strength"] = strength
 	data["recipe_data"] = recipe_data
+	data["taste_tag"] = taste_tag
 
 
 	// DESCRIPTION

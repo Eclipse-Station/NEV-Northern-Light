@@ -63,7 +63,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	desc = "A large component of an even larger particle accelerator."
 	icon = 'icons/obj/machines/particle_accelerator2.dmi'
 	icon_state = "none"
-	anchored = 0
+	anchored = FALSE
 	density = TRUE
 	var/obj/machinery/particle_accelerator/control_box/master = null
 	var/construction_state = 0
@@ -154,7 +154,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 					user.visible_message("[user.name] secures the [src.name] to the floor.", \
 						"You secure the external bolts.")
 					construction_state = 0
-					anchored = 0
+					anchored = FALSE
 					update_icon()
 					return
 			return
@@ -209,14 +209,14 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 /obj/structure/particle_accelerator/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			if (prob(50))
 				qdel(src)
 				return
-		if(3.0)
+		if(3)
 			if (prob(25))
 				qdel(src)
 				return
@@ -267,9 +267,9 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	desc = "A large component of an even larger particle accelerator."
 	icon = 'icons/obj/machines/particle_accelerator2.dmi'
 	icon_state = "none"
-	anchored = 0
+	anchored = FALSE
 	density = TRUE
-	use_power = 0
+	use_power = NO_POWER_USE
 	idle_power_usage = 0
 	active_power_usage = 0
 	var/construction_state = 0
@@ -348,7 +348,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 					user.visible_message("[user.name] secures the [src.name] to the floor.", \
 						"You secure the external bolts.")
 					construction_state = 0
-					anchored = 0
+					anchored = FALSE
 					update_icon()
 					return
 			return
@@ -369,7 +369,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 					user.visible_message("[user.name] closes the [src.name]'s access panel.", \
 						"You close the access panel.")
 					construction_state = 3
-					use_power = 1
+					use_power = IDLE_POWER_USE
 					update_icon()
 					return
 			if(construction_state == 3)
@@ -377,7 +377,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 					user.visible_message("[user.name] closes the [src.name]'s access panel.", \
 						"You close the access panel.")
 					construction_state = 2
-					use_power = 0
+					use_power = NO_POWER_USE
 					update_state()
 					update_icon()
 					return
@@ -398,14 +398,14 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 /obj/machinery/particle_accelerator/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			if (prob(50))
 				qdel(src)
 				return
-		if(3.0)
+		if(3)
 			if (prob(25))
 				qdel(src)
 				return

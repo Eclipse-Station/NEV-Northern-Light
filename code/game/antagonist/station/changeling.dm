@@ -1,11 +1,27 @@
-/datum/antagonist/changeling
-	id = ROLE_CHANGELING
-	role_text = "Changeling"
-	role_text_plural = "Changelings"
+/datum/antagonist/carrion
+	id = ROLE_CARRION
+	role_text = "Carrion"
+	role_text_plural = "Carrions"
 	restricted_jobs = list("AI", "Robot")
 	protected_jobs = list(JOBS_SECURITY, JOBS_COMMAND)
-	bantype = ROLE_BANTYPE_CHANGELING
-	welcome_text = "Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you absorb them."
+	bantype = ROLE_BANTYPE_CARRION
+	welcome_text = "Every culture has a bogeyman, a terrifying, supernatural creature spoken about in hushed tones and\
+used to scare children into misbehaving. The difference is that you actually exist.\n \n \
+You are a Carrion, first created by Lazarus scientists trying to gain an edge in the Corporate Wars. The\
+first of your kind broke free, and spread to the stars, now known space and beyond are full of terrifying\
+stories of colonies that disappeared overnight, of ships whose crews died screaming. Fortunately for the\
+Northern Light, you aren’t here to slaughter them all, not unless they push you to it. Your true masters\
+have a plan, and you are the unstoppable instrument of their will.\n\n\
+Your body is ever changing, you should start by evolving a chemical vessel to use your powers. A carrion\
+maw can be a good way to earn evolution points.\n\n\
+You can complete contracts to grow stronger until the entire ship is your plaything. Be patient, a slow,\
+methodical approach is recommended.\n\
+Your enemies are many, and your disguise will not hold up to an in-depth scan. Beware of the Children\
+of Mekhane in particular, who are protected from your infection spiders, and may be able to identify\
+and out you before you are ready.\n\n\
+You won’t find many friends here, but spiders are one of them. If you feel alone, you can always give\
+birth to your own children, or search the ship for your brothers and sisters."
+
 	antaghud_indicator = "hudchangeling"
 
 
@@ -14,17 +30,14 @@
 
 	stat_modifiers = list(
 		STAT_TGH = 5,
-		STAT_VIG = 15
+		STAT_VIG = 15,
+		STAT_BIO = 20 //Good at surgery
 	)
 
-/datum/antagonist/changeling/get_special_objective_text()
-	if(owner && owner.changeling)
-		return "<br><b>Changeling ID:</b> [owner.changeling.changelingID].<br><b>Genomes Absorbed:</b> [owner.changeling.absorbedcount]"
+/datum/antagonist/carrion/special_init()
+	owner.current.make_carrion()
 
-/datum/antagonist/changeling/special_init()
-	owner.current.make_changeling()
-
-/datum/antagonist/changeling/can_become_antag(datum/mind/player)
+/datum/antagonist/carrion/can_become_antag(datum/mind/player)
 	if(..() && ishuman(player.current))
 		var/mob/living/carbon/human/H = player.current
 		if(H.isSynthetic())
@@ -34,10 +47,10 @@
 		return TRUE
 	return FALSE
 
-/datum/antagonist/changeling/equip()
+/datum/antagonist/carrion/equip()
 	var/mob/living/L = owner.current
 
 	for(var/name in stat_modifiers)
 		L.stats.changeStat(name, stat_modifiers[name])
-		
-	setup_uplink_source(L, 5)
+
+	spawn_uplink(L, 5)

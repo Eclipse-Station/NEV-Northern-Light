@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 /obj/item/weapon/card/id/guest
 	name = "guest pass"
-	desc = "Allows temporary access to station areas."
+	desc = "Allows temporary access to ship areas."
 	icon_state = "guest"
 	light_color = COLOR_LIGHTING_BLUE_MACHINERY
 
@@ -28,18 +28,7 @@
 	to_chat(usr, SPAN_NOTICE("It grants access to the following areas:"))
 	for (var/A in temp_access)
 		to_chat(usr, SPAN_NOTICE("[get_access_desc(A)]."))
-
-/obj/item/weapon/card/id/guest/read()
-	if (world.time > expiration_time)
-		to_chat(usr, SPAN_NOTICE("This pass expired at [worldtime2stationtime(expiration_time)]."))
-	else
-		to_chat(usr, SPAN_NOTICE("This pass expires at [worldtime2stationtime(expiration_time)]."))
-
-	to_chat(usr, SPAN_NOTICE("It grants access to following areas:"))
-	for (var/A in temp_access)
-		to_chat(usr, SPAN_NOTICE("[get_access_desc(A)]."))
 	to_chat(usr, SPAN_NOTICE("Issuing reason: [reason]."))
-	return
 
 /////////////////////////////////////////////
 //Guest pass terminal////////////////////////
@@ -57,7 +46,7 @@
 	light_power_on = 0.2
 	density = FALSE
 	CheckFaceFlag = 0
-	circuit = /obj/item/weapon/circuitboard/guestpass
+	circuit = /obj/item/weapon/electronics/circuitboard/guestpass
 	var/obj/item/weapon/card/id/giver
 	var/list/accesses = list()
 	var/giv_name = "NOT SPECIFIED"

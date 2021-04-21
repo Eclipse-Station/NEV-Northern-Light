@@ -27,12 +27,13 @@
 
 // Claim machine ID
 /obj/machinery/cash_register/New()
+	. = ..()
 	machine_id = "[station_name()] RETAIL #[num_financial_terminals++]"
 	cash_stored = rand(10, 70)*10
 	transaction_devices += src // Global reference list to be properly set up by /proc/setup_economy()
 
 
-/obj/machinery/cash_register/examine(mob/user as mob)
+/obj/machinery/cash_register/examine(mob/user)
 	..(user)
 	if(cash_open)
 		if(cash_stored)
@@ -421,7 +422,7 @@
 	<tr></tr>
 	<tr><td class="tx-name">Customer</td><td class="tx-data">[c_name]</td></tr>
 	<tr><td class="tx-name">Pay Method</td><td class="tx-data">[p_method]</td></tr>
-	<tr><td class="tx-name">Station Time</td><td class="tx-data">[stationtime2text()]</td></tr>
+	<tr><td class="tx-name">Ship Time</td><td class="tx-data">[stationtime2text()]</td></tr>
 	</table>
 	<table width=300>
 	"}

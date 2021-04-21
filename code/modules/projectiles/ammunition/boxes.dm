@@ -8,6 +8,7 @@
 	reload_delay = 30
 	ammo_mag = "box"
 	matter = list(MATERIAL_CARDBOARD = 1)
+	bad_type = /obj/item/ammo_magazine/ammobox
 
 /obj/item/ammo_magazine/ammobox/resolve_attackby(atom/A, mob/user)
 	if(isturf(A) && locate(/obj/item/ammo_casing) in A || istype(A, /obj/item/ammo_casing))
@@ -18,7 +19,7 @@
 			return TRUE
 	..()
 
-/obj/item/ammo_magazine/ammobox/proc/collectAmmo(var/turf/target, var/mob/user)
+/obj/item/ammo_magazine/ammobox/proc/collectAmmo(turf/target, mob/user)
 	ASSERT(istype(target))
 	. = FALSE
 	for(var/obj/item/ammo_casing/I in target)
@@ -44,21 +45,32 @@
 	caliber = CAL_PISTOL
 	ammo_type = /obj/item/ammo_casing/pistol
 	max_ammo = 30
+	rarity_value = 10
+	spawn_tags = SPAWN_TAG_AMMO_COMMON
 
 /obj/item/ammo_magazine/ammobox/pistol/practice
 	name = "ammunition packet (.35 Auto practice)"
 	icon_state = "pistol_p"
 	ammo_type = /obj/item/ammo_casing/pistol/practice
+	spawn_blacklisted = TRUE
 
 /obj/item/ammo_magazine/ammobox/pistol/hv
 	name = "ammunition packet (.35 Auto high-velocity)"
 	icon_state = "pistol_hv"
 	ammo_type = /obj/item/ammo_casing/pistol/hv
+	spawn_blacklisted = TRUE
 
 /obj/item/ammo_magazine/ammobox/pistol/rubber
 	name = "ammunition packet (.35 Auto rubber)"
 	icon_state = "pistol_r"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
+	rarity_value = 5
+
+/obj/item/ammo_magazine/ammobox/pistol/scrap
+	name = "ammunition packet (old .35 Auto)"
+	icon_state = "pistol_s"
+	rarity_value = 30
+	ammo_type = /obj/item/ammo_casing/pistol/scrap
 
 //// . 40 ////
 
@@ -84,6 +96,15 @@
 	name = "ammunition packet (.40 Magnum rubber)"
 	icon_state = "magnum_r"
 	ammo_type = /obj/item/ammo_casing/magnum/rubber
+
+/obj/item/ammo_magazine/ammobox/magnum/scrap
+	name = "ammunition packet (old .40 Magnum)"
+	icon_state = "magnum_s"
+	caliber = CAL_MAGNUM
+	ammo_type = /obj/item/ammo_casing/magnum/scrap
+	max_ammo = 30
+	rarity_value = 5
+	spawn_tags = SPAWN_TAG_AMMO_COMMON
 
 //// . 20 ////
 
@@ -124,6 +145,13 @@
 	icon_state = "srifle_r"
 	ammo_type = /obj/item/ammo_casing/srifle/rubber
 
+/obj/item/ammo_magazine/ammobox/srifle_small/scrap
+	name = "ammunition packet (old .20 Rifle)"
+	icon_state = "srifle_s"
+	ammo_type = /obj/item/ammo_casing/srifle/scrap
+	rarity_value = 5
+	spawn_tags = SPAWN_TAG_AMMO_COMMON
+
 //// . 25 CASELESS ////
 
 /obj/item/ammo_magazine/ammobox/clrifle
@@ -134,11 +162,14 @@
 	caliber = CAL_CLRIFLE
 	ammo_type = /obj/item/ammo_casing/clrifle
 	max_ammo = 240
+	spawn_tags = SPAWN_TAG_AMMO_IH
+	rarity_value = 5
 
 /obj/item/ammo_magazine/ammobox/clrifle/rubber
 	name = "ammunition box (.25 Caseless Rifle rubber)"
 	icon_state = "box_clrifle_r"
 	ammo_type = /obj/item/ammo_casing/clrifle/rubber
+	spawn_tags = SPAWN_TAG_AMMO_IH
 
 /obj/item/ammo_magazine/ammobox/clrifle_small
 	name = "ammunition packet (.25 Caseless Rifle)"
@@ -163,8 +194,14 @@
 	icon_state = "clrifle_r"
 	ammo_type = /obj/item/ammo_casing/clrifle/rubber
 
-//// . 30 ////
+/obj/item/ammo_magazine/ammobox/clrifle_small/scrap
+	name = "ammunition packet (old .25 Caseless Rifle)"
+	icon_state = "clrifle_s"
+	ammo_type = /obj/item/ammo_casing/clrifle/scrap
+	rarity_value = 5
+	spawn_tags = SPAWN_TAG_AMMO_COMMON
 
+//// . 30 ////
 /obj/item/ammo_magazine/ammobox/lrifle
 	name = "ammunition box (.30 Rifle lethal)"
 	icon_state = "box_lrifle_l"
@@ -198,6 +235,13 @@
 	icon_state = "lrifle_r"
 	ammo_type = /obj/item/ammo_casing/lrifle/rubber
 
+/obj/item/ammo_magazine/ammobox/lrifle_small/scrap
+	name = "ammunition packet (old .30 Rifle)"
+	icon_state = "lrifle_s"
+	ammo_type = /obj/item/ammo_casing/lrifle/scrap
+	rarity_value = 5
+	spawn_tags = SPAWN_TAG_AMMO_COMMON
+
 //// .60 ////
 
 /obj/item/ammo_magazine/ammobox/antim
@@ -209,3 +253,9 @@
 	ammo_type = /obj/item/ammo_casing/antim
 	max_ammo = 30
 
+/obj/item/ammo_magazine/ammobox/antim/scrap
+	name = "ammunition box (old .60 Anti Material)"
+	icon_state = "antim_s"
+	ammo_type = /obj/item/ammo_casing/antim/scrap
+	max_ammo = 30
+	rarity_value = 1

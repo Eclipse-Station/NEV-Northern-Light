@@ -8,13 +8,13 @@
 
 /obj/structure/sign/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(1)
 			qdel(src)
 			return
-		if(2.0)
+		if(2)
 			qdel(src)
 			return
-		if(3.0)
+		if(3)
 			qdel(src)
 			return
 		else
@@ -63,8 +63,8 @@
 	else ..()
 
 /obj/structure/sign/double/map
-	name = "station map"
-	desc = "A framed picture of the station."
+	name = "ship map"
+	desc = "A framed picture of the ship."
 
 /obj/structure/sign/double/map/left
 	icon_state = "map-left"
@@ -502,7 +502,7 @@
 	icon_state = "interrogation"
 
 /obj/structure/sign/department/commander
-	name = "IHS COMMANDER"
+	name = "AEGIS COMMANDER"
 	icon_state = "commander"
 
 /obj/structure/sign/department/armory
@@ -540,8 +540,8 @@
 	icon_state = "frozenstar"
 
 /obj/structure/sign/faction/moebius
-	name = "NanoTrasen Laboratories"
-	desc = "A shady megacorporation that owns the Northern Light "
+	name = "Lazarus Laboratories"
+	desc = "A shady megacorporation that has a stake in the Northern Light's expedition. "
 	icon_state = "moebius"
 
 /obj/structure/sign/faction/neotheology
@@ -563,8 +563,8 @@
 	icon_state = "wall_cross_gold"
 
 /obj/structure/sign/faction/astersguild
-	name = "Asters Guild"
-	desc = "Asters Guild - monopolists of far space transportation."
+	name = "Free Trade Union"
+	desc = "The Free Trade Union - monopolists of far space transportation."
 	icon_state = "astersguild"
 
 /obj/structure/sign/faction/technomancers
@@ -589,5 +589,5 @@
 
 /obj/structure/sign/derelict2
 	name = "Old sign"
-	desc = "Looks like a planet crashing by some station above it. Its kinda scary."
+	desc = "Looks like a planet crashing by some ship above it. Its kinda scary."
 	icon_state = "something-old2"

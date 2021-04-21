@@ -4,14 +4,13 @@
 	damage_types = list(BRUTE = 5)
 	sharp = TRUE
 	embed = 1 //the dart is shot fast enough to pierce space suits, so I guess splintering inside the target can be a thing. Should be rare due to low damage.
-	var/reagent_amount = 15
 	kill_count = 15 //shorter range
-
 	muzzle_type = null
+	var/reagent_amount = 15
 
 /obj/item/projectile/bullet/chemdart/New()
-	reagents = new/datum/reagents(reagent_amount)
-	reagents.my_atom = src
+	create_reagents(reagent_amount)
+	..()
 
 /obj/item/projectile/bullet/chemdart/on_hit(atom/target, def_zone = null)
 	if(isliving(target))
@@ -53,18 +52,19 @@
 	fire_sound_text = "a metallic click"
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASTIC = 10)
 	recoil_buildup = 0
-	silenced = 1
+	silenced = TRUE
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/chemdart
 	auto_eject = 0
 	mag_well = MAG_WELL_DART
+	rarity_value = 10
 
 	var/list/beakers = list() //All containers inside the gun.
 	var/list/mixing = list() //Containers being used for mixing.
 	var/max_beakers = 3
 	var/dart_reagent_amount = 15
 	var/beaker_type = /obj/item/weapon/reagent_containers/glass/beaker
-	var/list/starting_chems = null
+	var/list/starting_chems
 
 /obj/item/weapon/gun/projectile/dartgun/New()
 	..()
@@ -184,7 +184,7 @@
 		if(index <= beakers.len)
 			if(beakers[index])
 				var/obj/item/weapon/reagent_containers/glass/beaker/B = beakers[index]
-				to_chat(usr,  "You remove [B] from [src].")
+				to_chat(usr, "You remove [B] from [src].")
 				mixing -= B
 				beakers -= B
 				B.loc = get_turf(src)

@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/onestar_custodian
-	name = "One Star Custodial Drone"
-	desc = "Old and weathered One Star drone. It seems to be malfunctioning and hostile."
+	name = "custodial hivedrone"
+	desc = "Old and weathered drone of unknown desgin. It seems to be malfunctioning and hostile."
 	icon = 'icons/mob/build_a_drone.dmi'
 	icon_state = "drone_os"
 	faction = "onestar"
@@ -23,6 +23,8 @@
 	light_color = COLOR_LIGHTING_BLUE_BRIGHT
 	mob_classification = CLASSIFICATION_SYNTHETIC
 	move_to_delay = 9
+	spawn_tags = SPAWN_TAG_MOB_OS_CUSTODIAN
+	rarity_value = 23.8
 	var/shell_type = "os"
 	var/marks_type = "os"
 	var/screen_type = "os" //if someone decides to make the drones for something aside from OS and have different desgins
@@ -65,16 +67,17 @@
 
 
 /mob/living/simple_animal/hostile/onestar_custodian/chef
-	name = "One Star Service Drone"
-	desc = "Old and weathered One Star drone. This one looks like it used to cook. It seems to be malfunctioning and hostile."
+	name = "service hivedrone"
+	desc = "Old and weathered drone of unknown desgin. This one looks like it used to cook. It seems to be malfunctioning and hostile."
 	tool = "flamer"
 	fire_verb = "lobs flame"
 	screen_type = "os_red"
 	projectiletype = /obj/item/projectile/flamer_lob
-	ranged = 1
+	ranged = TRUE
+	rarity_value = 59.5
 
 
-/mob/living/simple_animal/hostile/onestar_custodian/chef/adjustFireLoss(var/amount)
+/mob/living/simple_animal/hostile/onestar_custodian/chef/adjustFireLoss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	fireloss = min(max(fireloss + amount/2, 0),(maxHealth*2)) //Slightly resistant to fire, because it would blow apart otherwise
@@ -82,11 +85,12 @@
 
 /mob/living/simple_animal/hostile/onestar_custodian/engineer
 	name = "One Star Engineering Drone"
-	desc = "Old and weathered One Star drone. This one has a laser welder. It seems to be malfunctioning and hostile."
+	desc = "Old and weathered drone of unknown desgin. This one has a laser welder. It seems to be malfunctioning and hostile."
 	tool = "laser"
 	tooltype = "os_red"
 	screen_type = "yellow"
 	projectiletype = /obj/item/projectile/beam/drone
-	ranged = 1
+	ranged = TRUE
 	melee_damage_lower = 7
 	melee_damage_upper = 15
+	rarity_value = 39.66

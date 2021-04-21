@@ -16,23 +16,16 @@
 /obj/item/weapon/storage/box/solution_trays
 	name = "solution tray box"
 	icon_state = "solution_trays"
+	initial_amount = 7
+	spawn_type = /obj/item/weapon/reagent_containers/glass/solution_tray
 
 /obj/item/weapon/storage/box/solution_trays/populate_contents()
-	new /obj/item/weapon/reagent_containers/glass/solution_tray(src)
-	new /obj/item/weapon/reagent_containers/glass/solution_tray(src)
-	new /obj/item/weapon/reagent_containers/glass/solution_tray(src)
-	new /obj/item/weapon/reagent_containers/glass/solution_tray(src)
-	new /obj/item/weapon/reagent_containers/glass/solution_tray(src)
-	new /obj/item/weapon/reagent_containers/glass/solution_tray(src)
-	new /obj/item/weapon/reagent_containers/glass/solution_tray(src)
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)
 
 /obj/item/weapon/reagent_containers/glass/beaker/tungsten
 	name = "beaker (tungsten)"
 	preloaded_reagents = list("tungsten" = 60)
-
-/obj/item/weapon/reagent_containers/glass/beaker/oxygen
-	name = "beaker (oxygen)"
-	preloaded_reagents = list("oxygen" = 60)
 
 /obj/item/weapon/reagent_containers/glass/beaker/sodium
 	name = "beaker (sodium)"

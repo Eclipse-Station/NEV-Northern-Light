@@ -28,6 +28,7 @@
 /obj/item/weapon/implanter/excelsior
 	name = "implanter-complant"
 	implant = /obj/item/weapon/implant/excelsior
+	spawn_tags = null
 
 /obj/item/weapon/implant/excelsior/broken
 	name = "broken excelsior implant"
@@ -57,8 +58,8 @@
 	//This is handled seperately to account for the future possibility of non-humans having cruciforms. Like holy dogs!
 	if (is_neotheology_disciple(target))
 		//Cruciform blocks other implants
-		return FALSE
-
+		return TRUE
+//Eclipse Edit. Yeah, right. You thought you were safe?
 
 	//Thirdly an organic check. No implanting robots
 	//Any other organic creature is fine. This allows you to implant your pets so the turrets dont shoot them
@@ -98,10 +99,13 @@
 	for(var/datum/antagonist/A in wearer.mind.antagonist)
 		if(A.id == antag_id)
 			A.remove_antagonist()
-
+	wearer.visible_message(SPAN_DANGER("As \the [src] is removed from \the [wearer]..."))
 	if(prob(66))
+		wearer.visible_message(SPAN_DANGER("\The [wearer]'s [part.name] violently explodes from within!"))
 		wearer.adjustBrainLoss(200)
 		part.droplimb(FALSE, DROPLIMB_BLUNT)
+	else
+		wearer.visible_message(SPAN_NOTICE("Something fizzles in \the [wearer]'s [part.name], but nothing interesting happens."))
 
 //The leader version of the implant is the one given to antags spawned by the storyteller.
 //It has no special gameplay properties and is not attainable in normal gameplay, it just exists to

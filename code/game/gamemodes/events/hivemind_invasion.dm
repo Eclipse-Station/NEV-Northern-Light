@@ -11,16 +11,16 @@
 
 
 	event_type = /datum/event/hivemind
-	event_pools = list(EVENT_LEVEL_MAJOR = POOL_THRESHOLD_MAJOR*0.80)
+	event_pools = list(EVENT_LEVEL_MAJOR = POOL_THRESHOLD_MAJOR*0.9) //bit more common
 	tags = list(TAG_COMMUNAL, TAG_DESTRUCTIVE, TAG_NEGATIVE, TAG_SCARY)
 //============================================
 
 /datum/event/hivemind
-	announceWhen	= 300
+	announceWhen	= 240
 
 
 /datum/event/hivemind/announce()
-	level_seven_announcement()
+	level_eight_announcement() //Different announcement than blob or plants, so the crew doesn't need to struggle trying to figure out if it's blob, plants or hive
 
 
 /datum/event/hivemind/start()

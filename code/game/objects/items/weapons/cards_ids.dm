@@ -16,17 +16,18 @@
 	desc = "Does card things."
 	icon = 'icons/obj/card.dmi'
 	w_class = ITEM_SIZE_TINY
-
-	var/list/files = list(  )
+	bad_type = /obj/item/weapon/card
+	spawn_blacklisted = TRUE
+	var/list/files = list()
 
 /obj/item/weapon/card/data
 	name = "data disk"
 	desc = "A disk of data."
 	icon_state = "data"
+	item_state = "card-id"
 	var/function = "storage"
 	var/data = "null"
-	var/special = null
-	item_state = "card-id"
+	var/special
 
 /obj/item/weapon/card/data/verb/label(t as text)
 	set name = "Label Disk"
@@ -110,8 +111,8 @@ var/const/NO_EMAG_ACT = -50
 	var/icon/side
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
-	var/assignment = null	//can be alt title or the actual job
-	var/rank = null			//actual job
+	var/assignment	//can be alt title or the actual job
+	var/rank			//actual job
 	var/dorm = 0			// determines if this ID has claimed a dorm already
 
 	var/formal_name_prefix
@@ -122,6 +123,10 @@ var/const/NO_EMAG_ACT = -50
 	if(in_range(usr, src))
 		show(usr)
 		to_chat(usr, desc)
+		to_chat(usr, text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment))
+		to_chat(usr, "The blood type on the card is [blood_type].")
+		to_chat(usr, "The DNA hash on the card is [dna_hash].")
+		to_chat(usr, "The fingerprint hash on the card is [fingerprint_hash].")
 	else
 		to_chat(usr, SPAN_WARNING("It is too far away."))
 
@@ -188,18 +193,6 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/id/GetIdCard()
 	return src
 
-/obj/item/weapon/card/id/verb/read()
-	set name = "Read ID Card"
-	set category = "Object"
-	set src in usr
-
-	to_chat(usr, text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment))
-	to_chat(usr, "The blood type on the card is [blood_type].")
-	to_chat(usr, "The DNA hash on the card is [dna_hash].")
-	to_chat(usr, "The fingerprint hash on the card is [fingerprint_hash].")
-	return
-
-
 /obj/item/weapon/card/id/syndicate_command
 	name = "syndicate ID card"
 	desc = "An ID straight from the Syndicate."
@@ -214,6 +207,7 @@ var/const/NO_EMAG_ACT = -50
 	item_state = "gold_id"
 	registered_name = "Captain"
 	assignment = "Captain"
+	spawn_blacklisted = TRUE
 
 /obj/item/weapon/card/id/captains_spare/New()
 	access = get_all_station_access()
@@ -225,6 +219,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "id-robot"
 	item_state = "tdgreen"
 	assignment = "Synthetic"
+	spawn_tags = null
 
 /obj/item/weapon/card/id/synthetic/New()
 	access = get_all_station_access() + access_synth
@@ -237,6 +232,8 @@ var/const/NO_EMAG_ACT = -50
 	item_state = "tdgreen"
 	registered_name = "Administrator"
 	assignment = "Administrator"
+	spawn_blacklisted = TRUE
+
 /obj/item/weapon/card/id/all_access/New()
 	access = get_access_ids()
 	..()
@@ -296,6 +293,9 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/weapon/card/id/hop
 	icon_state = "id_hop"
+
+/obj/item/weapon/card/id/boff
+	icon_state = "id_boff"
 
 /obj/item/weapon/card/id/ce
 	icon_state = "id_ce"

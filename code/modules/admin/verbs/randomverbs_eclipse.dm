@@ -23,7 +23,7 @@ ADMIN_VERB_ADD(/client/proc/respawn_character_virgo, R_FUN, FALSE)
 		announce = TRUE
 	else
 		announce = FALSE
-	
+
 	var/announce_arrival		//down here to avoid nesting.
 	if(announce)
 		announce_arrival = alert(src,"Which arrival message should we use?", "Announcement Message", "Dorm", "Cryo", "Custom")
@@ -69,7 +69,7 @@ ADMIN_VERB_ADD(/client/proc/respawn_character_virgo, R_FUN, FALSE)
 
 	//Well you're not reloading their job or they never had one.
 	if(!charjob)
-		var/pickjob = input(src,"Pick a job to assign them (or none).","Job Select","-No Job-") as null|anything in joblist + "-No Job-"
+		var/pickjob = input(src,"Pick a job to assign them (or none).","Job Select","-No Job-") as null|anything in GLOB.joblist + "-No Job-"
 		if(!pickjob)
 			return
 		if(pickjob != "-No Job-")
@@ -120,10 +120,10 @@ ADMIN_VERB_ADD(/client/proc/respawn_character_virgo, R_FUN, FALSE)
 			if(!candidates_list.len)
 				src << "No dorm spawn positions found!"
 				return
-			
+
 			var/spawnpoint_selected = pick(candidates_list)
 			spawnpoint = get_turf(spawnpoint_selected)
-			
+
 		else //I have no idea how you're here
 			src << "Invalid spawn location choice."
 			return

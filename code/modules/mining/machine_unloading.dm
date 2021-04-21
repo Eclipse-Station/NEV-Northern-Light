@@ -9,7 +9,7 @@
 	anchored = TRUE
 	var/input_dir = null
 	var/output_dir = null
-
+	climbable = 1
 
 /obj/machinery/mineral/unloading_machine/New()
 	..()

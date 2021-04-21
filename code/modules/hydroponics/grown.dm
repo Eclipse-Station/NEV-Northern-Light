@@ -6,7 +6,7 @@
 	icon_state = "blank"
 	desc = "Nutritious! Probably."
 	slot_flags = SLOT_HOLSTER
-
+	spawn_frequency = 0
 	var/plantname
 	var/datum/seed/seed
 	var/potency = -1
@@ -17,8 +17,8 @@
 	..()
 	if(!dried_type)
 		dried_type = type
-	src.pixel_x = rand(-5.0, 5)
-	src.pixel_y = rand(-5.0, 5)
+	src.pixel_x = rand(-5, 5)
+	src.pixel_y = rand(-5, 5)
 
 	// Fill the object up with the appropriate reagents.
 	if(planttype)
@@ -302,9 +302,9 @@
 	if(seed.get_trait(TRAIT_STINGS))
 		var/mob/living/carbon/human/H = user
 		if(istype(H) && H.gloves)
-			return FALSE
+			return TRUE //We have gloves, so we can pick it up safely
 		if(!reagents || reagents.total_volume <= 0)
-			return FALSE
+			return TRUE //Out of reagents
 		reagents.remove_any(rand(1,3)) //Todo, make it actually remove the reagents the seed uses.
 		seed.do_thorns(H,src)
 		seed.do_sting(H,src,pick(BP_R_HAND, BP_L_HAND))

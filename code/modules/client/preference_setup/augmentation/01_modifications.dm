@@ -2,9 +2,9 @@
 	var/list/modifications_data   = list()
 	var/list/modifications_colors = list()
 	var/current_organ = BP_CHEST
-	var/global/list/r_organs = list(BP_HEAD, BP_R_ARM, BP_R_HAND, BP_CHEST, BP_R_LEG, BP_R_FOOT)
+	var/global/list/r_organs = list(BP_HEAD, BP_BRAIN, BP_R_ARM, BP_R_HAND, BP_CHEST, BP_R_LEG, BP_R_FOOT)
 	var/global/list/l_organs = list(BP_EYES, BP_L_ARM, BP_L_HAND, BP_GROIN, BP_L_LEG, BP_L_FOOT)
-	var/global/list/internal_organs = list("chest2", BP_HEART, BP_LUNGS, BP_LIVER)
+	var/global/list/internal_organs = list("chest2", OP_HEART, OP_LUNGS, OP_LIVER)
 
 /datum/category_item/player_setup_item/augmentation/modifications
 	name = "Augmentation"
@@ -117,6 +117,8 @@
 
 /datum/preferences/proc/modifications_allowed()
 	for(var/category in setup_options)
+		if(!get_option(category))
+			continue
 		if(!get_option(category).allow_modifications)
 			return FALSE
 	return TRUE
@@ -134,6 +136,12 @@
 	for(var/child_organ in organ_data["children"])
 		var/datum/body_modification/child_mod = get_modification(child_organ)
 		if(child_mod.nature < mod.nature && mod.nature == MODIFICATION_REMOVED)
+			if(mod.is_allowed(child_organ, src))
+				modifications_data[child_organ] = mod
+			else
+				modifications_data[child_organ] = get_default_modificaton(mod.nature)
+			check_child_modifications(child_organ)
+		if(mod.nature == MODIFICATION_SILICON && child_mod.nature == MODIFICATION_ORGANIC)
 			if(mod.is_allowed(child_organ, src))
 				modifications_data[child_organ] = mod
 			else

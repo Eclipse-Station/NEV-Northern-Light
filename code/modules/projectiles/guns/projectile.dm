@@ -13,32 +13,33 @@
 	w_class = ITEM_SIZE_NORMAL
 	matter = list(MATERIAL_STEEL = 1)
 	recoil_buildup = 1
+	bad_type = /obj/item/weapon/gun/projectile
+	spawn_tags = SPAWN_TAG_GUN_PROJECTILE
 
 	var/caliber = CAL_357		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
 	var/load_method = SINGLE_CASING|SPEEDLOADER //1 = Single shells, 2 = box or quick loader, 3 = magazine
-	var/obj/item/ammo_casing/chambered = null
+	var/obj/item/ammo_casing/chambered
 
 	//gunporn stuff
-	var/unload_sound 	= 'sound/weapons/guns/interact/pistol_magout.ogg'
-	var/reload_sound 	= 'sound/weapons/guns/interact/pistol_magin.ogg'
-	var/cocked_sound 	= 'sound/weapons/guns/interact/pistol_cock.ogg'
-	var/bulletinsert_sound 	= 'sound/weapons/guns/interact/bullet_insert.ogg'
+	var/unload_sound = 'sound/weapons/guns/interact/pistol_magout.ogg'
+	var/reload_sound = 'sound/weapons/guns/interact/pistol_magin.ogg'
+	var/cocked_sound = 'sound/weapons/guns/interact/pistol_cock.ogg'
+	var/bulletinsert_sound = 'sound/weapons/guns/interact/bullet_insert.ogg'
 
 	//For SINGLE_CASING or SPEEDLOADER guns
 	var/max_shells = 0			//the number of casings that will fit inside
-	var/ammo_type = null		//the type of ammo that the gun comes preloaded with
+	var/ammo_type		//the type of ammo that the gun comes preloaded with
 	var/list/loaded = list()	//stored ammo
 
 	//For MAGAZINE guns
-	var/magazine_type = null	//the type of magazine that the gun comes preloaded with
-	var/obj/item/ammo_magazine/ammo_magazine = null //stored magazine
+	var/magazine_type		//the type of magazine that the gun comes preloaded with
+	var/obj/item/ammo_magazine/ammo_magazine	 //stored magazine
 	var/mag_well = MAG_WELL_GENERIC	//What kind of magazines the gun can load
 	var/auto_eject = FALSE			//if the magazine should automatically eject itself when empty.
-	var/auto_eject_sound = null
+	var/auto_eject_sound
 	var/ammo_mag = "default" // magazines + gun itself. if set to default, then not used
 	var/tac_reloads = TRUE	// Enables guns to eject mag and insert new magazine.
-	gun_tags = list(GUN_PROJECTILE)
 
 /obj/item/weapon/gun/projectile/Destroy()
 	QDEL_NULL(chambered)
@@ -122,7 +123,7 @@
 
 //Attempts to load A into src, depending on the type of thing being loaded and the load_method
 //Maybe this should be broken up into separate procs for each load method?
-/obj/item/weapon/gun/projectile/proc/load_ammo(var/obj/item/A, mob/user)
+/obj/item/weapon/gun/projectile/proc/load_ammo(obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = A
 		if(!(load_method & AM.mag_type) || caliber != AM.caliber)
@@ -148,9 +149,9 @@
 
 		switch(method_for_this_load)
 			if(MAGAZINE)
-//				if(AM.ammo_mag != ammo_mag && ammo_mag != "default")	Not needed with mag_wells
-//					to_chat(user, SPAN_WARNING("[src] requires another magazine.")) //wrong magazine
-//					return
+				//if(AM.ammo_mag != ammo_mag && ammo_mag != "default")	Not needed with mag_wells
+				//	to_chat(user, SPAN_WARNING("[src] requires another magazine.")) //wrong magazine
+				//	return
 				if(tac_reloads && ammo_magazine)
 					unload_ammo(user)	// ejects the magazine before inserting the new one.
 					to_chat(user, SPAN_NOTICE("You tactically reload your [src] with [AM]!"))
@@ -341,6 +342,34 @@
 
 	return data
 
+/obj/item/weapon/gun/projectile/get_dud_projectile()
+	var/proj_type
+	if(chambered)
+		proj_type = chambered.BB.type
+	else if(loaded.len)
+		var/obj/item/ammo_casing/A = loaded[1]
+		if(!A.BB)
+			return null
+		proj_type = A.BB.type
+	else if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		var/obj/item/ammo_casing/A = ammo_magazine.stored_ammo[1]
+		if(!A.BB)
+			return null
+		proj_type = A.BB.type
+	if(!proj_type)
+		return null
+	return new proj_type
+
 /obj/item/weapon/gun/projectile/refresh_upgrades()
 	max_shells = initial(max_shells)
 	..()
+
+/obj/item/weapon/gun/projectile/generate_guntags()
+	..()
+	gun_tags |= GUN_PROJECTILE
+	switch(caliber)
+		if(CAL_PISTOL)
+			gun_tags |= GUN_CALIBRE_35
+		//Others to be implemented when needed
+	if(max_shells)
+		gun_tags |= GUN_INTERNAL_MAG

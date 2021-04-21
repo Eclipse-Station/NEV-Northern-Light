@@ -14,7 +14,7 @@
 	new /obj/item/clothing/under/rank/miner(src)
 	new /obj/item/clothing/gloves/thick(src)
 	new /obj/item/clothing/glasses/powered/meson(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/color/black(src)
 	new /obj/item/weapon/cell/medium(src)
 	new /obj/item/weapon/cell/medium(src)
 	new /obj/item/weapon/cell/small(src)
@@ -52,7 +52,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "miningcar"
 	density = TRUE
-
+	spawn_blacklisted = TRUE
 // Flags.
 
 /obj/item/stack/flag

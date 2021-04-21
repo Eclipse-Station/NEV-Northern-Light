@@ -14,7 +14,7 @@
 /obj/item/weapon/disk/data
 	name = "Cloning Data Disk"
 	icon_state = "data-purple"
-	var/datum/dna2/record/buf = null
+	var/datum/dna2/record/buf
 	var/read_only = FALSE //Well,it's still a floppy disk
 
 /obj/item/weapon/disk/data/New()
@@ -75,8 +75,9 @@
 /obj/item/weapon/storage/box/disks
 	name = "Diskette Box"
 	icon_state = "disk_kit"
+	initial_amount = 7
+	spawn_type = /obj/item/weapon/disk/data
 
-/obj/item/weapon/storage/box/disks/New()
-	..()
-	for(var/i in 1 to 7)
-		new /obj/item/weapon/disk/data(src)
+/obj/item/weapon/storage/box/disks/populate_contents()
+	for(var/i in 1 to initial_amount)
+		new spawn_type(src)

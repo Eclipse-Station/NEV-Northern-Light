@@ -1,0 +1,109 @@
+##
+# Custom items go here. They are modifications of existing paths; look at the example for details.
+# Item will spawn if the target has one of the req_titles and if their on-spawn ID has the required access level.
+# req_access is going to be a shit to maintain since the config file can't grab constants and has to use integers, use it minimally.
+# Separate titles with a single comma and a space (', ') or they'll bork.
+#
+# EX:
+# {
+# ckey: zuhayr
+# character_name: Jane Doe
+# item_path: /obj/item/toy/plushie
+# item_name: ugly plush toy
+# item_icon: flagmask     
+# item_desc: It's truly hideous.
+# req_titles: Assistant, Security Officer
+# req_access: 1
+# }
+#
+# {
+# ckey: zuhayr
+# character_name: Jane Doe
+# item_path: /obj/item/device/kit/paint
+# item_name: APLU customisation kit
+# item_desc: A customisation kit with all the parts needed to turn an APLU into a "Titan's Fist" model.
+# kit_name: APLU "Titan's Fist"
+# kit_desc: Looks like an overworked, under-maintained Ripley with some horrific damage.
+# kit_icon: titan
+# additional_data: ripley, firefighter
+# }
+#
+# {
+# ckey: zuhayr
+# character_name: Jane Doe
+# item_path: /obj/item/device/kit/suit
+# item_name: salvage suit customisation kit
+# item_desc: A customisation kit with all the parts needed to convert a suit.
+# kit_name: salvage
+# kit_desc: An orange voidsuit. Reinforced!
+# kit_icon: salvage
+# }
+##
+
+{
+ckey: drexample
+character_name: Nes Tor
+item_path: /obj/item/device/kit/paint
+item_name: APLU customisation kit
+item_desc: A customisation kit with all the parts needed to turn an APLU into a "Titan's Fist" model.
+kit_name: APLU "Titan's Fist"
+kit_desc: Looks like an overworked, under-maintained Ripley with some horrific damage.
+kit_icon: titan
+additional_data: ripley, firefighter
+}
+
+{
+ckey: Yeehawguvnah
+character_name: Lexus Laurenzi
+item_path: /obj/item/weapon/gun/projectile/boltgun/serbian/levergun
+item_name: SA BR .30 "Greener Grass"
+item_desc: Weapon for "hunting". 
+If you’re on a budget, it’s a darn good rifle for just about everything.
+This is a somewhat-modified (and visibly used) rifle, using a lever-operated action. There's an inscription on the side: "Wish you were here"
+additional_data: gun
+}
+
+{
+ckey: Ambug4269
+character_name: Bellow Rose
+item_path: /obj/item/clothing/shoes/jackboots/bugboots
+}
+
+{
+ckey: Twin-Blade-Apock
+character_name: Leah Ripley
+item_path: /obj/item/clothing/suit/storage/leather_jacket/ripley
+additional_data: ripley
+}
+
+{
+ckey: flamingwaffle
+character_name: Marilene Endsley
+item_path: /obj/item/clothing/head/hardhat/visor/pinkwaffle
+}
+
+{
+ckey: PantherPusher
+character_name: Matthias Qubassi
+item_path: /obj/item/weapon/gun/energy/modkit/catgun
+}
+
+{
+ckey: PantherPusher
+character_name: Matthias Qubassi
+item_path: /obj/item/weapon/gun/energy/modkit/catgun
+}
+
+{
+ckey: PantherPusher
+character_name: Matthias Qubassi
+item_path: /obj/item/weapon/reagent_containers/food/snacks/fortunecookie/catcookie
+}
+
+{
+ckey: Selakitteh
+character_name: Sela Sparks
+item_path: /obj/item/clothing/head/beret/purple
+item_name: worn squadron leader beret
+item_desc: What might seem like a just another worn-out piece of headwear, reveals to be much more upon closer inspection. This beret seems to be connected to an unidentified fighter wing, the emblem on the front of the beret's been worn down to the point that it's only distinct feature are three small chevrons flying in formation with each other. Though age has taken it's toll, the beret seems to be lovingly cared for, as there are small signs of repair upon the fabric.
+}

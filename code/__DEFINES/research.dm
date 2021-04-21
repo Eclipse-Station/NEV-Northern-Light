@@ -30,7 +30,6 @@
 #define RESEARCH_BLUESPACE     /datum/tech/bluespace
 #define RESEARCH_ROBOTICS      /datum/tech/robotics
 #define RESEARCH_COVERT        /datum/tech/covert
-  
 
 // Design categories
 #define CAT_MISC        "Misc"
@@ -49,3 +48,15 @@
 #define CAT_MODCOMP     "Modular Computers"
 #define CAT_CIRCUITS    "Circuits"
 #define CAT_MEDI        "Medical"
+#define CAT_TOOLMODS    "Toolmods"
+#define CAT_GUNMODS     "Gunmods"
+
+//Autolathe defines
+#define ERR_OK 0
+#define ERR_NOTFOUND "not found"
+#define ERR_NOMATERIAL "no material"
+#define ERR_NOREAGENT "no reagent"
+#define ERR_NOLICENSE "no license"
+#define ERR_PAUSED "paused"
+#define ERR_NOINSIGHT "no insight"
+#define ERR_NOODDITY "no oddity"

@@ -15,15 +15,14 @@
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/antim
 	fire_sound = 'sound/weapons/guns/fire/sniper_fire.ogg'
-	reload_sound 	= 'sound/weapons/guns/interact/rifle_load.ogg'
+	reload_sound = 'sound/weapons/guns/interact/rifle_load.ogg'
 	matter = list(MATERIAL_PLASTEEL = 40, MATERIAL_PLASTIC = 20)
 	price_tag = 5000
 	one_hand_penalty = 10
 	var/bolt_open = 0
 	var/item_suffix = ""
-	zoom_factor = 2.0
+	zoom_factor = 2
 	twohanded = TRUE
-	gun_tags = list(GUN_PROJECTILE, GUN_INTERNAL_MAG)
 
 /obj/item/weapon/gun/projectile/heavysniper/update_icon()
 	..()
@@ -85,10 +84,14 @@
 	..()
 
 /obj/item/weapon/weaponparts
-	var/part_color = ""
 	name = "weaponpart"
 	desc = "how did you get it?"
 	icon = 'icons/obj/weaponparts.dmi'
+	bad_type = /obj/item/weapon/weaponparts
+	var/part_color = ""
+
+/obj/item/weapon/weaponparts/heavysniper
+	bad_type = /obj/item/weapon/weaponparts/heavysniper
 
 /obj/item/weapon/weaponparts/heavysniper/stock
 	name = "sniper stock"

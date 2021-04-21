@@ -6,6 +6,7 @@
 	icon_state = "console"
 	density = TRUE
 	anchored = TRUE
+	climbable = 1
 
 	var/obj/machinery/mineral/processing_unit/machine = null
 	var/show_all_ores = 0
@@ -142,15 +143,13 @@
 
 /obj/machinery/mineral/processing_unit/Process()
 
-	if (!output_dir || !input_dir) return
+	if(!output_dir || !input_dir)
+		return
 
 	var/list/tick_alloys = list()
 
 	//Grab some more ore to process this tick.
-	var/limit = sheets_per_tick
 	for(var/obj/item/weapon/ore/O in get_step(src, input_dir))
-		if(--limit <= 0)
-			break
 		if(!isnull(ores_stored[O.material]))
 			ores_stored[O.material]++
 		qdel(O)

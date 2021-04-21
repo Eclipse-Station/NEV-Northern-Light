@@ -13,7 +13,7 @@ meteor_act
 	if(!has_organ(def_zone))
 		return PROJECTILE_FORCE_MISS //if they don't have the organ in question then the projectile just passes by.
 
-	var/obj/item/organ/external/organ = get_organ()
+	var/obj/item/organ/external/organ = get_organ(def_zone)
 
 	//Shields
 	var/shield_check = check_shields(P.get_structure_damage(), P, null, def_zone, "the [P.name]")
@@ -157,11 +157,22 @@ meteor_act
 	if(!type || !def_zone) return 0
 	var/protection = 0
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
+	if(def_zone.armor)
+		if(def_zone.armor.getRating(type) > protection)
+			protection = def_zone.armor.getRating(type)
+
 	for(var/gear in protective_gear)
 		if(gear && istype(gear ,/obj/item/clothing))
 			var/obj/item/clothing/C = gear
-			if(istype(C) && C.body_parts_covered & def_zone.body_part)
-				protection += C.armor[type]
+			if(istype(C) && C.body_parts_covered & def_zone.body_part && C.armor)
+				if(C.armor.vars[type] > protection)
+					protection = C.armor.vars[type]
+
+	var/obj/item/weapon/shield/shield = has_shield()
+
+	if(shield)
+		protection += shield.armor[type]
+
 	return protection
 
 /mob/living/carbon/human/proc/check_head_coverage()
@@ -189,6 +200,12 @@ meteor_act
 		. = shield.handle_shield(src, damage, damage_source, attacker, def_zone, attack_text)
 		if(.) return
 	return 0
+
+/mob/living/carbon/human/proc/has_shield()
+	for(var/obj/item/weapon/shield/shield in list(l_hand, r_hand))
+		if(!shield) continue
+		return shield
+	return FALSE
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
 	if(check_attack_throat(I, user))
@@ -242,7 +259,7 @@ meteor_act
 	if(effective_force > 10 || effective_force >= 5 && prob(33))
 		forcesay(hit_appends)	//forcesay checks stat already
 	if((I.damtype == BRUTE || I.damtype == HALLOSS) && prob(25 + (effective_force * 2)))
-		if(!stat)
+		if(!stat && !(has_shield()))
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force))
@@ -255,7 +272,7 @@ meteor_act
 					apply_effect(6, WEAKEN, getarmor(hit_zone, ARMOR_MELEE) )
 
 		//Apply blood
-		if(!(I.flags & NOBLOODY))
+		if(!((I.flags & NOBLOODY)||(I.item_flags & NOBLOODY)))
 			I.add_blood(src)
 
 		if(prob(33 + I.sharp * 10))
@@ -405,7 +422,7 @@ meteor_act
 					src.anchored = TRUE
 					src.pinned += O
 
-/mob/living/carbon/human/embed(var/obj/O, var/def_zone=null)
+/mob/living/carbon/human/embed(var/obj/O, var/def_zone)
 	if(!def_zone) ..()
 
 	var/obj/item/organ/external/affecting = get_organ(def_zone)

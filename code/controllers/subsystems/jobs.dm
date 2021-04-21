@@ -91,6 +91,8 @@ SUBSYSTEM_DEF(job)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
 			player.mind.assigned_role = rank
 			player.mind.assigned_job = job
+			if(job.alt_titles)	// Eclipse add
+				player.mind.role_alt_title = player.client.prefs.GetPlayerAltTitle(job)// Eclipse add
 			unassigned -= player
 			job.current_positions++
 			return TRUE
@@ -139,7 +141,7 @@ SUBSYSTEM_DEF(job)
 
 		if(job in command_positions) //If you want a command position, select it!
 			continue
-		
+
 		if(job.is_restricted(player.client.prefs))
 			continue
 
@@ -226,7 +228,7 @@ SUBSYSTEM_DEF(job)
 			continue
 		var/mob/new_player/candidate = pick(candidates)
 		AssignRole(candidate, command_position)
-		
+
 		//eclipse todo: add a whitelist sanity check in here somewhere
 
 
@@ -456,7 +458,7 @@ SUBSYSTEM_DEF(job)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 	return H
 
-proc/EquipCustomLoadout(var/mob/living/carbon/human/H, var/datum/job/job)
+/proc/EquipCustomLoadout(var/mob/living/carbon/human/H, var/datum/job/job)
 	if(!H || !H.client)
 		return
 
@@ -627,5 +629,5 @@ proc/EquipCustomLoadout(var/mob/living/carbon/human/H, var/datum/job/job)
 /datum/controller/subsystem/job/proc/ShouldCreateRecords(var/title)
 	if(!title) return 0
 	var/datum/job/job = GetJob(title)
-	if(!job) return 0
+	if(!job || job == "Vagabond") return 0
 	return job.create_record

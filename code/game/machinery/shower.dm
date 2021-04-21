@@ -8,7 +8,7 @@
 	icon_state = "sprayer"
 	density = FALSE
 	anchored = TRUE
-	use_power = 0
+	use_power = NO_POWER_USE
 	var/id
 	var/on = FALSE
 	var/watertemp = "normal"
@@ -48,7 +48,7 @@
 	if(on)
 		visible_message("<span class='warning'>[src] clicks and distributes some pain.")
 		var/obj/machinery/cellshower/targetshower = locate(x, y, z - 1)
-		for(var/turf/T in trange(1, targetshower))
+		for(var/turf/T in RANGE_TURFS(1, targetshower))
 			if(T.density)
 				continue
 			var/obj/effect/shower/S = new(T)
@@ -60,7 +60,7 @@
 	visible_message("<span class='warning'>[src] clicks and distributes some pain.")
 	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1)
 	var/obj/machinery/cellshower/targetshower = locate(x, y, z - 1)
-	for(var/turf/T in trange(1, targetshower))
+	for(var/turf/T in RANGE_TURFS(1, targetshower))
 		if(T.density)
 			continue
 		spawn(0)
@@ -210,7 +210,7 @@
 		check_heat(C)
 
 /obj/effect/shower/proc/check_heat(mob/M as mob)
-	if(!master.on || master.watertemp == "normal")
+	if(!master || !master.on || master.watertemp == "normal")
 		return
 	if(iscarbon(M))
 		var/mob/living/carbon/C = M

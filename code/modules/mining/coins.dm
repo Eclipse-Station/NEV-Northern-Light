@@ -5,14 +5,15 @@
 	name = COIN_STANDARD
 	icon_state = "coin"
 	flags = CONDUCT
-	force = 0.0
-	throwforce = 0.0
+	force = 0
+	throwforce = 0
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 	var/string_attached
 	var/sides = 2
 
-/obj/item/weapon/coin/New()
+/obj/item/weapon/coin/Initialize(mapload)
+	. = ..()
 	pixel_x = rand(0,16)-8
 	pixel_y = rand(0,8)-8
 

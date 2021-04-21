@@ -5,7 +5,8 @@
 
 //nursemaids - these create webs and eggs
 /mob/living/carbon/superior_animal/giant_spider/nurse
-	desc = "Furry and black, it makes you shudder to look at it. This one has brilliant green eyes."
+	name = "Kouchiku Spider"
+	desc = "A massive tangleweb spider. It's abdomen takes up the majority of the creature's mass. For a giant insect, this one seems especially fragile."
 	icon_state = "nurse"
 	icon_living = "nurse"
 	maxHealth = 40
@@ -17,6 +18,7 @@
 	poison_type = "pararein"
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/spider/nurse
 	meat_amount = 3
+	rarity_value = 75
 	var/fed = 0
 
 /mob/living/carbon/superior_animal/giant_spider/nurse/attemptAttackOnTarget()
@@ -45,7 +47,7 @@
 			if(!busy && prob(30))
 				//first, check for potential food nearby to cocoon
 				var/list/cocoonTargets = new
-				for(var/mob/living/C in getObjectsInView())
+				for(var/mob/living/C in getPotentialTargets())
 					if(C.stat != CONSCIOUS)
 						cocoonTargets += C
 
@@ -126,7 +128,7 @@
 									O.forceMove(C)
 
 								for(var/mob/living/M in targetTurf)
-									if((M.stat == CONSCIOUS) || istype(M, /mob/living/carbon/superior_animal/giant_spider))
+									if((M.stat == CONSCIOUS) || istype(M, /mob/living/carbon/superior_animal/giant_spider) || is_carrion(M))
 										continue
 									large_cocoon = 1
 

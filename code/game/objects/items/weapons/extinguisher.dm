@@ -14,14 +14,17 @@
 	force = WEAPON_FORCE_DANGEROUS
 	matter = list(MATERIAL_STEEL = 3)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-
+	rarity_value = 10
+	spawn_tags = SPAWN_TAG_ITEM_UTILITY
+	structure_damage_factor = STRUCTURE_DAMAGE_HEAVY
 	var/spray_particles = 3
 	var/spray_amount = 9	//units of liquid per particle
 	var/max_water = 300
-	var/last_use = 1.0
+	var/last_use = 1
 	var/safety = 1
 	var/sprite_name = "fire_extinguisher"
-	structure_damage_factor = STRUCTURE_DAMAGE_HEAVY
+	var/list/overlaylist = list("fire_extinguisherO1","fire_extinguisherO2","fire_extinguisherO3","fire_extinguisherO4","fire_extinguisherO5","fire_extinguisherO6")
+
 
 /obj/item/weapon/extinguisher/mini
 	name = "fire extinguisher"
@@ -35,11 +38,16 @@
 	max_water = 150
 	spray_particles = 3
 	sprite_name = "miniFE"
+	overlaylist = list()
 
-/obj/item/weapon/extinguisher/New()
+/obj/item/weapon/extinguisher/Initialize()
+	. = ..()
+	if(overlaylist.len)
+		var/icon/temp = new /icon('icons/obj/items.dmi', overlaylist[rand(1,overlaylist.len)])
+		overlays += temp
 	create_reagents(max_water)
 	reagents.add_reagent("water", max_water)
-	..()
+
 
 /obj/item/weapon/extinguisher/attack_self(mob/user as mob)
 	safety = !safety

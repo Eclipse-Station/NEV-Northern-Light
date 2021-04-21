@@ -16,11 +16,13 @@
 							/datum/design/research/item/part/basic_micro_laser,
 							/datum/design/research/item/part/basic_matter_bin,
 							/datum/design/research/circuit/arcade_battle,
+							/datum/design/research/circuit/jukebox,
 							/datum/design/research/circuit/arcade_orion_trail,
 							/datum/design/research/circuit/autolathe,
 							/datum/design/research/item/light_replacer,
 							/datum/design/autolathe/tool/weldermask,
-							/datum/design/research/item/mesons
+							/datum/design/research/item/mesons,
+							/datum/design/research/item/ducts
 						)
 
 /datum/technology/monitoring
@@ -125,8 +127,26 @@
 							/datum/design/research/item/custom_circuit_assembly/medium,
 							/datum/design/research/item/custom_circuit_assembly/drone,
 							/datum/design/research/item/custom_circuit_assembly/large,
-							/datum/design/research/item/custom_circuit_assembly/implant
+							/datum/design/research/item/custom_circuit_assembly/implant,
+							/datum/design/research/item/custom_circuit_assembly/printer
 							)
+
+
+/datum/technology/custom_circuits_advanced
+	name = "Advanced Designs"
+	desc = "Integral Ciruits - Advanced Designs"
+	tech_type = RESEARCH_ENGINEERING
+
+	x = 0.4
+	y = 0.9
+	icon = "tesla"
+
+	required_technologies = list(/datum/technology/custom_circuits)
+	required_tech_levels = list()
+	cost = 2000
+
+	unlocks_designs = list(/datum/design/research/item/custom_circuit_assembly/advanced_designs)
+
 /* No tesla engine?
 /datum/technology/tesla
 	name = "Tesla"
@@ -223,7 +243,7 @@
 	desc = "Fast matter deconstruction technology."
 	tech_type = RESEARCH_ENGINEERING
 
-	x = 0.7
+	x = 0.6
 	y = 0.5
 	icon = "Moebius_box1"
 
@@ -233,6 +253,94 @@
 
 	unlocks_designs = list(	/datum/design/research/item/weapon/hatton,
 							/datum/design/research/item/ammo/hatton
+							)
+
+/datum/technology/reinforcement_toolmods
+	name = "Reinforcement toolmods"
+	desc = "A collection of toolmods that reduce tool degradation."
+	tech_type = RESEARCH_ENGINEERING
+
+	x = 0.7
+	y = 0.5
+	icon = "plasmablock"
+
+	required_technologies = list(/datum/technology/adv_tools)
+	required_tech_levels = list()
+	cost = 1500
+
+	unlocks_designs = list(	/datum/design/research/item/weapon/toolmod/stick,
+							/datum/design/research/item/weapon/toolmod/heatsink,
+							/datum/design/research/item/weapon/toolmod/plating,
+							/datum/design/research/item/weapon/toolmod/guard,
+							/datum/design/research/item/weapon/toolmod/plasmablock,
+							/datum/design/research/item/weapon/toolmod/rubbermesh
+							)
+
+/datum/technology/productivity_toolmods
+	name = "Productivity toolmods"
+	desc = "A collection of toolmods that increase workspeed."
+	tech_type = RESEARCH_ENGINEERING
+
+	x = 0.8
+	y = 0.5
+	icon = "booster"
+
+	required_technologies = list(/datum/technology/adv_tools)
+	required_tech_levels = list()
+	cost = 1500
+
+	unlocks_designs = list(	/datum/design/research/item/weapon/toolmod/ergonomicgrip,
+							/datum/design/research/item/weapon/toolmod/ratchet,
+							/datum/design/research/item/weapon/toolmod/redpaint,
+							/datum/design/research/item/weapon/toolmod/whetstone,
+							/datum/design/research/item/weapon/toolmod/dblade,
+							/datum/design/research/item/weapon/toolmod/oxyjet,
+							/datum/design/research/item/weapon/toolmod/motor,
+							/datum/design/research/item/weapon/toolmod/antistaining,
+							/datum/design/research/item/weapon/toolmod/booster,
+							/datum/design/research/item/weapon/toolmod/injector
+							)
+
+/datum/technology/refinement_toolmods
+	name = "Refinement toolmods"
+	desc = "A collection of toolmods that increase precision."
+	tech_type = RESEARCH_ENGINEERING
+
+	x = 0.7
+	y = 0.3
+	icon = "compensatedbarrel"
+
+	required_technologies = list(/datum/technology/adv_tools)
+	required_tech_levels = list()
+	cost = 1500
+
+	unlocks_designs = list(	/datum/design/research/item/weapon/toolmod/laserguide,
+							/datum/design/research/item/weapon/toolmod/stabilizedgrip,
+							/datum/design/research/item/weapon/toolmod/magbit,
+							/datum/design/research/item/weapon/toolmod/portedbarrel,
+							/datum/design/research/item/weapon/toolmod/compensatedbarrel,
+							/datum/design/research/item/weapon/toolmod/vibcompensator
+							)
+
+/datum/technology/augments_toolmods
+	name = "Augments toolmods"
+	desc = "An eclectic collection of toolmods (miscellaneous and utility)."
+	tech_type = RESEARCH_ENGINEERING
+
+	x = 0.8
+	y = 0.3
+	icon = "cellmount"
+
+	required_technologies = list(/datum/technology/adv_tools)
+	required_tech_levels = list()
+	cost = 1500
+
+	unlocks_designs = list(	/datum/design/research/item/weapon/toolmod/cellmount,
+							/datum/design/research/item/weapon/toolmod/fueltank,
+							/datum/design/research/item/weapon/toolmod/expansion,
+							/datum/design/research/item/weapon/toolmod/spikes,
+							/datum/design/research/item/weapon/toolmod/hammeraddon,
+							/datum/design/research/item/weapon/toolmod/hydraulic
 							)
 
 /*

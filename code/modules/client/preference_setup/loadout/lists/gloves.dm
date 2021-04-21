@@ -18,6 +18,10 @@
 	path = /obj/item/clothing/gloves/color/rainbow
 	cost = 2
 
+/datum/gear/gloves/fingerless
+	display_name = "fingerless gloves"
+	path = /obj/item/clothing/gloves/fingerless
+
 /datum/gear/gloves/colored
 	display_name = "gloves, colored"
 	flags = GEAR_HAS_COLOR_SELECTION

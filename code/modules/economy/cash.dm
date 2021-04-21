@@ -14,11 +14,13 @@
 	throw_speed = 1
 	throw_range = 2
 	w_class = ITEM_SIZE_SMALL
+	bad_type = /obj/item/weapon/spacecash
+	spawn_tags = null
 	var/access = list()
 	access = access_crate_cash
 	var/worth = 0
 
-/obj/item/weapon/spacecash/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/spacecash/attackby(obj/item/weapon/W, mob/user)
 	if(istype(W, /obj/item/weapon/spacecash))
 		if(istype(W, /obj/item/weapon/spacecash/ewallet))
 			return FALSE
@@ -41,6 +43,10 @@
 			h_user.put_in_hands(bundle)
 		to_chat(user, SPAN_NOTICE("You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now."))
 		qdel(src)
+
+/obj/item/weapon/spacecash/Destroy()
+	. = ..()
+	worth = 0		// Prevents money from be duplicated anytime.
 
 /obj/item/weapon/spacecash/bundle
 	name = "pile of credits"
@@ -80,11 +86,15 @@
 	var/amount = input(usr, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20) as num
 	amount = round(CLAMP(amount, 0, src.worth))
 	if(amount==0) return 0
+	else if(!Adjacent(usr))
+		to_chat(usr, SPAN_WARNING("You need to be in arm's reach for that!"))
+		return
 
 	src.worth -= amount
 	src.update_icon()
 	if(!worth)
 		usr.drop_from_inventory(src)
+		qdel(src)
 	if(amount in list(1000,500,200,100,50,20,1))
 		var/cashtype = text2path("/obj/item/weapon/spacecash/bundle/c[amount]")
 		var/obj/cash = new cashtype (usr.loc)
@@ -94,8 +104,6 @@
 		bundle.worth = amount
 		bundle.update_icon()
 		usr.put_in_hands(bundle)
-	if(!worth)
-		qdel(src)
 
 /obj/item/weapon/spacecash/bundle/Initialize()
 	. = ..()
@@ -158,23 +166,34 @@
 	desc = "It's worth 500 credits."
 	worth = 500
 
+// exists here specifically for vagabond since they do not have bank accounts and used to have around 800 credits.
+/obj/item/weapon/spacecash/bundle/vagabond
+	name = "pile of credits"
+	icon_state = "spacecash500"
+
+/obj/item/weapon/spacecash/bundle/vagabond/Initialize()
+	var/rand_amount = rand(700,900)
+	desc = "They are worth [rand_amount] credits."
+	worth = rand_amount
+	. = ..()
+
 /obj/item/weapon/spacecash/bundle/c1000
 	name = "1000 credits"
 	icon_state = "spacecash1000"
 	desc = "It's worth 1000 credits."
 	worth = 1000
 
-proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
+proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user)
 	if(sum in list(1000,500,200,100,50,20,10,1))
 		var/cash_type = text2path("/obj/item/weapon/spacecash/bundle/c[sum]")
 		var/obj/cash = new cash_type (usr.loc)
 		if(ishuman(human_user) && !human_user.get_active_hand())
 			human_user.put_in_hands(cash)
 	else
-		var/obj/item/weapon/spacecash/bundle/bundle = new (spawnloc)
+		var/obj/item/weapon/spacecash/bundle/bundle = new(spawnloc)
 		bundle.worth = sum
 		bundle.update_icon()
-		if (ishuman(human_user) && !human_user.get_active_hand())
+		if(ishuman(human_user) && !human_user.get_active_hand())
 			human_user.put_in_hands(bundle)
 	return
 
@@ -186,7 +205,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 
 /obj/item/weapon/spacecash/ewallet/examine(mob/user)
 	..(user)
-	if (!(user in view(2)) && user!=src.loc) return
+	if(!(user in view(2)) && user!=src.loc) return
 	to_chat(user, "\blue Charge card's owner: [src.owner_name]. Credits remaining: [src.worth].")
 
 #undef CASH_PER_STAT

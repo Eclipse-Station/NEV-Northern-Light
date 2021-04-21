@@ -7,6 +7,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 */
 
 /obj/item/device/uplink
+	spawn_blacklisted = TRUE
 	var/welcome = "Welcome, Operative"	// Welcoming menu message
 	var/uses 							// Numbers of crystals
 	var/list/ItemsCategory				// List of categories with lists of items
@@ -16,7 +17,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/list/nanoui_data = new 			// Additional data for NanoUI use
 
 	var/list/purchase_log = new
-	var/datum/mind/uplink_owner = null
+	var/datum/mind/uplink_owner
 	var/used_TC = 0
 
 	var/list/owner_roles = new
@@ -24,7 +25,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 	var/passive_gain = 0.1 //Number of telecrystals this uplink gains per minute.
 	//The total uses is only increased when this is a whole number
-	var/gain_progress = 0.0
+	var/gain_progress = 0
 
 	var/bsdm_time = 0
 
@@ -152,7 +153,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	else if(href_list["lock"])
 		toggle()
 		var/datum/nanoui/ui = SSnano.get_open_ui(user, src, "main")
-		ui.close()
+		ui?.close()
 	else if(href_list["return"])
 		nanoui_menu = round(nanoui_menu/10)
 	else if(href_list["menu"])
@@ -248,9 +249,9 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 /obj/item/device/radio/uplink/New(loc, mind, crystal_amount)
 	..(loc)
 	hidden_uplink = new(src, mind, crystal_amount)
-	icon_state = "radio"
+	icon_state = "xprgrey"
 
-/obj/item/device/radio/uplink/attack_self(mob/user as mob)
+/obj/item/device/radio/uplink/attack_self(mob/user)
 	if(hidden_uplink)
 		hidden_uplink.trigger(user)
 
@@ -280,10 +281,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	icon = 'icons/obj/supplybeacon.dmi'
 	desc = "A bulky machine used for teleporting in supplies from a benefactor."
 	icon_state = "beacon"
-	var/obj/item/device/uplink/hidden/uplink
-	var/telecrystals = 100
 	density = TRUE
 	anchored = TRUE
+	var/obj/item/device/uplink/hidden/uplink
+	var/telecrystals = 100
 	var/owner_roles //Can be a list of roles or a single role
 
 /obj/structure/uplink/New()

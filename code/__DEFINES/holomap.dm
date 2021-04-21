@@ -16,7 +16,7 @@
 
 #define HOLOMAP_AREACOLOR_COMMAND		"#0000F099"
 #define HOLOMAP_AREACOLOR_SECURITY		"#AE121299"
-#define HOLOMAP_AREACOLOR_MEDICAL		"#447FC299"
+#define HOLOMAP_AREACOLOR_MEDICAL		"#A154A699"
 #define HOLOMAP_AREACOLOR_SCIENCE		"#A154A699"
 #define HOLOMAP_AREACOLOR_ENGINEERING	"#F1C23199"
 #define HOLOMAP_AREACOLOR_CARGO			"#E06F0099"
@@ -24,6 +24,7 @@
 #define HOLOMAP_AREACOLOR_ARRIVALS		"#0000FFCC"
 #define HOLOMAP_AREACOLOR_ESCAPE		"#FF0000CC"
 #define HOLOMAP_AREACOLOR_DORMS			"#CCCC0099"
+#define HOLOMAP_AREACOLOR_CHURCH        "#A1812199"
 
 #define LIST_NUMERIC_SET(L, I, V) if(!L) { L = list(); } if (L.len < I) { L.len = I; } L[I] = V
 
@@ -36,9 +37,8 @@
 // For making the 5-in-1  Eris holomap, we calculate some offsets
 #define ERIS_MAP_SIZE 135 // Width and height of compiled in ERIS z levels.
 #define ERIS_HOLOMAP_CENTER_GUTTER 40 // 40px central gutter between columns
-#define ERIS_HOLOMAP_MARGIN_X ((HOLOMAP_ICON_SIZE - (2*ERIS_MAP_SIZE) - ERIS_HOLOMAP_CENTER_GUTTER) / 3)
-#define ERIS_HOLOMAP_MARGIN_Y ((HOLOMAP_ICON_SIZE - (3*ERIS_MAP_SIZE)) / 10)
-
+#define ERIS_HOLOMAP_MARGIN_X(map_size) ((HOLOMAP_ICON_SIZE - (2*map_size) - ERIS_HOLOMAP_CENTER_GUTTER) / 3)
+#define ERIS_HOLOMAP_MARGIN_Y(map_size, max_holo_per_colum, cap) (cap ? ((HOLOMAP_ICON_SIZE - (max_holo_per_colum*map_size))/(max_holo_per_colum+4.5) < cap ? ((max_holo_per_colum*map_size))/(max_holo_per_colum+4.5) : cap) : ((HOLOMAP_ICON_SIZE - (max_holo_per_colum*map_size))/(max_holo_per_colum+4.5)))
 #define HOLOMAP_EXTRA_STATIONMAP			"stationmapformatted"
 #define HOLOMAP_EXTRA_STATIONMAPAREAS		"stationareas"
 #define HOLOMAP_EXTRA_STATIONMAPSMALL		"stationmapsmall"

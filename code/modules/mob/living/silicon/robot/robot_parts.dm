@@ -8,6 +8,7 @@
 	slot_flags = SLOT_BELT
 	dir = SOUTH
 	matter = list(MATERIAL_STEEL = 15)
+	bad_type = /obj/item/robot_parts
 	var/body_part = "part"
 
 /obj/item/robot_parts/set_dir()
@@ -46,7 +47,7 @@
 	icon_state = "chest"
 	body_part = "chest"
 	matter = list(MATERIAL_STEEL = 25)
-	var/wires = 0.0
+	var/wires = 0
 	var/obj/item/weapon/cell/large/cell
 
 /obj/item/robot_parts/chest/is_ready(var/mob/living/user)
