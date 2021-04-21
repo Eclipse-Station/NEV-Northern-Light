@@ -30,13 +30,14 @@ SUBSYSTEM_DEF(dispatcher)
 	var/list/tracked_players_crg = list()		//Supply
 	var/list/tracked_players_eng = list()		//Engineering
 	var/list/tracked_players_svc = list()		//Service
+	var/list/tracked_players_chr = list()		//Church
 	
 /datum/controller/subsystem/dispatcher/Initialize()
 	log_debug("DISPATCHER: Initializing.")
 //	dispatcher = src
 	debug_level = config.ntdad_debug
 	log_debug("DISPATCHER: Debug level set: [debug_level]")
-	if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len)
+	if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len || tracked_players_chr.len)
 		if(DEBUGLEVEL_WARNING <= debug_level)
 			log_debug("DISPATCHER: One or more lists still had data, flushing...")
 		flush_tracking()
@@ -78,9 +79,10 @@ SUBSYSTEM_DEF(dispatcher)
 	tracked_players_crg = list()		//Supply
 	tracked_players_eng = list()		//Engineering
 	tracked_players_svc = list()		//Service
+	tracked_players_chr = list()		//Church
 	
 	//make sure they're clear
-	if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len)
+	if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len || tracked_players_chr.len)
 		world.Error("DISPATCHER: Attempted to flush player lists, but lists still had data. Falling back to list.Cut()...")
 		if(DEBUGLEVEL_WARNING <= debug_level)
 			log_debug("DISPATCHER: Attempted to flush player lists, but lists still had data. Reverting to list.Cut() method...")
@@ -92,9 +94,11 @@ SUBSYSTEM_DEF(dispatcher)
 		tracked_players_crg.Cut()		//Supply
 		tracked_players_eng.Cut()		//Engineering
 		tracked_players_svc.Cut()		//Service
+		tracked_players_chr.Cut()		//Church
 		
-		if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len)
+		if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len || tracked_players_chr.len)
 			throw EXCEPTION("DISPATCHER: Attempted to flush player lists twice, but lists still had data. Aborting - abnormalities may occur!")
+			message_admins("DISPATCHER/SEVERE: Attempted to flush player lists twice, but lists still had data. Please generate a tracking dump (Debug > Dump tracking data) and send it to a developer.")
 			if(DEBUGLEVEL_SEVERE <= debug_level)
 				log_debug("DISPATCHER: Attempted to flush player lists twice, but lists still had data. Aborting - abnormalities may occur!")
 
@@ -172,6 +176,8 @@ SUBSYSTEM_DEF(dispatcher)
 		tracked_players_crg += M
 	if(M.mind.assigned_role in engineering_positions)
 		tracked_players_eng += M
+	if(M.mind.assigned role in church_positions)
+		tracked_players_chr += M
 	if(M.mind.assigned_role in civilian_positions)
 		if(M.mind.assigned_role != (ASSISTANT_TITLE))		//vagabonds are not staff
 			tracked_players_svc += M
@@ -203,6 +209,8 @@ SUBSYSTEM_DEF(dispatcher)
 		tracked_players_eng.Remove(M)
 	if(tracked_players_svc & M)
 		tracked_players_svc.Remove(M)
+	if(tracked_players_chr & M)
+		tracked_players_chr.Remove(M)
 	
 	//...then the final list.
 	if(tracked_players_all & M)
@@ -270,7 +278,17 @@ SUBSYSTEM_DEF(dispatcher)
 				return 1
 			else
 				return 0
-		if("service", "janitorial")
+		if("church", "janitorial")
+			if(DEBUGLEVEL_VERBOSE <= debug_level)
+				log_debug("DISPATCHER: Request sent to Church.")
+			if(!tracked_players_chr.len)
+				if(DEBUGLEVEL_VERBOSE <= debug_level)
+					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
+				send_discord_request("church",priority, message, sender, sender_role, stamped)
+				return 1
+			else
+				return 0
+		if("service")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Service.")
 			if(!tracked_players_svc.len)
@@ -308,6 +326,11 @@ SUBSYSTEM_DEF(dispatcher)
 /datum/controller/subsystem/dispatcher/proc/send_discord_request(department = "", priority = FALSE, message, sender, sender_role, stamped)
 	if(!config.ntdad_enabled)		//don't do shit if it's not enabled
 		return 0
+		
+	if(!message)
+		if(DEBUGLEVEL_VERBOSE <= debug_level)
+			log_debug("DISPATCHER: No message entered, aborting.")
+		return 0
 
 /*				//Handled in request console code.
 	if(cooldown > world.time)		//not done with the cooldown yet.
@@ -332,6 +355,8 @@ SUBSYSTEM_DEF(dispatcher)
 			department_ping = config.ntdad_role_service
 		if("medical")
 			department_ping = config.ntdad_role_medical
+		if("church")
+			department_ping = config.ntdad_role_church
 		else
 			if(DEBUGLEVEL_WARNING <= debug_level)
 				log_debug("DISPATCHER: Undefined department '[department]'.")
@@ -372,6 +397,7 @@ SUBSYSTEM_DEF(dispatcher)
 	tracked_players_crg = list()
 	tracked_players_eng = list()		//I'm SPITZER! Spitzer! Spitzer. Spitzer...
 	tracked_players_svc = list()
+	tracked_players_chr = list()
 
 /datum/controller/subsystem/dispatcher/stat_entry(msg_prefix)
 	var/list/msg = list(msg_prefix)
@@ -383,11 +409,12 @@ SUBSYSTEM_DEF(dispatcher)
 	msg += "M [tracked_players_med.len] | "		//Med
 	msg += "N [tracked_players_sci.len] | "		//Research
 	msg += "U [tracked_players_crg.len] | "		//Cargo
+	msg += "R [tracked_players_chr.len] | "		//Church ("Religion")
 	msg += "? [tracked_players_svc.len]"		//Other
 	msg += "}"
 	..(msg.Join())
 	
-	//sample T:28{C 6|E 3|S 4|M 4|N 5|U 5|? 12}
+	//sample T:28{C 6|E 3|S 4|M 4|N 5|U 5|R 0|? 12}
 
 #undef DEBUGLEVEL_FATAL_ONLY
 #undef DEBUGLEVEL_SEVERE

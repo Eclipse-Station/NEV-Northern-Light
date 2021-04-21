@@ -22,12 +22,13 @@
 	var/sr_bypass_command_requirement = FALSE		//Should we allow the round to start without a Head of Staff?
 	var/sr_lowpop_threshold = 10					//At what point are we no longer lowpop for the purposes of staff requirements?
 	
-//Dispatcher-related variables. Predix: "NanoTrasen Department Alarm Dispatcher"
+//Dispatcher-related variables. Prefix: "NanoTrasen Department Alarm Dispatcher"
 	var/ntdad_enabled = FALSE			//should it be enabled?
 	var/ntdad_debug = 1					//debug the dispatcher
 	var/ntdad_cooldown = 600			//Cooldown between calls
 	var/ntdad_max_oper = 10				//maximum concurrent operations, intended to reduce lag while flushing lists
 		//role pings
+	var/ntdad_role_church = ""
 	var/ntdad_role_command = ""
 	var/ntdad_role_engineering = ""
 	var/ntdad_role_medical = ""
@@ -85,6 +86,8 @@
 				config.ntdad_cooldown = 10 * text2num(value)
 			if("maximum_concurrent_operations")
 				config.ntdad_max_oper = text2num(value)
+			if("role_ping_church")
+				config.ntdad_role_church = value
 			if("role_ping_command")
 				config.ntdad_role_command = value
 			if("role_ping_engineering")

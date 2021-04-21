@@ -12,9 +12,14 @@ ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 
 	var/supersecretpasscode = rand(1000,9999)
 	
-	var/codecheck = input(usr,"WARNING - READ CAREFULLY BEFORE PROCEEDING! \n\n You are about to dump the player tracking data to a file. Because most of this is rate limited to reduce performance costs, this operation could take some time to complete. If you don't know what need you would have for this, you probably should not continue. If you know what you are doing or you have been asked to do this, enter the code \"[supersecretpasscode]\" to begin this operation. Leave blank to cancel. Dump files are saved in the same directory as this round's logs.","Confirm tracking data dump?") as null|num
+	var/codecheck = input(usr,"WARNING - READ CAREFULLY BEFORE PROCEEDING! \
+	\n\n You are about to dump the player tracking data to a file. Because most of this is rate limited to reduce performance costs, this operation could take some time to complete. \
+	If you don't know what need you would have for this, you probably should not continue. \
+	If you know what you are doing or you have been asked to do this, enter the code \"[supersecretpasscode]\" to begin this operation. \
+	Enter literally any other number to cancel. \
+	Dump files are saved in the same directory as this round's logs.","Confirm tracking data dump?") as null|num
 	
-	if(!codecheck)		//blank entry
+	if(!codecheck)		//blank entry, unimplemented due to technical limitations
 		to_chat(usr, "<span class='warning'>Confirmation check failed - no entry. Tracking data dump canceled.</span>")
 		return
 
@@ -33,6 +38,8 @@ ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 		ASSERT(dump_log)		//if it don't exist, well, shit's fucked anyway and this isn't going to work.
 	catch
 		to_chat(usr, "<span class='danger'>PTrack dump failed: the dump file could not be assigned to a variable for writing.</span>")
+		message_admins("PTrack dump failed. See runtime logs for more information.")
+		SSdispatcher.ptrack_dump_in_progress = FALSE		//free it up since it's about to crash
 		CRASH("Could not assign logfile to variable for writing")
 	WRITE_LOG(dump_log, " Player Tracking Dump")
 	WRITE_LOG(dump_log, "   Tracking dump initialized at [time2text(world.realtime, "YYYY-MM-DD T hh:mm:ss")] by [usr.ckey].")
@@ -45,6 +52,7 @@ ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 	WRITE_LOG(dump_log, "   MEDIC [SSdispatcher.tracked_players_med.len]")
 	WRITE_LOG(dump_log, "   RSRCH [SSdispatcher.tracked_players_sci.len]")
 	WRITE_LOG(dump_log, "   CARGO [SSdispatcher.tracked_players_crg.len]")
+	WRITE_LOG(dump_log, "   CHRCH [SSdispatcher.tracked_players_chr.len]")
 	WRITE_LOG(dump_log, "   OTHER [SSdispatcher.tracked_players_svc.len]")
 	WRITE_LOG(dump_log, " ################################################################################")
 	
@@ -54,7 +62,7 @@ ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 	
 	to_chat(usr, "<span class='danger'>Beginning PTrack dump - iteration 1 (all connected mobs with associated ckey)...</span>")
 	WRITE_LOG(dump_log, " Beginning iteration 1 (all connected mobs with associated ckey)")
-	WRITE_LOG(dump_log, " keyname - Type (NP = lobby, OB = observer, SI = silicon, HU = humanoid, SA = simpleanimal)")
+	WRITE_LOG(dump_log, " keyname - Type (NP = lobby, OB = observer/ghost, SI = silicon, HU = humanoid, SA = simpleanimal)")
 	
 	var/iterations = 0		//rate limiting.
 	for(var/mob/M in world)
@@ -86,7 +94,7 @@ ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 	
 	WRITE_LOG(dump_log, " ---------------")
 	WRITE_LOG(dump_log, " Beginning iteration 2 (player list dump)")
-	WRITE_LOG(dump_log, " keyname - Type (NP = lobby, OB = observer, SI = silicon, HU = humanoid, SA = simpleanimal)")
+	WRITE_LOG(dump_log, " keyname - Type (NP = lobby, OB = observer/ghost, SI = silicon, HU = humanoid, SA = simpleanimal)")
 	to_chat(usr, "<span class='danger'>Beginning PTrack dump - iteration 2 (player_list dump)...</span>")
 	
 	for(var/mob/M in GLOB.player_list)
@@ -178,6 +186,14 @@ ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 		
 	WRITE_LOG(dump_log, " -- Cargo --")
 	for(var/mob/M in SSdispatcher.tracked_players_crg)
+		iterations++
+		if(!(iterations % config.ntdad_max_oper))
+			sleep(1)
+		WRITE_LOG(dump_log, "   [key_name(M)] - [M.mind.assigned_role]")
+		continue
+		
+	WRITE_LOG(dump_log, " -- Church --")
+	for(var/mob/M in SSdispatcher.tracked_players_chr)
 		iterations++
 		if(!(iterations % config.ntdad_max_oper))
 			sleep(1)
