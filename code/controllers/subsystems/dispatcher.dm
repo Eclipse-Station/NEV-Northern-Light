@@ -268,7 +268,7 @@ SUBSYSTEM_DEF(dispatcher)
 				return 1
 			else
 				return 0
-		if("supply", "cargo", "cargo bay")
+		if("supply", "cargo", "cargo bay", "freetradeunion")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Supply.")
 			if(!tracked_players_crg.len)

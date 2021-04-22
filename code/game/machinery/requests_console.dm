@@ -72,6 +72,26 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 /obj/machinery/requests_console/New()
 	..()
+	
+	// // // BEGIN ECLIPSE EDITS // // //
+	/* If no department name is set, the Request Console should use the area 
+	 * name. This allows for emergency responders to figure out where the person
+	 * is, and for RC spammers to be caught by security. This also saves map
+	 * filesize by not requiring a department for every civilian RC on the ship.
+	 */
+	if(department == "Unknown")
+		var/area/console_area = get_area(src)
+		/*
+		//This implementation technically works, but is rather dangerous.
+		try
+			ASSERT(console_area:name)			//don't try shit like this at home without a try-catch block, kids
+			department = "[console_area:name]"
+		catch
+			department = "FAILURE_TO_GET_AREA_NAME"
+		*/
+		department = "[console_area.name]"
+		departmentType = 0		//Reply only, prevent it from showing up
+	// // // END ECLIPSE EDITS // // //
 
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1

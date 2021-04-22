@@ -39397,7 +39397,7 @@
 	department = "Security";
 	departmentType = 3;
 	name = "Forensics Office RC";
-	pixel_x = 30;
+	pixel_x = 30
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/inspectors_office)
@@ -42307,12 +42307,18 @@
 "bRL" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/donut,
+/obj/machinery/requests_console{
+	pixel_x = 30
+	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/sleep/cryo)
 "bRM" = (
 /obj/structure/table/standard,
 /obj/spawner/medical,
 /obj/spawner/medical,
+/obj/machinery/requests_console{
+	pixel_x = -30
+	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/crew_quarters/sleep/cryo)
 "bRN" = (
@@ -44844,7 +44850,7 @@
 	department = "Security";
 	departmentType = 3;
 	name = "Forensics Office RC";
-	pixel_x = -30;
+	pixel_x = -30
 	},
 /turf/simulated/floor/carpet,
 /area/eris/security/inspectors_office)
@@ -106091,6 +106097,17 @@
 /obj/item/clothing/mask/gas/monkeymask,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/clownoffice)
+"eYg" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/machinery/requests_console{
+	dir = 1;
+	name = "Library Requests Console";
+	pixel_y = -32
+	},
+/turf/simulated/floor/wood,
+/area/eris/crew_quarters/library)
 "eZp" = (
 /obj/structure/table/rack,
 /obj/item/weapon/storage/toolbox/electrical,
@@ -106216,16 +106233,6 @@
 "fHk" = (
 /turf/simulated/wall/r_wall,
 /area/eris/security/checkpoint/engineering)
-"fIz" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/machinery/requests_console{
-	name = "Holodeck Requests Console";
-	pixel_x = -30
-	},
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/crew_quarters/fitness)
 "fKJ" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -106384,6 +106391,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/medical/chemstor)
+"gtm" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/requests_console{
+	department = "Church";
+	departmentType = 7;
+	name = "Hydroponics RC";
+	pixel_x = 30
+	},
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics)
 "gBc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -106391,16 +106411,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
-"gGp" = (
-/obj/machinery/requests_console{
-	department = "Church";
-	departmentType = 7;
-	dir = 1;
-	name = "Bioreactor RC";
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/dark/golden,
-/area/eris/neotheology/bioreactor)
 "gGt" = (
 /obj/item/modular_computer/console/preset/engineering/power{
 	dir = 8;
@@ -106663,16 +106673,6 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/hangarsupply)
-"ilx" = (
-/obj/machinery/requests_console{
-	department = "Medbay";
-	departmentType = 3;
-	dir = 1;
-	name = "Morgue RC";
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/medical/morgue)
 "imV" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/railing/grey{
@@ -106750,6 +106750,16 @@
 /obj/machinery/camera/motion/security,
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section1deck4central)
+"iTv" = (
+/obj/machinery/requests_console{
+	department = "Medbay";
+	departmentType = 3;
+	dir = 1;
+	name = "Morgue RC";
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/medical/morgue)
 "iTJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 4;
@@ -107105,17 +107115,6 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/reception)
-"kXK" = (
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
-/obj/machinery/requests_console{
-	dir = 1;
-	name = "Library Requests Console";
-	pixel_y = -32
-	},
-/turf/simulated/floor/wood,
-/area/eris/crew_quarters/library)
 "kZT" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
@@ -107298,6 +107297,13 @@
 /obj/effect/shuttle_landmark/merc/junk,
 /turf/space,
 /area/space)
+"lKd" = (
+/obj/machinery/requests_console{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/grass,
+/area/eris/crew_quarters/hydroponics/garden)
 "lOA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel/cargo,
@@ -107798,19 +107804,6 @@
 /obj/landmark/storyevent/hidden_vent_antag,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
-"nZL" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/requests_console{
-	department = "Church";
-	departmentType = 7;
-	name = "Hydroponics RC";
-	pixel_x = 30
-	},
-/turf/simulated/floor/grass,
-/area/eris/crew_quarters/hydroponics)
 "nZP" = (
 /obj/structure/reagent_dispensers/fueltank/huge,
 /turf/simulated/floor,
@@ -107904,6 +107897,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics/garden)
+"ovX" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/requests_console{
+	name = "Holodeck Requests Console";
+	pixel_x = -30
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/crew_quarters/fitness)
 "owL" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -108075,6 +108078,14 @@
 	},
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/command/meo)
+"pij" = (
+/obj/structure/table/standard,
+/obj/machinery/requests_console{
+	dir = 1;
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/steel/gray_platform,
+/area/eris/crew_quarters/clothingstorage)
 "pkU" = (
 /obj/machinery/light/small,
 /obj/machinery/portable_atmospherics/canister/phoron,
@@ -108253,18 +108264,6 @@
 /obj/machinery/duct,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/hydroponics)
-"qDK" = (
-/obj/machinery/camera/network/engineering{
-	dir = 8
-	},
-/obj/machinery/requests_console{
-	department = "Engineering";
-	departmentType = 3;
-	name = "Engineering RC";
-	pixel_x = 30
-	},
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/engineering/engine_room)
 "qEt" = (
 /turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/sleep_male/toilet_male)
@@ -108646,6 +108645,18 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep_female/toilet_female)
+"sCG" = (
+/obj/machinery/camera/network/engineering{
+	dir = 8
+	},
+/obj/machinery/requests_console{
+	department = "Engineering";
+	departmentType = 3;
+	name = "Engineering RC";
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/engine_room)
 "sGt" = (
 /obj/effect/shuttle_landmark/merc/sec2east,
 /turf/space,
@@ -108679,16 +108690,6 @@
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
 /area/eris/medical/chemstor)
-"sLE" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/requests_console{
-	name = "Courtroom RC";
-	pixel_x = 30
-	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
 "sMI" = (
 /obj/structure/multiz/stairs/active{
 	dir = 8
@@ -108872,6 +108873,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prison)
+"ufi" = (
+/obj/machinery/requests_console{
+	department = "Church";
+	departmentType = 7;
+	dir = 1;
+	name = "Bioreactor RC";
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/bioreactor)
 "uga" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
@@ -109214,6 +109225,16 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"vta" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/requests_console{
+	name = "Courtroom RC";
+	pixel_x = 30
+	},
+/turf/simulated/floor/wood,
+/area/eris/command/courtroom)
 "vtO" = (
 /obj/machinery/camera/network/medbay{
 	dir = 1
@@ -128190,7 +128211,7 @@ bYZ
 ccA
 cdO
 bts
-gGp
+ufi
 aCn
 bPZ
 bRI
@@ -166366,7 +166387,7 @@ bxH
 bQq
 cpQ
 chs
-nZL
+gtm
 chs
 cjP
 cCA
@@ -167171,7 +167192,7 @@ bTJ
 cfv
 bRH
 bRH
-bRH
+lKd
 cpP
 cPH
 cPH
@@ -167358,7 +167379,7 @@ boi
 bpl
 boi
 boi
-ilx
+iTv
 bmx
 aaa
 aaa
@@ -208334,7 +208355,7 @@ bYu
 bRU
 bwS
 bwY
-bRZ
+pij
 agD
 aEe
 aEe
@@ -213358,7 +213379,7 @@ abF
 abF
 bSo
 bpA
-sLE
+vta
 bSt
 cUV
 bTK
@@ -246181,7 +246202,7 @@ rNq
 dMe
 dHZ
 dNM
-qDK
+sCG
 dMe
 dPJ
 dMD
@@ -247176,7 +247197,7 @@ euu
 axW
 eFD
 azg
-kXK
+eYg
 ayg
 abF
 cAO
@@ -248181,7 +248202,7 @@ cDi
 cDi
 cEy
 euq
-fIz
+ovX
 cDi
 cDi
 eqJ
