@@ -232,10 +232,17 @@ SUBSYSTEM_DEF(dispatcher)
 
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Received request for department [department], priority of [priority], message '[message]', sender '[sender]', role '[sender_role]', stamp '[stamped]'.")
+	
+	if(!priority)		//priority of zero means it's a reply message.
+		if(DEBUGLEVEL_VERBOSE <= debug_level)
+			log_debug("DISPATCHER: Discarding request as reply message.")
+		return 0		//discard it
+	
 	if((!sender || !sender_role) && !stamped)
 		if(DEBUGLEVEL_WARNING <= debug_level)
 			log_debug("DISPATCHER: Sender data missing sender or sender role, and unstamped. Aborting.")
 			return 0
+		
 	department = lowertext(department)
 	switch(department)
 		if("engineering", "atmospherics")
