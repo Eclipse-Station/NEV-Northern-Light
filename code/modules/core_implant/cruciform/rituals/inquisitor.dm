@@ -94,7 +94,7 @@
 	var/datum/core_module/activatable/cruciform/obey_activator/OA = CI.get_module(CRUCIFORM_OBEY_ACTIVATOR)
 
 	if(!OA)
-		fail("Target must have obey upgrade inside his cruciform.",user,C)
+		fail("Target must have obey upgrade inside their cruciform.",user,C)
 		return FALSE
 
 	OA.activate()
@@ -119,7 +119,7 @@
 
 /datum/ritual/cruciform/inquisitor/selfheal/perform(mob/living/carbon/human/H, obj/item/weapon/implant/core_implant/C,list/targets)
 	to_chat(H, "<span class='info'>A sensation of relief bathes you, washing away your pain</span>")
-	log_and_message_admins("healed himself with convalescence litany")
+	log_and_message_admins("healed themself with convalescence litany")
 	H.add_chemical_effect(CE_PAINKILLER, 20)
 	H.adjustBruteLoss(-20)
 	H.adjustFireLoss(-20)
@@ -277,7 +277,7 @@
 	var/datum/core_module/activatable/cruciform/priest_convert/PC = CI.get_module(CRUCIFORM_PRIEST_CONVERT)
 
 	if(!PC)
-		fail("Target must have preacher upgrade inside his cruciform.",user,C)
+		fail("Target must have preacher upgrade inside their cruciform.",user,C)
 		return FALSE
 
 	PC.activate()
