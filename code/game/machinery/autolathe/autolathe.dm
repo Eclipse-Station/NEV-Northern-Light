@@ -254,6 +254,7 @@
 	// Some item types are consumed by default
 	if(istype(I, /obj/item/stack) || istype(I, /obj/item/trash) || istype(I, /obj/item/weapon/material/shard))
 		eat(user, I)
+
 		return
 
 	if(istype(I, /obj/item/weapon/reagent_containers/glass))
@@ -562,6 +563,9 @@
 				//If it's a stack, we eat multiple sheets.
 				if(istype(O, /obj/item/stack))
 					var/obj/item/stack/material/stack = O
+					if(stack.get_amount() < 1) //This stops users from putting in only half of a material.
+						to_chat(user, SPAN_NOTICE("\The [src] only takes full sheets of materials!"))
+						return
 					total_material *= stack.get_amount()
 
 				if(stored_material[material] + total_material > storage_capacity)
@@ -1009,3 +1013,4 @@
 		var/atom/movable/A = loc
 		A.vis_contents -= src
 	return ..()
+
