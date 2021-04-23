@@ -1,0 +1,4 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - bugfix: Changes  nIRC to LIRC, and changes the description as well.
