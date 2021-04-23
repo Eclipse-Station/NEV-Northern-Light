@@ -191,12 +191,12 @@
 
 		if(locate(/obj/structure) in target)
 			for(var/obj/structure/S in target)
-				if(S.density && S.anchored)
+				if(S.density && S.anchored && !(istype(S, /obj/structure/inflatable))) //Makes it so anchored inflatables do NOT block the hivemind wires. TODO: Make it play a message/sound when
+				//The wires go around the inflatables
 					return FALSE
 
 		if(locate(/obj/machinery/door) in target)
 			return FALSE
-
 		return TRUE
 	else
 		return ..()
