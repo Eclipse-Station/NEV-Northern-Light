@@ -1,4 +1,0 @@
-author: MciReloaded
-delete-after: true
-changes:
-  - bugfix: Makes closed lockers push-points for ZeroG

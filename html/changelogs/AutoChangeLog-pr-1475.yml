@@ -1,5 +1,0 @@
-author: MciReloaded
-delete-after: true
-changes:
-  - bugfix: Allows hivemind's strange wires to spread underneath of the inflatable
-      barriers. Makes it harder to deal with the hive mind.
