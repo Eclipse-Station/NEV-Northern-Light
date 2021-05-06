@@ -1,0 +1,4 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - bugfix: Fixed a glitch that made some drinks not render properly.
