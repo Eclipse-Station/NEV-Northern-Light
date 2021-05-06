@@ -5,7 +5,7 @@
 	antag_plural = "infiltrators"
 	welcome_text = "YExcelsior, comrades!\n\n\
 You are part of the Techno-communist Commune known as Excelsior. You are here to further The\
-Peopleâ€™s goals aboard this vessel, with the final goal being to turn this vessel into our newest Commune.\
+People’s goals aboard this vessel, with the final goal being to turn this vessel into our newest Commune.\
 Secure our position, liberate the oppressed, and produce arms, armour, and propaganda in preparation\
 for the final revolution. A slow, methodical approach is preferred, split into three phases:\
 <b>Phase One - Awakening:<b\> Seek out other members of the revolution, if present, by speaking to them\n\n\
@@ -54,6 +54,7 @@ When the People are ready, break the chains of the Oppressor, and seize the ship
 	return extra_text
 /datum/faction/excelsior/create_objectives()
 	objectives.Cut()
+	new /datum/objective/timed/excelsior(src)
 	for (var/datum/antagonist/A in members)
 		to_chat(A.owner.current, SPAN_NOTICE("You may summon your required materials using the \"summon stash\" command."))
 
@@ -95,7 +96,9 @@ When the People are ready, break the chains of the Oppressor, and seize the ship
 
 	var/obj/item/weapon/storage/deferred/stash/sack/stash = new
 
-	new /obj/item/weapon/computer_hardware/hard_drive/portable/design/excelsior(stash)
+	new /obj/item/weapon/computer_hardware/hard_drive/portable/design(stash)
+	new /obj/item/weapon/computer_hardware/hard_drive/portable/design/excelsior/core(stash)
+	new /obj/item/weapon/computer_hardware/hard_drive/portable/design/excelsior/weapons(stash)
 	new /obj/item/weapon/electronics/circuitboard/excelsiorautolathe(stash)
 	new /obj/item/weapon/electronics/circuitboard/excelsior_teleporter(stash)
 

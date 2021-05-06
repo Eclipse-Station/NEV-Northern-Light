@@ -3,7 +3,8 @@
  */
 /obj/item/weapon/paper/court
 	name = "Judgement"
-	info = {"For crimes against the ship, the offender is sentenced to:
+	spawn_blacklisted = TRUE
+	info = {"For crimes against the station, the offender is sentenced to:
 	\[br\]
 	\[br\]"}
 

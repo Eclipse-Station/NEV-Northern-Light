@@ -1,6 +1,5 @@
 /obj/effect/overmap/sector/exoplanet
-	name = "exoplanet"
-	icon_state = "globe"
+	name = "unknown spatial phenomenon"
 	in_space = 0
 	var/area/planetary_area
 	var/list/seeds = list()
@@ -13,6 +12,7 @@
 	var/maxx
 	var/maxy
 	var/landmark_type = /obj/effect/shuttle_landmark/automatic
+	var/planet_type = "generic"
 
 	var/list/planet_colors = list()
 
@@ -44,6 +44,9 @@
 
 	var/habitability_class
 
+	name_stages = list("exoplanet", "unknown planet", "unknown spatial phenomenon")
+	icon_stages = list("generic", "planet", "poi")
+
 /obj/effect/overmap/sector/exoplanet/proc/generate_habitability()
 	var/roll = rand(1,100)
 	switch(roll)
@@ -62,12 +65,17 @@
 	maxy = max_y ? max_y : world.maxy
 	planetary_area = new planetary_area()
 
-	name = "[generate_planet_name()], \a [name]"
-
+	name_stages[1] = "[generate_planet_name()], \a [planet_type] " + name_stages[1]
+	icon_stages[1] = planet_type
 
 	world.maxz++
 	map_z += world.maxz
 	forceMove(locate(1,1,world.maxz))
+
+	// Update size of mob_living_by_zlevel to store the mobs in the new zlevel
+	while(SSmobs.mob_living_by_zlevel.len < world.maxz)
+		SSmobs.mob_living_by_zlevel.len++
+		SSmobs.mob_living_by_zlevel[SSmobs.mob_living_by_zlevel.len] = list()
 
 	new /obj/map_data/exoplanet(src)
 

@@ -142,6 +142,17 @@
 		/datum/design/autolathe/ammo/lrifle_pk,
 	)
 
+/obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/sa_ak
+	disk_name = "Serbian Arms - .30 Krinkov Car"
+	icon_state = "serbian"
+	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
+	rarity_value = 50
+	license = 12
+	designs = list(
+		/datum/design/autolathe/gun/ak47_sa = 3, // "SA Car .30 \"Krinkov\""
+		/datum/design/autolathe/ammo/lrifle,
+	)
+
 //The Dallas
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns/dallas
 	disk_name = "PAR - .25 Dallas"
@@ -171,4 +182,3 @@
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns
 	bad_type = /obj/item/weapon/computer_hardware/hard_drive/portable/design/guns
-

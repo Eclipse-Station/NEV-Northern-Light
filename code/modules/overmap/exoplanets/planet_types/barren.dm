@@ -1,7 +1,7 @@
 /obj/effect/overmap/sector/exoplanet/barren
-	name = "barren exoplanet"
+	planet_type = "barren"
 	desc = "An exoplanet that couldn't hold its atmosphere."
-	color = "#847c6f"
+	//color = "#847c6f"
 	planetary_area = /area/exoplanet/barren
 	rock_colors = list(COLOR_BEIGE, COLOR_GRAY80, COLOR_BROWN)
 	possible_themes = list(/datum/exoplanet_theme/mountains)
@@ -37,10 +37,10 @@
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	icon_state = "asteroid"
 
-/turf/simulated/floor/exoplanet/barren/update_icon()
-	overlays.Cut()
+/turf/simulated/floor/exoplanet/barren/on_update_icon()
+	cut_overlays()
 	if(prob(20))
-		overlays += image('icons/turf/flooring/decals.dmi', "asteroid[rand(0,9)]")
+		add_overlays(image('icons/turf/flooring/decals.dmi', "asteroid[rand(0,9)]"))
 
 /turf/simulated/floor/exoplanet/barren/Initialize()
 	. = ..()

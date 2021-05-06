@@ -15,6 +15,7 @@
 
 	var/footstep_type
 
+
 	//Properties for airtight tiles (/wall)
 	var/thermal_conductivity = 0.05
 	var/heat_capacity = 1

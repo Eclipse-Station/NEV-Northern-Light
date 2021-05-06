@@ -17,9 +17,10 @@ Speak with your fellow borers with :x."
 	outer = TRUE
 	only_human = FALSE
 
-/datum/antagonist/borer/reproduced	//This antag datum will prevent all borers be rounstart
+/datum/antagonist/borer/reproduced	//This antag datum will prevent all borers be roundstart
 	id = ROLE_BORER_REPRODUCED
 	selectable = FALSE
+	outer = FALSE
 	mob_path = /mob/living/simple_animal/borer
 
 /datum/antagonist/borer/create_objectives(var/survive = FALSE)

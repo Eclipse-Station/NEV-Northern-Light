@@ -3,222 +3,229 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
-/turf/simulated/wall/wood,
-/area/template_noop)
+/turf/simulated/wall,
+/area/map_template/lodge)
 "c" = (
 /obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "d" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/color/black,
-/obj/item/clothing/shoes/jungleboots,
+/obj/spawner/cloth/shoes,
 /obj/item/clothing/mask/breath,
-/turf/simulated/floor/carpet/green,
-/area/template_noop)
+/turf/simulated/floor/carpet/turcarpet,
+/area/map_template/lodge)
 "e" = (
-/turf/simulated/floor/carpet/green,
-/area/template_noop)
+/turf/simulated/floor/carpet/turcarpet,
+/area/map_template/lodge)
 "f" = (
 /obj/structure/bed,
 /obj/item/weapon/bedsheet,
-/turf/simulated/floor/carpet/green,
-/area/template_noop)
+/mob/living/simple_animal/hostile/roomba/slayer,
+/turf/simulated/floor/carpet/turcarpet,
+/area/map_template/lodge)
 "g" = (
-/obj/structure/window/reinforced/full,
+/obj/effect/window_lwall_spawn/reinforced,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "h" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/board,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "i" = (
-/obj/item/device/flashlight/lamp/green,
+/obj/item/device/lighting/toggleable/lamp/green,
 /obj/structure/table/woodentable,
-/turf/simulated/floor/carpet/green,
-/area/template_noop)
+/turf/simulated/floor/carpet/turcarpet,
+/area/map_template/lodge)
 "j" = (
 /obj/structure/table/woodentable,
 /obj/item/clothing/mask/smokable/pipe/cobpipe,
-/obj/item/weapon/storage/chewables/rollable/generic,
-/obj/item/weapon/material/ashtray/bronze,
-/turf/simulated/floor/carpet/green,
-/area/template_noop)
+/turf/simulated/floor/carpet/turcarpet,
+/area/map_template/lodge)
 "k" = (
 /obj/structure/table/woodentable,
 /obj/item/weapon/material/kitchen/utensil/fork/plastic,
 /obj/item/weapon/material/kitchen/utensil/fork/plastic,
 /obj/item/weapon/material/kitchen/utensil/fork/plastic,
-/obj/item/weapon/material/knife/table,
+/obj/item/weapon/tool/knife,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "l" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/material/knife/table,
-/obj/item/weapon/material/knife/table,
+/obj/item/weapon/tool/knife,
+/obj/item/weapon/tool/knife,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "m" = (
 /obj/structure/closet/crate/freezer,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "n" = (
-/obj/machinery/cooker/oven,
+/obj/structure/table/woodentable,
+/obj/machinery/microwave,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "o" = (
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "p" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair_preview (WEST)";
 	icon_state = "wooden_chair_preview";
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "q" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/book/manual/detective,
-/obj/item/weapon/material/ashtray/bronze,
+/obj/item/weapon/paper_bin,
 /obj/item/weapon/deck/cards,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "r" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "s" = (
 /obj/structure/table/woodentable,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/item/weapon/material/knife/kitchen/cleaver,
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/obj/item/weapon/tool/knife/butch,
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "t" = (
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "u" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "v" = (
 /obj/machinery/r_n_d/server/robotics{
 	desc = "A jury-rigged server setup.";
 	name = "low-tech server"
 	},
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "w" = (
-/turf/simulated/floor/wood/usedup,
-/area/template_noop)
+/mob/living/simple_animal/hostile/roomba/slayer,
+/turf/simulated/floor/wood,
+/area/map_template/lodge)
 "x" = (
 /obj/structure/table/woodentable,
-/obj/item/device/flashlight/lamp,
+/obj/item/device/lighting/toggleable/lamp,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "y" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "z" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "A" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "B" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "C" = (
 /obj/structure/table/woodentable,
 /obj/machinery/computer/atmoscontrol/laptop{
 	desc = "A cheap, beat-up old laptop.";
 	name = "old laptop"
 	},
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "D" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair_preview (WEST)";
 	icon_state = "wooden_chair_preview";
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
-/area/template_noop)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/map_template/lodge)
 "E" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "F" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "G" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "H" = (
 /obj/machinery/door/unpowered/simple/wood,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "I" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/pirate,
-/obj/item/weapon/storage/box/ammo/shotgunshells,
+/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
+/obj/spawner/ammo/shotgun,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "J" = (
 /obj/structure/closet,
-/obj/item/stack/material/steel/ten,
-/obj/item/stack/material/wood/fifty,
-/obj/item/stack/tile/carpetgreen/fifty,
-/obj/item/stack/material/glass/reinforced/ten,
+/obj/item/stack/material/steel{
+	amount = 10
+	},
+/obj/item/stack/material/wood{
+	amount = 50
+	},
+/obj/item/stack/tile/carpet/turcarpet{
+	amount = 50
+	},
+/obj/item/stack/material/glass/reinforced{
+	amount = 10
+	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "L" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/seeds/towermycelium,
@@ -229,6 +236,10 @@
 /obj/item/seeds/potatoseed,
 /turf/template_noop,
 /area/template_noop)
+"N" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/map_template/lodge)
 "O" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/seeds/wheatseed,
@@ -242,12 +253,28 @@
 "Q" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
 "S" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
-/area/template_noop)
+/area/map_template/lodge)
+"U" = (
+/obj/structure/window/reinforced/full,
+/obj/effect/window_lwall_spawn/reinforced,
+/turf/simulated/floor/wood,
+/area/map_template/lodge)
+"V" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/map_template/lodge)
+"Y" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/map_template/lodge)
 
 (1,1,1) = {"
 a
@@ -359,7 +386,7 @@ b
 k
 s
 x
-E
+N
 b
 M
 O
@@ -385,7 +412,7 @@ g
 m
 t
 y
-G
+V
 b
 M
 P
@@ -426,7 +453,7 @@ o
 h
 q
 o
-o
+Y
 o
 F
 H
@@ -451,7 +478,7 @@ b
 b
 b
 g
-g
+U
 b
 b
 b

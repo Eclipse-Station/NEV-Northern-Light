@@ -3,46 +3,44 @@
 /turf/template_noop,
 /area/template_noop)
 "ab" = (
-/turf/simulated/wall/r_wall/prepainted{
-	paint_color = "#556769"
-	},
+/turf/simulated/wall/r_wall,
 /area/template_noop)
 "ac" = (
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "ad" = (
-/obj/random/loot,
+/obj/spawner/pack/tech_loot,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "ae" = (
-/obj/random/loot,
-/turf/simulated/floor/tiled/steel_ridged,
+/obj/spawner/pack/tech_loot,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "af" = (
-/obj/structure/anomaly_container,
+/obj/structure/closet/crate/secure/loot,
 /turf/template_noop,
 /area/template_noop)
 "ag" = (
-/obj/structure/sign/warning/secure_area{
+/obj/structure/sign/securearea{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "ah" = (
-/obj/structure/mattress/dirty,
+/obj/structure/bed,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "ai" = (
 /obj/machinery/floodlight,
 /turf/template_noop,
 /area/template_noop)
 "aj" = (
-/obj/structure/sign/warning/science/anomalous_materials{
+/obj/structure/sign/department/anomaly{
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/spiderling_remains,
@@ -51,19 +49,18 @@
 "ak" = (
 /obj/machinery/artifact,
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "al" = (
-/obj/random/loot,
+/obj/spawner/pack/tech_loot,
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "am" = (
-/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "ao" = (
-/obj/random/junk,
+/obj/spawner/junk,
 /turf/template_noop,
 /area/template_noop)
 "ap" = (
@@ -83,29 +80,29 @@
 /turf/template_noop,
 /area/template_noop)
 "at" = (
-/obj/random/loot,
-/mob/living/simple_animal/hostile/voxslug,
-/turf/simulated/floor/tiled/steel_ridged,
+/obj/spawner/pack/tech_loot,
+/mob/living/carbon/superior_animal/giant_spider/nurse,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "au" = (
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "av" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/random/contraband,
-/obj/random/masks,
+/obj/spawner/contraband,
+/obj/spawner/cloth/armor,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aw" = (
 /obj/effect/decal/cleanable/mucus,
-/mob/living/simple_animal/hostile/creature,
-/turf/simulated/floor/tiled/steel_ridged,
+/mob/living/carbon/superior_animal/giant_spider/hunter,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "ax" = (
 /obj/structure/bed/chair/office/light,
-/obj/structure/closet/walllocker/emerglocker/east,
+/obj/structure/closet/wall_mounted/emcloset,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "ay" = (
@@ -117,38 +114,38 @@
 /area/template_noop)
 "az" = (
 /obj/machinery/door/unpowered/simple/wood,
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aA" = (
-/obj/structure/sign/monkey_painting{
+/obj/structure/sign/biohazard{
 	pixel_y = -32
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aB" = (
-/obj/item/clothing/head/bio_hood/anomaly,
-/turf/simulated/floor/tiled/steel_ridged,
+/obj/item/clothing/head/bio_hood,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "aC" = (
-/obj/random/closet,
-/turf/simulated/floor/carpet/blue2,
+/obj/spawner/closet,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aE" = (
 /obj/structure/bookcase/manuals/xenoarchaeology,
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aF" = (
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "aG" = (
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aH" = (
-/obj/random/trash,
-/obj/random/trash,
-/turf/simulated/floor/tiled/steel_ridged,
+/obj/spawner/junk,
+/obj/spawner/junk,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "aI" = (
 /obj/machinery/door/airlock/vault{
@@ -158,10 +155,10 @@
 	deployed = 1;
 	icon_state = "beartrap1"
 	},
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "aJ" = (
-/obj/random/trash,
+/obj/spawner/junk,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aK" = (
@@ -170,22 +167,20 @@
 	name = "plastic table frame"
 	},
 /obj/machinery/reagentgrinder,
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aL" = (
 /obj/structure/table/rack,
-/obj/random/firstaid,
-/obj/random/advdevice,
-/obj/random/advdevice,
+/obj/spawner/firstaid,
+/obj/spawner/tool/advanced,
+/obj/spawner/tool/advanced,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aM" = (
 /obj/effect/decal/cleanable/vomit,
-/obj/item/weapon/reagent_containers/glass/paint/random,
-/obj/structure/closet/medical_wall/filled{
-	pixel_y = 32
-	},
-/turf/simulated/floor/carpet/blue2,
+/obj/item/weapon/tool_upgrade/productivity/red_paint,
+/obj/spawner/medical,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aN" = (
 /obj/effect/decal/cleanable/mucus,
@@ -196,82 +191,83 @@
 	name = "Door";
 	welded = null
 	},
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "aP" = (
-/obj/machinery/door/airlock/external/bolted,
-/turf/simulated/floor/tiled/steel_ridged,
+/obj/machinery/door/airlock/external{
+	locked = 1
+	},
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "aQ" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/structure/closet/cabinet,
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aR" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
 	},
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aS" = (
-/obj/random/junk,
-/obj/random/junk,
+/obj/spawner/junk,
+/obj/spawner/junk,
 /turf/template_noop,
 /area/template_noop)
 "aT" = (
 /obj/machinery/door/airlock/vault{
 	name = "Door"
 	},
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "aU" = (
-/obj/random/junk,
+/obj/spawner/junk,
 /obj/structure/bed/chair/office/light,
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aV" = (
 /obj/item/weapon/material/harpoon,
-/obj/effect/landmark/corpse/scientist,
+/obj/landmark/corpse/scientist,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aW" = (
 /obj/item/weapon/beartrap,
-/obj/structure/sign/warning/science/anomalous_materials{
+/obj/structure/sign/department/anomaly{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled/steel_ridged,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "aX" = (
-/obj/random/trash,
-/turf/simulated/floor/carpet/blue2,
+/obj/spawner/junk,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aY" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/purple,
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "aZ" = (
-/obj/structure/railing/mapped,
+/obj/structure/railing,
 /obj/machinery/replicator,
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "ba" = (
-/obj/random/snack,
-/turf/simulated/floor/carpet/blue2,
+/obj/spawner/junkfood,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "bb" = (
 /obj/structure/table/rack,
-/obj/random/powercell,
-/obj/random/voidsuit,
-/obj/random/voidhelmet,
-/obj/random/toolbox,
-/turf/simulated/floor/carpet/blue2,
+/obj/spawner/powercell,
+/obj/spawner/voidsuit,
+/obj/spawner/toolbox,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "bc" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/mime,
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "bd" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -279,22 +275,26 @@
 /area/template_noop)
 "be" = (
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/floor/carpet/blue2,
+/turf/simulated/floor/carpet/blucarpet,
 /area/template_noop)
 "bf" = (
-/obj/random/trash,
+/obj/spawner/junk,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/mucus,
-/mob/living/simple_animal/hostile/creature,
-/turf/simulated/floor/tiled/steel_ridged,
+/mob/living/carbon/superior_animal/giant_spider,
+/turf/simulated/floor/tiled/steel/techfloor,
 /area/template_noop)
 "bg" = (
-/obj/random/trash,
-/obj/structure/filingcabinet/wallcabinet{
+/obj/spawner/junk,
+/obj/structure/closet/wall_mounted/emcloset{
 	pixel_y = -32
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"sW" = (
+/obj/effect/window_lwall_spawn/reinforced,
+/turf/simulated/floor/plating,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -399,7 +399,7 @@ ab
 aE
 aU
 aK
-am
+sW
 aa
 "}
 (8,1,1) = {"
@@ -414,7 +414,7 @@ az
 ba
 aX
 bb
-am
+sW
 aa
 "}
 (9,1,1) = {"
@@ -429,7 +429,7 @@ ab
 aM
 be
 aG
-am
+sW
 aa
 "}
 (10,1,1) = {"

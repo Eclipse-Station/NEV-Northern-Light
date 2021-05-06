@@ -7,24 +7,21 @@
 /turf/template_noop,
 /area/template_noop)
 "c" = (
-/turf/simulated/floor/fixed/alium/ruin,
+/turf/simulated/floor/alium/ruin,
 /area/template_noop)
 "d" = (
 /obj/machinery/artifact,
-/obj/structure/window/phoronreinforced{
-	 icon_state = "phoronrwindow";
+/obj/structure/window/reinforced/plasma{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
-	 icon_state = "phoronrwindow";
+/obj/structure/window/reinforced/plasma{
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
-	 icon_state = "phoronrwindow";
+/obj/structure/window/reinforced/plasma{
 	dir = 8
 	},
-/obj/structure/window/phoronreinforced,
-/turf/simulated/floor/fixed/alium/ruin,
+/obj/structure/window/reinforced/plasma,
+/turf/simulated/floor/alium/ruin,
 /area/template_noop)
 
 (1,1,1) = {"

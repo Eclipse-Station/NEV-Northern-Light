@@ -30,7 +30,6 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 		listed_components += list("[blueprint.materials[placeholder]] [initial(placeholder.name)]")
 	to_chat(user, SPAN_NOTICE("[blueprint.name] requires: [english_list(listed_components)]."))
 
-/datum/ritual
 /datum/ritual/cruciform/priest/construction
 	name = "Manifestation"
 	phrase = "Omnia autem quae arguuntur a lumine manifestantur omne enim quod manifestatur lumen est."
@@ -64,10 +63,14 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 
 	for(var/item_type in blueprint.materials)
 		var/t = locate(item_type) in target_turf.contents
-		qdel(t)
+		if(istype(t, /obj/item/stack))
+			var/obj/item/stack/S = t
+			S.use(blueprint.materials[item_type])
+		else
+			qdel(t)
 
 	effect.success()
-	user.visible_message(SPAN_NOTICE("You hear a soft humming sound as [user] finishes their ritual."),SPAN_NOTICE("You take a deep breath as the divine manifestation finishes."))
+	user.visible_message(SPAN_NOTICE("You hear a soft humming sound as [user] finishes his ritual."),SPAN_NOTICE("You take a deep breath as the divine manifestation finishes."))
 	var/build_path = blueprint.build_path
 	new build_path(target_turf)
 

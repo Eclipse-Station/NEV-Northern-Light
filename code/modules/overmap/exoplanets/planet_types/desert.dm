@@ -1,7 +1,7 @@
 /obj/effect/overmap/sector/exoplanet/desert
-	name = "desert exoplanet"
+	planet_type = "desert"
 	desc = "An arid exoplanet with sparse biological resources but rich mineral deposits underground."
-	color = "#d6cca4"
+	//color = "#d6cca4"
 	planetary_area = /area/exoplanet/desert
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
@@ -51,7 +51,7 @@
 		return
 	var/v = noise2value(value)
 	if(v > 6)
-		T.icon_state = "desert[v-1]"
+		T.SetIconState("desert[v-1]")
 		if(prob(10))
 			new/obj/structure/quicksand(T)
 
@@ -65,13 +65,13 @@
 	footstep_type = /decl/footsteps/sand
 
 /turf/simulated/floor/exoplanet/desert/New()
-	icon_state = "desert[rand(0,4)]"
+	SetIconState("desert[rand(0,4)]")
 	..()
 
 /turf/simulated/floor/exoplanet/desert/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if((temperature > T0C + 1700 && prob(5)) || temperature > T0C + 3000)
 		SetName("molten silica")
-		icon_state = "sandglass"
+		SetIconState("sandglass")
 		diggable = 0
 
 /obj/structure/quicksand
@@ -86,7 +86,7 @@
 	var/busy
 
 /obj/structure/quicksand/New()
-	icon_state = "intact[rand(0,2)]"
+	SetIconState("intact[rand(0,2)]")
 	..()
 
 /obj/structure/quicksand/user_unbuckle_mob(mob/user)
@@ -132,16 +132,16 @@
 	..()
 	update_icon()
 
-/obj/structure/quicksand/update_icon()
+/obj/structure/quicksand/on_update_icon()
 	if(!exposed)
 		return
-	icon_state = "open"
-	overlays.Cut()
+	SetIconState("open")
+	cut_overlays()
 	if(buckled_mob)
-		overlays += buckled_mob
+		add_overlays(buckled_mob)
 		var/image/I = image(icon,icon_state="overlay")
 		I.layer = WALL_OBJ_LAYER
-		overlays += I
+		add_overlays(I)
 
 /obj/structure/quicksand/proc/expose()
 	if(exposed)
