@@ -9,6 +9,22 @@
 #define DEBUGLEVEL_WARNING 2
 #define DEBUGLEVEL_VERBOSE 3
 
+/*
+ * Debug levels:
+ * 
+ * Fatal: Problems which will terminate the dispatcher system. Fatal errors are 
+ * sent to administrators regardless of debug level.
+ *
+ * Severe: Errors and runtimes which should be reported to a developer, but will
+ * not necessarily shut down the dispatcher system. Severe errors are sent to
+ * administrators regardless of debug level.
+ *
+ * Warning: Minor errors and miscellaneous which aren't serious enough to need
+ * developer oversight, but are useful to know, e.g. why a message didn't get
+ * pushed.
+ *
+ * Verbose: Full debugging information.
+ */
 
 SUBSYSTEM_DEF(dispatcher)
 	name = "Dispatcher"
@@ -38,7 +54,8 @@ SUBSYSTEM_DEF(dispatcher)
 	debug_level = config.ntdad_debug
 	log_debug("DISPATCHER: Debug level set: [debug_level]")
 	if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len || tracked_players_chr.len)
-		if(DEBUGLEVEL_WARNING <= debug_level)
+		message_admins("DISPATCHER/SEVERE: One or more lists still had data. Lists will be flushed to attempt to clear lists...")
+		if(DEBUGLEVEL_SEVERE <= debug_level)
 			log_debug("DISPATCHER: One or more lists still had data, flushing...")
 		flush_tracking()
 	if(!config.ntdad_enabled)
@@ -135,7 +152,7 @@ SUBSYSTEM_DEF(dispatcher)
 	for(var/mob/M in tracked_players_all)
 		iterations++
 		if(!M)
-			if(DEBUGLEVEL_WARNING <= debug_level)
+			if(DEBUGLEVEL_SEVERE <= debug_level)
 				log_debug("DISPATCHER: Sub-list population failure: No players in master list. This indicates that a 'return' is failing to end the flush proc.")
 		if(!M.mind)
 			if(!(iterations % config.ntdad_max_oper))
@@ -226,7 +243,7 @@ SUBSYSTEM_DEF(dispatcher)
 //1 if it sent to Discord.
 	if(!config.ntdad_enabled)		//don't do shit if it's not enabled
 		if(DEBUGLEVEL_WARNING <= debug_level)
-			log_debug("DISPATCHER: Don't bother me, request console, I'm sleeping.")
+			log_debug("DISPATCHER: Request received while dispatcher disabled. Aborting.")
 		return 0
 	
 
@@ -326,7 +343,7 @@ SUBSYSTEM_DEF(dispatcher)
 			else
 				return 0
 		else
-			if(DEBUGLEVEL_VERBOSE <= debug_level)
+			if(DEBUGLEVEL_WARNING <= debug_level)
 				log_debug("DISPATCHER: Unimplemented department [department].")
 			return 0
 
@@ -365,7 +382,8 @@ SUBSYSTEM_DEF(dispatcher)
 		if("church")
 			department_ping = config.ntdad_role_church
 		else
-			if(DEBUGLEVEL_WARNING <= debug_level)
+			message_admins("DISPATCHER/SEVERE: Attempted to prepare a discord request for undefined department '[department]'.")
+			if(DEBUGLEVEL_SEVERE <= debug_level)
 				log_debug("DISPATCHER: Undefined department '[department]'.")
 		
 	var/msg = ""		//This is the string intended to be sent to the bot.

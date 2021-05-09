@@ -16,7 +16,6 @@ ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 	\n\n You are about to dump the player tracking data to a file. Because most of this is rate limited to reduce performance costs, this operation could take some time to complete. \
 	If you don't know what need you would have for this, you probably should not continue. \
 	If you know what you are doing or you have been asked to do this, enter the code \"[supersecretpasscode]\" to begin this operation. \
-	Enter literally any other number to cancel. \
 	Dump files are saved in the same directory as this round's logs.","Confirm tracking data dump?") as null|num
 	
 	if(!codecheck)		//blank entry, unimplemented due to technical limitations
