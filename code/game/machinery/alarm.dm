@@ -316,6 +316,32 @@
 			new_color = COLOR_LIGHTING_RED_MACHINERY
 
 	set_light(l_range = 1.5, l_power = 0.2, l_color = new_color)
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Lighting overlays, so the screen actually glows.
+	//Warning: BYOND spaghetti ahead.
+	
+	update_lighting_overlay_sprite(icon_level)
+	
+/obj/machinery/alarm/proc/update_lighting_overlay_sprite(var/alarm_state)		//Updates the above-lighting-plane sprite.
+
+//first things first, set the icon to the glow plane so we can get the plane number...
+	set_plane(ABOVE_LIGHTING_PLANE)
+	
+//assign the plane number to a var...
+	var/glowplane = plane
+	
+//and put it back to the whole bloody thing isn't glowing.
+	plane = initial(plane)
+	
+	var/image/screen_overlay = image(icon, "alarm[alarm_state]_overlay")
+	screen_overlay.plane = glowplane
+	screen_overlay.layer = ABOVE_LIGHTING_LAYER
+	screen_overlay.alpha = 192		//75% opacity
+	
+	overlays.Cut()	//clear out overlays we may have (which we shouldn't have any because this is the air alarm, not the fire alarm)
+	overlays += screen_overlay		//add in the screen overlay.
+	
+	// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/alarm/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
