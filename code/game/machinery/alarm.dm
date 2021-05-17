@@ -320,23 +320,27 @@
 	// Lighting overlays, so the screen actually glows.
 	//Warning: BYOND spaghetti ahead.
 	
-	update_lighting_overlay_sprite(icon_level)
+	update_lighting_overlay_sprite(src, icon_level, dir)
 	
-/obj/machinery/alarm/proc/update_lighting_overlay_sprite(var/alarm_state)		//Updates the above-lighting-plane sprite.
+/obj/machinery/alarm/proc/update_lighting_overlay_sprite(var/obj/__source, var/alarm_state, direction)		//Updates the above-lighting-plane sprite.
 
-//first things first, set the icon to the glow plane so we can get the plane number...
-	set_plane(ABOVE_LIGHTING_PLANE)
+//The overlay sprites didn't have dirs, so I had to copy them to modular and fix that up
+	var/overlay_icon = 'zzz_modular_eclipse/air_alarm_overlays/overlays.dmi'
+	
+//send the source to the glow plane so we can get the plane number...
+	__source.set_plane(ABOVE_LIGHTING_PLANE)
 	
 //assign the plane number to a var...
-	var/glowplane = plane
+	var/glowplane = __source.plane
 	
 //and put it back to the whole bloody thing isn't glowing.
-	plane = initial(plane)
+	__source.set_plane(initial(plane))
 	
-	var/image/screen_overlay = image(icon, "alarm[alarm_state]_overlay")
+	var/image/screen_overlay = image(overlay_icon, "alarm[alarm_state]_overlay")
 	screen_overlay.plane = glowplane
 	screen_overlay.layer = ABOVE_LIGHTING_LAYER
-	screen_overlay.alpha = 192		//75% opacity
+	screen_overlay.dir = direction
+	screen_overlay.alpha = 128		//50% opacity
 	
 	overlays.Cut()	//clear out overlays we may have (which we shouldn't have any because this is the air alarm, not the fire alarm)
 	overlays += screen_overlay		//add in the screen overlay.
