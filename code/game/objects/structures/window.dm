@@ -20,6 +20,9 @@
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
 	var/no_color = FALSE //If true, don't apply a color to the base
+	
+	// Eclipse-added vars
+	var/fireproof = FALSE		//If it's fireproof, we don't take damage from fire.
 
 /obj/structure/window/can_prevent_fall()
 	return !is_fulltile()
@@ -503,6 +506,8 @@
 	return
 
 /obj/structure/window/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+	if(fireproof)		//Eclipse edit: Don't even do anything if it's fireproof
+		return
 	if(exposed_temperature > maximal_heat)
 		hit(damage_per_fire_tick, TRUE, TRUE)
 	..()
@@ -530,7 +535,7 @@
 
 /obj/structure/window/phoronbasic
 	name = "phoron window"
-	desc = "A borosilicate alloy window. It seems to be quite strong."
+	desc = "A fireproof, borosilicate alloy window. It seems to be quite strong."
 
 	icon_state = "plasmawindow"
 	shardtype = /obj/item/weapon/material/shard/phoron
@@ -539,6 +544,8 @@
 	damage_per_fire_tick = 1.5 // Lowest per-tick damage so overheated supermatter chambers have some time to respond to it. Will still shatter before a delam.
 	maxhealth = 150
 	resistance = RESISTANCE_AVERAGE
+	
+	fireproof = TRUE		//Eclipse edit.
 
 /obj/structure/window/phoronbasic/full
 	dir = SOUTH|EAST
@@ -581,7 +588,7 @@
 
 /obj/structure/window/reinforced/phoron
 	name = "reinforced phoron window"
-	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
+	desc = "A fireproof, borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	basestate = "plasmarwindow"
 	icon_state = "plasmarwindow"
 	shardtype = /obj/item/weapon/material/shard/phoron
@@ -590,6 +597,8 @@
 	damage_per_fire_tick = 1.5
 	maxhealth = 200
 	resistance = RESISTANCE_IMPROVED
+	
+	fireproof = TRUE		//Eclipse edit.
 
 /obj/structure/window/reinforced/phoron/full
 	dir = SOUTH|EAST
