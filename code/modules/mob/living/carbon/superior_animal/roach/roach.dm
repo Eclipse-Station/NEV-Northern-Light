@@ -78,6 +78,7 @@
 			F.distress_call()
 		if(hat)
 			hat.loc = get_turf(src)
+			hat.update_plane()		//Eclipse edit: update the hat's plane so it's not glowing.
 			hat = null
 			update_hat()
 
