@@ -65,9 +65,10 @@
 
 /mob/living/carbon/superior_animal/roach/New()
 	. = ..()
-	var/newhat = pick(hats4roaches)
-	var/obj/item/hatobj = new newhat(loc)
-	wear_hat(hatobj)
+	if(prob(5))		//Eclipse edit: 5% chance to wear a hat. Hopefully the hat economy shall no longer be flooded.
+		var/newhat = pick(hats4roaches)
+		var/obj/item/hatobj = new newhat(loc)
+		wear_hat(hatobj)
 
 
 //When roaches die near a leader, the leader may call for reinforcements
