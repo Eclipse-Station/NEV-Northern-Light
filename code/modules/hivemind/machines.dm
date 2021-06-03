@@ -83,9 +83,6 @@
 		else
 			throw EXCEPTION("Invalid switch statement case, expected positive integer and got [players]")		//Always add some form of error handling, kids.
 	health = health_percent * max_health		//Set the health proportional to our new maximum health
-	
-	log_debug("[src] debug: end health [health] end max health [max_health] proportion [(health/max_health) * 100]%")
-
 
 /obj/machinery/hivemind_machine/Process()
 	process_ticks++		//increment our tick counter
@@ -96,7 +93,6 @@
 		SDP.check_conditions()
 
 	if(!(process_ticks % 10))		//Every ten ticks, check for players and adjust our health accordingly.
-		log_debug("[src] adjusting health at PTick [process_ticks]")
 		adjust_health()
 
 	if(hive_mind_ai && !(stat & EMPED) && !is_on_cooldown() && (player_check() > 3))		//we want more than 3 players online before we regenetate.
