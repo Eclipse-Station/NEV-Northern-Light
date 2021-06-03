@@ -1117,12 +1117,43 @@ FIRE ALARM
 
 	if(locate(/obj/fire) in loc)
 		alarm()
-
+	
+	var/hivemind = check_for_hivemind()		//Eclipse edit: Hivemind stuff interferes with the equipment. That's the handwave I'm using for this balancing change. ^Spitzer
+	if(hivemind)
+		alarm()
+	
 	//Eclipse Edit: alarm loops now.
 	var/area/coverage_area = get_area(src)
 	if (coverage_area.fire && world.time > last_sound_time + alarm_audible_cooldown)
 		play_audible()
 	return
+
+// // // BEGIN ECLIPSE EDITS // // //
+/obj/machinery/firealarm/proc/check_for_hivemind()
+	//First get the number of active players, since that determines range it can see.
+	var/crew = 0		//start it at zero
+	
+	for(var/mob/M in GLOB.player_list)
+		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
+			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
+			if(job)
+				crew++
+	
+	var/calculated_range = max((7 - crew), 1)
+	
+	if(crew > 7)	//Crew is larger than 7, so we won't see anything anyway.
+		return FALSE
+	
+	if(locate(/obj/machinery/hivemind_machine) in view(calculated_range, src.loc))		//We saw a hivemind machine.
+		return TRUE
+	
+	if(locate(/obj/effect/plant/hivemind) in view(calculated_range, src.loc)) //We see floor wires
+		return TRUE
+		
+	//We don't detect anything, so return false so we don't pop an alarm.
+	return FALSE
+	
+// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/firealarm/power_change()
 	..()

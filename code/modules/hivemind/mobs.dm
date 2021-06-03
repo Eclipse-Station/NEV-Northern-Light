@@ -39,10 +39,6 @@
 	
 // // // BEGIN ECLIPSE EDITS // // //
 // Balancing changes for lowpop hivemind.
-
-//If we have less than so many players on, don't spawn certain mobs.
-	if(initial(maxHealth) > (75 * player_check()))
-		src.death()		//This seems the best way to do this...
 	adjust_health()		//Also, adjust our health while we're here so we aren't overpowered if we do sapwn in
 	
 	//here we change name, so design them according to this
@@ -62,7 +58,7 @@
 	return crew
 
 /mob/living/simple_animal/hostile/hivemind/proc/adjust_health()
-	if(health < 5)		//Don't adjust health if we're this bloody weak...
+	if(maxHealth < 5)		//Don't adjust health if we're this bloody weak...
 		return
 
 	var/health_percent = health/maxHealth		//Get a proportion of maximum health prior to adjusting for player count
