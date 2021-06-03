@@ -143,7 +143,7 @@
 	// // // BEGIN ECLIPSE EDITS // // //
 	//Dynamic health scaling to player count.
 	life_ticks++
-	if(!life_ticks % 5)		//every few life ticks, so we don't bog everything down
+	if(!(life_ticks % 10))		//every few life ticks, so we don't bog everything down
 		adjust_health()
 	// // // END ECLIPSE EDITS // // //
 	. = ..()

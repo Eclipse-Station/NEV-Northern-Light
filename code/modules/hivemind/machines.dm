@@ -68,8 +68,6 @@
 	var/health_percent = health/max_health		//Get a proportion of maximum health prior to adjusting for player count
 	var/players = player_check()
 	
-	log_debug("[src] debug: PC [player_check()] PV [players] Start health [health] start max health [max_health] proportion [health_percent * 100]%")
-	
 	switch(players)
 		if(0 to 2)		//Fixed 50% regen speed, 75% health
 			max_health = initial(max_health) * 0.75
