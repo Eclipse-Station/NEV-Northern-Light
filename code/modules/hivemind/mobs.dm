@@ -29,12 +29,50 @@
 	//internals
 	var/obj/machinery/hivemind_machine/master
 	var/special_ability_cooldown = 0		//use ability_cooldown, don't touch this
+	
+	//eclipse added vars
+	var/life_ticks = 0		//Number of Life() ticks, used in automated health scaling calculations
 
 
-	New()
-		. = ..()
-		//here we change name, so design them according to this
-		name = pick("Warped ", "Altered ", "Modified ", "Upgraded ", "Abnormal ") + name
+/mob/living/simple_animal/hostile/hivemind/New()		//Eclipse Edit: MoS
+	. = ..()
+	
+// // // BEGIN ECLIPSE EDITS // // //
+// Balancing changes for lowpop hivemind.
+	adjust_health()		//Also, adjust our health while we're here so we aren't overpowered if we do sapwn in
+	
+	//here we change name, so design them according to this
+	name = pick("Warped ", "Altered ", "Modified ", "Upgraded ", "Abnormal ") + name
+
+//Proc to get number of players active, for balancing.
+//Returns number of active crew.
+/mob/living/simple_animal/hostile/hivemind/proc/player_check()
+	var/crew = 0		//start it at zero
+	
+	for(var/mob/M in GLOB.player_list)
+		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
+			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
+			if(job)
+				crew++
+	
+	return crew
+
+/mob/living/simple_animal/hostile/hivemind/proc/adjust_health()
+	if(maxHealth < 5)		//Don't adjust health if we're this bloody weak...
+		return
+
+	var/health_percent = health/maxHealth		//Get a proportion of maximum health prior to adjusting for player count
+	var/players = player_check()
+	
+	switch(players)
+		if(0 to 2)
+			maxHealth = initial(maxHealth) * 0.75
+		if(3 to 10)
+			var/healthcalc = 0.75 + ((0.25/8) * (players - 3))
+			maxHealth = initial(maxHealth) * healthcalc
+		if(11 to INFINITY)
+			maxHealth = initial(maxHealth)
+	health = health_percent * maxHealth		//Set the health appropriately so it still has the same percentage as it did before
 
 //It's sets manually
 /mob/living/simple_animal/hostile/hivemind/proc/special_ability()
@@ -101,6 +139,13 @@
 /mob/living/simple_animal/hostile/hivemind/Life()
 	if(stat == DEAD)
 		return
+	
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Dynamic health scaling to player count.
+	life_ticks++
+	if(!(life_ticks % 10))		//every few life ticks, so we don't bog everything down
+		adjust_health()
+	// // // END ECLIPSE EDITS // // //
 	. = ..()
 
 	speak()
