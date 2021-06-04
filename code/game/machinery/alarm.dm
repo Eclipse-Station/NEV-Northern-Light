@@ -1124,7 +1124,7 @@ FIRE ALARM
 	
 	//Eclipse Edit: alarm loops now.
 	var/area/coverage_area = get_area(src)
-	if (coverage_area.fire && world.time > last_sound_time + alarm_audible_cooldown)
+	if (coverage_area.fire && (world.time > (last_sound_time + alarm_audible_cooldown)))
 		play_audible()
 	return
 
@@ -1217,6 +1217,7 @@ FIRE ALARM
 		visible_message("[usr] resets \the [src].", "You have reset \the [src].")
 	else
 		to_chat(usr, "Fire Alarm is reset.")
+	last_sound_time = 0		//Eclipse edit: Allow us to make a sound immediately as it triggers next time it's triggered.
 	update_icon()
 	return
 
@@ -1231,7 +1232,13 @@ FIRE ALARM
 	else
 		to_chat(usr, "Fire Alarm activated.")
 	update_icon()
-	play_audible()			//Eclipse edit: beep beep beep. beep beep beep.
+	
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Fix fire alarms going batshit insane if automatically triggered
+	if (area.fire && (world.time > (last_sound_time + alarm_audible_cooldown)))
+		play_audible()
+	// // // END ECLIPSE EDITS // // //
+
 	return
 
 
