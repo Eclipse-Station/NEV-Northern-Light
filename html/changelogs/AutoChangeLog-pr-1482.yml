@@ -1,0 +1,5 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - balance: Roaches' collectible hats now only have a 5% chance to spawn.
+  - bugfix: Roaches' hats no longer glow in the dark when dropped.
