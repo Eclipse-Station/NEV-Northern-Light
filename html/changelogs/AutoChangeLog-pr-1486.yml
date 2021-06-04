@@ -1,0 +1,14 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - balance: Hivemind should no longer be round-ending for low-population rounds.
+  - balance: Hivemind mobs' and machines' maximum health scale based on active players,
+      with a floor of 75% and ceiling of 100%.
+  - balance: Hivemind machines' health regeneration per Process() tick now scales
+      based on active players, with a floor of 50% and a ceiling of 100%.
+  - balance: Hivemind machines and turfs now interfere with fire alarms if there are
+      fewer than 7 active players.
+  - balance: Assembler spawns are now restricted based on the maximum health of the
+      spawned mob and the number of active players.
+  - bugfix: Fire alarms that are automatically triggered will no longer repeatedly
+      play their audibles.
