@@ -1,4 +1,0 @@
-author: EvilJackCarver
-delete-after: true
-changes:
-  - rscadd: All drones now have a GPS tracker.
