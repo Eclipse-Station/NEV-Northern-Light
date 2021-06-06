@@ -1,4 +1,4 @@
-/* 
+/*
  * Nanotrasen Department Alarm Dispatcher
  * This handles out-of-server calls for players, using the request console. We
  * have this set up as a subsystem so we can handle it with global lists.
@@ -11,8 +11,8 @@
 
 /*
  * Debug levels:
- * 
- * Fatal: Problems which will terminate the dispatcher system. Fatal errors are 
+ *
+ * Fatal: Problems which will terminate the dispatcher system. Fatal errors are
  * sent to administrators regardless of debug level.
  *
  * Severe: Errors and runtimes which should be reported to a developer, but will
@@ -34,9 +34,9 @@ SUBSYSTEM_DEF(dispatcher)
 	var/debug_level = DEBUGLEVEL_SEVERE
 	var/bot_token = ""
 	var/cooldown = 0
-	
+
 	var/ptrack_dump_in_progress = FALSE		//used in debugging
-	
+
 	//used in player tracking system
 	var/list/tracked_players_all = list()		//All tracked players
 	var/list/tracked_players_sec = list()		//Security
@@ -47,7 +47,7 @@ SUBSYSTEM_DEF(dispatcher)
 	var/list/tracked_players_eng = list()		//Engineering
 	var/list/tracked_players_svc = list()		//Service
 	var/list/tracked_players_chr = list()		//Church
-	
+
 /datum/controller/subsystem/dispatcher/Initialize()
 	log_debug("DISPATCHER: Initializing.")
 //	dispatcher = src
@@ -71,7 +71,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Holding off, runlevel: [Master.current_runlevel], waiting for greater than [RUNLEVEL_SETUP]...")
 		return		//eh, it'll fire again.
-	
+
 	sleep(2 SECONDS)
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Game is running (well, running enough for our standards). Beginning initial flush.")
@@ -97,7 +97,7 @@ SUBSYSTEM_DEF(dispatcher)
 	tracked_players_eng = list()		//Engineering
 	tracked_players_svc = list()		//Service
 	tracked_players_chr = list()		//Church
-	
+
 	//make sure they're clear
 	if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len || tracked_players_chr.len)
 		world.Error("DISPATCHER: Attempted to flush player lists, but lists still had data. Falling back to list.Cut()...")
@@ -112,7 +112,7 @@ SUBSYSTEM_DEF(dispatcher)
 		tracked_players_eng.Cut()		//Engineering
 		tracked_players_svc.Cut()		//Service
 		tracked_players_chr.Cut()		//Church
-		
+
 		if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len || tracked_players_chr.len)
 			throw EXCEPTION("DISPATCHER: Attempted to flush player lists twice, but lists still had data. Aborting - abnormalities may occur!")
 			message_admins("DISPATCHER/SEVERE: Attempted to flush player lists twice, but lists still had data. Please generate a tracking dump (Debug > Dump tracking data) and send it to a developer.")
@@ -122,9 +122,9 @@ SUBSYSTEM_DEF(dispatcher)
 
 	else if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Lists flushed.")
-	
+
 	var/iterations = 0		//used in rate limiting to know how many concurrent operations we have running. We don't want to do everything all at once, after all.
-	
+
 	//let's start by rebuilding the master list...
 	for(var/mob/living/M in GLOB.player_list)
 		iterations++
@@ -140,14 +140,14 @@ SUBSYSTEM_DEF(dispatcher)
 			if(!(iterations % config.ntdad_max_oper))
 				sleep(1)
 			continue	//No assigned role.
-		
+
 		tracked_players_all += M
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Master list population: [tracked_players_all.len] players.")
-		
+
 	//reset our operations counter
 	iterations = 0
-	
+
 	//...and now we rebuild the department lists.
 	for(var/mob/M in tracked_players_all)
 		iterations++
@@ -198,7 +198,7 @@ SUBSYSTEM_DEF(dispatcher)
 	if(M.mind.assigned_role in civilian_positions)
 		if(M.mind.assigned_role != (ASSISTANT_TITLE))		//vagabonds are not staff
 			tracked_players_svc += M
-	
+
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Added [M.name] to tracked players.")
 	return 1
@@ -228,7 +228,7 @@ SUBSYSTEM_DEF(dispatcher)
 		tracked_players_svc.Remove(M)
 	if(tracked_players_chr & M)
 		tracked_players_chr.Remove(M)
-	
+
 	//...then the final list.
 	if(tracked_players_all & M)
 		tracked_players_all.Remove(M)
@@ -245,21 +245,21 @@ SUBSYSTEM_DEF(dispatcher)
 		if(DEBUGLEVEL_WARNING <= debug_level)
 			log_debug("DISPATCHER: Request received while dispatcher disabled. Aborting.")
 		return 0
-	
+
 
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Received request for department [department], priority of [priority], message '[message]', sender '[sender]', role '[sender_role]', stamp '[stamped]'.")
-	
+
 	if(!priority)		//priority of zero means it's a reply message.
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Discarding request as reply message.")
 		return 0		//discard it
-	
+
 	if((!sender || !sender_role) && !stamped)
 		if(DEBUGLEVEL_WARNING <= debug_level)
 			log_debug("DISPATCHER: Sender data missing sender or sender role, and unstamped. Aborting.")
 			return 0
-		
+
 	department = lowertext(department)
 	switch(department)
 		if("engineering", "atmospherics")
@@ -350,7 +350,7 @@ SUBSYSTEM_DEF(dispatcher)
 /datum/controller/subsystem/dispatcher/proc/send_discord_request(department = "", priority = FALSE, message, sender, sender_role, stamped)
 	if(!config.ntdad_enabled)		//don't do shit if it's not enabled
 		return 0
-		
+
 	if(!message)
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: No message entered, aborting.")
@@ -385,20 +385,20 @@ SUBSYSTEM_DEF(dispatcher)
 			message_admins("DISPATCHER/SEVERE: Attempted to prepare a discord request for undefined department '[department]'.")
 			if(DEBUGLEVEL_SEVERE <= debug_level)
 				log_debug("DISPATCHER: Undefined department '[department]'.")
-		
+
 	var/msg = ""		//This is the string intended to be sent to the bot.
 	if(stamped)
 		msg = "[priority > 1 ? "**HIGH PRIORITY** a" : "A"]ssistance request for [department_ping], stamped by [stamped][sender ? ", from [sender] ([sender_role])" : "" ]: '[message]'"
 	else
 		msg = "[priority > 1 ? "**HIGH PRIORITY** a" : "A"]ssistance request for [department_ping], from [sender] ([sender_role]): '[message]'"
-	
+
 	cooldown = (world.time + config.ntdad_cooldown)
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Message prints as follows:")
 		log_debug("DISPATCHER: [msg]")
-	
+
 	push_to_discord(msg)
-	
+
 /datum/controller/subsystem/dispatcher/proc/send_discord_test()
 	var/msg = "This is a test of the Nanotrasen Department Alarm Dispatcher. This is only a test."
 	push_to_discord(msg)
@@ -408,8 +408,9 @@ SUBSYSTEM_DEF(dispatcher)
 		if(DEBUGLEVEL_WARNING <= debug_level)
 			log_debug("DISPATCHER: No message to push.")
 		return		//We need a message to pass along, damnit!
-	
-	CRASH("Unimplemented. Message var is as follows: \"[msg]\"")		//NESTOR: This part's what you need to take care of.
+
+	send2dispatcher(sanitizeSafe(msg))
+
 
 
 /datum/controller/subsystem/dispatcher/Shutdown()
@@ -438,7 +439,7 @@ SUBSYSTEM_DEF(dispatcher)
 	msg += "? [tracked_players_svc.len]"		//Other
 	msg += "}"
 	..(msg.Join())
-	
+
 	//sample T:28{C 6|E 3|S 4|M 4|N 5|U 5|R 0|? 12}
 
 #undef DEBUGLEVEL_FATAL_ONLY
