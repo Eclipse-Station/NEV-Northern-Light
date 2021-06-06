@@ -85,6 +85,15 @@ ADMIN_VERB_ADD(/client/proc/respawn_character_virgo, R_FUN, FALSE)
 			equipment = TRUE
 		else
 			equipment = FALSE
+	
+	//We can also add them to the player tracking system of the dispatcher
+	var/ptrack
+	if(charjob)
+		ptrack = alert(src,"Add them to the player tracking subsystem? This may affect whether the NT Department Alarm Dispatcher will ping on Discord for someone for their role, if they're the only person in their department.", "Player Tracking", "Yes", "No")
+		if(ptrack == "Yes")
+			ptrack = 1
+		else
+			ptrack = 0
 
 	//For logging later
 	var/admin = key_name_admin(src)
@@ -156,6 +165,9 @@ ADMIN_VERB_ADD(/client/proc/respawn_character_virgo, R_FUN, FALSE)
 			SSjob.EquipRank(new_character, charjob, 1)
 		equip_custom_items(new_character)
 
+	//If desired, add them to the PTrack system
+	if(ptrack)
+		SSdispatcher.add_to_tracking(new_character)
 
 	//If desired, add records.
 	if(records)

@@ -136,3 +136,4 @@
 	new /obj/item/weapon/storage/box/pillbottles(src)
 	new /obj/item/weapon/storage/box/pillbottles(src)
 	new /obj/item/weapon/storage/pouch/tubular/vial(src)
+	new /obj/item/weapon/storage/pouch/tubular/vial(src)
