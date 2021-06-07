@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/revolver/handmade
 	name = "handmade revolver"
-	desc = "Handmade revolver, made from gun parts. and some duct tap, will it even hold up?"
+	desc = "A handmade revolver, made from gun parts and some duct tape. Will it even hold up?"
 	icon = 'icons/obj/guns/projectile/handmade_revolver.dmi'
 	icon_state = "handmade_revolver"
 	caliber = CAL_MAGNUM

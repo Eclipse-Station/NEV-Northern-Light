@@ -276,7 +276,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg)
 	cost = 3000
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "IH Ballistic Armor Pack"
+	crate_name = "Aegis Ballistic Armor Pack"
 	group = "Security"
 
 /datum/supply_pack/shotgunammo_beanbag

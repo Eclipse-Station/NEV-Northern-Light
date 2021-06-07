@@ -411,8 +411,8 @@
 	)
 
 /obj/item/clothing/suit/storage/scavengerarmor
-	name = "Scavenger armor"
-	desc = "A sturdy, rigged Scavenger armor. strong and sturdy as most vests. made fully from junk."
+	name = "scavenger armor"
+	desc = "A sturdy, jury-rigged scavenger armor. Almost as strong as a real vest."
 	icon_state = "scav_armor"
 	item_state = "scav_armor"
 	armor = list(

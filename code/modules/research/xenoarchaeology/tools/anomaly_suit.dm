@@ -38,15 +38,15 @@
 
 // hazard suit, moebius version.
 /obj/item/clothing/head/space/void/hazardhelmet/moebius
-	name = "moebius hazard helmet"
-	desc = "A moebius branded violet voidsuit helmet with a large visor that hides your face. Integrated heads-up display not included."
+	name = "lazarus hazard helmet"
+	desc = "A lazarus branded violet voidsuit helmet with a large visor that hides your face. Integrated heads-up display not included."
 	icon_state = "hev_violet_helmet"
 	item_state = "hev_violet_helmet"
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/suit/space/void/hazardsuit/moebius
-	name = "moebius hazard voidsuit"
-	desc = "A moebius branded violet voidsuit that is capable of protecting its user against most hostile environment conditions, including anomalous particles. Integrated self-diagnostics system not included!"
+	name = "lazarus hazard voidsuit"
+	desc = "A lazarus branded violet voidsuit that is capable of protecting its user against most hostile environment conditions, including anomalous particles. Integrated self-diagnostics system not included!"
 	icon_state = "hev_violet"
 	item_state = "hev_violet"
 	spawn_blacklisted = TRUE

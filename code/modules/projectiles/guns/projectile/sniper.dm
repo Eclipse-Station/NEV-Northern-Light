@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/heavysniper
 	name = "SA AMR \"Hristov\""
-	desc = "A portable anti-armour rifle, fitted with a night-vision scope, it was originally designed for use against armoured exosuits. It is capable of punching through windows and non-reinforced walls with ease, but suffers from overpenetration at close range. Fires armor piercing .60 shells. Can be upgraded using thermal glasses."
+	desc = "A portable anti-armour rifle, fitted with a night-vision scope, it was originally designed for use against armored exosuits. It is capable of punching through windows and non-reinforced walls with ease, but suffers from overpenetration at close range. Fires armor piercing .60 shells. Can be upgraded using thermal glasses."
 	icon = 'icons/obj/guns/projectile/heavysniper.dmi'
 	icon_state = "heavysniper_closed"
 	item_state = "heavysniper"

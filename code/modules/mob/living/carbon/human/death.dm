@@ -98,7 +98,9 @@
 					else
 						burn_damage_done = martyr.burn_damage / get_dist(src, H)
 						H.adjustFireLoss(burn_damage_done)
-					to_chat(H, SPAN_DANGER("You are get hurt by holy light!"))
+					to_chat(H, SPAN_DANGER(pick("BLASPHEMY AGAINST THE HOLY SPIRIT!", "BLASPHEMY AGAINST THE MACHINE SHALL NOT BE FORGIVEN!", \
+					"THE ANGER OF THE MACHINE IS COMING!", "\"Vengeance is mine; I will repay!\" says the Machine!", "WALK IN THE LIGHT!")))
+					to_chat(H, SPAN_DANGER("You are being burned by the holy light!"))
 				else
 					burn_damage_done = martyr.burn_damage / get_dist(src, L)
 					L.damage_through_armor(burn_damage_done, BURN)

@@ -9,10 +9,9 @@
 	spawn_positions = 1
 	supervisors = "the Captain"
 	selection_color = "#97b0be"
-	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
-	also_known_languages = list(LANGUAGE_CYRILLIC = 60, LANGUAGE_SERBIAN = 60, LANGUAGE_NEOHONGO = 100)
+	also_known_languages = list(LANGUAGE_CYRILLIC = 60, LANGUAGE_SERBIAN = 60, LANGUAGE_NEOHONGO = 100, LANGUAGE_GERMAN = 10)
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihc
 

@@ -154,7 +154,7 @@
 			desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 					This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 					It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \
-					This cheap copy looks as tacticool as possible. Emulating the IH PD rifle in most ways, even the the fixed skeleton stock looks the same."
+					This cheap copy looks as tacticool as possible. Emulating the Aegis PD rifle in most ways, even the the fixed skeleton stock looks the same."
 			icon = 'icons/obj/guns/projectile/ak/brushmaster.dmi'
 
 
@@ -185,7 +185,7 @@
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 			This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 			It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \
-			This cheap copy looks as tacticool as possible. Emulating the IH PD rifle in most ways, even the the fixed skeleton stock looks the same."
+			This cheap copy looks as tacticool as possible. Emulating the Aegis PD rifle in most ways, even the the fixed skeleton stock looks the same."
 	icon = 'icons/obj/guns/projectile/ak/brushmaster.dmi'
 	random_sprite = FALSE
 	spawn_blacklisted = TRUE
@@ -198,7 +198,7 @@
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 			This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 			It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \
-			This rifle is from the Frozen Star's Planetary Defence line. Painted in IH blue and black, with a folding stock so it can be stored compactly for years without use."
+			This rifle is from the Frozen Star's Planetary Defence line. Painted in Aegis blue and black, with a folding stock so it can be stored compactly for years without use."
 	icon = 'icons/obj/guns/projectile/ak/venger.dmi'
 	random_sprite = FALSE
 	spawn_blacklisted = TRUE

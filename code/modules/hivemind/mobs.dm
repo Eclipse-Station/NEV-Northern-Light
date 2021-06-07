@@ -646,13 +646,13 @@
 
 /mob/living/simple_animal/hostile/hivemind/mechiver
 	name = "Mechiver"
-	desc = "Once an exosuit, this hulking amalgamation of armoured flesh and machine drips fresh blood out of the pilot's hatch."
+	desc = "Once an exosuit, this hulking amalgamation of armored flesh and machine drips fresh blood out of the pilot's hatch."
 	icon = 'icons/mob/hivemind.dmi'
 	icon_state = "mechiver-closed"
 	icon_dead = "mechiver-dead"
 	health = 600
 	maxHealth = 600
-	resistance = RESISTANCE_ARMOURED 
+	resistance = RESISTANCE_ARMOURED
 	melee_damage_lower = 25
 	melee_damage_upper = 35
 	mob_size = MOB_LARGE

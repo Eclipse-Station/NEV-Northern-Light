@@ -189,7 +189,7 @@
 /datum/ritual/cruciform/base/uninstall_upgrade
 	name = "Uninstall Cruciform Upgrade"
 	phrase = "Deus meus ut quid habebant affectus."
-	desc = "This litany will command cruciform uprgrade to detach from cruciform."
+	desc = "This litany will command cruciform to detach a specific upgrade."
 	power = 20
 
 /datum/ritual/cruciform/base/uninstall_upgrade/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
@@ -219,7 +219,7 @@
 /datum/ritual/cruciform/base/reincarnation
 	name = "Reincarnation"
 	phrase = "Vetus moritur et onus hoc levaverit"
-	desc = "A reunion of a spirit with it's new body, ritual of activation of a crucifrom, lying on the body. The process requires NeoTheology's special altar on which a body stripped of clothes is to be placed."
+	desc = "A reunion of a spirit with its new body, ritual of activation of a crucifrom, lying on the body. The process requires Mekhane's special altar on which a body stripped of clothes is to be placed."
 	var/clone_damage = 60
 
 /datum/ritual/cruciform/base/reincarnation/perform(mob/living/carbon/human/user, obj/item/weapon/implant/core_implant/C)
@@ -236,11 +236,11 @@
 		return FALSE
 
 	if(!CI.activated)
-		fail("This cruciform doesn't have soul inside.", user, C)
+		fail("This cruciform doesn't have a soul inside.", user, C)
 		return FALSE
 
 	if(CI.active)
-		fail("This cruciform already activated.", user, C)
+		fail("This cruciform is already activated.", user, C)
 		return FALSE
 
 	if(CI.wearer.stat == DEAD)

@@ -310,7 +310,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_bst, R_ADMIN|R_DEBUG, TRUE)
 
 /obj/item/weapon/card/id/bst
 	icon_state = "centcom"
-	desc = "An ID straight from Hansa. This one looks as though its very existence is a trade secret."
+	desc = "An ID straight from Central Command. Curiously, judging by the stamp date, it hasn't been issued yet."
 	spawn_frequency = 0
 
 /obj/item/weapon/card/id/bst/Initialize(mapload)

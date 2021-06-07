@@ -386,8 +386,8 @@
 //NT
 
 /obj/item/clothing/head/space/void/NTvoid
-	name = "neotheology voidsuit helmet"
-	desc = "A voidsuit helmet designed by NeoTheology with a most holy mix of biomatter and inorganic matter."
+	name = "mekhanite voidsuit helmet"
+	desc = "A voidsuit helmet designed by Children of the Mekhane with a most holy mix of biomatter and inorganic matter."
 	icon_state = "ntvoidhelmet"
 	item_state = "ntvoidhelmet"
 	action_button_name = "Toggle Helmet Light"
@@ -405,8 +405,8 @@
 	light_overlay = "helmet_light"
 
 /obj/item/clothing/suit/space/void/NTvoid
-	name = "neotheology voidsuit"
-	desc = "A voidsuit designed by NeoTheology with a most holy mix of biomatter and inorganic matter."
+	name = "mekhanite voidsuit"
+	desc = "A voidsuit designed by Mekhane with a most holy mix of biomatter and inorganic matter."
 	icon_state = "ntvoid"
 	item_state = "ntvoid"
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_STEEL = 10, MATERIAL_BIOMATTER = 35)

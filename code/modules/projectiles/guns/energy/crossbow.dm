@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/crossbow
-	name = "S EC \"Nemesis\""
-	desc = "Mini energy crossbow, produced by old Syndicate, discontinued now. A weapon favored by many mercenary stealth specialists."
+	name = "NT EC \"Nemesis\""
+	desc = "Mini energy crossbow, reverse-engineering by NanoTrasen scientists from a captured schematic. A weapon favored by many mercenary stealth specialists."
 	icon = 'icons/obj/guns/energy/crossbow.dmi'
 	icon_state = "crossbow"
 	w_class = ITEM_SIZE_SMALL
@@ -24,8 +24,8 @@
 	restrict_safety = TRUE
 
 /obj/item/weapon/gun/energy/crossbow/largecrossbow
-	name = "NT EC \"Themis\""
-	desc = "Energy crossbow, produced by NeoTheology. A weapon favored by inquisitorial infiltration teams."
+	name = "MK EC \"Themis\""
+	desc = "Energy crossbow, produced by the Mekhanites. A weapon favored by inquisitorial infiltration teams."
 	icon = 'icons/obj/guns/energy/constantine.dmi'
 	icon_state = "constantine"
 	w_class = ITEM_SIZE_BULKY
