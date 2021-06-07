@@ -29,10 +29,15 @@
 	var/time_until_regen = 0
 	var/obj/assimilated_machinery
 	var/obj/item/weapon/electronics/circuitboard/saved_circuit
+	
+	//Eclipse-added vars
+	var/regen_speed = REGENERATION_SPEED		//Used in health scaling.
+	var/process_ticks = 0						//Used in determining when to adjust health for players on
 
 /obj/machinery/hivemind_machine/Initialize()
 	. = ..()
 	name_pick()
+	adjust_health()		//Eclipse edit: Adjust maximum health.
 	health = max_health
 	set_light(2, 3, illumination_color)
 
@@ -44,6 +49,40 @@
 	else
 		icon_state = initial(icon_state)
 
+// // // BEGIN ECLIPSE EDITS // // //
+// Scale machine health based on number of players.
+/obj/machinery/hivemind_machine/proc/player_check()
+	var/crew = 0		//start it at zero
+	
+	for(var/mob/M in GLOB.player_list)
+		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
+			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
+			if(job)
+				crew++
+	
+	return crew
+
+/obj/machinery/hivemind_machine/proc/adjust_health()
+	if(max_health < 5)		//Don't adjust health if we're that weak
+		return
+	var/health_percent = health/max_health		//Get a proportion of maximum health prior to adjusting for player count
+	var/players = player_check()
+	
+	switch(players)
+		if(0 to 2)		//Fixed 50% regen speed, 75% health
+			max_health = initial(max_health) * 0.75
+			regen_speed = REGENERATION_SPEED * 0.5
+		if(3 to 10)		//Regeneration speed and health on linear scale based on player count
+			var/healthcalc = 0.75 + ((0.25/8) * (players - 3))
+			max_health = initial(max_health) * healthcalc
+			var/regen_calc = 0.5 + ((0.5/8) * (players - 3))
+			regen_speed = REGENERATION_SPEED * regen_calc
+		if(11 to INFINITY)	//Fixed 100% regen speed and health
+			max_health = initial(max_health)
+			regen_speed = REGENERATION_SPEED
+		else
+			throw EXCEPTION("Invalid switch statement case, expected positive integer and got [players]")		//Always add some form of error handling, kids.
+	health = health_percent * max_health		//Set the health proportional to our new maximum health
 
 /obj/machinery/hivemind_machine/examine(mob/user)
 	..()
@@ -60,16 +99,21 @@
 
 
 /obj/machinery/hivemind_machine/Process()
+	process_ticks++		//increment our tick counter
 	if(wireweeds_required && !locate(/obj/effect/plant/hivemind) in loc)
 		take_damage(5, on_damage_react = FALSE)
 
 	if(SDP)
 		SDP.check_conditions()
 
-	if(hive_mind_ai && !(stat & EMPED) && !is_on_cooldown())
+	if(!(process_ticks % 10))		//Every ten ticks, check for players and adjust our health accordingly.
+		adjust_health()
+
+	if(hive_mind_ai && !(stat & EMPED) && !is_on_cooldown() && (player_check() > 3))		//we want more than 3 players online before we regenetate.
+	// // // END ECLIPSE EDITS // // //
 		//slow health regeneration
 		if(can_regenerate && (health != max_health) && (world.time > time_until_regen))
-			health += REGENERATION_SPEED
+			health += regen_speed		//Eclipse edit: use adjusted regen speed rather than define
 			if(health > max_health)
 				health = max_health
 
@@ -493,19 +537,26 @@
 
 	var/mob/living/target = locate() in targets_in_range(world.view, in_hear_range = TRUE)
 	if(target && target.stat != DEAD && target.faction != HIVE_FACTION)
-		use_ability()
-		set_cooldown()
+// // // BEGIN ECLIPSE EDITS // // //
+		if(use_ability())		//If we didn't successfully spawn a mob, don't set a cooldown so we can try again
+			set_cooldown()
 
 
 /obj/machinery/hivemind_machine/mob_spawner/use_ability()
 	var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
 	var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
+
+//If we have less than so many players on, don't spawn certain mobs.
+	if(spawned_mob.maxHealth > 75 * player_check())
+		qdel(spawned_mob)
+		return FALSE		//We didn't successfully spawn a mob.
 	spawned_mob.loc = loc
 	spawned_creatures.Add(spawned_mob)
 	spawned_mob.master = src
 	FLICK("[icon_state]-anim", src)
 	qdel(CATCH)
-
+	return TRUE		//We did successfuly spawn a mob, so the cooldown (above) will be set.
+// // // END ECLIPSE EDITS // // //
 
 
 //MACHINE PREACHER

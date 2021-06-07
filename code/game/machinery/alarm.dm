@@ -319,6 +319,36 @@
 			new_color = COLOR_LIGHTING_RED_MACHINERY
 
 	set_light(l_range = 1.5, l_power = 0.2, l_color = new_color)
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Lighting overlays, so the screen actually glows.
+	//Warning: BYOND spaghetti ahead.
+	
+	update_lighting_overlay_sprite(src, icon_level, dir)
+	
+/obj/machinery/alarm/proc/update_lighting_overlay_sprite(var/obj/__source, var/alarm_state, direction)		//Updates the above-lighting-plane sprite.
+
+//The overlay sprites didn't have dirs, so I had to copy them to modular and fix that up
+	var/overlay_icon = 'zzz_modular_eclipse/air_alarm_overlays/overlays.dmi'
+	
+//send the source to the glow plane so we can get the plane number...
+	__source.set_plane(ABOVE_LIGHTING_PLANE)
+	
+//assign the plane number to a var...
+	var/glowplane = __source.plane
+	
+//and put it back to the whole bloody thing isn't glowing.
+	__source.set_plane(initial(plane))
+	
+	var/image/screen_overlay = image(overlay_icon, "alarm[alarm_state]_overlay")
+	screen_overlay.plane = glowplane
+	screen_overlay.layer = ABOVE_LIGHTING_LAYER
+	screen_overlay.dir = direction
+	screen_overlay.alpha = 128		//50% opacity
+	
+	overlays.Cut()	//clear out overlays we may have (which we shouldn't have any because this is the air alarm, not the fire alarm)
+	overlays += screen_overlay		//add in the screen overlay.
+	
+	// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/alarm/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
@@ -1120,12 +1150,43 @@ FIRE ALARM
 
 	if(locate(/obj/fire) in loc)
 		alarm()
-
+	
+	var/hivemind = check_for_hivemind()		//Eclipse edit: Hivemind stuff interferes with the equipment. That's the handwave I'm using for this balancing change. ^Spitzer
+	if(hivemind)
+		alarm()
+	
 	//Eclipse Edit: alarm loops now.
 	var/area/coverage_area = get_area(src)
-	if (coverage_area.fire && world.time > last_sound_time + alarm_audible_cooldown)
+	if (coverage_area.fire && (world.time > (last_sound_time + alarm_audible_cooldown)))
 		play_audible()
 	return
+
+// // // BEGIN ECLIPSE EDITS // // //
+/obj/machinery/firealarm/proc/check_for_hivemind()
+	//First get the number of active players, since that determines range it can see.
+	var/crew = 0		//start it at zero
+	
+	for(var/mob/M in GLOB.player_list)
+		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
+			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
+			if(job)
+				crew++
+	
+	var/calculated_range = max((7 - crew), 1)
+	
+	if(crew > 7)	//Crew is larger than 7, so we won't see anything anyway.
+		return FALSE
+	
+	if(locate(/obj/machinery/hivemind_machine) in view(calculated_range, src.loc))		//We saw a hivemind machine.
+		return TRUE
+	
+	if(locate(/obj/effect/plant/hivemind) in view(calculated_range, src.loc)) //We see floor wires
+		return TRUE
+		
+	//We don't detect anything, so return false so we don't pop an alarm.
+	return FALSE
+	
+// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/firealarm/power_change()
 	..()
@@ -1189,6 +1250,7 @@ FIRE ALARM
 		visible_message("[usr] resets \the [src].", "You have reset \the [src].")
 	else
 		to_chat(usr, "Fire Alarm is reset.")
+	last_sound_time = 0		//Eclipse edit: Allow us to make a sound immediately as it triggers next time it's triggered.
 	update_icon()
 	return
 
@@ -1203,7 +1265,13 @@ FIRE ALARM
 	else
 		to_chat(usr, "Fire Alarm activated.")
 	update_icon()
-	play_audible()			//Eclipse edit: beep beep beep. beep beep beep.
+	
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Fix fire alarms going batshit insane if automatically triggered
+	if (area.fire && (world.time > (last_sound_time + alarm_audible_cooldown)))
+		play_audible()
+	// // // END ECLIPSE EDITS // // //
+
 	return
 
 

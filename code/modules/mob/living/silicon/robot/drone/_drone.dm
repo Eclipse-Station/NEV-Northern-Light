@@ -63,6 +63,8 @@ var/list/mob_hat_cache = list()
 	var/communication_channel = LANGUAGE_DRONE
 	var/station_drone = TRUE
 
+	var/obj/item/device/gps/satnav		//Eclipse edit: Drones (and blitzshells) now have a satnav.
+
 	holder_type = /obj/item/weapon/holder/drone
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/observer/ghost/possessor)
@@ -96,6 +98,11 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
 		hat.loc = get_turf(src)
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Destroy our satnav if we die.
+	if(satnav)
+		satnav.Destroy()
+	// // // END ECLIPSE EDITS // // //
 	GLOB.drones.Remove(src)
 	. = ..()
 
@@ -154,7 +161,16 @@ var/list/mob_hat_cache = list()
 	name = real_name
 
 /mob/living/silicon/robot/drone/updatename()
-	real_name = "maintenance drone ([rand(100,999)])"
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Satellite navigator ID
+	var/random_id = rand(100,999)
+	satnav = new /obj/item/device/gps(src)
+	satnav.gps.prefix = "DRNE"
+	if(satnav)		//null check
+		satnav.gps.change_serial("DRNE-[random_id]")
+		satnav.update_name()
+	real_name = "maintenance drone ([random_id])"
+	// // // END ECLIPSE EDITS // // //
 	name = real_name
 
 /mob/living/silicon/robot/drone/updateicon()
@@ -353,7 +369,16 @@ var/list/mob_hat_cache = list()
 	flavor_text = "It's a bulky construction drone stamped with a Sol Central glyph."
 
 /mob/living/silicon/robot/drone/construction/updatename()
-	real_name = "construction drone ([rand(100,999)])"
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Satellite navigator ID
+	var/random_id = rand(100,999)
+	satnav = new /obj/item/device/gps(src)
+	satnav.gps.prefix = "DRNE"
+	if(satnav)		//null check
+		satnav.gps.change_serial("DRNE-[random_id]")
+		satnav.update_name()
+	real_name = "construction drone ([random_id])"
+	// // // END ECLIPSE EDITS // // //
 	name = real_name
 
 /mob/living/silicon/robot/drone/construction/updateicon()

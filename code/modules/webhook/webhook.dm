@@ -91,3 +91,13 @@ ADMIN_VERB_ADD(/client/proc/discord_msg, R_ADMIN, TRUE)
 			query_string += "&from=[url_encode(sender)]"
 		world.Export("[config.webhook_url]?[query_string]")
 
+/proc/send2dispatcher(var/message = "Debug Message", var/color = "#FFFFFF")
+	if (!config.webhook_url || !config.webhook_key)
+		return
+	spawn(0)
+		var/query_string = "type=dispatcher"
+		query_string += "&key=[url_encode(config.webhook_key)]"
+		query_string += "&msg=[url_encode(message)]"
+		query_string += "&color=[url_encode(color)]"
+		world.Export("[config.webhook_url]?[query_string]")
+
