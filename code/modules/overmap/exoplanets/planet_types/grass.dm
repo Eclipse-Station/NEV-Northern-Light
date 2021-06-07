@@ -1,7 +1,7 @@
 /obj/effect/overmap/sector/exoplanet/grass
-	name = "lush exoplanet"
+	planet_type = "lush"
 	desc = "Planet with abundant flora and fauna."
-	color = "#538224"
+	//color = "#538224"
 	planetary_area = /area/exoplanet/grass
 	rock_colors = list(COLOR_ASTEROID_ROCK, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#0e1e14","#1a3e38","#5a7467","#9eab88","#6e7248", "RANDOM")
@@ -76,16 +76,10 @@
 		var/obj/effect/overmap/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E) && E.grass_color)
 			color = E.grass_color
-	if(!resources)
-		resources = list()
-	if(prob(5))
-		resources[MATERIAL_URANIUM] = rand(1,3)
-	if(prob(2))
-		resources[MATERIAL_DIAMOND] = 1
 
 /turf/simulated/floor/exoplanet/grass/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if((temperature > T0C + 200 && prob(5)) || temperature > T0C + 1000)
 		SetName("scorched ground")
-		icon_state = "scorched"
+		SetIconState("scorched")
 		footstep_type = /decl/footsteps/asteroid
 		color = null

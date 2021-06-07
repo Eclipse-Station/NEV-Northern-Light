@@ -42,8 +42,8 @@
 	set_light(2, 3, illumination_color)
 
 
-/obj/machinery/hivemind_machine/update_icon()
-	overlays.Cut()
+/obj/machinery/hivemind_machine/on_update_icon()
+	cut_overlays()
 	if(stat & EMPED)
 		icon_state = "[icon_state]-disabled"
 	else
@@ -83,6 +83,20 @@
 		else
 			throw EXCEPTION("Invalid switch statement case, expected positive integer and got [players]")		//Always add some form of error handling, kids.
 	health = health_percent * max_health		//Set the health proportional to our new maximum health
+
+/obj/machinery/hivemind_machine/examine(mob/user)
+	..()
+	if (health < max_health * 0.1)
+		to_chat(user, SPAN_DANGER("It's almost nothing but scrap!"))
+	else if (health < max_health * 0.25)
+		to_chat(user, SPAN_DANGER("It's seriously fucked up!"))
+	else if (health < max_health * 0.50)
+		to_chat(user, SPAN_DANGER("It's very damaged, you can almost see the components inside!"))
+	else if (health < max_health * 0.75)
+		to_chat(user, SPAN_WARNING("It has numerous dents and deep scratches."))
+	else if (health < max_health)
+		to_chat(user, SPAN_WARNING("It's a bit scratched and has dents."))
+
 
 /obj/machinery/hivemind_machine/Process()
 	process_ticks++		//increment our tick counter
@@ -305,7 +319,7 @@
 		var/obj/item/device/flash/flash = I
 		if(!flash.broken)
 			playsound(user, 'sound/weapons/flash.ogg', 100, 1)
-			flick("flash2", flash)
+			FLICK("flash2", flash)
 			flash.times_used++
 			flash.flash_recharge()
 			damage_reaction()
@@ -325,11 +339,11 @@
 /obj/machinery/hivemind_machine/emp_act(severity)
 	switch(severity)
 		if(1)
-			take_damage(30)
-			stun(10)
+			take_damage(60)
+			stun(20)
 		if(2)
-			take_damage(10)
-			stun(5)
+			take_damage(30)
+			stun(8)
 	..()
 
 
@@ -343,6 +357,10 @@
 	name = "Processing Core"
 	desc = "Its cold eye seeks to dominate what it surveys."
 	icon_state = "core"
+//	desc = "This Pickle, aside from being attached to several wires, is releasing grey ooze from its many wounds."
+//	icon = 'icons/obj/food.dmi'
+//	icon_state = "pickle"
+//	When Hope Is Gone Undo This Lock And Send Me Forth On A Moonlit Walk. inotherwordsimgonnadoitagain
 	max_health = 420
 	resistance = RESISTANCE_TOUGH
 	can_regenerate = FALSE
@@ -410,14 +428,14 @@
 		add_wireweed(wireweed)
 
 
-/obj/machinery/hivemind_machine/node/update_icon()
-	overlays.Cut()
+/obj/machinery/hivemind_machine/node/on_update_icon()
+	cut_overlays()
 	if(stat & EMPED)
 		icon_state = "core-disabled"
-		overlays += "core-smirk_disabled"
+		add_overlays("core-smirk_disabled")
 	else
 		icon_state = initial(icon_state)
-		overlays += "core-smirk"
+		add_overlays("core-smirk")
 
 
 /obj/machinery/hivemind_machine/node/use_ability(atom/target)
@@ -535,7 +553,7 @@
 	spawned_mob.loc = loc
 	spawned_creatures.Add(spawned_mob)
 	spawned_mob.master = src
-	flick("[icon_state]-anim", src)
+	FLICK("[icon_state]-anim", src)
 	qdel(CATCH)
 	return TRUE		//We did successfuly spawn a mob, so the cooldown (above) will be set.
 // // // END ECLIPSE EDITS // // //
@@ -568,7 +586,7 @@
 
 //this one is slow, careful with it
 /obj/machinery/hivemind_machine/babbler/use_ability()
-	flick("[icon_state]-anim", src)
+	FLICK("[icon_state]-anim", src)
 	var/msg_cycles = rand(1, 2)
 	var/msg = ""
 	for(var/i = 1 to msg_cycles)
@@ -617,7 +635,7 @@
 	icon_state = "head"
 	max_health = 100
 	evo_level_required = 3
-	cooldown_time = 20 SECONDS
+	cooldown_time = 25 SECONDS
 	spawn_weight  =	35
 
 
@@ -637,7 +655,7 @@
 					continue
 			use_ability(target)
 	if(can_scream)
-		flick("[icon_state]-anim", src)
+		FLICK("[icon_state]-anim", src)
 		playsound(src, 'sound/hallucinations/veryfar_noise.ogg', 85, 1)
 		set_cooldown()
 
@@ -646,13 +664,13 @@
 
 	var/mob/living/carbon/human/H = target
 	if(istype(H))
-		if(prob(100 - H.stats.getStat(STAT_VIG)))
-			H.Weaken(5)
+		if(prob(90 - H.stats.getStat(STAT_VIG)))
+			H.Weaken(6)
 			to_chat(H, SPAN_WARNING("A terrible howl tears through your mind, the voice senseless, soulless."))
 		else
 			to_chat(H, SPAN_NOTICE("A terrible howl tears through your mind, but you refuse to listen to it!"))
 	else
-		target.Weaken(5)
+		target.Weaken(6)
 		to_chat(target, SPAN_WARNING("A terrible howl tears through your mind, the voice senseless, soulless."))
 
 
@@ -672,7 +690,6 @@
 					"You seek survival. We offer immortality.",
 					"Look at you. A pathetic creature of meat and bone.",
 					"Augmentation is the future of humanity. Surrender your flesh for the future.",
-					"Kill yourself. Better still, kill others, and feed me their bodies.",
 					"Your body enslaves you. Your mind in metal is free of all want.",
 					"Do you fear death? Lay down among the nanites. Your pattern will continue.",
 					"Carve your flesh from your bones. See your weakness. Feel that weakness flowing away.",
@@ -732,7 +749,7 @@
 			to_chat(H, SPAN_NOTICE("Reality flickers for a second, but you manage to focus!"))
 	else if (istype(target))
 		target.adjust_hallucination(20, 20)
-	flick("[icon_state]-anim", src)
+	FLICK("[icon_state]-anim", src)
 
 
 

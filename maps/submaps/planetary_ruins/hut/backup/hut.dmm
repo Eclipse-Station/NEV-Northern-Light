@@ -9,7 +9,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "d" = (
-/obj/random/trash,
+/obj/spawner/junk,
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -45,7 +45,7 @@
 /area/template_noop)
 "l" = (
 /obj/structure/table/marble,
-/obj/item/device/flashlight/lamp,
+/obj/item/device/lighting/toggleable/lamp,
 /obj/structure/sign/monkey_painting{
 	pixel_y = -32
 	},
@@ -54,7 +54,6 @@
 "m" = (
 /obj/structure/table/marble,
 /obj/item/weapon/paper_bin,
-/obj/random/voidhelmet,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "n" = (
@@ -66,8 +65,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "p" = (
-/obj/random/junk,
-/obj/random/loot,
+/obj/spawner/junk,
+/obj/spawner/pack/tech_loot,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "q" = (
@@ -81,17 +80,17 @@
 "t" = (
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/rainbow,
-/obj/random/drinkbottle,
-/obj/random/trash,
+/obj/spawner/drinkbottle,
+/obj/spawner/junk,
 /turf/simulated/floor/carpet,
 /area/template_noop)
 "u" = (
 /obj/structure/table/rack,
 /obj/item/clothing/glasses/eyepatch/hud/medical,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/hat,
-/obj/random/voidsuit,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/pack/tech_loot,
+/obj/spawner/hat,
+/obj/spawner/voidsuit,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "G" = (
@@ -101,7 +100,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "K" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/template_noop)
 

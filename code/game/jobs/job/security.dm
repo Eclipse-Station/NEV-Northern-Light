@@ -9,9 +9,9 @@
 	spawn_positions = 1
 	supervisors = "the Captain"
 	selection_color = "#97b0be"
-	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	req_admin_notify = 1
 	wage = WAGE_COMMAND
+	also_known_languages = list(LANGUAGE_CYRILLIC = 60, LANGUAGE_SERBIAN = 60, LANGUAGE_NEOHONGO = 100, LANGUAGE_GERMAN = 10)
 
 	outfit_type = /decl/hierarchy/outfit/job/security/ihc
 
@@ -71,9 +71,9 @@
 	spawn_positions = 1
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
-	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	department_account_access = TRUE
 	wage = WAGE_LABOUR_HAZARD
+	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25, LANGUAGE_NEOHONGO = 65, LANGUAGE_GERMAN = 10)
 
 	wl_config_sec = TRUE		//Eclipse edit.
 
@@ -126,8 +126,8 @@
 	spawn_positions = 2
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
-	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	wage = WAGE_PROFESSIONAL
+	also_known_languages = list(LANGUAGE_CYRILLIC = 50, LANGUAGE_SERBIAN = 50, LANGUAGE_NEOHONGO = 80, LANGUAGE_GERMAN = 10)
 
 	wl_config_sec = TRUE		//Eclipse edit.
 
@@ -180,8 +180,8 @@
 	spawn_positions = 2
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
-	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	wage = WAGE_PROFESSIONAL
+	also_known_languages = list(LANGUAGE_CYRILLIC = 5, LANGUAGE_NEOHONGO = 35, LANGUAGE_GERMAN = 10)
 
 	wl_config_sec = TRUE		//Eclipse edit.
 
@@ -233,8 +233,8 @@
 	supervisors = "the Aegis Commander"
 	//alt_titles = list("Aegis Junior Operative")
 	selection_color = "#a7bbc6"
-	also_known_languages = list(LANGUAGE_GERMAN = 10)
 	wage = WAGE_LABOUR_HAZARD
+	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25, LANGUAGE_NEOHONGO = 45, LANGUAGE_GERMAN = 10)
 
 	wl_config_sec = TRUE		//Eclipse edit.
 

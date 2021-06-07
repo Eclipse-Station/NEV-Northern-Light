@@ -40,6 +40,9 @@
 		STAT_COG = -10
 	)
 
+/datum/category_item/setup_option/background/origin/predstraza/apply(mob/living/carbon/human/character)
+  ..()
+  character.add_language(LANGUAGE_SERBIAN)
 
 /datum/category_item/setup_option/background/origin/sich_prime
 	name = "Vagrant"
@@ -69,6 +72,10 @@
 		STAT_COG = -3
 	)
 
+/datum/category_item/setup_option/background/origin/new_rome/apply(mob/living/carbon/human/character)
+  ..()
+  character.add_language(LANGUAGE_LATIN)
+
 
 /datum/category_item/setup_option/background/origin/shimatengoku
 	name = "Academic"
@@ -84,6 +91,10 @@
 		STAT_VIG = -5,
 		STAT_COG = 15
 	)
+
+/datum/category_item/setup_option/background/origin/shimatengoku/apply(mob/living/carbon/human/character)
+  ..()
+  character.add_language(LANGUAGE_NEOHONGO)
 
 
 /datum/category_item/setup_option/background/origin/hmss_destined
@@ -175,4 +186,3 @@
         STAT_VIG = 10,
         STAT_COG = -5
     )
-    

@@ -9,7 +9,7 @@
 	spawn_positions = 1
 	supervisors = "The Mekhanite Council"
 	selection_color = "#ecd37d"
-	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25)
+	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25, LANGUAGE_LATIN = 100)
 
 	cruciform_access = list(
 		access_morgue, access_chapel_office, access_crematorium, access_hydroponics, access_janitor, access_maint_tunnels
@@ -19,7 +19,7 @@
 		access_RC_announce, access_keycard_auth, access_heads, access_sec_doors, access_change_nt
 	)
 
-	wage = WAGE_PROFESSIONAL //The church has deep pockets
+	wage = WAGE_PROFESSIONAL // The money of the soul is faith, and cold hard cash
 	department_account_access = TRUE
 	outfit_type = /decl/hierarchy/outfit/job/church/chaplain
 
@@ -31,6 +31,8 @@
 		STAT_VIG = 15,
 		STAT_COG = 10,
 	)
+
+	perks = list(/datum/perk/channeling)
 
 	software_on_spawn = list(/datum/computer_file/program/records,
 							 /datum/computer_file/program/reports)
@@ -74,11 +76,11 @@
 	department = DEPARTMENT_CHURCH
 	department_flag = CHURCH
 	faction = "NEV Northern Light"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the Mekhane Preacher"
 	selection_color = "#ecd37d"
-	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
+	also_known_languages = list(LANGUAGE_CYRILLIC = 10, LANGUAGE_LATIN = 100)
 	cruciform_access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
 	access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
 	wage = WAGE_PROFESSIONAL
@@ -123,7 +125,7 @@
 	supervisors = "the Mekhane Preacher"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Hydroponicist")
-	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
+	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80, LANGUAGE_LATIN = 100)
 	cruciform_access = list(access_hydroponics, access_morgue, access_crematorium, access_maint_tunnels)
 	access = list(access_hydroponics, access_morgue, access_crematorium, access_maint_tunnels)
 	wage = WAGE_PROFESSIONAL
@@ -169,7 +171,7 @@
 	supervisors = "the Mekhane Preacher"
 	selection_color = "#ecd37d"
 	//alt_titles = list("Custodian","Sanitation Technician")
-	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80)
+	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80, LANGUAGE_LATIN = 100)
 	cruciform_access = list(access_janitor, access_maint_tunnels, access_morgue, access_crematorium)
 	access = list(access_janitor, access_maint_tunnels, access_morgue, access_crematorium)
 	wage = WAGE_PROFESSIONAL
@@ -179,6 +181,10 @@
 		STAT_ROB = 15,
 		STAT_TGH = 10,
 		STAT_VIG = 15
+	)
+
+	core_upgrades = list(
+		CRUCIFORM_CUSTODIAN
 	)
 
 	perks = list(/datum/perk/neat)

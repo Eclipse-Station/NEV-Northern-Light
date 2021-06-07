@@ -17,6 +17,8 @@
 
 	var/template_flags = TEMPLATE_FLAG_ALLOW_DUPLICATES
 
+	var/static/dmm_suite/maploader = new
+
 /datum/map_template/New(path = null, rename = null)
 	if(path)
 		mappath = path

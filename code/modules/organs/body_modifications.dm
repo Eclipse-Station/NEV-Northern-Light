@@ -24,7 +24,7 @@ var/global/list/modifications_types = list(
 		if(MODIFICATION_ORGANIC)
 			return body_modifications["nothing"]
 		if(MODIFICATION_SILICON)
-			return body_modifications["prosthesis_basic"]
+			return body_modifications["robotize_organ"]
 		if(MODIFICATION_REMOVED)
 			return body_modifications["amputated"]
 
@@ -52,25 +52,18 @@ var/global/list/modifications_types = list(
 	if(!organ || !(organ in body_parts))
 		//usr << "[name] isn't useable for [organ]"
 		return FALSE
-	var/list/organ_data = organ_structure[organ]
-	if(organ_data)
-		var/parent_organ = organ_data["parent"]
-		if(parent_organ)
-			var/datum/body_modification/parent = P.get_modification(parent_organ)
-			if(parent.nature == MODIFICATION_REMOVED)
-				to_chat(usr, "[name] can't be attached to [parent.name]")
-				return FALSE
-			if(parent.nature == MODIFICATION_SILICON && nature != MODIFICATION_SILICON)
-				to_chat(usr, "[name] can't be attached to [parent.name]")
-				return FALSE
+	var/parent_organ
+	for(var/organ_parent in organ_structure)
+		var/list/organ_data = organ_structure[organ_parent]
+		if(organ in organ_data["children"])
+			parent_organ = organ_parent
 
+	if(parent_organ)
+		var/datum/body_modification/parent = P.get_modification(parent_organ)
+		if(parent.nature > nature)
+			to_chat(usr, "[name] can't be attached to [parent.name]")
+			return FALSE
 
-/*
-	if(!allow_nt)
-		if(H?.mind?.assigned_job.department == DEPARTMENT_CHURCH)
-			return FALSE
-		if(H?.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform))
-			return FALSE
 	if(department_specific.len)
 		if(H && H.mind)
 			var/department = H.mind.assigned_job.department
@@ -86,7 +79,6 @@ var/global/list/modifications_types = list(
 			if(!J || !department_specific.Find(J.department))
 				to_chat(usr, "This body-mod does not match your highest-priority department.")
 				return FALSE
-*/
 
 	return TRUE
 
@@ -116,8 +108,8 @@ var/global/list/modifications_types = list(
 		return new OD.default_type(holder,OD)
 
 /datum/body_modification/limb/amputation
-	name = "Amputated"
-	short_name = "Amputated"
+	name = "Removed"
+	short_name = "Removed"
 	id = "amputated"
 	desc = "Organ was removed."
 	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
@@ -240,7 +232,7 @@ var/global/list/modifications_types = list(
 	short_name = "P: assisted"
 	id = "assisted"
 	desc = "Assisted organ."
-	body_parts = list(OP_HEART, OP_LUNGS, OP_LIVER, OP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEY_LEFT, OP_KIDNEY_RIGHT, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES)
 	allow_nt = FALSE
 
 /datum/body_modification/organ/assisted/create_organ(var/mob/living/carbon/holder, var/O, var/color)
@@ -256,7 +248,8 @@ var/global/list/modifications_types = list(
 	short_name = "P: prosthesis"
 	id = "robotize_organ"
 	desc = "Robotic organ."
-	body_parts = list(OP_HEART, OP_LUNGS, OP_LIVER, OP_EYES)
+	body_parts = list(OP_HEART, OP_LUNGS, OP_KIDNEY_LEFT, OP_KIDNEY_RIGHT, OP_STOMACH, BP_BRAIN, OP_LIVER, OP_EYES)
+	nature = MODIFICATION_SILICON
 	allow_nt = FALSE
 
 /datum/body_modification/organ/robotize_organ/create_organ(var/mob/living/carbon/holder, O, color)

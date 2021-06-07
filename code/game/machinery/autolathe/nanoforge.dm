@@ -4,6 +4,7 @@
 	icon_state = "nanoforge"
 	icon = 'icons/obj/machines/autolathe.dmi'
 	use_oddities = TRUE
+	use_license = FALSE
 	is_nanoforge = TRUE
 	circuit = /obj/item/weapon/electronics/circuitboard/nanoforge
 	var/list/nanoforge_designs = list()
@@ -94,7 +95,7 @@
 		. = TRUE
 
 /obj/machinery/autolathe/nanoforge/check_user(mob/user)
-	if(user.stats.getPerk(PERK_TECHNOMANCER) || user.stat_check(STAT_MEC, STAT_LEVEL_EXPERT))
+	if(user.stats?.getPerk(PERK_TECHNOMANCER) || user.stat_check(STAT_MEC, STAT_LEVEL_EXPERT))
 		return TRUE
 	to_chat(user, SPAN_NOTICE("You don't know how to operate this."))
 	return FALSE

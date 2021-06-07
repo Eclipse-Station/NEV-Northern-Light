@@ -1,7 +1,7 @@
 /obj/effect/overmap/sector/exoplanet/volcanic
-	name = "volcanic exoplanet"
+	planet_type = "volcanic"
 	desc = "A tectonically unstable planet, extremely rich in minerals."
-	color = "#8e3900"
+	//color = "#8e3900"
 	planetary_area = /area/exoplanet/volcanic
 	rock_colors = list(COLOR_DARK_GRAY)
 	plant_colors = list("#a23c05","#3f1f0d","#662929","#ba6222","#7a5b3a","#120309")
@@ -71,9 +71,13 @@
 
 /turf/simulated/floor/exoplanet/volcanic
 	name = "volcanic floor"
-	icon = 'icons/turf/flooring/lava.dmi'
-	icon_state = "cold"
+	icon = 'icons/turf/volcanic.dmi'
+	icon_state = "basalt"
 	dirt_color = COLOR_GRAY20
+
+/turf/simulated/floor/exoplanet/volcanic/New()
+	SetIconState("basalt[rand(0,12)]")
+	..()
 
 /datum/random_map/automata/cave_system/mountains/volcanic
 	iterations = 2
@@ -89,13 +93,13 @@
 
 /turf/simulated/floor/exoplanet/lava
 	name = "lava"
-	icon = 'icons/turf/flooring/lava.dmi'
+	icon = 'icons/turf/volcanic.dmi'
 	icon_state = "lava"
 	movement_delay = 4
 	dirt_color = COLOR_GRAY20
 	var/list/victims
 
-/turf/simulated/floor/exoplanet/lava/update_icon()
+/turf/simulated/floor/exoplanet/lava/on_update_icon()
 	return
 
 /turf/simulated/floor/exoplanet/lava/Initialize()
@@ -127,7 +131,7 @@
 		return PROCESS_KILL
 	for(var/weakref/W in victims)
 		var/atom/movable/AM = W.resolve()
-		if (AM == null || get_turf(AM) != src ) //|| AM.is_burnable() == FALSE
+		if (AM == null || get_turf(AM) != src || !(isliving(AM) || isobj(AM)) || istype(AM,/obj/effect/effect/light)) //|| AM.is_burnable() == FALSE
 			victims -= W
 			continue
 		var/datum/gas_mixture/environment = return_air()
