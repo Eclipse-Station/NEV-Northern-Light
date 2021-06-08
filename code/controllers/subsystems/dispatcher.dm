@@ -131,7 +131,6 @@ SUBSYSTEM_DEF(dispatcher)
 			log_debug("DISPATCHER: Finished scheduled update.")
 
 /datum/controller/subsystem/dispatcher/Recover()
-	flags |= SS_NO_INIT // We don't want to init twice.
 	flush_tracking()
 
 /datum/controller/subsystem/dispatcher/proc/flush_tracking()
