@@ -34,6 +34,7 @@ SUBSYSTEM_DEF(dispatcher)
 	var/debug_level = DEBUGLEVEL_SEVERE
 	var/bot_token = ""
 	var/cooldown = 0
+	var/first_run = TRUE
 
 	var/ptrack_dump_in_progress = FALSE		//used in debugging
 
@@ -65,20 +66,69 @@ SUBSYSTEM_DEF(dispatcher)
 	..()
 
 /datum/controller/subsystem/dispatcher/fire(resumed = FALSE)
-	if(DEBUGLEVEL_VERBOSE <= debug_level)
-		log_debug("DISPATCHER: Standing by for initial flush...")
-	if(Master.current_runlevel < RUNLEVEL_SETUP)
+	if(first_run)		//Initial flush.
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
-			log_debug("DISPATCHER: Holding off, runlevel: [Master.current_runlevel], waiting for greater than [RUNLEVEL_SETUP]...")
-		return		//eh, it'll fire again.
+			log_debug("DISPATCHER: Standing by for initial flush...")
+		if(Master.current_runlevel < RUNLEVEL_SETUP)
+			if(DEBUGLEVEL_VERBOSE <= debug_level)
+				log_debug("DISPATCHER: Holding off, runlevel: [Master.current_runlevel], waiting for greater than [RUNLEVEL_SETUP]...")
+			return		//eh, it'll fire again.
 
-	sleep(2 SECONDS)
-	if(DEBUGLEVEL_VERBOSE <= debug_level)
-		log_debug("DISPATCHER: Game is running (well, running enough for our standards). Beginning initial flush.")
-	flush_tracking()		//roundstart shenanigans will prevent it from flushing properly.
-	flags |= SS_NO_FIRE
-	if(DEBUGLEVEL_VERBOSE <= debug_level)
-		log_debug("DISPATCHER: Initial flush completed. Subsystem will now go offline (this will not affect player tracking).")
+		sleep(2 SECONDS)
+		if(DEBUGLEVEL_VERBOSE <= debug_level)
+			log_debug("DISPATCHER: Game is running (well, running enough for our standards). Beginning initial flush.")
+		flush_tracking()		//roundstart shenanigans will prevent it from flushing properly.
+		if(DEBUGLEVEL_VERBOSE <= debug_level)
+			log_debug("DISPATCHER: Initial flush completed.")
+		first_run = FALSE
+		return		//We're done with the initial flush.
+	
+	//Periodic list maintenance.
+	if(!(times_fired % 150))	//Every 5 minutes or so, update the tracking data.
+		if(DEBUGLEVEL_VERBOSE <= debug_level)
+			log_debug("DISPATCHER: Beginning scheduled update.")
+		
+		//We don't want to call flush_tracking() here because we don't want to delete anyone, just add anyone missed by a failed proc.
+		var/iterations = 0
+		
+		for(var/mob/living/M in GLOB.player_list)
+			iterations++
+			if(!M)
+				if(DEBUGLEVEL_VERBOSE <= debug_level)
+					log_debug("DISPATCHER: Master list update failure: No players on.")
+				return		//Nobody's home.
+			if(!M.mind)
+				if(!(iterations % config.ntdad_max_oper))
+					sleep(1)
+				continue	//Mindless body.
+			if(!M.mind.assigned_role)
+				if(!(iterations % config.ntdad_max_oper))
+					sleep(1)
+				continue	//No assigned role.
+
+			tracked_players_all |= M		//Add them to the master list if they're not already on the list.
+			
+			//Now we add them to the sub-lists
+			if(M.mind.assigned_role in security_positions)
+				tracked_players_sec |= M
+			if(M.mind.assigned_role in medical_positions)
+				tracked_players_med |= M
+			if(M.mind.assigned_role in science_positions)
+				tracked_players_sci |= M
+			if(M.mind.assigned_role in command_positions)
+				tracked_players_cmd |= M
+			if(M.mind.assigned_role in cargo_positions)
+				tracked_players_crg |= M
+			if(M.mind.assigned_role in engineering_positions)
+				tracked_players_eng |= M
+			if(M.mind.assigned_role in church_positions)
+				tracked_players_chr |= M
+			if(M.mind.assigned_role in civilian_positions)
+				if(M.mind.assigned_role != (ASSISTANT_TITLE))		//vagabonds are not staff
+					tracked_players_svc |= M
+
+		if(DEBUGLEVEL_VERBOSE <= debug_level)
+			log_debug("DISPATCHER: Finished scheduled update.")
 
 /datum/controller/subsystem/dispatcher/Recover()
 	flags |= SS_NO_INIT // We don't want to init twice.
@@ -182,22 +232,22 @@ SUBSYSTEM_DEF(dispatcher)
 	tracked_players_all |= M		//add 'em if you got 'em
 
 	if(M.mind.assigned_role in security_positions)
-		tracked_players_sec += M
+		tracked_players_sec |= M
 	if(M.mind.assigned_role in medical_positions)
-		tracked_players_med += M
+		tracked_players_med |= M
 	if(M.mind.assigned_role in science_positions)
-		tracked_players_sci += M
+		tracked_players_sci |= M
 	if(M.mind.assigned_role in command_positions)
-		tracked_players_cmd += M
+		tracked_players_cmd |= M
 	if(M.mind.assigned_role in cargo_positions)
-		tracked_players_crg += M
+		tracked_players_crg |= M
 	if(M.mind.assigned_role in engineering_positions)
-		tracked_players_eng += M
+		tracked_players_eng |= M
 	if(M.mind.assigned_role in church_positions)
-		tracked_players_chr += M
+		tracked_players_chr |= M
 	if(M.mind.assigned_role in civilian_positions)
 		if(M.mind.assigned_role != (ASSISTANT_TITLE))		//vagabonds are not staff
-			tracked_players_svc += M
+			tracked_players_svc |= M
 
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Added [M.name] to tracked players.")
