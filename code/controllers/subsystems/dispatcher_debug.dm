@@ -224,5 +224,5 @@ ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 	message_admins("Player tracking data dump completed in [timer] seconds. Saved as '[dump_log]'.")
 	log_admin("Player tracking data dump completed.")
 	
-	if(fexists(dump_log)
+	if(fexists(dump_log))
 		src << run( file(dump_log) )
