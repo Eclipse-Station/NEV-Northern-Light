@@ -186,6 +186,8 @@
 	var/rigged = 0				// true if rigged to explode
 	var/firealarmed = 0
 	var/atmosalarmed = 0
+	
+	var/overload = 0		//Eclipse edit: Variable to trigger an overload. If set, next process() tick will cause an overload to occur.
 
 // the smaller bulb light fixture
 
@@ -377,7 +379,7 @@
 		if(LIGHT_BURNED)
 			to_chat(user, "The [fitting] is burnt out.")
 		if(LIGHT_BROKEN)
-			to_chat(user, "The [fitting] has been smashed.")
+			to_chat(user, "The [fitting] is shattered.")		//Eclipse edit: Shattered, since overload breaks it as well
 
 
 
@@ -613,6 +615,40 @@
 	status = LIGHT_BROKEN
 	update()
 
+// // // BEGIN ECLIPSE EDITS // // //
+//Overload proc
+//Returns true if it overloaded successfully.
+/obj/machinery/light/proc/overload()
+	if(status != LIGHT_OK)
+		return FALSE		//If the light is broken, burned out, or removed, we can't really do much realistically.
+	
+	overload = FALSE		//Set this to FALSE so process() doesn't call overload()
+	
+	//Right, first let's start playing the sound.
+	playsound(src.loc, 'sound/effects/transformer_overload.ogg', 60, 0)		//This sound lasts just over five seconds as I've mixed it.
+	
+	//Next, we make our light slowly brighten and glow a bit red due to the ballast overheating.
+	set_light(brightness_range, brightness_power, "#fef9e7")		//Start the brightness effect subtle.
+	sleep(15)		//T+1.5 s
+	set_light(brightness_range + 1, brightness_power + 1, "#fef9e7")		//Getting there...
+	sleep(15)		//T+3.0 s
+	set_light(brightness_range + 2, brightness_power + 2, "#fef9e7")		//Maxed out.
+	
+	spawn(20)		//T+5.0s
+		src.broken()		//aaaaaaaaand pop goes the lightbulb.
+	return TRUE
+	
+// Chance to overload on EMPs
+/obj/machinery/light/emp_act(severity)
+	if(!severity)		//Error handling to prevent division by zero. Just in case.
+		throw EXCEPTION("Attempted to EMP [src] with severity zero. Setting 'severity' to 1 to prevent division by zero.")
+		severity = 1
+	if(prob(50/severity))		//50% chance maximum, divided by the severity of the EMP (lower numbers more severe)
+		overload()
+	else						//Just flicker it a few times.
+		flicker(5 - severity)
+// // // END ECLIPSE EDITS // // //
+
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)
 		return
@@ -648,6 +684,9 @@
 /obj/machinery/light/Process()
 	if(on)
 		use_power(light_range * LIGHTING_POWER_FACTOR, LIGHT)
+	
+	if(overload)		//Eclipse edit
+		overload()		//if we're set to overload, well, overload.
 
 
 // called when area power state changes
