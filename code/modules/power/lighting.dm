@@ -622,7 +622,7 @@
 	if(status != LIGHT_OK)
 		return FALSE		//If the light is broken, burned out, or removed, we can't really do much realistically.
 	
-	overload = FALSE		//Set this to FALSE so process() doesn't call overload()
+	overload = FALSE		//Set this to FALSE so process() doesn't call overload() recursively
 	
 	//Right, first let's start playing the sound.
 	playsound(src.loc, 'sound/effects/transformer_overload.ogg', 60, 0)		//This sound lasts just over five seconds as I've mixed it.
@@ -640,6 +640,8 @@
 	
 // Chance to overload on EMPs
 /obj/machinery/light/emp_act(severity)
+	if(!on)
+		return		//Don't EMP the light if it's off.
 	if(!severity)		//Error handling to prevent division by zero. Just in case.
 		throw EXCEPTION("Attempted to EMP [src] with severity zero. Setting 'severity' to 1 to prevent division by zero.")
 		severity = 1
