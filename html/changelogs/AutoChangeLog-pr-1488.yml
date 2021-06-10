@@ -1,0 +1,4 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - bugfix: Fixed a few edge cases with the dispatcher not tracking players.
