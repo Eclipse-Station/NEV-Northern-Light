@@ -220,6 +220,9 @@ ADMIN_VERB_ADD(/client/proc/dump_tracking, R_DEBUG, FALSE)
 	WRITE_LOG(dump_log, " # END OF CONTENT")
 	
 	SSdispatcher.ptrack_dump_in_progress = FALSE
-	to_chat(usr, "<span class='danger'>PTrack dump completed in [timer] seconds. Saved to server as '[dump_log]'.</span>")
+	to_chat(usr, "<span class='danger'>PTrack dump completed in [timer] seconds. Saved to server as '[dump_log]'. Stand by for clientside download. This may take some time...</span>")
 	message_admins("Player tracking data dump completed in [timer] seconds. Saved as '[dump_log]'.")
 	log_admin("Player tracking data dump completed.")
+	
+	if(fexists(dump_log))
+		src << run( file(dump_log) )
