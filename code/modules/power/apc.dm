@@ -1275,7 +1275,8 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 			for(var/obj/machinery/light/L in area)
 				if(prob(chance))
 					L.on = TRUE
-					L.broken()
+					spawn(rand(0,5))		//Eclipse edit: A spawn proc is needed for el-storms to not last 20 minutes due to the next light waiting for the other to go pop.
+						L.overload()		//Eclipse edit: Use fancy new overload proc
 				sleep(1)
 
 /obj/machinery/power/apc/proc/setsubsystem(val)

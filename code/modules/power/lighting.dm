@@ -628,11 +628,11 @@
 	playsound(src.loc, 'sound/effects/transformer_overload.ogg', 60, 0)		//This sound lasts just over five seconds as I've mixed it.
 	
 	//Next, we make our light slowly brighten and glow a bit red due to the ballast overheating.
-	set_light(brightness_range, brightness_power, "#fef9e7")		//Start the brightness effect subtle.
+	set_light(brightness_range, brightness_power, "#ffdabc")		//Start the brightness effect subtle.
 	sleep(15)		//T+1.5 s
-	set_light(brightness_range + 1, brightness_power + 1, "#fef9e7")		//Getting there...
+	set_light(brightness_range + 1, brightness_power + 1, "#ffdabc")		//Getting there...
 	sleep(15)		//T+3.0 s
-	set_light(brightness_range + 2, brightness_power + 2, "#fef9e7")		//Maxed out.
+	set_light(brightness_range + 2, brightness_power + 2, "#ffdabc")		//Maxed out.
 	
 	spawn(20)		//T+5.0s
 		src.broken()		//aaaaaaaaand pop goes the lightbulb.
