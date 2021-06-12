@@ -1,4 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - bugfix: fixes dispatcher breaking pings
