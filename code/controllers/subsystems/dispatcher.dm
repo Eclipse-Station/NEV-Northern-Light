@@ -399,7 +399,7 @@ SUBSYSTEM_DEF(dispatcher)
 /datum/controller/subsystem/dispatcher/proc/send_discord_request(department = "", priority = FALSE, message, sender, sender_role, stamped)
 	if(!config.ntdad_enabled)		//don't do shit if it's not enabled
 		return 0
-
+	message = sanitizeSafe(message)
 	if(!message)
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: No message entered, aborting.")
@@ -458,7 +458,7 @@ SUBSYSTEM_DEF(dispatcher)
 			log_debug("DISPATCHER: No message to push.")
 		return		//We need a message to pass along, damnit!
 
-	send2dispatcher(sanitizeSafe(msg))
+	send2dispatcher(msg)
 
 
 
