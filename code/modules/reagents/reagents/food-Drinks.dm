@@ -2267,9 +2267,9 @@
 
 
 /datum/reagent/ethanol/whiskey_cola
-	name = "Whiskey Cola"
+	name = "Lemmy"
 	id = "whiskeycola"
-	description = "Whiskey, mixed with cola. Surprisingly refreshing."
+	description = "Whiskey, mixed with cola. Surprisingly refreshing. Sometimes known as a Whiskey Cola, folks have begun referring to it by the name of the heavy metal legend who drank it every day."
 	taste_description = "cola"
 	color = "#3E1B00"
 	strength = 25
