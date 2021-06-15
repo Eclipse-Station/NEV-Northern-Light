@@ -346,6 +346,9 @@
 	screen_overlay.alpha = 128		//50% opacity
 	
 	overlays.Cut()	//clear out overlays we may have (which we shouldn't have any because this is the air alarm, not the fire alarm)
+	
+	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)		//If we're broken, don't add the overlay.
+		return
 	overlays += screen_overlay		//add in the screen overlay.
 	
 	// // // END ECLIPSE EDITS // // //

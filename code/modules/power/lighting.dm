@@ -635,6 +635,7 @@
 	set_light(brightness_range + 2, brightness_power + 2, "#ffdabc")		//Maxed out.
 	
 	spawn(20)		//T+5.0s
+		src.reset_color()		//reset the colour for if a new tube goes in
 		src.broken()		//aaaaaaaaand pop goes the lightbulb.
 	return TRUE
 	
