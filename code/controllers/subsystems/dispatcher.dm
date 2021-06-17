@@ -37,6 +37,8 @@ SUBSYSTEM_DEF(dispatcher)
 	var/first_run = TRUE
 
 	var/ptrack_dump_in_progress = FALSE		//used in debugging
+	var/flush_in_progress = FALSE		//stat thing.
+	var/update_in_progress = FALSE		//stat thing
 
 	//used in player tracking system
 	var/list/tracked_players_all = list()		//All tracked players
@@ -85,10 +87,15 @@ SUBSYSTEM_DEF(dispatcher)
 	
 	//Periodic list maintenance.
 	if(!(times_fired % 150))	//Every 5 minutes or so, update the tracking data.
+		if(update_in_progress || flush_in_progress)
+			if(DEBUGLEVEL_WARNING <= debug_level)
+				log_debug("DISPATCHER: Attempted to update tracking, but another update or flush was already in progress. Aborting.")
+			return
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Beginning scheduled update.")
 		
 		//We don't want to call flush_tracking() here because we don't want to delete anyone, just add anyone missed by a failed proc.
+		update_in_progress = TRUE
 		var/iterations = 0
 		
 		for(var/mob/living/M in GLOB.player_list)
@@ -126,6 +133,8 @@ SUBSYSTEM_DEF(dispatcher)
 			if(M.mind.assigned_role in civilian_positions)
 				if(M.mind.assigned_role != (ASSISTANT_TITLE))		//vagabonds are not staff
 					tracked_players_svc |= M
+					
+		update_in_progress = FALSE
 
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Finished scheduled update.")
@@ -134,6 +143,12 @@ SUBSYSTEM_DEF(dispatcher)
 	flush_tracking()
 
 /datum/controller/subsystem/dispatcher/proc/flush_tracking()
+	if(update_in_progress || flush_in_progress)
+		if(DEBUGLEVEL_WARNING <= debug_level)
+			log_debug("DISPATCHER: Attempted to flush tracking, but another update or flush was already in progress. Aborting.")
+		return
+	flush_in_progress = TRUE
+	
 	//First, we reset all the lists.
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Flushing lists.")
@@ -180,6 +195,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if(!M)
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Master list population failure: No players on.")
+			flush_in_progress = FALSE
 			return		//Nobody's home. Go back to sleep.
 		if(!M.mind)
 			if(!(iterations % config.ntdad_max_oper))
@@ -217,6 +233,8 @@ SUBSYSTEM_DEF(dispatcher)
 			if(!(iterations % config.ntdad_max_oper))
 				sleep(1)
 			continue		//We're done adding here.
+			
+	flush_in_progress = FALSE
 
 /datum/controller/subsystem/dispatcher/proc/add_to_tracking(mob/M)
 	if(!M)
@@ -487,6 +505,10 @@ SUBSYSTEM_DEF(dispatcher)
 	msg += "R [tracked_players_chr.len] | "		//Church ("Religion")
 	msg += "? [tracked_players_svc.len]"		//Other
 	msg += "}"
+	if(flush_in_progress)
+		msg += " FLUSHING"
+	if(update_in_progress)
+		msg += " AUTO-UPDATING"
 	..(msg.Join())
 
 	//sample T:28{C 6|E 3|S 4|M 4|N 5|U 5|R 0|? 12}
