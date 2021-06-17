@@ -3,10 +3,15 @@
 // RSpitzer 2020-04-18
 //
 
+#define CURRENT_CONFIG_VERSION 6
+
 /datum/configuration
 //For things that require delaying until the config loads for things (e.g. the
 //Reginald spawn code on Eclipase Station code). Will be set TRUE after load.
 	var/eclipse_config_loaded = FALSE
+
+//Current configuration file version, to check for mismatches.
+	var/eclipse_config_version = 0
 
 //If you add stuff here, please use a consistent prefix so it will all group
 //together in the variable editor. Easier for diag that way.
@@ -64,6 +69,8 @@
 
 
 		switch (name)
+			if("config_file_version")
+				config.eclipse_config_version = text2num(value)
 			if("use_job_whitelisting")
 				config.usejobwhitelist = TRUE
 			if("whitelist_heads")
@@ -102,6 +109,14 @@
 				config.ntdad_role_service = value
 			if("role_ping_supply")
 				config.ntdad_role_supply = value
+
+//Version check, warns if the configuration file is updated and the sysop hasn't updated their copy.
+	if(!eclipse_config_version)
+		to_chat(world, <span class='info'>"--- \n\nUnable to check Eclipse configuration file version. You may be using an outdated config.\nPlease double-check it for missing sections and update appropriately, else unexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got [eclipse_config_version].\n\n---"
+	else if(eclipse_config_version < CURRENT_CONFIG_VERSION)
+		to_chat(world, <span class='info'>"--- \n\nCAUTION: The Eclipse configuration file is outdated. \nPlease double-check it for missing sections and update appropriately, else unexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got [eclipse_config_version].\n\n---"
+	else if(eclipse_config_version > CURRENT_CONFIG_VERSION)
+		to_chat(world, <span class='info'>"--- \n\nCAUTION: The Eclipse configuration file you are using is from a newer build of the server. \nUnexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got [eclipse_config_version].\n\n---"
 
 
 	config.eclipse_config_loaded = TRUE		//config is loaded
