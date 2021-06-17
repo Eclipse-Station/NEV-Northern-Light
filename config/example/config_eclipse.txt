@@ -95,3 +95,10 @@ ROLE_PING_RESEARCH
 ROLE_PING_SECURITY 
 ROLE_PING_SERVICE 
 ROLE_PING_SUPPLY 
+
+## DISPATCHER MAXIMA FOR PINGS
+## Maximum number of players the dispatcher will allow before it won't pass on
+## a message to the discord.
+
+DISPATCHER_MAXIMUM_NONCOMMAND_PING 2
+DISPATCHER_MAXIMUM_COMMAND_PING 3

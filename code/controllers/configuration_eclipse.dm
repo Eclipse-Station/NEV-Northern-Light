@@ -41,6 +41,8 @@
 	var/ntdad_role_security = ""
 	var/ntdad_role_service = ""
 	var/ntdad_role_supply = ""
+	var/ntdad_maximum_noncommand = 0
+	var/ntdad_maximum_command = 0
 
 
 /hook/startup/proc/read_eclipse_config()
@@ -109,6 +111,10 @@
 				config.ntdad_role_service = value
 			if("role_ping_supply")
 				config.ntdad_role_supply = value
+			if("dispatcher_maximum_noncommand_ping")
+				config.ntdad_maximum_noncommand = text2num(value)
+			if("dispatcher_maximum_command_ping")
+				config.ntdad_maximum_command = text2num(value)
 
 //Version check, warns if the configuration file is updated and the sysop hasn't updated their copy.
 	if(!eclipse_config_version)

@@ -39,6 +39,10 @@ SUBSYSTEM_DEF(dispatcher)
 	var/ptrack_dump_in_progress = FALSE		//used in debugging
 	var/flush_in_progress = FALSE		//stat thing.
 	var/update_in_progress = FALSE		//stat thing
+	
+	// Bypass switches for personnel requirements to ping Discord.
+	var/bypass_command_ping_requirements = FALSE
+	var/bypass_noncommand_ping_requirements = FALSE
 
 	//used in player tracking system
 	var/list/tracked_players_all = list()		//All tracked players
