@@ -118,11 +118,14 @@
 
 //Version check, warns if the configuration file is updated and the sysop hasn't updated their copy.
 	if(!config.eclipse_config_version)
-		to_chat(world, "<span class='info'>--- \n\nUnable to check Eclipse configuration file version. You may be using an outdated config.\nPlease double-check it for missing sections and update appropriately, else unexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got no version.\n\n---</span>")
+		spawn(20 SECONDS)
+			to_chat(world, "<span class='info'>--- \n\nCAUTION: Unable to check Eclipse configuration file version. You may be using an outdated config.\nPlease double-check it for missing sections and update appropriately, else unexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got no version.\n\n---</span>")
 	else if(config.eclipse_config_version < CURRENT_CONFIG_VERSION)
-		to_chat(world, "<span class='info'>--- \n\nCAUTION: The Eclipse configuration file is outdated. \nPlease double-check it for missing sections and update appropriately, else unexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got [config.eclipse_config_version].\n\n---</span>")
+		spawn(20 SECONDS)
+			to_chat(world, "<span class='info'>--- \n\nCAUTION: The Eclipse configuration file is outdated. \nPlease double-check it for missing sections and update appropriately, else unexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got [config.eclipse_config_version].\n\n---</span>")
 	else if(config.eclipse_config_version > CURRENT_CONFIG_VERSION)
-		to_chat(world, "<span class='info'>--- \n\nCAUTION: The Eclipse configuration file you are using is from a newer build of the server. \nUnexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got [config.eclipse_config_version].\n\n---</span>")
+		spawn(20 SECONDS)
+			to_chat(world, "<span class='info'>--- \n\nCAUTION: The Eclipse configuration file you are using is from a newer build of the server. \nUnexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got [config.eclipse_config_version].\n\n---</span>")
 
 
 	config.eclipse_config_loaded = TRUE		//config is loaded
