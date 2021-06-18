@@ -63,6 +63,7 @@ STAFF_REQUIREMENT_LOWPOP_THRESHOLD 10
 
 ## DEBUG LEVEL
 ## What level should we debug the dispatcher on?
+## Note that admins will still be notified for severe and fatal messages.
 ## 0 - Fatal and runtimes only
 ## 1 - Severe
 ## 2 - Warnings
@@ -98,7 +99,8 @@ ROLE_PING_SUPPLY
 
 ## DISPATCHER MAXIMA FOR PINGS
 ## Maximum number of players the dispatcher will allow before it won't pass on
-## a message to the discord.
-
-DISPATCHER_MAXIMUM_NONCOMMAND_PING 2
-DISPATCHER_MAXIMUM_COMMAND_PING 3
+## a message to the discord. Set to -1 to disable playercount checks. (This is
+## not recommended and will throw a warning if disabled.)
+## Default: 1 (both)
+DISPATCHER_MAXIMUM_NONCOMMAND_PING 1
+DISPATCHER_MAXIMUM_COMMAND_PING 1
