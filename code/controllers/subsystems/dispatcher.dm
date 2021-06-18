@@ -65,7 +65,7 @@ SUBSYSTEM_DEF(dispatcher)
 	if(!config.ntdad_maximum_command && !config.ntdad_maximum_noncommand && config.ntdad_enabled)
 		message_admins("DISPATCHER/FATAL: CONFIGURATION WARNING: Dispatcher enabled via config, but maximum non-command AND command players to ping for is zero. Dispatcher will not ping for any players due to configuration settings.")
 		throw EXCEPTION("Dispatcher enabled via configuration file, but cannot ping due to config options DISPATCHER_MAXIMUM_COMMAND_PING and DISPATCHER_MAXIMUM_NONCOMMAND_PING.")
-		config.ntdad_enable = FALSE
+		config.ntdad_enabled = FALSE
 
 //Check command role config opts to see if we need to disable role pings or role ping checks.
 	if(config.ntdad_maximum_command < 0)								//Command role limit bypass
@@ -386,7 +386,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if("security")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Security.")
-			if(bypass_noncommand_ping_requirements || (tracked_players_eng.sec < config.ntdad_maximum_noncommand))
+			if(bypass_noncommand_ping_requirements || (tracked_players_sec < config.ntdad_maximum_noncommand))
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
 					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
 				send_discord_request("security",priority, message, sender, sender_role, stamped)
