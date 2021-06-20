@@ -37,6 +37,12 @@ SUBSYSTEM_DEF(dispatcher)
 	var/first_run = TRUE
 
 	var/ptrack_dump_in_progress = FALSE		//used in debugging
+	var/flush_in_progress = FALSE		//stat thing.
+	var/update_in_progress = FALSE		//stat thing
+	
+	// Bypass switches for personnel requirements to ping Discord.
+	var/bypass_command_ping_requirements = FALSE
+	var/bypass_noncommand_ping_requirements = FALSE
 
 	//used in player tracking system
 	var/list/tracked_players_all = list()		//All tracked players
@@ -54,6 +60,35 @@ SUBSYSTEM_DEF(dispatcher)
 //	dispatcher = src
 	debug_level = config.ntdad_debug
 	log_debug("DISPATCHER: Debug level set: [debug_level]")
+
+//Config checks.
+	if(!config.ntdad_maximum_command && !config.ntdad_maximum_noncommand && config.ntdad_enabled)
+		message_admins("DISPATCHER/FATAL: CONFIGURATION WARNING: Dispatcher enabled via config, but maximum non-command AND command players to ping for is zero. Dispatcher will not ping for any players due to configuration settings.")
+		throw EXCEPTION("Dispatcher enabled via configuration file, but cannot ping due to config options DISPATCHER_MAXIMUM_COMMAND_PING and DISPATCHER_MAXIMUM_NONCOMMAND_PING.")
+		config.ntdad_enabled = FALSE
+
+//Check command role config opts to see if we need to disable role pings or role ping checks.
+	if(config.ntdad_maximum_command < 0)								//Command role limit bypass
+		bypass_command_ping_requirements = TRUE
+		message_admins("DISPATCHER/SEVERE: Playercount checks for command role pings is disabled by config. This may open a route for exploits...")
+		if(DEBUGLEVEL_SEVERE <= debug_level)
+			log_debug("DISPATCHER: Playercount checks for command roles disabled by config.")
+	else if(!config.ntdad_maximum_command && config.ntdad_enabled)		//Command disabled via role limit.
+		message_admins("DISPATCHER/SEVERE: CONFIGURATION WARNING: Dispatcher enabled via config, but maximum command players to ping for is zero. This will cause the dispatcher to not ping for command roles.")
+		if(DEBUGLEVEL_SEVERE <= debug_level)
+			log_debug("DISPATCHER: Dispatcher for command roles disabled by config: DISPATCHER_MAXIMUM_COMMAND_PING value.")
+
+//Same for the non-command roles.
+	if(config.ntdad_maximum_noncommand < 0)								//Non-command role limit bypass
+		bypass_noncommand_ping_requirements = TRUE
+		message_admins("DISPATCHER/SEVERE: Playercount checks for non-command role pings is disabled by config. This may open a route for exploits...")
+		if(DEBUGLEVEL_SEVERE <= debug_level)
+			log_debug("DISPATCHER: Playercount checks for non-command roles disabled by config.")
+	else if(!config.ntdad_maximum_noncommand && config.ntdad_enabled)		//Command disabled via role limit.
+		message_admins("DISPATCHER/SEVERE: CONFIGURATION WARNING: Dispatcher enabled via config, but maximum non-command players to ping for is zero. This will cause the dispatcher to not ping for non-command roles.")
+		if(DEBUGLEVEL_SEVERE <= debug_level)
+			log_debug("DISPATCHER: Dispatcher for command roles disabled by config:  value.")
+
 	if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len || tracked_players_chr.len)
 		message_admins("DISPATCHER/SEVERE: One or more lists still had data. Lists will be flushed to attempt to clear lists...")
 		if(DEBUGLEVEL_SEVERE <= debug_level)
@@ -66,7 +101,8 @@ SUBSYSTEM_DEF(dispatcher)
 	..()
 
 /datum/controller/subsystem/dispatcher/fire(resumed = FALSE)
-	if(first_run)		//Initial flush.
+	if(first_run)
+		//Initial flush.
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Standing by for initial flush...")
 		if(Master.current_runlevel < RUNLEVEL_SETUP)
@@ -85,10 +121,15 @@ SUBSYSTEM_DEF(dispatcher)
 	
 	//Periodic list maintenance.
 	if(!(times_fired % 150))	//Every 5 minutes or so, update the tracking data.
+		if(update_in_progress || flush_in_progress)
+			if(DEBUGLEVEL_WARNING <= debug_level)
+				log_debug("DISPATCHER: Attempted to update tracking, but another update or flush was already in progress. Aborting.")
+			return
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Beginning scheduled update.")
 		
 		//We don't want to call flush_tracking() here because we don't want to delete anyone, just add anyone missed by a failed proc.
+		update_in_progress = TRUE
 		var/iterations = 0
 		
 		for(var/mob/living/M in GLOB.player_list)
@@ -126,6 +167,8 @@ SUBSYSTEM_DEF(dispatcher)
 			if(M.mind.assigned_role in civilian_positions)
 				if(M.mind.assigned_role != (ASSISTANT_TITLE))		//vagabonds are not staff
 					tracked_players_svc |= M
+					
+		update_in_progress = FALSE
 
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Finished scheduled update.")
@@ -134,6 +177,12 @@ SUBSYSTEM_DEF(dispatcher)
 	flush_tracking()
 
 /datum/controller/subsystem/dispatcher/proc/flush_tracking()
+	if(update_in_progress || flush_in_progress)
+		if(DEBUGLEVEL_WARNING <= debug_level)
+			log_debug("DISPATCHER: Attempted to flush tracking, but another update or flush was already in progress. Aborting.")
+		return
+	flush_in_progress = TRUE
+	
 	//First, we reset all the lists.
 	if(DEBUGLEVEL_VERBOSE <= debug_level)
 		log_debug("DISPATCHER: Flushing lists.")
@@ -180,6 +229,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if(!M)
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Master list population failure: No players on.")
+			flush_in_progress = FALSE
 			return		//Nobody's home. Go back to sleep.
 		if(!M.mind)
 			if(!(iterations % config.ntdad_max_oper))
@@ -217,6 +267,8 @@ SUBSYSTEM_DEF(dispatcher)
 			if(!(iterations % config.ntdad_max_oper))
 				sleep(1)
 			continue		//We're done adding here.
+			
+	flush_in_progress = FALSE
 
 /datum/controller/subsystem/dispatcher/proc/add_to_tracking(mob/M)
 	if(!M)
@@ -314,7 +366,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if("engineering", "atmospherics")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Engineering.")
-			if(!tracked_players_eng.len)
+			if(bypass_noncommand_ping_requirements || (tracked_players_eng.len < config.ntdad_maximum_noncommand))
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
 					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
 				send_discord_request("engineering",priority, message, sender, sender_role, stamped)
@@ -324,7 +376,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if("science", "research", "research department","robotics")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Science.")
-			if(!tracked_players_sci.len)
+			if(bypass_noncommand_ping_requirements || (tracked_players_sci.len < config.ntdad_maximum_noncommand))
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
 					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
 				send_discord_request("research",priority, message, sender, sender_role, stamped)
@@ -334,7 +386,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if("security")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Security.")
-			if(!tracked_players_sec.len)
+			if(bypass_noncommand_ping_requirements || (tracked_players_sec.len < config.ntdad_maximum_noncommand))
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
 					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
 				send_discord_request("security",priority, message, sender, sender_role, stamped)
@@ -344,7 +396,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if("supply", "cargo", "cargo bay", "freetradeunion")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Supply.")
-			if(!tracked_players_crg.len)
+			if(bypass_noncommand_ping_requirements || (tracked_players_crg.len < config.ntdad_maximum_noncommand))
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
 					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
 				send_discord_request("supply",priority, message, sender, sender_role, stamped)
@@ -354,7 +406,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if("church", "janitorial")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Church.")
-			if(!tracked_players_chr.len)
+			if(bypass_noncommand_ping_requirements || (tracked_players_chr.len < config.ntdad_maximum_noncommand))
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
 					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
 				send_discord_request("church",priority, message, sender, sender_role, stamped)
@@ -364,7 +416,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if("service")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Service.")
-			if(!tracked_players_svc.len)
+			if(bypass_noncommand_ping_requirements || (tracked_players_svc.len < config.ntdad_maximum_noncommand))
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
 					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
 				send_discord_request("service",priority, message, sender, sender_role, stamped)
@@ -374,7 +426,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if("medical", "medical department","medbay","virology")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Medical.")
-			if(!tracked_players_med.len)
+			if(bypass_noncommand_ping_requirements || (tracked_players_med.len < config.ntdad_maximum_noncommand))
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
 					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
 				send_discord_request("medical",priority, message, sender, sender_role, stamped)
@@ -384,7 +436,7 @@ SUBSYSTEM_DEF(dispatcher)
 		if("command", "bridge")
 			if(DEBUGLEVEL_VERBOSE <= debug_level)
 				log_debug("DISPATCHER: Request sent to Command.")
-			if(!tracked_players_cmd.len)
+			if(bypass_command_ping_requirements || (tracked_players_cmd.len < config.ntdad_maximum_command))
 				if(DEBUGLEVEL_VERBOSE <= debug_level)
 					log_debug("DISPATCHER: No players in [department], calling send_discord_request...")
 				send_discord_request("command",priority, message, sender, sender_role, stamped)
@@ -487,6 +539,10 @@ SUBSYSTEM_DEF(dispatcher)
 	msg += "R [tracked_players_chr.len] | "		//Church ("Religion")
 	msg += "? [tracked_players_svc.len]"		//Other
 	msg += "}"
+	if(flush_in_progress)
+		msg += " FLUSHING"
+	if(update_in_progress)
+		msg += " AUTO-UPDATING"
 	..(msg.Join())
 
 	//sample T:28{C 6|E 3|S 4|M 4|N 5|U 5|R 0|? 12}

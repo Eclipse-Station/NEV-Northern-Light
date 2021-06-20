@@ -353,7 +353,7 @@ var/bomb_set
 		else if(off_station == 2)
 			to_chat(world, "<b>A nuclear device was set off, but the device was not on the ship!</b>")
 		else
-			to_chat(world, "<b>The ship was destoyed by the nuclear blast!</b>")
+			to_chat(world, "<b>The ship was destroyed by the nuclear blast!</b>")
 
 		SSticker.ship_was_nuked = (off_station<2)	//offstation==1 is a draw. the station becomes irradiated and needs to be evacuated.
 														//kinda shit but I couldn't  get permission to do what I wanted to do.

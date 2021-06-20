@@ -277,6 +277,7 @@
 	return 0
 
 /obj/machinery/alarm/on_update_icon()
+	cut_overlays()		//Eclipse edit: Add it up here too for redundancy.
 	if(wiresexposed)
 		switch(buildstage)
 			if(2)
@@ -326,6 +327,10 @@
 	update_lighting_overlay_sprite(src, icon_level, dir)
 	
 /obj/machinery/alarm/proc/update_lighting_overlay_sprite(var/obj/__source, var/alarm_state, direction)		//Updates the above-lighting-plane sprite.
+	cut_overlays()	//clear out overlays we may have (which we shouldn't have any because this is the air alarm, not the fire alarm)
+	
+	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)		//If we're broken, don't add the overlay.
+		return
 
 //The overlay sprites didn't have dirs, so I had to copy them to modular and fix that up
 	var/overlay_icon = 'zzz_modular_eclipse/air_alarm_overlays/overlays.dmi'
@@ -345,7 +350,6 @@
 	screen_overlay.dir = direction
 	screen_overlay.alpha = 128		//50% opacity
 	
-	overlays.Cut()	//clear out overlays we may have (which we shouldn't have any because this is the air alarm, not the fire alarm)
 	overlays += screen_overlay		//add in the screen overlay.
 	
 	// // // END ECLIPSE EDITS // // //
