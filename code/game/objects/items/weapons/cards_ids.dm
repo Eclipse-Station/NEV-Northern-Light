@@ -295,6 +295,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "id_hop"
 
 /obj/item/weapon/card/id/boff
+	icon = 'zzz_modular_eclipse/bridge_officer_sprites/card.dmi'
 	icon_state = "id_boff"
 
 /obj/item/weapon/card/id/ce
