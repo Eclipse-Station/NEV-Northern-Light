@@ -2836,6 +2836,7 @@
 #include "zzz_modular_eclipse\code\modules\sanity\sanity_mob.dm"
 #include "zzz_modular_eclipse\evac_sign\evacsign.dm"
 #include "zzz_modular_eclipse\gunvendor\gunkits.dm"
+#include "zzz_modular_eclipse\radio_sprites\radio_lockers.dm"
 #include "zzz_modular_eclipse\radio_sprites\radios.dm"
 #include "zzz_modular_eclipse\radio_squelch\radios.dm"
 #include "zzz_modular_eclipse\sawnoff\sawnoff.dm"

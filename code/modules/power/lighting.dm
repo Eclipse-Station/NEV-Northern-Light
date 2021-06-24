@@ -649,7 +649,7 @@
 	if(prob(50/severity))		//50% chance maximum, divided by the severity of the EMP (lower numbers more severe)
 		overload()
 	else						//Just flicker it a few times.
-		flicker(5 - severity)
+		flick_light(5 - severity)
 // // // END ECLIPSE EDITS // // //
 
 /obj/machinery/light/proc/fix()
