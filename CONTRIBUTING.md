@@ -49,6 +49,11 @@ Direct html browse calls: Use NanoUI instead.
 
 Avoid "Cargo Cult Programming", the ritual of things you don't understand. Try your best to understand the function of codeblocks you copy and paste.
 
+# Editing files and sprites for Eclipse
+
+If you edit a file that already exists, please put `//Eclipse Edit - (Reason)` after it to make it easier to screen for conflicts. If you are editing multiple lines, it's acceptable to put `//Begin Eclipse Edit - (Reason)` before and `//End Eclipse Edit` after the parts you edit.
+
+If you make sprite edits, use the `zzz_modular_eclipse/` folder (or alternatively make a file in the icons folder with the suffix `_eclipse.dmi`) and change the `icon` var of the object you're editing sprites for to point to their changed location. Sprites are notoriously difficult to check for merge conflicts, and any edits to sprites in `/icons` are likely to get overwritten if we pull sprites from upstream. Files in modular won't get overwritten if we pull sprites, and files from Eris are very unlikely (though still possible) to have the `_eclipse.dmi` suffix.
 
 # Code style
 Proc defines should contain full type path.
