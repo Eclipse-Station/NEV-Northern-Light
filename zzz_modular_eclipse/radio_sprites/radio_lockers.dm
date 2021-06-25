@@ -1,6 +1,5 @@
 /*
- * Radio closets, which each hold three to six radios. You cannot put mobs in
- * the lockers, because that'd be where the chargers are.
+ * Radio closets, which each hold three to six radios.
  */
  
 /obj/structure/closet/radiocloset
