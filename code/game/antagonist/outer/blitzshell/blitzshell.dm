@@ -5,7 +5,7 @@
 	role_text_plural = "Blitzshells"
 	mob_path = /mob/living/silicon/robot/drone/blitzshell
 	bantype = ROLE_BANTYPE_BLITZ
-	welcome_text = "Manufactured by The Syndicate as an alternative to organic infiltrators, you have been sent to this ship\
+	welcome_text = "Contracted by The Syndicate as an alternative to humanoid infiltrators, you have been sent to this ship\
 by our benefactors to further their goals. Get in, complete as many contracts as you are able to in your\
 uplink, and get out."
 	antaghud_indicator = "hudblitz"

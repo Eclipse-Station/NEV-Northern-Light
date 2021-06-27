@@ -14,7 +14,7 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 80
 	active_power_usage = 3000 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
-	power_channel = ENVIRON
+	power_channel = STATIC_ENVIRON
 	req_one_access = list(access_atmospherics, access_engine_equip)
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not
@@ -78,12 +78,14 @@
 	target_temperature = 90
 
 /obj/machinery/alarm/Destroy()
+	GLOB.alarm_list -= src
 	unregister_radio(src, frequency)
 	qdel(wires)
 	wires = null
 	return ..()
 
 /obj/machinery/alarm/New(loc, dir, building = 0)
+	GLOB.alarm_list += src
 	if(building)
 		if(dir)
 			src.set_dir(dir)
@@ -323,35 +325,35 @@
 	// // // BEGIN ECLIPSE EDITS // // //
 	// Lighting overlays, so the screen actually glows.
 	//Warning: BYOND spaghetti ahead.
-	
+
 	update_lighting_overlay_sprite(src, icon_level, dir)
-	
+
 /obj/machinery/alarm/proc/update_lighting_overlay_sprite(var/obj/__source, var/alarm_state, direction)		//Updates the above-lighting-plane sprite.
 	cut_overlays()	//clear out overlays we may have (which we shouldn't have any because this is the air alarm, not the fire alarm)
-	
+
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)		//If we're broken, don't add the overlay.
 		return
 
 //The overlay sprites didn't have dirs, so I had to copy them to modular and fix that up
 	var/overlay_icon = 'zzz_modular_eclipse/air_alarm_overlays/overlays.dmi'
-	
+
 //send the source to the glow plane so we can get the plane number...
 	__source.set_plane(ABOVE_LIGHTING_PLANE)
-	
+
 //assign the plane number to a var...
 	var/glowplane = __source.plane
-	
+
 //and put it back to the whole bloody thing isn't glowing.
 	__source.set_plane(initial(plane))
-	
+
 	var/image/screen_overlay = image(overlay_icon, "alarm[alarm_state]_overlay")
 	screen_overlay.plane = glowplane
 	screen_overlay.layer = ABOVE_LIGHTING_LAYER
 	screen_overlay.dir = direction
 	screen_overlay.alpha = 128		//50% opacity
-	
+
 	overlays += screen_overlay		//add in the screen overlay.
-	
+
 	// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/alarm/receive_signal(datum/signal/signal)
@@ -981,7 +983,7 @@ FIRE ALARM
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 6
-	power_channel = ENVIRON
+	power_channel = STATIC_ENVIRON
 	var/last_process = 0
 	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
@@ -989,6 +991,7 @@ FIRE ALARM
 	//eclipse added vars
 	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
 	var/last_sound_time = 0			//When did the audible last fire?
+	var/last_hive_check = 0
 
 /obj/machinery/firealarm/on_update_icon()
 	cut_overlays()
@@ -1141,24 +1144,26 @@ FIRE ALARM
 	if(stat & (NOPOWER|BROKEN))
 		return
 
-	if(src.timing)
-		if(src.time > 0)
-			src.time = src.time - ((world.timeofday - last_process)/10)
+	if(timing)
+		if(time > 0)
+			time -= (world.timeofday - last_process)/10
 		else
-			src.alarm()
-			src.time = 0
-			src.timing = 0
+			alarm()
+			time = 0
+			timing = 0
 			STOP_PROCESSING(SSmachines, src)
-		src.updateDialog()
+		updateDialog()
 	last_process = world.timeofday
 
 	if(locate(/obj/fire) in loc)
 		alarm()
-	
-	var/hivemind = check_for_hivemind()		//Eclipse edit: Hivemind stuff interferes with the equipment. That's the handwave I'm using for this balancing change. ^Spitzer
-	if(hivemind)
-		alarm()
-	
+
+	if(world.time - last_hive_check > 150) //Checks every 15 seconds
+		var/hivemind = check_for_hivemind()		//Eclipse edit: Hivemind stuff interferes with the equipment. That's the handwave I'm using for this balancing change. ^Spitzer
+		last_hive_check = world.time
+		if(hivemind)
+			alarm()
+
 	//Eclipse Edit: alarm loops now.
 	var/area/coverage_area = get_area(src)
 	if (coverage_area.fire && (world.time > (last_sound_time + alarm_audible_cooldown)))
@@ -1169,27 +1174,27 @@ FIRE ALARM
 /obj/machinery/firealarm/proc/check_for_hivemind()
 	//First get the number of active players, since that determines range it can see.
 	var/crew = 0		//start it at zero
-	
+
 	for(var/mob/M in GLOB.player_list)
 		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
 			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
 			if(job)
 				crew++
-	
+
 	var/calculated_range = max((7 - crew), 1)
-	
+
 	if(crew > 7)	//Crew is larger than 7, so we won't see anything anyway.
 		return FALSE
-	
+
 	if(locate(/obj/machinery/hivemind_machine) in view(calculated_range, src.loc))		//We saw a hivemind machine.
 		return TRUE
-	
+
 	if(locate(/obj/effect/plant/hivemind) in view(calculated_range, src.loc)) //We see floor wires
 		return TRUE
-		
+
 	//We don't detect anything, so return false so we don't pop an alarm.
 	return FALSE
-	
+
 // // // END ECLIPSE EDITS // // //
 
 /obj/machinery/firealarm/power_change()
@@ -1269,7 +1274,7 @@ FIRE ALARM
 	else
 		to_chat(usr, "Fire Alarm activated.")
 	update_icon()
-	
+
 	// // // BEGIN ECLIPSE EDITS // // //
 	//Fix fire alarms going batshit insane if automatically triggered
 	if (area.fire && (world.time > (last_sound_time + alarm_audible_cooldown)))
@@ -1309,6 +1314,12 @@ FIRE ALARM
 			return
 		playsound(src.loc, 'sound/misc/firealarm.ogg', 40, 0, 5)
 		sleep(4 SECONDS)
+
+	GLOB.firealarm_list += src
+
+/obj/machinery/firealarm/Destroy()
+	GLOB.firealarm_list -= src
+	..()
 
 /*
 FIRE ALARM CIRCUIT
@@ -1418,4 +1429,3 @@ Just a object used in constructing fire alarms
 		var/tp = text2num(href_list["tp"])
 		time += tp
 		time = min(max(round(time), 0), 120)
-

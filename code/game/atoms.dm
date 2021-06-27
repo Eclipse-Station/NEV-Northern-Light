@@ -726,12 +726,6 @@ its easier to just keep the beam vertical.
 		return null
 	return L.AllowDrop() ? L : L.drop_location()
 
-/atom/proc/lava_act()
-	visible_message("<span class='danger'>\The [src] sizzles and melts away, consumed by the lava!</span>")
-	playsound(src, 'sound/effects/flare.ogg', 100, 3)
-	qdel(src)
-	. = TRUE
-
 ///Adds an instance of colour_type to the atom's atom_colours list
 /atom/proc/add_atom_colour(coloration, colour_priority)
 	if(!atom_colours || !atom_colours.len)
@@ -765,3 +759,15 @@ its easier to just keep the beam vertical.
 
 /atom/proc/additional_see_invisible()
 	return 0
+/atom/proc/lava_act()
+	visible_message("<span class='danger'>\The [src] sizzles and melts away, consumed by the lava!</span>")
+	playsound(src, 'sound/effects/flare.ogg', 100, 3)
+	if(ismob(src))
+		var/mob/M = src
+		M.death(FALSE, FALSE)
+	qdel(src)
+	. = TRUE
+
+// Called after we wrench/unwrench this object
+/obj/proc/wrenched_change()
+	return

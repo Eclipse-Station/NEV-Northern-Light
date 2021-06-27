@@ -24,6 +24,7 @@
 	var/megafauna_min_cooldown = 10
 	var/megafauna_max_cooldown = 20
 	vision_range = 15
+	sanity_damage = 0.5
 
 /mob/living/simple_animal/hostile/megafauna/Initialize(mapload)
 	. = ..()

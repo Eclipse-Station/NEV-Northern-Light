@@ -4,11 +4,12 @@
 #define JOBS_SECURITY "Aegis Commander","Gunnery Sergeant","Aegis Inspector","Aegis Operative","Aegis Medical Specialist"
 #define JOBS_COMMAND "Captain","First Officer","Bridge Officer","Aegis Commander","Free Trade Union Merchant","Chief Engineer","Chief Medical Officer","Chief Science Officer"
 #define JOBS_ENGINEERING "Chief Engineer","Ship Engineer"
-#define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Chemist","Paramedic"
-#define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist"
+#define JOBS_LAZARUS "Chief Medical Officer","Medical Doctor","Psychiatrist","Chemist","Paramedic", "Chief Science Officer","Scientist","Roboticist"
 #define JOBS_CARGO "Free Trade Union Merchant","Union Cargo Technician","Union Miner"
 #define JOBS_CIVILIAN "Club Manager","Club Worker",ASSISTANT_TITLE
-#define JOBS_LAZARUS "Lazarus Representive","Geneticist","Research Associate",
+#define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Chemist","Paramedic"
+#define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist"
+#define JOBS_LAZARUS "Chief Medical Officer","Medical Doctor","Psychiatrist","Chemist","Paramedic", "Chief Science Officer","Scientist","Roboticist"
 #define JOBS_CHURCH "Mekhane Preacher","Mekhane Acolyte","Mekhane Custodian","Mekhane Agrolyte",
 #define JOBS_NONHUMAN "AI","Robot","pAI"
 #define CREDITS "&cent;"
@@ -23,6 +24,7 @@
 #define DEPARTMENT_GUILD "Free Trade Union"
 #define DEPARTMENT_CIVILIAN	"Civilian"
 #define DEPARTMENT_CHURCH	"Church"
+#define DEPARTMENT_OFFSHIP "Offship"
 
 //Eclipse Additions for manual whitelist behaviour
 //(refer to /code/game/jobs/job/job_eclipse.dm for manual and explanations)

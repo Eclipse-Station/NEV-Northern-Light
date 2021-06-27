@@ -1,6 +1,6 @@
 #define MERGE_SPAWN_TAGS(first, second) first + ";" + second
 
-#define CHEAP_ITEM_PRICE 800
+#define CHEAP_ITEM_PRICE 400
 
 //guns defines
 #define GUN_CHEAP_PRICE 1700
@@ -548,5 +548,6 @@
 #define SPAWN_MOEBIUS "moebius"
 #define SPAWN_SERBIAN "serbian"
 #define SPAWN_ONESTAR "onestar"
+#define SPAWN_TECHNOMANCER "technomancer"
 
 #define SPAWN_CLOWN "clown"

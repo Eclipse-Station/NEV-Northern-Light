@@ -1,6 +1,6 @@
 //Warning! If you change icon_state or item_state, make sure you change path for sneath as well. icons/obj/sneath.dmi
 /obj/item/weapon/tool/sword/nt
-	name = "NT Shortsword"
+	name = "Shortsword of the Mekhane"
 	desc = "A saint looking sword, made to do God's work."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_shortsword"
@@ -14,7 +14,7 @@
 	matter = list(MATERIAL_BIOMATTER = 25, MATERIAL_STEEL = 5)
 
 /obj/item/weapon/tool/sword/nt/longsword
-	name = "NT Longsword"
+	name = "Longsword of the Mekhane"
 	desc = "A saint looking longsword, recommended by experianced crusaders."
 	icon_state = "nt_longsword"
 	item_state = "nt_longsword"
@@ -26,7 +26,7 @@
 
 
 /obj/item/weapon/tool/knife/dagger/nt
-	name = "NT Dagger"
+	name = "Dagger of the Mekhane"
 	desc = "A saint looking dagger, even God have mercy."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_dagger"
@@ -38,7 +38,7 @@
 	matter = list(MATERIAL_BIOMATTER = 10, MATERIAL_STEEL = 1)
 
 /obj/item/weapon/tool/sword/nt/halberd
-	name = "NT Halberd"
+	name = "Halberd of the Mekhane"
 	desc = "A saint looking halberd, for emergency situation."
 	icon_state = "nt_halberd"
 	item_state = "nt_halberd"
@@ -51,7 +51,7 @@
 	matter = list(MATERIAL_BIOMATTER = 80, MATERIAL_STEEL = 8, MATERIAL_WOOD = 10, MATERIAL_PLASTEEL = 2)
 
 /obj/item/weapon/tool/sword/nt/scourge
-	name = "NT Scourge"
+	name = "Scourge of the Mekhane"
 	desc = "A saint looking scourge, extreme punisment. Can be extended to slice stronger."
 	icon_state = "nt_scourge"
 	item_state = "nt_scourge"
@@ -97,13 +97,13 @@
 	..()
 
 /obj/item/weapon/shield/riot/nt
-	name = "NT Shield"
-	desc = "A saint looking shield, let the God protect you."
+	name = "Shield of the Mekhane"
+	desc = "A saint looking shield, may the Mekhane protect you."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_shield"
 	item_state = "nt_shield"
 	force = WEAPON_FORCE_DANGEROUS
-	armor = list(melee = 20, bullet = 30, energy = 30, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 20, bullet = 20, energy = 20, bomb = 0, bio = 0, rad = 0)
 	matter = list(MATERIAL_BIOMATTER = 25, MATERIAL_STEEL = 5, MATERIAL_PLASTEEL = 2)
 	aspects = list(SANCTIFIED)
 	spawn_blacklisted = TRUE
@@ -115,6 +115,3 @@
 		on_bash(W, user)
 	else
 		..()
-
-/obj/item/weapon/shield/riot/nt/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	return base_block_chance

@@ -3,7 +3,7 @@
 // These abilities are dependent on hardware, they may not be researched. They are not tiered.
 // Destroy Core - Allows the AI to initiate a 15 second countdown that will destroy it's core. Use again to stop countdown.
 // Toggle APU Generator - Allows the AI to toggle it's integrated APU generator.
-// Destroy Station - Allows the AI to initiate station self destruct. Takes 2 minutes, gives warnings to crew. Use again to stop countdown.
+// Destroy Ship - Allows the AI to initiate ship self destruct. Takes 2 minutes, gives warnings to crew. Use again to stop countdown.
 
 
 /datum/game_mode/malfunction/verb/ai_self_destruct()

@@ -163,20 +163,19 @@ var/list/flooring_cache = list()
 		else if (istype(T, /turf/simulated/floor) && !istype(T, /turf/simulated/floor/exoplanet))
 			var/turf/simulated/floor/t = T
 			//If the floor is the same as us,then we're linked,
-			if(t.flooring)
-				if (t.flooring.type == type)
-					is_linked = TRUE
-					/*
-						But there's a caveat. To make atom black/whitelists work correctly, we also need to check that
-						they smooth with us. Ill call this counterchecking for simplicity.
-						This is needed to make both turfs have the correct borders
+			if (t.flooring?.type == type) // Because it can , and will be null
+				is_linked = TRUE
+				/*
+					But there's a caveat. To make atom black/whitelists work correctly, we also need to check that
+					they smooth with us. Ill call this counterchecking for simplicity.
+					This is needed to make both turfs have the correct borders
 
 						To prevent infinite loops we have a countercheck var, which we'll set true
 					*/
 
-					if (smooth_movable_atom != SMOOTH_NONE)
-						//We do the countercheck, passing countercheck as true
-						is_linked = test_link(T, origin, countercheck = TRUE)
+				if(smooth_movable_atom != SMOOTH_NONE)
+					//We do the countercheck, passing countercheck as true
+					is_linked = test_link(T, origin, countercheck = TRUE)
 
 
 
