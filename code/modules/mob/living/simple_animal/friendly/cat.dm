@@ -263,14 +263,14 @@
 	gender = pick(MALE, FEMALE)
 	..()
 
-// Runtime cat
+// Runtime cat, but not like named "Runtime", it's a cat that spawns when runtimes happen, his name is Dusty, actually.
 
 var/cat_cooldown = 20 SECONDS
 var/cat_max_number = 10
 var/cat_teleport = 0.0
 var/cat_number = 0
 
-/mob/living/simple_animal/cat/runtime
+/mob/living/simple_animal/cat/dusty
 	name = "Dusty"
 	desc = "A bluespace denizen that purrs its way into our dimension when the very fabric of reality is teared apart."
 	icon_state = "runtimecat"
@@ -294,7 +294,7 @@ var/cat_number = 0
 
 	var/cat_life_duration = 1 MINUTES
 
-/mob/living/simple_animal/cat/runtime/New(loc)
+/mob/living/simple_animal/cat/dusty/New(loc)
 	..(loc)
 	stats.addPerk(PERK_TERRIBLE_FATE)
 	cat_number += 1
@@ -302,17 +302,17 @@ var/cat_number = 0
 	spawn(cat_life_duration)
 		qdel(src)
 
-/mob/living/simple_animal/cat/runtime/Destroy()
+/mob/living/simple_animal/cat/dusty/Destroy()
 	// We teleport Dusty in the corner of one of the ship zlevel for stylish disparition
 	do_teleport(src, get_turf(locate(1, 1, pick(GLOB.maps_data.station_levels))), 2, 0, null, null, 'sound/effects/teleport.ogg', 'sound/effects/teleport.ogg')
 	cat_number -= 1
 	return ..()
 
-/mob/living/simple_animal/cat/runtime/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/cat/dusty/attackby(var/obj/item/O, var/mob/user)
 	visible_message(SPAN_DANGER("[user]'s [O.name] harmlessly passes through \the [src]."))
 	strike_back(user)
 
-/mob/living/simple_animal/cat/runtime/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/cat/dusty/attack_hand(mob/living/carbon/human/M as mob)
 
 	switch(M.a_intent)
 
@@ -338,10 +338,10 @@ var/cat_number = 0
 			M.do_attack_animation(src)
 			visible_message(SPAN_WARNING("\The [src] hisses."))
 			strike_back(M)
-	
+
 	return
 
-/mob/living/simple_animal/cat/runtime/proc/strike_back(var/mob/target_mob)
+/mob/living/simple_animal/cat/dusty/proc/strike_back(var/mob/target_mob)
 	if(!Adjacent(target_mob))
 		return
 	if(isliving(target_mob))
@@ -357,17 +357,17 @@ var/cat_number = 0
 		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 		return B
 
-/mob/living/simple_animal/cat/runtime/set_flee_target(atom/A)
+/mob/living/simple_animal/cat/dusty/set_flee_target(atom/A)
 	return
 
-/mob/living/simple_animal/cat/runtime/bullet_act(var/obj/item/projectile/proj)
+/mob/living/simple_animal/cat/dusty/bullet_act(var/obj/item/projectile/proj)
 	return PROJECTILE_FORCE_MISS
 
-/mob/living/simple_animal/cat/runtime/ex_act(severity)
+/mob/living/simple_animal/cat/dusty/ex_act(severity)
 	return
 
-/mob/living/simple_animal/cat/runtime/singularity_act()
+/mob/living/simple_animal/cat/dusty/singularity_act()
 	return
 
-/mob/living/simple_animal/cat/runtime/MouseDrop(atom/over_object)
+/mob/living/simple_animal/cat/dusty/MouseDrop(atom/over_object)
 	return
