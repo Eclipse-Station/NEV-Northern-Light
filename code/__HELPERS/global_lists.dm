@@ -26,6 +26,8 @@ GLOBAL_LIST_EMPTY(surgery_steps)					//list of all new organ-based surgery steps
 GLOBAL_LIST_EMPTY(mechas_list)				//list of all mechs. Used by hostile mobs target tracking. Not sure this is used anymore
 GLOBAL_LIST_EMPTY(all_burrows)				//list of all burrows
 GLOBAL_LIST_EMPTY(all_maintshrooms)			//list of all maintshrooms
+GLOBAL_LIST_EMPTY(all_hive_wires)			//list of all hivemind wires
+GLOBAL_LIST_EMPTY(all_hive_machinery)		//list of all hivemind machines
 
 //Machinery lists
 GLOBAL_LIST_EMPTY(alarm_list) //List of fire alarms

@@ -1186,11 +1186,14 @@ FIRE ALARM
 	if(crew > 7)	//Crew is larger than 7, so we won't see anything anyway.
 		return FALSE
 
-	if(locate(/obj/machinery/hivemind_machine) in view(calculated_range, src.loc))		//We saw a hivemind machine.
-		return TRUE
 
-	if(locate(/obj/effect/plant/hivemind) in view(calculated_range, src.loc)) //We see floor wires
-		return TRUE
+	for(var/obj/machinery/hivemind_machine/M in GLOB.all_hive_machinery) 	//We saw a hivemind machine. Yes, this performs better than clusterfuck that is view()
+		if (M.z == src.z && get_dist(src, M) <= calculated_range)
+			return TRUE
+
+	for(var/obj/effect/plant/hivemind/H in GLOB.all_hive_wires) //We see floor wires
+		if (H.z == src.z && get_dist(src, H) <= calculated_range)
+			return TRUE
 
 	//We don't detect anything, so return false so we don't pop an alarm.
 	return FALSE

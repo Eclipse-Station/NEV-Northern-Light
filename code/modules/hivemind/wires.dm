@@ -18,11 +18,13 @@
 	icon = 'icons/obj/hivemind.dmi'
 	spawn(2)
 		update_neighbors()
+	GLOB.all_hive_wires += src
 
 
 /obj/effect/plant/hivemind/Destroy()
 	if(master_node)
 		master_node.my_wireweeds.Remove(src)
+	GLOB.all_hive_wires -= src
 	return ..()
 
 
