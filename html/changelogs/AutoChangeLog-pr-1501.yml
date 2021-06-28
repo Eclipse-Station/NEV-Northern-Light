@@ -1,4 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - bugfix: Returns and modularizes benzin sprite
