@@ -170,8 +170,8 @@ Advanced Voidsuit: Chief Engineer
 Technomancer RIG
 ***************************************/
 /obj/item/weapon/rig/techno
-	name = "technomancer suit control module"
-	suit_type = "technomancer RIG suit"
+	name = "engineering suit control module"
+	suit_type = "engineering RIG suit"
 	desc = "An advanced RIG suit that protects against hazardous, low pressure and high temperature environments."
 	icon_state = "techno_rig"
 	rarity_value = 20

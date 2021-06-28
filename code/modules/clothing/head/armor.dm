@@ -77,7 +77,7 @@
 	flags_inv = BLOCKHEADHAIR|HIDEEARS
 
 /obj/item/clothing/head/armor/helmet/technomancer
-	name = "insulated technomancer helmet"
+	name = "insulated engineering helmet"
 	desc = "A piece of armor used in hostile work conditions to protect the head. Comes with a built-in flashlight."
 	body_parts_covered = HEAD|EARS|EYES|FACE
 	item_flags = THICKMATERIAL

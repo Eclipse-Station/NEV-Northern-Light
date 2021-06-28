@@ -212,7 +212,7 @@
 	)
 
 /obj/item/weapon/computer_hardware/hard_drive/portable/design/nt/explosivegrenades
-	disk_name = "NeoTheology Armory - High Explosives Pack"
+	disk_name = "Mekhane Armory - High Explosives Pack"
 	icon_state = "neotheology"
 	license = 2
 	designs = list(

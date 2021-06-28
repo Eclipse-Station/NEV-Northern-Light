@@ -49,7 +49,7 @@
 
 /obj/item/weapon/gun/projectile/automatic/c20r/moebius
 	name = "C-20M"
-	desc = "The C-20M is a Moebius copy of the famous C-20r, a lightweight and robust bullpup SMG of ancient design. \
+	desc = "The C-20M is a Lazarus copy of the famous C-20r, a lightweight and robust bullpup SMG of ancient design. \
 			Famous as most used SMG by criminal organizations of various sorts. Uses .35 Auto rounds."
 	icon = 'icons/obj/guns/projectile/c20m.dmi'
 	icon_state = "c20r"

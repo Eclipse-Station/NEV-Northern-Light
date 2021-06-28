@@ -153,7 +153,9 @@
 	minbodytemp = 0
 
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
-	health -= 60*severity
+	LoseTarget()
+	apply_damage(50)
+
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")
 	qdel(src)

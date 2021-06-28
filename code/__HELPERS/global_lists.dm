@@ -30,7 +30,7 @@ GLOBAL_LIST_EMPTY(all_hive_wires)			//list of all hivemind wires
 GLOBAL_LIST_EMPTY(all_hive_machinery)		//list of all hivemind machines
 
 //Machinery lists
-GLOBAL_LIST_EMPTY(alarm_list) //List of fire alarms
+GLOBAL_LIST_EMPTY(alarm_list) //List of alarms
 GLOBAL_LIST_EMPTY(ai_status_display_list) //List of AI status displays
 GLOBAL_LIST_EMPTY(apc_list) //List of Area Power Controllers
 GLOBAL_LIST_EMPTY(smes_list) //List of SMES

@@ -436,7 +436,7 @@
 
 /obj/item/weapon/oddity/nt/seal
 	name = "High Inquisitor's Seal"
-	desc = "An honorary badge given to the most devout of NeoTheologian preachers by the High Inquisitor. Such a badge is a rare sight indeed - rumor has it that the badge imbues the holder with the power of the Angels themselves."
+	desc = "An honorary badge given to the most devout of Mekhanite preachers by the Architect. Such a badge is a rare sight indeed - rumor has it that the badge imbues the holder with the power of the Machine itself."
 	icon_state = "nt_seal"
 	oddity_stats = list(
 		STAT_COG = 12,
@@ -465,7 +465,7 @@
 
 /obj/item/weapon/oddity/hivemind/old_pda
 	name = "abnormal pda"
-	desc = "An old Nanotrasen era PDA covered in growths. Is the hive Nanotrasen's creation, or made by something worse?"
+	desc = "An advanced NanoTrasen PDA model covered in off-putting growths. Weren't those planned to be released next quarter?"
 	icon_state = "abnormal_pda"
 	oddity_stats = list(
 		STAT_COG = 8,

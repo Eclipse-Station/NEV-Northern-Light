@@ -428,7 +428,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 //Technomancer armor
 /obj/item/clothing/suit/storage/vest/insulated
-	name = "insulated technomancer armor"
+	name = "insulated engineering armor"
 	desc = "A set of armor insulated against heat and electrical shocks, shielded against radiation, and protected against energy weapon projectiles."
 	icon_state = "armor_engineering"
 	item_state = "armor_engineering"

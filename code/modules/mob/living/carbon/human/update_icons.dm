@@ -557,7 +557,7 @@ var/global/list/damage_icon_parts = list()
 				under_icon = w_uniform.icon_override
 			else
 				under_icon = w_uniform.icon_override_female
-			// Eclipse edit start - Gendered icon_overrides
+			// Eclipse edit end - Gendered icon_overrides
 		else
 			under_icon = get_gender_icon(gender, "uniform")
 

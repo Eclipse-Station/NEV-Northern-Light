@@ -176,8 +176,8 @@
 		T.stop()
 
 /obj/item/weapon/tool/hammer/IH
-	name = "FS \"Ironhammer\" Breaching Hammer"
-	desc = "A modified sledgehammer produced by Frozen Star for Ironhammer forces. This tool can take down standard walls and if the user is strong enough, reinforced walls."
+	name = "FS \"Ironhammer\" Breaching Hammer" //Ironhammer is its name, so I'm gonna leave it
+	desc = "A modified sledgehammer produced by Frozen Star for Aegis forces. This tool can take down standard walls and if the user is strong enough, reinforced walls."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "iron_hammer"
 	item_state = "iron_hammer"
