@@ -1,6 +1,7 @@
 /mob/living/carbon/superior_animal/roach/nitro
 	name = "Benzin Roach"
 	desc = "A monstrous, dog-sized cockroach. This one smells like welding fuel."
+	icon = 'zzz_modular_eclipse/icons/mob/mob.dmi'
 	icon_state = "nitroroach"
 	turns_per_move = 4
 	maxHealth = 5
