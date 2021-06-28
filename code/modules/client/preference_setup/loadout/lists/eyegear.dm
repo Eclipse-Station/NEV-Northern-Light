@@ -32,7 +32,7 @@
 /datum/gear/eyes/sciencegoggles
 	display_name = "Science Goggles"
 	path = /obj/item/clothing/glasses/powered/science
-	allowed_roles = list(JOBS_SCIENCE)
+	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/eyes/security
 	display_name = "Security HUD"
@@ -50,7 +50,7 @@
 /datum/gear/eyes/medical
 	display_name = "Medical HUD"
 	path = /obj/item/clothing/glasses/hud/health
-	allowed_roles = list(JOBS_MEDICAL)
+	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/eyes/shades/fat
 	display_name = "Sunglasses, fat"

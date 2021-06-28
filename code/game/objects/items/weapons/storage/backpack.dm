@@ -364,3 +364,9 @@
 	matter = list(MATERIAL_BIOMATTER = 15, MATERIAL_PLASTIC = 2)
 	equip_access = FALSE
 	rarity_value = 5
+
+/obj/item/weapon/storage/backpack/duffelbag/loot
+	name = "lootbag"
+	icon_state = "lootbag"
+	matter = list(MATERIAL_BIOMATTER = 20, MATERIAL_PLASTIC = 3)
+	rarity_value = 7.5

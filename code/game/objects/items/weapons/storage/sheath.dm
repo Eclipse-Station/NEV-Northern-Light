@@ -1,4 +1,4 @@
-/obj/item/weapon/storage/sheath
+/obj/item/weapon/storage/belt/sheath
 	name = "sheath"
 	desc = "Made to store a sword."
 	icon = 'icons/obj/sheath.dmi'
@@ -16,14 +16,15 @@
 		/obj/item/weapon/tool/sword/nt,
 		/obj/item/weapon/tool/sword/nt_sword,
 		/obj/item/weapon/tool/sword/katana,
-		/obj/item/weapon/tool/sword
+		/obj/item/weapon/tool/sword,
+		/obj/item/weapon/tool/sword/saber
 		)
 	cant_hold = list(
 		/obj/item/weapon/tool/knife/dagger/nt,
 		/obj/item/weapon/tool/sword/katana/nano,
 		/obj/item/weapon/tool/sword/nt/halberd
 		)
-/obj/item/weapon/storage/sheath/attack_hand(mob/living/carbon/human/user)
+/obj/item/weapon/storage/belt/sheath/attack_hand(mob/living/carbon/human/user)
 	if(contents.len && (src in user))
 		var/obj/item/I = contents[contents.len]
 		if(istype(I))
@@ -35,7 +36,7 @@
 	else
 		..()
 
-/obj/item/weapon/storage/sheath/on_update_icon()
+/obj/item/weapon/storage/belt/sheath/on_update_icon()
 	var/icon_to_set
 	for(var/obj/item/weapon/tool/sword/SW in contents)
 		icon_to_set = SW.icon_state

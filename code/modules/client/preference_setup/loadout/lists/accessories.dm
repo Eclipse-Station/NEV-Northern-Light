@@ -47,7 +47,7 @@
 /datum/gear/accessory/emt
 	display_name = "armband, EMT"
 	path = /obj/item/clothing/accessory/armband/medgreen
-	allowed_roles = list(JOBS_MEDICAL)
+	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/accessory/engineering
 	display_name = "armband, engineering"
@@ -61,18 +61,17 @@
 /datum/gear/accessory/medical
 	display_name = "armband, medical"
 	path = /obj/item/clothing/accessory/armband/med
-	allowed_roles = list(JOBS_MEDICAL)
+	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/accessory/science
 	display_name = "armband, science"
 	path = /obj/item/clothing/accessory/armband/science
-	allowed_roles = list(JOBS_SCIENCE)
+	allowed_roles = list(JOBS_LAZARUS)
 
-/datum/gear/accessory/holster/
-	display_name = "holster selection"
-	path = /obj/item/clothing/accessory/holster
-	slot = slot_wear_mask
-	flags = GEAR_HAS_TYPE_SELECTION
+/datum/gear/accessory/holster
+	display_name = "holster"
+	path = /obj/item/clothing/accessory/holster/armpit
+	cost = 3
 
 /datum/gear/accessory/tie/blue
 	display_name = "tie, blue"
@@ -110,7 +109,7 @@
 /datum/gear/accessory/stethoscope
 	display_name = "stethoscope"
 	path = /obj/item/clothing/accessory/stethoscope
-	allowed_roles = list (JOBS_MEDICAL)
+	allowed_roles = list (JOBS_LAZARUS)
 
 /datum/gear/accessory/medal
 	display_name = "bronze medal"
@@ -143,7 +142,7 @@
 /datum/gear/accessory/medal/nobel
 	display_name = "nobel sciences award"
 	path = /obj/item/clothing/accessory/medal/nobel_science
-	allowed_roles = list(JOBS_SCIENCE, JOBS_ENGINEERING)
+	allowed_roles = list(JOBS_LAZARUS, JOBS_ENGINEERING)
 
 /datum/gear/accessory/medal/captain
 	display_name = "medal of captaincy"

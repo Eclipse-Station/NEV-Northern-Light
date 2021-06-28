@@ -33,17 +33,9 @@
 
 //HOP
 /obj/item/clothing/head/caphat/hop
-	name = "crew resource's hat"
+	name = "first officer's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
-	spawn_blacklisted = TRUE
-
-//Bridge Officer
-/obj/item/clothing/head/beret/boff
-	name = "bridge officer's beret"
-	desc = "A beret worn by bridge officers."
-	icon_state = "beret_bridge_off"
-	body_parts_covered = 0
 	spawn_blacklisted = TRUE
 
 //Chaplain

@@ -39,7 +39,7 @@
 			/obj/item/weapon/tool/omnitool,
 			/obj/structure/reagent_dispensers/fueltank,
 			/obj/machinery/floodlight,
-			/obj/spawner/lathe_disk
+			/obj/item/weapon/storage/deferred/disks
 		)
 	)
 

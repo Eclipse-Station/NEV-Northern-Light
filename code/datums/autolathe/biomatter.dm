@@ -1,6 +1,7 @@
 /datum/design/bioprinter
 	build_type = BIOPRINTER
 	materials = list(MATERIAL_BIOMATTER = 6)
+	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/bioprinter/meat
 	name = "Meat"
@@ -213,7 +214,7 @@
 //[MISC]
 /datum/design/bioprinter/storage/sheath
 	name = "sheath"
-	build_path = /obj/item/weapon/storage/sheath
+	build_path = /obj/item/weapon/storage/belt/sheath
 
 /datum/design/bioprinter/leather/cash_bag
 	name = "Cash Bag"
@@ -224,17 +225,22 @@
 	build_path = /obj/item/weapon/holyvacuum
 
 //[/THINGS]
+/datum/design/autolathe/nt
+	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/autolathe/firstaid/nt
 	name = "Mekhane Medkit"
 	build_path = /obj/item/weapon/storage/firstaid/nt
+	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/autolathe/excruciator
 	name = "NanoTrasen \"EXCRUCIATOR\" giga lens"
 	build_path = /obj/item/weapon/gun_upgrade/barrel/excruciator
+	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/autolathe/cruciform_upgrade
 	build_path = /obj/item/weapon/cruciform_upgrade
+	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/autolathe/cruciform_upgrade/natures_blessing
 	name = "Natures blessing"
@@ -261,66 +267,67 @@
 	build_path = /obj/item/weapon/cruciform_upgrade/speed_of_the_chosen
 
 //[MELEE]
-/datum/design/autolathe/sword/nt_sword
+/datum/design/autolathe/nt/sword/nt_sword
 
 	name = "Mekhane Shortsword"
 	build_path = /obj/item/weapon/tool/sword/nt
 
-/datum/design/autolathe/sword/nt_longsword
+/datum/design/autolathe/nt/sword/nt_longsword
 	name = "Mekhane Longsword"
 	build_path = /obj/item/weapon/tool/sword/nt/longsword
 
-/datum/design/autolathe/sword/nt_dagger
+/datum/design/autolathe/nt/sword/nt_dagger
 	name = "Mekhane Dagger"
 	build_path = /obj/item/weapon/tool/knife/dagger/nt
 
-/datum/design/autolathe/sword/nt_halberd
+/datum/design/autolathe/nt/sword/nt_halberd
 	name = "Mekhane Halberd"
 	build_path = /obj/item/weapon/tool/sword/nt/halberd
 
-/datum/design/autolathe/sword/nt_scourge
+/datum/design/autolathe/nt/sword/nt_scourge
 	name = "Mekhane Scourge"
 	build_path = /obj/item/weapon/tool/sword/nt/scourge
 
-/datum/design/autolathe/shield/nt_shield
+/datum/design/autolathe/nt/shield/nt_shield
 	name = "Mekhane Shield"
 
 	build_path = /obj/item/weapon/shield/riot/nt
 
-/datum/design/autolathe/tool_upgrade/sanctifier
+/datum/design/autolathe/nt/tool_upgrade/sanctifier
 	name = "Sanctifier"
 	build_path = /obj/item/weapon/tool_upgrade/augment/sanctifier
 
 //[GRENADES]
-/datum/design/autolathe/grenade/nt_smokebomb
+/datum/design/autolathe/nt/grenade/nt_smokebomb
 	name = "MA SG \"Holy Fog\""
 	build_path = /obj/item/weapon/grenade/smokebomb/nt
 
-/datum/design/autolathe/grenade/nt_frag
+/datum/design/autolathe/nt/grenade/nt_frag
 	name = "MA DFG \"Holy Thunder\""
 	build_path = /obj/item/weapon/grenade/frag/nt
 
-/datum/design/autolathe/grenade/nt_flashbang
+/datum/design/autolathe/nt/grenade/nt_flashbang
 	name = "MA FBG \"Holy Light\""
 	build_path = /obj/item/weapon/grenade/flashbang/nt
 
-/datum/design/autolathe/grenade/nt_explosive
+/datum/design/autolathe/nt/grenade/nt_explosive
 	name = "MA OBG \"Holy Grail\""
 
 	build_path = /obj/item/weapon/grenade/explosive/nt
 
 //[CRUSADE]
-/datum/design/autolathe/armor/crusader
+/datum/design/autolathe/nt/armor/crusader
 	name = "Crusader Armour"
 	build_path = /obj/item/clothing/suit/armor/crusader
 
-/datum/design/autolathe/helmet/crusader
+/datum/design/autolathe/nt/helmet/crusader
 	name = "Crusader Helmet"
 	build_path = /obj/item/clothing/head/armor/helmet/crusader
 
 /datum/design/autolathe/clothing/NTvoid
 	name = "neotheology voidsuit"
 	build_path = /obj/item/clothing/suit/space/void/NTvoid
+	factions = list(FACTION_NEOTHEOLOGY)
 
 //[MED]
 /datum/design/bioprinter/medical

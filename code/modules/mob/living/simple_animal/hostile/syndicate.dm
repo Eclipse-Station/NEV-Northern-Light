@@ -135,10 +135,10 @@
 	icon = 'icons/mob/critter.dmi'
 	icon_state = "viscerator_attack"
 	pass_flags = PASSTABLE
-	health = 15
-	maxHealth = 15
-	melee_damage_lower = 15
-	melee_damage_upper = 15
+	health = 50
+	maxHealth = 50
+	melee_damage_lower = 20
+	melee_damage_upper = 20
 	attacktext = "cut"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	faction = "syndicate"
@@ -151,6 +151,10 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
+
+/mob/living/simple_animal/hostile/viscerator/emp_act(severity)
+	LoseTarget()
+	apply_damage(50)
 
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")

@@ -22,6 +22,7 @@ var/list/default_material_composition = list(MATERIAL_STEEL = 0, MATERIAL_GLASS 
 	have_disk = FALSE
 	have_recycling = FALSE
 	have_design_selector = FALSE
+	low_quality_print = FALSE
 
 	var/obj/machinery/computer/rdconsole/linked_console
 

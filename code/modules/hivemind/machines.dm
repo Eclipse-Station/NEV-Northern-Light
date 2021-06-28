@@ -29,18 +29,22 @@
 	var/time_until_regen = 0
 	var/obj/assimilated_machinery
 	var/obj/item/weapon/electronics/circuitboard/saved_circuit
-	
+
 	//Eclipse-added vars
 	var/regen_speed = REGENERATION_SPEED		//Used in health scaling.
 	var/process_ticks = 0						//Used in determining when to adjust health for players on
 
 /obj/machinery/hivemind_machine/Initialize()
 	. = ..()
+	GLOB.all_hive_machinery += src
 	name_pick()
 	adjust_health()		//Eclipse edit: Adjust maximum health.
 	health = max_health
 	set_light(2, 3, illumination_color)
 
+/obj/machinery/hivemind_machine/Destroy()
+	. = ..()
+	GLOB.all_hive_machinery -= src
 
 /obj/machinery/hivemind_machine/on_update_icon()
 	cut_overlays()
@@ -53,13 +57,13 @@
 // Scale machine health based on number of players.
 /obj/machinery/hivemind_machine/proc/player_check()
 	var/crew = 0		//start it at zero
-	
+
 	for(var/mob/M in GLOB.player_list)
 		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
 			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
 			if(job)
 				crew++
-	
+
 	return crew
 
 /obj/machinery/hivemind_machine/proc/adjust_health()
@@ -67,7 +71,7 @@
 		return
 	var/health_percent = health/max_health		//Get a proportion of maximum health prior to adjusting for player count
 	var/players = player_check()
-	
+
 	switch(players)
 		if(0 to 2)		//Fixed 50% regen speed, 75% health
 			max_health = initial(max_health) * 0.75
@@ -367,6 +371,13 @@
 	wireweeds_required = FALSE
 	//internals
 	var/list/my_wireweeds = list()
+	var/list/reward_item = list(
+		/obj/item/weapon/tool/weldingtool/hivemind,
+		/obj/item/weapon/tool/crowbar/pneumatic/hivemind,
+		/obj/item/weapon/reagent_containers/glass/beaker/hivemind,
+		/obj/item/weapon/oddity/hivemind/old_radio,
+		/obj/item/weapon/oddity/hivemind/old_pda
+		)
 
 
 /obj/machinery/hivemind_machine/node/Initialize()
@@ -399,14 +410,26 @@
 	SDP = new picked_sdp(src)
 	SDP.set_master(src)
 
+/obj/machinery/hivemind_machine/node/proc/gift()
+	if(prob(10))
+		state("leaves behind an item!")
+		var/gift = pick(reward_item)
+		new gift(get_turf(loc))
+
+/obj/machinery/hivemind_machine/node/proc/core()
+	state("leaves behind a weird looking datapad!")
+	var/core = /obj/item/weapon/oddity/hivemind/hive_core
+	new core(get_turf(loc))
 
 /obj/machinery/hivemind_machine/node/Destroy()
+	gift()
 	hive_mind_ai.hives.Remove(src)
 	check_for_other()
+	if(hive_mind_ai == null)
+		core()
 	for(var/obj/effect/plant/hivemind/wire in my_wireweeds)
 		remove_wireweed(wire)
 	return ..()
-
 
 /obj/machinery/hivemind_machine/node/Process()
 	if(!..())

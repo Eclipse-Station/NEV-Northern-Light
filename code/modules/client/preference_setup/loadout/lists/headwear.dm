@@ -21,7 +21,7 @@
 	path = /obj/item/clothing/head/beret/purple
 
 /datum/gear/head/beret/bsec
-	display_name = "beret, navy (officer)"
+	display_name = "beret, navy"
 	path = /obj/item/clothing/head/beret/sec/navy/officer
 	allowed_roles = list("Aegis Operative","Aegis Commander","Aegis Gunnery Sergeant")
 
@@ -191,7 +191,7 @@
 /datum/gear/head/surgery/color_presets
 	display_name = "surgery cap, color presets"
 	path = /obj/item/clothing/head/surgery
-	allowed_roles = list(JOBS_MEDICAL)
+	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/head/surgery/color_presets/New()
 	..()
@@ -205,7 +205,7 @@
 /datum/gear/head/nurse
 	display_name = "nurse's hat"
 	path = /obj/item/clothing/head/nursehat
-	allowed_roles = list(JOBS_MEDICAL)
+	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/head/hastur
 	display_name = "hastur's hood"
