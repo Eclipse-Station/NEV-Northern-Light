@@ -11,6 +11,17 @@
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "tomato"
 
+	// Preliminary code for allowing Superior mobs to be ranged
+	var/ranged = 0
+	var/rapid = 0
+	var/minimum_distance = 1
+	var/fire_verb = "fires"
+	var/projectiletype
+	var/projectilesound
+	var/ranged_cooldown = 0 //What the current cooldown on ranged attacks is, generally world.time + ranged_cooldown_time
+	var/casingtype
+
+
 	var/icon_living
 	var/icon_dead
 	var/icon_rest //resting/unconscious animation

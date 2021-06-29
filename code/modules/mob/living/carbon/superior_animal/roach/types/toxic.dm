@@ -9,6 +9,13 @@
 	health = 45
 
 	contaminant_immunity = TRUE
+	ranged = TRUE
+	rapid = FALSE //Visual Studio screamed at me for trying to use FALSE/TRUE in procs below  -Wouju
+	minimum_distance = 3 //having minimum_distance too high often resulted in the mob trying to melee
+	fire_verb = "globs up some toxic bile" //reminder that the attack message is "\red <b>[src]</b> [fire_verb] at [target]!"
+	projectiletype = /obj/item/projectile/goo/weak //what projectile it uses. Since ranged_cooldown is 2 short seconds, it's better to have a weaker projectile
+	projectilesound = 'sound/effects/blobattack.ogg'
+	ranged_cooldown = 2 SECONDS
 
 	melee_damage_lower = 3
 	melee_damage_upper = 7 //Weaker than hunter
