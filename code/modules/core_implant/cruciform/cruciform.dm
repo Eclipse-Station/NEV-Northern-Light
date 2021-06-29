@@ -84,7 +84,7 @@ var/list/disciples = list()
 	var/observation_points = 200
 	if(!wearer || active)
 		return
-	if(wearer.get_species() != SPECIES_HUMAN || is_carrion(wearer))
+	if(is_carrion(wearer)) //Eclipse edit - pls don't explode furries
 		if(wearer.get_species() == "Monkey")
 			observation_points /= 20
 		playsound(wearer.loc, 'sound/hallucinations/wail.ogg', 55, 1)
