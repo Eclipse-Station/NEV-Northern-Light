@@ -85,7 +85,8 @@
 	loaded_character = S
 
 	var/mob/new_player/np = client.mob
-	if (np) np.new_player_panel_proc()			//Eclipse edit. Automatic refresh for current character.
+	if (istype(np, /mob/new_player))
+		np.new_player_panel_proc()			//Eclipse edit. Automatic refresh for current character.
 
 	return S
 
