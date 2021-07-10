@@ -1,9 +1,0 @@
-author: ExoticJazz
-delete-after: true
-changes:
-  - rscadd: Added paper shredder and miscellaneous paperwork tools to Heads of Staff
-      Meeting Room
-  - rscadd: New V.I.P. Restrooms to accommodate the updated V.I.P. bar.
-  - tweak: Minor changes to furniture in the Heads of Staff Meeting Room.
-  - tweak: Major modifications of the V.I.P. bar.
-  - code_imp: New area designator for the new Bridge room.
