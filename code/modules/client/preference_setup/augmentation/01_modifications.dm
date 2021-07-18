@@ -150,6 +150,10 @@
 	return
 
 /datum/category_item/player_setup_item/augmentation/modifications/OnTopic(var/href, list/href_list, mob/user)
+	if(!pref.check_cooldown())
+		if(isnewplayer(user))
+			to_chat(user, SPAN_WARNING("You're attempting to load your preferences a little too fast. Wait half a second, then try again."))
+		return FALSE
 	if(href_list["organ"])
 		pref.current_organ = href_list["organ"]
 		return TOPIC_REFRESH_UPDATE_PREVIEW

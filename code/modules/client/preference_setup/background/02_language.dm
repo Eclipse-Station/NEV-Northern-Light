@@ -32,6 +32,10 @@
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/background/languages/OnTopic(var/href,var/list/href_list, var/mob/user)
+	if(!pref.check_cooldown())
+		if(isnewplayer(user))
+			to_chat(user, SPAN_WARNING("You're attempting to load your preferences a little too fast. Wait half a second, then try again."))
+		return FALSE
 
 	if(href_list["remove_language"])
 		var/index = text2num(href_list["remove_language"])
