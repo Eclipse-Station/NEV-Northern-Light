@@ -1,0 +1,4 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - rscadd: "QoL: SMES units now have an 'Input Load' meter."
