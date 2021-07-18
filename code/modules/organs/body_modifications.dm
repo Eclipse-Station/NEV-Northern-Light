@@ -227,6 +227,21 @@ var/global/list/modifications_types = list(
 	else
 		return new organ(holder)
 
+/datum/body_modification/organ/none
+	name = "Unmodified organ"
+	id = "nothing"
+	short_name = "Nothing"
+	desc = "Normal organ."
+	body_parts = list(OP_KIDNEY_LEFT, OP_KIDNEY_RIGHT)
+
+/datum/body_modification/organ/none/create_organ(var/mob/living/carbon/holder, var/datum/organ_description/OD, var/color)
+	if(istype(OD))
+		return OD.create_organ(holder,OD)
+	else if(ispath(OD))
+		return new OD(holder)
+	else
+		return null
+
 /datum/body_modification/organ/assisted
 	name = "Assisted organ"
 	short_name = "P: assisted"
