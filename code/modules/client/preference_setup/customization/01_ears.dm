@@ -178,6 +178,10 @@
 			. += "<a href='?src=\ref[src];wing_color=1'>Change Color</a> <font face='fixedsys' size='3' color='#[num2hex(pref.r_wing, 2)][num2hex(pref.g_wing, 2)][num2hex(pref.b_wing, 2)]'><table style='display:inline;' bgcolor='#[num2hex(pref.r_wing, 2)][num2hex(pref.g_wing, 2)][num2hex(pref.b_wing, 2)]'><tr><td>__</td></tr></table> </font><br>"
 
 /datum/category_item/player_setup_item/vore/ears/OnTopic(var/href,var/list/href_list, var/mob/user)
+	if(!pref.check_cooldown())
+		if(isnewplayer(user))
+			to_chat(user, SPAN_WARNING("You're attempting to load your preferences a little too fast. Wait half a second, then try again."))
+		return FALSE
 	if(!CanUseTopic(user))
 		return TOPIC_NOACTION
 
