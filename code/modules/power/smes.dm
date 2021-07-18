@@ -138,6 +138,8 @@
 	return round(5.5*charge/(capacity ? capacity : 5e6))
 
 /obj/machinery/power/smes/proc/input_power(var/percentage)
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Change input power to a variable we can track for use in the NanoUI element
 	input_used = target_load * (percentage/100)
 	input_used = between(0, input_used, target_load)
 	if(terminal && terminal.powernet)
@@ -148,6 +150,7 @@
 		else if(percentage)
 			inputting = 1
 		// else inputting = 0, as set in process()
+	// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/power/smes/Process()
 	if(stat & BROKEN)	return
@@ -176,16 +179,14 @@
 
 	//outputting
 	if(output_attempt && (!output_pulsed && !output_cut) && powernet && charge)
-		output_used = min(charge/SMESRATE, output_level)		//limit output to that stored
+		output_used = min(charge/SMESRATE, output_level)		//limit output to that stored		//Eclipse edit - trim leading whitespace
 		charge -= output_used*SMESRATE		// reduce the storage (may be recovered in /restore() if excessive)
 		add_avail(output_used)				// add output to powernet (smes side)
 		outputting = 2
 	else if(!powernet || !charge)
 		outputting = 1
-		output_used = 0
 	else
 		outputting = 0
-		output_used = 0
 
 // called after all power processes are finished
 // restores charge level to smes if there was excess this ptick
