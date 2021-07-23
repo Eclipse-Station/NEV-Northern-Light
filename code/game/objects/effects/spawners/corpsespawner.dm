@@ -24,6 +24,7 @@
 	var/corpseidjob // Needs to be in quotes, such as "Clown" or "Chef." This just determines what the ID reads as, not their access
 	var/corpseidaccess //This is for access. See access.dm for which jobs give what access. Again, put in quotes. Use "Captain" if you want it to be all access.
 	var/species = SPECIES_HUMAN
+	var/faction
 	var/r_skin = 238					//Skin color
 	var/g_skin = 206					//Skin color
 	var/b_skin = 179					//Skin color
@@ -74,6 +75,9 @@
 	var/datum/job/jobdatum = corpseidjob && SSjob.GetJob(corpseidjob)
 	if(jobdatum)
 		jobdatum.equip(M)
+
+	if(faction)
+		M.faction = faction
 
 	if(src.corpseid)
 		var/datum/job/job_access = jobdatum
@@ -227,6 +231,7 @@
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpseglasses = /obj/item/clothing/glasses/eyepatch
 	corpsehelmet = /obj/item/clothing/head/bandana
+	faction = "pirate"
 
 
 
@@ -234,7 +239,7 @@
 	name = "Pirate Gunner"
 	corpsesuit = /obj/item/clothing/suit/pirate
 	corpsehelmet = /obj/item/clothing/head/pirate
-
+	faction = "pirate"
 
 
 /obj/landmark/corpse/russian
@@ -242,6 +247,8 @@
 	corpseuniform = /obj/item/clothing/under/soviet
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsehelmet = /obj/item/clothing/head/bearpelt
+	faction = "russian"
 
 /obj/landmark/corpse/russian/ranged
 	corpsehelmet = /obj/item/clothing/head/ushanka
+	faction = "russian"
