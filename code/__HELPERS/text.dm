@@ -448,6 +448,7 @@ proc/TextPreview(var/string, var/len=40)
 	t = replacetext(t, "\[ftu\]", "<img src = Ph_trade.png>")
 	t = replacetext(t, "\[engineering\]", "<img src = Ph_engineering.png>")
 	t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
+	t = replacetext(t, "\[mekhane\]", "<img src = Ph_mekhane.png>")
 	t = replacetext(t, "\[editorbr\]", "")
 	return t
 
