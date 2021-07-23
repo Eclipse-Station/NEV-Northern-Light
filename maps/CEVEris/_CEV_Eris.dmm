@@ -44114,6 +44114,10 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/carpet,
 /area/eris/security/inspectors_office)
+"bWq" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/eris/command/courtroom)
 "bWr" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -56339,14 +56343,8 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cyC" = (
-/obj/structure/catwalk,
 /obj/spawner/gun/normal/low_chance,
-/turf/simulated/open,
-/area/eris/maintenance/oldtele)
-"cyD" = (
-/obj/structure/catwalk,
-/obj/spawner/junk/low_chance,
-/turf/simulated/open,
+/turf/simulated/floor/tiled/techmaint,
 /area/eris/maintenance/oldtele)
 "cyE" = (
 /obj/structure/catwalk,
@@ -56598,8 +56596,8 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck2central)
 "czj" = (
-/obj/structure/catwalk,
 /obj/spawner/mob/roaches/cluster/low_chance,
+/obj/structure/catwalk,
 /turf/simulated/open,
 /area/eris/maintenance/oldtele)
 "czk" = (
@@ -68725,6 +68723,12 @@
 	},
 /turf/simulated/floor/tiled/white/violetcorener,
 /area/eris/medical/patients_rooms)
+"dce" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/eris/command/courtroom)
 "dcf" = (
 /obj/machinery/door/airlock/maintenance_common{
 	name = "Service Maintenance";
@@ -213737,13 +213741,13 @@ aaa
 aaa
 abF
 bSo
-bSt
+dce
 bpA
 bUE
 bUh
 bUE
 bUR
-bSt
+bWq
 bSo
 abF
 abF
@@ -253935,7 +253939,7 @@ csc
 csc
 csc
 cyC
-cyE
+ctZ
 cyE
 csc
 abF
@@ -254136,8 +254140,8 @@ ctZ
 cvf
 ctZ
 ctZ
-cyD
-cyE
+cve
+ctZ
 cyE
 csc
 abF
@@ -254338,8 +254342,8 @@ cve
 csc
 csc
 csc
-cyE
-cyE
+ctZ
+ctZ
 czj
 csc
 abF
