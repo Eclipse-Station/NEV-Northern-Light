@@ -77,7 +77,7 @@
 		jobdatum.equip(M)
 
 	if(faction)
-	M.faction = faction
+		M.faction = faction
 
 	if(src.corpseid)
 		var/datum/job/job_access = jobdatum
