@@ -24,6 +24,9 @@
 	var/corpseidjob // Needs to be in quotes, such as "Clown" or "Chef." This just determines what the ID reads as, not their access
 	var/corpseidaccess //This is for access. See access.dm for which jobs give what access. Again, put in quotes. Use "Captain" if you want it to be all access.
 	var/species = SPECIES_HUMAN
+	var/r_skin = 238					//Skin color
+	var/g_skin = 206					//Skin color
+	var/b_skin = 179					//Skin color
 
 /obj/landmark/corpse/Initialize()
 	..()
@@ -35,6 +38,14 @@
 	M.set_species(species)
 	M.real_name = src.name
 	M.death(1) //Kills the new mob
+	M.r_skin = r_skin
+	M.g_skin = g_skin
+	M.b_skin = b_skin
+	M.update_dna()
+	M.force_update_limbs()
+	M.update_body(0)
+	M.update_icons()
+	M.heart_process() //THEY HAVE PULSE WHEN THEY DIE??? - Eclipse edit
 	if(src.corpseuniform)
 		M.equip_to_slot_or_del(new src.corpseuniform(M), slot_w_uniform)
 	if(src.corpsesuit)
