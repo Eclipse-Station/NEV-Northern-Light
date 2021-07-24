@@ -51678,7 +51678,7 @@
 /obj/machinery/mass_driver{
 	_wifi_id = "EJECTCORE";
 	dir = 8;
-	id = null
+	id = "ejectcore"
 	},
 /turf/simulated/floor/reinforced{
 	name = "engine floor";
@@ -51747,7 +51747,7 @@
 /obj/machinery/mass_driver{
 	_wifi_id = "EJECTCORE";
 	dir = 8;
-	id = null
+	id = "ejectcore"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
@@ -62524,7 +62524,7 @@
 /obj/structure/window/basic,
 /obj/machinery/button/remote/driver{
 	_wifi_id = "EJECTCORE";
-	id = null;
+	id = "ejectcore";
 	name = "Emergency Core Eject";
 	pixel_y = 20
 	},
@@ -63271,7 +63271,7 @@
 "cPd" = (
 /obj/machinery/door/blast/regular{
 	_wifi_id = "EJECTCORE";
-	id = null;
+	id = "ejectcore";
 	name = "Reactor Vent"
 	},
 /turf/simulated/floor/reinforced,
