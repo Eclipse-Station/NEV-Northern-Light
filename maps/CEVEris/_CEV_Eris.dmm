@@ -47104,14 +47104,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/hallway/main/section1)
-"cdp" = (
-/obj/machinery/door/airlock/glass_command{
-	name = "Moebius Biolab Officer";
-	req_access = list(40)
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/white/cargo,
-/area/eris/command/mbo)
 "cdq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_common{
@@ -54920,6 +54912,8 @@
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/weapon/paper_bin,
+/obj/item/weapon/stamp/denied,
+/obj/item/weapon/stamp,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/office)
 "cvw" = (
@@ -69869,6 +69863,8 @@
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen/blue,
 /obj/item/weapon/pen/red,
+/obj/item/weapon/stamp,
+/obj/item/weapon/stamp/denied,
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "dev" = (
@@ -209334,7 +209330,7 @@ abF
 cvS
 cvS
 chl
-cdp
+kTP
 chl
 coC
 cHU
