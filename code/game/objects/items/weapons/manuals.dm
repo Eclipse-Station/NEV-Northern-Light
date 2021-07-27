@@ -266,12 +266,12 @@
 
 //security
 /obj/item/weapon/book/manual/wiki/security_ironparagraphs
-	name = "Cobalt Aegis Paragraphs"
+	name = "Aegis Laws"
 	desc = "A set of corporate guidelines for keeping order on privately-owned space assets."
 	icon_state = "book_ironparagraphs"
-	author = "Cobalt Aegis Security"
-	title = "Cobalt Aegis Paragraphs"
-	page_link = "Agreement"
+	author = "Aegis Security"
+	title = "Aegis Laws"
+	page_link = "Laws_Eclipse"
 
 /obj/item/weapon/book/manual/wiki/security_detective
 	name = "The Film Noir: Proper Procedures for Investigations"

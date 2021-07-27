@@ -28,7 +28,7 @@
 	origin_tech = list(TECH_COVERT = 3)
 
 /obj/item/device/encryptionkey/headset_sec
-	name = "cobalt radio encryption key"
+	name = "aegis radio encryption key"
 	icon_state = "sec_cypherkey"
 	channels = list("Security" = 1)
 

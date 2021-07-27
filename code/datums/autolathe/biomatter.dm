@@ -325,7 +325,7 @@
 	build_path = /obj/item/clothing/head/armor/helmet/crusader
 
 /datum/design/autolathe/clothing/NTvoid
-	name = "neotheology voidsuit"
+	name = "Mekhanite Voidsuit"
 	build_path = /obj/item/clothing/suit/space/void/NTvoid
 	factions = list(FACTION_NEOTHEOLOGY)
 

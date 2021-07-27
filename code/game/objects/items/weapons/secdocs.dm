@@ -27,7 +27,7 @@
 				"The Door phenomenon",
 				"Paralell world related mutations",
 				"Mass hallucinations or a breach from another world?",
-				"Cobalt Aegis budget: evidence of S.A.U. overfund",
+				"Aegis Security budget: evidence of S.A.U. overfund",
 				"Real reason of One Star fall",
 				"Connection between One Star and dead alien civilizations, are we next?",
 				"The real secret behind awoo.",
