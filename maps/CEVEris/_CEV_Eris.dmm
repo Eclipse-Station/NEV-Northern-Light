@@ -11397,7 +11397,7 @@
 /obj/machinery/meter,
 /obj/machinery/button/remote/blast_door{
 	id = "Incernator Vent";
-	name = "Incernator Vent";
+	name = "Incinerator Vent";
 	pixel_x = 26;
 	pixel_y = 6;
 	req_access = newlist()
