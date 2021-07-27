@@ -1,5 +1,0 @@
-author: Valanthe500
-delete-after: true
-changes:
-  - bugfix: Fire alarms now give Air Alarm electronics when deconstructed.
-  - spellcheck: fixed a typo on the vent control button in the Incinerator.
