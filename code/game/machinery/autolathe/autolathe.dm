@@ -817,6 +817,7 @@
 		current_file = queue[1]
 		print_pre()
 		working = TRUE
+		RefreshParts()
 		queue.Cut(1, 2) // Cut queue[1]
 	else
 		working = FALSE
@@ -908,8 +909,8 @@
 	speed = initial(speed) + man_rating + las_rating
 	mat_efficiency = max(0.2, 1 - (man_rating * 0.1))
 
-
-
+	if (man_rating > 2)
+		low_quality_print = FALSE
 
 //Cancels the current construction
 /obj/machinery/autolathe/proc/abort()

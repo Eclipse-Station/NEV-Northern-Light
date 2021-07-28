@@ -21,7 +21,7 @@
 		var/obj/item/I = parent
 		I.armor = getArmor(arglist(armor))
 	O.update_icon()
-	QDEL_NULL(src)
+	qdel(src)
 
 //Defined at atom level for convenience, not currently used for mobs and turfs, but there are possible applications
 /obj/proc/make_young()
@@ -95,7 +95,7 @@
 		for(var/i = 1 to del_count)
 			var/removed_item = pick(contents)
 			contents -= removed_item
-			QDEL_NULL(removed_item)
+			qdel(removed_item)
 
 		if(storage_slots && prob(75))
 			storage_slots = max(contents.len, max(0, storage_slots - pick(2, 2, 2, 3, 3, 4)))
@@ -144,14 +144,14 @@
 	return
 
 /obj/item/ammo_magazine/make_old(low_quality_oldification)
-	var/del_count = rand(0, stored_ammo.len)
-	if(low_quality_oldification)
+	var/del_count = rand(0,contents.len)
+	if(!low_quality_oldification)
 		del_count = rand(0, contents.len / 2)
 
-	for(var/i = 1 to del_count)
-		var/removed_item = pick(stored_ammo)
-		stored_ammo -= removed_item
-		QDEL_NULL(removed_item)
+		for(var/i = 1 to del_count)
+			var/removed_item = pick(stored_ammo)
+			stored_ammo -= removed_item
+			qdel(removed_item)
 	..()
 
 /obj/item/weapon/cell/make_old(low_quality_oldification)
@@ -206,7 +206,7 @@
 		brokenmodule.name = src.name
 		brokenmodule.desc = src.desc
 		brokenmodule.make_old(low_quality_oldification)
-		QDEL_NULL(src)
+		qdel(src)
 	else
 		.=..()
 
@@ -261,7 +261,7 @@
 	IonStorm(0)
 	explosion(sender.loc, 1, 1, 1, 3)
 	sender.drop_from_inventory(src)
-	QDEL_NULL(src)
+	qdel(src)
 
 /obj/item/weapon/dnainjector/make_old(low_quality_oldification)
 	.=..()
@@ -284,7 +284,7 @@
 		brokenhud.icon_state = src.icon_state
 		brokenhud.item_state = src.item_state
 		brokenhud.make_old(low_quality_oldification)
-		QDEL_NULL(src)
+		qdel(src)
 	else
 		.=..()
 
@@ -368,11 +368,11 @@
 
 /obj/item/weapon/gun/make_old(low_quality_oldification)
 	.=..()
-	if(. && prob(90))
+	if(. && prob(60))
 		var/list/trash_mods = TRASH_GUNMODS
 		while(trash_mods.len)
 			var/trash_mod_path = pick_n_take(trash_mods)
 			var/obj/item/trash_mod = new trash_mod_path
 			if(SEND_SIGNAL(trash_mod, COMSIG_IATTACK, src, null))
 				break
-			QDEL_NULL(trash_mod)
+			qdel(trash_mod)
