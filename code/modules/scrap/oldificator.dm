@@ -144,7 +144,7 @@
 	return
 
 /obj/item/ammo_magazine/make_old(low_quality_oldification)
-	var/del_count = rand(0,stored_ammo.len)
+	var/del_count = rand(0, stored_ammo.len)
 	if(!low_quality_oldification)
 		del_count = rand(0, contents.len / 2)
 
