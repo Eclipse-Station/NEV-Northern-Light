@@ -110,7 +110,7 @@
 			return "phoron"
 		if(ATM_N2O)
 			return "sleeping_agent"
-		if(ATM_HCL3)				//Eclipse addition: Trichloramine
+		if(ATM_NCL3)				//Eclipse addition: Trichloramine
 			return "trichloramine"
 		if(ATM_NH2CL)				//Eclipse addition: Monochloramine - not flammable
 			return "monochloramine"

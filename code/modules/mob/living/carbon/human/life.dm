@@ -377,7 +377,7 @@
 	var/safe_toxins_max = 0.2
 	var/SA_para_min = 1
 	var/SA_sleep_min = 5
-	
+
 	//Eclipse added vars
 	var/chloramine_warn_min = 1		//Temporarily the same as nitrous oxide for testing. TODO - SET THIS TO A DECENT VALUE
 	var/chloramine_toxic_min = 5
@@ -473,38 +473,39 @@
 				emote(pick("giggle", "laugh"))
 
 		breath.adjust_gas("sleeping_agent", -breath.gas["sleeping_agent"]/6, update = 0) //update after
-		
+
 	// // // BEGIN ECLIPSE EDITS // // //
 	// Chloramines. Lachrymator agent, surprisingly only mildly toxic.
-	if(breathe_gas["trichloramine"] || breathe_gas["monochloramine"])
+	if(breath.gas["trichloramine"] || breath.gas["monochloramine"])
 		var/chloramine_pp = ((breath.gas["trichloramine"] + breath.gas["monochloramine"]) / breath.total_moles) * breath_pressure
-	
+		var/ratio = ((breath.gas["trichloramine"]+breath.gas["monochloramine"]) * 5)
+
 	//Right. Let's get this party started.
-	
+
 		if(chloramine_pp >= chloramine_warn_min)		//If we're less than or equal to the minimum we care about, forget it.
 			//Go ahead and define the notif variable.
 			var/notif = "Alan, write some dialogue here!"		//Calm down, Gage. If the player sees this, it's not set for some reason.
-			
+
 			if(chloramine_pp >= chloramine_toxic_min)
 				notif = pick("Your eyes sting!","Your throat burns!","You feel very dizzy!","You feel like you're choking!")
-				if(prob(80))
+				if(prob(60))
 					to_chat(src,"<span class='danger'>[notif]</span>")
 				if(prob(20))
 					emote("cough")
 				if(reagents)
 					reagents.add_reagent("toxin", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
-				
+
 			//Not lethal, but makes loud messages.
 			else
 				notif = pick("Your eyes water.","Your throat itches.","You feel a little dizzy.","You feel faint.","You feel short of breath","You feel momentarily confused.")
-				if(prob(40)
+				if(prob(30))
 					to_chat(src, "<span class='warning'>[notif]</span>")
-				
-		if(breathe_gas["trichloramine"])
+
+		if(breath.gas["trichloramine"])
 			breath.adjust_gas("trichloramine", -breath.gas["trichloramine"]/6, update = 0) //update after
-		if(breathe_gas["monochloramine"])
+		if(breath.gas["monochloramine"])
 			breath.adjust_gas("monochloramine", -breath.gas["monochloramine"]/6, update = 0) //update after
-		
+
 	// // // END ECLIPSE EDITS // // //
 
 
