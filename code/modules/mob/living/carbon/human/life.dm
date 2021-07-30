@@ -379,8 +379,8 @@
 	var/SA_sleep_min = 5
 
 	//Eclipse added vars
-	var/chloramine_warn_min = 1		//Temporarily the same as nitrous oxide for testing. TODO - SET THIS TO A DECENT VALUE
-	var/chloramine_toxic_min = 5
+	var/chloramine_warn_min = 0.5		//Temporarily the same as nitrous oxide for testing. TODO - SET THIS TO A DECENT VALUE
+	var/chloramine_toxic_min = 2.5
 
 	var/lung_efficiency = get_organ_efficiency(OP_LUNGS)
 
