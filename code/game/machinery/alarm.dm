@@ -43,7 +43,7 @@
 	var/datum/radio_frequency/radio_connection
 
 	var/list/TLV = list()
-	var/list/trace_gas = list("sleeping_agent","trichloramine","monochloramine") //list of other gases that this air alarm is able to detect		//Eclipse edit: added chloramines
+	var/list/trace_gas = list("sleeping_agent", "trichloramine", "monochloramine") //list of other gases that this air alarm is able to detect		//Eclipse edit: added chloramines
 
 	var/danger_level = 0
 	var/pressure_dangerlevel = 0
@@ -556,6 +556,7 @@
 		environment_data[++environment_data.len] = list("name" = "Oxygen", "value" = environment.gas["oxygen"] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Carbon dioxide", "value" = environment.gas["carbon_dioxide"] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Toxins", "value" = environment.gas["phoron"] / total * 100, "unit" = "%", "danger_level" = phoron_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Other", "value" = (environment.gas["sleeping_agent"] + environment.gas["monochloramine"] + environment.gas["trichloramine"]) / total * 100, "unit" = "%", "danger_level" = other_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Temperature", "value" = environment.temperature, "unit" = "K ([round(environment.temperature - T0C, 0.1)]C)", "danger_level" = temperature_dangerlevel)
 	data["total_danger"] = danger_level
 	data["environment"] = environment_data
