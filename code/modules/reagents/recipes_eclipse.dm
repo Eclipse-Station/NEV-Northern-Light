@@ -1,6 +1,4 @@
 /datum/chemical_reaction/trichloramine
-	name = "Trichloramine"
-	id = "trichloramine"
 	result = "liquid_trichlor"
 	required_reagents = list("ammonia" = 1, "chlorine" = 1)
 	result_amount = 0.4
@@ -40,3 +38,9 @@
 		target_tile.assume_gas("trichloramine", created_volume*4, 150+T0C)	//the remaining 80% of the reagent is turned into hot gas
 //		spawn (0) target_tile.hotspot_expose(150+T0C, 125)		//let's not, for now
 	return
+	
+/datum/chemical_reaction/ausgiftrol
+	result = "ausgiftrol"
+	required_reagents = list("fuel" = 2, "liquid_trichlor" = 5, "radium" = 1)
+	result_amount = 4
+	maximum_temperature = 253
