@@ -145,13 +145,13 @@
 
 /obj/item/ammo_magazine/make_old(low_quality_oldification)
 	var/del_count = rand(0, stored_ammo.len)
-	if(!low_quality_oldification)
+	if(!low_quality_oldification) // Eclipse edit
 		del_count = rand(0, contents.len / 2)
 
-		for(var/i = 1 to del_count)
-			var/removed_item = pick(stored_ammo)
-			stored_ammo -= removed_item
-			QDEL_NULL(removed_item)
+		for(var/i = 1 to del_count) //Indentation Eclipse edit
+			var/removed_item = pick(stored_ammo) //Indentation Eclipse edit
+			stored_ammo -= removed_item //indentation Eclipse edit
+			QDEL_NULL(removed_item) // same as all of the above, Eclipse edit
 	..()
 
 /obj/item/weapon/cell/make_old(low_quality_oldification)
