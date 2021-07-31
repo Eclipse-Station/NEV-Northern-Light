@@ -64,7 +64,7 @@
 	data += "Heads: [heads] "
 	if(debug_mode)
 		data += "<a href='?src=\ref[src];edit_heads=1'>\[EDIT\]</a>"
-	data += "<br>Cobalt Aegis Security: [sec] "
+	data += "<br>Aegis Security: [sec] "
 	if(debug_mode)
 		data += "<a href='?src=\ref[src];edit_sec=1'>\[EDIT\]</a>"
 	data += "<br>Engineering: [eng] "

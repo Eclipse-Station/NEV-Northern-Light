@@ -223,13 +223,13 @@
 	 2. Assist others.
 	 3. Repair structural problems.
 
-	\[b\]Cobalt Commander\[/b\] 4>5-2-2
-	People assigned as Ironhammer Commander should issue orders to the security staff. They should also carefully moderate the usage of all security equipment. All security matters should be reported to this person.
+	\[b\]Aegis Commander\[/b\] 4>5-2-2
+	People assigned as Commander should issue orders to the security staff. They should also carefully moderate the usage of all security equipment. All security matters should be reported to this person.
 	 1. Oversee security.
 	 2. Assign patrol duties.
 	 3. Protect the station and staff.
 
-	\[b\]Head of Personnel\[/b\] 4>4-2-2
+	\[b\]First Officer\[/b\] 4>4-2-2
 	People assigned as First Officer will find themselves moderating all actions done by personnel. Also they have the ability to assign jobs and access levels.
 	 1. Assign duties.
 	 2. Moderate personnel.

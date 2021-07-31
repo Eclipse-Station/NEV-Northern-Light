@@ -28,14 +28,14 @@
 	body_parts_covered = NONE
 
 /obj/item/clothing/under/rank/security
-	name = "Cobalt Operative jumpsuit"
+	name = "Aegis Operative jumpsuit"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
 	icon_state = "security"
 	item_state = "ba_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/security/skirt
-	name = "Cobalt Operative jumpskirt"
+	name = "Aegis Operative jumpskirt"
 	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for robust protection."
 	icon_state = "security_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -105,19 +105,19 @@
  */
 /obj/item/clothing/under/rank/ih_commander
 	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Aegis Commander\"."
-	name = "Aegis Cobalt Commander's jumpsuit"
+	name = "Aegis Commander's jumpsuit"
 	icon_state = "hos"
 	item_state = "r_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/ih_commander/skirt
-	name = "Aegis Cobalt Commander's jumpskirt"
+	name = "Aegis Commander's jumpskirt"
 	desc = "It's a jumpskirt worn by those few with the dedication to achieve the position of \"Aegis Commander\"."
 	icon_state = "hos_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/head/HoS
-	name = "Aegis Cobalt Commander Hat"
+	name = "Aegis Commander Hat"
 	desc = "The hat of the Aegis Commander. For showing the officers who's in charge."
 	icon_state = "hoshat"
 	body_parts_covered = NONE
@@ -127,7 +127,7 @@
  * Navy uniforms
  */
 /obj/item/clothing/under/rank/cadet
-	name = "Cobalt Cadet jumpskirt"
+	name = "Aegis Cadet jumpskirt"
 	desc = "It's a sailor's uniform used for cadets in training, though more frequently in acts of hazing."
 	icon_state = "cadet"
 	item_state = "cadet"

@@ -51,7 +51,7 @@
 	name = "Preacher's locker"
 
 /obj/structure/closet/secure_closet/reinforced/hos
-	name = "Cobalt Commander locker"
+	name = "Aegis Commander locker"
 	req_access = list(access_hos)
 	icon_state = "hos"
 
@@ -115,7 +115,7 @@
 	new /obj/item/clothing/suit/storage/vest(src)
 	new /obj/item/weapon/stamp/gs(src)
 /obj/structure/closet/secure_closet/personal/security
-	name = "Cobalt Operative locker"
+	name = "Aegis Operative locker"
 	req_access = list(access_hos)
 	access_occupy = list(access_brig)
 	icon_state = "sec"
@@ -141,7 +141,7 @@
 	new /obj/item/weapon/storage/ration_pack/ihr(src)
 
 /obj/structure/closet/secure_closet/medspec
-	name = "Cobalt Medical Specialist locker"
+	name = "Aegis Medical Specialist locker"
 	req_access = list(access_medspec)
 	icon_state = "sec"
 
@@ -162,7 +162,7 @@
 	new /obj/item/weapon/storage/briefcase/crimekit(src)
 
 /obj/structure/closet/secure_closet/detective
-	name = "Cobalt Inspector locker"
+	name = "Aegis Inspector locker"
 	req_access = list(access_forensics_lockers)
 	icon_state = "cabinetdetective"
 
