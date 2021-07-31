@@ -379,8 +379,8 @@
 	var/SA_sleep_min = 5
 
 	//Eclipse added vars
-	var/chloramine_warn_min = 0.5		//Temporarily the same as nitrous oxide for testing. TODO - SET THIS TO A DECENT VALUE
-	var/chloramine_toxic_min = 2.5
+	var/chloramine_warn_min = 0.4		//Temporarily the same as nitrous oxide for testing. TODO - SET THIS TO A DECENT VALUE
+	var/chloramine_toxic_min = 2
 
 	var/lung_efficiency = get_organ_efficiency(OP_LUNGS)
 
@@ -497,7 +497,7 @@
 
 			//Not lethal, but makes loud messages.
 			else
-				notif = pick("Your eyes water.","Your throat itches.","You feel a little dizzy.","You feel faint.","You feel short of breath","You feel momentarily confused.")
+				notif = pick("Your eyes water.","Your throat itches.","You feel a little dizzy.","You feel faint.","You feel short of breath.","You feel momentarily confused.")
 				if(prob(30))
 					to_chat(src, "<span class='warning'>[notif]</span>")
 
