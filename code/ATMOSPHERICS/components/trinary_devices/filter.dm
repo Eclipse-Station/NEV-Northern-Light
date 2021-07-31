@@ -51,9 +51,9 @@
 			filtered_out = list("carbon_dioxide")
 		if(4)//removing N2O
 			filtered_out = list("sleeping_agent")
-		if(5)
+		if(5)	//Eclipse edit: Removing trichloramine
 			filtered_out = list("trichloramine")
-		if(6)
+		if(6)	//Eclipse edit: Removing monochloramine
 			filtered_out = list("monochloramine")
 
 	air1.volume = ATMOS_DEFAULT_VOLUME_FILTER
@@ -226,9 +226,9 @@
 				filtered_out += "carbon_dioxide"
 			if(4)//removing N2O
 				filtered_out += "sleeping_agent"
-			if(5)
+			if(5)		//Eclipse edit: Removing trichloramine
 				filtered_out += "trichloramine"
-			if(6)
+			if(6)		//Eclipse edit: Removing monochloramine.
 				filtered_out += "monochloramine"
 
 	if (href_list["temp"])

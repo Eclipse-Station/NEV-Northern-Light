@@ -8,17 +8,17 @@
 	strength = 8			//NFPA 704, 2 on the blue.
 	
 /datum/reagent/toxin/trichloramine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	/*								//Not implemented, it's just toxic.
+	/*						//NOT YET IMPLEMENTED - Will be implemented if Vox are ported.
 	switch(alien)
 		if(IS_VOX)
 			M.heal_organ_damage(0.2 * removed, 0.2 * removed)		//very, very small healing effect.
 		if(IS_SLIME)
 			M.heal_organ_damage(0.4 * removed, 0.4 * removed)		//prommies get a little bit more of a healing effect
 		else */
-	M.take_organ_damage(0, removed * 0.1) //minor chemical burns; it is a skin irritant
+	M.take_organ_damage(0, removed * 0.2) //minor chemical burns; it is a skin irritant
 
 
-/* 			//Not implemented, it's just toxic.
+/* 			//NOT YET IMPLEMENTED - Will be implemented if Vox are ported.
 /datum/reagent/toxin/trichloramine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 
 	if(alien == IS_VOX)		//shitbirds heal from this crap. Somehow. Don't ask me I'm not a chemist.

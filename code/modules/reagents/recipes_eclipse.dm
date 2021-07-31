@@ -26,17 +26,12 @@
 			var/mob/living/L = holder.my_atom
 			if(L.stat != DEAD)
 				e.amount *= 0.5
-	/* //Removing this, as we actually do want the resulting liquid to be there.
-		else
-			holder.clear_reagents() //No more powergaming by creating a tiny amount of this
-	*/
 		e.start()
 
 	//create toxic death cloud
 	var/turf/location = get_turf(holder.my_atom.loc)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
 		target_tile.assume_gas("trichloramine", created_volume*4, PHORON_MINIMUM_BURN_TEMPERATURE - 25)	//the remaining 80% of the reagent is turned into hot gas
-//		spawn (0) target_tile.hotspot_expose(150+T0C, 125)		//let's not, for now
 	return
 
 /datum/chemical_reaction/ausgiftrol
