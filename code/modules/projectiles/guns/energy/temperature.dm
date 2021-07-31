@@ -15,69 +15,73 @@
 	price_tag = 1500
 	projectile_type = /obj/item/projectile/temp
 	zoom_factor = 2
+//Eclipse Edit - Addition of a firing mode, multiline comment out
+	init_firemodes = list(
+		list(mode_name="Freeze", projectile_type=/obj/item/projectile/temp , charge_cost=300),
+		list(mode_name="Heat", projectile_type=/obj/item/projectile/temp/hot , charge_cost=200),
+	)
+
+///obj/item/weapon/gun/energy/temperature/Initialize()
+//	. = ..()
+//	START_PROCESSING(SSobj, src)
+//
+//
+///obj/item/weapon/gun/energy/temperature/Destroy()
+//	STOP_PROCESSING(SSobj, src)
+//	. = ..()
+//
+//
+///obj/item/weapon/gun/energy/temperature/attack_self(mob/living/user as mob)
+//	user.set_machine(src)
+//	var/temp_text = ""
+//	if(temperature > (T0C - 50))
+//		temp_text = "<FONT color=black>[temperature] ([round(temperature-T0C)]&deg;C) ([round(temperature*1.8-459.67)]&deg;F)</FONT>"
+//	else
+//		temp_text = "<FONT color=blue>[temperature] ([round(temperature-T0C)]&deg;C) ([round(temperature*1.8-459.67)]&deg;F)</FONT>"
+//
+//	var/dat = {"<B>Freeze Gun Configuration: </B><BR>
+//	Current output temperature: [temp_text]<BR>
+//	Target output temperature: <A href='?src=\ref[src];temp=-100'>-</A> <A href='?src=\ref[src];temp=-10'>-</A> <A href='?src=\ref[src];temp=-1'>-</A> [current_temperature] <A href='?src=\ref[src];temp=1'>+</A> <A href='?src=\ref[src];temp=10'>+</A> <A href='?src=\ref[src];temp=100'>+</A><BR>
+//	"}
+//
+//	user << browse(dat, "window=freezegun;size=450x300;can_resize=1;can_close=1;can_minimize=1")
+//	onclose(user, "window=freezegun", src)
+//
+//
+///obj/item/weapon/gun/energy/temperature/Topic(href, href_list)
+//	if (..())
+//		return 1
+//	usr.set_machine(src)
+//	src.add_fingerprint(usr)
 
 
-/obj/item/weapon/gun/energy/temperature/Initialize()
-	. = ..()
-	START_PROCESSING(SSobj, src)
+
+//	if(href_list["temp"])
+//		var/amount = text2num(href_list["temp"])
+//		if(amount > 0)
+//			src.current_temperature = min(500, src.current_temperature+amount)
+//		else
+//			src.current_temperature = max(0, src.current_temperature+amount)
+//	if (ismob(loc))
+//		attack_self(loc)
+//	src.add_fingerprint(usr)
+//	return
 
 
-/obj/item/weapon/gun/energy/temperature/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	. = ..()
+///obj/item/weapon/gun/energy/temperature/Process()
+//	switch(temperature)
+//		if(0 to 100) charge_cost = 1000
+//		if(100 to 250) charge_cost = 500
+//		if(251 to 300) charge_cost = 100
+//		if(301 to 400) charge_cost = 500
+//		if(401 to 500) charge_cost = 1000
 
-
-/obj/item/weapon/gun/energy/temperature/attack_self(mob/living/user as mob)
-	user.set_machine(src)
-	var/temp_text = ""
-	if(temperature > (T0C - 50))
-		temp_text = "<FONT color=black>[temperature] ([round(temperature-T0C)]&deg;C) ([round(temperature*1.8-459.67)]&deg;F)</FONT>"
-	else
-		temp_text = "<FONT color=blue>[temperature] ([round(temperature-T0C)]&deg;C) ([round(temperature*1.8-459.67)]&deg;F)</FONT>"
-
-	var/dat = {"<B>Freeze Gun Configuration: </B><BR>
-	Current output temperature: [temp_text]<BR>
-	Target output temperature: <A href='?src=\ref[src];temp=-100'>-</A> <A href='?src=\ref[src];temp=-10'>-</A> <A href='?src=\ref[src];temp=-1'>-</A> [current_temperature] <A href='?src=\ref[src];temp=1'>+</A> <A href='?src=\ref[src];temp=10'>+</A> <A href='?src=\ref[src];temp=100'>+</A><BR>
-	"}
-
-	user << browse(dat, "window=freezegun;size=450x300;can_resize=1;can_close=1;can_minimize=1")
-	onclose(user, "window=freezegun", src)
-
-
-/obj/item/weapon/gun/energy/temperature/Topic(href, href_list)
-	if (..())
-		return 1
-	usr.set_machine(src)
-	src.add_fingerprint(usr)
-
-
-
-	if(href_list["temp"])
-		var/amount = text2num(href_list["temp"])
-		if(amount > 0)
-			src.current_temperature = min(500, src.current_temperature+amount)
-		else
-			src.current_temperature = max(0, src.current_temperature+amount)
-	if (ismob(loc))
-		attack_self(loc)
-	src.add_fingerprint(usr)
-	return
-
-
-/obj/item/weapon/gun/energy/temperature/Process()
-	switch(temperature)
-		if(0 to 100) charge_cost = 1000
-		if(100 to 250) charge_cost = 500
-		if(251 to 300) charge_cost = 100
-		if(301 to 400) charge_cost = 500
-		if(401 to 500) charge_cost = 1000
-
-	if(current_temperature != temperature)
-		var/difference = abs(current_temperature - temperature)
-		if(difference >= 10)
-			if(current_temperature < temperature)
-				temperature -= 10
-			else
-				temperature += 10
-		else
-			temperature = current_temperature
+//	if(current_temperature != temperature)
+//		var/difference = abs(current_temperature - temperature)
+//		if(difference >= 10)
+//			if(current_temperature < temperature)
+//				temperature -= 10
+//			else
+//				temperature += 10
+//		else
+//			temperature = current_temperature

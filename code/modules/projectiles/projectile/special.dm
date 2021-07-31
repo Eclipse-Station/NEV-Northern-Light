@@ -43,7 +43,7 @@
 	damage_types = list(BURN = 0)
 	nodamage = 1
 	check_armour = ARMOR_ENERGY
-	var/temperature = 300
+	var/temperature = -10			//Eclipse Edit
 
 
 /obj/item/projectile/temp/on_hit(atom/target)//These two could likely check temp protection on the mob
@@ -51,6 +51,12 @@
 		var/mob/M = target
 		M.bodytemperature = temperature
 	return TRUE
+
+
+/obj/item/projectile/temp/hot //Eclipse Edit
+	name = "heat beam"
+	icon_state = "heat"
+	temperature = 400
 
 /obj/item/projectile/meteor
 	name = "meteor"
