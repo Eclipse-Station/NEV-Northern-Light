@@ -46,7 +46,7 @@
 					input = P
 				if(ATM_OUTPUT)
 					output = P
-				if(ATM_O2 to ATM_N2O)
+				if(ATM_O2 to ATM_HIGHEST)			//Eclipse edit: futureproofing
 					gas_filters += P
 
 /obj/machinery/atmospherics/omni/filter/error_check()
@@ -120,7 +120,7 @@
 			if(ATM_OUTPUT)
 				output = 1
 				filter = 0
-			if(ATM_O2 to ATM_N2O)
+			if(ATM_O2 to ATM_HIGHEST)		//Eclipse edit: Futureproofing
 				f_type = mode_send_switch(P.mode)
 
 		portData[++portData.len] = list("dir" = dir_name(P.dir, capitalize = 1), \
@@ -149,6 +149,10 @@
 			return "Phoron" //*cough* Phoron *cough*
 		if(ATM_N2O)
 			return "Nitrous Oxide"
+		if(ATM_NCL3)		//Eclipse add
+			return "Trichloramine"
+		if(ATM_NH2CL)		//Eclipse add
+			return "Monochloramine"
 		else
 			return null
 
@@ -175,7 +179,7 @@
 			if("switch_mode")
 				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
 			if("switch_filter")
-				var/new_filter = input(usr, "Select filter mode:", "Change filter", href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide")
+				var/new_filter = input(usr, "Select filter mode:", "Change filter", href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Trichloramine","Monochloramine")		//Eclipse edit: Add chloramines
 				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
 		if(href_list["command"])
 			investigate_log("had it's settings modified by [key_name(usr)]", "atmos")
@@ -196,6 +200,10 @@
 			return ATM_P
 		if("Nitrous Oxide")
 			return ATM_N2O
+		if("Trichloramine")		//Eclipse edit: Chloramines
+			return ATM_NCL3
+		if("Monochloramine")	//Eclipse edit: ditto above
+			return ATM_NH2CL
 		if("in")
 			return ATM_INPUT
 		if("out")
