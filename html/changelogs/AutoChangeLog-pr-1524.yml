@@ -1,6 +1,0 @@
-author: Sly9sky
-delete-after: true
-changes:
-  - tweak: Autolathes will no longer print magazines that are less than full
-  - tweak: Autolathes can have their print quality restored with very-high-quality
-      parts
