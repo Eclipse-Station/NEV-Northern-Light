@@ -2842,6 +2842,7 @@
 #include "zzz_modular_eclipse\code\modules\organs\external\subtypes\robotic_types.dm"
 #include "zzz_modular_eclipse\code\modules\reagents\toxins.dm"
 #include "zzz_modular_eclipse\code\modules\sanity\sanity_mob.dm"
+#include "zzz_modular_eclipse\code\modules\sprite_accessories\_accessory_facial.dm"
 #include "zzz_modular_eclipse\evac_sign\evacsign.dm"
 #include "zzz_modular_eclipse\gunvendor\gunkits.dm"
 #include "zzz_modular_eclipse\radio_sprites\radio_lockers.dm"
