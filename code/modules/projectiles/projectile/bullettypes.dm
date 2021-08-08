@@ -29,6 +29,7 @@ There are important things regarding this file:
 	embed = FALSE
 	sharp = FALSE
 	can_ricochet = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/pistol/rubber
 	icon_state = "rubber"
@@ -38,6 +39,7 @@ There are important things regarding this file:
 	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/pistol/scrap
 	damage_types = list(BRUTE = 25)
@@ -64,6 +66,7 @@ There are important things regarding this file:
 	embed = FALSE
 	sharp = FALSE
 	can_ricochet = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/srifle/hv
 	damage_types = list(BRUTE = 30)
@@ -78,6 +81,7 @@ There are important things regarding this file:
 	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/srifle/scrap
 	damage_types = list(BRUTE = 22)
@@ -115,6 +119,7 @@ There are important things regarding this file:
 	embed = FALSE
 	sharp = FALSE
 	can_ricochet = TRUE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/clrifle/scrap
 	damage_types = list(BRUTE = 24)
@@ -135,6 +140,7 @@ There are important things regarding this file:
 	embed = FALSE
 	sharp = FALSE
 	can_ricochet = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/lrifle/hv
 	damage_types = list(BRUTE = 30)
@@ -149,6 +155,7 @@ There are important things regarding this file:
 	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/lrifle/scrap
 	damage_types = list(BRUTE = 25)
@@ -168,6 +175,7 @@ There are important things regarding this file:
 	embed = FALSE
 	sharp = FALSE
 	can_ricochet = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/magnum/hv
 	damage_types = list(BRUTE = 39)
@@ -182,6 +190,7 @@ There are important things regarding this file:
 	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/magnum/scrap
 	damage_types = list(BRUTE = 30)
@@ -260,10 +269,12 @@ There are important things regarding this file:
 	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/shotgun/beanbag/scrap
 	damage_types = list(BRUTE = 9)
 	agony = 55
+	ignition_source = TRUE//Eclipse add: Because it's handmade ammo, it isn't as good quality and thus will detonate fuel tanks and nitro roaches. Use proper ammo!
 
 /obj/item/projectile/bullet/shotgun/practice
 	name = "practice slug"
@@ -272,6 +283,7 @@ There are important things regarding this file:
 	armor_penetration = 0
 	embed = FALSE
 	knockback = 0
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/shotgun/incendiary
 	damage_types = list(BRUTE = 45)
@@ -308,6 +320,7 @@ There are important things regarding this file:
 	invisibility = 101
 	damage_types = list(BRUTE = 1)
 	embed = FALSE
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/bullet/cap
 	name = "cap"
@@ -315,3 +328,4 @@ There are important things regarding this file:
 	nodamage = TRUE
 	embed = FALSE
 	sharp = FALSE
+	ignition_source = FALSE		//Eclipse add.

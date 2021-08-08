@@ -193,15 +193,19 @@
 
 	return ..()
 
-
+// // // BEGIN ECLIPSE EDITS // // //
+// Welderfuel tanks will not explode if shot with rubber bullets, etc.
 /obj/structure/reagent_dispensers/fueltank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
 		if(istype(Proj.firer))
-			message_admins("[key_name_admin(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>).")
-			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
-
-		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+			message_admins("[key_name_admin(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]). Projectile was [Proj.ignition_source ? "" : "not"] an ignition source. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>).")
+			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]). Projectile was [Proj.ignition_source ? "" : "not"] an ignition source.")
+		if(Proj.ignition_source)
 			explode()
+		else
+			if(!istype(Proj, /obj/item/projectile/beam) )		//Beam weaponry won't cause a leak. You're SOL for coins, though, those things are HEAVY compared to a bullet.
+				modded = TRUE
+// // // END ECLIPSE EDITS // // //
 
 /obj/structure/reagent_dispensers/fueltank/ex_act()
 	explode()
