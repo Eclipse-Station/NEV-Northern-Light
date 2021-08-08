@@ -141,7 +141,7 @@
 	if(!..(user, 2))
 		return
 	if(modded)
-		to_chat(user, SPAN_WARNING("Fuel faucet is open, leaking the fuel!"))
+		to_chat(user, SPAN_WARNING("It is leaking fuel!"))
 	if(rig)
 		to_chat(user, SPAN_NOTICE("There is some kind of device rigged to the tank."))
 

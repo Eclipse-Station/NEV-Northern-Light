@@ -4,8 +4,8 @@
 	icon = 'zzz_modular_eclipse/icons/mob/mob.dmi'
 	icon_state = "nitroroach"
 	turns_per_move = 4
-	maxHealth = 5
-	health = 5
+	maxHealth = 25		//On par with Jaeger roaches
+	health = 25
 	melee_damage_upper = 3
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/nitro
 	meat_amount = 3
