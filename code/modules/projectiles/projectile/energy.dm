@@ -5,6 +5,7 @@
 	check_armour = ARMOR_ENERGY
 	mob_hit_sound = list('sound/effects/gore/sear.ogg')
 	hitsound_wall = 'sound/weapons/guns/misc/laser_searwall.ogg'
+	ignition_source = TRUE		//Eclipse add.
 
 	heat = 100
 
@@ -19,6 +20,7 @@
 	var/flash_range = 0
 	var/brightness = 7
 	var/light_duration = 5
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/energy/flash/on_impact(var/atom/A)
 	var/turf/T = flash_range? src.loc : get_turf(A)
@@ -44,6 +46,7 @@
 	flash_range = 1
 	brightness = 9 //similar to a flare
 	light_duration = 200
+	ignition_source = TRUE		//Eclipse add - did you really think shooting a welderfuel tank with a flare gun was a good idea?
 
 /obj/item/projectile/energy/electrode
 	name = "electrode"
@@ -67,12 +70,14 @@
 	nodamage = 1
 	damage_types = list(CLONE = 0)
 	irradiate = 150
+	ignition_source = FALSE		//Eclipse add.
 
 
 /obj/item/projectile/energy/dart
 	name = "dart"
 	icon_state = "toxin"
 	damage_types = list(TOX = 20)
+	ignition_source = FALSE		//Eclipse add.
 
 
 /obj/item/projectile/energy/bolt
@@ -93,8 +98,10 @@
 	icon_state = "neurotoxin"
 	damage_types = list(TOX = 5)
 	weaken = 5
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/energy/phoron
 	name = "phoron bolt"
 	icon_state = "energy"
 	damage_types = list(TOX = 25)
+	ignition_source = FALSE		//Eclipse add.

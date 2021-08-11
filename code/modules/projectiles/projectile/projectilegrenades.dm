@@ -7,6 +7,7 @@
 	armor_penetration = 0
 	embed = FALSE
 	sharp = FALSE
+	ignition_source = FALSE		//Eclipse add - the rest are subtypes of bullet and do explode.
 
 /obj/item/projectile/bullet/grenade
 	name = "grenade shell"

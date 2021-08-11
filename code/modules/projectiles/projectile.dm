@@ -83,6 +83,7 @@
 										//  have to be recreated multiple times
 
 	var/noshake = FALSE //Eclipse add
+	var/ignition_source = FALSE		//Eclipse add - see if the projectile is capable of detonating fuel tanks and nitro roaches.
 
 /obj/item/projectile/is_hot()
 	if (damage_types[BURN])

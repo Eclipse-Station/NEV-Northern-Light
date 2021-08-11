@@ -10,6 +10,7 @@
 	var/frequency = 1
 	hitscan = 1
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
+	ignition_source = TRUE		//Eclipse addition
 
 	muzzle_type = /obj/effect/projectile/laser/muzzle
 	tracer_type = /obj/effect/projectile/laser/tracer
@@ -106,6 +107,7 @@
 	damage_types = list(BURN = 0)
 	no_attack_log = 1
 	check_armour = ARMOR_ENERGY
+	ignition_source = FALSE		//Eclipse add.
 
 	muzzle_type = /obj/effect/projectile/laser_blue/muzzle
 	tracer_type = /obj/effect/projectile/laser_blue/tracer
@@ -125,6 +127,7 @@
 	damage_types = list(BURN = 0)
 	no_attack_log = 1
 	check_armour = ARMOR_ENERGY
+	ignition_source = FALSE		//Eclipse add
 
 /obj/item/projectile/beam/lastertag/red/on_hit(atom/target)
 	if(ishuman(target))
