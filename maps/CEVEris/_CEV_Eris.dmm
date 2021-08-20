@@ -8764,65 +8764,65 @@
 	icon_state = "escpodwall19";
 	tag = "icon-escpodwall19"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atD" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall20";
 	tag = "icon-escpodwall20"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atE" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall21";
 	tag = "icon-escpodwall21"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atF" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall22";
 	tag = "icon-escpodwall22"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atG" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall23";
 	opacity = 0;
 	tag = "icon-escpodwall23"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atH" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall24";
 	opacity = 0;
 	tag = "icon-escpodwall24"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atI" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall25";
 	tag = "icon-escpodwall25"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atJ" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall26";
 	tag = "icon-escpodwall26"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atK" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall27";
 	tag = "icon-escpodwall27"
 	},
 /turf/space,
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atL" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall28";
 	tag = "icon-escpodwall28"
 	},
 /turf/space,
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "atM" = (
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/quartermaster/disposaldrop)
@@ -8934,7 +8934,7 @@
 	icon_state = "escpodwall16";
 	tag = "icon-escpodwall16"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auc" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	frequency = 1380;
@@ -8944,44 +8944,48 @@
 	tag_door = "escape_pod_1_hatch"
 	},
 /obj/structure/bed/chair/shuttle,
+/obj/spawner/scrap,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "aud" = (
 /obj/structure/bed/chair/shuttle,
+/obj/spawner/mob/roaches/cluster,
+/obj/spawner/junkfood/rotten,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "aue" = (
 /obj/structure/bed/chair/shuttle,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/spawner/scrap,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auf" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall29";
 	tag = "icon-escpodwall29"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "aug" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall17";
 	tag = "icon-escpodwall17"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auh" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall18";
 	tag = "icon-escpodwall18"
 	},
 /turf/space,
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "aui" = (
 /obj/spawner/material/ore,
 /obj/spawner/material/ore,
@@ -9062,13 +9066,15 @@
 	icon_state = "cargofloor7";
 	tag = "icon-cargofloor7"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "aut" = (
+/obj/spawner/pack/gun_loot/low_chance,
+/obj/spawner/junkfood/rotten,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor7";
 	tag = "icon-cargofloor7"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auu" = (
 /obj/structure/closet/wall_mounted/emcloset/escape_pods{
 	dir = 1;
@@ -9080,23 +9086,24 @@
 /obj/structure/closet/wall_mounted/emcloset/escape_pods{
 	pixel_y = 32
 	},
+/obj/spawner/scrap,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auv" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall14";
 	tag = "icon-escpodwall14"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auw" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall15";
 	tag = "icon-escpodwall15"
 	},
 /turf/space,
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "aux" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/techmaint,
@@ -9129,7 +9136,7 @@
 	icon_state = "escpodwall11";
 	tag = "icon-escpodwall11"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auB" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -9139,42 +9146,46 @@
 	dir = 1;
 	tag = "icon-shuttle_chair (NORTH)"
 	},
+/obj/spawner/pack/machine,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auC" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 1;
 	tag = "icon-shuttle_chair (NORTH)"
 	},
+/obj/spawner/scrap,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auD" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 1;
 	tag = "icon-shuttle_chair (NORTH)"
 	},
 /obj/machinery/light,
+/obj/spawner/mob/roaches/cluster,
+/obj/spawner/junkfood/rotten,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auE" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall12";
 	tag = "icon-escpodwall12"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auF" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall13";
 	tag = "icon-escpodwall13"
 	},
 /turf/space,
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auG" = (
 /turf/simulated/wall/r_wall,
 /area/eris/maintenance/section2deck4central)
@@ -9185,65 +9196,65 @@
 /area/eris/maintenance/section2deck4starboard)
 "auI" = (
 /turf/simulated/shuttle/wall/escpod,
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auJ" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall2";
 	tag = "icon-escpodwall2"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auK" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall3";
 	tag = "icon-escpodwall3"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auL" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall4";
 	tag = "icon-escpodwall4"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auM" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall5";
 	opacity = 0;
 	tag = "icon-escpodwall5"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auN" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall6";
 	opacity = 0;
 	tag = "icon-escpodwall6"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auO" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall7";
 	tag = "icon-escpodwall7"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auP" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall8";
 	tag = "icon-escpodwall8"
 	},
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auQ" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall9";
 	tag = "icon-escpodwall9"
 	},
 /turf/space,
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auR" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall10";
 	tag = "icon-escpodwall10"
 	},
 /turf/space,
-/area/shuttle/escape_pod1/station)
+/area/eris/hallway/side/eschangarb)
 "auS" = (
 /turf/simulated/floor/dirt,
 /area/eris/crew_quarters/hydroponics)
@@ -12718,65 +12729,65 @@
 	icon_state = "escpodwall19";
 	tag = "icon-escpodwall19"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDz" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall20";
 	tag = "icon-escpodwall20"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDA" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall21";
 	tag = "icon-escpodwall21"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDB" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall22";
 	tag = "icon-escpodwall22"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDC" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall23";
 	opacity = 0;
 	tag = "icon-escpodwall23"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDD" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall24";
 	opacity = 0;
 	tag = "icon-escpodwall24"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDE" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall25";
 	tag = "icon-escpodwall25"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDF" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall26";
 	tag = "icon-escpodwall26"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDG" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall27";
 	tag = "icon-escpodwall27"
 	},
 /turf/space,
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDH" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall28";
 	tag = "icon-escpodwall28"
 	},
 /turf/space,
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aDI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -12988,7 +12999,7 @@
 	icon_state = "escpodwall16";
 	tag = "icon-escpodwall16"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEh" = (
 /obj/structure/bed/chair/shuttle,
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
@@ -12998,44 +13009,47 @@
 	tag = "escape_pod_2_controller";
 	tag_door = "escape_pod_2_hatch"
 	},
+/obj/spawner/scrap,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEi" = (
 /obj/structure/bed/chair/shuttle,
+/obj/spawner/scrap,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEj" = (
 /obj/structure/bed/chair/shuttle,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/spawner/scrap,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEk" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall29";
 	tag = "icon-escpodwall29"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEl" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall17";
 	tag = "icon-escpodwall17"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEm" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall18";
 	tag = "icon-escpodwall18"
 	},
 /turf/space,
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEn" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
@@ -13296,13 +13310,14 @@
 	icon_state = "cargofloor7";
 	tag = "icon-cargofloor7"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aES" = (
+/obj/spawner/pack/gun_loot/low_chance,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor7";
 	tag = "icon-cargofloor7"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aET" = (
 /obj/structure/closet/wall_mounted/emcloset/escape_pods{
 	dir = 1;
@@ -13314,23 +13329,24 @@
 /obj/structure/closet/wall_mounted/emcloset/escape_pods{
 	pixel_y = 32
 	},
+/obj/spawner/pack/gun_loot/low_chance,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEU" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall14";
 	tag = "icon-escpodwall14"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEV" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall15";
 	tag = "icon-escpodwall15"
 	},
 /turf/space,
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aEW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
@@ -13501,7 +13517,7 @@
 	icon_state = "escpodwall11";
 	tag = "icon-escpodwall11"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aFy" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -13511,42 +13527,45 @@
 	dir = 1;
 	tag = "icon-shuttle_chair (NORTH)"
 	},
+/obj/spawner/scrap,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aFz" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 1;
 	tag = "icon-shuttle_chair (NORTH)"
 	},
+/obj/spawner/pack/gun_loot/low_chance,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aFA" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 1;
 	tag = "icon-shuttle_chair (NORTH)"
 	},
 /obj/machinery/light,
+/obj/spawner/scrap,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aFB" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall12";
 	tag = "icon-escpodwall12"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aFC" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall13";
 	tag = "icon-escpodwall13"
 	},
 /turf/space,
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aFD" = (
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/junk)
@@ -13709,65 +13728,65 @@
 /area/eris/maintenance/section2deck4starboard)
 "aGc" = (
 /turf/simulated/shuttle/wall/escpod,
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGd" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall2";
 	tag = "icon-escpodwall2"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGe" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall3";
 	tag = "icon-escpodwall3"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGf" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall4";
 	tag = "icon-escpodwall4"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGg" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall5";
 	opacity = 0;
 	tag = "icon-escpodwall5"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGh" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall6";
 	opacity = 0;
 	tag = "icon-escpodwall6"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGi" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall7";
 	tag = "icon-escpodwall7"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGj" = (
 /turf/simulated/shuttle/wall/escpod{
 	icon_state = "escpodwall8";
 	tag = "icon-escpodwall8"
 	},
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGk" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall9";
 	tag = "icon-escpodwall9"
 	},
 /turf/space,
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGl" = (
 /obj/structure/shuttle_part/escpod{
 	icon_state = "escpodwall10";
 	tag = "icon-escpodwall10"
 	},
 /turf/space,
-/area/shuttle/escape_pod2/station)
+/area/eris/hallway/side/eschangara)
 "aGm" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	dir = 4;
@@ -106427,6 +106446,13 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"gGT" = (
+/obj/structure/bed/chair/shuttle,
+/obj/spawner/pack/gun_loot/low_chance,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor1"
+	},
+/area/eris/hallway/side/eschangara)
 "gLA" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/railing/grey,
@@ -106454,6 +106480,16 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
+"gUk" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 1;
+	tag = "icon-shuttle_chair (NORTH)"
+	},
+/obj/spawner/pack/machine,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor1"
+	},
+/area/eris/hallway/side/eschangarb)
 "gXX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
@@ -106889,6 +106925,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
+"jnb" = (
+/obj/spawner/pack/machine,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor7";
+	tag = "icon-cargofloor7"
+	},
+/area/eris/hallway/side/eschangarb)
 "jnC" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
@@ -107168,6 +107211,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
 /area/eris/medical/patients_rooms)
+"kKE" = (
+/obj/spawner/scrap,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor7";
+	tag = "icon-cargofloor7"
+	},
+/area/eris/hallway/side/eschangara)
 "kLT" = (
 /turf/simulated/floor/carpet/gaycarpet,
 /area/eris/crew_quarters/clownoffice)
@@ -107509,6 +107559,13 @@
 /obj/item/weapon/handcuffs,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/checkpoint/science)
+"lYD" = (
+/obj/structure/bed/chair/shuttle,
+/obj/spawner/pack/machine,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor1"
+	},
+/area/eris/hallway/side/eschangarb)
 "lZJ" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -108044,6 +108101,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/eris/neotheology/chapel)
+"ocU" = (
+/obj/spawner/pack/machine,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor7";
+	tag = "icon-cargofloor7"
+	},
+/area/eris/hallway/side/eschangara)
 "oft" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -108063,6 +108127,20 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/fitness)
+"oqT" = (
+/obj/spawner/mob/roaches/cluster,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor7";
+	tag = "icon-cargofloor7"
+	},
+/area/eris/hallway/side/eschangara)
+"orW" = (
+/obj/spawner/scrap,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor7";
+	tag = "icon-cargofloor7"
+	},
+/area/eris/hallway/side/eschangarb)
 "osl" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/standard,
@@ -108392,6 +108470,16 @@
 /obj/structure/closet/self_pacification,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/prison)
+"pvY" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 1;
+	tag = "icon-shuttle_chair (NORTH)"
+	},
+/obj/spawner/pack/machine,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor1"
+	},
+/area/eris/hallway/side/eschangara)
 "pwM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -108414,6 +108502,16 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep_male/toilet_male)
+"pGT" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 1;
+	tag = "icon-shuttle_chair (NORTH)"
+	},
+/obj/spawner/scrap,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor1"
+	},
+/area/eris/hallway/side/eschangara)
 "pHi" = (
 /obj/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/plating,
@@ -108523,6 +108621,13 @@
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/engineering/atmos/storage)
+"qmN" = (
+/obj/structure/bed/chair/shuttle,
+/obj/spawner/scrap,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor1"
+	},
+/area/eris/hallway/side/eschangarb)
 "qnS" = (
 /obj/structure/closet/wall_mounted/firecloset{
 	pixel_x = -32
@@ -108822,8 +108927,21 @@
 	dir = 8;
 	tag = "icon-wooden_chair (WEST)"
 	},
+<<<<<<< Updated upstream
 /turf/simulated/floor/wood,
 /area/eris/command/courtroom)
+=======
+/obj/structure/railing/grey,
+/turf/simulated/open,
+/area/eris/crew_quarters/bar)
+"rMd" = (
+/obj/spawner/pack/gun_loot/low_chance,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor7";
+	tag = "icon-cargofloor7"
+	},
+/area/eris/hallway/side/eschangarb)
+>>>>>>> Stashed changes
 "rNq" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -109798,6 +109916,16 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/armory)
+"vQt" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 1;
+	tag = "icon-shuttle_chair (NORTH)"
+	},
+/obj/spawner/junkfood/rotten,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor1"
+	},
+/area/eris/hallway/side/eschangarb)
 "vRj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -131609,7 +131737,7 @@ aaa
 aaa
 aDA
 aEi
-aES
+oqT
 aFz
 aGe
 aaa
@@ -131779,7 +131907,7 @@ dTE
 dMo
 atF
 aue
-aut
+orW
 auD
 auL
 aaa
@@ -131811,7 +131939,7 @@ aaa
 aaa
 aDB
 aEj
-aES
+kKE
 aFA
 aGf
 aaa
@@ -131980,9 +132108,9 @@ asc
 dTE
 dQa
 atG
-aud
-aut
-auC
+lYD
+orW
+gUk
 auM
 aaa
 apn
@@ -132012,9 +132140,9 @@ aaa
 aaa
 aaa
 aDC
-aEi
-aES
-aFz
+gGT
+kKE
+pvY
 aGg
 aaa
 aDf
@@ -132183,7 +132311,7 @@ dTE
 dQa
 atH
 aud
-aut
+rMd
 auC
 auN
 aaa
@@ -132215,8 +132343,8 @@ aaa
 aaa
 aDD
 aEi
-aES
-aFz
+oqT
+pGT
 aGh
 aaa
 aMl
@@ -132384,9 +132512,9 @@ asc
 dTE
 dQa
 atI
-aud
-aut
-auC
+qmN
+jnb
+vQt
 auO
 aaa
 aqU
@@ -132417,8 +132545,8 @@ aaa
 aaa
 aDE
 aEi
-aES
-aFz
+ocU
+pGT
 aGi
 aaa
 aMl
