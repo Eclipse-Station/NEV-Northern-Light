@@ -34,30 +34,9 @@ GLOBAL_VAR_INIT(random_parallax, pick("space0", "space1", "space2", "space3", "s
 	screen_loc = "CENTER:[-224-(T&&T.x)],CENTER:[-224-(T&&T.y)]"
 	var/view = owner.client.view
 	var/matrix/M = matrix() //create matrix for transformation
-	if(view != world.view) //Not bigger than world view. We don't need transforming
-		var/toscale = view //How many extra tiles we need to fill with parallax. EG. Their view is 8. World view is 7. So one extra tile is needed.
-		switch(view) //If you change these values, I need to know! ~Kmc
-			if(8)
-				toscale = 1.2
-			if(9)
-				toscale = 1.4
-			if(10)
-				toscale = 1.6
-			if(11)
-				toscale = 1.8
-			if(12)
-				toscale = 2
-			if(13)
-				toscale = 2.2
-			if(14)
-				toscale = 2.4
-			if(128)
-				toscale = 4
-		M.Scale(toscale)
-		src.transform = M
-	else
-		M.Scale(1)
-		src.transform = M
+	var/scalie = owner.client.view ? 1 + (owner.client.view-8)*0.2 : 1
+	M.Scale(scalie)
+	src.transform = M
 	overlays  += parallax_screen
 
 /obj/parallax/update_plane()
