@@ -52,7 +52,7 @@ var/game_id
 	mob = /mob/new_player
 	turf = /turf/space
 	area = /area/space
-	view = "15x15"
+	view = 11
 	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
 
 /world/proc/enable_debugger()

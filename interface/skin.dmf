@@ -1129,6 +1129,7 @@ window "mainwindow"
 		saved-params = "splitter"
 		right = "rpane"
 		is-vert = true
+		splitter = 75
 	elem "input"
 		type = INPUT
 		pos = 3,420
@@ -1179,10 +1180,12 @@ window "mapwindow"
 		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
-		font-family = "Arial Rounded MT Bold,Arial Black,Arial,sans-serif"
-		font-size = 7
+		font-family = "serif"
+		font-size = 6
 		is-default = true
-		saved-params = "icon-size"
+		saved-params = "icon-size;zoom-mode"
+		zoom = 2
+		zoom-mode = distort
 		on-show = ".winset\"mainwindow.mainvsplit.left=mapwindow\""
 		on-hide = ".winset\"mainwindow.mainvsplit.left=\""
 	elem "lobbybrowser"
@@ -1432,3 +1435,4 @@ window "text_editor"
 		border = line
 		saved-params = ""
 		multi-line = true
+
