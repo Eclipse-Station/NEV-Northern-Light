@@ -35,6 +35,14 @@
 	var/obj/item/weapon/card/id/card = I.GetIdCard()
 	if(istype(card))
 		if(access_bar in card.GetAccess())
+			//Eclipse Edit Start
+			var/sign_sprite_source = alert(user, "What would you like to change the barsign design to?",, "Basic", "Eclipse Custom")
+			if(sign_sprite_source == "Basic")
+				icon = 'icons/obj/barsigns.dmi'
+			else
+				icon = 'zzz_modular_eclipse/icons/obj/barsign-eclipse.dmi'
+			icon_state = "empty"
+			//Eclipse Edit End
 			var/sign_type = input(user, "What would you like to change the barsign to?") as null|anything in get_valid_states(0)
 			if(!sign_type)
 				return

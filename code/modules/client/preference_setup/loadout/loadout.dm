@@ -63,6 +63,9 @@ var/list/gear_datums = list()
 		var/okay = 1
 		if(G.whitelisted && preference_mob)
 			okay = 0
+		//Eclipse add below:
+		if(G.ckey && G.ckey != lowertext(preference_mob.ckey))
+			okay = 0
 			// TODO: enable after baymed
 			/*for(var/species in G.whitelisted)
 				if(is_species_whitelisted(preference_mob, species))
@@ -309,6 +312,7 @@ var/list/gear_datums = list()
 	var/flags              //Special tweaks in new
 	var/category
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
+	var/ckey //Eclipse add - custom items
 
 /datum/gear/New()
 	if(FLAGS_EQUALS(flags, GEAR_HAS_TYPE_SELECTION|GEAR_HAS_SUBTYPE_SELECTION))

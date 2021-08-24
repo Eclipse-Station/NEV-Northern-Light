@@ -35,6 +35,8 @@
 
 	var/sanity_value = 0.3 //Eclipse add - Jukebox should restore sanity, no?
 
+	var/obj/item/weapon/music_tape/my_tape //Jukebox tape
+
 /obj/machinery/media/jukebox/New()
 	. = ..()
 	wires = new/datum/wires/jukebox(src)
@@ -55,7 +57,7 @@
 		for(var/datum/track/T in all_jukebox_tracks)
 			if(T.secret)
 				secret_tracks |= T
-			else
+			else if(!T.playlist)
 				tracks |= T
 
 
@@ -140,7 +142,31 @@
 			else
 				update_media_source()
 			return
+
+	if(istype(W, /obj/item/weapon/music_tape))
+		if(my_tape)
+			to_chat(user, SPAN_NOTICE("There's already a tape inside [src]."))
+		else
+			my_tape = W
+			user.unEquip(my_tape, src)
+			my_tape.forceMove(src)
+			to_chat(user, SPAN_NOTICE("You insert the tape inside [src]."))
+			update_tape()
 	return ..()
+
+
+/obj/machinery/media/jukebox/proc/update_tape(var/removed)
+	if (!removed)
+		tracks.Add(get_tape_playlist())
+	else
+		tracks.Remove(get_tape_playlist())
+		StopPlaying()
+	updateDialog()
+
+//Added as a separate proc instead of just reading the var for a future feature
+/obj/machinery/media/jukebox/proc/get_tape_playlist()
+	return my_tape.tracklist
+
 
 /obj/machinery/media/jukebox/power_change()
 	if(!powered(power_channel) || !anchored)
@@ -327,3 +353,18 @@
 		start_stop_song()
 	updateDialog()
 
+
+/obj/machinery/media/jukebox/verb/eject()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject tape"
+
+	if (usr.stat)
+		return
+
+	if(my_tape)
+		update_tape(TRUE)
+		my_tape.forceMove(get_turf(src))
+		my_tape = null
+	else
+		to_chat(usr, SPAN_NOTICE("There is no tape inside [src]."))
