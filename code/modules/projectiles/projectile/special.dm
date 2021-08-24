@@ -4,6 +4,7 @@
 	damage_types = list(BURN = 0)
 	nodamage = TRUE
 	check_armour = ARMOR_ENERGY
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/ion/on_hit(atom/target)
 	empulse(target, 1, 1)
@@ -87,6 +88,7 @@
 	damage_types = list(TOX = 0)
 	nodamage = TRUE
 	check_armour = ARMOR_ENERGY
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/energy/floramut/on_hit(atom/target)
 	var/mob/living/M = target
@@ -119,6 +121,7 @@
 	damage_types = list(TOX = 0)
 	nodamage = TRUE
 	check_armour = ARMOR_ENERGY
+	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/energy/florayield/on_hit(atom/target)
 	var/mob/M = target
@@ -147,6 +150,7 @@
 	embed = 0 // nope
 	nodamage = TRUE
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
+	ignition_source = TRUE		//Eclipse add - fake guns are still guns
 
 
 /obj/item/projectile/flamer_lob
@@ -155,6 +159,7 @@
 	damage_types = list(BURN = 20)
 	check_armour = ARMOR_MELEE
 	var/life = 3
+	ignition_source = TRUE		//Eclipse add.
 
 
 /obj/item/projectile/flamer_lob/New()
@@ -176,4 +181,4 @@
 	desc = "Keep the change, ya filthy animal."
 	damage_types = list(BRUTE = 5)
 	embed = 0
-
+	ignition_source = FALSE		//Eclipse add - no more Heseil going boom today.

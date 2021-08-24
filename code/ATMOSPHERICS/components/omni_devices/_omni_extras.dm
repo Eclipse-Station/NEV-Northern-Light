@@ -10,6 +10,12 @@
 #define ATM_CO2		5
 #define ATM_P		6	//Phoron
 #define ATM_N2O		7
+#define ATM_NCL3	8		//Eclipse addition: trichloramine
+#define ATM_NH2CL	9		//Eclipse addition: Monochloramine
+
+//Set this to the highest number of the above defines. This is to make it easier
+//for future additions to the gas lineup.
+#define ATM_HIGHEST		9		//Eclipse addition: futureproofing
 
 //--------------------------------------------
 // Omni port datum
@@ -104,5 +110,9 @@
 			return "phoron"
 		if(ATM_N2O)
 			return "sleeping_agent"
+		if(ATM_NCL3)				//Eclipse addition: Trichloramine
+			return "trichloramine"
+		if(ATM_NH2CL)				//Eclipse addition: Monochloramine - not flammable
+			return "monochloramine"
 		else
 			return null

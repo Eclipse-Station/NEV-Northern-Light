@@ -6,6 +6,7 @@
 	armor_penetration = 25
 	check_armour = ARMOR_ENERGY
 	damage_types = list(BURN = 33)
+	ignition_source = TRUE		//Eclipse add.
 
 
 	muzzle_type = /obj/effect/projectile/plasma/muzzle

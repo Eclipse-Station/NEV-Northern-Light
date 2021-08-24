@@ -43,7 +43,7 @@
 	var/datum/radio_frequency/radio_connection
 
 	var/list/TLV = list()
-	var/list/trace_gas = list("sleeping_agent") //list of other gases that this air alarm is able to detect
+	var/list/trace_gas = list("sleeping_agent", "trichloramine", "monochloramine") //list of other gases that this air alarm is able to detect		//Eclipse edit: added chloramines
 
 	var/danger_level = 0
 	var/pressure_dangerlevel = 0
@@ -556,7 +556,8 @@
 		environment_data[++environment_data.len] = list("name" = "Oxygen", "value" = environment.gas["oxygen"] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Carbon dioxide", "value" = environment.gas["carbon_dioxide"] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Toxins", "value" = environment.gas["phoron"] / total * 100, "unit" = "%", "danger_level" = phoron_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Temperature", "value" = environment.temperature, "unit" = "K ([round(environment.temperature - T0C, 0.1)]C)", "danger_level" = temperature_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Other", "value" = (environment.gas["sleeping_agent"] + environment.gas["monochloramine"] + environment.gas["trichloramine"]) / total * 100, "unit" = "%", "danger_level" = other_dangerlevel)		//Eclipse edit: Air alarms show chloramines and nitrous oxide.
+		environment_data[++environment_data.len] = list("name" = "Temperature", "value" = environment.temperature, "unit" = "K ([round(environment.temperature - T0C, 0.1)]C)", "danger_level" = temperature_dangerlevel)		//Eclipse edit
 	data["total_danger"] = danger_level
 	data["environment"] = environment_data
 	data["atmos_alarm"] = alarm_area.atmosalm
@@ -605,6 +606,8 @@
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub","val" = info["filter_co2"]))
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Toxin"	, 		"command" = "tox_scrub","val" = info["filter_phoron"]))
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",	"command" = "n2o_scrub","val" = info["filter_n2o"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Trichloramine",	"command" = "ncl3_scrub", "val" = info["filter_ncl3"]))		//Eclipse addition
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Monochloramine",	"command" = "nh2cl_scrub", "val" = info["filter_nh2cl"]))		//Eclipse addition
 			data["scrubbers"] = scrubbers
 		if(AALARM_SCREEN_MODE)
 			var/modes[0]
@@ -732,8 +735,10 @@
 					"co2_scrub",
 					"tox_scrub",
 					"n2o_scrub",
+					"ncl3_scrub",
+					"nh2cl_scrub",
 					"panic_siphon",
-					"scrubbing")
+					"scrubbing")		//Eclipse addition: chloramines
 					playsound(loc, 'sound/machines/machine_switch.ogg', 100, 1)
 					send_signal(device_id, list(href_list["command"] = text2num(href_list["val"]) ) )
 					investigate_log("had it's settings changed by [key_name(usr)]", "atmos")

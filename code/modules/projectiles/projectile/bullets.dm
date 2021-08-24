@@ -8,6 +8,7 @@
 	sharp = FALSE
 	hitsound_wall = "ric_sound"
 	var/mob_passthrough_check = 0
+	ignition_source = TRUE		//Eclipse add
 
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 
