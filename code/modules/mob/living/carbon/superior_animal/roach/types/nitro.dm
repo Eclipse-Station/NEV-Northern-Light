@@ -27,17 +27,20 @@
 	if(!exploded)
 		exploded = TRUE
 		visible_message(SPAN_DANGER("\the [src] violently explodes!"))
-		explosion(src.loc, -1, -1, 2, 3) //explosion weaker than a welding tank
+		explosion(src.loc, 1, 2, 4, 8) //explosion on par with a welding tank
 		gib()
 
+/*
 /mob/living/carbon/superior_animal/roach/nitro/attackby(obj/item/I)
 	if(isflamesource(I))
 		kerplode()
 	else
 		. = ..()
+*/
 
 /mob/living/carbon/superior_animal/roach/nitro/death()
 	. = ..()
 	if(src)
 		if(!exploded)
-			new /obj/effect/decal/cleanable/liquid_fuel(src.loc, 5, 1)		//Half the amount of a leaky welderfuel tank.
+//			new /obj/effect/decal/cleanable/liquid_fuel(src.loc, 5, 1)		//Half the amount of a leaky welderfuel tank.
+			kerplode()
