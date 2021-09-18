@@ -29,7 +29,7 @@
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
-	vendor_department = DEPARTMENT_CIVILIAN
+	vendor_department = DEPARTMENT_GUILD
 
 
 //all these are just to update the bill validator lights
@@ -82,6 +82,10 @@
 	. = ..()	//And we go back to how things were.
 
 /* Serbomat changelog
+
+2021-09-17 ------
+	Changed Money Account from CIVILIAN to GUILD
+	
 2020-07-19
 	increased ammo packet costs
 		pistol 350 -> 500
