@@ -29,7 +29,7 @@
 					)
 	idle_power_usage = 211
 	auto_price = FALSE
-	vendor_department = DEPARTMENT_CIVILIAN
+	vendor_department = DEPARTMENT_GUILD
 
 
 //all these are just to update the bill validator lights
@@ -106,4 +106,6 @@
 		uniform_green, uniform_brown, uniform_black: 4 --> 2
 		uniform_light: 2 --> 5
 
+2021-09-17 ------
+	Changed Money Account from CIVILIAN to GUILD
 */
