@@ -82,6 +82,10 @@
 	. = ..()	//And we go back to how things were.
 
 /* Serbomat changelog
+
+2021-09-17 ------
+	Changed Money Account from CIVILIAN to GUILD
+	
 2020-07-19
 	increased ammo packet costs
 		pistol 350 -> 500
@@ -106,6 +110,4 @@
 		uniform_green, uniform_brown, uniform_black: 4 --> 2
 		uniform_light: 2 --> 5
 
-2021-09-17 ------
-	Changed Money Account from CIVILIAN to GUILD
 */
