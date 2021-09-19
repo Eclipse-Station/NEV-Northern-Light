@@ -108927,10 +108927,7 @@
 	dir = 8;
 	tag = "icon-wooden_chair (WEST)"
 	},
-<<<<<<< Updated upstream
 /turf/simulated/floor/wood,
-/area/eris/command/courtroom)
-=======
 /obj/structure/railing/grey,
 /turf/simulated/open,
 /area/eris/crew_quarters/bar)
@@ -108941,7 +108938,6 @@
 	tag = "icon-cargofloor7"
 	},
 /area/eris/hallway/side/eschangarb)
->>>>>>> Stashed changes
 "rNq" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
