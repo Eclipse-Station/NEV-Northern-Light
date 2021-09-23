@@ -1,7 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - rscadd: Music tapes and jukebox support for them
-  - rscadd: New tab for people with Custom Items to equip their items from (they all
-      cost 0 points, aside from specific outliars)
-  - tweak: Barsign now supports custom sign sprites
