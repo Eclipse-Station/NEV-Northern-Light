@@ -132,7 +132,7 @@
 	path = /obj/item/clothing/head/feathertrilby
 
 /datum/gear/head/philosopher_wig
-	display_name = "natural philosopher's wig"
+	display_name = "natural philosopher wig"
 	path = /obj/item/clothing/head/philosopher_wig
 
 /datum/gear/head/ushanka
@@ -180,12 +180,12 @@
 	path = /obj/item/clothing/head/festive
 
 /datum/gear/head/church/chaplain
-	display_name = "chaplain's hood"
+	display_name = "chaplain hood"
 	path = /obj/item/clothing/head/chaplain_hood
 	allowed_roles = list(JOBS_CHURCH)
 
 /datum/gear/head/church/nun
-	display_name = "nun's hood"
+	display_name = "nun hood"
 	path = /obj/item/clothing/head/nun_hood
 
 /datum/gear/head/surgery/color_presets
@@ -203,16 +203,16 @@
 	gear_tweaks += new /datum/gear_tweak/path(surgery)
 
 /datum/gear/head/nurse
-	display_name = "nurse's hat"
+	display_name = "nurse hat"
 	path = /obj/item/clothing/head/nursehat
 	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/head/hastur
-	display_name = "hastur's hood"
+	display_name = "hastur hood"
 	path = /obj/item/clothing/head/hasturhood
 
 /datum/gear/head/plague
-	display_name = "plague doctor's hat"
+	display_name = "plague doctor hat"
 	path = /obj/item/clothing/head/plaguedoctorhat
 
 /datum/gear/head/rabbit

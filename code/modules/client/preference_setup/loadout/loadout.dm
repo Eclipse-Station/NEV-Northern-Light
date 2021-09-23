@@ -61,17 +61,14 @@ var/list/gear_datums = list()
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
 		var/okay = 1
-		if(G.whitelisted && preference_mob)
-			okay = 0
 		//Eclipse add below:
-		if(G.ckey && G.ckey != lowertext(preference_mob.ckey))
-			okay = 0
-			// TODO: enable after baymed
-			/*for(var/species in G.whitelisted)
-				if(is_species_whitelisted(preference_mob, species))
-					okay = 1
-					break
-					*/
+		if(preference_mob)
+			if(G.whitelisted)
+				okay = 0
+
+			if(G.ckey && G.ckey != lowertext(preference_mob.ckey))
+				okay = 0
+
 		if(!okay)
 			continue
 		if(max_cost && G.cost > max_cost)
