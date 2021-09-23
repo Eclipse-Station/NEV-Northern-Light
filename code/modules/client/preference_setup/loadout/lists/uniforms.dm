@@ -236,7 +236,7 @@
 	path = /obj/item/clothing/under/schoolgirl
 
 /datum/gear/uniform/overalls
-	display_name = "labourer's overalls"
+	display_name = "labourer overalls"
 	path = /obj/item/clothing/under/overalls
 
 /datum/gear/uniform/pirate
