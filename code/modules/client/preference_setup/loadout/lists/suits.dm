@@ -123,7 +123,7 @@
 	path = /obj/item/clothing/suit/armor/greatcoat/serbian_overcoat_brown
 
 /datum/gear/suit/nun
-	display_name = "nun's robe"
+	display_name = "nun robe"
 	path = /obj/item/clothing/suit/nun
 	allowed_roles = list(JOBS_CHURCH)
 
