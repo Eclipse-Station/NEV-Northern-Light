@@ -5,8 +5,7 @@
 	//Vines will spawn at a burrow
 	var/obj/structure/burrow/origin
 	var/list/burrows = GLOB.all_burrows.Copy()
-	while (burrows.len)
-		var/obj/structure/burrow/B = pick_n_take(burrows)
+	for(var/obj/structure/burrow/B in burrows) //Eclipse edit, for loop works much better than while loop
 
 		//Needs to not already have plants
 		if (B.plant)
@@ -17,7 +16,6 @@
 		if (B.maintenance)
 
 			//Keep searching for a better one
-			qdel(src) //Eclipse Edit, disables starting off in maintenance
 			continue
 
 		else
