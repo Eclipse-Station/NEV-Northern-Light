@@ -17,6 +17,7 @@
 		if (B.maintenance)
 
 			//Keep searching for a better one
+			qdel(src) //Eclipse Edit, disables starting off in maintenance
 			continue
 
 		else
@@ -53,7 +54,7 @@
 
 	for (var/a in origin.plantspread_burrows)
 		var/obj/structure/burrow/B = locate(a)
-		if (istype(B))
+		if (istype(B) && !B.maintenance)
 			spawn(RAND_DECIMAL(5, 30))
 				B.break_open() //Break the floor at each of the burrows it spreads to
 				log_and_message_admins("Spacevines spread to burrow [jumplink(B)]")
