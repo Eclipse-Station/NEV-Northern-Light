@@ -9,6 +9,8 @@
 	melee_damage_upper = 3
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/nitro
 	meat_amount = 3
+	var/leaked = FALSE
+	var/impending_explosion = FALSE
 
 	rarity_value = 40
 	var/exploded = FALSE
@@ -22,8 +24,16 @@
 		kerplode()
 	else
 		. = ..()
+	
+/mob/living/carbon/superior_animal/roach/nitro/fire_act()
+	if(!exploded && !impending_explosion)
+		impending_explosion = TRUE
+		spawn(rand(30,150))
+			kerplode()
+	. = ..()
 
 /mob/living/carbon/superior_animal/roach/nitro/proc/kerplode()
+	impending_explosion = TRUE
 	if(!exploded)
 		exploded = TRUE
 		visible_message(SPAN_DANGER("\the [src] violently explodes!"))
@@ -39,5 +49,6 @@
 /mob/living/carbon/superior_animal/roach/nitro/death()
 	. = ..()
 	if(src)
-		if(!exploded)
-			new /obj/effect/decal/cleanable/liquid_fuel(src.loc, 5, 1)		//Half the amount of a leaky welderfuel tank.
+		if(!exploded && !leaked)
+			new /obj/effect/decal/cleanable/liquid_fuel(src.loc, 50, 1)		//A welderfuel tank below 50 units makes the explosion above (with no flash), so we'll put 50 here to explain the higher flash range.
+			leaked = TRUE
