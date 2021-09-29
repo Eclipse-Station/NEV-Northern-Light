@@ -96,6 +96,7 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/attack_self(mob/user as mob)
 	user.set_machine(src)
+	add_fingerprint(user)
 	interact(user)
 
 /obj/item/device/radio/interact(mob/user)
@@ -164,7 +165,7 @@ var/global/list/default_medbay_channels = list(
 	return user.has_internal_radio_channel_access(internal_channels[freq])
 
 /mob/proc/has_internal_radio_channel_access(var/list/req_one_accesses)
-	var/obj/item/weapon/card/id/I = GetIdCard()
+	var/obj/item/card/id/I = GetIdCard()
 	return has_access(list(), req_one_accesses, I ? I.GetAccess() : list())
 
 /mob/observer/ghost/has_internal_radio_channel_access(var/list/req_one_accesses)
@@ -554,10 +555,10 @@ var/global/list/default_medbay_channels = list(
 			user.show_message(SPAN_NOTICE("\The [src] can not be modified or attached!"))
 	return
 
-/obj/item/device/radio/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/radio/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	user.set_machine(src)
-	if (!( istype(W, /obj/item/weapon/tool/screwdriver) ))
+	if (!( istype(W, /obj/item/tool/screwdriver) ))
 		return
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
@@ -607,13 +608,13 @@ var/global/list/default_medbay_channels = list(
 		var/datum/robot_component/C = R.components["radio"]
 		R.cell_use_power(C.active_usage)
 
-/obj/item/device/radio/borg/attackby(obj/item/weapon/W, mob/user)
+/obj/item/device/radio/borg/attackby(obj/item/W, mob/user)
 	//..()
 	user.set_machine(src)
-	if (!( istype(W, /obj/item/weapon/tool/screwdriver) || (istype(W, /obj/item/device/encryptionkey/ ))))
+	if (!( istype(W, /obj/item/tool/screwdriver) || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(istype(W, /obj/item/weapon/tool/screwdriver))
+	if(istype(W, /obj/item/tool/screwdriver))
 		if(keyslot)
 
 
@@ -767,7 +768,7 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/random_radio
 	name = "Random wave radio"
-	desc = "Radio that can pick up message from secure channels, but with small chance. Provides intel about hidden loot over time. It can be repaired by oddity with mechanical aspect."
+	desc = "Radio that can pick up messages from secure channels, but with small chance. Provides intel about hidden loot over time. It can be repaired by oddity with mechanical aspect."
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "random_radio"
 	item_state = "random_radio"
@@ -779,7 +780,7 @@ var/global/list/default_medbay_channels = list(
 	origin_tech = list(TECH_DATA = 7, TECH_ENGINEERING = 7, TECH_COVERT = 7)
 	spawn_frequency = 0
 	spawn_blacklisted = TRUE
-	var/list/obj/item/weapon/oddity/used_oddity = list()
+	var/list/obj/item/oddity/used_oddity = list()
 	var/last_produce = 0
 	var/cooldown = 40 MINUTES
 	var/max_cooldown = 40 MINUTES
@@ -806,8 +807,8 @@ var/global/list/default_medbay_channels = list(
 			return
 		stash.select_location()
 		stash.spawn_stash()
-		var/obj/item/weapon/paper/stash_note = stash.spawn_note(get_turf(src))
-		visible_message(SPAN_NOTICE("[src] drop [stash_note]."))
+		var/obj/item/paper/stash_note = stash.spawn_note(get_turf(src))
+		visible_message(SPAN_NOTICE("[src] spits out a [stash_note]."))
 		last_produce = world.time
 
 /obj/item/device/radio/random_radio/receive_range(freq, level)
@@ -837,42 +838,42 @@ var/global/list/default_medbay_channels = list(
 		playsound(loc, "sparks", 75, 1, -1)
 		to_chat(user, SPAN_NOTICE("You use the cryptographic sequencer on the [name]."))
 	else
-		to_chat(user, SPAN_NOTICE("The [name] has already been emaged."))
+		to_chat(user, SPAN_NOTICE("The [name] has already been emagged."))
 		return NO_EMAG_ACT
 
-/obj/item/device/radio/random_radio/attackby(obj/item/weapon/W, mob/user, params)
+/obj/item/device/radio/random_radio/attackby(obj/item/W, mob/user, params)
 	if(nt_sword_attack(W, user))
 		return FALSE
 	user.set_machine(src)
 
-	if(istype(W, /obj/item/weapon/oddity))
-		var/obj/item/weapon/oddity/D = W
+	if(istype(W, /obj/item/oddity))
+		var/obj/item/oddity/D = W
 		if(D.oddity_stats)
 			var/usefull = FALSE
 			if(D in used_oddity)
-				to_chat(user, SPAN_WARNING("You already use [D] to repair [src]"))
+				to_chat(user, SPAN_WARNING("You've already used [D] to repair [src]!"))
 				return
 
 			if(random_hear >= 100)
-				to_chat(user, SPAN_WARNING("The [src] are repaired at it's maxium."))
+				to_chat(user, SPAN_WARNING("The [src] is in perfect condition."))
 				return
 
-			to_chat(user, SPAN_NOTICE("You starting repairing [src] using [D]."))
+			to_chat(user, SPAN_NOTICE("You begin repairing [src] using [D]."))
 
 			if(!do_after(user, 20 SECONDS, src))
-				to_chat(user, SPAN_WARNING("You stoped repairing [src]."))
+				to_chat(user, SPAN_WARNING("You've stopped repairing [src]."))
 				return
 
 			for(var/stat in D.oddity_stats)
 				if(stat == STAT_MEC)
-					var/increece = D.oddity_stats[stat] * 3
-					random_hear += increece
+					var/increase = D.oddity_stats[stat] * 3
+					random_hear += increase
 					if(random_hear > 100)
 						random_hear = 100
 					cooldown -= (D.oddity_stats[stat]) MINUTES
 					if(cooldown < min_cooldown)
 						cooldown = min_cooldown
-					to_chat(user, SPAN_NOTICE("You make use of [D], and repaired [src] by [increece]%."))
+					to_chat(user, SPAN_NOTICE("You make use of [D], and repaired [src] by [increase]%."))
 					usefull = TRUE
 					used_oddity += D
 					return

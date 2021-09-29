@@ -13,7 +13,7 @@
 	turns_per_move = 4
 	turns_since_move = 0
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/roachmeat
 	meat_amount = 2
 
 	maxHealth = 10
@@ -42,6 +42,9 @@
 	var/atom/eat_target // target that the roach wants to eat
 	var/fed = 0 // roach gets fed after eating a corpse
 	var/probability_egg_laying = 25 // probability to lay an egg
+	var/taming_window = 30 //How long you have to tame this roach, once it's pacified.
+	var/busy_time // how long it will take to eat/lay egg
+	var/busy_start_time // when it started eating/laying egg
 
 	var/obj/item/hat
 	var/hat_x_offset = 6
@@ -82,6 +85,10 @@
 			hat.update_plane()		//Eclipse edit: update the hat's plane so it's not glowing.
 			hat = null
 			update_hat()
+
+		if(prob(3))
+			visible_message(SPAN_DANGER("\the [src] hacks up a tape!"))
+			new /obj/item/music_tape(get_turf(src))
 
 /mob/living/carbon/superior_animal/roach/proc/wear_hat(var/obj/item/new_hat)
 	if(hat)

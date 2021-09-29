@@ -12,19 +12,24 @@
 /datum/uplink_item/item/stealth_items/spy
 	name = "Bug Kit"
 	item_cost = 2
-	path = /obj/item/weapon/storage/box/syndie_kit/spy
+	path = /obj/item/storage/box/syndie_kit/spy
 
 /datum/uplink_item/item/stealth_items/id
 	name = "Agent ID card"
 	item_cost = 5
-	path = /obj/item/weapon/card/id/syndicate
+	path = /obj/item/card/id/syndicate
 	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 
 /datum/uplink_item/item/stealth_items/chameleon_kit
 	name = "Chameleon Kit"
 	item_cost = 5
-	path = /obj/item/weapon/storage/box/syndie_kit/chameleon
+	path = /obj/item/storage/box/syndie_kit/chameleon
 	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+
+/datum/uplink_item/item/stealth_items/cleanup
+	name = "Crime Scene Cleanup Kit"
+	item_cost = 2
+	path = /obj/item/storage/box/syndie_kit/cleanup_kit
 
 /datum/uplink_item/item/stealth_items/voice
 	name = "Voice Changer"
@@ -39,14 +44,14 @@
 /datum/uplink_item/item/stealth_items/tool_dampener
 	name = "Tool Upgrade: Aural Dampener"
 	item_cost = 1
-	path = /obj/item/weapon/tool_upgrade/augment/dampener
+	path = /obj/item/tool_upgrade/augment/dampener
 
 /datum/uplink_item/item/stealth_items/silencer
     name = "Silencer"
     item_cost = 2
-    path = /obj/item/weapon/gun_upgrade/muzzle/silencer
+    path = /obj/item/gun_upgrade/muzzle/silencer
 
 /datum/uplink_item/item/stealth_items/killer
     name = "Syndicate \"Profesional Killer\" scope"
     item_cost = 2
-    path = /obj/item/weapon/gun_upgrade/scope/killer
+    path = /obj/item/gun_upgrade/scope/killer

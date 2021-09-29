@@ -193,7 +193,7 @@ var/list/possible_cable_coil_colours = list(
 		else
 			coil.cable_join(src, user)
 
-	else if(istype(I, /obj/item/weapon/tool/multitool))
+	else if(istype(I, /obj/item/tool/multitool))
 
 		if(powernet && (powernet.avail > 0))		// is it powered?
 			to_chat(user, SPAN_WARNING("[power_to_text(powernet.avail)] in power network."))
@@ -521,13 +521,13 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 2
 	throw_range = 5
-	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
+	matter = list(MATERIAL_STEEL = 0.5, MATERIAL_PLASTIC = 0.5)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	item_state = "coil"
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
-	preloaded_reagents = list("copper" = 8, "plasticide" = 2)
+	//preloaded_reagents = list("copper" = 8, "plasticide" = 2)
 	rarity_value = 30
 	spawn_tags = SPAWN_TAG_ITEM_UTILITY
 
@@ -646,7 +646,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(src.amount <= 14)
 			to_chat(usr, "\red You need at least 15 lengths to make restraints!")
 			return
-		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
+		var/obj/item/handcuffs/cable/B = new /obj/item/handcuffs/cable(usr.loc)
 		B.color = color
 		to_chat(usr, SPAN_NOTICE("You wind some cable together to make some restraints."))
 		src.use(15)

@@ -15,7 +15,7 @@ var/list/ship_scanners = list()
 	density = TRUE
 	anchored = FALSE
 
-	circuit = /obj/item/weapon/electronics/circuitboard/long_range_scanner
+	circuit = /obj/item/electronics/circuitboard/long_range_scanner
 
 
 
@@ -95,8 +95,7 @@ var/list/ship_scanners = list()
 		S.scanners |= src
 
 	// Link to Eris object on the overmap
-	linked_ship = locate(/obj/effect/overmap/ship/eris)
-
+	linked_ship = (locate(/obj/effect/overmap/ship/eris) in GLOB.ships)
 
 /obj/machinery/power/long_range_scanner/Destroy()
 	toggle_tendrils(FALSE)
@@ -110,7 +109,7 @@ var/list/ship_scanners = list()
 
 /obj/machinery/power/long_range_scanner/RefreshParts()
 	max_energy = 0
-	for(var/obj/item/weapon/stock_parts/smes_coil/S in component_parts)
+	for(var/obj/item/stock_parts/smes_coil/S in component_parts)
 		max_energy += (S.ChargeCapacity / CELLRATE)
 	current_energy = between(0, current_energy, max_energy)
 

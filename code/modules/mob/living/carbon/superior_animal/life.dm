@@ -1,11 +1,13 @@
 /mob/living/carbon/superior_animal/proc/check_AI_act()
-	if ((stat != CONSCIOUS) || !canmove || resting || lying || stasis || AI_inactive || client)
+	if ((stat != CONSCIOUS) || !canmove || resting || lying || stasis || AI_inactive || client || grabbed_by_friend)
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
 		walk(src, 0)
 		return
 
 	return 1
+
+/*
 
 /mob/living/carbon/superior_animal/Life()
 	. = ..()
@@ -32,7 +34,10 @@
 			stop_automated_movement = 1
 			stance = HOSTILE_STANCE_ATTACKING
 			set_glide_size(DELAY2GLIDESIZE(move_to_delay))
-			walk_to(src, target_mob, 1, move_to_delay)
+			if(!kept_distance)
+				walk_to(src, target_mob, 1, move_to_delay)
+			else
+				step_to(src, target_mob, kept_distance)
 
 		if(HOSTILE_STANCE_ATTACKING)
 			if(destroy_surroundings)
@@ -54,6 +59,7 @@
 	//Speaking
 	if(speak_chance && prob(speak_chance))
 		visible_emote(emote_see)
+*/
 
 /mob/living/carbon/superior_animal/handle_chemicals_in_body()
 	if(reagents)

@@ -207,43 +207,43 @@
 	name = "Phazon Torso"
 	icon_state = "phazon_harness"
 	origin_tech = list(TECH_MATERIAL = 7, TECH_BLUESPACE = 7, TECH_DATA = 7, TECH_POWER = 7)
-	matter = list(MATERIAL_STEEL = 35, MATERIAL_GLASS = 10, MATERIAL_PHORON = 20)
+	matter = list(MATERIAL_STEEL = 35, MATERIAL_GLASS = 10, MATERIAL_PLASMA = 20)
 
 /obj/item/mecha_parts/part/phazon_head
 	name = "Phazon Head"
 	icon_state = "phazon_head"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 2, TECH_MAGNET = 6, TECH_DATA = 6)
-	matter = list(MATERIAL_STEEL = 15, MATERIAL_GLASS = 5, MATERIAL_PHORON = 10, MATERIAL_SILVER = 30)
+	matter = list(MATERIAL_STEEL = 15, MATERIAL_GLASS = 5, MATERIAL_PLASMA = 10, MATERIAL_SILVER = 30)
 
 /obj/item/mecha_parts/part/phazon_left_arm
 	name = "Phazon Left Arm"
 	icon_state = "phazon_l_arm"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 2, TECH_MAGNET = 3)
-	matter = list(MATERIAL_STEEL = 20, MATERIAL_PHORON = 10, MATERIAL_SILVER = 3)
+	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASMA = 10, MATERIAL_SILVER = 3)
 
 /obj/item/mecha_parts/part/phazon_right_arm
 	name = "Phazon Right Arm"
 	icon_state = "phazon_r_arm"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 2, TECH_MAGNET = 3)
-	matter = list(MATERIAL_STEEL = 20, MATERIAL_PHORON = 10, MATERIAL_SILVER = 3)
+	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASMA = 10, MATERIAL_SILVER = 3)
 
 /obj/item/mecha_parts/part/phazon_left_leg
 	name = "Phazon Left Leg"
 	icon_state = "phazon_l_leg"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 2, TECH_MAGNET = 3)
-	matter = list(MATERIAL_STEEL = 20, MATERIAL_PHORON = 10, MATERIAL_SILVER = 3)
+	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASMA = 10, MATERIAL_SILVER = 3)
 
 /obj/item/mecha_parts/part/phazon_right_leg
 	name = "Phazon Right Leg"
 	icon_state = "phazon_r_leg"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 2, TECH_MAGNET = 3)
-	matter = list(MATERIAL_STEEL = 20, MATERIAL_PHORON = 10, MATERIAL_SILVER = 3)
+	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASMA = 10, MATERIAL_SILVER = 3)
 
 /obj/item/mecha_parts/part/phazon_armor
 	name = "Phazon Armor"
 	icon_state = "phazon_armor"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_BLUESPACE = 3, TECH_MAGNET = 3)
-	matter = list(MATERIAL_STEEL = 20, MATERIAL_PHORON = 10, MATERIAL_URANIUM = 10, MATERIAL_SILVER = 10, MATERIAL_DIAMOND = 5)
+	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASMA = 10, MATERIAL_URANIUM = 10, MATERIAL_SILVER = 10, MATERIAL_DIAMOND = 5)
 
 ///////// Odysseus
 

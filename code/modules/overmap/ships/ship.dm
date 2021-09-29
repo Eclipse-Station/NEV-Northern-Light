@@ -35,6 +35,14 @@
 					if(istype(src, /obj/effect/overmap/ship))
 						ME.OE:leave(src)
 
+/obj/effect/overmap/ship/New()
+	GLOB.ships += src
+	. = ..()
+
+/obj/effect/overmap/ship/Destroy()
+	GLOB.ships -= src
+	. = ..()
+
 /obj/effect/overmap/ship/Initialize()
 	. = ..()
 	for(var/datum/ship_engine/E in ship_engines)
@@ -138,6 +146,9 @@
 		return INFINITY
 	var/num_burns = get_speed()/get_acceleration() + 2 //some padding in case acceleration drops form fuel usage
 	var/burns_per_grid = (default_delay - speed_mod*get_speed())/burn_delay
+	if (burns_per_grid == 0)
+		error("ship attempted get_brake_path, burns_per_grid is 0")
+		return INFINITY
 	return round(num_burns/burns_per_grid)
 
 /obj/effect/overmap/ship/proc/decelerate()

@@ -63,7 +63,7 @@
 
 /datum/perk/oddity/parkour
 	name = "Parkour"
-	desc = "You can climb tables and ladders faster."
+	desc = "You can climb tables and ladders faster. Also clings to railings and low walls."
 	icon_state = "parkour" //https://game-icons.net/1x1/delapouite/jump-across.html
 
 /datum/perk/oddity/parkour/assign(mob/living/carbon/human/H)
@@ -232,7 +232,7 @@
 /datum/perk/nt_oddity/holy_light
 	name = "Holy Light"
 	desc = "You have been touched by the divine. You now provide a weak healing aura, healing both brute and burn damage to any Mekhanites nearby as well as yourself."
-	icon_state = "third_eye"  //https://game-icons.net/1x1/lorc/third-eye.html
+	icon_state = "aura"  //https://game-icons.net/1x1/lorc/aura.html
 	var/healing_power = 0.1
 	var/cooldown = 1 SECONDS // Just to make sure that perk don't go berserk.
 	var/initial_time
@@ -244,7 +244,7 @@
 /datum/perk/nt_oddity/holy_light/on_process()
 	if(!..())
 		return
-	if(!holder.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform))
+	if(!holder.get_core_implant(/obj/item/implant/core_implant/cruciform))
 		return
 	if(world.time < initial_time + cooldown)
 		return
@@ -252,35 +252,35 @@
 	for(var/mob/living/L in viewers(holder, 7))
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
-			if(H.stat == DEAD || !(H.get_core_implant(/obj/item/weapon/implant/core_implant/cruciform)))
+			if(H.stat == DEAD || !(H.get_core_implant(/obj/item/implant/core_implant/cruciform)))
 				continue
 			H.adjustBruteLoss(-healing_power)
 			H.adjustFireLoss(-healing_power)
 
-/datum/perk/oddity/hive_born
+/datum/perk/hive_oddity/hive_born
 	name = "Hiveborn"
 	desc = "You feel electricty flow within your body to your hands. Powercells recharge in your hands."
 	icon_state = "circuitry"  //https://game-icons.net/1x1/lorc/circuitry.html
 	gain_text = "You feel a stabbing pain of something being injected into you, and with it a painfully pleaseant feeling of being improved."
 	var/cooldown = 10 SECONDS
 	var/initial_time
-	var/obj/item/weapon/cell/C
+	var/obj/item/cell/C
 
-/datum/perk/oddity/hive_born/assign(mob/living/carbon/human/H)
+/datum/perk/hive_oddity/hive_born/assign(mob/living/carbon/human/H)
 	..()
 	initial_time = world.time
 
-/datum/perk/oddity/hive_born/on_process()
+/datum/perk/hive_oddity/hive_born/on_process()
 	if(!..())
 		return
 	if(world.time < initial_time + cooldown)
 		return
 	initial_time = world.time
-	if((holder.l_hand && istype(holder.l_hand, /obj/item/weapon/cell)))
+	if((holder.l_hand && istype(holder.l_hand, /obj/item/cell)))
 		C = holder.l_hand
 		if(!C.fully_charged())
 			C.give(50)
-	if((holder.r_hand && istype(holder.r_hand, /obj/item/weapon/cell)))
+	if((holder.r_hand && istype(holder.r_hand, /obj/item/cell)))
 		C = holder.r_hand
 		if(!C.fully_charged())
 			C.give(50)

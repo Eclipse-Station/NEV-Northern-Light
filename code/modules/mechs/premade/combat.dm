@@ -9,8 +9,8 @@
 	exosuit_color = COLOR_DARK_GUNMETAL
 	installed_armor = /obj/item/robot_parts/robot_component/armour/exosuit/combat
 	installed_software_boards = list(
-		/obj/item/weapon/electronics/circuitboard/exosystem/weapons,
-		/obj/item/weapon/electronics/circuitboard/exosystem/advweapons
+		/obj/item/electronics/circuitboard/exosystem/weapons,
+		/obj/item/electronics/circuitboard/exosystem/advweapons
 	)
 	installed_systems = list(
 		HARDPOINT_LEFT_HAND = /obj/item/mech_equipment/mounted_system/taser,
@@ -66,7 +66,7 @@
 	mech_health = 400 //It's not as beefy as the heavy, but it IS a combat chassis, so let's make it slightly beefier
 	power_use = 40
 	climb_time = 25 //standard values for now to encourage use over heavy
-	matter = list(MATERIAL_STEEL = 45, MATERIAL_PLASTEEL = 10, MATERIAL_PHORONGLASS = 5)
+	matter = list(MATERIAL_STEEL = 45, MATERIAL_PLASTEEL = 10, MATERIAL_PLASMAGLASS = 5)
 
 /obj/item/mech_component/chassis/combat/Initialize()
 	pilot_positions = list(

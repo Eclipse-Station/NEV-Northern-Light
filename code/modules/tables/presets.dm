@@ -62,7 +62,7 @@
 	color = "#FC2BC5"
 	alpha = 77 // 0.3 * 255
 	New()
-		material = get_material_by_name(MATERIAL_PHORONGLASS)
+		material = get_material_by_name(MATERIAL_PLASMAGLASS)
 		..()
 
 /obj/structure/table/holotable

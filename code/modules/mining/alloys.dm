@@ -27,9 +27,9 @@
 	product = /obj/item/stack/material/steel
 
 /datum/alloy/borosilicate
-	metaltag = MATERIAL_PHORONGLASS
+	metaltag = MATERIAL_PLASMAGLASS
 	requires = list(
 		"phoron" = 1,
 		"sand" = 2
 		)
-	product = /obj/item/stack/material/glass/phoronglass
+	product = /obj/item/stack/material/glass/plasmaglass

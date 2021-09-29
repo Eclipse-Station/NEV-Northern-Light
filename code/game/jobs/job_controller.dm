@@ -431,8 +431,8 @@ var/global/list/whitelisted_jobs = ()	//Eclipse var - used in debug proc
 
 			//Deferred item spawning.
 			if(spawn_in_storage && spawn_in_storage.len)
-				var/obj/item/weapon/storage/B
-				for(var/obj/item/weapon/storage/S in H.contents)
+				var/obj/item/storage/B
+				for(var/obj/item/storage/S in H.contents)
 					B = S
 					break
 
@@ -483,7 +483,7 @@ var/global/list/whitelisted_jobs = ()	//Eclipse var - used in debug proc
 
 	proc/spawnId(var/mob/living/carbon/human/H, rank, title, idtype)
 		if(!H)	return 0
-		var/obj/item/weapon/card/id/C = null
+		var/obj/item/card/id/C = null
 
 		var/datum/job/job = null
 		for(var/datum/job/J in occupations)
@@ -499,7 +499,7 @@ var/global/list/whitelisted_jobs = ()	//Eclipse var - used in debug proc
 				C = new idtype(H)
 				C.access = job.get_access()
 		else
-			C = new /obj/item/weapon/card/id(H)
+			C = new /obj/item/card/id(H)
 		if(C)
 			C.rank = rank
 			C.assignment = title ? title : rank

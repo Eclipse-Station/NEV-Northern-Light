@@ -32,7 +32,7 @@
 	if(cult)
 		return ..()
 
-	var/obj/item/weapon/card/id/card = I.GetIdCard()
+	var/obj/item/card/id/card = I.GetIdCard()
 	if(istype(card))
 		if(access_bar in card.GetAccess())
 			//Eclipse Edit Start

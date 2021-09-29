@@ -113,7 +113,7 @@
 				C.loc = src.loc
 			if (src.stat & BROKEN)
 				to_chat(user, SPAN_NOTICE("The broken glass falls out."))
-				new /obj/item/weapon/material/shard(src.loc)
+				new /obj/item/material/shard(src.loc)
 				A.state = 3
 				A.icon_state = "3"
 			else
@@ -122,6 +122,11 @@
 				A.icon_state = "4"
 			circuit.deconstruct(src)
 			qdel(src)
+
+	else if(istype(I, /obj/item/device/spy_bug))
+		user.drop_item()
+		I.loc = get_turf(src)
+
 	else
 		..()
 

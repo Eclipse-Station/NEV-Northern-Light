@@ -1,7 +1,11 @@
 /datum/design/autolathe/part/consolescreen
 	name = "console screen"
-	build_path = /obj/item/weapon/stock_parts/console_screen
+	build_path = /obj/item/stock_parts/console_screen
 
+/datum/design/autolathe/part/cable_coil
+	name = "cable coil"
+	build_path = /obj/item/stack/cable_coil 
+	
 /datum/design/autolathe/part/igniter
 	name = "igniter"
 	build_path = /obj/item/device/assembly/igniter
@@ -28,13 +32,13 @@
 
 /datum/design/autolathe/part/camera_assembly
 	name = "camera assembly"
-	build_path = /obj/item/weapon/camera_assembly
+	build_path = /obj/item/camera_assembly
 
 
 /datum/design/autolathe/part/laserguide
 	name = "\"Guiding Light\" laser guide"
-	build_path = /obj/item/weapon/tool_upgrade/refinement/laserguide
+	build_path = /obj/item/tool_upgrade/refinement/laserguide
 
 /datum/design/autolathe/part/diamondblade
 	name = "\"Gleaming Edge\": Diamond blade"
-	build_path = /obj/item/weapon/tool_upgrade/productivity/diamond_blade
+	build_path = /obj/item/tool_upgrade/productivity/diamond_blade

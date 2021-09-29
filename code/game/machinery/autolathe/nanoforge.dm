@@ -6,7 +6,7 @@
 	use_oddities = TRUE
 	is_nanoforge = TRUE
 	low_quality_print = FALSE
-	circuit = /obj/item/weapon/electronics/circuitboard/nanoforge
+	circuit = /obj/item/electronics/circuitboard/nanoforge
 	var/list/tags_to_spawn = list(SPAWN_DESIGN)
 	var/list/nano_disks = list()
 
@@ -16,7 +16,7 @@
 	MATERIAL_STEEL = 0.3,
 	MATERIAL_PLASMAGLASS = 0.6,
 	MATERIAL_DIAMOND = 0.7,
-	MATERIAL_PHORON = 0.5,
+	MATERIAL_PLASMA = 0.5,
 	MATERIAL_GOLD = 0.6,
 	MATERIAL_URANIUM = 0.7,
 	MATERIAL_SILVER = 0.6,
@@ -77,7 +77,7 @@
 		return
 	var/path = SSspawn_data.pick_spawn(candidates)
 	nano_disks += list(path)
-	var/obj/item/weapon/computer_hardware/hard_drive/portable/design/D = new path
+	var/obj/item/computer_hardware/hard_drive/portable/design/D = new path
 	saved_designs |= D.find_files_by_type(/datum/computer_file/binary/design)
 	remove_oddity(user, TRUE)
 

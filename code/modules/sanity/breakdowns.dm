@@ -226,7 +226,7 @@
 		"It's too much! You freak out and lose control!"
 	)
 	end_messages = list(
-		"You calm down as your feelings subside. You feel horribly embarassed!"
+		"You calm down as your feelings subside. You feel horribly embarrassed!"
 	)
 
 /datum/breakdown/negative/hysteric/update()
@@ -335,7 +335,7 @@
 
 	start_messages = list(
 		"You feel like there is no point in any of this!",
-		"You brain refuses to comprehend any of this!",
+		"Your brain refuses to comprehend any of this!",
 		"You feel like you don't want to continue whatever you're doing!",
 		"You feel like your best days are gone forever!",
 		"You feel it. You know it. There is no turning back!"
@@ -575,13 +575,13 @@
 		var/mob/living/carbon/human/H = pick(candidates)
 		candidates.Remove(H)
 		var/list/contents = H.get_contents()
-		target = locate(/obj/item/weapon/oddity) in contents
+		target = locate(/obj/item/oddity) in contents
 		if(!target && prob(3))
 			target = locate(/obj/item/clothing/shoes) in contents //Classic Clown Man stunt
 
 
 		if(!target)
-			target = locate(/obj/item/weapon/gun) in contents //Gun
+			target = locate(/obj/item/gun) in contents //Gun
 
 	return !!target
 

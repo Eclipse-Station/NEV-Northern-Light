@@ -153,7 +153,7 @@
 /* Maybe next time.
 /mob/living/carbon/human/CanAvoidGravity()
 	if (!restrained())
-		var/obj/item/weapon/tank/jetpack/thrust = get_jetpack()
+		var/obj/item/tank/jetpack/thrust = get_jetpack()
 
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
 			return TRUE
@@ -161,7 +161,7 @@
 	return ..()
 
 /mob/living/silicon/robot/CanAvoidGravity()
-	var/obj/item/weapon/tank/jetpack/thrust = get_jetpack()
+	var/obj/item/tank/jetpack/thrust = get_jetpack()
 
 	if (thrust && thrust.allow_thrust(0.02, src))
 		return TRUE
@@ -220,11 +220,24 @@
 
 
 /mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+	if (CanAvoidGravity())
+		return FALSE
 	// Special condition for jetpack mounted folk!
 	if (!restrained())
-		if (CanAvoidGravity())
-			return FALSE
-
+		var/tile_view = view(src, 1)
+		var/obj/item/clothing/shoes/magboots/MB = shoes
+		if(stats.getPerk(PERK_PARKOUR))
+			for(var/obj/structure/low_wall/LW in tile_view)
+				return FALSE
+			for(var/obj/structure/railing/R in get_turf(src))
+				return FALSE
+		if(istype(MB))
+			if(MB.magpulse)
+				for(var/obj/structure/low_wall/LW in tile_view)
+					return FALSE
+				for(var/turf/simulated/wall/W in tile_view)
+					return FALSE
+          
 	return ..()
 
 /mob/living/carbon/human/bst/can_fall()
@@ -248,7 +261,7 @@
 			moveWithMob += M.pulling
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
-			for(var/obj/item/weapon/grab/G in list(H.r_hand, H.l_hand))
+			for(var/obj/item/grab/G in list(H.r_hand, H.l_hand))
 				moveWithMob += G.affecting
 		if(moveWithMob.len)
 			var/turf/pull_target = istop ? GetBelow(ES) : GetAbove(ES)

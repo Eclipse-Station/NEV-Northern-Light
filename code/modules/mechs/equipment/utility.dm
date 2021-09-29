@@ -52,9 +52,9 @@
 			if(user.a_intent == I_HURT)
 				admin_attack_log(user, M, "attempted to clamp [M] with [src] ", "Was subject to a clamping attempt.", ", using \a [src], attempted to clamp")
 				owner.setClickCooldown(owner.arms ? owner.arms.action_delay * 3 : 30) //This is an inefficient use of your powers
-				if(prob(33))
-					owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"))
-					return
+//				if(prob(33))
+//					owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"))
+//					return
 				M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage * 1.5 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
 				M.throw_at(get_edge_target_turf(owner ,owner.dir),5, 2)
 				to_chat(user, "<span class='warning'>You slam [target] with [src.name].</span>")
@@ -102,7 +102,7 @@
 		update_icon()
 		owner.update_icon()
 
-/obj/item/mech_equipment/light/on_update_icon()
+/obj/item/mech_equipment/light/update_icon()
 	. = ..()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
@@ -165,7 +165,7 @@
 						log_and_message_admins("used [src] to throw [locked] at [target].", user, owner.loc)
 						locked = null
 
-						var/obj/item/weapon/cell/C = owner.get_cell()
+						var/obj/item/cell/C = owner.get_cell()
 						if(istype(C))
 							C.use(active_power_use * CELLRATE)
 
@@ -186,7 +186,7 @@
 
 
 				log_and_message_admins("used [src]'s area throw on [target].", user, owner.loc)
-				var/obj/item/weapon/cell/C = owner.get_cell()
+				var/obj/item/cell/C = owner.get_cell()
 				if(istype(C))
 					C.use(active_power_use * CELLRATE * 2) //bit more expensive to throw all
 
@@ -196,22 +196,36 @@
 #undef CATAPULT_AREA
 
 
-/obj/item/weapon/material/drill_head
+/obj/item/material/drill_head
 	var/durability = 0
 	name = "drill head"
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon_state = "exodrillhead"
 	default_material = MATERIAL_STEEL
 
-/obj/item/weapon/material/drill_head/Initialize()
+/obj/item/material/drill_head/Initialize()
 	. = ..()
-	durability = 2 * (material ? material.integrity : 1)
+	
+	//durability = 2 * (material ? material.integrity : 1)
 
-/obj/item/weapon/material/drill_head/plasteel/New(var/newloc)
+/obj/item/material/drill_head/Created(var/creator) 
+	ApplyDurability()
+
+/obj/item/material/drill_head/steel/New(var/newloc)
+	..(newloc,MATERIAL_STEEL)
+	ApplyDurability()	
+
+/obj/item/material/drill_head/plasteel/New(var/newloc)
 	..(newloc,MATERIAL_PLASTEEL)
+	ApplyDurability()	
 
-/obj/item/weapon/material/drill_head/diamond/New(var/newloc)
+/obj/item/material/drill_head/diamond/New(var/newloc)
 	..(newloc,MATERIAL_DIAMOND)
+	ApplyDurability()	
+
+
+/obj/item/material/drill_head/verb/ApplyDurability()
+	durability = 2 * (material ? material.integrity : 1)
 
 /obj/item/mech_equipment/drill
 	name = "drill"
@@ -222,14 +236,15 @@
 	equipment_delay = 10
 
 	//Drill can have a head
-	var/obj/item/weapon/material/drill_head/drill_head
+	var/obj/item/material/drill_head/drill_head
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 
 
 
 /obj/item/mech_equipment/drill/Initialize()
 	. = ..()
-	drill_head = new /obj/item/weapon/material/drill_head(src, MATERIAL_STEEL)//You start with a basic steel head
+	drill_head = new /obj/item/material/drill_head(src, "steel")//You start with a basic steel head
+	drill_head.ApplyDurability()	
 
 /obj/item/mech_equipment/drill/attack_self(var/mob/user)
 	. = ..()
@@ -239,16 +254,15 @@
 			playsound(src, 'sound/weapons/circsawhit.ogg', 50, 1)
 
 
-/obj/item/mech_equipment/drill/afterattack(atom/target, mob/living/user, inrange, params)
-	if(!inrange) return
+/obj/item/mech_equipment/drill/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
 	if(.)
 		if(isobj(target))
 			var/obj/target_obj = target
 			if(target_obj.unacidable)
 				return
-		if(istype(target,/obj/item/weapon/material/drill_head))
-			var/obj/item/weapon/material/drill_head/DH = target
+		if(istype(target,/obj/item/material/drill_head))
+			var/obj/item/material/drill_head/DH = target
 			if(drill_head)
 				owner.visible_message(SPAN_NOTICE("\The [owner] detaches the [drill_head] mounted on the [src]."))
 				drill_head.forceMove(owner.loc)
@@ -261,9 +275,10 @@
 			to_chat(user, SPAN_WARNING("Your drill doesn't have a head!"))
 			return
 
-		var/obj/item/weapon/cell/C = owner.get_cell()
+		var/obj/item/cell/C = owner.get_cell()
 		if(istype(C))
 			C.use(active_power_use * CELLRATE)
+		playsound(src, 'sound/weapons/circsawhit.ogg', 50, 1)	
 		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 
 		var/T = target.loc
@@ -309,11 +324,11 @@
 							continue
 						var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I //clamps work, but anythin that contains an ore crate internally is valid
 						if(ore_box)
-							for(var/obj/item/weapon/ore/ore in range(T,1))
+							for(var/obj/item/ore/ore in range(T,1))
 								if(get_dir(owner,ore)&owner.dir)
 									ore.Move(ore_box)
 
-				playsound(src, 'sound/weapons/circsawhit.ogg', 50, 1)
+				playsound(src, 'sound/weapons/rapidslice.ogg', 50, 1) 
 
 		else
 			to_chat(user, "You must stay still while the drill is engaged!")
@@ -323,18 +338,17 @@
 
 /obj/item/mech_equipment/mounted_system/extinguisher
 	icon_state = "mech_exting"
-	holding_type = /obj/item/weapon/extinguisher/mech
+	holding_type = /obj/item/extinguisher/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 
-/obj/item/weapon/extinguisher/mech
+/obj/item/extinguisher/mech
 	max_water = 4000 //Good is gooder
 	icon_state = "mech_exting"
 	overlaylist = list()
-	spawn_frequency = 0
 
-/obj/item/weapon/extinguisher/mech/get_hardpoint_maptext()
+/obj/item/extinguisher/mech/get_hardpoint_maptext()
 	return "[reagents.total_volume]/[max_water]"
 
-/obj/item/weapon/extinguisher/mech/get_hardpoint_status_value()
+/obj/item/extinguisher/mech/get_hardpoint_status_value()
 	return reagents.total_volume/max_water

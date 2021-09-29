@@ -1,5 +1,5 @@
 // Technomancers
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/components
+/obj/item/computer_hardware/hard_drive/portable/design/components
 	disk_name = "Engineering ARK-034 Components"
 	icon_state = "technomancers"
 	rarity_value = 4
@@ -7,6 +7,7 @@
 	license = 20
 	designs = list(
 		/datum/design/autolathe/part/consolescreen,
+		/datum/design/autolathe/part/cable_coil = 0,
 		/datum/design/research/item/part/smes_coil,
 		/datum/design/research/item/part/basic_capacitor,
 		/datum/design/research/item/part/basic_sensor,
@@ -23,7 +24,7 @@
 		/datum/design/autolathe/part/laserguide
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/adv_tools
+/obj/item/computer_hardware/hard_drive/portable/design/adv_tools
 	disk_name = "Engineering IJIRO-451 Advanced Tools"
 	icon_state = "technomancers"
 	rarity_value = 11
@@ -50,7 +51,7 @@
 		/datum/design/autolathe/tool/rpd,
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/circuits
+/obj/item/computer_hardware/hard_drive/portable/design/circuits
 	disk_name = "Engineering ESPO-830 Circuits"
 	icon_state = "technomancers"
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
@@ -78,16 +79,16 @@
 		/datum/design/autolathe/circuit/industrialgrinder = 2,
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/conveyors
+/obj/item/computer_hardware/hard_drive/portable/design/conveyors
 	disk_name = "Engineering LAT-018 Logistics"
 	icon_state = "technomancers"
 	rarity_value = 4
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
-	license = 10
+	license = -1
 	designs = list(
 		/datum/design/autolathe/conveyor = 0,
 		/datum/design/autolathe/conveyor_switch = 0,
-		/datum/design/autolathe/circuit/smelter = 4,
-		/datum/design/autolathe/circuit/sorter = 2
+		/datum/design/autolathe/circuit/smelter = 0,
+		/datum/design/autolathe/circuit/sorter = 0
 	)
 

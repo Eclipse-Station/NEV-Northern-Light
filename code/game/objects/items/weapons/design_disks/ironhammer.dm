@@ -1,5 +1,5 @@
 // Ironhammer
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/security
+/obj/item/computer_hardware/hard_drive/portable/design/security
 	disk_name = "Aegis Miscellaneous Pack"
 	icon_state = "ironhammer"
 	rarity_value = 5
@@ -13,11 +13,12 @@
 		/datum/design/autolathe/misc/taperecorder,
 		/datum/design/autolathe/tool/tacknife,
 		/datum/design/autolathe/sec/beartrap,
+		/datum/design/autolathe/device/landmine = 2,
 		/datum/design/autolathe/sec/silencer,
 		/datum/design/autolathe/sec/hailer
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic
+/obj/item/computer_hardware/hard_drive/portable/design/armor/generic
 	disk_name = "Aegis Combat Equipment - Standard Armor"
 	icon_state = "ironhammer"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED_COMMON
@@ -29,7 +30,7 @@
 		/datum/design/autolathe/clothing/generic_vest_full = 2
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/bulletproof
+/obj/item/computer_hardware/hard_drive/portable/design/armor/generic/bulletproof
 	disk_name = "Aegis Combat Equipment - Bulletproof Armor"
 	icon_state = "ironhammer"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED_COMMON
@@ -41,7 +42,7 @@
 		/datum/design/autolathe/clothing/bulletproof_vest_generic_full = 2
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/generic/ablative
+/obj/item/computer_hardware/hard_drive/portable/design/armor/generic/ablative
 	disk_name = "Aegis Combat Equipment - Laserproof Armor"
 	icon_state = "ironhammer"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED_COMMON
@@ -52,7 +53,7 @@
 		/datum/design/autolathe/clothing/ablative_helmet
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih
+/obj/item/computer_hardware/hard_drive/portable/design/armor/ih
 	disk_name = "Aegis Combat Equipment - Operator Armor"
 	icon_state = "ironhammer"
 	spawn_blacklisted = TRUE //should only be obtainable from the sectech
@@ -63,7 +64,7 @@
 		/datum/design/autolathe/clothing/ih_vest_basic_full = 2
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof
+/obj/item/computer_hardware/hard_drive/portable/design/armor/ih/bulletproof
 	disk_name = "Aegis Combat Equipment - Bulletproof Operator Armor"
 	icon_state = "ironhammer"
 	spawn_blacklisted = TRUE

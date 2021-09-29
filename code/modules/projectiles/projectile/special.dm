@@ -28,6 +28,7 @@
 	damage_types = list(BRUTE = 70)
 	armor_penetration = 100
 	check_armour = ARMOR_BULLET
+	penetrating = -5
 
 /obj/item/projectile/bullet/rocket/launch(atom/target, target_zone, x_offset, y_offset, angle_offset)
 	set_light(2.5, 0.5, "#dddd00")
@@ -135,14 +136,6 @@
 		return 1
 
 
-/obj/item/projectile/beam/mindflayer
-	name = "flayer ray"
-
-/obj/item/projectile/beam/mindflayer/on_hit(atom/target)
-	if(ishuman(target))
-		var/mob/living/carbon/human/M = target
-		M.confused += rand(5,8)
-
 /obj/item/projectile/chameleon
 	name = "bullet"
 	icon_state = "bullet"
@@ -182,3 +175,48 @@
 	damage_types = list(BRUTE = 5)
 	embed = 0
 	ignition_source = FALSE		//Eclipse add - no more Heseil going boom today.
+/obj/item/projectile/bullet/flare
+	name = "flare"
+	icon_state = "flare"
+	damage_types = list(BRUTE = 24)
+	kill_count = 16
+	armor_penetration = 0
+	step_delay = 3
+	eyeblur = 2 // bright light slightly blurs your vision
+	luminosity_range = 5
+	luminosity_power = 1
+	luminosity_color = COLOR_RED
+	luminosity_ttl = 1
+	var/fire_stacks = 1
+	var/flash_range = 1
+	var/light_duration = 300
+	var/brightness = 10
+	knockback = FALSE
+	can_ricochet = FALSE
+	sharp = FALSE
+	embed = FALSE
+
+/obj/item/projectile/bullet/flare/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(iscarbon(target))
+		var/mob/living/carbon/M = target
+		playsound(src, 'sound/effects/flare.ogg', 100, 1)
+		M.adjust_fire_stacks(fire_stacks)
+		M.IgniteMob()
+		src.visible_message(SPAN_WARNING("\The [src] sets [target] on fire!"))
+
+/obj/item/projectile/bullet/flare/on_impact(var/atom/A)
+	var/turf/T = flash_range? src.loc : get_turf(A)
+	if(!istype(T)) return
+
+	//blind adjacent people with enhanced vision
+	for (var/mob/living/carbon/M in viewers(T, flash_range))
+		if(M.eyecheck() < FLASH_PROTECTION_NONE)
+			if (M.HUDtech.Find("flash"))
+				FLICK("e_flash", M.HUDtech["flash"])
+
+	src.visible_message(SPAN_WARNING("\The [src] explodes in a bright light!"))
+	new /obj/effect/decal/cleanable/ash(src.loc)
+	playsound(src, 'sound/effects/flare.ogg', 100, 1)
+	new /obj/effect/effect/smoke/illumination(T, brightness=max(flash_range*3, brightness), lifetime=light_duration, color=COLOR_RED)
+	

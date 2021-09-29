@@ -108,7 +108,7 @@
 		occupant = null
 	else
 		if(progress >= CLONING_MEAT)
-			new /obj/item/weapon/reagent_containers/food/snacks/meat(loc)
+			new /obj/item/reagent_containers/food/snacks/meat(loc)
 
 	update_icon()
 
@@ -211,7 +211,7 @@
 
 
 		if(progress >= CLONING_MEAT && !occupant)
-			var/obj/item/weapon/implant/core_implant/soulcrypt/R = reader.implant
+			var/obj/item/implant/core_implant/soulcrypt/R = reader.implant
 			if(!R)
 				open_anim()
 				stop()
@@ -411,8 +411,8 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [B.name] is exhausted and can't be melted to biomatter. "))
 
-	if(istype(I, /obj/item/weapon/reagent_containers) && I.is_open_container())
-		var/obj/item/weapon/reagent_containers/container = I
+	if(istype(I, /obj/item/reagent_containers) && I.is_open_container())
+		var/obj/item/reagent_containers/container = I
 		if(container.reagents.get_reagent_amount("biomatter") == container.reagents.total_volume)
 			container.reagents.trans_to_holder(reagents, container.amount_per_transfer_from_this)
 			to_chat(user, SPAN_NOTICE("You transfer some of biomatter from \the [container] to \the [name]."))
@@ -433,13 +433,13 @@
 	density = TRUE
 	anchored = TRUE
 
-	var/obj/item/weapon/implant/core_implant/soulcrypt/implant
+	var/obj/item/implant/core_implant/soulcrypt/implant
 	var/reading = FALSE
 
 
 /obj/machinery/neotheology/reader/attackby(obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/implant/core_implant/soulcrypt))
-		var/obj/item/weapon/implant/core_implant/soulcrypt/C = I
+	if(istype(I, /obj/item/implant/core_implant/soulcrypt))
+		var/obj/item/implant/core_implant/soulcrypt/C = I
 		user.drop_item()
 		C.forceMove(src)
 		implant = C

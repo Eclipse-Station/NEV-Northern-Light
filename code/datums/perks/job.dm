@@ -18,6 +18,7 @@
 	name = "Artist"
 	desc = "You have a lot of expertise in making works of art. You gain 150% insight from all sources but can only level \
 			up by creating works of art."
+	icon_state = "paintbrush" // https://game-icons.net/1x1/delapouite/paint-brush.html
 	var/old_max_insight = INFINITY
 	var/old_max_resting = INFINITY
 	var/old_insight_rest_gain_multiplier = 1
@@ -50,12 +51,12 @@
 	..()
 	if(holder)
 		holder.metabolism_effects.addiction_chance_multiplier = 0.5
-		holder.metabolism_effects.nsa_threshold += 10
+		holder.metabolism_effects.nsa_threshold_base += 10
 
 /datum/perk/selfmedicated/remove()
 	if(holder)
 		holder.metabolism_effects.addiction_chance_multiplier = 1
-		holder.metabolism_effects.nsa_threshold -= 10
+		holder.metabolism_effects.nsa_threshold_base -= 10
 	..()
 
 /datum/perk/vagabond
@@ -83,11 +84,11 @@
 /datum/perk/merchant/assign(mob/living/carbon/human/H)
 	..()
 	if(holder)
-		holder.sanity.valid_inspirations += /obj/item/weapon/spacecash/bundle
+		holder.sanity.valid_inspirations += /obj/item/spacecash/bundle
 
 /datum/perk/merchant/remove()
 	if(holder)
-		holder.sanity.valid_inspirations -= /obj/item/weapon/spacecash/bundle
+		holder.sanity.valid_inspirations -= /obj/item/spacecash/bundle
 	..()
 
 #define CHOICE_LANG "language" // Random language chosen from a pool
@@ -135,12 +136,12 @@
 		if(CHOICE_STASHPAPER)
 			desc += " You have a special note in your storage."
 			stash.spawn_stash()
-			var/obj/item/weapon/paper/stash_note = stash.spawn_note()
+			var/obj/item/paper/stash_note = stash.spawn_note()
 			holder.equip_to_storage_or_drop(stash_note)
 		if(CHOICE_RAREOBJ)
 			desc += " You managed to smuggle a rare item aboard."
 			var/obj/O = pickweight(RANDOM_RARE_ITEM - /obj/item/stash_spawner)
-			var/obj/item/weapon/storage/box/B = new
+			var/obj/item/storage/box/B = new
 			new O(B) // Spawn the random spawner in the box, so that the resulting random item will be within the box
 			holder.equip_to_storage_or_drop(B)
 
@@ -172,7 +173,7 @@
 /datum/perk/inspiration
 	name = "Exotic Inspiration"
 	desc = "Boosts your Cognition and Mechanical stats any time you imbibe any alcohol."
-	icon_state = "inspiration" // https://game-icons.net/1x1/delapouite/booze.html
+	icon_state = "drinking" // https://game-icons.net/1x1/delapouite/drinking.html
 
 /datum/perk/active_inspiration
 	name = "Exotic Inspiration (Active)"
@@ -193,7 +194,7 @@
 /datum/perk/sommelier
 	name = "Sommelier"
 	desc = "You know how to handle even strongest alcohol in the universe."
-	icon_state = "inspiration"
+	icon_state = "celebration" // https://game-icons.net/1x1/delapouite/glass-celebration.html
 
 /datum/perk/neat
 	name = "Neat"
@@ -258,3 +259,56 @@
 	desc = "You know how to channel spiritual energy during rituals. You gain additional skill points \
 			during group rituals and have an increased regeneration of cruciform energy."
 	icon_state = "channeling"
+
+/datum/perk/codespeak
+	name = "Codespeak"
+	desc = "You know Ironhammer PMC's code language, adapted to use aboard of CEV Eris."
+	icon_state = "codespeak" // https://game-icons.net/1x1/delapouite/police-officer-head.html
+	var/list/codespeak_procs = list(
+		/mob/living/carbon/human/proc/codespeak_help,
+		/mob/living/carbon/human/proc/codespeak_backup,
+		/mob/living/carbon/human/proc/codespeak_clear,
+		/mob/living/carbon/human/proc/codespeak_romch,
+		/mob/living/carbon/human/proc/codespeak_bigromch,
+		/mob/living/carbon/human/proc/codespeak_murderhobo,
+		/mob/living/carbon/human/proc/codespeak_serb,
+		/mob/living/carbon/human/proc/codespeak_commie,
+		/mob/living/carbon/human/proc/codespeak_carrion,
+		/mob/living/carbon/human/proc/codespeak_mutant,
+		/mob/living/carbon/human/proc/codespeak_dead_crew,
+		/mob/living/carbon/human/proc/codespeak_wounded_crew,
+		/mob/living/carbon/human/proc/codespeak_dead_oper,
+		/mob/living/carbon/human/proc/codespeak_wounded_oper,
+		/mob/living/carbon/human/proc/codespeak_ban,
+		/mob/living/carbon/human/proc/codespeak_criminal,
+		/mob/living/carbon/human/proc/codespeak_status,
+		/mob/living/carbon/human/proc/codespeak_shutup,
+		/mob/living/carbon/human/proc/codespeak_understood,
+		/mob/living/carbon/human/proc/codespeak_yes,
+		/mob/living/carbon/human/proc/codespeak_no,
+		/mob/living/carbon/human/proc/codespeak_what,
+		/mob/living/carbon/human/proc/codespeak_busted,
+		/mob/living/carbon/human/proc/codespeak_jailbreak,
+		/mob/living/carbon/human/proc/codespeak_understood_local,
+		/mob/living/carbon/human/proc/codespeak_yes_local,
+		/mob/living/carbon/human/proc/codespeak_no_local,
+		/mob/living/carbon/human/proc/codespeak_engage_local,
+		/mob/living/carbon/human/proc/codespeak_hold_local,
+		/mob/living/carbon/human/proc/codespeak_go_local,
+		/mob/living/carbon/human/proc/codespeak_stop_local,
+		/mob/living/carbon/human/proc/codespeak_idiot_local,
+		/mob/living/carbon/human/proc/codespeak_warcrime_yes_local,
+		/mob/living/carbon/human/proc/codespeak_warcrime_no_local,
+		/mob/living/carbon/human/proc/codespeak_run_local
+		)
+
+/datum/perk/codespeak/assign(mob/living/carbon/human/H)
+	..()
+	if(holder)
+		holder.verbs += codespeak_procs
+
+
+/datum/perk/codespeak/remove()
+	if(holder)
+		holder.verbs -= codespeak_procs
+	..()

@@ -130,7 +130,7 @@
 		to_chat(usr, "There's no mounting point for the module!")
 		return 0
 
-	var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
+	var/obj/item/gun/energy/taser/mounted/cyborg/T = locate() in R.module
 	if(!T)
 		T = locate() in R.module.contents
 	if(!T)
@@ -163,8 +163,8 @@
 		to_chat(usr, "There's no mounting point for the module!")
 		return 0
 	else
-		R.module.modules += new/obj/item/weapon/tank/jetpack/carbondioxide
-//		for(var/obj/item/weapon/tank/jetpack/carbondioxide in R.module.modules)
+		R.module.modules += new/obj/item/tank/jetpack/carbondioxide
+//		for(var/obj/item/tank/jetpack/carbondioxide in R.module.modules)
 //			R.internals = src
 		//R.icon_state="Miner+j"
 		R.module.Initialize() //Fixes layering and possible tool issues
@@ -174,7 +174,7 @@
 	name = "engineering robot RCD"
 	desc = "A rapid construction device module for use during construction operations."
 	icon_state = "cyborg_upgrade3"
-	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_PHORON = 10, MATERIAL_URANIUM = 10)
+	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_PLASMA = 10, MATERIAL_URANIUM = 10)
 	require_module = TRUE
 
 /obj/item/borg/upgrade/rcd/action(var/mob/living/silicon/robot/R)
@@ -185,7 +185,7 @@
 		to_chat(usr, "There's no mounting point for the module!")
 		return 0
 	else
-		R.module.modules += new/obj/item/weapon/rcd/borg(R.module)
+		R.module.modules += new/obj/item/rcd/borg(R.module)
 		R.module.Initialize() //Fixes layering and possible tool issues
 		return 1
 

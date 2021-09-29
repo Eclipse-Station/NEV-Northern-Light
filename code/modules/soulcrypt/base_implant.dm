@@ -3,7 +3,7 @@ Soulcrypt base implant. All base functions are held here.
 The module base code is held in module.dm
 */
 
-/obj/item/weapon/implant/core_implant/soulcrypt
+/obj/item/implant/core_implant/soulcrypt
 	name = "soulcrypt"
 	desc = "A small, immensely complex biocompatible computer. Basic functions include DNA sequence storage, neural engram backups, access transciever functions, and an internal fuel cell using the host's nutrients."
 	icon = 'icons/obj/soulcrypt.dmi'
@@ -56,26 +56,26 @@ The module base code is held in module.dm
 
 //Inherited procs
 
-/obj/item/weapon/implant/core_implant/soulcrypt/Initialize()
+/obj/item/implant/core_implant/soulcrypt/Initialize()
 	. = ..()
 	add_modules(starting_modules)
 	update_icon()
 
-/obj/item/weapon/implant/core_implant/soulcrypt/update_icon()
+/obj/item/implant/core_implant/soulcrypt/update_icon()
 	overlays.Cut()
 	if(host_mind || host_dna)
 		icon_state = "soulcrypt"
 	else
 		icon_state = "crypt_off"
 
-/obj/item/weapon/implant/core_implant/soulcrypt/examine(mob/user)
+/obj/item/implant/core_implant/soulcrypt/examine(mob/user)
 	. = ..()
 	if(host_name)
 		to_chat(user, SPAN_NOTICE("This one appears to belong to [host_name]."))
 	if(hacked_snatcher)
 		to_chat(user, SPAN_DANGER("Debug mode light is on."))
 
-/obj/item/weapon/implant/core_implant/soulcrypt/emag_act(mob/user)
+/obj/item/implant/core_implant/soulcrypt/emag_act(mob/user)
 	if(hacked_snatcher)
 		to_chat(user, SPAN_NOTICE("You disable [src]'s debug mode."))
 		hacked_snatcher = FALSE
@@ -85,15 +85,15 @@ The module base code is held in module.dm
 		hacked_snatcher = TRUE
 		return 1
 
-/obj/item/weapon/implant/core_implant/soulcrypt/on_install()
+/obj/item/implant/core_implant/soulcrypt/on_install()
 	activate()
 	wearer.crypt = src
 
-/obj/item/weapon/implant/core_implant/soulcrypt/on_uninstall()
+/obj/item/implant/core_implant/soulcrypt/on_uninstall()
 	. = ..()
 	wearer.crypt = null
 
-/obj/item/weapon/implant/core_implant/soulcrypt/activate()
+/obj/item/implant/core_implant/soulcrypt/activate()
 	if(!has_stored_info)
 		host_mind = wearer.mind
 		host_dna = wearer.dna.Clone()
@@ -127,18 +127,18 @@ The module base code is held in module.dm
 	else
 		send_host_message("SOULCRYPT ONLINE. DEBUG MODE INITIATED. MIND TRANSFER COMPLETE. WELCOME TO SOULOS V1.71 REV 1 (DEBUG)")
 
-/obj/item/weapon/implant/core_implant/soulcrypt/deactivate()
+/obj/item/implant/core_implant/soulcrypt/deactivate()
 	deactivate_modules()
 	STOP_PROCESSING(SSobj, src)
 
-/obj/item/weapon/implant/core_implant/soulcrypt/GetAccess()
+/obj/item/implant/core_implant/soulcrypt/GetAccess()
 	return access
 
-/obj/item/weapon/implant/core_implant/soulcrypt/emp_act()
+/obj/item/implant/core_implant/soulcrypt/emp_act()
 	was_emp = TRUE
 	deactivate_modules()
 
-/obj/item/weapon/implant/core_implant/soulcrypt/Process()
+/obj/item/implant/core_implant/soulcrypt/Process()
 	if(!wearer)
 		return
 	heartbeat()
@@ -149,7 +149,7 @@ The module base code is held in module.dm
 
 //Unique procs
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/heartbeat() //Pretty much just checks if the host is alive or dead and does things from there.
+/obj/item/implant/core_implant/soulcrypt/proc/heartbeat() //Pretty much just checks if the host is alive or dead and does things from there.
 	if(wearer.stat == DEAD && !host_dead)
 		host_death_time = world.time
 		host_dead = TRUE
@@ -160,7 +160,7 @@ The module base code is held in module.dm
 		host_dead = FALSE
 //We use hostmind.current here because the odds are, whoever it is is a ghost.
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/send_death_message() //Sends the death message whenever the person who has this dies.
+/obj/item/implant/core_implant/soulcrypt/proc/send_death_message() //Sends the death message whenever the person who has this dies.
 	to_chat(host_mind.current, SPAN_NOTICE("You are dead, whatever the cause, you are dead. With luck, someone will retrieve your soulcrypt and clone you - otherwise, welcome to purgatory."))
 	switch(was_emp)
 		if(TRUE)
@@ -168,7 +168,7 @@ The module base code is held in module.dm
 		if(FALSE)
 			to_chat(host_mind.current, SPAN_NOTICE("Luckily, your soulcrypt takes neural backups every thirty seconds. When you're cloned, you'll remember everything up to thirty seconds before your death."))
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/send_revive_notice() //Triggered by implantation into a mindless mob.
+/obj/item/implant/core_implant/soulcrypt/proc/send_revive_notice() //Triggered by implantation into a mindless mob.
 	to_chat(host_mind.current, SPAN_NOTICE("Congratulations on a new lease on life, you're being cloned."))
 	switch(was_emp)
 		if(TRUE)
@@ -176,7 +176,7 @@ The module base code is held in module.dm
 		if(FALSE)
 			to_chat(host_mind.current, SPAN_NOTICE("As your conciousness slowly emerges from the muck of resurrection, you remember everything that's occured up to about thirty seconds before your death."))
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/handle_modules() //Loops through the modules in the modules list, and handles their effects.
+/obj/item/implant/core_implant/soulcrypt/proc/handle_modules() //Loops through the modules in the modules list, and handles their effects.
 	for(var/datum/soulcrypt_module/M in modules)
 		if(M.active)
 			if(energy <= 0) //No energy, just deactivate all the modules.
@@ -184,11 +184,11 @@ The module base code is held in module.dm
 				continue
 			M.handle_effects()
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/add_modules(var/starting_list) //Adds modules from a list.
+/obj/item/implant/core_implant/soulcrypt/proc/add_modules(var/starting_list) //Adds modules from a list.
 	for(var/M in starting_list)
 		add_module(M)
 
-/obj/item/weapon/implant/core_implant/soulcrypt/add_module(var/module_path)
+/obj/item/implant/core_implant/soulcrypt/add_module(var/module_path)
 	for(var/datum/soulcrypt_module/M in modules)
 		if(M.type == module_path)
 			return //Prevent adding duplicates.
@@ -196,16 +196,16 @@ The module base code is held in module.dm
 	modules += module
 	module.owner = src
 
-/obj/item/weapon/implant/core_implant/soulcrypt/remove_module(var/datum/soulcrypt_module/module) //Removes a module from the implant.
+/obj/item/implant/core_implant/soulcrypt/remove_module(var/datum/soulcrypt_module/module) //Removes a module from the implant.
 	module.owner = null
 	qdel(module)
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/deactivate_modules() //Deactivates all active modules.
+/obj/item/implant/core_implant/soulcrypt/proc/deactivate_modules() //Deactivates all active modules.
 	for(var/datum/soulcrypt_module/M in modules)
 		if(M.active)
 			M.deactivate()
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/handle_energy() //Take some nutrition, provide energy. Remove the energy used by any active modules from this amount.
+/obj/item/implant/core_implant/soulcrypt/proc/handle_energy() //Take some nutrition, provide energy. Remove the energy used by any active modules from this amount.
 	var/energy_to_add = 0
 	var/active_module_drain = 0
 	var/nutrition_to_remove = 0
@@ -250,7 +250,7 @@ The module base code is held in module.dm
 
 	wearer.adjustNutrition(nutrition_to_remove)
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/handle_integrity()
+/obj/item/implant/core_implant/soulcrypt/proc/handle_integrity()
 	var/integrity_loss = 0
 
 	for(var/datum/soulcrypt_module/M in modules)
@@ -264,7 +264,7 @@ The module base code is held in module.dm
 	integrity -= integrity_loss
 	integrity = CLAMP(integrity, 0, 100)
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/send_host_message(var/message, var/message_type = MESSAGE_NOTICE)
+/obj/item/implant/core_implant/soulcrypt/proc/send_host_message(var/message, var/message_type = MESSAGE_NOTICE)
 	var/turf/T = get_turf(wearer)
 	switch(message_type)
 		if(MESSAGE_NOTICE)
@@ -277,12 +277,12 @@ The module base code is held in module.dm
 			to_chat(wearer, SPAN_DANGER("\icon[src] [src] transmits urgently, '[message]'"))
 			wearer.playsound_local(T, very_bad_sound, 30)
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/find_module_by_name(var/name)
+/obj/item/implant/core_implant/soulcrypt/proc/find_module_by_name(var/name)
 	for(var/datum/soulcrypt_module/M in modules)
 		if(M.name == name)
 			return M
 
-/obj/item/weapon/implant/core_implant/soulcrypt/proc/store_host_languages()
+/obj/item/implant/core_implant/soulcrypt/proc/store_host_languages()
 	for(var/datum/language/L in wearer.languages)
 		host_languages += L.name
 /*
@@ -291,7 +291,7 @@ The module base code is held in module.dm
 	set desc = "Opens the Soulcrypt's filemanager."
 	set category = "Soulcrypt"
 
-	var/obj/item/weapon/implant/core_implant/soulcrypt/SC = locate(/obj/item/weapon/implant/core_implant/soulcrypt) in src.contents
+	var/obj/item/implant/core_implant/soulcrypt/SC = locate(/obj/item/implant/core_implant/soulcrypt) in src.contents
 
 	if(!SC)
 		to_chat(src, SPAN_WARNING("You don't have a soulcrypt, somehow."))
