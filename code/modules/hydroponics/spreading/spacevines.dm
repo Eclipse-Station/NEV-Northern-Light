@@ -5,8 +5,7 @@
 	//Vines will spawn at a burrow
 	var/obj/structure/burrow/origin
 	var/list/burrows = GLOB.all_burrows.Copy()
-	while (burrows.len)
-		var/obj/structure/burrow/B = pick_n_take(burrows)
+	for(var/obj/structure/burrow/B in burrows) //Eclipse edit, for loop works much better than while loop
 
 		//Needs to not already have plants
 		if (B.plant)
@@ -53,7 +52,7 @@
 
 	for (var/a in origin.plantspread_burrows)
 		var/obj/structure/burrow/B = locate(a)
-		if (istype(B))
+		if (istype(B) && !B.maintenance) //Eclipse Edit
 			spawn(RAND_DECIMAL(5, 30))
 				B.break_open() //Break the floor at each of the burrows it spreads to
 				log_and_message_admins("Spacevines spread to burrow [jumplink(B)]")

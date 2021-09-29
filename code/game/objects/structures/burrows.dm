@@ -640,6 +640,8 @@ percentage is a value in the range 0..1 that determines what portion of this mob
 //It relies on the plant seed already being set
 /obj/structure/burrow/proc/spread_plants()
 	reveal()
+	if(maintenance && !istype(plant, /datum/seed/mushroom/maintshroom)) //Eclipse edit, attempt to stop strange plants from burrowing into maintenance
+		return									// Eclipse edit
 	if(istype(plant, /datum/seed/wires))		//hivemind wireweeds handling
 		if(locate(/obj/effect/plant) in loc)
 			return
