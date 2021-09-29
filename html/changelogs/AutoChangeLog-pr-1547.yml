@@ -1,0 +1,11 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - tweak: Partially refactored how welding fuel spreads, to account for Z-level travel.
+  - bugfix: Fixed an issue where welding fuel would create a stack of puddles atop
+      each other if they fell a Z-level.
+  - bugfix: Fixed an edge case where a Benzin lit on fire would not explode. Now,
+      a Benzin lit on fire will explode 3 to 15 seconds later.
+  - bugfix: Fixed an edge case where a Benzin could leak welder fuel more than once.
+  - balance: Increased the amount of welder fuel a defeated Benzin will leak. (Was
+      5, now 50.)
