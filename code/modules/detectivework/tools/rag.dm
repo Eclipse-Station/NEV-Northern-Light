@@ -63,7 +63,7 @@
 /obj/item/reagent_containers/glass/rag/proc/update_name()
 	if(on_fire)
 		name = "burning [initial(name)]"
-	else if(reagents.total_volume)
+	else if(reagents?.total_volume) //Eclipse edit - runtime fix
 		name = "damp [initial(name)]"
 	else
 		name = "dry [initial(name)]"

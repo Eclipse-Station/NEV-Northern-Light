@@ -543,7 +543,8 @@
 
 /hook/roundstart/proc/place_pendant()
 	var/obj/landmark/storyevent/potential_unique_oddity_spawn/L = pick_landmark(/obj/landmark/storyevent/potential_unique_oddity_spawn)
-	new /obj/item/oddity/pendant(L.get_loc())
+	if(L)//Eclipse edit - runtime fix
+		new /obj/item/oddity/pendant(L.get_loc())
 	return TRUE
 
 /obj/item/golden_leaf
