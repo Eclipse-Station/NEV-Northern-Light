@@ -66,7 +66,7 @@
 		new /obj/item/storage/backpack/ironhammer(src)
 	else
 		new /obj/item/storage/backpack/sport/ironhammer(src)
-	new /obj/item/storage/backpack/satchel/ironhammer(src)
+		new /obj/item/storage/backpack/satchel/ironhammer(src)
 		new /obj/item/storage/backpack/sport/ironhammer(src)
 	new /obj/item/storage/backpack/satchel/ironhammer(src)
 	new /obj/item/clothing/head/beret/sec/navy/hos(src)
@@ -105,7 +105,7 @@
 		new /obj/item/storage/backpack/ironhammer(src)
 	else
 		new /obj/item/storage/backpack/sport/ironhammer(src)
-	new /obj/item/storage/backpack/satchel/ironhammer(src)
+		new /obj/item/storage/backpack/satchel/ironhammer(src)
 		new /obj/item/storage/backpack/sport/ironhammer(src)
 	new /obj/item/storage/backpack/satchel/ironhammer(src)
 	new /obj/item/clothing/under/rank/warden(src)
@@ -146,7 +146,7 @@
 		new /obj/item/storage/backpack/ironhammer(src)
 	else
 		new /obj/item/storage/backpack/sport/ironhammer(src)
-	new /obj/item/storage/backpack/satchel/ironhammer(src)
+		new /obj/item/storage/backpack/satchel/ironhammer(src)
 		new /obj/item/storage/backpack/sport/ironhammer(src)
 	new /obj/item/storage/backpack/satchel/ironhammer(src)
 	new /obj/item/device/radio/headset/headset_sec(src)
