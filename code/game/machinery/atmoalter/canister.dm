@@ -49,7 +49,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled
 	name = "Canister: \[O2 (Cryo)]"
 
-/obj/machinery/portable_atmospherics/canister/phoron
+/obj/machinery/portable_atmospherics/canister/plasma
 	name = "Canister \[Phoron\]"
 	icon_state = "orange"
 	canister_color = "orange"
@@ -470,7 +470,7 @@ update_flag
 	src.update_icon()
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/phoron/engine_setup/New()
+/obj/machinery/portable_atmospherics/canister/plasma/engine_setup/New()
 	..()
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
 	src.update_icon()

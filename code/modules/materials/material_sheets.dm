@@ -375,3 +375,6 @@
 	item_state = "rcdammo"
 	default_type = MATERIAL_COMPRESSED
 	price_tag = 30
+
+/obj/item/stack/material/compressed/full
+	amount = 60

@@ -9,7 +9,7 @@
 /turf/simulated/wall/r_wall,
 /area/outpost/abandoned_fortress)
 "ad" = (
-/obj/effect/window_lwall_spawn/phoron,
+/obj/effect/window_lwall_spawn/plasma,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned_fortress)
 "ae" = (
