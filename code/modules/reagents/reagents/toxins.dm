@@ -99,7 +99,7 @@
 
 /datum/reagent/toxin/plasma
 	name = "phoron"
-	id = "plasma"
+	id = "phoron"
 	description = "phoron in its liquid form."
 	taste_mult = 1.5
 	reagent_state = LIQUID
