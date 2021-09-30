@@ -63,7 +63,7 @@
 // #include "hydroponics_harvest.dm"
 // #include "initialize_sanity.dm"
 // #include "keybinding_init.dm"
-#include "loadout_tests.dm"
+//#include "loadout_tests.dm" -- Eclipse edit - conflicts with our loadout
 // #include "machine_disassembly.dm"
 #include "map_tests.dm"
 // #include "medical_wounds.dm"
