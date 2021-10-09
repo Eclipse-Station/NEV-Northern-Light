@@ -13365,7 +13365,7 @@
 /turf/simulated/floor/reinforced/plasma,
 /area/eris/engineering/atmos)
 "aEZ" = (
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/plasma/engine_setup,
 /turf/simulated/floor/reinforced/plasma,
 /area/eris/engineering/atmos)
 "aFa" = (
@@ -15443,10 +15443,6 @@
 /obj/spawner/traps/wire_splicing/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck5port)
-"aKK" = (
-/obj/structure/scrap_beacon,
-/turf/simulated/floor/tiled/dark/danger,
-/area/eris/maintenance/junk)
 "aKL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/meter,
@@ -24445,10 +24441,8 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck1central)
 "beb" = (
-/obj/structure/table/standard,
 /obj/machinery/camera/network/fourth_section,
-/obj/spawner/lowkeyrandom,
-/obj/spawner/lowkeyrandom,
+/obj/machinery/vending/style,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep/cryo)
 "bec" = (
@@ -24950,14 +24944,6 @@
 	},
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/robotics)
-"bfj" = (
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -28
-	},
-/obj/spawner/flora/low_chance,
-/turf/simulated/floor/tiled/steel,
-/area/eris/crew_quarters/sleep/cryo)
 "bfk" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/steel/panels,
@@ -52527,7 +52513,7 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cpG" = (
-/obj/machinery/portable_atmospherics/canister/plasma,
+/obj/machinery/portable_atmospherics/canister/plasma/engine_setup,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cpH" = (
@@ -86349,11 +86335,11 @@
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/long_range_scanner)
 "dPd" = (
-/obj/machinery/power/long_range_scanner/hull/installed,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/machinery/power/long_range_scanner/hull/installed,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/long_range_scanner)
 "dPe" = (
@@ -86442,22 +86428,37 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/gravity_generator)
 "dPq" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 4
 	},
-/obj/machinery/power/apc{
-	name = "South APC";
-	pixel_y = -28
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/structure/cable/green,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/steel/gray_perforated,
+/turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/long_range_scanner)
 "dPr" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled/steel/gray_perforated,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/long_range_scanner)
 "dPs" = (
 /obj/machinery/door/firedoor,
@@ -86690,24 +86691,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/engineering/gravity_generator)
-"dPX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/engineering{
-	name = "Long Range Scanner Room";
-	req_access = list(10)
-	},
-/turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/gravity_generator)
 "dPY" = (
 /obj/structure/cable/green{
@@ -99238,15 +99221,11 @@
 /area/eris/security/main)
 "esR" = (
 /obj/structure/table/standard,
-/obj/item/storage/toolbox/mechanical,
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/item/cell/large/high,
+/obj/item/cell/large/high,
 /obj/machinery/alarm{
 	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
+	pixel_x = 25
 	},
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/long_range_scanner)
@@ -106912,6 +106891,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep_male/toilet_male)
+"jiP" = (
+/obj/machinery/door/blast/regular{
+	id = "scannerroom";
+	name = "Long Range Scanner Screen"
+	},
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/space)
 "jkx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -107552,6 +107539,25 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/surgery)
+"lWX" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Long Range Scanner Room";
+	req_access = list(10)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel/cargo,
+/area/eris/engineering/gravity_generator)
 "lXO" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
@@ -107686,6 +107692,12 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_flat,
 /area/eris/crew_quarters/bar)
+"mAb" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/maintenance/junk)
 "mAA" = (
 /turf/simulated/wall,
 /area/eris/crew_quarters/clownoffice)
@@ -107903,6 +107915,10 @@
 /obj/item/clothing/glasses/monocle,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/clownoffice)
+"nqj" = (
+/obj/machinery/computer/jtb_console,
+/turf/simulated/floor/tiled/dark/gray_perforated,
+/area/eris/maintenance/junk)
 "nqt" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -108423,11 +108439,6 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/bridgetoilet)
-"pkU" = (
-/obj/machinery/light/small,
-/obj/machinery/portable_atmospherics/canister/plasma,
-/turf/simulated/floor/tiled/steel/cargo,
-/area/eris/engineering/engine_room)
 "plK" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark/techfloor,
@@ -108442,25 +108453,6 @@
 	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/quartermaster/hangarsupply)
-"psA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel/gray_platform,
-/area/eris/engineering/long_range_scanner)
 "pto" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/reinforced/polarized,
@@ -108717,6 +108709,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/command/courtroom)
+"qRc" = (
+/obj/structure/jtb_pillar,
+/turf/simulated/floor/tiled/dark/danger,
+/area/eris/maintenance/junk)
 "qSV" = (
 /obj/effect/floor_decal/industrial/danger{
 	dir = 4;
@@ -108810,12 +108806,10 @@
 "rjV" = (
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/long_range_scanner)
 "rnc" = (
@@ -108927,8 +108921,8 @@
 	dir = 8;
 	tag = "icon-wooden_chair (WEST)"
 	},
-/turf/simulated/floor/wood,
 /obj/structure/railing/grey,
+/turf/simulated/floor/wood,
 /turf/simulated/open,
 /area/eris/crew_quarters/bar)
 "rMd" = (
@@ -109025,6 +109019,24 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/eris/medical/medbay/uppercor)
+"sfy" = (
+/obj/structure/cable/green,
+/obj/machinery/light,
+/obj/machinery/power/apc{
+	name = "South APC";
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/engineering/long_range_scanner)
+"shA" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled/steel/gray_perforated,
+/area/eris/engineering/long_range_scanner)
 "snG" = (
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
@@ -109933,6 +109945,14 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/fitness)
+"vZa" = (
+/obj/machinery/door/blast/regular{
+	id = "scannerroom";
+	name = "Long Range Scanner Screen"
+	},
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/eris/engineering/long_range_scanner)
 "waf" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -110083,12 +110103,10 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/chemistry)
 "wFS" = (
-/obj/effect/window_lwall_spawn/smartspawn,
-/obj/machinery/door/blast/regular{
-	id = "scannerroom";
-	name = "Long Range Scanner Screen"
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/long_range_scanner)
 "wNc" = (
 /obj/machinery/power/eotp,
@@ -110236,13 +110254,11 @@
 /area/eris/security/checkpoint/supply)
 "xDm" = (
 /obj/structure/table/standard,
-/obj/item/cell/large/high,
-/obj/item/cell/large/high,
 /obj/machinery/button/remote/blast_door{
 	id = "scannerroom";
 	name = "Long Range Scanner Shutters"
 	},
-/turf/simulated/floor/tiled/steel/gray_platform,
+/turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/long_range_scanner)
 "xGU" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -136776,8 +136792,8 @@ azq
 aIS
 aJI
 aZI
-aJI
-aJI
+nqj
+mAb
 aZI
 aJI
 aMK
@@ -137380,11 +137396,11 @@ azq
 azq
 azq
 aFv
+qRc
 aKf
 aKf
 aKf
-aKf
-aKf
+qRc
 aFo
 aMK
 aSd
@@ -137786,7 +137802,7 @@ aFo
 aIU
 aKf
 aKf
-aKK
+aKf
 aKf
 aKf
 aIU
@@ -138188,11 +138204,11 @@ aDK
 aFm
 aFo
 aFo
+qRc
 aKf
 aKf
 aKf
-aKf
-aKf
+qRc
 aFo
 bdH
 aNW
@@ -169732,7 +169748,7 @@ abF
 abF
 bON
 beb
-bfj
+bsH
 bPR
 bNa
 bOE
@@ -203864,7 +203880,7 @@ cNB
 coG
 cpG
 cpG
-pkU
+cpG
 bIP
 cTU
 cwU
@@ -296372,10 +296388,10 @@ abF
 abF
 abF
 dLg
-dLg
-dPX
-dLg
-dLg
+eAS
+eAS
+lWX
+eAS
 dLg
 dLg
 dLg
@@ -296575,10 +296591,10 @@ abF
 nNw
 nNw
 dPc
-psA
+kpf
 dPq
-nNw
-aaa
+sfy
+aae
 aaa
 aad
 aaa
@@ -296780,7 +296796,7 @@ dPd
 rjV
 dPr
 wFS
-aaa
+jiP
 aaa
 aad
 abF
@@ -296981,8 +296997,8 @@ nNw
 kpf
 xDm
 esR
-nNw
-aaa
+shA
+aae
 aaa
 aad
 aaa
@@ -297178,13 +297194,13 @@ abF
 abF
 abF
 abF
-aad
+abF
 nNw
-wFS
-wFS
+vZa
+vZa
 nNw
 nNw
-aad
+aae
 aaA
 aaA
 aaA

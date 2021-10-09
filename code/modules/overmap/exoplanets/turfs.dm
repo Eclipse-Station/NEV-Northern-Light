@@ -215,3 +215,7 @@
 
 	else
 		..(C,user)
+
+
+/turf/simulated/floor/exoplanet/proc/update_connections()
+	return
