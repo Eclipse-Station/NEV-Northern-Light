@@ -312,7 +312,7 @@
 	icon_state = "mug_old_nt"
 
 /obj/item/reagent_containers/food/drinks/mug/new_nt
-	name = "NeoTheology mug"
+	name = "Mekhane mug"
 	desc = "A brown mug, it prominently features a tau-cross."
 	icon_state = "mug_new_nt"
 
@@ -327,28 +327,28 @@
 	icon_state = "mug_serb"
 
 /obj/item/reagent_containers/food/drinks/mug/ironhammer
-	name = "Ironhammer mug"
-	desc = "A mug with an Ironhammer PMC logo on it."
+	name = "Aegis mug"
+	desc = "A mug with an Aegis Security Solutions logo on it."
 	icon_state = "mug_hammer"
 
 /obj/item/reagent_containers/food/drinks/mug/league
-	name = "Technomancer mug"
-	desc = "A mug with a Technomancer League logo on it."
+	name = "Engineering mug"
+	desc = "A mug with a NT Engineering logo on it."
 	icon_state = "mug_league"
 
 /obj/item/reagent_containers/food/drinks/mug/moe
-	name = "Moebius mug"
-	desc = "A white mug with Moebius Laboratories logo on it."
+	name = "Lazarus mug"
+	desc = "A white mug with Lazarus Foundation logo on it."
 	icon_state = "mug_moe"
 
 /obj/item/reagent_containers/food/drinks/mug/aster
-	name = "Aster mug"
-	desc = "A fancy gold mug with a Aster Guild logo on it."
+	name = "FTU mug"
+	desc = "A fancy gold mug with an FTU logo on it."
 	icon_state = "mug_aster"
 
 /obj/item/reagent_containers/food/drinks/mug/guild
-	name = "Guild mug"
-	desc = "A plain mug with a Aster Guild logo on it."
+	name = "FTU mug"
+	desc = "A plain mug with an FTU logo on it."
 	icon_state = "mug_guild"
 
 /obj/item/reagent_containers/food/drinks/mug/white

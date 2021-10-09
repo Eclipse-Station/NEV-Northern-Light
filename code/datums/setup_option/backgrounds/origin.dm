@@ -205,9 +205,9 @@
 	restricted_depts = IRONHAMMER | MEDICAL | SCIENCE | CHURCH | GUILD | CIVILIAN | SERVICE
 
 /datum/category_item/setup_option/background/origin/ihmaids
-	name = "Ironhammer M.A.I.D.S Corps"
-	desc = "The Ironhammer Medical, Acquisition, Industrial Design and Security Corps are normally posted to construction work of particular importance to Ironhammer assets, such as fortifications or barracks for the garrisons on the way to the null sector, along with triage work for when an accident inevitably happens at those garrisons. \
-			At other times, they're assigned to Ironhammer security teams on exploratory missions into the null sector due to their prowess as construction specialists and medics."
+	name = "Aegis M.A.I.D.S Corps"
+	desc = "Aegis Medical, Acquisition, Industrial Design and Security Corps are normally posted to construction work of particular importance to Aegis assets, such as fortifications or barracks for the garrisons on the way to the null sector, along with triage work for when an accident inevitably happens at those garrisons. \
+			At other times, they're assigned to Aegis security teams on exploratory missions into the null sector due to their prowess as construction specialists and medics."
 
 	stat_modifiers = list(
 		STAT_ROB = -10,

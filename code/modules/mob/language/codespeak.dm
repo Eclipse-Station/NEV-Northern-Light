@@ -41,8 +41,8 @@ var/cop_code_last
 
 /mob/living/carbon/human/proc/codespeak_backup()
 	set category = "Codespeak"
-	set name = "Backups"
-	src.codesay("Need backups", TRUE, FALSE)
+	set name = "Backup"
+	src.codesay("Need backup", TRUE, FALSE)
 
 /mob/living/carbon/human/proc/codespeak_clear()
 	set category = "Codespeak"
@@ -131,12 +131,12 @@ var/cop_code_last
 
 /mob/living/carbon/human/proc/codespeak_yes()
 	set category = "Codespeak"
-	set name = "Yes"
+	set name = "Affirmative"
 	src.codesay("Positive", FALSE, FALSE)
 
 /mob/living/carbon/human/proc/codespeak_no()
 	set category = "Codespeak"
-	set name = "No"
+	set name = "Negative"
 	src.codesay("Negative", FALSE, FALSE)
 
 /mob/living/carbon/human/proc/codespeak_what()
@@ -147,12 +147,12 @@ var/cop_code_last
 /mob/living/carbon/human/proc/codespeak_busted()
 	set category = "Codespeak"
 	set name = "Suspect in custody"
-	src.codesay("Suspect in custody", FALSE, FALSE) 
+	src.codesay("Suspect in custody", FALSE, FALSE)
 
 /mob/living/carbon/human/proc/codespeak_jailbreak()
 	set category = "Codespeak"
 	set name = "Suspect escaped"
-	src.codesay("Suspect escaped", FALSE, FALSE) 
+	src.codesay("Suspect escaped", FALSE, FALSE)
 
 /mob/living/carbon/human/proc/codespeak_understood_local()
 	set category = "Codespeak"

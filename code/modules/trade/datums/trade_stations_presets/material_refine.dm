@@ -1,7 +1,7 @@
 /datum/trade_station/collector
 	start_discovered = TRUE
 	spawn_always = TRUE
-	name_pool = list("CRS 'Reoll'" = "Civilian Refinery Ship 'Recoll'. They're sending a message. \"Heey! We are a small refinery looking for customers. We accept all types of ores and we sell refined materials at cheap prices aswell!\"")
+	name_pool = list("CRS 'Reoll'" = "Civilian Refinery Ship 'Recoll'. They're sending a message. \"Heeeeey! We are a small refinery looking for customers. We accept all types of ores and we sell refined materials at cheap prices as well!\"")
 	assortiment = list(
 		"Unrefined Materials"  = list(
 			/obj/item/ore/iron,

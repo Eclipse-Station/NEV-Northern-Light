@@ -67,6 +67,6 @@
 
 /datum/design/research/item/custom_circuit_assembly/cloning
 	name = "Integrated circuit printer cloning disk - instance printing"
-	desc = "Install this into your integrated circuit printer to enhance it.  This one allow printer to print assemblies in seconds, litterally."
+	desc = "Install this into your integrated circuit printer to enhance it.  This one allow printer to print assemblies in seconds, literally."
 	build_path = /obj/item/disk/integrated_circuit/upgrade/clone
 	sort_string = "VCAAH"

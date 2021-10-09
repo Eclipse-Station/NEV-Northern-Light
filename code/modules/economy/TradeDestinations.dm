@@ -42,8 +42,8 @@ var/list/weighted_mundaneevent_locations = list()
 	return null
 
 /datum/trade_destination/atomos
-	name = "IHS Atomos"
-	description = "Corvette assigned to patrol local space."
+	name = "NDV Icarus"
+	description = "Drone vessel assigned to patrol local space."
 	distance = 0.1
 	willing_to_buy = list()
 	willing_to_sell = list()

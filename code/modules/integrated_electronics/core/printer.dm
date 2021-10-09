@@ -380,7 +380,7 @@
 				if(!cloning || !program)
 					return
 
-				to_chat(usr, SPAN_NOTICE("Cloning has been canceled. material cost has been refunded."))
+				to_chat(usr, SPAN_NOTICE("Cloning has been canceled. Material cost has been refunded."))
 				cloning = FALSE
 				var/cost = program["cost"]
 				for(var/material in cost)

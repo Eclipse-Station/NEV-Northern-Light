@@ -273,12 +273,12 @@ steam.start() -- spawns the effect
 
 	src.radius = radius
 	src.brightness = brightness
-	
+
 	set_light(radius,brightness,color)
 
 	if(selfdestruct_timer)
 		spawn(selfdestruct_timer)
-		qdel(src)
+			qdel(src)
 
 /obj/effect/effect/light/set_light(l_range, l_power, l_color)
 	..()

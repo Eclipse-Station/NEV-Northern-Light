@@ -108,7 +108,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/armor/asters
-	disk_name = "Asters Enforcement Armor Pack"
+	disk_name = "FTU Enforcement Armor Pack"
 	icon_state = "guild"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED_COMMON
 	rarity_value = 13 // between standard and bulletproof armor

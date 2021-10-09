@@ -2,7 +2,7 @@
 
 /obj/item/clothing/mask/gas
 	name = "gas mask"
-	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air and the smell of roaches."
+	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases and rancid smells from the air."
 	icon_state = "gas_alt"
 	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE

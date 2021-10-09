@@ -186,7 +186,7 @@
 			m_bitesize = min(m_bitesize, reagents.total_volume)
 			//If the creature can't even stomach half a bite, then it eats nothing
 			if (!SA.eat_from_hand)
-				to_chat(user, SPAN_WARNING("[M] doesn't accept hand-feeding."))
+				to_chat(user, SPAN_WARNING("[M] turns away."))
 				return 0
 			else if (!SA.can_eat() || ((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
 				amount_eaten = 0

@@ -14,7 +14,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets"
 	response_disarm = "rubs"
-	response_harm = "makes terrible mistake by kicking"
+	response_harm = "makes terrible mistake kicking"
 	min_oxy = 16
 	minbodytemp = 223
 	maxbodytemp = 323

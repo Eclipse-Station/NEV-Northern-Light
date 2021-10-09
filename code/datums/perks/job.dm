@@ -262,7 +262,7 @@
 
 /datum/perk/codespeak
 	name = "Codespeak"
-	desc = "You know Ironhammer PMC's code language, adapted to use aboard of CEV Eris."
+	desc = "You know Aegis PMC's code language, adapted to use aboard of NEV Northern Light." //Eclipse edit - lore compliance
 	icon_state = "codespeak" // https://game-icons.net/1x1/delapouite/police-officer-head.html
 	var/list/codespeak_procs = list(
 		/mob/living/carbon/human/proc/codespeak_help,

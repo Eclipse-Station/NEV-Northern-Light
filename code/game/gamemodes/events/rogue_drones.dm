@@ -52,9 +52,9 @@
 /datum/event/rogue_drone/announce()
 	var/msg
 	if(prob(33))
-		msg = "A combat drone wing operating out of the IHS Atomos has failed to return from a sweep of this sector, if any are sighted approach with caution."
+		msg = "A combat drone wing operating out of the Icarus Station has failed to return from a sweep of this sector, if any are sighted approach with caution."
 	else if(prob(50))
-		msg = "Contact has been lost with a combat drone wing operating out of the IHS Atomos. If any are sighted in the area, approach with caution."
+		msg = "Contact has been lost with a combat drone wing operating out of the Icarus Station. If any are sighted in the area, approach with caution."
 	else
 		msg = "Unidentified hackers have targetted a combat drone wing deployed from the IHS Atomos. If any are sighted in the area, approach with caution."
 	command_announcement.Announce(msg, "Rogue drone alert")
