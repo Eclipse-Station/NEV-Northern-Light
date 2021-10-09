@@ -1,5 +1,5 @@
 /obj/machinery/door/holy
-	name = "NeoTheology door"
+	name = "Mekhane door"
 	icon = 'icons/obj/doors/Door_holy.dmi'
 	icon_state = "door_closed"
 	autoclose = 1
@@ -9,7 +9,7 @@
 	var/open_sound_powered = 'sound/machines/airlock_open.ogg'
 	var/open_sound_unpowered = 'sound/machines/airlock_creaking.ogg'
 	var/obj/item/wedged_item
-	
+
 /obj/machinery/door/holy/preacher
 	name = "NeoTheology clergy door"
 	icon = 'icons/obj/doors/Door_holy_preacher.dmi'
@@ -17,7 +17,7 @@
 
 /obj/item/clothing/accessory/cross // It belongs here
 	name = "Tau Cross necklace"
-	desc = "Heavy necklace resembling a Tau Cross - symbol of NeoTheology. Used as a key to NeoTheology doors."
+	desc = "Heavy necklace resembling a Tau Cross - symbol of Children of the Mekhane. Used as a key to Mekhane doors."
 	icon = 'icons/inventory/accessory/icon.dmi'
 	icon_state = "cross"
 	item_state = ""	// No inhands
@@ -109,7 +109,7 @@
 			else
 				do_animate("deny")
 		return
-	
+
 	do_animate("deny")
 	return
 
@@ -255,7 +255,7 @@
 /obj/machinery/door/holy/can_open(forced)
 	if(!density || locked || welded || operating)
 		return FALSE
-	
+
 	return TRUE
 
 /obj/machinery/door/holy/can_close(forced)
@@ -297,7 +297,7 @@
 					do_animate("opening")
 					operating = FALSE
 					return
-		
+
 	if(stat & BROKEN)
 		var/obj/item/tool/T = forced
 		if (istype(T) && T.item_flags & HONKING)
