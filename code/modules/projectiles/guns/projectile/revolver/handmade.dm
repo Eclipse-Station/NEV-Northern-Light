@@ -14,8 +14,8 @@
 
 /obj/item/gun/projectile/revolver/handmade/attackby(obj/item/W, mob/user)
 	if(QUALITY_SCREW_DRIVING in W.tool_qualities)
-		to_chat(user, SPAN_NOTICE("You begin to rechamber \the [src]."))
 		if(loaded.len == 0 && W.use_tool(user, src, WORKTIME_NORMAL, QUALITY_SCREW_DRIVING, FAILCHANCE_NORMAL, required_stat = STAT_MEC))
+			to_chat(user, SPAN_NOTICE("You begin to rechamber \the [src]."))
 			if(caliber == CAL_MAGNUM)
 				caliber = CAL_PISTOL
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .35 Caliber."))
@@ -25,7 +25,7 @@
 			else if(caliber == CAL_CLRIFLE)
 				caliber = CAL_MAGNUM
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .40 Magnum."))
-		else 
+		else
 			to_chat(user, SPAN_WARNING("You cannot rechamber a loaded firearm!"))
 			return
 	..()

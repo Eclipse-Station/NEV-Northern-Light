@@ -4,8 +4,8 @@
 	spawn_probability = 10
 	markup = 3
 	name_pool = list(
-		"STF 'Kovac'" = "They are a sending message, \"Come with money for very good stuff! You can pay with your life, even!\"",
-		"SV 'Zoric'" = "They are a sending message, \"For the correct price, we can sell you something... even jobs!\""
+		"STF 'Kovac'" = "They are sending a message, \"Come with money for very good stuff! You can pay with your life, even!\"",
+		"SV 'Zoric'" = "They are sending a message, \"For the correct price, we can sell you something... even jobs!\""
 	)
 //Types of items sold by the station
 	assortiment = list(
