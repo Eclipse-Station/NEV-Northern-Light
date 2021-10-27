@@ -319,7 +319,7 @@ the value of stock parts increases with the rating.
 			things += path
 	return things
 
-/datum/controller/subsystem/spawn_data/proc/pick_spawn(list/paths, invert_value=FALSE)
+/datum/controller/subsystem/spawn_data/proc/pick_spawn(list/paths, invert_value=FALSE, atom/caller)
 	//if(!paths || !paths.len) //NOPE
 		//return
 	var/list/things = list()
@@ -337,7 +337,12 @@ the value of stock parts increases with the rating.
 	for(var/path in paths)
 		if(get_spawn_value(path) == spawn_value)
 			things += path
-	return pick(things)
+
+	if(things.len) //Eclipse add - handling for empty lists
+		return pick(things)
+
+	log_debug("[caller.name] tried to pick_spawn, but the list was empty.")
+	return /obj/item/generic
 
 /datum/controller/subsystem/spawn_data/proc/take_tags(list/paths, list/exclude)
 	var/list/local_tags = list()

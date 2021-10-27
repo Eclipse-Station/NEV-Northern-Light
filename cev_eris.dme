@@ -2872,6 +2872,7 @@
 #include "zzz_modular_eclipse\code\modules\custom_items\itemlist.dm"
 #include "zzz_modular_eclipse\code\modules\mob\pixelshift.dm"
 #include "zzz_modular_eclipse\code\modules\mob\new_player\new_player.dm"
+#include "zzz_modular_eclipse\code\modules\objects\items\generic.dm"
 #include "zzz_modular_eclipse\code\modules\organs\external\subtypes\robotic_types.dm"
 #include "zzz_modular_eclipse\code\modules\reagents\toxins.dm"
 #include "zzz_modular_eclipse\code\modules\sanity\sanity_mob.dm"

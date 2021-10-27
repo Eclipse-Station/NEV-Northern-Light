@@ -166,7 +166,7 @@
 	return candidates
 
 /obj/spawner/proc/pick_spawn(list/candidates)
-	var/selected = SSspawn_data.pick_spawn(candidates)
+	var/selected = SSspawn_data.pick_spawn(candidates, caller = src)
 	aditional_object = SSspawn_data.all_accompanying_obj_by_path[selected]
 	return selected
 

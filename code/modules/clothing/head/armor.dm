@@ -102,7 +102,7 @@
 
 /obj/item/clothing/head/armor/helmet/technomancer_old
 	name = "reinforced engineering helmet"
-	desc = "A ballistic helmet with a built-in flashlight, painted in the Engineering department's colours."
+	desc = "A ballistic helmet with a built-in flashlight, painted in the Engineering department's colors."
 	icon_state = "technohelmet_old"
 	body_parts_covered = HEAD|EARS|EYES|FACE
 	item_flags = THICKMATERIAL
