@@ -121,7 +121,7 @@
 /obj/item/craft_frame/proc/generate_guns()
 	for(var/i in 1 to total_items)
 		var/list/canidates = SSspawn_data.valid_candidates(tags_to_spawn, null, FALSE, i*100, i*500, TRUE, null, paths, null)
-		paths += list(SSspawn_data.pick_spawn(canidates))
+		paths += list(SSspawn_data.pick_spawn(canidates, caller = src))
 	for(var/path in paths)
 		items += new path()
 
@@ -173,7 +173,7 @@
 	var/turf/T = get_turf(src)
 	O.forceMove(T)
 	user.put_in_hands(O)
-	if(istype(O, /obj/item/weapon/gun/projectile))
+	if(istype(O, /obj/item/gun/projectile))
 		var/list/aditional_objects = SSspawn_data.all_accompanying_obj_by_path[O.type]
 		var/atom/movable/aditional_obj
 		if(islist(aditional_objects) && aditional_objects.len)

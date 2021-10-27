@@ -1,6 +1,6 @@
 // The lighting system
 //
-// consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/weapon/light)
+// consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/light)
 
 
 // status values shared between lighting fixtures and items
@@ -178,7 +178,7 @@
 	var/brightness_color = COLOR_LIGHTING_DEFAULT_BRIGHT
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
-	var/light_type = /obj/item/weapon/light/tube		// the type of light item
+	var/light_type = /obj/item/light/tube		// the type of light item
 	var/fitting = "tube"
 	var/switchcount = 0			// count of number of times switched on/off
 								// this is used to calc the probability the light burns out
@@ -186,7 +186,7 @@
 	var/rigged = 0				// true if rigged to explode
 	var/firealarmed = 0
 	var/atmosalarmed = 0
-	
+
 	var/overload = 0		//Eclipse edit: Variable to trigger an overload. If set, next process() tick will cause an overload to occur.
 
 // the smaller bulb light fixture
@@ -204,7 +204,7 @@
 	brightness_range = 3
 	brightness_power = 1
 	desc = "A small lighting fixture."
-	light_type = /obj/item/weapon/light/bulb
+	light_type = /obj/item/light/bulb
 
 /obj/machinery/light/small/autoattach
 	autoattach = 1
@@ -212,7 +212,7 @@
 /obj/machinery/light/spot
 	name = "spotlight"
 	fitting = "large tube"
-	light_type = /obj/item/weapon/light/tube/large
+	light_type = /obj/item/light/tube/large
 	brightness_range = 12
 	brightness_power = 4
 
@@ -396,13 +396,13 @@
 			return
 
 	// attempt to insert light
-	if(istype(I, /obj/item/weapon/light))
+	if(istype(I, /obj/item/light))
 		if(status == LIGHT_OK)
 			to_chat(user, SPAN_WARNING("There is a [fitting] already inserted."))
 			return
 		else
 			src.add_fingerprint(user)
-			var/obj/item/weapon/light/L = I
+			var/obj/item/light/L = I
 			if(istype(L, light_type))
 				user.drop_item()
 
@@ -577,7 +577,7 @@
 
 // create a light tube/bulb item and put it in the drop location
 /obj/machinery/light/proc/drop_light_tube(mob/living/user)
-	var/obj/item/weapon/light/L = new light_type(drop_location())
+	var/obj/item/light/L = new light_type(drop_location())
 	L.status = status
 	L.rigged = rigged
 	L.brightness_range = brightness_range
@@ -621,24 +621,24 @@
 /obj/machinery/light/proc/overload()
 	if(status != LIGHT_OK)
 		return FALSE		//If the light is broken, burned out, or removed, we can't really do much realistically.
-	
+
 	overload = FALSE		//Set this to FALSE so process() doesn't call overload() recursively
-	
+
 	//Right, first let's start playing the sound.
 	playsound(src.loc, 'sound/effects/transformer_overload.ogg', 60, 0)		//This sound lasts just over five seconds as I've mixed it.
-	
+
 	//Next, we make our light slowly brighten and glow a bit red due to the ballast overheating.
 	set_light(brightness_range, brightness_power, "#ffdabc")		//Start the brightness effect subtle.
 	sleep(15)		//T+1.5 s
 	set_light(brightness_range + 1, brightness_power + 1, "#ffdabc")		//Getting there...
 	sleep(15)		//T+3.0 s
 	set_light(brightness_range + 2, brightness_power + 2, "#ffdabc")		//Maxed out.
-	
+
 	spawn(20)		//T+5.0s
 		src.reset_color()		//reset the colour for if a new tube goes in
 		src.broken()		//aaaaaaaaand pop goes the lightbulb.
 	return TRUE
-	
+
 // Chance to overload on EMPs
 /obj/machinery/light/emp_act(severity)
 	if(!on)
@@ -687,7 +687,7 @@
 /obj/machinery/light/Process()
 	if(on)
 		use_power(light_range * LIGHTING_POWER_FACTOR, STATIC_LIGHT)
-	
+
 	if(overload)		//Eclipse edit
 		overload()		//if we're set to overload, well, overload.
 
@@ -718,7 +718,7 @@
 // can be tube or bulb subtypes
 // will fit into empty /obj/machinery/light of the corresponding type
 
-/obj/item/weapon/light
+/obj/item/light
 	icon = 'icons/obj/lighting.dmi'
 	force = WEAPON_FORCE_HARMLESS
 	throwforce = WEAPON_FORCE_HARMLESS
@@ -733,7 +733,7 @@
 	var/brightness_color = null
 	preloaded_reagents = list("silicon" = 10, "tungsten" = 5)
 
-/obj/item/weapon/light/tube
+/obj/item/light/tube
 	name = "light tube"
 	desc = "A replacement light tube."
 	icon_state = "ltube"
@@ -743,13 +743,13 @@
 	brightness_range = 8
 	brightness_power = 3
 
-/obj/item/weapon/light/tube/large
+/obj/item/light/tube/large
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
 	brightness_range = 15
 	brightness_power = 4
 
-/obj/item/weapon/light/bulb
+/obj/item/light/bulb
 	name = "light bulb"
 	desc = "A replacement light bulb."
 	icon_state = "lbulb"
@@ -759,11 +759,11 @@
 	brightness_range = 5
 	brightness_power = 2
 
-/obj/item/weapon/light/throw_impact(atom/hit_atom)
+/obj/item/light/throw_impact(atom/hit_atom)
 	..()
 	shatter()
 
-/obj/item/weapon/light/bulb/fire
+/obj/item/light/bulb/fire
 	name = "fire bulb"
 	desc = "A replacement fire bulb."
 	icon_state = "fbulb"
@@ -775,7 +775,7 @@
 
 // update the icon state and description of the light
 
-/obj/item/weapon/light/proc/update()
+/obj/item/light/proc/update()
 	switch(status)
 		if(LIGHT_OK)
 			icon_state = base_state
@@ -788,7 +788,7 @@
 			desc = "A broken [name]."
 
 
-/obj/item/weapon/light/New()
+/obj/item/light/New()
 	..()
 	switch(name)
 		if("light tube")
@@ -800,14 +800,14 @@
 
 // attack bulb/tube with object
 // if a syringe, can inject phoron to make it explode
-/obj/item/weapon/light/attackby(var/obj/item/I, var/mob/user)
+/obj/item/light/attackby(var/obj/item/I, var/mob/user)
 	..()
-	if(istype(I, /obj/item/weapon/reagent_containers/syringe))
-		var/obj/item/weapon/reagent_containers/syringe/S = I
+	if(istype(I, /obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = I
 
 		to_chat(user, "You inject the solution into [src].")
 
-		if(S.reagents.has_reagent("phoron", 5))
+		if(S.reagents.has_reagent("plasma", 5))
 
 			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
@@ -823,7 +823,7 @@
 // shatter light, unless it was an attempt to put it in a light socket
 // now only shatter if the intent was harm
 
-/obj/item/weapon/light/afterattack(atom/target, mob/user, proximity)
+/obj/item/light/afterattack(atom/target, mob/user, proximity)
 	if(!proximity) return
 	if(istype(target, /obj/machinery/light))
 		return
@@ -832,7 +832,7 @@
 
 	shatter()
 
-/obj/item/weapon/light/proc/shatter()
+/obj/item/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
 		src.visible_message("\red [name] shatters.","\red You hear a small glass object shatter.")
 		status = LIGHT_BROKEN

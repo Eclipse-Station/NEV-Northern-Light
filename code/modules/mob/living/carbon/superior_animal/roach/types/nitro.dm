@@ -7,7 +7,7 @@
 	maxHealth = 25		//On par with Jaeger roaches
 	health = 25
 	melee_damage_upper = 3
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/roachmeat/nitro
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/roachmeat/nitro
 	meat_amount = 3
 	var/leaked = FALSE
 	var/impending_explosion = FALSE
@@ -18,13 +18,13 @@
 /mob/living/carbon/superior_animal/roach/nitro/ex_act()
 	if(!exploded)
 		kerplode()
-		
+
 /mob/living/carbon/superior_animal/roach/nitro/bullet_act(obj/item/projectile/slug)
 	if(!exploded && slug.ignition_source)
 		kerplode()
 	else
 		. = ..()
-	
+
 /mob/living/carbon/superior_animal/roach/nitro/fire_act()
 	if(!exploded && !impending_explosion)
 		impending_explosion = TRUE

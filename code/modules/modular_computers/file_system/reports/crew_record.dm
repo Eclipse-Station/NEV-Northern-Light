@@ -24,15 +24,15 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 
 /datum/computer_file/report/crew_record/proc/load_from_mob(var/mob/living/carbon/human/H)
 	if(istype(H))
-		photo_front = getFlatIcon(H, SOUTH)
-		photo_side = getFlatIcon(H, WEST)
+		photo_front = getFlatIcon(H, defdir=SOUTH)
+		photo_side = getFlatIcon(H, defdir=WEST)
 		if(H.mind.role_alt_title == "Vagabond")  // As stowaways, Vagabond do not show up on the crew manifest. ECLIPSE EDIT
 			GLOB.all_crew_records.Remove(src)
 			return
 	else
 		var/mob/living/carbon/human/dummy/mannequin/dummy = new()
-		photo_front = getFlatIcon(dummy, SOUTH)
-		photo_side = getFlatIcon(dummy, WEST)
+		photo_front = getFlatIcon(dummy, defdir=SOUTH)
+		photo_side = getFlatIcon(dummy, defdir=WEST)
 		qdel(dummy)
 
 	// Add education, honorifics, etc.

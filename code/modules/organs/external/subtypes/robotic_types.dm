@@ -82,6 +82,7 @@
 	desc = "Streamlined, sleek, and sterile."
 	force_icon = 'icons/mob/human_races/cyberlimbs/moebius.dmi'
 	model = "moebius"
+	price_tag = 250
 	bad_type = /obj/item/organ/external/robotic/moebius
 
 /obj/item/organ/external/robotic/moebius/l_arm
@@ -142,7 +143,7 @@
 	force_icon = 'icons/mob/human_races/cyberlimbs/excelsior.dmi'
 	model = "excelsior"
 	armor = list(melee = 50, bullet = 50, energy = 50, bomb = 50, bio = 0, rad = 100)
-	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTEEL = 1, MATERIAL_PHORON = 0.5) //Plasma needed as a material that excelsiors can't teleport in
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTEEL = 1, MATERIAL_PLASMA = 0.5) //Plasma needed as a material that excelsiors can't teleport in
 	max_damage = 65
 	min_broken_damage = 45
 	price_tag = 600

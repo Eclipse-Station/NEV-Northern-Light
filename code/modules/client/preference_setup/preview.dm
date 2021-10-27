@@ -1,9 +1,9 @@
 datum/preferences
-	var/icon/preview_icon 
+	var/icon/preview_icon
 	var/icon/preview_south
 	var/icon/preview_north
-	var/icon/preview_east 
-	var/icon/preview_west 
+	var/icon/preview_east
+	var/icon/preview_west
 	var/preview_dir = SOUTH	//for augmentation
 
 datum/preferences/proc/update_preview_icon(var/naked = FALSE)
@@ -15,20 +15,20 @@ datum/preferences/proc/update_preview_icon(var/naked = FALSE)
 		dress_preview_mob(mannequin, naked)
 
 	mannequin.dir = EAST
-	preview_east = getFlatIcon(mannequin, EAST)
+	preview_east = getFlatIcon(mannequin, defdir=EAST)
 
 	mannequin.dir = WEST
-	var/icon/stamp = getFlatIcon(mannequin, WEST)
+	var/icon/stamp = getFlatIcon(mannequin, defdir=WEST)
 	preview_icon.Blend(stamp, ICON_OVERLAY, (preview_icon.Width()/6*1) - (stamp.Width()/2) + 2, preview_icon.Height()/4*1 + 1)
 	preview_west = stamp
 
 	mannequin.dir = NORTH
-	stamp = getFlatIcon(mannequin, NORTH)
+	stamp = getFlatIcon(mannequin, defdir=NORTH)
 	preview_icon.Blend(stamp, ICON_OVERLAY, (preview_icon.Width()/6*3) - (stamp.Width()/2) + 2, preview_icon.Height()/4*2 + 1)
 	preview_north = stamp
 
 	mannequin.dir = SOUTH
-	stamp = getFlatIcon(mannequin, SOUTH)
+	stamp = getFlatIcon(mannequin, defdir=SOUTH)
 	preview_icon.Blend(stamp, ICON_OVERLAY, (preview_icon.Width()/6*5) - (stamp.Width()/2) + 2, preview_icon.Height()/4*0 + 1)
 	preview_south = stamp
 

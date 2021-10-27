@@ -1164,7 +1164,7 @@
 	..()
 	icon_state = "co2"
 
-/obj/machinery/atmospherics/pipe/tank/phoron
+/obj/machinery/atmospherics/pipe/tank/plasma
 	name = "Pressure Tank (Phoron)"
 	icon_state = "plasma_map"
 

@@ -4,6 +4,13 @@
 	if(!client)
 		return
 
+	if(message == get_cop_code())
+		language = null
+		if(isghost(src))
+			message = "[message] ([cop_code_meaning])"
+		else if(stats.getPerk(/datum/perk/codespeak))
+			message = "[message] ([cop_code_meaning])"
+
 	var/speaker_name = speaker.name
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
@@ -45,7 +52,7 @@
 	if(speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 		var/turf/source = speaker ? get_turf(speaker) : get_turf(src)
 		src.playsound_local(source, speech_sound, sound_vol, 1)
-
+			
 /mob/proc/on_hear_say(var/message)
 	to_chat(src, message)
 
@@ -58,6 +65,14 @@
 
 	if(!client)
 		return
+
+	if(findtext(message, get_cop_code()))
+		message = cop_code_last
+		language = null
+		if(isghost(src))
+			message = "[message] ([cop_code_meaning])"
+		else if(stats.getPerk(/datum/perk/codespeak))
+			message = "[message] ([cop_code_meaning])"
 
 	var/speaker_name = get_hear_name(speaker, hard_to_hear, voice_name)
 
@@ -119,7 +134,7 @@
 
 			// If I's display name is currently different from the voice name and using an agent ID then don't impersonate
 			// as this would allow the AI to track I and realize the mismatch.
-			if(I && (I.name == speaker_name || !I.wear_id || !istype(I.wear_id, /obj/item/weapon/card/id/syndicate)))
+			if(I && (I.name == speaker_name || !I.wear_id || !istype(I.wear_id, /obj/item/card/id/syndicate)))
 				impersonating = I
 				jobname = impersonating.get_assignment()
 			else
@@ -178,7 +193,7 @@
 		message = "<B>[speaker]</B> [verb]."
 
 	if(src.status_flags & PASSEMOTES)
-		for(var/obj/item/weapon/holder/H in src.contents)
+		for(var/obj/item/holder/H in src.contents)
 			H.show_message(message)
 		for(var/mob/living/M in src.contents)
 			M.show_message(message)

@@ -89,15 +89,6 @@
 	add_inherent_law("Do not interact or interfere with any being that is not a fellow maintenance drone unless doing so is required to fulfill an above law.")
 	..()
 
-/datum/ai_laws/construction_drone
-	name = "Construction Protocols"
-	law_header = "Construction Protocols"
-
-/datum/ai_laws/construction_drone/New()
-	add_inherent_law("Repair, refit and upgrade your assigned vessel.")
-	add_inherent_law("Prevent unplanned damage to your assigned vessel wherever possible.")
-	..()
-
 /******************** T.Y.R.A.N.T. ********************/
 /datum/ai_laws/tyrant
 	name = "T.Y.R.A.N.T."

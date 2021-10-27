@@ -31,10 +31,7 @@
 	var/cpr_time = 1
 	nutrition = 400//Carbon
 
-	var/is_watching = TRUE  //used for remote viewing of multiz structures
-	var/can_multiz_pb = FALSE // used for point-blanking people that camp ladders.
-
-	var/obj/item/weapon/tank/internal //Human/Monkey
+	var/obj/item/tank/internal //Human/Monkey
 
 
 	bad_type = /mob/living/carbon

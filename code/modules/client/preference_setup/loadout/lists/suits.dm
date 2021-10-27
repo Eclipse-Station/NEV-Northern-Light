@@ -110,17 +110,17 @@
 
 /datum/gear/suit/armored
 	display_name = "armoured coat"
-	path = /obj/item/clothing/suit/armor/greatcoat
+	path = /obj/item/clothing/suit/storage/greatcoat
 	cost = 2
 
 /datum/gear/suit/serbian
 	display_name = "black serbian overcoat"
-	path = /obj/item/clothing/suit/armor/greatcoat/serbian_overcoat
+	path = /obj/item/clothing/suit/storage/greatcoat/serbian_overcoat
 	cost = 2
 
 /datum/gear/suit/serbian/brown
 	display_name = "brown serbian overcoat"
-	path = /obj/item/clothing/suit/armor/greatcoat/serbian_overcoat_brown
+	path = /obj/item/clothing/suit/storage/greatcoat/serbian_overcoat_brown
 
 /datum/gear/suit/nun
 	display_name = "nun robe"

@@ -10,7 +10,7 @@
 	supervisors = "The Mekhanite Council"
 	selection_color = "#ecd37d"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25, LANGUAGE_LATIN = 100)
-
+	security_clearance = CLEARANCE_CLERGY
 	cruciform_access = list(
 		access_morgue, access_chapel_office, access_crematorium, access_hydroponics, access_janitor, access_maint_tunnels
 	)
@@ -81,6 +81,7 @@
 	supervisors = "the Mekhane Preacher"
 	selection_color = "#ecd37d"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10, LANGUAGE_LATIN = 100)
+	security_clearance = CLEARANCE_COMMON
 	cruciform_access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
 	access = list(access_morgue, access_crematorium, access_maint_tunnels, access_hydroponics)
 	wage = WAGE_PROFESSIONAL
@@ -126,6 +127,7 @@
 	selection_color = "#ecd37d"
 	//alt_titles = list("Hydroponicist")
 	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80, LANGUAGE_LATIN = 100)
+	security_clearance = CLEARANCE_COMMON
 	cruciform_access = list(access_hydroponics, access_morgue, access_crematorium, access_maint_tunnels)
 	access = list(access_hydroponics, access_morgue, access_crematorium, access_maint_tunnels)
 	wage = WAGE_PROFESSIONAL
@@ -173,6 +175,7 @@
 	selection_color = "#ecd37d"
 	//alt_titles = list("Custodian","Sanitation Technician")
 	also_known_languages = list(LANGUAGE_CYRILLIC = 15, LANGUAGE_JIVE = 80, LANGUAGE_LATIN = 100)
+	security_clearance = CLEARANCE_COMMON
 	cruciform_access = list(access_janitor, access_maint_tunnels, access_morgue, access_crematorium)
 	access = list(access_janitor, access_maint_tunnels, access_morgue, access_crematorium)
 	wage = WAGE_PROFESSIONAL

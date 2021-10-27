@@ -1,5 +1,5 @@
 // Asters
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/tools
+/obj/item/computer_hardware/hard_drive/portable/design/tools
 	disk_name = "Union Basic Tool Pack"
 	icon_state = "guild"
 	rarity_value = 5.5
@@ -23,14 +23,15 @@
 		/datum/design/autolathe/tool/shovel,
 		/datum/design/autolathe/tool/spade,
 		/datum/design/autolathe/device/t_scanner,
-		/datum/design/autolathe/tool/rcd_ammo,
 		/datum/design/autolathe/tool/weldertool,
 		/datum/design/autolathe/tool/weldinggoggles,
 		/datum/design/autolathe/tool/weldermask,
+		/datum/design/autolathe/gun/flare_gun,
+		/datum/design/autolathe/ammo/flare_shell,
 		/datum/design/autolathe/device/flamethrower
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/misc
+/obj/item/computer_hardware/hard_drive/portable/design/misc
 	disk_name = "Union Miscellaneous Pack"
 	icon_state = "guild"
 	rarity_value = 3.5
@@ -64,7 +65,7 @@
 		/datum/design/autolathe/device/mechpainter
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/devices
+/obj/item/computer_hardware/hard_drive/portable/design/devices
 	disk_name = "Union Devices and Instruments"
 	icon_state = "guild"
 	rarity_value = 3
@@ -91,7 +92,7 @@
 		/datum/design/autolathe/sec/hailer,
 	)
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/design/robustcells
+/obj/item/computer_hardware/hard_drive/portable/design/robustcells
 	disk_name = "Union Robustcells"
 	icon_state = "guild"
 	rarity_value = 3
@@ -106,3 +107,15 @@
 		/datum/design/autolathe/cell/small/high = 2,
 	)
 
+/obj/item/computer_hardware/hard_drive/portable/design/armor/asters
+	disk_name = "FTU Enforcement Armor Pack"
+	icon_state = "guild"
+	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED_COMMON
+	rarity_value = 13 // between standard and bulletproof armor
+	license = 6
+	designs = list(
+		/datum/design/autolathe/clothing/generic_helmet_visored,
+		/datum/design/autolathe/clothing/riot_helmet = 2,
+		/datum/design/autolathe/clothing/generic_vest_security,
+		/datum/design/autolathe/clothing/generic_vest_webbing = 2
+	)

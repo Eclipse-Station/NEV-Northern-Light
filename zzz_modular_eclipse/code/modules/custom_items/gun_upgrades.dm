@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/modkit
+/obj/item/gun/energy/modkit
 	name = "laser tag gun"
 	icon = 'icons/obj/guns/energy/bluetag.dmi'
 	icon_state = "bluetag"
@@ -9,7 +9,7 @@
 	matter = list(MATERIAL_PLASTIC = 6)
 	fire_sound = 'sound/weapons/Laser.ogg'
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
-	bad_type = /obj/item/weapon/gun/energy/modkit
+	bad_type = /obj/item/gun/energy/modkit
 	spawn_tags = SPAWN_TAG_TOY_WEAPON
 	spawn_blacklisted = TRUE
 	rarity_value = 30
@@ -17,13 +17,13 @@
 	var/modtype
 	var/spawn_new
 
-/obj/item/weapon/gun/energy/modkit/attackby(var/obj/item/O, var/mob/user)
+/obj/item/gun/energy/modkit/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, modtype))
 		to_chat(user, "You set about applying [src]\'s parts onto the [O].")
 		if(spawn_new)
 			var/turf/T = get_turf(user)
 			user.drop_from_inventory(src)
-			var/obj/item/weapon/gun/newgun = new spawn_new(T)
+			var/obj/item/gun/newgun = new spawn_new(T)
 			newgun.name = name
 			newgun.desc = desc
 			user.put_in_hands(newgun)

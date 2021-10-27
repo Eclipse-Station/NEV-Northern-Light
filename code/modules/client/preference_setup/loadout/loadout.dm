@@ -361,8 +361,8 @@ var/list/gear_datums = list()
 	var/obj/item/item = spawn_item(H, metadata)
 	item.add_fingerprint(H)
 
-	if(istype(item, /obj/item/weapon/implant/core_implant/lesser_cruciform))
-		var/obj/item/weapon/implant/core_implant/lesser_cruciform/imp = item
+	if(istype(item, /obj/item/implant/core_implant/lesser_cruciform))
+		var/obj/item/implant/core_implant/lesser_cruciform/imp = item
 		imp.install(H)
 		imp.activate()
 		imp.add_module(new CRUCIFORM_COMMON)

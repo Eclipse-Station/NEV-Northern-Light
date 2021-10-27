@@ -82,9 +82,9 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 	var/mob/user = usr
 	if(!istype(user))
 		return
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = user.GetIdCard()
 	if(!istype(I) || !I.registered_name || !(access_security in I.access))
-		to_chat(user, "Authentication error: Unable to locate ID with apropriate access to allow this operation.")
+		to_chat(user, "Authentication error: Unable to locate ID with appropriate access to allow this operation.")
 		return
 
 	if(href_list["sendtoarchive"])

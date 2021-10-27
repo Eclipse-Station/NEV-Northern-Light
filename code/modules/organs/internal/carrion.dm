@@ -65,6 +65,8 @@
 		/obj/item/organ/internal/carrion/core/proc/spider_menu
 	)
 
+	var/list/associated_carrion_organs = list()
+
 /obj/item/organ/internal/carrion/core/Destroy()
 	owner = null //overrides removed() call
 	. = ..()
@@ -75,7 +77,7 @@
 	set name = "Spawn a spider"
 
 	var/list/options = list()
-	var/obj/item/weapon/implant/carrion_spider/S
+	var/obj/item/implant/carrion_spider/S
 	if (!spiderlist.len)
 		to_chat(owner, SPAN_WARNING("You dont have any spiders evolved!"))
 		return
@@ -90,7 +92,7 @@
 		return
 
 	if(owner.check_ability(initial(S.spider_price), null, initial(S.gene_price)))
-		var/obj/item/weapon/implant/carrion_spider/spider = new S(owner.loc)
+		var/obj/item/implant/carrion_spider/spider = new S(owner.loc)
 		active_spiders += spider
 		spider.owner_core = src
 		spider.update_owner_mob()
@@ -102,12 +104,15 @@
 
 	var/list/spiders_in_list = list()
 	for(var/item in active_spiders)
-		var/obj/item/weapon/implant/carrion_spider/S = item
+		var/obj/item/implant/carrion_spider/S = item
 		var/turf/T = get_turf(S)
+		var/spider_location = "Unknown location"
+		if(T)
+			spider_location = "[S.loc]([T.x]:[T.y]:[T.z])"
 		spiders_in_list += list(
 			list(
 				"name" = initial(S.name),
-				"location" = "[S.loc]([T.x]:[T.y]:[T.z])",
+				"location" = "[spider_location]",
 				"spider" = "\ref[item]",
 				"implanted" = S.wearer
 			)
@@ -124,18 +129,18 @@
 
 /obj/item/organ/internal/carrion/core/Topic(href, href_list)
 	if(href_list["activate_spider"])
-		var/obj/item/weapon/implant/carrion_spider/activated_spider = locate(href_list["activate_spider"]) in active_spiders
+		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["activate_spider"]) in active_spiders
 		if(activated_spider)
 			activated_spider.activate()
 	
 	if(href_list["pop_out_spider"])
-		var/obj/item/weapon/implant/carrion_spider/activated_spider = locate(href_list["pop_out_spider"]) in active_spiders
+		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["pop_out_spider"]) in active_spiders
 		if(activated_spider)
 			activated_spider.uninstall()
 
 	if(href_list["activate_all"])
 		for(var/spider in active_spiders)
-			var/obj/item/weapon/implant/carrion_spider/CS = spider
+			var/obj/item/implant/carrion_spider/CS = spider
 			if(istype(CS))
 				CS.activate()
 
@@ -167,7 +172,7 @@
 
 /obj/item/organ/internal/carrion/core/removed(mob/living/user)
 	if(!associated_spider && owner)
-		for(var/obj/item/weapon/implant/carrion_spider/control/CS in active_spiders)
+		for(var/obj/item/implant/carrion_spider/control/CS in active_spiders)
 			CS.return_mind()
 
 		owner.faction = initial(owner.faction)
@@ -261,6 +266,11 @@
 	owner.update_icons()
 	to_chat(owner, SPAN_NOTICE("You have regenerated."))
 
+/obj/item/organ/internal/carrion/core/proc/add_to_associated_organs(obj/item/organ/internal/carrion/I)
+	if(istype(I))
+		associated_carrion_organs += I
+	return
+
 /obj/item/organ/internal/carrion/maw
 	name = "carrion maw"
 	parent_organ_base = BP_HEAD
@@ -285,8 +295,8 @@
 		to_chat(owner, SPAN_WARNING("You can't eat nothing."))
 		return
 
-	if(istype(food, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/grab = food
+	if(istype(food, /obj/item/grab))
+		var/obj/item/grab/grab = food
 		var/mob/living/carbon/human/H = grab.affecting
 		if (grab.state < GRAB_AGGRESSIVE)
 			to_chat(owner, SPAN_WARNING("Your grip upon [H.name] is too weak."))
@@ -328,7 +338,7 @@
 			to_chat(owner, SPAN_WARNING("You can only tear flesh out of humanoids!"))	
 			return
 
-	if(istype(food, /obj/item/organ) || istype(food, /obj/item/weapon/reagent_containers/food/snacks/meat))
+	if(istype(food, /obj/item/organ) || istype(food, /obj/item/reagent_containers/food/snacks/meat))
 		var/geneticpointgain = 0
 		var/chemgain = 0
 		var/taste_description = ""
@@ -342,19 +352,32 @@
 			if(BP_IS_ROBOTIC(O))
 				to_chat(owner, SPAN_WARNING("This organ is robotic, you can't eat it."))
 				return
+			else if(istype(O, /obj/item/organ/internal/carrion))
+				var/obj/item/organ/internal/carrion/core/G = owner.random_organ_by_process(BP_SPCORE)
+				if(O in G.associated_carrion_organs)
+					taste_description = "albeit delicious, your own organs carry no new genetic material"
+				else
+					owner.carrion_hunger += 3
+					geneticpointgain = 4
+					chemgain = 50
+					taste_description = "carrion organs taste heavenly, you need more!"
 			else if(istype(O, /obj/item/organ/internal))
 				var/organ_rotten = FALSE
 				if (O.status & ORGAN_DEAD)
 					organ_rotten = TRUE
-				geneticpointgain = organ_rotten ? 1 : 3
-				chemgain = organ_rotten ? 4 : 10
-				taste_description = "internal organs are delicious[organ_rotten ? ", but rotten ones less so." : "."]"
+				if(O.species != all_species[SPECIES_HUMAN])
+					chemgain = 5
+					taste_description = "this non-human organ is very bland." // no removal of hunger here, getting and storing a ton of monkey organs isn't too easy, and 5 chem points isn't terribly much.
+				else
+					geneticpointgain = organ_rotten ? 1 : 3
+					chemgain = organ_rotten ? 4 : 10
+					taste_description = "internal organs are delicious[organ_rotten ? ", but rotten ones less so." : "."]"
 			else
 				geneticpointgain = 2
 				chemgain = 5
 				taste_description = "limbs are satisfying."
 
-		else if(istype(food, /obj/item/weapon/reagent_containers/food/snacks/meat/human))
+		else if(istype(food, /obj/item/reagent_containers/food/snacks/meat/human))
 			geneticpointgain = 2
 			chemgain = 5
 			taste_description = "human meat is satisfying."
@@ -442,7 +465,7 @@
 		toxin_attack(creature, rand(1, 3))
 
 /obj/effect/decal/cleanable/solid_biomass/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/soap))
+	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
 		to_chat(user, SPAN_NOTICE("You started cleaning this [src]."))
 		if(do_after(user, 3 SECONDS, src))
 			to_chat(user, SPAN_NOTICE("You clean \The [src]."))

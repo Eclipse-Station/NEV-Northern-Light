@@ -35,6 +35,7 @@
 	var/stop_automated_movement_when_pulled = TRUE //When set to 1 this stops the animal from moving when someone is pulling it.
 	var/atom/movement_target = null//Thing we're moving towards
 	var/turns_since_scan = 0
+	var/eat_from_hand = TRUE
 
 	//Interaction
 	var/response_help   = "tries to help"
@@ -182,7 +183,7 @@
 		if(!.)
 			return FALSE
 
-		if(health <= 0)
+		if(health <= 0 && stat != DEAD)
 			death()
 			return FALSE
 
@@ -361,7 +362,7 @@
 			if (!(status_flags & CANPUSH))
 				return
 
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, src)
 
 			M.put_in_active_hand(G)
 
@@ -381,10 +382,10 @@
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/gripper))
+	if(istype(O, /obj/item/gripper))
 		return ..(O, user)
 
-	else if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical))
+	else if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical))
 		..()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
@@ -427,6 +428,7 @@
 	movement_target = null
 	icon_state = icon_dead
 	density = FALSE
+	stasis = TRUE
 	return ..(gibbed,deathmessage)
 
 /mob/living/simple_animal/ex_act(severity)
@@ -508,7 +510,7 @@
 				foodtarget = 0
 				stop_automated_movement = 0
 				if (can_eat())
-					for(var/obj/item/weapon/reagent_containers/food/snacks/S in oview(src,7))
+					for(var/obj/item/reagent_containers/food/snacks/S in oview(src,7))
 						if(isturf(S.loc) || ishuman(S.loc))
 							movement_target = S
 							foodtarget = 1
@@ -516,12 +518,12 @@
 
 					//Look for food in people's hand
 					if (!movement_target && beg_for_food)
-						var/obj/item/weapon/reagent_containers/food/snacks/F = null
+						var/obj/item/reagent_containers/food/snacks/F = null
 						for(var/mob/living/carbon/human/H in oview(src,scan_range))
-							if(istype(H.l_hand, /obj/item/weapon/reagent_containers/food/snacks))
+							if(istype(H.l_hand, /obj/item/reagent_containers/food/snacks))
 								F = H.l_hand
 
-							if(istype(H.r_hand, /obj/item/weapon/reagent_containers/food/snacks))
+							if(istype(H.r_hand, /obj/item/reagent_containers/food/snacks))
 								F = H.r_hand
 
 							if (F)

@@ -3,11 +3,11 @@
 #define MATERIAL_STEEL "steel"
 #define MATERIAL_GLASS "glass"
 #define MATERIAL_RGLASS "rglass"
-#define MATERIAL_PHORONGLASS "borosilicate glass"
-#define MATERIAL_RPHORONGLASS "reinforced borosilicate glass"
+#define MATERIAL_PLASMAGLASS "borosilicate glass"
+#define MATERIAL_RPLASMAGLASS "reinforced borosilicate glass"
 #define MATERIAL_SILVER "silver"
 #define MATERIAL_GOLD "gold"
-#define MATERIAL_PHORON "phoron"
+#define MATERIAL_PLASMA "phoron"
 #define MATERIAL_URANIUM "uranium"
 #define MATERIAL_DIAMOND "diamond"
 #define MATERIAL_PLASTIC "plastic"
@@ -35,11 +35,11 @@
 	MATERIAL_STEEL,\
 	MATERIAL_GLASS,\
 	MATERIAL_RGLASS,\
-	MATERIAL_PHORONGLASS,\
-	MATERIAL_RPHORONGLASS,\
+	MATERIAL_PLASMAGLASS,\
+	MATERIAL_RPLASMAGLASS,\
 	MATERIAL_SILVER,\
 	MATERIAL_GOLD,\
-	MATERIAL_PHORON,\
+	MATERIAL_PLASMA,\
 	MATERIAL_URANIUM,\
 	MATERIAL_DIAMOND,\
 	MATERIAL_PLASTIC,\

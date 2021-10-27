@@ -16,11 +16,11 @@
 	var/state = 2
 	var/reinf = 0
 	var/basestate
-	var/shardtype = /obj/item/weapon/material/shard
+	var/shardtype = /obj/item/material/shard
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
 	var/no_color = FALSE //If true, don't apply a color to the base
-	
+
 	// Eclipse-added vars
 	var/fireproof = FALSE		//If it's fireproof, we don't take damage from fire.
 
@@ -65,7 +65,7 @@
 	var/initialhealth = health
 
 	if (!ignore_resistance)
-		damage = damage * (1 - silicate / 200) // up to 50% damage resistance 
+		damage = damage * (1 - silicate / 200) // up to 50% damage resistance
 		damage -= resistance // then flat resistance from material
 	if (damage <= 0)
 		return 0
@@ -121,6 +121,8 @@
 	var/list/turf/nearby
 	if (explode)
 		nearby = (RANGE_TURFS(2, src) - get_turf(src))
+	else
+		nearby = (RANGE_TURFS(1, src) - get_turf(src))
 
 	if(display_message)
 		visible_message("[src] shatters!")
@@ -130,8 +132,8 @@
 		if(reinf)
 			new /obj/item/stack/rods(loc)
 		while(index < rand(4,6))
-			var/obj/item/weapon/material/shard/S = new shardtype(loc)
-			if (explode && nearby.len > 0)
+			var/obj/item/material/shard/S = new shardtype(loc)
+			if (nearby.len > 0)
 				var/turf/target = pick(nearby)
 				spawn()
 					S.throw_at(target,40,3)
@@ -308,10 +310,13 @@
 						return
 					if(I.use_tool(user, src, WORKTIME_FAST, tool_type, FAILCHANCE_EASY, required_stat = STAT_MEC))
 						visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
+						var/obj/glass
 						if(is_fulltile())
-							new glasstype(loc, 6)
+							glass = new glasstype(loc, 6)
 						else
-							new glasstype(loc, 1)
+							glass = new glasstype(loc, 1)
+						glass.add_fingerprint(user)
+
 						qdel(src)
 						return
 				return 1 //No whacking the window with tools unless harm intent
@@ -534,21 +539,21 @@
 	resistance = RESISTANCE_NONE
 	flags = null
 
-/obj/structure/window/phoronbasic
+/obj/structure/window/plasmabasic
 	name = "phoron window"
 	desc = "A fireproof, borosilicate alloy window. It seems to be quite strong."
 
 	icon_state = "plasmawindow"
-	shardtype = /obj/item/weapon/material/shard/phoron
-	glasstype = /obj/item/stack/material/glass/phoronglass
+	shardtype = /obj/item/material/shard/plasma
+	glasstype = /obj/item/stack/material/glass/plasmaglass
 	maximal_heat = T0C + 5227  // Safe use temperature at 5500 kelvin. Easy to remember.
 	damage_per_fire_tick = 1.5 // Lowest per-tick damage so overheated supermatter chambers have some time to respond to it. Will still shatter before a delam.
 	maxhealth = 150
 	resistance = RESISTANCE_AVERAGE
-	
+
 	fireproof = TRUE		//Eclipse edit.
 
-/obj/structure/window/phoronbasic/full
+/obj/structure/window/plasmabasic/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
 	basestate = "pwindow"
@@ -587,21 +592,21 @@
 	resistance = RESISTANCE_FRAGILE
 	flags = null
 
-/obj/structure/window/reinforced/phoron
+/obj/structure/window/reinforced/plasma
 	name = "reinforced phoron window"
 	desc = "A fireproof, borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	basestate = "plasmarwindow"
 	icon_state = "plasmarwindow"
-	shardtype = /obj/item/weapon/material/shard/phoron
-	glasstype = /obj/item/stack/material/glass/phoronrglass
+	shardtype = /obj/item/material/shard/plasma
+	glasstype = /obj/item/stack/material/glass/plasmarglass
 	maximal_heat = T0C + 5453 // Safe use temperature at 6000 kelvin.
 	damage_per_fire_tick = 1.5
 	maxhealth = 200
 	resistance = RESISTANCE_IMPROVED
-	
+
 	fireproof = TRUE		//Eclipse edit.
 
-/obj/structure/window/reinforced/phoron/full
+/obj/structure/window/reinforced/plasma/full
 	dir = SOUTH|EAST
 	icon = 'icons/obj/structures/windows.dmi'
 	basestate = "rpwindow"

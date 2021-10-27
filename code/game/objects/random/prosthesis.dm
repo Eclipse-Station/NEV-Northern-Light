@@ -3,4 +3,4 @@
 	icon_state = "meds-green"
 	allow_blacklist = TRUE
 	rarity_value = 80
-	tags_to_spawn = list(SPAWN_PROSTHETIC_OS)
+	tags_to_spawn = list(SPAWN_TAG_ODDITY) //Eclipse edit - need to move prosthesis to Eclipse type first

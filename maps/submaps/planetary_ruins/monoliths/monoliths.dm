@@ -7,6 +7,16 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS
 	ruin_tags = RUIN_ALIEN
 
+/datum/map_template/ruin/exoplanet/monolith/monolith2
+	name = "Monolith Ring 2"
+	id = "planetsite_monoliths2"
+	suffix = "monoliths/monoliths2.dmm"
+
+/datum/map_template/ruin/exoplanet/monolith/monolith3
+	name = "Monolith Ring 3"
+	id = "planetsite_monoliths3"
+	suffix = "monoliths/monoliths3.dmm"
+
 /obj/structure/monolith
 	name = "monolith"
 	desc = "An obviously artifical structure of unknown origin. The symbols '<font face='Shage'>DWNbTX</font>' are engraved on the base."
@@ -100,10 +110,10 @@
 	if(prob(10))
 		ChangeTurf(get_base_turf_by_area(src))
 
-/turf/simulated/wall/alium/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/turf/simulated/wall/alium/attackby(obj/item/W as obj, mob/user as mob)
 	return
 	// ALIUM DOES NOT GIVE A FUCK
 
-/turf/simulated/floor/alium/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/turf/simulated/floor/alium/attackby(obj/item/W as obj, mob/user as mob)
 	return
 	// ALIUM DOES NOT GIVE A FUCK

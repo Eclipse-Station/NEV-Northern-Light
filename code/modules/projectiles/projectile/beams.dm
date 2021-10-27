@@ -18,6 +18,23 @@
 
 	heat = 100
 
+/obj/item/projectile/beam/cutter
+	name = "cutting beam"
+	icon_state = "plasmablaster"
+	damage_types = list(BRUTE = 25)
+	armor_penetration = 10
+	pass_flags = PASSTABLE
+
+	muzzle_type = /obj/effect/projectile/laser/plasmacutter/muzzle
+	tracer_type = /obj/effect/projectile/laser/plasmacutter/tracer
+	impact_type = /obj/effect/projectile/laser/plasmacutter/impact
+
+/obj/item/projectile/beam/cutter/on_impact(var/atom/A)
+	if(istype(A, /turf/simulated/mineral))
+		var/turf/simulated/mineral/M = A
+		M.GetDrilled(1)
+	.=..()
+
 /obj/item/projectile/beam/practice
 	name = "laser"
 	icon_state = "laser"
@@ -42,15 +59,16 @@
 /obj/item/projectile/beam/psychic
 	name = "psychic laser"
 	icon_state = "psychic_heavylaser"
-	var/obj/item/weapon/gun/energy/psychic/holder
+	var/obj/item/gun/energy/psychic/holder
 	var/traitor = FALSE //Check if it's a traitor psychic beam
+	damage_types = list(PSY = 30)
 	armor_penetration = 100
 
 	muzzle_type = /obj/effect/projectile/psychic_laser_heavy/muzzle
 	tracer_type = /obj/effect/projectile/psychic_laser_heavy/tracer
 	impact_type = /obj/effect/projectile/psychic_laser_heavy/impact
 
-/obj/item/projectile/beam/psychic/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, target_zone, x_offset=0, y_offset=0, angle_offset)
+/obj/item/projectile/beam/psychic/launch_from_gun(atom/target, mob/user, obj/item/gun/launcher, target_zone, x_offset=0, y_offset=0, angle_offset)
 	holder = launcher
 	if(holder && holder.traitor)
 		traitor = holder.traitor

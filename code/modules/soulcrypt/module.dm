@@ -22,7 +22,7 @@
 	var/list/req_access = list()
 	var/list/req_one_access = list()
 
-	var/obj/item/weapon/implant/core_implant/soulcrypt/owner //The soulcrypt that owns us.
+	var/obj/item/implant/core_implant/soulcrypt/owner //The soulcrypt that owns us.
 
 	var/obj/effect/crypt_stat/stat_line
 	var/datum/nano_module/NMmodule //our nanomodule

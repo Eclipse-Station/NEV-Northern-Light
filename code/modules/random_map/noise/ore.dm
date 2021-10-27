@@ -58,14 +58,14 @@
 				T.resources[MATERIAL_SILVER] =   rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources[MATERIAL_URANIUM] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources[MATERIAL_DIAMOND] =  0
-				T.resources[MATERIAL_PHORON] =   0
+				T.resources[MATERIAL_PLASMA] =   0
 				T.resources[MATERIAL_OSMIUM] =   0
 				T.resources[MATERIAL_TRITIUM] =  0
 			else if(current_cell < deep_val) // Rare metals.
 				T.resources[MATERIAL_GOLD] =     rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources[MATERIAL_SILVER] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources[MATERIAL_URANIUM] =  rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
-				T.resources[MATERIAL_PHORON] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
+				T.resources[MATERIAL_PLASMA] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources[MATERIAL_OSMIUM] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources[MATERIAL_TRITIUM] =  0
 				T.resources[MATERIAL_DIAMOND] =  0
@@ -73,7 +73,7 @@
 			else                             // Deep metals.
 				T.resources[MATERIAL_URANIUM] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources[MATERIAL_DIAMOND] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
-				T.resources[MATERIAL_PHORON] =   rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
+				T.resources[MATERIAL_PLASMA] =   rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
 				T.resources[MATERIAL_OSMIUM] =   rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
 				T.resources[MATERIAL_TRITIUM] =  rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources[MATERIAL_IRON] =     0

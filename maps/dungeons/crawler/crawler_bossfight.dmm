@@ -54,19 +54,19 @@
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)
 "m" = (
-/obj/item/weapon/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
 /obj/structure/table/rack/shelf,
-/obj/item/weapon/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)
 "n" = (
-/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
 /obj/structure/table/rack/shelf,
-/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)
 "o" = (
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/structure/table/rack/shelf,
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)
@@ -103,7 +103,7 @@
 /area/crawler)
 "x" = (
 /obj/structure/table/onestar,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)
 "y" = (
@@ -136,7 +136,7 @@
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)
 "D" = (
-/obj/item/weapon/phone,
+/obj/item/phone,
 /obj/structure/table/onestar,
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)

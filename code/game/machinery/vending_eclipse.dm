@@ -6,25 +6,25 @@
 	product_ads = "Don't dial 911, dial .357!;Coming soon: Pink and blue tracer bullets so you can protect your family in the dark!;Did you bring your protection?;Exercise your right to carry today!"		//Need to add more
 	no_criminals = TRUE
 	products = list(
-					/obj/item/weapon/storage/deferred/crate/uniform_green = 2, /obj/item/weapon/storage/deferred/crate/uniform_brown = 2,
-					/obj/item/weapon/storage/deferred/crate/uniform_black = 2,
-					/obj/item/weapon/storage/deferred/crate/uniform_light = 5,
-					/obj/item/weapon/gun/projectile/boltgun/serbian = 8,
+					/obj/item/storage/deferred/crate/uniform_green = 2, /obj/item/storage/deferred/crate/uniform_brown = 2,
+					/obj/item/storage/deferred/crate/uniform_black = 2,
+					/obj/item/storage/deferred/crate/uniform_light = 5,
+					/obj/item/gun/projectile/boltgun/serbian = 8,
 					/obj/item/ammo_magazine/ammobox/lrifle_small = 30,
-					/obj/item/weapon/storage/box/gunkits/mk58 = 5,
-					/obj/item/weapon/storage/box/gunkits/mk58_wood = 3,
-					/obj/item/weapon/storage/box/gunkits/colt = 5,
+					/obj/item/storage/box/gunkits/mk58 = 5,
+					/obj/item/storage/box/gunkits/mk58_wood = 3,
+					/obj/item/storage/box/gunkits/colt = 5,
 					/obj/item/ammo_magazine/ammobox/pistol = 30
 					)
 	prices = list(
-					/obj/item/weapon/storage/deferred/crate/uniform_green = 2500, /obj/item/weapon/storage/deferred/crate/uniform_brown = 2500,
-					/obj/item/weapon/storage/deferred/crate/uniform_black = 2500,
-					/obj/item/weapon/storage/deferred/crate/uniform_light = 1750,
-					/obj/item/weapon/gun/projectile/boltgun/serbian = 1000,
+					/obj/item/storage/deferred/crate/uniform_green = 2500, /obj/item/storage/deferred/crate/uniform_brown = 2500,
+					/obj/item/storage/deferred/crate/uniform_black = 2500,
+					/obj/item/storage/deferred/crate/uniform_light = 1750,
+					/obj/item/gun/projectile/boltgun/serbian = 1000,
 					/obj/item/ammo_magazine/ammobox/lrifle_small = 450,
-					/obj/item/weapon/storage/box/gunkits/mk58 = 1750,
-					/obj/item/weapon/storage/box/gunkits/mk58_wood = 2050,
-					/obj/item/weapon/storage/box/gunkits/colt = 1550,
+					/obj/item/storage/box/gunkits/mk58 = 1750,
+					/obj/item/storage/box/gunkits/mk58_wood = 2050,
+					/obj/item/storage/box/gunkits/colt = 1550,
 					/obj/item/ammo_magazine/ammobox/pistol = 500
 					)
 	idle_power_usage = 211
@@ -85,7 +85,7 @@
 
 2021-09-17 ------
 	Changed Money Account from CIVILIAN to GUILD
-	
+
 2020-07-19
 	increased ammo packet costs
 		pistol 350 -> 500

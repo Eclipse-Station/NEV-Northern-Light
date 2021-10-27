@@ -1,14 +1,14 @@
 /*
  * Premade paper
  */
-/obj/item/weapon/paper/court
+/obj/item/paper/court
 	name = "Judgement"
 	spawn_blacklisted = TRUE
 	info = {"For crimes against the ship, the offender is sentenced to:
 	\[br\]
 	\[br\]"}
 
-/obj/item/weapon/paper/toxin
+/obj/item/paper/toxin
 	name = "Chemical Information"
 	info = {"Known Onboard Toxins:
 
@@ -45,7 +45,7 @@
 	\[br\]"}
 
 
-/obj/item/weapon/paper/courtroom
+/obj/item/paper/courtroom
 	name = "A Crash Course in Legal SOP on SS13"
 	spawn_blacklisted = TRUE
 	info = {"\[b\]Roles:\[/b\]
@@ -94,7 +94,7 @@
 	TADA you're done. Security then executes the sentence and adds the applicable convictions to the person's record.
 	\[br\]"}
 
-/obj/item/weapon/paper/hydroponics
+/obj/item/paper/hydroponics
 	name = "Greetings from Billy Bob"
 	info = {"\[b\]Hey fellow botanist!\[/b\]
 
@@ -126,7 +126,7 @@
 	\[b\]All other plants need both.\[/b\]
 	\[br\]"}
 
-/obj/item/weapon/paper/djstation
+/obj/item/paper/djstation
 	name = "DJ Listening Outpost"
 	spawn_blacklisted = TRUE
 	info = {"\[b\]Welcome new owner!\[/b\]
@@ -137,7 +137,7 @@
 	<ul><li>145.7 - Common Channel</li><li>144.7 - Private AI Channel</li><li>135.9 - Security Channel</li><li>135.7 - Engineering Channel</li><li>135.5 - Medical Channel</li><li>135.3 - Command Channel</li><li>135.1 - Science Channel</li><li>134.9 - Mining Channel</li><li>134.7 - Cargo Channel</li>
 	\[br\]"}
 
-/obj/item/weapon/paper/jobs
+/obj/item/paper/jobs
 	name = "Job Information"
 	spawn_blacklisted = TRUE
 	info = {"Information on all formal jobs that can be assigned on Space Station 13 can be found on this document.
@@ -243,7 +243,7 @@
 	\[br\]"}
 
 
-/obj/item/weapon/paper/sop
+/obj/item/paper/sop
 	name = "paper- 'Standard Operating Procedure'"
 	info = {"Alert Levels:
 	Blue- Emergency
@@ -305,7 +305,7 @@
 	Evacuate to a nearby safe area!
 	\[br\]"}
 
-/obj/item/weapon/paper/self_pacification
+/obj/item/paper/self_pacification
 	name = "Self-Pacification and You!"
 	info = {"\[h1\]\[center\]\[b\]Self-Pacification and You!\[/b\]\[/center\]\[/h1\]
 	As pursuant to \[b\]\"Hansa Property Rights For Detainees\"\[/b\], \[b\]Aster's \"Assembly Upon The Definition of Aggression\"\[/b\], and the good initiative of \[b\]IronHammer Command\[/b\]; these steps have been laid to better actuate your personal property rights while within indefinite detainment:
@@ -332,3 +332,31 @@
 	\[center\]\[small\]\[b\]Remember!\[/b\]\[/small\]\[/center\]
 	\[center\]\[small\]\[i\]\"Depression is voluntary, freedom is not!\"\[/i\]\[/small\]\[/center\]
 	\[br\]"}
+
+/obj/item/paper/detective_guide
+	name = "The rookie's guide to investigating a murder"
+	info = {"\[b\]Hey there rookie\[/b\]
+
+	I got tired of this shit-bin , so i left \n
+	But that doesn't mean you should , this vessel pays well \n
+	And so does investigating the crimes onboard , true mysteries in this era \n
+
+	Assuming that a murder happens , which it always will , the only constant i know onboard of this vessel \n
+	You will likely be looking at the body of a dead vagabond , the earliest clue would be the splatter of blood and the casings of .30 bullets \n
+
+	Your first step should be to secure the place , mark it off , keep the fuck-arounds out , don't let them "Loot" any evidence off the place \n
+	The second one ? inspect the environment you are in , the place of the murder always will have clues , doors with fingerprints or sheets of metal sitting near dismantled structures \n
+	Glass shards with fibers from hitting whoever broke them, ciggarete treads, blood pools with the murderer or victims DNA which you can swab \n
+	Next step , do an autopsy , find out what really killed the guy , sometimes it isn't the guns , but the shrapnel they leave \n
+	After you do that , try to build a story of what happened , replay the events from this guy's perspective , find out why he was murdered \n
+
+	The killer can always be undeniably convicted , most of them wear gloves , but gloves bear a dark secret , the guns they use with them on leave a print on them , the smoke of the shell ejection itself \n
+	You can swab it off , different calibers produce different intensities of it , but you will always know which one it is , after all you took the IH Detective course \n
+	I consider it the best trick in the book , a murderer never leaves his fingerprints , but he always wears his gloves \n
+
+	Anyway , enjoy your time onboard , your duty is vital to keeping the shit-bin rolling , keep investigating and make the LT proud \n
+
+	Best regards,
+	<font face=\"Times New Roman\"><i>James N</i></font>.
+	\[br\]"}
+

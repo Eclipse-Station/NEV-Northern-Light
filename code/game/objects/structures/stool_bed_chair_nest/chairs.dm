@@ -12,7 +12,7 @@
 	..()
 	update_layer()
 
-/obj/structure/bed/chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
 		var/obj/item/assembly/shock_kit/SK = W
@@ -27,6 +27,10 @@
 		SK.loc = E
 		SK.master = E
 		qdel(src)
+
+	else if(istype(W, /obj/item/device/spy_bug))
+		user.drop_item()
+		W.loc = get_turf(src)
 
 /obj/structure/bed/chair/attack_tk(mob/user as mob)
 	if(buckled_mob)
@@ -150,8 +154,8 @@
 /obj/structure/bed/chair/office/on_update_icon()
 	return
 
-/obj/structure/bed/chair/office/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/tool/wirecutters))
+/obj/structure/bed/chair/office/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/stack) || istype(W, /obj/item/tool/wirecutters))
 		return
 	..()
 
@@ -225,8 +229,8 @@
 /obj/structure/bed/chair/wood/on_update_icon()
 	return
 
-/obj/structure/bed/chair/wood/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/tool/wirecutters))
+/obj/structure/bed/chair/wood/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/stack) || istype(W, /obj/item/tool/wirecutters))
 		return
 	..()
 
@@ -248,8 +252,8 @@
 /obj/structure/bed/chair/custom/on_update_icon()
 	return
 
-/obj/structure/bed/chair/custom/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || istype(W, /obj/item/weapon/tool/wirecutters))
+/obj/structure/bed/chair/custom/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/stack) || istype(W, /obj/item/tool/wirecutters))
 		return
 	..()
 

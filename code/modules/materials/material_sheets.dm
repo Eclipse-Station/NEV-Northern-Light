@@ -138,13 +138,13 @@
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
 	rarity_value = 90
 
-/obj/item/stack/material/phoron
+/obj/item/stack/material/plasma
 	name = "solid phoron"
 	icon_state = "sheet-plasma"
-	default_type = MATERIAL_PHORON
+	default_type = MATERIAL_PLASMA
 	price_tag = 30
 
-/obj/item/stack/material/phoron/random
+/obj/item/stack/material/plasma/random
 	rand_min = 3
 	rand_max = 20
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES
@@ -162,6 +162,9 @@
 	rand_max = 30
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
+
+/obj/item/stack/material/plastic/full
+	amount = 120
 
 /obj/item/stack/material/gold
 	name = "gold"
@@ -254,6 +257,9 @@
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
 	rarity_value = 10
 
+/obj/item/stack/material/plasteel/full
+	amount = 120
+
 /obj/item/stack/material/wood
 	name = "wooden plank"
 	icon_state = "sheet-wood"
@@ -265,6 +271,9 @@
 	rand_max = 30
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
+
+/obj/item/stack/material/wood/full
+	amount = 120
 
 /obj/item/stack/material/cloth
 	name = "cloth"
@@ -286,6 +295,9 @@
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_MATERIAL_BUILDING
 
+/obj/item/stack/material/cardboard/full
+	amount = 120
+
 /obj/item/stack/material/leather
 	name = "leather"
 	desc = "The by-product of mob grinding."
@@ -305,31 +317,34 @@
 	spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_BULDING
 	rarity_value = 22.5
 
+/obj/item/stack/material/glass/full
+	amount = 120
+
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
 	icon_state = "sheet-rglass"
 	default_type = MATERIAL_RGLASS
 
-/obj/item/stack/material/glass/phoronglass
+/obj/item/stack/material/glass/plasmaglass
 	name = "borosilicate glass"
 	desc = "This sheet is special phoron-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
 	icon_state = "sheet-plasmaglass"
-	default_type = MATERIAL_PHORONGLASS
+	default_type = MATERIAL_PLASMAGLASS
 	price_tag = 10
 
-/obj/item/stack/material/glass/phoronglass/random
+/obj/item/stack/material/glass/plasmaglass/random
 	rand_min = 3
 	rand_max = 30
 	//spawn_tags = SPAWN_TAG_MATERIAL_RESOURCES_RARE
 	//rarity_value = 50
 
-/obj/item/stack/material/glass/phoronrglass
+/obj/item/stack/material/glass/plasmarglass
 	name = "reinforced borosilicate glass"
 	desc = "This sheet is special phoron-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
 	icon_state = "sheet-plasmaglass"
-	default_type = MATERIAL_RPHORONGLASS
+	default_type = MATERIAL_RPLASMAGLASS
 	price_tag = 12
 
 /obj/item/stack/material/biomatter
@@ -338,7 +353,6 @@
 	singular_name = "biomatter sheet"
 	icon_state = "sheet-biomatter"
 	default_type = MATERIAL_BIOMATTER
-	max_amount = 60
 	price_tag = 10
 	var/biomatter_in_sheet = BIOMATTER_PER_SHEET // defined in solidifier.dm
 
@@ -349,7 +363,7 @@
 	rarity_value = 10
 
 /obj/item/stack/material/biomatter/full
-	amount = 60
+	amount = 120
 
 /obj/item/stack/material/compressed
 	name = "compressed matter"
@@ -359,3 +373,7 @@
 	icon_state = "rcd"
 	item_state = "rcdammo"
 	default_type = MATERIAL_COMPRESSED
+	price_tag = 30
+
+/obj/item/stack/material/compressed/full
+	amount = 60

@@ -5,30 +5,30 @@
 
 /datum/design/bioprinter/meat
 	name = "Meat"
-	build_path = /obj/item/weapon/reagent_containers/food/snacks/meat
+	build_path = /obj/item/reagent_containers/food/snacks/meat
 	materials = list(MATERIAL_BIOMATTER = 5)
 
 /datum/design/bioprinter/milk
 	name = "Milk"
-	build_path = /obj/item/weapon/reagent_containers/food/drinks/milk
+	build_path = /obj/item/reagent_containers/food/drinks/milk
 
 /datum/design/bioprinter/soap
 	name = "Soap"
-	build_path = /obj/item/weapon/soap/nanotrasen
+	build_path = /obj/item/soap/nanotrasen
 
 //[NUTRIMENTS]
 /datum/design/bioprinter/ez
 	name = "EZ-Nutrient"
-	build_path = /obj/item/weapon/reagent_containers/glass/fertilizer/ez
+	build_path = /obj/item/reagent_containers/glass/fertilizer/ez
 	materials = list(MATERIAL_BIOMATTER = 3)
 
 /datum/design/bioprinter/l4z
 	name = "Left4Zed"
-	build_path = /obj/item/weapon/reagent_containers/glass/fertilizer/l4z
+	build_path = /obj/item/reagent_containers/glass/fertilizer/l4z
 
 /datum/design/bioprinter/rh
 	name = "Robust Harvestt"
-	build_path = /obj/item/weapon/reagent_containers/glass/fertilizer/rh
+	build_path = /obj/item/reagent_containers/glass/fertilizer/rh
 	materials = list(MATERIAL_BIOMATTER = 7.5)
 //[/NUTRIMENTS]
 
@@ -81,19 +81,34 @@
 	name = "Church Garment"
 	build_path = /obj/item/clothing/under/rank/church
 
-/datum/design/bioprinter/belt/utility/neotheology
-	name = "Mekhane utility belt"
-	build_path = /obj/item/weapon/storage/belt/utility/neotheology
+/datum/design/bioprinter/jackboots
+	name = "Custodian's jackboots"
+	build_path = /obj/item/clothing/shoes/jackboots/neotheology
+	materials = list(MATERIAL_BIOMATTER = 20)
 
-/datum/design/bioprinter/belt/security/neotheology
+/datum/design/bioprinter/belt/utility
+	name = "Mekhane utility belt"
+	build_path = /obj/item/storage/belt/utility/neotheology
+
+/datum/design/bioprinter/belt/security
 	name = "Mekhane tactical belt"
-	build_path = /obj/item/weapon/storage/belt/tactical/neotheology
+	build_path = /obj/item/storage/belt/tactical/neotheology
+
+/datum/design/bioprinter/backpack
+	name = "Cruciformed backpack"
+	build_path = /obj/item/storage/backpack/neotheology
+	materials = list(MATERIAL_BIOMATTER = 20)
+
+/datum/design/bioprinter/satchel
+	name = "Cruciformed satchel"
+	build_path = /obj/item/storage/backpack/satchel/neotheology
 
 // This separates regular clothes designs from NT clothes designs //
 
-/datum/design/bioprinter/leather_jacket
-	name = "Leather jacket"
-	build_path = /obj/item/clothing/suit/storage/leather_jacket
+/datum/design/bioprinter/shoes
+	name = "Reinforced shoes"
+	build_path = /obj/item/clothing/shoes/reinforced
+	materials = list(MATERIAL_BIOMATTER = 10)
 
 /datum/design/bioprinter/leather/holster
 	name = "shoulder holster"
@@ -114,48 +129,30 @@
 /datum/design/bioprinter/belt
 	materials = list(MATERIAL_BIOMATTER = 30)
 
-/datum/design/bioprinter/belt/utility
-	name = "Utility belt"
-	build_path = /obj/item/weapon/storage/belt/utility
-
 /datum/design/bioprinter/belt/utility/neotheology
 	name = "Mekhane utility belt"
-	build_path = /obj/item/weapon/storage/belt/utility/neotheology
+	build_path = /obj/item/storage/belt/utility/neotheology
 
 /datum/design/bioprinter/belt/medical
 	name = "Medical belt"
-	build_path = /obj/item/weapon/storage/belt/medical
-
-/datum/design/bioprinter/belt/security
-	name = "Tactical belt"
-	build_path = /obj/item/weapon/storage/belt/tactical
+	build_path = /obj/item/storage/belt/medical
 
 /datum/design/bioprinter/belt/security/neotheology
 	name = "Mekhane tactical belt"
-	build_path = /obj/item/weapon/storage/belt/tactical/neotheology
+	build_path = /obj/item/storage/belt/tactical/neotheology
 
 /datum/design/bioprinter/belt/medical/emt
 	name = "EMT belt"
-	build_path = /obj/item/weapon/storage/belt/medical/emt
-
-/datum/design/bioprinter/belt/misc/champion
-	name = "Champion belt"
-	build_path = /obj/item/weapon/storage/belt/champion
-	materials = list(MATERIAL_BIOMATTER = 50)
-
-/datum/design/bioprinter/backpack
-	name = "grey duffelbag"
-	build_path = /obj/item/weapon/storage/backpack
-	materials = list(MATERIAL_BIOMATTER = 40)
+	build_path = /obj/item/storage/belt/medical/emt
 
 /datum/design/bioprinter/backpack/duffelbag
 	name = "grey duffelbag"
-	build_path = /obj/item/weapon/storage/backpack/duffelbag
+	build_path = /obj/item/storage/backpack/duffelbag
 	materials = list(MATERIAL_BIOMATTER = 65)
 
 /datum/design/bioprinter/wallet
 	name = "Wallet"
-	build_path = /obj/item/weapon/storage/wallet
+	build_path = /obj/item/storage/wallet
 
 /datum/design/bioprinter/botanic_leather
 	name = "Botanical gloves"
@@ -165,64 +162,118 @@
 /datum/design/bioprinter/leather
 	materials = list(MATERIAL_BIOMATTER = 40)
 
-/datum/design/bioprinter/satchel
-	name = "Leather Satchel"
-	build_path = /obj/item/weapon/storage/backpack/satchel
-
 /datum/design/bioprinter/small_generic
 	name= "Small generic pouch"
-	build_path = /obj/item/weapon/storage/pouch/small_generic
+	build_path = /obj/item/storage/pouch/small_generic
 
 /datum/design/bioprinter/medium_generic
 	name= "Medium generic pouch"
-	build_path = /obj/item/weapon/storage/pouch/medium_generic
+	build_path = /obj/item/storage/pouch/medium_generic
 
 /datum/design/bioprinter/large_generic
 	name= "Large generic pouch"
-	build_path = /obj/item/weapon/storage/pouch/large_generic
+	build_path = /obj/item/storage/pouch/large_generic
 
 /datum/design/bioprinter/medical_supply
 	name= "Medical supply pouch"
-	build_path = /obj/item/weapon/storage/pouch/medical_supply
+	build_path = /obj/item/storage/pouch/medical_supply
 
 /datum/design/bioprinter/engineering_tools
 	name= "Engineering tools pouch"
-	build_path = /obj/item/weapon/storage/pouch/engineering_tools
+	build_path = /obj/item/storage/pouch/engineering_tools
 
 /datum/design/bioprinter/engineering_supply
 	name= "Engineering supply pouch"
-	build_path = /obj/item/weapon/storage/pouch/engineering_supply
+	build_path = /obj/item/storage/pouch/engineering_supply
 
 /datum/design/bioprinter/ammo
 	name= "Ammo pouch"
-	build_path = /obj/item/weapon/storage/pouch/ammo
+	build_path = /obj/item/storage/pouch/ammo
 
 /datum/design/bioprinter/tubular
 	name= "Tubular pouch"
-	build_path = /obj/item/weapon/storage/pouch/tubular
+	build_path = /obj/item/storage/pouch/tubular
 
 /datum/design/bioprinter/tubular/vial
 	name= "Vial pouch"
-	build_path = /obj/item/weapon/storage/pouch/tubular/vial
+	build_path = /obj/item/storage/pouch/tubular/vial
 
 /datum/design/bioprinter/part
 	name = "Part pouch"
-	build_path = /obj/item/weapon/storage/pouch/gun_part
+	build_path = /obj/item/storage/pouch/gun_part
 
 //[/CLOTHES, ARMOR AND ACCESORIES]
 
 //[MISC]
 /datum/design/bioprinter/storage/sheath
 	name = "sheath"
-	build_path = /obj/item/weapon/storage/belt/sheath
-
-/datum/design/bioprinter/leather/cash_bag
-	name = "Cash Bag"
-	build_path = /obj/item/weapon/storage/bag/money
+	build_path = /obj/item/storage/belt/sheath
 
 /datum/design/bioprinter/holyvacuum
 	name = "\"Tersus\" Vacuum Cleaner"
-	build_path = /obj/item/weapon/holyvacuum
+	build_path = /obj/item/holyvacuum
+
+//[CELLS]
+/datum/design/bioprinter/nt_cells/large
+	name = "NT \"Spark 13000L\""
+	build_path = /obj/item/cell/large/neotheology
+	materials = list(MATERIAL_BIOMATTER = 15)
+
+/datum/design/bioprinter/nt_cells/large/plasma
+	name = "NT \"Radiance 20000L\""
+	build_path = /obj/item/cell/large/neotheology/plasma
+	materials = list(MATERIAL_PLASMA = 3)
+
+/datum/design/bioprinter/nt_cells/medium
+	name = "NT \"Spark 1000M\""
+	build_path = /obj/item/cell/medium/neotheology/
+	materials = list(MATERIAL_BIOMATTER = 10)
+
+/datum/design/bioprinter/nt_cells/medium/plasma
+	name = "NT \"Radiance 1500M\""
+	build_path = /obj/item/cell/medium/neotheology/plasma
+	materials = list(MATERIAL_PLASMA = 2)
+
+/datum/design/bioprinter/nt_cells/small
+	name = "NT \"Spark 300S\""
+	build_path = /obj/item/cell/small/neotheology/
+	materials = list(MATERIAL_BIOMATTER = 5)
+
+/datum/design/bioprinter/nt_cells/small/plasma
+	name = "NT \"Radiance 500S\""
+	build_path = /obj/item/cell/small/neotheology/plasma
+	materials = list(MATERIAL_PLASMA = 1)
+
+//[CELLS]
+/datum/design/bioprinter/nt_cells/large
+	name = "NT \"Spark 13000L\""
+	build_path = /obj/item/cell/large/neotheology
+	materials = list(MATERIAL_BIOMATTER = 15)
+
+/datum/design/bioprinter/nt_cells/large/plasma
+	name = "NT \"Radiance 20000L\""
+	build_path = /obj/item/cell/large/neotheology/plasma
+	materials = list(MATERIAL_PLASMA = 3)
+
+/datum/design/bioprinter/nt_cells/medium
+	name = "NT \"Spark 1000M\""
+	build_path = /obj/item/cell/medium/neotheology/
+	materials = list(MATERIAL_BIOMATTER = 10)
+
+/datum/design/bioprinter/nt_cells/medium/plasma
+	name = "NT \"Radiance 1500M\""
+	build_path = /obj/item/cell/medium/neotheology/plasma
+	materials = list(MATERIAL_PLASMA = 2)
+
+/datum/design/bioprinter/nt_cells/small
+	name = "NT \"Spark 300S\""
+	build_path = /obj/item/cell/small/neotheology/
+	materials = list(MATERIAL_BIOMATTER = 5)
+
+/datum/design/bioprinter/nt_cells/small/plasma
+	name = "NT \"Radiance 500S\""
+	build_path = /obj/item/cell/small/neotheology/plasma
+	materials = list(MATERIAL_PLASMA = 1)
 
 //[/THINGS]
 /datum/design/autolathe/nt
@@ -230,90 +281,96 @@
 
 /datum/design/autolathe/firstaid/nt
 	name = "Mekhane Medkit"
-	build_path = /obj/item/weapon/storage/firstaid/nt
+	build_path = /obj/item/storage/firstaid/nt
 	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/autolathe/excruciator
 	name = "NanoTrasen \"EXCRUCIATOR\" giga lens"
-	build_path = /obj/item/weapon/gun_upgrade/barrel/excruciator
+	build_path = /obj/item/gun_upgrade/barrel/excruciator
 	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/autolathe/cruciform_upgrade
-	build_path = /obj/item/weapon/cruciform_upgrade
+	build_path = /obj/item/cruciform_upgrade
 	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/autolathe/cruciform_upgrade/natures_blessing
 	name = "Natures blessing"
-	build_path = /obj/item/weapon/cruciform_upgrade/natures_blessing
+	build_path = /obj/item/cruciform_upgrade/natures_blessing
 
 /datum/design/autolathe/cruciform_upgrade/faiths_shield
 	name = "Faiths shield"
-	build_path = /obj/item/weapon/cruciform_upgrade/faiths_shield
+	build_path = /obj/item/cruciform_upgrade/faiths_shield
 
 /datum/design/autolathe/cruciform_upgrade/cleansing_presence
 	name = "Cleansing presence"
-	build_path = /obj/item/weapon/cruciform_upgrade/cleansing_presence
+	build_path = /obj/item/cruciform_upgrade/cleansing_presence
 
 /datum/design/autolathe/cruciform_upgrade/martyr_gift
 	name = "Martyr gift"
-	build_path = /obj/item/weapon/cruciform_upgrade/martyr_gift
+	build_path = /obj/item/cruciform_upgrade/martyr_gift
 
 /datum/design/autolathe/cruciform_upgrade/wrath_of_god
 	name = "Wrath of god"
-	build_path = /obj/item/weapon/cruciform_upgrade/wrath_of_god
+	build_path = /obj/item/cruciform_upgrade/wrath_of_god
 
 /datum/design/autolathe/cruciform_upgrade/speed_of_the_chosen
 	name = "Speed of the chosen"
-	build_path = /obj/item/weapon/cruciform_upgrade/speed_of_the_chosen
+	build_path = /obj/item/cruciform_upgrade/speed_of_the_chosen
 
 //[MELEE]
 /datum/design/autolathe/nt/sword/nt_sword
 
 	name = "Mekhane Shortsword"
-	build_path = /obj/item/weapon/tool/sword/nt
+	build_path = /obj/item/tool/sword/nt/shortsword
 
 /datum/design/autolathe/nt/sword/nt_longsword
 	name = "Mekhane Longsword"
-	build_path = /obj/item/weapon/tool/sword/nt/longsword
+	build_path = /obj/item/tool/sword/nt/longsword
 
 /datum/design/autolathe/nt/sword/nt_dagger
 	name = "Mekhane Dagger"
-	build_path = /obj/item/weapon/tool/knife/dagger/nt
+	build_path = /obj/item/tool/knife/dagger/nt
 
 /datum/design/autolathe/nt/sword/nt_halberd
 	name = "Mekhane Halberd"
-	build_path = /obj/item/weapon/tool/sword/nt/halberd
+	build_path = /obj/item/tool/sword/nt/halberd
 
 /datum/design/autolathe/nt/sword/nt_scourge
 	name = "Mekhane Scourge"
-	build_path = /obj/item/weapon/tool/sword/nt/scourge
+	build_path = /obj/item/tool/sword/nt/scourge
 
 /datum/design/autolathe/nt/shield/nt_shield
 	name = "Mekhane Shield"
 
-	build_path = /obj/item/weapon/shield/riot/nt
+	build_path = /obj/item/shield/riot/nt
+
+
+/datum/design/autolathe/nt/sword/nt_spear
+	name = "NT Spear"
+	build_path = /obj/item/tool/sword/nt/spear
+
 
 /datum/design/autolathe/nt/tool_upgrade/sanctifier
 	name = "Sanctifier"
-	build_path = /obj/item/weapon/tool_upgrade/augment/sanctifier
+	build_path = /obj/item/tool_upgrade/augment/sanctifier
 
 //[GRENADES]
 /datum/design/autolathe/nt/grenade/nt_smokebomb
 	name = "MA SG \"Holy Fog\""
-	build_path = /obj/item/weapon/grenade/smokebomb/nt
+	build_path = /obj/item/grenade/smokebomb/nt
 
 /datum/design/autolathe/nt/grenade/nt_frag
 	name = "MA DFG \"Holy Thunder\""
-	build_path = /obj/item/weapon/grenade/frag/nt
+	build_path = /obj/item/grenade/frag/nt
 
 /datum/design/autolathe/nt/grenade/nt_flashbang
 	name = "MA FBG \"Holy Light\""
-	build_path = /obj/item/weapon/grenade/flashbang/nt
+	build_path = /obj/item/grenade/flashbang/nt
 
 /datum/design/autolathe/nt/grenade/nt_explosive
 	name = "MA OBG \"Holy Grail\""
 
-	build_path = /obj/item/weapon/grenade/explosive/nt
+	build_path = /obj/item/grenade/explosive/nt
 
 //[CRUSADE]
 /datum/design/autolathe/nt/armor/crusader

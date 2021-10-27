@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(trade)
 	priority = SS_PRIORITY_SUPPLY
 	flags = SS_NO_FIRE
 
-	var/trade_stations_budget = 8 //how many trade stations should spawned
+	var/trade_stations_budget = 7 //how many trade stations should spawned
 
 	var/list/obj/machinery/trade_beacon/sending/beacons_sending = list()
 	var/list/obj/machinery/trade_beacon/receiving/beacons_receiving = list()
@@ -47,6 +47,15 @@ SUBSYSTEM_DEF(trade)
 		weightstationlist.Remove(station_instance)
 	init_stations_by_list(stations2init)
 
+// Add a random trading station after the start of the round among pool of stations not already spawned
+/datum/controller/subsystem/trade/proc/AddStation(var/turf/station_loc)
+	var/list/availablestationlist = collect_available_trade_stations()
+
+	if(length(availablestationlist))
+		var/datum/trade_station/station_instance = pickweight(availablestationlist)
+		if(istype(station_instance))
+			station_instance.init_src(station_loc, TRUE)  // Spawn at custom location with discovered status
+
 /datum/controller/subsystem/trade/proc/collect_trade_stations()
 	. = list()
 	for(var/path in subtypesof(/datum/trade_station))
@@ -64,6 +73,21 @@ SUBSYSTEM_DEF(trade)
 			. += s
 		else
 			qdel(s)
+
+// Get a weighted list of all stations that have not already been spawned
+/datum/controller/subsystem/trade/proc/collect_available_trade_stations()
+	. = list()
+	for(var/path in subtypesof(/datum/trade_station))
+		var/is_available = TRUE
+		for(var/datum/trade_station/S in SStrade.all_stations)
+			if(istype(S, path))
+				is_available = FALSE
+		if(is_available)
+			var/datum/trade_station/s = new path()
+			if(s.spawn_probability)
+				. += s
+			else
+				qdel(s)
 
 /datum/controller/subsystem/trade/proc/init_station(stype)
 	var/datum/trade_station/station
@@ -153,13 +177,13 @@ SUBSYSTEM_DEF(trade)
 			for(var/path in category)
 				. += category[path]
 
-/datum/controller/subsystem/trade/proc/collect_price_for_list(list/shopList)
+/datum/controller/subsystem/trade/proc/collect_price_for_list(list/shopList, datum/trade_station/tradeStation = null)
 	. = 0
 	for(var/categoryName in shopList)
 		var/category = shopList[categoryName]
 		if(length(category))
 			for(var/path in category)
-				. += get_import_cost(path) * category[path]
+				. += get_import_cost(path, tradeStation) * category[path]
 
 /datum/controller/subsystem/trade/proc/buy(obj/machinery/trade_beacon/receiving/senderBeacon, datum/money_account/account, list/shopList, datum/trade_station/station)
 	if(QDELETED(senderBeacon) || !istype(senderBeacon) || !account || !recursiveLen(shopList) || !istype(station))
@@ -167,7 +191,7 @@ SUBSYSTEM_DEF(trade)
 
 	var/obj/structure/closet/crate/C
 	var/count_of_all = collect_counts_from(shopList)
-	var/price_for_all = collect_price_for_list(shopList)
+	var/price_for_all = collect_price_for_list(shopList, station)
 	if(isnum(count_of_all) && count_of_all > 1)
 		price_for_all += station.commision
 		C = senderBeacon.drop(/obj/structure/closet/crate)

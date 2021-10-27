@@ -6,7 +6,7 @@
 
 	PATHS THAT USE DATUMS
 		turf/simulated/wall
-		obj/item/weapon/material
+		obj/item/material
 		obj/structure/barricade
 		obj/item/stack/material
 		obj/structure/table
@@ -217,10 +217,13 @@ var/list/name_to_material
 		G.reinforce_girder()
 
 // Use this to drop a given amount of material.
-/material/proc/place_material(target, amount=1)
+/material/proc/place_material(target, amount=1, mob/living/user = null)
 	// Drop the integer amount of sheets
-	if(place_sheet(target, round(amount)))
+	var/obj/sheets = place_sheet(target, round(amount))
+	if(sheets)
 		amount -= round(amount)
+		if(user)
+			sheets.add_fingerprint(user)
 
 	// If there is a remainder left, drop it as a shard instead
 	if(amount)
@@ -234,7 +237,7 @@ var/list/name_to_material
 // As above.
 /material/proc/place_shard(target, amount=1)
 	if(shard_type)
-		return new /obj/item/weapon/material/shard(target, src.name, amount)
+		return new /obj/item/material/shard(target, src.name, amount)
 
 // Used by walls and weapons to determine if they break or not.
 /material/proc/is_brittle()
@@ -291,9 +294,9 @@ var/list/name_to_material
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 
-/material/phoron
-	name = MATERIAL_PHORON
-	stack_type = /obj/item/stack/material/phoron
+/material/plasma
+	name = MATERIAL_PLASMA
+	stack_type = /obj/item/stack/material/plasma
 	ignition_point = PHORON_MINIMUM_BURN_TEMPERATURE
 	icon_base = "stone"
 	icon_colour = "#FC2BC5"
@@ -515,27 +518,27 @@ var/list/name_to_material
 	wire_product = null
 	rod_product = null
 
-/material/glass/phoron
-	name = MATERIAL_PHORONGLASS
+/material/glass/plasma
+	name = MATERIAL_PLASMAGLASS
 	display_name = "borosilicate glass"
-	stack_type = /obj/item/stack/material/glass/phoronglass
+	stack_type = /obj/item/stack/material/glass/plasmaglass
 	flags = MATERIAL_BRITTLE
 	integrity = 100
 	icon_colour = "#FC2BC5"
 	stack_origin_tech = list(TECH_MATERIAL = 4)
-	created_window = /obj/structure/window/phoronbasic
-	created_window_full = /obj/structure/window/phoronbasic/full
+	created_window = /obj/structure/window/plasmabasic
+	created_window_full = /obj/structure/window/plasmabasic/full
 	wire_product = null
-	rod_product = /obj/item/stack/material/glass/phoronrglass
+	rod_product = /obj/item/stack/material/glass/plasmaglass
 
-/material/glass/phoron/reinforced
-	name = MATERIAL_RPHORONGLASS
+/material/glass/plasma/reinforced
+	name = MATERIAL_RPLASMAGLASS
 	display_name = "reinforced borosilicate glass"
-	stack_type = /obj/item/stack/material/glass/phoronrglass
+	stack_type = /obj/item/stack/material/glass/plasmarglass
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	composite_material = list() //todo
-	created_window = /obj/structure/window/reinforced/phoron
-	created_window_full = /obj/structure/window/reinforced/phoron/full
+	created_window = /obj/structure/window/reinforced/plasma
+	created_window_full = /obj/structure/window/reinforced/plasma/full
 	hardness = 40
 	weight = 30
 	//composite_material = list() //todo

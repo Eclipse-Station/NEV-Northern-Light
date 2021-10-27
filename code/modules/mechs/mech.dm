@@ -27,7 +27,7 @@
 	var/mech_step_sound = 'sound/mechs/mechstep.ogg'
 
 	// Access updating/container.
-	var/obj/item/weapon/card/id/access_card
+	var/obj/item/card/id/access_card
 	var/list/saved_access = list()
 	var/sync_access = 1
 
@@ -59,7 +59,7 @@
 	var/hatch_locked = FALSE
 
 	//Air!
-	var/use_air      = FALSE
+	var/use_air = FALSE
 
 	// Strafing - Is the mech currently strafing?
 	var/strafing = FALSE
@@ -180,7 +180,12 @@
 
 /mob/living/exosuit/return_air()
 	if(src && loc)
-		return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc.return_air()
+		if(ispath(body) || !hatch_closed)
+			var/turf/current_loc = get_turf(src)
+			return current_loc.return_air()
+		if(body.pilot_coverage >= 100 && hatch_closed)
+			return body.cockpit
+
 
 /mob/living/exosuit/GetIdCard()
 	return access_card

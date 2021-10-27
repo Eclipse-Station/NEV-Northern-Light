@@ -1,3 +1,6 @@
+#define THIEF_MASK_SANITY_COEFF_BUFF 1.6
+#define NORMAL_MASK_SANITY_COEFF_BUFF 1.3
+
 /obj/item/clothing/mask/muzzle
 	name = "muzzle"
 	desc = "To stop that awful noise."
@@ -47,6 +50,10 @@
 	)
 	price_tag = 10
 
+/obj/item/clothing/mask/surgical/New()
+	..()
+	AddComponent(/datum/component/clothing_sanity_protection, NORMAL_MASK_SANITY_COEFF_BUFF)
+
 /obj/item/clothing/mask/thief
 	name = "mastermind's mask"
 	desc = "A white mask with some strange drawings. Designed to hide the wearer's face"
@@ -63,6 +70,10 @@
 		rad = 0
 	)
 	price_tag = 150
+
+/obj/item/clothing/mask/thief/New()
+	..()
+	AddComponent(/datum/component/clothing_sanity_protection, THIEF_MASK_SANITY_COEFF_BUFF)
 
 /obj/item/clothing/mask/thief/wolf
 	name = "technician's mask"
@@ -170,6 +181,32 @@
 	item_state = "ninja_scarf"
 	siemens_coefficient = 0
 
+/obj/item/clothing/mask/scarf/style
+	name = "black scarf"
+	desc = "A stylish, black scarf."
+	icon_state = "blackscarf"
+	item_state = "blackscarf"
+	style = STYLE_HIGH
+	price_tag = 100
+
+/obj/item/clothing/mask/scarf/style/bluestyle
+	name = "blue scarf"
+	desc = "A stylish, blue scarf."
+	icon_state = "bluescarf"
+	item_state = "bluescarf"
+
+/obj/item/clothing/mask/scarf/style/yellowstyle
+	name = "yellow scarf"
+	desc = "A stylish, yellow scarf."
+	icon_state = "yellowscarf"
+	item_state = "yellowscarf"
+
+/obj/item/clothing/mask/scarf/style/redstyle
+	name = "red scarf"
+	desc = "A stylish, red scarf."
+	icon_state = "redscarf"
+	item_state = "redscarf"
+
 /obj/item/clothing/mask/pig
 	name = "pig mask"
 	desc = "A rubber pig mask."
@@ -179,6 +216,10 @@
 	w_class = ITEM_SIZE_SMALL
 	siemens_coefficient = 0.9
 	body_parts_covered = HEAD|FACE|EYES
+
+/obj/item/clothing/mask/pig/New()
+	..()
+	AddComponent(/datum/component/clothing_sanity_protection, NORMAL_MASK_SANITY_COEFF_BUFF)
 
 /obj/item/clothing/mask/horsehead
 	name = "horse head mask"
@@ -191,10 +232,12 @@
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/mask/horsehead/New()
-    ..()
-    // The horse mask doesn't cause voice changes by default, the wizard spell changes the flag as necessary
-    say_messages = list("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
-    say_verbs = list("whinnies", "neighs", "says")
+	..()
+	// The horse mask doesn't cause voice changes by default, the wizard spell changes the flag as necessary
+	say_messages = list("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
+	say_verbs = list("whinnies", "neighs", "says")
+	AddComponent(/datum/component/clothing_sanity_protection, NORMAL_MASK_SANITY_COEFF_BUFF)
+
 
 /obj/item/clothing/mask/ai
 	name = "camera MIU"

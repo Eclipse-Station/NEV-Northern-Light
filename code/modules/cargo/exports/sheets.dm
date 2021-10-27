@@ -134,7 +134,7 @@
 // Phoron. The oil of 26 century.
 /datum/export/stack/phoron
 	cost = 25
-	export_types = list(/obj/item/stack/material/phoron)
+	export_types = list(/obj/item/stack/material/plasma)
 	message = "of phoron"
 
 /datum/export/stack/phoron/get_cost(obj/O, contr = 0, emag = 0)

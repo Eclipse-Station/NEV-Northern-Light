@@ -213,6 +213,7 @@
 			else
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = loc
+		client.view = world.view  // Reset view range if it has been altered
 
 	if(hud_used)
 		hud_used.updatePlaneMasters(src)
@@ -281,7 +282,7 @@
 
 
 /mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)
-	if(!istype(l_hand, /obj/item/weapon/grab) && !istype(r_hand, /obj/item/weapon/grab))
+	if(!istype(l_hand, /obj/item/grab) && !istype(r_hand, /obj/item/grab))
 		if (!L)
 			return null
 		else
@@ -291,14 +292,14 @@
 			L = new /obj/effect/list_container/mobl(null)
 			L.container += src
 			L.master = src
-		if(istype(l_hand, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = l_hand
+		if(istype(l_hand, /obj/item/grab))
+			var/obj/item/grab/G = l_hand
 			if (!L.container.Find(G.affecting))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
-		if(istype(r_hand, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = r_hand
+		if(istype(r_hand, /obj/item/grab))
+			var/obj/item/grab/G = r_hand
 			if (!L.container.Find(G.affecting))
 				L.container += G.affecting
 				if (G.affecting)
@@ -448,7 +449,7 @@
 	for(var/obj/O in world)				//EWWWWWWWWWWWWWWWWWWWWWWWW ~needs to be optimised
 		if(!O.loc)
 			continue
-		if(istype(O, /obj/item/weapon/disk/nuclear))
+		if(istype(O, /obj/item/disk/nuclear))
 			var/name = "Nuclear Disk"
 			if (names.Find(name))
 				namecounts[name]++
@@ -761,7 +762,7 @@ All Canmove setting in this proc is temporary. This var should not be set from h
 		set_density(initial(density))
 	reset_layer()
 
-	for(var/obj/item/weapon/grab/G in grabbed_by)
+	for(var/obj/item/grab/G in grabbed_by)
 		if(G.force_stand())
 			lying = 0
 
@@ -965,7 +966,7 @@ mob/proc/yank_out_object()
 			to_chat(U, "[src] has nothing stuck in their wounds that is large enough to remove.")
 		return
 
-	var/obj/item/weapon/selection = input("What do you want to yank out?", "Embedded objects") in valid_objects
+	var/obj/item/selection = input("What do you want to yank out?", "Embedded objects") in valid_objects
 
 	if(self)
 		to_chat(src, "<span class='warning'>You attempt to get a good grip on [selection] in your body.</span>")
@@ -1017,7 +1018,7 @@ mob/proc/yank_out_object()
 	if(!(U.l_hand && U.r_hand))
 		U.put_in_hands(selection)
 
-	for(var/obj/item/weapon/O in pinned)
+	for(var/obj/item/O in pinned)
 		if(O == selection)
 			pinned -= O
 		if(!pinned.len)
@@ -1080,7 +1081,7 @@ mob/proc/yank_out_object()
 		if(istype(I,/mob/living/simple_animal/borer))
 			return I
 
-	return 0
+	return FALSE
 
 /mob/proc/updateicon()
 	return

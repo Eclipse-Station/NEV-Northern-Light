@@ -22,17 +22,17 @@
 	spawn_blacklisted = TRUE
 
 
-/obj/item/weapon/gun/energy/modkit/catgun
+/obj/item/gun/energy/modkit/catgun
 	name = "Fortunate"
 	icon_state = "m16a1"
 	item_state = "m16a1"
 	desc = "A high quality reproduction of an ancient earth assault rifle, this one has an underslung grenade launcher. \
 	You feel like you could run through a jungle with this."
 	icon = 'zzz_modular_eclipse/icons/custom_items/catgun.dmi'
-	modtype = /obj/item/weapon/gun/projectile/boltgun/serbian
-	spawn_new = /obj/item/weapon/gun/projectile/automatic/z8/m16a1
+	modtype = /obj/item/gun/projectile/boltgun/serbian
+	spawn_new = /obj/item/gun/projectile/automatic/z8/m16a1
 
-/obj/item/weapon/gun/projectile/automatic/z8/m16a1
+/obj/item/gun/projectile/automatic/z8/m16a1
 	name = "M16A1 \"Grenadier\""
 	desc = "A high quality reproduction of an ancient earth assault rifle, this one has an underslung grenade launcher."
 	icon = 'zzz_modular_eclipse/icons/custom_items/catgun.dmi'
@@ -45,7 +45,7 @@
 	damage_multiplier = 0.8
 
 
-/obj/item/weapon/gun/projectile/automatic/z8/m16a1/update_icon()
+/obj/item/gun/projectile/automatic/z8/m16a1/update_icon()
 	if(wielded_item_state)
 		if(icon_contained)//If it has it own icon file then we want to pull from that.
 			if(wielded)
@@ -62,15 +62,15 @@
 				item_state_slots[slot_l_hand_str] = initial(item_state)
 				item_state_slots[slot_r_hand_str] = initial(item_state)
 
-/obj/item/weapon/reagent_containers/food/snacks/fortunecookie/catcookie
+/obj/item/reagent_containers/food/snacks/fortunecookie/catcookie
 	name = "Lucky cookie"
 	desc = "A fortune cookie with an imprint of a robotic face. Smells like ginger and honey."
 	spawn_blacklisted = TRUE
-	var/obj/item/weapon/paper/cookiepaper
+	var/obj/item/paper/cookiepaper
 
-/obj/item/weapon/reagent_containers/food/snacks/fortunecookie/catcookie/New()
+/obj/item/reagent_containers/food/snacks/fortunecookie/catcookie/New()
 	. = ..()
-	cookiepaper = new /obj/item/weapon/paper(src)
+	cookiepaper = new /obj/item/paper(src)
 	cookiepaper.info = {"Sorry for the hold up, hope you enjoy! :) \
 	- N"}
 	trash = cookiepaper

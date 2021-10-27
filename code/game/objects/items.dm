@@ -19,7 +19,7 @@
 	var/max_health
 	var/burn_point
 	var/burning
-	var/hitsound
+	var/hitsound = 'sound/weapons/genhit1.ogg'
 	var/worksound
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
 
@@ -184,8 +184,8 @@
 			user << SPAN_NOTICE("You try to use your hand, but realize it is no longer attached!")
 			return
 	src.pickup(user)
-	if (istype(src.loc, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = src.loc
+	if (istype(src.loc, /obj/item/storage))
+		var/obj/item/storage/S = src.loc
 		S.remove_from_storage(src)
 
 //	Places item in active hand and invokes pickup animation
@@ -201,7 +201,7 @@
 	add_hud_actions(target)
 
 /obj/item/attack_ai(mob/user as mob)
-	if(istype(loc, /obj/item/weapon/robot_module))
+	if(istype(loc, /obj/item/robot_module))
 		//If the item is part of a cyborg module, equip it
 		if(!isrobot(user))
 			return
@@ -223,6 +223,10 @@
 		unwield(user)
 	if(zoom)
 		zoom(user)
+	if(get_equip_slot() in unworn_slots)
+		SEND_SIGNAL(src, COMSIG_CLOTH_DROPPED, user)
+		if(user)
+			SEND_SIGNAL(user, COMSIG_CLOTH_DROPPED, src)
 
 
 //	Called before an item is picked up (loc is not yet changed)
@@ -232,12 +236,12 @@
 	return TRUE
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
-/obj/item/proc/on_exit_storage(obj/item/weapon/storage/the_storage)
+/obj/item/proc/on_exit_storage(obj/item/storage/the_storage)
 	SEND_SIGNAL(the_storage, COMSIG_STORAGE_TAKEN, src, the_storage)
 	return
 
 // called when this item is added into a storage item, which is passed on as S. The loc variable is already set to the storage item.
-/obj/item/proc/on_enter_storage(obj/item/weapon/storage/the_storage)
+/obj/item/proc/on_enter_storage(obj/item/storage/the_storage)
 	SEND_SIGNAL(the_storage, COMSIG_STORAGE_INSERTED, src, the_storage)
 	return
 
@@ -386,7 +390,7 @@
 	if(!..())
 		return 0
 
-	if(istype(src, /obj/item/weapon/melee/energy))
+	if(istype(src, /obj/item/melee/energy))
 		return
 
 	if((flags & NOBLOODY)||(item_flags & NOBLOODY))

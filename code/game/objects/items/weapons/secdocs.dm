@@ -1,4 +1,4 @@
-/obj/item/weapon/oddity/secdocs
+/obj/item/oddity/secdocs
 	name = "science data"
 	desc = "Folder contains some papers with important science data."
 	icon = 'icons/obj/oddities.dmi'
@@ -13,19 +13,19 @@
 
 	var/static/inv_spawn_count = 3
 
-/obj/item/weapon/oddity/secdocs/Initialize()
+/obj/item/oddity/secdocs/Initialize()
 	icon_state = "folder-[pick("omega","psi","theta")]"
 	name = pick("Atractor fields theory",
 				"World lines theory",
 				"Outside context problem evidence",
 				"Use of self-learning AI for public administration",
 				"Evidence of time travel related changes in history",
-				"Geograpfy of non existent cyties",
+				"Geography of non existent cities",
 				"Production of Alliance nanomachines",
 				"Known S.A.U. equipment specifications",
 				"Known access points to Discordia",
 				"The Door phenomenon",
-				"Paralell world related mutations",
+				"Parallel world related mutations",
 				"Mass hallucinations or a breach from another world?",
 				"Aegis Security budget: evidence of S.A.U. overfund",
 				"Real reason of One Star fall",
@@ -49,6 +49,6 @@
 		return FALSE
 
 	for(var/i in 1 to 3)
-		new /obj/item/weapon/oddity/secdocs(L[i].get_loc())
+		new /obj/item/oddity/secdocs(L[i].get_loc())
 
 	return TRUE

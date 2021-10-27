@@ -103,7 +103,7 @@
 	death_time = world.time
 	if(dead_icon)
 		icon_state = dead_icon
-	if(owner && vital)
+	if(owner && vital && owner.stat != DEAD)
 		owner.death()
 
 /obj/item/organ/get_item_cost()
@@ -117,7 +117,7 @@
 	if(istype(loc, /obj/item/device/mmi) || istype(loc, /mob/living/simple_animal/spider_core))
 		return TRUE
 
-	if(istype(loc, /obj/structure/closet/body_bag/cryobag) || istype(loc, /obj/structure/closet/crate/freezer) || istype(loc, /obj/item/weapon/storage/freezer))
+	if(istype(loc, /obj/structure/closet/body_bag/cryobag) || istype(loc, /obj/structure/closet/crate/freezer) || istype(loc, /obj/item/storage/freezer))
 		return TRUE
 
 	return FALSE
@@ -317,7 +317,7 @@
 	if(!organ_blood || !organ_blood.data["blood_DNA"])
 		owner.vessel.trans_to(src, 5, 1, 1)
 
-	if(vital && !(owner.status_flags & REBUILDING_ORGANS))
+	if(vital && !(owner.status_flags & REBUILDING_ORGANS) && owner.stat != DEAD)
 		if(user)
 			admin_attack_log(user, owner, "Removed a vital organ ([src])", "Had a a vital organ ([src]) removed.", "removed a vital organ ([src]) from")
 		owner.death()

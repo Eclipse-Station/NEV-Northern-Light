@@ -32,7 +32,8 @@
 		STAT_VIG = 40,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(/datum/perk/survivor,
+				 /datum/perk/codespeak)
 
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/digitalwarrant,
@@ -91,7 +92,8 @@
 		STAT_VIG = 25,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(/datum/perk/survivor,
+				 /datum/perk/codespeak)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)
@@ -142,7 +144,8 @@
 		STAT_VIG = 25,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(/datum/perk/survivor,
+				 /datum/perk/codespeak)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/audio,
@@ -195,7 +198,8 @@
 		STAT_VIG = 15,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(/datum/perk/survivor,
+				 /datum/perk/codespeak)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/suit_sensors,
@@ -251,7 +255,8 @@
 		STAT_VIG = 25,
 	)
 
-	perks = list(/datum/perk/survivor)
+	perks = list(/datum/perk/survivor,
+				 /datum/perk/codespeak)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)

@@ -49,7 +49,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled
 	name = "Canister: \[O2 (Cryo)]"
 
-/obj/machinery/portable_atmospherics/canister/phoron
+/obj/machinery/portable_atmospherics/canister/plasma
 	name = "Canister \[Phoron\]"
 	icon_state = "orange"
 	canister_color = "orange"
@@ -237,9 +237,9 @@ update_flag
 		healthcheck()
 	..()
 
-/obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/weapon/I, var/mob/user)
+/obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/I, var/mob/user)
 
-	if(isrobot(user) && istype(I, /obj/item/weapon/tank/jetpack))
+	if(isrobot(user) && istype(I, /obj/item/tank/jetpack))
 		var/datum/gas_mixture/thejetpack = I:air_contents
 		var/env_pressure = thejetpack.return_pressure()
 		var/pressure_delta = min(10*ONE_ATMOSPHERE - env_pressure, (air_contents.return_pressure() - env_pressure)/2)
@@ -252,7 +252,7 @@ update_flag
 			to_chat(user, "You pulse-pressurize your jetpack from the tank.")
 		return
 
-	else if(((QUALITY_BOLT_TURNING in I.tool_qualities) || ((istype(I, /obj/item/weapon/tank)) && !(src.destroyed))))
+	else if(((QUALITY_BOLT_TURNING in I.tool_qualities) || ((istype(I, /obj/item/tank)) && !(src.destroyed))))
 		..()
 		return
 
@@ -352,7 +352,7 @@ update_flag
 			if (valve_open)
 				valve_open = 0
 				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
-			if(istype(holding, /obj/item/weapon/tank))
+			if(istype(holding, /obj/item/tank))
 				holding.manipulated_by = usr.real_name
 			holding.loc = loc
 			playsound(usr.loc, 'sound/machines/Custom_extout.ogg', 100, 1)
@@ -391,7 +391,7 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/phoron/New()
 	..()
 
-	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.air_contents.adjust_gas("plasma", MolesForPressure())
 	src.update_icon()
 	return 1
 
@@ -470,7 +470,7 @@ update_flag
 	src.update_icon()
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/phoron/engine_setup/New()
+/obj/machinery/portable_atmospherics/canister/plasma/engine_setup/New()
 	..()
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
 	src.update_icon()

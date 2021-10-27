@@ -60,9 +60,12 @@
 	update_openspace()
 
 /hook/roundstart/proc/init_openspace()
+	var/counter = 0 //Eclipse edit - turf count is so huge the game thinks this proc is an infinite loop
 	for (var/turf/T in turfs)
 		if (T.isTransparent)
 			T.update_icon(null, TRUE)
+		if(counter % 250 == 0)//Eclipse edit
+			CHECK_TICK
 	return TRUE
 
 /atom/proc/update_openspace()

@@ -3,7 +3,7 @@
 #define BEAM_STABILIZED  2
 #define BEAM_COOLDOWN    3
 
-#define JTB_EDGE     2
+#define JTB_EDGE     3
 #define JTB_MAXX   100
 #define JTB_MAXY   100
 #define JTB_OFFSET  10
@@ -19,13 +19,17 @@
 		"Neutral" = 10,
 		"OneStar" = 3,
 		"IronHammer" = 3,
-		"Serbian" = 3
+		"Serbian" = 3,
+		"SpaceWrecks" = 0
 		) // available affinities
 
-/datum/junk_field/New(var/ID)
+/datum/junk_field/New(var/ID, var/field_affinity = null)
 	name = "Junk Field #[ID]"
 	asteroid_belt_status = has_asteroid_belt()
-	affinity = get_random_affinity()
+	if (field_affinity && (field_affinity in affinities))
+		affinity = field_affinity
+	else
+		affinity = get_random_affinity()
 
 /datum/junk_field/proc/has_asteroid_belt()
 	if(prob(50))
@@ -104,9 +108,11 @@
 		/datum/map_template/junk/j25_25/neutral,
 		/datum/map_template/junk/j25_25/onestar,
 		/datum/map_template/junk/j25_25/ironhammer,
-		/datum/map_template/junk/j25_25/serbian)
+		/datum/map_template/junk/j25_25/serbian,
+		/datum/map_template/junk/j25_25/spacewrecks)
 
 /obj/jtb_generator/New()
+	overmap_event_handler.jtb_gen = src  // Link to overmap handler
 	current_jf = new /datum/junk_field(jf_counter)
 	jf_counter++
 	generate_junk_field_pool()
@@ -119,6 +125,11 @@
 			jf_counter++
 	return
 
+/obj/jtb_generator/proc/add_specific_junk_field(var/field_affinity)
+	jf_pool += new /datum/junk_field(jf_counter, field_affinity)
+	jf_counter++
+	return
+
 /obj/jtb_generator/proc/field_capture(var/turf/T)
 	beam_state = BEAM_CAPTURING
 	spawn(beam_capture_time)
@@ -128,8 +139,9 @@
 			generate_junk_field()  // Generate the junk field
 
 			jf_pool -= current_jf  // Remove generated junk field from pool
-			jf_pool += new /datum/junk_field(jf_counter)  // Add a new entry to the pool
-			jf_counter++
+			if(jf_pool.len < nb_in_pool)  // If a junk field is added due to special circumstances we want to get back to a normal number of fields
+				jf_pool += new /datum/junk_field(jf_counter)  // Add a new entry to the pool
+				jf_counter++
 
 			create_link_portal(T)
 	return
@@ -534,10 +546,10 @@
 	
 	// Make space outside the edge impassable to avoid fast moving object moving too fast through the barrier to be detected and wraped-around
 	edges = list()
-	edges += block(locate(1+JTB_OFFSET-JTB_EDGE-1, 1+JTB_OFFSET-JTB_EDGE, z), locate(1+JTB_OFFSET-JTB_EDGE-1, maxy+JTB_OFFSET+JTB_EDGE, z))  // Left border
-	edges |= block(locate(maxx+JTB_OFFSET+JTB_EDGE+1, 1+JTB_OFFSET-JTB_EDGE, z),locate(maxx+JTB_OFFSET+JTB_EDGE+1, maxy+JTB_OFFSET+JTB_EDGE, z))  // Right border
-	edges |= block(locate(1+JTB_OFFSET-JTB_EDGE-1, 1+JTB_OFFSET-JTB_EDGE-1, z), locate(maxx+JTB_OFFSET+JTB_EDGE+1, 1+JTB_OFFSET-JTB_EDGE-1, z))  // Bottom border
-	edges |= block(locate(1+JTB_OFFSET-JTB_EDGE-1, maxy+JTB_OFFSET+JTB_EDGE+1, z),locate(maxx+JTB_OFFSET+JTB_EDGE+1, maxy+JTB_OFFSET+JTB_EDGE+1, z))  // Top border
+	edges += block(locate(1+JTB_OFFSET-JTB_EDGE+1, 1+JTB_OFFSET-JTB_EDGE, z), locate(1+JTB_OFFSET-JTB_EDGE+1, maxy+JTB_OFFSET+JTB_EDGE, z))  // Left border
+	edges |= block(locate(maxx+JTB_OFFSET+JTB_EDGE-1, 1+JTB_OFFSET-JTB_EDGE, z),locate(maxx+JTB_OFFSET+JTB_EDGE-1, maxy+JTB_OFFSET+JTB_EDGE, z))  // Right border
+	edges |= block(locate(1+JTB_OFFSET-JTB_EDGE-1, 1+JTB_OFFSET-JTB_EDGE+1, z), locate(maxx+JTB_OFFSET+JTB_EDGE+1, 1+JTB_OFFSET-JTB_EDGE+1, z))  // Bottom border
+	edges |= block(locate(1+JTB_OFFSET-JTB_EDGE-1, maxy+JTB_OFFSET+JTB_EDGE-1, z),locate(maxx+JTB_OFFSET+JTB_EDGE+1, maxy+JTB_OFFSET+JTB_EDGE-1, z))  // Top border
 	for(var/turf/T in edges)
 		T.density = 1
 
@@ -661,7 +673,7 @@
 	icon_keyboard = "teleport_key"
 	icon_screen = "teleport"
 	light_color = COLOR_LIGHTING_CYAN_MACHINERY
-	circuit = /obj/item/weapon/electronics/circuitboard/jtb
+	circuit = /obj/item/electronics/circuitboard/jtb
 	var/obj/jtb_generator/jtb_gen  // jtb generator
 	var/has_been_init = FALSE
 

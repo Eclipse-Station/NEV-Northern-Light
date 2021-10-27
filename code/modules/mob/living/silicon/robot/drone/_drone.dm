@@ -54,7 +54,7 @@ var/list/mob_hat_cache = list()
 	var/mail_destination = ""
 	var/obj/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
-	var/module_type = /obj/item/weapon/robot_module/drone
+	var/module_type = /obj/item/robot_module/drone
 	var/obj/item/hat
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
@@ -64,8 +64,7 @@ var/list/mob_hat_cache = list()
 	var/station_drone = TRUE
 
 	var/obj/item/device/gps/satnav		//Eclipse edit: Drones (and blitzshells) now have a satnav.
-
-	holder_type = /obj/item/weapon/holder/drone
+	holder_type = /obj/item/holder/drone
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/observer/ghost/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -105,15 +104,6 @@ var/list/mob_hat_cache = list()
 	// // // END ECLIPSE EDITS // // //
 	GLOB.drones.Remove(src)
 	. = ..()
-
-/mob/living/silicon/robot/drone/construction
-	icon_state = "constructiondrone"
-	law_type = /datum/ai_laws/construction_drone
-	module_type = /obj/item/weapon/robot_module/drone/construction
-	hat_x_offset = 1
-	hat_y_offset = -12
-	can_pull_size = ITEM_SIZE_HUGE
-	can_pull_mobs = MOB_PULL_SAME
 
 /mob/living/silicon/robot/drone/New()
 
@@ -199,7 +189,7 @@ var/list/mob_hat_cache = list()
 	updateicon()
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
-/mob/living/silicon/robot/drone/attackby(var/obj/item/weapon/W, var/mob/user)
+/mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
 
 	if(user.a_intent == I_HELP && istype(W, /obj/item/clothing/head))
 		if(hat)
@@ -213,7 +203,7 @@ var/list/mob_hat_cache = list()
 		to_chat(user, SPAN_DANGER("\The [src] is not compatible with \the [W]."))
 		return
 
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/modular_computer))
+	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
 
 		if(stat == 2)
 
@@ -349,7 +339,7 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/proc/welcome_drone()
 	to_chat(src, "<b>You are a maintenance drone, a tiny-brained robotic repair machine</b>.")
 	to_chat(src, "You have no individual will, no personality, and no drives or urges other than your laws.")
-	to_chat(src, "Remember,  you are <b>lawed against interference with the crew</b>. Also remember, <b>you DO NOT take orders from the AI.</b>")
+	to_chat(src, "Remember,  you are <b>lawed against harming the crew</b>. Also remember, <b>you DO NOT take orders from the AI.</b>")
 	to_chat(src, "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows.")
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
@@ -417,3 +407,66 @@ var/list/mob_hat_cache = list()
 
 	verbs -= /mob/living/silicon/robot/drone/verb/choose_armguard
 	to_chat(src, "Your armguard has been set.")
+
+// AI-bound maintenance drone
+/mob/living/silicon/robot/drone/aibound
+
+	var/mob/living/silicon/ai/bound_ai = null
+
+/mob/living/silicon/robot/drone/aibound/Destroy()
+	bound_ai = null
+	. = ..()
+
+/mob/living/silicon/robot/drone/aibound/proc/back_to_core()
+	if(bound_ai && mind)
+		bound_ai.ckey = ckey
+		mind.transfer_to(bound_ai) // Transfer mind to AI core
+	else
+		to_chat(src, SPAN_WARNING("No AI core detected."))
+
+/mob/living/silicon/robot/drone/aibound/death(gibbed)
+	if(bound_ai)
+		bound_ai.time_destroyed = world.time
+		bound_ai.bound_drone = null
+		to_chat(src, SPAN_WARNING("Your AI bound drone is destroyed."))
+		back_to_core()
+		bound_ai = null
+	return ..(gibbed)
+
+/mob/living/silicon/robot/drone/aibound/verb/get_back_to_core()
+	set name = "Get Back To Core"
+	set desc = "Release drone control and get back to your main AI core."
+	set category = "Silicon Commands"
+
+	back_to_core()
+
+/mob/living/silicon/robot/drone/aibound/law_resync()
+	return
+
+/mob/living/silicon/robot/drone/aibound/shut_down()
+	return
+
+/mob/living/silicon/robot/drone/aibound/full_law_reset()
+	return
+
+/mob/living/silicon/robot/drone/aibound/SetName(pickedName as text)
+	to_chat(src, SPAN_WARNING("AI bound drones cannot be renamed."))
+
+/mob/living/silicon/robot/drone/aibound/emag_act(var/remaining_charges, var/mob/user)
+	to_chat(user, SPAN_DANGER("This drone is remotely controlled by the ship AI and cannot be directly subverted, the sequencer has no effect."))
+	to_chat(src, SPAN_DANGER("\The [user] attempts to load subversive software into you, but your hacked subroutines ignore the attempt."))
+
+/mob/living/silicon/robot/drone/aibound/emp_act(severity)
+	back_to_core()
+
+/mob/living/silicon/robot/drone/aibound/use_power()
+	..()
+	if(!has_power)
+		to_chat(src, SPAN_WARNING("Your AI bound drone runs out of power!"))
+		back_to_core()
+
+/mob/living/silicon/robot/drone/aibound/Life()
+	..()
+	if(bound_ai && !isOnStationLevel(src))
+		to_chat(src, SPAN_WARNING("You get out of the ship control range!"))
+		death(TRUE)
