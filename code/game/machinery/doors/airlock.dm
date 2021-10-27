@@ -642,7 +642,7 @@ There are 9 wires.
 	var/cache_string = "[wedged_item.icon]||[wedged_item.icon_state]||[wedged_item.overlays.len]||[wedged_item.underlays.len]"
 
 	if(!GLOB.wedge_icon_cache[cache_string])
-		var/icon/I = getFlatIcon(wedged_item, SOUTH)
+		var/icon/I = getFlatIcon(wedged_item, defdir=SOUTH)
 
 		// #define COOL_LOOKING_SHIFT_USING_CROWBAR_RIGHT 14, #define COOL_LOOKING_SHIFT_USING_CROWBAR_DOWN 6 - throw a rock at me if this looks less magic.
 		I.Shift(SOUTH, 6) // These numbers I got by sticking the crowbar in and looking what will look good.

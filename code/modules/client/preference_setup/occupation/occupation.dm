@@ -309,7 +309,7 @@
 	mannequin.force_update_limbs()
 	mannequin.update_body(0)
 	mannequin.update_icons()
-	var/icon/job_icon = getFlatIcon(mannequin, job_icon_dir)
+	var/icon/job_icon = getFlatIcon(mannequin, defdir=job_icon_dir)
 	job_icon.Scale(job_icon.Width() * 2.5, job_icon.Height() * 2.5)
 	send_rsc(user, job_icon, "job_icon_[job_icon_dir].png")
 	job_desc += "<table style='float:left; height = 270px; table-layout: fixed; vertical-align:top' cellpadding='0' cellspacing='0'><tr><td><img src=job_icon_[job_icon_dir].png width=220 height=220 style='float:left;'></td></tr>"
