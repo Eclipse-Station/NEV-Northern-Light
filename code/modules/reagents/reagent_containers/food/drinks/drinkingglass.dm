@@ -53,33 +53,34 @@
 	center_of_mass = initial(center_of_mass)
 	cut_overlays()
 
-	if(reagents.reagent_list.len > 0)
-		var/datum/reagent/R = reagents.get_master_reagent()
-		if(R.glass_unique_appearance && morf_glass)
-			if(R.glass_icon_state)
-				icon_state = R.glass_icon_state
-			else
-				icon_state = "glass_brown"
+	if(reagents)//Eclipse edit
+		if(reagents.reagent_list.len > 0)
+			var/datum/reagent/R = reagents.get_master_reagent()
+			if(R.glass_unique_appearance && morf_glass)
+				if(R.glass_icon_state)
+					icon_state = R.glass_icon_state
+				else
+					icon_state = "glass_brown"
 
-			if(R.glass_name)
-				name = "glass of [R.glass_name]"
-			else
-				name = "glass of.. what?"
+				if(R.glass_name)
+					name = "glass of [R.glass_name]"
+				else
+					name = "glass of.. what?"
 
-			if(R.glass_desc)
-				desc = R.glass_desc
-			else
-				desc = "You can't really tell what this is."
+				if(R.glass_desc)
+					desc = R.glass_desc
+				else
+					desc = "You can't really tell what this is."
 
-			if(R.glass_center_of_mass)
-				center_of_mass = R.glass_center_of_mass
-			else
-				center_of_mass = list("x"=16, "y"=10)
+				if(R.glass_center_of_mass)
+					center_of_mass = R.glass_center_of_mass
+				else
+					center_of_mass = list("x"=16, "y"=10)
 
-		else
-			var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
-			filling.color = reagents.get_color()
-			add_overlay(filling)
+			else
+				var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
+				filling.color = reagents.get_color()
+				add_overlay(filling)
 
 // for /obj/machinery/vending/sovietsoda
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda

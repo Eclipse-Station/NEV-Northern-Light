@@ -445,7 +445,7 @@
 			"cryptobiolin",
 			"dermaline",
 			"dexalin",
-			"phoron",
+			"plasma",
 			"synaptizine",
 			"impedrezene",
 			"hyronalin",

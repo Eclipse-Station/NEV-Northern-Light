@@ -260,7 +260,7 @@
 	if(istype(W,/obj/item/tank))
 		if(tank)
 			to_chat(user, "\The [src] already has an airtank installed.")
-		else if(istype(W,/obj/item/tank/phoron))
+		else if(istype(W,/obj/item/tank/plasma))
 			to_chat(user, "\The [W] cannot be inserted into \the [src]'s storage compartment.")
 		else
 			to_chat(user, "You insert \the [W] into \the [src]'s storage compartment.")

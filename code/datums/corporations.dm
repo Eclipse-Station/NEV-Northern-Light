@@ -6,10 +6,10 @@
 	var/about
 
 /datum/corporation/nt
-	name = "Nanotrasen Corporation"
+	name = "NanoTrasen Corporation"
 	textcolor = "blue"
 	icon_state = "nt"
-	about = "Nanotrasen is a powerful corporation having a monopoly on phoron production, experimental bluespace technologies and ANGEL, an extensive network of cloning stations. This corporation has the highest net income among all known organizations in the whole universe; however, they are corrupted, spying on their employees and enganging in shady business practices."
+	about = "NanoTrasen is a powerful corporation having a monopoly on phoron production, experimental bluespace technologies and ANGEL, an extensive network of cloning stations. This corporation has the highest net income among all known organizations in the whole universe; however, they are corrupted, spying on their employees and enganging in shady business practices."
 
 /datum/corporation/ironhammer
 	name = "Ironhammer Security"

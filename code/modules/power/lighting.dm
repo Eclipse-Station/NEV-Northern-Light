@@ -186,7 +186,7 @@
 	var/rigged = 0				// true if rigged to explode
 	var/firealarmed = 0
 	var/atmosalarmed = 0
-	
+
 	var/overload = 0		//Eclipse edit: Variable to trigger an overload. If set, next process() tick will cause an overload to occur.
 
 // the smaller bulb light fixture
@@ -621,24 +621,24 @@
 /obj/machinery/light/proc/overload()
 	if(status != LIGHT_OK)
 		return FALSE		//If the light is broken, burned out, or removed, we can't really do much realistically.
-	
+
 	overload = FALSE		//Set this to FALSE so process() doesn't call overload() recursively
-	
+
 	//Right, first let's start playing the sound.
 	playsound(src.loc, 'sound/effects/transformer_overload.ogg', 60, 0)		//This sound lasts just over five seconds as I've mixed it.
-	
+
 	//Next, we make our light slowly brighten and glow a bit red due to the ballast overheating.
 	set_light(brightness_range, brightness_power, "#ffdabc")		//Start the brightness effect subtle.
 	sleep(15)		//T+1.5 s
 	set_light(brightness_range + 1, brightness_power + 1, "#ffdabc")		//Getting there...
 	sleep(15)		//T+3.0 s
 	set_light(brightness_range + 2, brightness_power + 2, "#ffdabc")		//Maxed out.
-	
+
 	spawn(20)		//T+5.0s
 		src.reset_color()		//reset the colour for if a new tube goes in
 		src.broken()		//aaaaaaaaand pop goes the lightbulb.
 	return TRUE
-	
+
 // Chance to overload on EMPs
 /obj/machinery/light/emp_act(severity)
 	if(!on)
@@ -687,7 +687,7 @@
 /obj/machinery/light/Process()
 	if(on)
 		use_power(light_range * LIGHTING_POWER_FACTOR, STATIC_LIGHT)
-	
+
 	if(overload)		//Eclipse edit
 		overload()		//if we're set to overload, well, overload.
 
@@ -807,7 +807,7 @@
 
 		to_chat(user, "You inject the solution into [src].")
 
-		if(S.reagents.has_reagent("phoron", 5))
+		if(S.reagents.has_reagent("plasma", 5))
 
 			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")

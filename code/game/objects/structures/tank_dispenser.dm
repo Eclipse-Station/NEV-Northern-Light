@@ -66,7 +66,7 @@
 			to_chat(user, SPAN_NOTICE("[src] is full."))
 		updateUsrDialog()
 		return
-	if(istype(I, /obj/item/tank/phoron))
+	if(istype(I, /obj/item/tank/plasma))
 		if(phorontanks < 10)
 			user.drop_item()
 			I.forceMove(src)
@@ -108,7 +108,7 @@
 			tank = platanks[platanks.len]
 			platanks.Remove(tank)
 		else
-			tank = new /obj/item/tank/phoron(loc)
+			tank = new /obj/item/tank/plasma(loc)
 		phorontanks--
 
 	if(tank)

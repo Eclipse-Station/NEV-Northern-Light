@@ -101,8 +101,8 @@
 	icon_state = pick(list("technohelmet_visor", "technohelmet_googles"))
 
 /obj/item/clothing/head/armor/helmet/technomancer_old
-	name = "reinforced technomancer helmet"
-	desc = "Technomancer League's ballistic helmet. Comes with a built-in flashlight."
+	name = "reinforced engineering helmet"
+	desc = "A ballistic helmet with a built-in flashlight, painted in the Engineering department's colours."
 	icon_state = "technohelmet_old"
 	body_parts_covered = HEAD|EARS|EYES|FACE
 	item_flags = THICKMATERIAL

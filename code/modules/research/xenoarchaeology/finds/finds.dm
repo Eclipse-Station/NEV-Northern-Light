@@ -225,7 +225,7 @@
 			else if(prob(50))
 				new_item = new /obj/item/tank/anesthetic(src.loc)
 			else
-				new_item = new /obj/item/tank/phoron(src.loc)
+				new_item = new /obj/item/tank/plasma(src.loc)
 			icon_state = pick("oxygen","oxygen_fr","oxygen_f","phoron","anesthetic")
 			additional_desc = "It [pick("gloops","sloshes")] slightly when you shake it."
 		if(13)

@@ -99,7 +99,7 @@
 
 /datum/reagent/toxin/plasma
 	name = "phoron"
-	id = "phoron"
+	id = "plasma" //GONNA CHANGE IT BACK TO PLASMA CODEWISE BECAUSE GODDAMN MERGE CONFLICTS -- Nestor -- Eclipse Add
 	description = "phoron in its liquid form."
 	taste_mult = 1.5
 	reagent_state = LIQUID
@@ -107,20 +107,19 @@
 	strength = 0.3
 	touch_met = 5
 
-/datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
-/datum/reagent/toxin/phoron/touch_mob(mob/living/L, var/amount)
+/datum/reagent/toxin/plasma/touch_mob(var/mob/living/L, var/amount)
+/datum/reagent/toxin/plasma/touch_mob(mob/living/L, var/amount)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
-/datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
+/datum/reagent/toxin/plasma/affect_touch(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
 	M.take_organ_damage(0, effect_multiplier * 0.1) //being splashed directly with phoron causes minor chemical burns
-/datum/reagent/toxin/phoron/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
+/datum/reagent/toxin/plasma/affect_touch(mob/living/carbon/M, alien, effect_multiplier)
 	M.take_organ_damage(0, effect_multiplier * 0.1) //being splashed directly with phoron causes minor chemical burns
 	if(prob(50))
 		M.pl_effects()
 
-/datum/reagent/toxin/phoron/touch_turf(var/turf/simulated/T)
-/datum/reagent/toxin/phoron/touch_turf(turf/simulated/T)
+/datum/reagent/toxin/plasma/touch_turf(turf/simulated/T)
 	if(!istype(T))
 		return
 	T.assume_gas("phoron", volume, T20C)

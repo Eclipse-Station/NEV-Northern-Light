@@ -43,7 +43,7 @@
 			add_overlays("tank_nitro")
 		else if(istype(tank,/obj/item/tank/oxygen))
 			add_overlays("tank_oxyg")
-		else if(istype(tank,/obj/item/tank/phoron))
+		else if(istype(tank,/obj/item/tank/plasma))
 			add_overlays("tank_plasma")
 		//else if(istype(tank,/obj/item/tank/hydrogen))
 		//	add_overlays("tank_hydro")

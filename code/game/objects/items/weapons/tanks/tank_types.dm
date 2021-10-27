@@ -78,7 +78,7 @@
 /*
  * Phoron
  */
-/obj/item/tank/phoron
+/obj/item/tank/plasma
 	name = "phoron tank"
 	desc = "Contains dangerous phoron. Do not inhale. Warning: extremely flammable."
 	icon_state = "plasma"
