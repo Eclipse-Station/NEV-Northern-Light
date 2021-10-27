@@ -1,6 +1,7 @@
 /mob/living/carbon/superior_animal/roach/tank
 	name = "Panzer Roach"
 	desc = "A monstrous, dog-sized cockroach. This one looks more robust than others."
+	icon = 'zzz_modular_eclipse/icons/mob/mob.dmi'
 	icon_state = "panzer"
 	meat_amount = 4
 	turns_per_move = 2
