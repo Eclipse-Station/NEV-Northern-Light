@@ -103904,17 +103904,13 @@
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
 "eCv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/catwalk,
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
@@ -106508,6 +106504,12 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /obj/structure/catwalk,
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
@@ -108931,7 +108933,6 @@
 	tag = "icon-wooden_chair (WEST)"
 	},
 /turf/simulated/floor/wood,
-/turf/simulated/open,
 /area/eris/command/courtroom)
 "rMd" = (
 /obj/spawner/pack/gun_loot/low_chance,
