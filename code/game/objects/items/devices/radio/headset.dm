@@ -152,14 +152,14 @@
 	return ..(freq, level, 1)
 
 /obj/item/device/radio/headset/heads/rd
-	name = "expedition overseer's headset"
+	name = "chief science officer's headset"
 	desc = "Headset of the researching God."
 	icon_state = "com_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/moebius
 
 /obj/item/device/radio/headset/heads/hos
-	name = "aegis commander headset"
+	name = "Aegis commander headset"
 	desc = "The headset of the man who protects your worthless lifes."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -180,7 +180,7 @@
 	ks2type = /obj/item/device/encryptionkey/heads/moebius
 
 /obj/item/device/radio/headset/heads/hop
-	name = "head of personnel's headset"
+	name = "First Officer's headset"
 	desc = "The headset of the guy who will one day be captain."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -194,7 +194,7 @@
 	ks2type = /obj/item/device/encryptionkey/heads/merchant
 
 /obj/item/device/radio/headset/heads/preacher
-	name = "mekhane preacher's headset"
+	name = "Mekhane preacher's headset"
 	desc = "The headset of the man who leads you to god."
 	icon_state = "nt_com_headset"
 	item_state = "headset"
@@ -224,7 +224,7 @@
 	ks2type = /obj/item/device/encryptionkey/heads/hos
 
 /obj/item/device/radio/headset/church
-	name = "mekhane headset"
+	name = "Mekhane headset"
 	desc = "If you listen closely you can hear God."
 	icon_state = "nt_headset"
 	item_state = "headset"

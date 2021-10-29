@@ -233,8 +233,8 @@
 	..()
 
 /obj/item/grenade/chem_grenade/large/moebius
-	name = "large moebius chem grenade"
-	desc = "An oversized grenade that affects a larger area. Has Moebius markings"
+	name = "large Lazarus chem grenade"
+	desc = "An oversized grenade that affects a larger area. Has Lazarus markings"
 	icon_state = "moebius_grenade"
 
 /obj/item/grenade/chem_grenade/metalfoam

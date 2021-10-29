@@ -308,14 +308,14 @@
 /obj/item/paper/self_pacification
 	name = "Self-Pacification and You!"
 	info = {"\[h1\]\[center\]\[b\]Self-Pacification and You!\[/b\]\[/center\]\[/h1\]
-	As pursuant to \[b\]\"Hansa Property Rights For Detainees\"\[/b\], \[b\]Aster's \"Assembly Upon The Definition of Aggression\"\[/b\], and the good initiative of \[b\]IronHammer Command\[/b\]; these steps have been laid to better actuate your personal property rights while within indefinite detainment:
+	As pursuant to \[b\]\"NanoTrasen Property Rights For Detainees\"\[/b\], \[b\]Free Trade Union's \"Assembly Upon The Definition of Aggression\"\[/b\], and the good initiative of \[b\]Aegis Command\[/b\]; these steps have been laid to better actuate your personal property rights while within indefinite detainment:
 
 	\[b\]1.\[/b\] That those detained have access to nourishment necessary to maintain the active status of their person.
 	\[b\]2.\[/b\] That those detained have right to be free from aggression, unprovoked harassment, and must be provided the means to be so.
-	\[b\]3.\[/b\] That those detained have the right to voluntarily leave detainment, under the American principles we hold, and uphold under the Hansa Trade Union.
+	\[b\]3.\[/b\] That those detained have the right to voluntarily leave detainment, under the Solgov principles we hold, and uphold under the Free Trade Union.
 
 	\[small\]\[b\]NOTICE:\[/b\] Engaging in Anti-Depressive Self-Pacification Treatment is non-pursuant to proprty rights if your person is the property of another. You \[b\]WILL be fined\[/b\] if you engage in self-pacification \[b\]post-mortem or otherwise\[/b\], your property manager may also consenquently enact punitive financial measures. \
-	\"Cruciformed\" assets (assuming positive consent of conversion) are considered property of The Church of NeoTheology, and are \[b\]not\[/b\] eligible for this social program. Your hosting Dispute Resolution Organization may further detain your cruciform in the event of self-pacification as an additional punitive measure.\[/small\]
+	\"Cruciformed\" assets (assuming positive consent of conversion) are considered property of The Children of Mekhane, and are \[b\]not\[/b\] eligible for this social program. Your hosting Dispute Resolution Organization may further detain your cruciform in the event of self-pacification as an additional punitive measure.\[/small\]
 
 	\[h3\]\[b\]Self-Pacification Procedures:\[/b\]\[/h3\]
 	\[b\]1.\[/b\] Adorn provided breath mask securely, try to leave no gaps for air to escape, and remember to cover your nose.
@@ -324,11 +324,11 @@
 	\[b\]4.\[/b\] Once you are made comfortable in suitable position, activate your tank's pressure valve for painless experience.
 	\[b\]5.\[/b\] You have successfully actuated your personal property rights!
 
-	\[small\]\[i\]Note: In the event that the tanks have been otherwise consumed, your host Dispute Resolution Organization: \[u\]\[b\]\"IronHammer Security\"\[/b\]\[/u\] must provide alternative within \"30\" minutes during business hours upon request.\[/i\]\[/small\]
+	\[small\]\[i\]Note: In the event that the tanks have been otherwise consumed, your host Dispute Resolution Organization: \[u\]\[b\]\"Aegis Security Solutions\"\[/b\]\[/u\] must provide alternative within \"30\" minutes during business hours upon request.\[/i\]\[/small\]
 
 
 
-	\[center\]\[ironhammer\]\[/center\]
+	\[center\]\[aegis\]\[/center\]
 	\[center\]\[small\]\[b\]Remember!\[/b\]\[/small\]\[/center\]
 	\[center\]\[small\]\[i\]\"Depression is voluntary, freedom is not!\"\[/i\]\[/small\]\[/center\]
 	\[br\]"}
@@ -337,24 +337,24 @@
 	name = "The rookie's guide to investigating a murder"
 	info = {"\[b\]Hey there rookie\[/b\]
 
-	I got tired of this shit-bin , so i left \n
-	But that doesn't mean you should , this vessel pays well \n
-	And so does investigating the crimes onboard , true mysteries in this era \n
+	I got tired of this shit-bin, so i left \n
+	But that doesn't mean you should, this vessel pays well \n
+	And so does investigating the crimes onboard, true mysteries in this era \n
 
-	Assuming that a murder happens , which it always will , the only constant i know onboard of this vessel \n
-	You will likely be looking at the body of a dead vagabond , the earliest clue would be the splatter of blood and the casings of .30 bullets \n
+	Assuming that a murder happens, which it always will, the only constant I know onboard of this vessel \n
+	You will likely be looking at the body of a dead vagabond, the earliest clue would be the splatter of blood and the casings of .35 bullets \n
 
-	Your first step should be to secure the place , mark it off , keep the fuck-arounds out , don't let them "Loot" any evidence off the place \n
-	The second one ? inspect the environment you are in , the place of the murder always will have clues , doors with fingerprints or sheets of metal sitting near dismantled structures \n
-	Glass shards with fibers from hitting whoever broke them, ciggarete treads, blood pools with the murderer or victims DNA which you can swab \n
-	Next step , do an autopsy , find out what really killed the guy , sometimes it isn't the guns , but the shrapnel they leave \n
-	After you do that , try to build a story of what happened , replay the events from this guy's perspective , find out why he was murdered \n
+	Your first step should be to secure the place, mark it off, keep the fuck-arounds out, don't let them "Loot" any evidence off the place. \n
+	The second one? inspect the environment you are in, the place of the murder always will have clues, doors with fingerprints or sheets of metal sitting near dismantled structures \n
+	Glass shards with fibers from hitting whoever broke them, cigarette butts, blood pools with the murderer or victims DNA which you can swab. \n
+	Next step, do an autopsy, find out what really killed the guy, sometimes it isn't the guns, but the shrapnel they leave. \n
+	After you do that, try to build a story of what happened, replay the events from this guy's perspective, find out why he was murdered. \n
 
-	The killer can always be undeniably convicted , most of them wear gloves , but gloves bear a dark secret , the guns they use with them on leave a print on them , the smoke of the shell ejection itself \n
-	You can swab it off , different calibers produce different intensities of it , but you will always know which one it is , after all you took the IH Detective course \n
-	I consider it the best trick in the book , a murderer never leaves his fingerprints , but he always wears his gloves \n
+	The killer can't always be undeniably convicted, most of them wear gloves, but gloves bear a dark secret, the guns they use with them on leave a print on them, the smoke of the shell ejection itself. \n
+	You can swab it off, different calibers produce different intensities of it, but you will always know which one it is, after all you took the Aegis Detective course, right? \n
+	I consider it the best trick in the book, a murderer never leaves his fingerprints, but he always wears his gloves. \n
 
-	Anyway , enjoy your time onboard , your duty is vital to keeping the shit-bin rolling , keep investigating and make the LT proud \n
+	Anyway, enjoy your time onboard, your duty is vital to keeping the shit-bin rolling, keep investigating and make the LT proud. \n
 
 	Best regards,
 	<font face=\"Times New Roman\"><i>James N</i></font>.

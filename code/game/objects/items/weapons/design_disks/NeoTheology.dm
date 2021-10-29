@@ -31,7 +31,7 @@
 
 // Batteries that printed fully charged, at the cost of some biomatter or plasma being non-refundable
 /obj/item/computer_hardware/hard_drive/portable/design/nt/cells
-	disk_name = "NeoTheology Armory - Power Cells Pack"
+	disk_name = "NanoTrasen Armory - Power Cells Pack"
 	icon_state = "neotheology"
 
 	license = -1
@@ -337,7 +337,7 @@
 		)
 
 /obj/item/computer_hardware/hard_drive/portable/design/nt/cruciform_upgrade
-	disk_name = "NeoTheology Armory - Cruciform Upgrades"
+	disk_name = "Mekhane Armory - Cruciform Upgrades"
 	icon_state = "neotheology"
 
 /obj/item/computer_hardware/hard_drive/portable/design/nt/cruciform_upgrade/New()

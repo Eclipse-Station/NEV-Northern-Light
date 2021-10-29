@@ -212,7 +212,7 @@ other types of metals and chemistry for reagents).
 	materials = list(MATERIAL_GLASS = 2, MATERIAL_PLASTIC = 15)
 
 /datum/design/research/item/science_voidsuit
-	name = "Moebius combat voidsuit"
+	name = "Lazarus combat voidsuit"
 	build_path = /obj/item/clothing/suit/space/void/science
 	sort_string = "VASAC"
 

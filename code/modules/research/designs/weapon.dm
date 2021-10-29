@@ -67,7 +67,7 @@
 	sort_string = "TBAAB"
 
 /datum/design/research/item/weapon/hatton
-	name = "Moebius BT \"Q-del\""
+	name = "Lazarus BT \"Q-del\""
 	desc = "This breaching tool was reverse engineered from the \"Hatton\" design.\
 			Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,\
 			this device suffers from a wide number of reliability issues stemming from it being lathe printed."
@@ -75,12 +75,12 @@
 	sort_string = "TBAAD"
 
 /datum/design/research/item/weapon/katana
-	name = "Moebius \"Muramasa\" Katana"
+	name = "Lazarus \"Muramasa\" Katana"
 	build_path = /obj/item/tool/sword/katana/nano
 
 
 /datum/design/research/item/weapon/bluespace_dagger
-	name = "Moebius \"Displacement Dagger\""
+	name = "Lazarus \"Displacement Dagger\""
 	build_path = /obj/item/tool/knife/dagger/bluespace
 
 // Ammo
@@ -89,7 +89,7 @@
 	category = CAT_WEAPON
 
 /datum/design/research/item/ammo/hatton
-	name = "Moebius BT \"Q-del\" gas tube"
+	name = "Lazarus BT \"Q-del\" gas tube"
 	build_path = /obj/item/hatton_magazine/moebius
 	sort_string = "TAACC"
 

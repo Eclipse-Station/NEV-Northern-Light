@@ -180,7 +180,7 @@
 //Faction-specific backpacks
 /obj/item/storage/backpack/ironhammer
 	name = "operator's backpack"
-	desc = "Done in a complementing shade for Aegis Security forces, a staple for military contractors everywhere."
+	desc = "Done in a complementing shade for Aegis Security forces, a staple for security contractors everywhere."
 	icon_state = "backpack_ironhammer"
 	rarity_value = 25
 
@@ -335,7 +335,7 @@
 //Faction-specific satchels
 /obj/item/storage/backpack/satchel/ironhammer
 	name = "operator's satchel"
-	desc = "Done in a complementing shade for Aegis Security forces, for the itinerant military contractor."
+	desc = "Done in a complementing shade for Aegis Security forces, for the itinerant security contractor."
 	icon_state = "satchel_ironhammer"
 	rarity_value = 12.5
 
