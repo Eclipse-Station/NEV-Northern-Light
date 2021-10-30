@@ -22,7 +22,7 @@
 		embed_mult = initial(embed_mult)
 
 /obj/item/tool/sword/nt/shortsword
-	name = "Mekhane Gladius"
+	name = "Gladius of the Mekhane"
 	desc = "A saint looking sword, made to do God's work."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_shortsword"
@@ -39,7 +39,7 @@
 
 
 /obj/item/tool/sword/nt/longsword
-	name = "NT Spatha"
+	name = "Spatha of the Mekhane"
 	desc = "A saint looking longsword, recommended by experienced crusaders."
 	icon_state = "nt_longsword"
 	item_state = "nt_longsword"
@@ -72,7 +72,7 @@
 
 
 /obj/item/tool/sword/nt/halberd
-	name = "Mekhane Halebarda"
+	name = "Halebarda of the Mekhane"
 	desc = "A saint looking halberd, for emergency situation."
 	icon_state = "nt_halberd"
 	item_state = "nt_halberd"
@@ -144,7 +144,7 @@
 		O.say(pick("OH", "LORD", "MERCY", "SPARE", "ME", "HAVE", "PLEASE"))
 
 /obj/item/tool/sword/nt/spear
-	name = "Mekhane Pilum"
+	name = "Pilum of the Mekhane"
 	desc = "A saint looking short spear, designed for use with a shield or as a throwing weapon. The spear-tip usually breaks after being thrown at a target, but it can be welded into shape again."
 	icon_state = "nt_spear"
 	item_state = "nt_spear"
@@ -199,7 +199,7 @@
 
 
 /obj/item/shield/riot/nt
-	name = "Mekhane Scutum"
+	name = "Scutum of the Mekhane"
 	desc = "A saint looking shield, let the God protect you. Has several leather straps on the back to hold melee weapons."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_shield"
