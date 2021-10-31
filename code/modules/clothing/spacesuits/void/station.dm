@@ -323,7 +323,7 @@
     icon_state = pick(icon_states)
 
 /obj/item/clothing/suit/space/void/science
-	name = "Lazarus combat voidsuit"
+	name = "\improper Lazarus combat voidsuit"
 	icon_state = "moebiussuit"
 	desc = "A heavy space suit designed by Lazarus personnel for work in hazardous environment. Features several advanced layers of armor."
 	item_state = "moebiussuit"
