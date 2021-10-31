@@ -48,6 +48,7 @@
 		show_browser(usr,"<HTML><HEAD><TITLE>[open_file]</TITLE></HEAD>[pencode2html(loaded_data)]</BODY></HTML>", "window=open_file")
 		return TRUE
 
+//Eclipse Edits - Changed the logos to match our own paperwork.
 	if(href_list["PRG_taghelp"])
 		to_chat(usr, "<span class='notice'>The hologram of a googly-eyed paper clip helpfully tells you:</span>")
 		var/help = {"
@@ -71,7 +72,6 @@
 		\[grid\] - \[/grid\] : Table without visible borders, for layouts.
 		\[row\] - New table row.
 		\[cell\] - New table cell.
-		//Eclipse Edits - Changed to match our lore.
 		\[logo\] - Inserts NanoTrasen logo image.
 		\[ftu\] - Inserts Union logo image.
 		\[lazarus\] - Inserts Lazarus logo image.
