@@ -159,7 +159,7 @@
 	ks2type = /obj/item/device/encryptionkey/heads/moebius
 
 /obj/item/device/radio/headset/heads/hos
-	name = "Aegis commander headset"
+	name = "\improper Aegis commander headset"
 	desc = "The headset of the man who protects your worthless lifes."
 	icon_state = "com_headset"
 	item_state = "headset"

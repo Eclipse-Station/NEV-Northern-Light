@@ -71,7 +71,7 @@
 		\[grid\] - \[/grid\] : Table without visible borders, for layouts.
 		\[row\] - New table row.
 		\[cell\] - New table cell.
-		\\Eclipse Edits - Changed to match our lore.
+		//Eclipse Edits - Changed to match our lore.
 		\[logo\] - Inserts NanoTrasen logo image.
 		\[ftu\] - Inserts Union logo image.
 		\[lazarus\] - Inserts Lazarus logo image.
