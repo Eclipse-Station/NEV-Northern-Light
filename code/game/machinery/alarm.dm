@@ -1186,9 +1186,9 @@ FIRE ALARM
 			if(job)
 				crew++
 
-	var/calculated_range = max((7 - crew), 1)
+	var/calculated_range = max((9 - crew), 1)
 
-	if(crew > 7)	//Crew is larger than 7, so we won't see anything anyway.
+	if(crew > 9)	//Crew is larger than 9, so we won't see anything anyway.
 		return FALSE
 
 
