@@ -602,6 +602,7 @@
 #include "code\game\gamemodes\events\hidden_events\bluespace_crystal_infestation.dm"
 #include "code\game\gamemodes\events\hidden_events\bluespace_rift.dm"
 #include "code\game\gamemodes\events\hidden_events\kaiser.dm"
+#include "code\game\gamemodes\events\hidden_events\spider_nest.dm"
 #include "code\game\gamemodes\events\holidays\Christmas.dm"
 #include "code\game\gamemodes\events\holidays\Holidays.dm"
 #include "code\game\gamemodes\events\weather\rad_storm.dm"
