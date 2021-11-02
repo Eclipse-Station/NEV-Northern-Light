@@ -1,15 +1,15 @@
-/datum/storyevent
-	var/id = "gas_leak"
-	var/name = "gas leak"
+/datum/storyevent/gas_leak
+	id = "gas_leak"
+	name = "gas leak"
 	event_type =/datum/event/gas_leak
 	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE, EVENT_LEVEL_MAJOR = POOL_THRESHOLD_MAJOR)
 	tags = list(TAG_DESTRUCTIVE, TAG_NEGATIVE)
 
 
 /datum/event/gas_leak	//NOTE: Times are measured in master controller ticks!
-	var/name = "gas leak"
-	var/startWhen		= 5	//When in the lifetime to call start().
-	var/announceWhen	= 0	//When in the lifetime to call announce().
+	name = "gas leak"
+	startWhen		= 5	//When in the lifetime to call start().
+	announceWhen	= 0	//When in the lifetime to call announce().
 
 	var/gas_type
 	var/gas_temp = T0C
@@ -23,7 +23,7 @@
 	for(var/mob/M in GLOB.player_list)
 		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
 			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
-			if(job & JOBS_ENGINEERING)
+			if(job & list(JOBS_ENGINEERING))
 				return TRUE
 	return FALSE		
 
@@ -33,7 +33,7 @@
 	var/_gas_temperature = (T0C + 25)
 	var/_gas_amount = 20		//moles.
 	switch(severity)
-		if(EVENT_LEVEL_MINOR)		//It's not in the list for minor, but if it's added, it has native compatibility.
+		if(EVENT_LEVEL_MUNDANE)		//It's not in the list for minor, but if it's added, it has native compatibility.
 			_gas_choices = list("nitrogen", "oxygen")		//We only want Nitrogen and Oxygen for minor. No hazardous shit, outside of pressure and temp.
 			_gas_temperature = (T0C + rand(60,120))
 		if(EVENT_LEVEL_MODERATE)

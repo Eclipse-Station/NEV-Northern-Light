@@ -34,11 +34,11 @@
 			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
 			if(job)
 				crew++
-				if(job & JOBS_ENGINEERING)		//Engi?
+				if(job & list(JOBS_ENGINEERING))		//Engi?
 					engis++
-				if(job & JOBS_SECURITY)		//Sec?
+				if(job & list(JOBS_SECURITY))		//Sec?
 					sec++
-				if(job & JOBS_COMMAND)		//Head of staff?
+				if(job & list(JOBS_COMMAND))		//Head of staff?
 					command++
 	if(crew < 3)			//Because one's not enough, and two's too few.
 		return FALSE

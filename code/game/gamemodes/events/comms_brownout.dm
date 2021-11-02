@@ -5,7 +5,9 @@
 	event_type =/datum/event/comms_brownout
 	event_pools = list(EVENT_LEVEL_MODERATE = POOL_THRESHOLD_MODERATE, EVENT_LEVEL_MAJOR = POOL_THRESHOLD_MAJOR)
 	tags = list(TAG_COMMUNAL, TAG_SCARY, TAG_NEGATIVE)
-	var/severity_divisor = 1
+
+/datum/event/comms_brownout	//NOTE: Times are measured in master controller ticks!
+	name = "comms brownout"
 
 /////////////////////////////////////////////////
 /datum/event/comms_brownout/announce()
@@ -26,6 +28,7 @@
 
 
 /datum/event/comms_brownout/start()
+	var/severity_divisor = 1
 	log_and_message_admins("Communication processor overload event triggered,")
 	switch(severity)
 		if(EVENT_LEVEL_MUNDANE)		//Shouldn't happen, but if it does...
@@ -35,7 +38,7 @@
 		if(EVENT_LEVEL_MAJOR)
 			severity_divisor = 1
 		else		//Unexpected or undefined severity level.
-			EXCEPTION("Severity level [severity] unexpected for [id]. Falling back to Major severity.")
+			EXCEPTION("Severity level [severity] unexpected for [name]. Falling back to Major severity.")
 			message_admins("COMMS_BROWNOUT/SEVERE: Severity level [severity] was requested but not supported. Falling back to Major severity. Please notify a developer of this.")
 			severity_divisor = 1
 	for(var/obj/machinery/telecomms/processor/P in world)

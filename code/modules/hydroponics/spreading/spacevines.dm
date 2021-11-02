@@ -36,6 +36,20 @@
 	seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
 	seed.force_layer = LOW_OBJ_LAYER //Vines will grow in the background underneath and around objects
 
+// // // BEGIN ECLIPSE EDITS // // //
+// Spacevines are now far more terrifying.
+	seed.consume_gasses = list("nitrogen")
+	
+	seed.exude_gasses = list()
+	var/gas
+	if(prob(80))
+		gas = pick("trichloramine","phoron","monochloramine")
+	else
+		gas = pick("sleeping_agent","carbon_dioxide")
+	
+	seed.exude_gasses[gas] = rand(3,9)
+
+// // // END ECLIPSE EDITS // // //
 
 
 	//make vine zero start off fully matured

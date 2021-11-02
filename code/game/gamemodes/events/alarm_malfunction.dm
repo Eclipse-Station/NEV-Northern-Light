@@ -17,7 +17,7 @@
 	startWhen = 20		//Roughly 40 seconds from event trigger. This will allow us enough time to set up.
 	endWhen = 25		//10 seconds is more than enough time.
 
-	var/obj/machinery/selected_alarm
+	var/selected_alarm
 	var/eligible_air_alarms = list()
 	var/eligible_fire_alarms = list()
 
@@ -50,9 +50,9 @@
 	for(var/obj/machinery/alarm/ga in GLOB.alarm_list)		//All air alarms in world.
 		if(!ga)
 			return FALSE		//No air alarms in the world.
-		if((ga.stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
+		if((ga.stat & (NOPOWER|BROKEN)) || ga.shorted || ga.buildstage != 2)
 			continue			//Not working, for one reason or another.
-		if(!isOnStationLevel(fa))
+		if(!isOnStationLevel(ga))
 			continue		//Not on the ship, we don't care.
 		
 		var/area/alarm_area = get_area(ga)
@@ -80,22 +80,21 @@
 			continue		//Don't go into an alarm if we're already in an alarm
 
 		eligible_fire_alarms += fa
-	else
-		for(var/obj/machinery/alarm/ga in GLOB.alarm_list)
-			if(!ga)
-				return FALSE		//No air alarms in the world.
-			if((ga.stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
-				continue			//Not working, for one reason or another.
-			if(!isOnStationLevel(fa))
-				continue		//Not on the ship, we don't care.
-			
-			var/area/alarm_area = get_area(ga)
-			if(alarm_area.atmosalm || alarm_area.fire)
-				continue		//It's already in alarm.
-			eligible_air_alarms += ga
+	for(var/obj/machinery/alarm/ga in GLOB.alarm_list)
+		if(!ga)
+			return FALSE		//No air alarms in the world.
+		if((ga.stat & (NOPOWER|BROKEN)) || ga.shorted || ga.buildstage != 2)
+			continue			//Not working, for one reason or another.
+		if(!isOnStationLevel(ga))
+			continue		//Not on the ship, we don't care.
+		
+		var/area/alarm_area = get_area(ga)
+		if(alarm_area.atmosalm || alarm_area.fire)
+			continue		//It's already in alarm.
+		eligible_air_alarms += ga
 
 //Using a list, we can remove an option between air alarms and fire alarms if one is unavailable for whatever reason.
-	var/list/possibilities = "air_alarm", "fire_alarm")
+	var/list/possibilities = list("air_alarm", "fire_alarm")
 	if(!eligible_fire_alarms)
 		possibilities -= "air_alarm"
 	if(!eligible_air_alarms)
@@ -118,15 +117,34 @@
 	
 	ASSERT(selected_alarm)
 
+/*
+ * Alright, coders, listen and listen well.
+ *
+ * I am flirting with disaster below by using selected_alarm:proc instead of
+ * selected_alarm.proc (note the separators). Doing this tells the compiler, "I
+ * know what I'm doing, leave me alone with that 'proc not found' bollocks".
+ *
+ * While I have included checks to ensure that the right type of machinery is
+ * capable of using the proc, if you have to use a colon instead of a fullstop
+ * to denote the proc of an atom, then I would very strongly encourage that you
+ * re-evaluate the way it's coded in and ask yourself, "is it absolutely 100%
+ * necessary to use this?"
+ *
+ * Odds are very likely that A.) there is a much better way to code it without 
+ * needing the : separator, B.) you're flirting with disaster, and C.) that I am
+ * absolutely going to nitpick the fact that you used the : separator instead of
+ * the . separator.
+ */
+
 /datum/event/fire_alarm/start()
-	if(istype(selected_alarm, /obj/machinery/fire_alarm))
-		selected_alarm.alarm()
+	if(istype(selected_alarm, /obj/machinery/firealarm))
+		selected_alarm:alarm()
 	else if(istype(selected_alarm, /obj/machinery/alarm))
-		selected_alarm.apply_danger_level(2)
+		selected_alarm:apply_danger_level(2)
 	else
-		message_admins("ALARM_MALF/FATAL: Alarm selected for malfunction ([selected_alarm]) had unexpected type [selected_alarm.type]. Event will now terminate.")
+		message_admins("ALARM_MALF/FATAL: Alarm selected for malfunction ([selected_alarm]) had unexpected type [selected_alarm:type]. Event will now terminate.")
 		src.kill()
-		CRASH("Alarm selected for malfunction ([selected_alarm]) had unexpected type [selected_alarm.type].")
+		CRASH("Alarm selected for malfunction ([selected_alarm]) had unexpected type [selected_alarm:type].")
 	
 	log_and_message_admins("Alarm malfunction at [jumplink(selected_alarm)].")
 
