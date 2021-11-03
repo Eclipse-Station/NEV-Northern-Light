@@ -36,3 +36,4 @@
 	new /obj/item/tool/sword/nt/longsword(src)
 	new /obj/item/tool/knife/dagger/nt(src)
 	new /obj/item/storage/box/ids(src)
+	new /obj/item/computer_hardware/hard_drive/portable/design/nt_bioprinter_clothes(src) //Eclipse Edit - adding this back to the locker to give the church a little help with making money since they lost their external funding.

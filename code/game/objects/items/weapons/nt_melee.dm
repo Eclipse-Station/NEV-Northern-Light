@@ -1,6 +1,6 @@
 //Warning! If you change icon_state or item_state, make sure you change path for sneath as well. icons/obj/sneath.dmi
 /obj/item/tool/sword/nt // not supposed to be in the game, had to make the shortsword its own type to prevent fucking up the scourge. sorry.
-	name = "Shortsword of the Mekhane"
+	name = "\improper Shortsword of the Mekhane"
 	desc = "A saint looking sword, made to do God's work."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_shortsword"
@@ -22,7 +22,7 @@
 		embed_mult = initial(embed_mult)
 
 /obj/item/tool/sword/nt/shortsword
-	name = "Mekhane Gladius"
+	name = "\improper Gladius of the Mekhane"
 	desc = "A saint looking sword, made to do God's work."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_shortsword"
@@ -39,7 +39,7 @@
 
 
 /obj/item/tool/sword/nt/longsword
-	name = "NT Spatha"
+	name = "\improper Spatha of the Mekhane"
 	desc = "A saint looking longsword, recommended by experienced crusaders."
 	icon_state = "nt_longsword"
 	item_state = "nt_longsword"
@@ -51,7 +51,7 @@
 
 
 /obj/item/tool/knife/dagger/nt
-	name = "Dagger of the Mekhane"
+	name = "\improper Dagger of the Mekhane"
 	desc = "A saint looking dagger, even God have mercy."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_dagger"
@@ -72,7 +72,7 @@
 
 
 /obj/item/tool/sword/nt/halberd
-	name = "Mekhane Halebarda"
+	name = "\improper Halebarda of the Mekhane"
 	desc = "A saint looking halberd, for emergency situation."
 	icon_state = "nt_halberd"
 	item_state = "nt_halberd"
@@ -86,7 +86,7 @@
 	matter = list(MATERIAL_BIOMATTER = 80, MATERIAL_STEEL = 8, MATERIAL_WOOD = 10, MATERIAL_PLASTEEL = 2)
 
 /obj/item/tool/sword/nt/scourge
-	name = "Scourge of the Mekhane"
+	name = "\improper Scourge of the Mekhane"
 	desc = "A saint looking scourge, extreme punishment. Can be extended to hurt more."
 	icon_state = "nt_scourge"
 	item_state = "nt_scourge"
@@ -144,7 +144,7 @@
 		O.say(pick("OH", "LORD", "MERCY", "SPARE", "ME", "HAVE", "PLEASE"))
 
 /obj/item/tool/sword/nt/spear
-	name = "Mekhane Pilum"
+	name = "\improper Pilum of the Mekhane"
 	desc = "A saint looking short spear, designed for use with a shield or as a throwing weapon. The spear-tip usually breaks after being thrown at a target, but it can be welded into shape again."
 	icon_state = "nt_spear"
 	item_state = "nt_spear"
@@ -199,7 +199,7 @@
 
 
 /obj/item/shield/riot/nt
-	name = "Mekhane Scutum"
+	name = "\improper Scutum of the Mekhane"
 	desc = "A saint looking shield, let the God protect you. Has several leather straps on the back to hold melee weapons."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_shield"

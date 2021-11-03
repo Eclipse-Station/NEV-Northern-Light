@@ -48,6 +48,7 @@
 		show_browser(usr,"<HTML><HEAD><TITLE>[open_file]</TITLE></HEAD>[pencode2html(loaded_data)]</BODY></HTML>", "window=open_file")
 		return TRUE
 
+//Eclipse Edits - Changed the logos to match our own paperwork.
 	if(href_list["PRG_taghelp"])
 		to_chat(usr, "<span class='notice'>The hologram of a googly-eyed paper clip helpfully tells you:</span>")
 		var/help = {"
@@ -71,13 +72,10 @@
 		\[grid\] - \[/grid\] : Table without visible borders, for layouts.
 		\[row\] - New table row.
 		\[cell\] - New table cell.
-		\[logo\] - Inserts corporate logo image.
-		\[guild\] - Inserts Guild logo image.
-		\[moebius\] - Inserts Moebius logo image.
-		\[ironhammer\] - Inserts Ironhammer logo image.
-		\[bluelogo\] - Inserts blue corporate logo image.
-		\[solcrest\] - Inserts SCG crest image.
-		\[terraseal\] - Inserts TCC seal"}
+		\[logo\] - Inserts NanoTrasen logo image.
+		\[ftu\] - Inserts Union logo image.
+		\[lazarus\] - Inserts Lazarus logo image.
+		\[aegis\] - Inserts Aegis logo image."}
 
 		to_chat(usr, help)
 		return TRUE
@@ -146,7 +144,7 @@
 		var/oldtext = html_decode(loaded_data)
 		oldtext = replacetext(oldtext, "\[br\]", "\n")
 
-		var/newtext = sanitize(replacetext(input(usr, "Editing file '[open_file]'. You may use most tags used in paper formatting:", "Text Editor", oldtext), "\n", "\[br\]"), MAX_TEXTFILE_LENGTH)
+		var/newtext = sanitize(replacetext(input(usr, "Editing file '[open_file]'. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[br\]"), MAX_TEXTFILE_LENGTH)
 		if(!newtext)
 			return
 		loaded_data = newtext

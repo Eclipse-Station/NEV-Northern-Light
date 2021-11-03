@@ -51,7 +51,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/shoes/reinforced/medical
-	name = "moebius reinforced shoes"
+	name = "Lazarus reinforced shoes"
 	desc = "Slightly reinforced shoes for medical personnel."
 	icon_state = "reinforced_moebius"
 	item_state = "reinforced_moebius"

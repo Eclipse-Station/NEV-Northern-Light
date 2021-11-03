@@ -1,6 +1,6 @@
 // Moebius
 /obj/item/computer_hardware/hard_drive/portable/design/medical
-	disk_name = "Moebius Medical Designs"
+	disk_name = "Lazarus Medical Designs"
 	icon_state = "moebius"
 	rarity_value = 4.5
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
@@ -37,7 +37,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/computer
-	disk_name = "Moebius Computer Parts"
+	disk_name = "Lazarus Computer Parts"
 	icon_state = "moebius"
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
 	rarity_value = 4.5
@@ -72,7 +72,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/ms_dartgun
-	disk_name = "Moebius Scientifica - Z-H P Artemis Dartgun"
+	disk_name = "Lazarus Scientifica - Z-H P Artemis Dartgun"
 	icon_state = "moebius"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 50

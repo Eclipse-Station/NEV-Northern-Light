@@ -12,7 +12,7 @@
 	BACKPACK_OVERRIDE_SECURITY
 
 /decl/hierarchy/outfit/job/security/ihc
-	name = OUTFIT_JOB_NAME("Ironhammer Commander")
+	name = OUTFIT_JOB_NAME("Aegis Commander")
 	l_ear = /obj/item/device/radio/headset/heads/hos
 	uniform = /obj/item/clothing/under/rank/ih_commander
 	suit = /obj/item/clothing/suit/storage/greatcoat/ironhammer
@@ -26,7 +26,7 @@
 	backpack_contents = list(/obj/item/handcuffs = 1,/obj/item/ammo_magazine/magnum/rubber = 1,/obj/item/device/lighting/toggleable/flashlight/seclite = 1, /obj/item/cell/small/high = 2, /obj/item/gun/energy/gun/martin = 1, /obj/item/clothing/accessory/cross = 1)
 
 /decl/hierarchy/outfit/job/security/gunserg
-	name = OUTFIT_JOB_NAME("Ironhammer Gunnery Sergeant")
+	name = OUTFIT_JOB_NAME("Aegis Gunnery Sergeant")
 	uniform = /obj/item/clothing/under/rank/warden
 	suit = /obj/item/clothing/suit/armor/vest/ironhammer
 	head = /obj/item/clothing/head/beret/sec/navy/warden
@@ -36,7 +36,7 @@
 	backpack_contents = list(/obj/item/handcuffs = 1, /obj/item/device/lighting/toggleable/flashlight/seclite = 1, /obj/item/cell/small/high = 2, /obj/item/gun/energy/gun/martin = 1)
 
 /decl/hierarchy/outfit/job/security/inspector
-	name = OUTFIT_JOB_NAME("Ironhammer Inspector")
+	name = OUTFIT_JOB_NAME("Aegis Inspector")
 	uniform = /obj/item/clothing/under/rank/inspector
 	suit = /obj/item/clothing/suit/storage/detective/ironhammer
 	head = /obj/item/clothing/head/det
@@ -53,7 +53,7 @@
 	backpack_overrides.Cut()
 
 /decl/hierarchy/outfit/job/security/medspec
-	name = OUTFIT_JOB_NAME("Ironhammer Medical Specialist")
+	name = OUTFIT_JOB_NAME("Aegis Medical Specialist")
 	l_pocket = /obj/item/device/flash
 	id_type = /obj/item/card/id/medcpec
 	uniform = /obj/item/clothing/under/rank/medspec
@@ -64,7 +64,7 @@
 	backpack_contents = list(/obj/item/gun/energy/gun/martin = 1, /obj/item/cell/small/high = 1)
 
 /decl/hierarchy/outfit/job/security/ihoper
-	name = OUTFIT_JOB_NAME("Ironhammer Operative")
+	name = OUTFIT_JOB_NAME("Aegis Operative")
 	l_pocket = /obj/item/device/flash
 	uniform = /obj/item/clothing/under/rank/security
 	suit = /obj/item/clothing/suit/armor/vest/full/ironhammer

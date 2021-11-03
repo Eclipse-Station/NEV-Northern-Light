@@ -35,3 +35,4 @@
 	new /obj/item/tank/air(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/device/flash(src)
+	new /obj/item/paper/monitorkey(src)
