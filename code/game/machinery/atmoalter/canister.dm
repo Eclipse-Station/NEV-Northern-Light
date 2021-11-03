@@ -388,10 +388,10 @@ update_flag
 
 	return 1
 
-/obj/machinery/portable_atmospherics/canister/phoron/New()
+/obj/machinery/portable_atmospherics/canister/plasma/New()
 	..()
 
-	src.air_contents.adjust_gas("plasma", MolesForPressure())
+	src.air_contents.adjust_gas("phoron", MolesForPressure())
 	src.update_icon()
 	return 1
 

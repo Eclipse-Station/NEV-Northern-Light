@@ -52513,7 +52513,7 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cpG" = (
-/obj/machinery/portable_atmospherics/canister/plasma/engine_setup,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cpH" = (
