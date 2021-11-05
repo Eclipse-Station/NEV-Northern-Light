@@ -46,8 +46,10 @@
 		gas = pick("trichloramine","phoron","monochloramine")
 	else
 		gas = pick("sleeping_agent","carbon_dioxide")
-	
 	seed.exude_gasses[gas] = rand(3,9)
+	
+//Spread timers, so we don't overwhelm the station.
+	seed.spread_timer = 20 SECONDS		//Slightly faster than maint shrooms.
 
 // // // END ECLIPSE EDITS // // //
 

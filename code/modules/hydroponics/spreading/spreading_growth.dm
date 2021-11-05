@@ -126,10 +126,13 @@
 			sampled = 0
 
 	// // // BEGIN ECLIPSE EDITS // // //
-	//Maintenance fungus spread nerfs.
+	//Maintenance fungus and spacevine spread nerfs.
 	
 	//If the seed is our favourite maintenance fungus and the world time is less than 30 seconds after our last growth, abort
 	if(istype(seed, /datum/seed/mushroom/maintshroom) && (world.time < SSmigration.last_fungus_growth + 30 SECONDS))	//this gives us up to 120 growths per hour.
+		return
+		
+	else if(seed.spread_timer && (world.time < creation_time + seed.spread_timer))		//For space vines and other miscellaneous flora that we want to limit spreading.
 		return
 
 	if(is_mature() && neighbors.len && prob(spread_chance))
