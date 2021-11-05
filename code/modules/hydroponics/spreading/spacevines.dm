@@ -49,7 +49,7 @@
 	seed.exude_gasses[gas] = rand(3,9)
 	
 //Spread timers, so we don't overwhelm the station.
-	seed.spread_timer = 15 SECONDS		//Twice as fast as maint shrooms.
+	seed.spread_timer = 60 SECONDS		//Twice as fast as maint shrooms.
 
 // // // END ECLIPSE EDITS // // //
 

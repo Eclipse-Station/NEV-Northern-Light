@@ -13,7 +13,7 @@
 
 	var/gas_type
 	var/gas_temp = T0C
-	var/gas_amount = 20
+	var/gas_amount = 12 * MOLES_CELLSTANDARD		//16% of the number of moles in Hydroponics at roundstart
 	var/area/target_area
 	var/turf/simulated/target_turf		//Technically not necessary, but we want to make sure we're not in an area with no floors.
 
@@ -22,8 +22,8 @@
 /datum/event/gas_leak/can_trigger()
 	for(var/mob/M in GLOB.player_list)
 		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
-			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
-			if(job & list(JOBS_ENGINEERING))
+			var/datum/job/job = M.mind.assigned_role
+			if(job in list(JOBS_ENGINEERING))
 				return TRUE
 	return FALSE		
 
@@ -31,7 +31,7 @@
 // Select our gas type and amount...
 	var/_gas_choices = list("sleeping_agent")
 	var/_gas_temperature = (T0C + 25)
-	var/_gas_amount = 20		//moles.
+	var/_gas_amount = 12 * MOLES_CELLSTANDARD		//moles.
 	switch(severity)
 		if(EVENT_LEVEL_MUNDANE)		//It's not in the list for minor, but if it's added, it has native compatibility.
 			_gas_choices = list("nitrogen", "oxygen")		//We only want Nitrogen and Oxygen for minor. No hazardous shit, outside of pressure and temp.
@@ -41,7 +41,7 @@
 		if(EVENT_LEVEL_MAJOR)
 			_gas_choices += list("monochloramine","trichloramine", "phoron")	//Phoron, trichloramine, and monochloramine... and possibly the less-dangerous nitrous, at a 25% chance.
 			_gas_temperature = (T0C - rand(5,35))
-			_gas_amount = (rand(200,300)/10)
+			_gas_amount = (rand(15,225)/10) * MOLES_CELLSTANDARD		//Between 20 and 30% of Hydroponics' atmosphere at roundstart.
 	gas_temp = _gas_temperature
 	gas_type = pick(_gas_choices)
 	gas_amount = _gas_amount
@@ -54,16 +54,16 @@
 		kill()
 		return
 	var/iterations = 0
-	for(var/turf/simulated/S in target_area)
+	for(var/turf/simulated/floor/F in target_area)
 		iterations++
-		possible_turfs += S
-		if(iterations > 10)
+		possible_turfs += F
+		if(iterations > 20)
 			break		//we have enough turfs here.
 	
 	target_turf = pick(possible_turfs)
 
 	//debugging code.
-	message_admins("GAS_LEAK/DEBUG: Selected [target_area] for a gas leak of [gas_type] with an amount of [gas_amount] moles at temperature [(gas_temp - T0C)] degrees Celsius. [admin_jump_link(target_turf,usr)]")
+	message_admins("Gas leak: Selected [jumplink(target_turf,usr)] for a gas leak of [gas_type] with an amount of [gas_amount] moles at temperature [(gas_temp - T0C)] degrees Celsius.")
 
 
 /datum/event/gas_leak/start()

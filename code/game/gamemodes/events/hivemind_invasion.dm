@@ -34,19 +34,20 @@
 			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
 			if(job)
 				crew++
-				if(job & list(JOBS_ENGINEERING))		//Engi?
+				if(job in list(JOBS_ENGINEERING))		//Engi?
 					engis++
-				if(job & list(JOBS_SECURITY))		//Sec?
+				if(job in list(JOBS_SECURITY))		//Sec?
 					sec++
-				if(job & list(JOBS_COMMAND))		//Head of staff?
+				if(job in list(JOBS_COMMAND))		//Head of staff?
 					command++
 	if(crew < 3)			//Because one's not enough, and two's too few.
 		return FALSE
 	else if(crew >= 3 && crew < 6)		//Debatable...
 		if(!engis && !sec && !command)
 			return FALSE		//Without someone who can actually deal with the threat, it's too difficult for the crew.
-	else		//We have enough to be able to start, so we'll call the other stuff.
-		return TRUE
+
+	//We have enough to be able to start, so we'll call the other stuff.
+	return TRUE
 	
 	// // // END ECLIPSE EDITS // // //
 	
