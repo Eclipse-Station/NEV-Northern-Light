@@ -1,0 +1,11 @@
+author: Valanthe500
+delete-after: true
+changes:
+  - bugfix: Crew will now be automatically set to "Cryostasis" status in Crew records
+      on despawn in Cryo, and will not be paid
+  - rscadd: Added "Aegis Cadet" as Operative alt title
+  - rscadd: Added new statuses in "Crew Records"
+  - tweak: tweaked payroll, only crew listed "Active" in crew records get paid.
+  - tweak: Crew Records now requires heads access to update Crew status manually
+  - balance: rebalanced economy and ship accounts
+  - balance: rebalanced power cost of Shields
