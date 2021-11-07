@@ -46928,9 +46928,6 @@
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
 "ccS" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/machinery/camera/network/fist_section{
 	dir = 8
 	},
@@ -47136,9 +47133,11 @@
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
 "cdt" = (
-/obj/structure/bed/chair/wood,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/bed/chair/wood{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
@@ -47147,7 +47146,7 @@
 	dir = 8;
 	pixel_x = 25
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/account_database{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -47311,6 +47310,9 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/pen,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
 "cdS" = (
@@ -59087,10 +59089,10 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck3starboard)
 "cEF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/hologram/holopad,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
 "cEG" = (
@@ -110363,6 +110365,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
+"xTx" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/carpet/blucarpet,
+/area/eris/command/fo)
 "xUg" = (
 /turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/sleep_female/toilet_female)
@@ -212899,7 +212905,7 @@ bwr
 bwI
 caS
 cbz
-ccl
+xTx
 cEF
 cdt
 cdR

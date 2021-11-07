@@ -195,7 +195,7 @@
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
-	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
+	disallow_occupant_types = list()
 	applies_stasis = 0
 
 /obj/machinery/cryopod/New()
@@ -362,6 +362,16 @@
 
 	// This removes them from player tracking
 	SSdispatcher.remove_from_tracking(occupant)		//Eclipse edit
+	
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Set their status to cryosleep in their records, so it doesn't drain their department's account.
+	var/datum/computer_file/report/crew_record/record = get_crewmember_record(H.name)
+	if(record)
+		record.set_status("Cryostasis")
+		log_debug("Set [H.name] to status \"Cryostasis\" in the crew records.")
+	else
+		log_debug("Unable to set [H.name] to Cryostasis in the records computer: Record does not exist.")
+	// // // END ECLIPSE EDITS // // //
 	
 	// This despawn is not a gib() in this sense, it is used to remove objectives tied on these despawned mobs in cryos
 	occupant.despawn()

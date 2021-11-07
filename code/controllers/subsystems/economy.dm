@@ -181,6 +181,8 @@ SUBSYSTEM_DEF(economy)
 		for (var/datum/computer_file/report/crew_record/R in department.pending_wages)
 			var/paid = FALSE
 			//Get the crewman's account that we'll pay to
+			if(R.get_status() != "Active")
+				continue
 			var/crew_account_num = R.get_account()
 			var/amount = department.pending_wages[R]
 			paid = transfer_funds(department.account_number, crew_account_num, "Payroll", "NEV Northern Light payroll system", amount)
