@@ -204,7 +204,7 @@ FIELD_SHORT("Department", department, null, access_change_ids)
 FIELD_SHORT("Job", job, null, access_change_ids)
 FIELD_LIST("Sex", sex, record_genders(), null, access_change_ids)
 FIELD_NUM("Age", age, null, access_change_ids)
-FIELD_LIST_EDIT("Status", status, GLOB.physical_statuses, null, access_moebius)
+FIELD_LIST_EDIT("Status", status, GLOB.physical_statuses, null, access_heads)
 
 FIELD_SHORT("Species",species, null, access_change_ids)
 FIELD_SHORT("Email",email, null, access_change_ids)

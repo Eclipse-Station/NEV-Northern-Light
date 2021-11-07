@@ -289,7 +289,7 @@
 	var/list/occupant_organs
 	if(istype(H))
 		occupant_organs = H.organs | H.internal_organs
-		
+
 	//Drop all items into the pod.
 	//// Local pod code
 	for(var/obj/item/W in occupant)
@@ -362,6 +362,16 @@
 
 	// This removes them from player tracking
 	SSdispatcher.remove_from_tracking(occupant)		//Eclipse edit
+	
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Set their status to cryosleep in their records, so it doesn't drain their department's account.
+	var/datum/computer_file/report/crew_record/record = get_crewmember_record(H.name)
+	if(record)
+		record.set_status("Cryostasis")
+		log_debug("Set [H.name] to status \"Cryostasis\" in the crew records.")
+	else
+		log_debug("Unable to set [H.name] to Cryostasis in the records computer: Record does not exist.")
+	// // // END ECLIPSE EDITS // // //
 	
 	// This despawn is not a gib() in this sense, it is used to remove objectives tied on these despawned mobs in cryos
 	occupant.despawn()
