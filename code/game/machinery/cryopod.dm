@@ -195,7 +195,7 @@
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
-	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
+	disallow_occupant_types = list()
 	applies_stasis = 0
 
 /obj/machinery/cryopod/New()
@@ -289,7 +289,7 @@
 	var/list/occupant_organs
 	if(istype(H))
 		occupant_organs = H.organs | H.internal_organs
-
+		
 	//Drop all items into the pod.
 	//// Local pod code
 	for(var/obj/item/W in occupant)

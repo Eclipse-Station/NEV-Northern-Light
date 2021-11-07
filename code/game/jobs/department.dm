@@ -61,7 +61,7 @@
 	In future, we will implement largescale missions and research contracts to earn money, and then set it
 	to a much lower starting value
 	*/
-	account_initial_balance = 2000000
+	account_initial_balance = 100000
 	funding_type = FUNDING_NONE
 
 
@@ -82,7 +82,8 @@
 /datum/department/civilian
 	name = "NEV Northern Light Civic"
 	id = DEPARTMENT_CIVILIAN
-	account_budget = 2000
+	account_initial_balance = 2000
+	funding_type = FUNDING_NONE
 	//Now for the club
 
 
@@ -93,20 +94,21 @@
 /datum/department/moebius_medical
 	name = "Lazarus Foundation: Medical Division"
 	id = DEPARTMENT_MEDICAL
-	funding_type = FUNDING_EXTERNAL
-	funding_source = "NanoTrasen."
+	account_initial_balance = 5000
+	funding_type = FUNDING_INTERNAL
+	funding_source = "DEPARTMENT_SCIENCE"
 
 /datum/department/moebius_research
 	name = "Lazarus Foundation: Research Division"
 	id = DEPARTMENT_SCIENCE
-	account_budget = 5000 //For buying materials and components and things of scientific value
-	funding_type = FUNDING_EXTERNAL
+	account_initial_balance = 10000 //For buying materials and components and things of scientific value
+	funding_type = FUNDING_NONE
 	funding_source = "NanoTrasen."
 
 /datum/department/church
 	name = "Children of Mekhane"
 	id = DEPARTMENT_CHURCH
-	account_budget = 4500 //each Neotheo has a wage of 900, this is enough to pay 5 paychecks before needing more cash
+	account_initial_balance = 4500 //each Neotheo has a wage of 900, this is enough to pay 5 paychecks before needing more cash
 	funding_type = FUNDING_NONE //The church on eris has no external funding. This further reinforces the theory that everyone on the CEV Eris is a reject of their factions
 	funding_source = "Church of NeoTheology"
 
