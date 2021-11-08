@@ -1079,7 +1079,7 @@
 	taste_description = "death and licorice"
 	taste_mult = 1.5
 	color = "#33EE00"
-	strength = 12
+	strength = 10
 
 	glass_icon_state = "absintheglass"
 	glass_name = "absinthe"
@@ -1313,7 +1313,7 @@
 	description = "Clear distilled alcoholic beverage that originates from Poland and Russia."
 	taste_description = "grain alcohol"
 	color = "#358adf" // rgb: 0, 100, 200
-	strength = 5
+	strength = 12
 
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "vodka"
@@ -1345,7 +1345,7 @@
 	description = "An premium alchoholic beverage made from distilled grape juice."
 	taste_description = "bitter sweetness"
 	color = "#7E4043" // rgb: 126, 64, 67
-	strength = 15
+	strength = 20
 
 	glass_icon_state = "wineglass"
 	glass_name = "wine"
@@ -1681,7 +1681,7 @@
 	description = "Rum, mixed with cola. Viva la revolucion."
 	taste_description = "cola"
 	color = "#3E1B00"
-	strength = 10
+	strength = 20
 
 	glass_icon_state = "cubalibreglass"
 	glass_name = "Cuba Libre"
@@ -1768,7 +1768,7 @@
 	description = "The surprise is, it's green!"
 	taste_description = "tartness and bananas"
 	color = "#2E6671"
-	strength = 10
+	strength = 15
 
 	glass_icon_state = "erikasurprise"
 	glass_name = "Erika Surprise"
@@ -1860,7 +1860,7 @@
 	description = "A beer which is so cold the air around it freezes."
 	taste_description = "refreshingly cold"
 	color = "#664300"
-	strength = 20
+	strength = 40
 	adj_temp = -20
 	targ_temp = 270
 
@@ -1876,7 +1876,7 @@
 	description = "Mmm, tastes like chocolate cake..."
 	taste_description = "delicious anger"
 	color = "#2E6671"
-	strength = 15
+	strength = 17
 
 	glass_unique_appearance = TRUE
 	glass_icon_state = "irishcarbomb"
@@ -2021,7 +2021,7 @@
 	taste_description = "a numbing sensation"
 	reagent_state = LIQUID
 	color = "#2E2E61"
-	strength = 10
+	strength = 3
 
 	glass_unique_appearance = TRUE
 	glass_icon_state = "neurotoxinglass"
@@ -2098,7 +2098,7 @@
 	description = "A spicy Vodka! Might be a little hot for the little guys!"
 	taste_description = "hot and spice"
 	color = "#004166"
-	strength = 5
+	strength = 10
 	adj_temp = 50
 	targ_temp = 360
 
