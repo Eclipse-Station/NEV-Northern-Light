@@ -1,0 +1,4 @@
+author: MciReloaded
+delete-after: true
+changes:
+  - bugfix: changed the borg lock/unlock text.
