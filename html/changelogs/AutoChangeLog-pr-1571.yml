@@ -1,0 +1,7 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - rscdel: The NTDAD player tracking system will no longer periodically add everyone
+      who isn't on the list to the lists.
+  - bugfix: Fixes an issue where bluespace technicians would show up in the NTDAD
+      player tracking system.
