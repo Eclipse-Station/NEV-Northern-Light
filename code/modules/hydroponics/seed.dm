@@ -51,6 +51,8 @@
 	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge // Graffiti decal.
 	var/has_mob_product
 	var/force_layer
+	
+	var/spread_timer = 0		//Eclipse add: Limit spreading.
 
 /datum/seed/New()
 
