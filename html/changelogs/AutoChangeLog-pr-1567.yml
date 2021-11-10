@@ -1,9 +1,0 @@
-author: Valanthe500
-delete-after: true
-changes:
-  - rscadd: Added internal storage to paramedic RIG suit
-  - bugfix: Fixed maintenance drones not being able to enter robotic storage.
-  - bugfix: Fixed the phoron tanks in toxins storage
-  - bugfix: rad collectors will accept phoron tanks once more
-  - bugfix: Cortical Borer language key is now "c"
-  - bugfix: Fixed cigarette's in hand sprite
