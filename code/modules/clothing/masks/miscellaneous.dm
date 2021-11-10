@@ -242,7 +242,7 @@
 /obj/item/clothing/mask/ai
 	name = "camera MIU"
 	desc = "Allows for direct mental connection to accessible camera networks."
-	spawn_blacklisted = TRUE  //Eclipse Edit - A mask that can just be found in maint that gives AI powers to any random schmuck? No thanks.
+	rarity_value = 60 //Eclipse Edit - This is a pretty powerful item, it shouldn't be turning up often.
 	icon_state = "s-ninja"
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
