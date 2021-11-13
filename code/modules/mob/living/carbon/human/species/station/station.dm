@@ -57,7 +57,7 @@
 	Most Unathi are guided by a complex Ethnoreligion called the Unity,\
 	which stresses honesty, bravery, and the perfection of one's craft. \
 	Discovered less then a generation ago by SolGov,\
-	an ensuring war against SolGov by the Unathi over the colony of Abel’s Rest has led to cross-migration between the two powers."
+	an ensuring war against SolGov by the Unathi over the colony of Abelâ€™s Rest has led to cross-migration between the two powers."
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200
@@ -204,7 +204,7 @@
 
 //	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
-	heat_discomfort_level = 292
+	heat_discomfort_level = 315
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",
