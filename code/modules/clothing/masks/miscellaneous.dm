@@ -242,6 +242,7 @@
 /obj/item/clothing/mask/ai
 	name = "camera MIU"
 	desc = "Allows for direct mental connection to accessible camera networks."
+	rarity_value = 60 //Eclipse Edit - This is a pretty powerful item, it shouldn't be turning up often.
 	icon_state = "s-ninja"
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
