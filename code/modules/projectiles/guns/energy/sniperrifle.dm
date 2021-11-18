@@ -1,6 +1,6 @@
 /obj/item/gun/energy/sniperrifle
-	name = "NT MER \"Valkyrie\""
-	desc = "\"Valkyrie\" is an older design of Nanotrasen, \"Lightfall\" was based on it. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon for killing from a distance."
+	name = "NT LDMR M \"Valkyrie\""
+	desc = "\"Valkyrie\" is an older NanoTrasen design not in production any longer. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon for killing from a distance."
 	icon = 'icons/obj/guns/energy/sniper.dmi'
 	icon_state = "sniper"
 	item_state = "sniper"

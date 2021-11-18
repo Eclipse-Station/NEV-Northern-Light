@@ -263,7 +263,8 @@
 		/obj/item/gun/projectile/shotgun/pump/sawn,
 		/obj/item/gun/projectile/boltgun/obrez,
 		/obj/item/gun/energy/retro/sawn,
-		/obj/item/gun/projectile/automatic/luty
+		/obj/item/gun/projectile/automatic/luty,
+		/obj/item/gun/energy/laser/squire //Eclipse Edit - pistol for the pistol holster
 		)
 
 	sliding_behavior = TRUE

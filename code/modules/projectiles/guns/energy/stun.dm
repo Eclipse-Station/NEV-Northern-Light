@@ -1,6 +1,6 @@
 /obj/item/gun/energy/taser
-	name = "NT SP \"Counselor\""
-	desc = "The NT SP \"Counselor\" is a taser gun used for non-lethal takedowns. Used by Nanotrasen security forces before Corporation Wars."
+	name = "NT SHG M \"Counselor\""
+	desc = "The NT SP \"Counselor\" is a taser gun used for non-lethal takedowns. Used by Nanotrasen security forces before the Corporate Wars."
 	icon = 'icons/obj/guns/energy/taser.dmi'
 	icon_state = "taser"
 	item_state = null	//so the human update icon uses the icon_state instead.
@@ -23,7 +23,7 @@
 	recharge_time = 10 //Time it takes for shots to recharge (in ticks)
 
 /obj/item/gun/energy/stunrevolver
-	name = "NT SP \"Zeus\""
+	name = "NT SREV S \"Zeus\""
 	desc = "Also know as stunrevolver. Older and less precise Nanotrasen solution for non-lethal takedowns. This gun has smaller capacity in exchange for S-cells use."
 	icon = 'icons/obj/guns/energy/stunrevolver.dmi'
 	icon_state = "stunrevolver"
@@ -39,7 +39,7 @@
 	projectile_type = /obj/item/projectile/energy/electrode
 
 /obj/item/gun/energy/stunrevolver/moebius
-	name = "Lazarus SP \"Zeus\""	//Should get it's own name
+	name = "Lazarus SREV S \"Zeus\""	//Should get it's own name
 	desc = "Also know as stunrevolver. A Lazarus copy of the older and less precise NanoTrasen solution for non-lethal takedowns. This gun has smaller capacity in exchange for S-cells use."
 	icon = 'icons/obj/guns/energy/stunrevolver_moebius.dmi'
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_STEEL = 6, MATERIAL_SILVER = 2, MATERIAL_PLASTIC = 5)

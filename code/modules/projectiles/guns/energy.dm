@@ -15,6 +15,8 @@
 	var/suitable_cell = /obj/item/cell/medium
 	var/cell_type = /obj/item/cell/medium/high
 	var/projectile_type = /obj/item/projectile/beam/practice
+	var/auto_eject = FALSE			//Eclipse Edit - if the cell should automatically eject itself when empty
+	var/auto_eject_sound			
 	var/modifystate
 	var/charge_meter = TRUE //if set, the icon state will be chosen based on the current charge
 	var/item_modifystate
@@ -191,3 +193,18 @@
 	gun_tags |= GUN_ENERGY
 	if(istype(projectile_type, /obj/item/projectile/beam))
 		gun_tags |= GUN_LASER
+
+//Eclipse Edit - auto eject proc originally for Laser Musket. Ended up not needing it but I'm leaving it in case we want an auto eject function on other laser guns in the future.
+/obj/item/gun/energy/afterattack(atom/A, mob/living/user)
+	..()
+	if(auto_eject && cell && cell.charge <= 0 )
+		cell.forceMove(get_turf(src.loc))
+		user.visible_message(
+			"[cell] falls out and clatters on the floor!",
+			SPAN_NOTICE("[cell] falls out and clatters on the floor!")
+			)
+		if(auto_eject_sound)
+			playsound(user, auto_eject_sound, 30, 1)
+		cell.update_icon()
+		cell = null
+		update_icon() //make sure to do this after unsetting cell_type

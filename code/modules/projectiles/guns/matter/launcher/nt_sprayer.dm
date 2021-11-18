@@ -1,5 +1,5 @@
 /obj/item/gun/matter/launcher/nt_sprayer
-	name = "NT BCR \"Street Sprayer\""
+	name = "NT BCR BM \"Street Sprayer\""
 	desc = "\"NanoTrasen\" brand cleansing carbine. Uses solid biomass as ammo and dispense cleansing liquid on hit."
 	icon_state = "nt_sprayer"
 	icon = 'icons/obj/guns/matter/nt_sprayer.dmi'

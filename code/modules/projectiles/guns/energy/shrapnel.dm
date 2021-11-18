@@ -1,6 +1,6 @@
 /obj/item/gun/energy/shrapnel
-	name = "OR SDF \"Shellshock\" energy shotgun"
-	desc = "An Oberth Republic Self Defence Force design, this mat-fab shotgun tends to burn through cells with use. The matter contained in empty cells can be converted directly into ammunition as well, if the safety bolts are loosened."
+	name = "OSDF ESG S \"Shellshock\""
+	desc = "An Oberth Republic Strategic Defence Force design, this mat-fab shotgun tends to burn through cells with use. The matter contained in empty cells can be converted directly into ammunition as well, if the safety bolts are loosened."
 	icon = 'icons/obj/guns/energy/shrapnel.dmi'
 	icon_state = "eshotgun"
 	item_charge_meter = TRUE
@@ -55,7 +55,7 @@
 				to_chat(user, SPAN_NOTICE("You loosen the safety bolts, allowing the weapon to destroy empty cells for use as ammunition."))
 
 /obj/item/gun/energy/shrapnel/mounted
-	name = "SDF SC \"Schrapnell\""
+	name = "OSDF ESG \"Schrapnell\""
 	desc = "An energy-based shotgun, employing a matter fabricator to pull shotgun rounds from thin air and energy."
 	icon_state = "shrapnel"
 	self_recharge = TRUE

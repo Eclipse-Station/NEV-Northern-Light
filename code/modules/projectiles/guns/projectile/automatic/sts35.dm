@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic/sts35
-	name = "OR SDF \"STS-35\""
-	desc = "The rugged STS-35 is a durable automatic weapon, made by Oberth Republic Self Defence Force. \
+	name = "OSDF AR .30 \"STS-35\""
+	desc = "The rugged STS-35 is a durable automatic weapon, made by Oberth Republic Strategic Defence Force. \
 			Extremely efficient rifle design that was put in service right before collapse of the Republic, this weapon can be found almost anywhere in the galaxy by now. \
 			Uses .30 Rifle rounds."
 	icon = 'icons/obj/guns/projectile/sts.dmi'

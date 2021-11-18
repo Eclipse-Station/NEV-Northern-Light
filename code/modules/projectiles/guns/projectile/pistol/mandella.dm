@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/mandella
-	name = "OR HG .25 CS \"Mandella\""
-	desc = "A rugged, robust operator handgun with inbuilt silencer. Chambered in rifle caseless ammunition, this time-tested handgun is \
-			your absolute choise if you need to take someone down silently, as it's deadly, produces no sound and leaves no traces. \
+	name = "OSDF HG .25 CS \"Mandella\""
+	desc = "A rugged, robust operator handgun with inbuilt silencer. Chambered in .25 caseless ammunition, this time-tested handgun is \
+			your absolute choice if you need to take someone down silently, as it's deadly, produces no sound, and leaves no traces. \
 			Built to have enhanced armor penetration abilities. \
 			Uses .25 Caseless rounds."
 	icon = 'icons/obj/guns/projectile/mandella.dmi'

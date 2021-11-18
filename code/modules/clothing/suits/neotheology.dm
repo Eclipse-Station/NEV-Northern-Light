@@ -12,14 +12,14 @@
 		bullet = 30,
 		energy = 30,
 		bomb = 25,
-		bio = 100,
+		bio = 200,
 		rad = 75
 	)
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/suit/armor/acolyte
 	name = "Acolyte armor"
-	desc = "Worn heavy, steadfast in the name of God."
+	desc = "Worn heavy, steadfast in the name of Mekhane."
 	icon_state = "acolyte"
 	item_state = "acolyte"
 	matter = list(MATERIAL_PLASTIC = 30, MATERIAL_STEEL = 25, MATERIAL_BIOMATTER = 40)
@@ -29,7 +29,7 @@
 		bullet = 30,
 		energy = 30,
 		bomb = 25,
-		bio = 100,
+		bio = 200,
 		rad = 75
 	)
 	//helmet = /obj/item/clothing/head/space/void/acolyte
@@ -86,7 +86,7 @@
 		bullet = 25,
 		energy = 25,
 		bomb = 25,
-		bio = 200,
+		bio = 100,
 		rad = 90
 	)
 	unacidable = TRUE
@@ -104,7 +104,7 @@
 		bullet = 25,
 		energy = 25,
 		bomb = 25,
-		bio = 200,
+		bio = 100,
 		rad = 90
 	)
 	unacidable = TRUE

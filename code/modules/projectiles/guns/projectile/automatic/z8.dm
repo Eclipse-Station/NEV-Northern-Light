@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic/z8
-	name = "OR CAR .20 \"Z8 Bulldog\""
-	desc = "The Z8 Bulldog is an older bullpup carbine model, made by \"Oberth Republic\". It includes an underbarrel grenade launcher which is compatible with most modern grenade types. Uses .20 Rifle rounds."
+	name = "OSDF CAR .20 \"Z8 Bulldog\""
+	desc = "The Z8 Bulldog is an older bullpup carbine model, made by the \"Oberth Republic Strategic Defence Force\". It includes an underbarrel grenade launcher which is compatible with most modern grenade types. Uses .20 Rifle rounds."
 	icon = 'icons/obj/guns/projectile/carabine.dmi'
 	icon_state = "z8"
 	item_state = "z8"

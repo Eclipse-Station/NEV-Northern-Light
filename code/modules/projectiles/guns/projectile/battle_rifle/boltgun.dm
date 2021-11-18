@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/boltgun
-	name = "Excelsior BR .30 \"Kardashev-Mosin\""
+	name = "EX BR .30 \"Kardashev-Mosin\""
 	desc = "Weapon for hunting, or endless trench warfare. \
 			If you’re on a budget, it’s a darn good rifle for just about everything."
 	icon = 'icons/obj/guns/projectile/boltgun.dmi'
@@ -174,7 +174,7 @@
 //// OBREZ ////
 
 /obj/item/gun/projectile/boltgun/obrez
-	name = "sawn-off Excelsior BR .30 \"Kardashev-Mosin\""
+	name = "sawn-off EX BR .30 \"Kardashev-Mosin\""
 	desc = "Weapon for hunting, or endless trench warfare. \
 	     This one has been sawed down into an \"Obrez\" style."
 	icon = 'icons/obj/guns/projectile/obrez_bolt.dmi'

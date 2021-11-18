@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
-	name = "NT LG \"Lightfall\""
-	desc = "\"NanoTrasen\" brand laser carbine. Deadly and radiant, like the ire of Capitalism it represents."
+	name = "NT LR M \"Lightfall\""
+	desc = "\"NanoTrasen\" brand laser rifle based on the highly successful \"Valkyrie\" pattern. Deadly and radiant, like the ire of Capitalism it represents."
 	icon = 'icons/obj/guns/energy/laser.dmi'
 	icon_state = "laser"
 	item_state = "laser"
@@ -34,7 +34,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/laser/mounted/blitz
-	name = "SDF LR \"Strahl\""
+	name = "OSDF LR \"Strahl\""
 	desc = "A miniaturized laser rifle, remounted for robotic use only."
 	icon_state = "laser_turret"
 	charge_meter = FALSE
@@ -44,19 +44,19 @@
 	spawn_tags = null
 
 /obj/item/gun/energy/laser/practice
-	name = "NT LG \"Lightfall\" - P"
-	desc = "A modified version of \"NanoTrasen\" brand laser carbine, this one fires less concentrated energy bolts, designed for target practice."
+	name = "NT LR M \"Lightfall\" - P"
+	desc = "A modified version of a \"NanoTrasen\" brand laser rifle, this one fires less concentrated energy bolts, designed for target practice."
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 2)
 	price_tag = 1000
 	projectile_type = /obj/item/projectile/beam/practice
 	zoom_factor = 0
 
 /obj/item/gun/energy/retro
-	name = "OS LG \"Cog\""
+	name = "OS LR M \"Cog\""
 	icon = 'icons/obj/guns/energy/retro.dmi'
 	icon_state = "retro"
 	item_state = "retro"
-	desc = "A One Star cheaply produced laser gun. In the distant past - this was the main weapon of low-rank police forces, billions of copies of this gun were made. They are ubiquitous."
+	desc = "A One Star cheaply produced laser rifle. In the distant past - this was the main weapon of low-rank police forces, billions of copies of this rifle were made. They are ubiquitous."
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_NORMAL
@@ -77,9 +77,9 @@
 	sawn = /obj/item/gun/energy/retro/sawn
 	
 /obj/item/gun/energy/retro/sawn
-	name = "sawn down OS LG \"Cog\""
+	name = "sawn down OS LR M \"Cog\""
 	icon = 'icons/obj/guns/energy/obrez_retro.dmi'
-	desc = "A modified One Star cheaply produced laser gun. \
+	desc = "A modified One Star cheaply produced laser rifle. \
 		 In the distant past - this was the main weapon of low-rank police forces, and thus widely used by criminals."
 	icon_state = "shorty"
 	item_state = "shorty"
@@ -97,7 +97,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/captain
-	name = "NT LG \"Destiny\""
+	name = "NT LCAR SC \"Destiny\""
 	icon = 'icons/obj/guns/energy/capgun.dmi'
 	icon_state = "caplaser"
 	item_state = "caplaser"
@@ -217,7 +217,7 @@
 	victims |= victim
 
 	if(contract.completed)
-		to_chat(owner.current, SPAN_DANGER("Somebody all ready have comleted targeted contract."))
+		to_chat(owner.current, SPAN_DANGER("Somebody has already completed targeted contract."))
 		contract = null
 		START_PROCESSING(SSobj, src)
 
