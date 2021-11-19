@@ -200,6 +200,7 @@
 
 	if(href_list["manifest"])
 		show_manifest(src, nano_state = GLOB.interactive_state)
+		return
 
 	if(href_list["SelectedJob"])
 
