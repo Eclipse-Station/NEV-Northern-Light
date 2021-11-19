@@ -16,11 +16,11 @@
 	l_ear  =/obj/item/device/radio/headset/heads/cmo
 	uniform = /obj/item/clothing/under/rank/moebius_biolab_officer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
-	l_hand = /obj/item/storage/firstaid/adv
 	r_pocket = /obj/item/device/lighting/toggleable/flashlight/pen
 	id_type = /obj/item/card/id/cmo
 	pda_type = /obj/item/modular_computer/pda/heads/cmo
 	belt = /obj/item/storage/belt/medical/
+	backpack_contents = list(/obj/item/storage/firstaid/adv = 1)
 
 /decl/hierarchy/outfit/job/medical/doctor
 	name = OUTFIT_JOB_NAME("Medical Doctor")

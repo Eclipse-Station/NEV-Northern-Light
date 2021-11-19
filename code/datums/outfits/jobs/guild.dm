@@ -8,10 +8,10 @@
 	shoes = /obj/item/clothing/shoes/color/brown
 	glasses = /obj/item/clothing/glasses/sunglasses
 	suit = /obj/item/clothing/suit/storage/qm_coat
-	l_hand = /obj/item/clipboard
 	id_type = /obj/item/card/id/car
 	pda_type = /obj/item/modular_computer/pda/cargo
 	l_ear = /obj/item/device/radio/headset/heads/merchant
+	backpack_contents = list(/obj/item/clipboard = 1)
 
 /decl/hierarchy/outfit/job/cargo/cargo_tech
 	name = OUTFIT_JOB_NAME("Guild Technician")

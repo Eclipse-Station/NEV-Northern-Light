@@ -43,10 +43,9 @@
 	l_pocket = /obj/item/device/flash
 	shoes = /obj/item/clothing/shoes/reinforced/ironhammer
 	belt = /obj/item/gun/energy/gun/martin
-	r_hand = /obj/item/storage/briefcase/crimekit
 	id_type = /obj/item/card/id/det
 	pda_type = /obj/item/modular_computer/pda/forensics
-	backpack_contents = list(/obj/item/handcuffs = 1, /obj/item/ammo_magazine/slmagnum/rubber = 2, /obj/item/device/lighting/toggleable/flashlight/seclite = 1, /obj/item/cell/small/high = 2)
+	backpack_contents = list(/obj/item/handcuffs = 1, /obj/item/ammo_magazine/slmagnum/rubber = 2, /obj/item/device/lighting/toggleable/flashlight/seclite = 1, /obj/item/cell/small/high = 2, /obj/item/storage/briefcase/crimekit = 1)
 
 /decl/hierarchy/outfit/job/security/detective/New()
 	..()
@@ -60,8 +59,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medspec
 	pda_type = /obj/item/modular_computer/pda/forensics
 	belt = /obj/item/storage/belt/medical
-	l_hand = /obj/item/storage/briefcase/crimekit
-	backpack_contents = list(/obj/item/gun/energy/gun/martin = 1, /obj/item/cell/small/high = 1)
+	backpack_contents = list(/obj/item/gun/energy/gun/martin = 1, /obj/item/cell/small/high = 1, /obj/item/storage/briefcase/crimekit = 1)
 
 /decl/hierarchy/outfit/job/security/ihoper
 	name = OUTFIT_JOB_NAME("Aegis Operative")

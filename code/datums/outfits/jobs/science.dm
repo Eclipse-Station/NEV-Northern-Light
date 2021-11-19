@@ -16,10 +16,9 @@
 	l_ear = /obj/item/device/radio/headset/heads/rd
 	shoes = /obj/item/clothing/shoes/reinforced
 	uniform = /obj/item/clothing/under/rank/expedition_overseer
-	l_hand = /obj/item/clipboard
 	id_type = /obj/item/card/id/rd
 	pda_type = /obj/item/modular_computer/pda/heads/rd
-	backpack_contents = list(/obj/item/oddity/secdocs = 1)
+	backpack_contents = list(/obj/item/oddity/secdocs = 1, /obj/item/clipboard = 1)
 
 /decl/hierarchy/outfit/job/science/scientist
 	name = OUTFIT_JOB_NAME("Scientist")
