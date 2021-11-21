@@ -301,5 +301,5 @@
 		/obj/item/tool/surgicaldrill,
 		/obj/item/stack/medical/advanced/bruise_pack
 	)
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	price_tag = 50
