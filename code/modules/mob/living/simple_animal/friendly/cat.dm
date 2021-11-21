@@ -30,7 +30,7 @@
 /mob/living/simple_animal/cat/Life()
 	..()
 
-	if(!stasis && stat != DEAD)
+	if(!stasis && stat != DEAD) //Eclipse Edit - can't flee if you're dead
 		if (turns_since_move > 5 || (flee_target || mousetarget))
 			walk_to(src,0)
 			turns_since_move = 0

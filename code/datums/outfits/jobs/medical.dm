@@ -20,7 +20,7 @@
 	id_type = /obj/item/card/id/cmo
 	pda_type = /obj/item/modular_computer/pda/heads/cmo
 	belt = /obj/item/storage/belt/medical/
-	backpack_contents = list(/obj/item/storage/firstaid/adv = 1)
+	backpack_contents = list(/obj/item/storage/firstaid/adv = 1) //Eclipse Edit - fixed items not spawning if you spawn in dorms
 
 /decl/hierarchy/outfit/job/medical/doctor
 	name = OUTFIT_JOB_NAME("Medical Doctor")
@@ -55,6 +55,6 @@
 	uniform = /obj/item/clothing/under/rank/paramedic
 	suit = /obj/item/clothing/suit/storage/hazardvest/black
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_hand = /obj/item/storage/firstaid/adv
 	belt = /obj/item/storage/belt/medical/emt
+	backpack_contents = list(/obj/item/storage/firstaid/adv = 1) //Eclipse Edit - fixed items not spawning if you spawn in dorms
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL

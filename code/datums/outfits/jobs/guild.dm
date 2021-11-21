@@ -11,7 +11,7 @@
 	id_type = /obj/item/card/id/car
 	pda_type = /obj/item/modular_computer/pda/cargo
 	l_ear = /obj/item/device/radio/headset/heads/merchant
-	backpack_contents = list(/obj/item/clipboard = 1)
+	backpack_contents = list(/obj/item/clipboard = 1) //Eclipse Edit - fixed items not spawning if you spawn in dorms
 
 /decl/hierarchy/outfit/job/cargo/cargo_tech
 	name = OUTFIT_JOB_NAME("Guild Technician")

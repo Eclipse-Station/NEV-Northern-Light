@@ -45,7 +45,7 @@
 	belt = /obj/item/gun/energy/gun/martin
 	id_type = /obj/item/card/id/det
 	pda_type = /obj/item/modular_computer/pda/forensics
-	backpack_contents = list(/obj/item/handcuffs = 1, /obj/item/ammo_magazine/slmagnum/rubber = 2, /obj/item/device/lighting/toggleable/flashlight/seclite = 1, /obj/item/cell/small/high = 2, /obj/item/storage/briefcase/crimekit = 1)
+	backpack_contents = list(/obj/item/handcuffs = 1, /obj/item/ammo_magazine/slmagnum/rubber = 2, /obj/item/device/lighting/toggleable/flashlight/seclite = 1, /obj/item/cell/small/high = 2, /obj/item/storage/briefcase/crimekit = 1) //Eclipse Edit - fixed items not spawning if you spawn in dorms
 
 /decl/hierarchy/outfit/job/security/detective/New()
 	..()
@@ -59,7 +59,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medspec
 	pda_type = /obj/item/modular_computer/pda/forensics
 	belt = /obj/item/storage/belt/medical
-	backpack_contents = list(/obj/item/gun/energy/gun/martin = 1, /obj/item/cell/small/high = 1, /obj/item/storage/briefcase/crimekit = 1)
+	backpack_contents = list(/obj/item/gun/energy/gun/martin = 1, /obj/item/cell/small/high = 1, /obj/item/storage/briefcase/crimekit = 1) //Eclipse Edit - fixed items not spawning if you spawn in dorms
 
 /decl/hierarchy/outfit/job/security/ihoper
 	name = OUTFIT_JOB_NAME("Aegis Operative")
