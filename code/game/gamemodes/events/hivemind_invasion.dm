@@ -19,7 +19,38 @@
 /datum/event/hivemind
 	announceWhen	= 240
 
+// // // BEGIN ECLIPSE EDITS // // //
+//Hivemind should only start when there's more than 3 players total, or more than 6 if none of the players are command, engineering, or security.
+//This code is called in /datum/storyevent/.../can_trigger(), so we're safe putting this here.
+/datum/event/hivemind/can_trigger()
+	var/crew = 0
+	var/engis = 0
+	var/sec = 0
+	var/command = 0
+	
+	//Let's get a list of active players first, and run through that.
+	for(var/mob/M in GLOB.player_list)
+		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
+			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
+			if(job)
+				crew++
+				if(job in list(JOBS_ENGINEERING))		//Engi?
+					engis++
+				if(job in list(JOBS_SECURITY))		//Sec?
+					sec++
+				if(job in list(JOBS_COMMAND))		//Head of staff?
+					command++
+	if(crew < 3)			//Because one's not enough, and two's too few.
+		return FALSE
+	else if(crew >= 3 && crew < 6)		//Debatable...
+		if(!engis && !sec && !command)
+			return FALSE		//Without someone who can actually deal with the threat, it's too difficult for the crew.
 
+	//We have enough to be able to start, so we'll call the other stuff.
+	return TRUE
+	
+	// // // END ECLIPSE EDITS // // //
+	
 /datum/event/hivemind/announce()
 	level_eight_announcement() //Different announcement than blob or plants, so the crew doesn't need to struggle trying to figure out if it's blob, plants or hive
 

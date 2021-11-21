@@ -83,6 +83,8 @@
 
 	var/obj/effect/blob/parent
 	var/active = FALSE
+	
+	var/effect_temperature = 233.15		//Eclipse addition: Blobs should gradually cool down a room.
 
 	//World time when we're allowed to expand next.
 	//Expansion gets slower as the blob gets farther away from the origin core
@@ -182,6 +184,35 @@
 			return PROCESS_KILL
 
 		set_expand_time()
+
+// // // BEGIN ECLIPSE EDITS // // //
+// Blob room cooling.
+
+		handle_temperature_changing(effect_temperature)		//Modularised, in the event we later add types that heat a room.
+
+//I'm not gonna lie, this is pretty much ripped straight from the air alarm.
+/obj/effect/blob/proc/handle_temperature_changing(var/desired_temperature)
+	var/turf/simulated/floor/T = get_turf(src)
+	if(!T)
+		return
+	
+	var/datum/gas_mixture/ambient = T.return_air()
+	if(ambient.total_moles)		//Do we even have an atmosphere?
+		var/thermalChange = ambient.get_thermal_energy_change(desired_temperature)
+		var/heat_transfer = 0
+		if(thermalChange > 0)
+			heat_transfer = min(thermalChange , 500)
+
+			ambient.add_thermal_energy(heat_transfer)
+		else
+			thermalChange = abs(thermalChange)
+
+			var/cop = ambient.temperature/T20C
+			heat_transfer = min(thermalChange, cop * 500)	//limit the rate the blob cools a room
+
+			ambient.add_thermal_energy(-heat_transfer)
+// // // END ECLIPSE EDITS // // //
+
 
 /obj/effect/blob/proc/regen()
 	if (!(QDELETED(core)))

@@ -235,7 +235,7 @@
 	total_positions = 6
 	spawn_positions = 6
 	supervisors = "the Aegis Commander"
-	//alt_titles = list("Aegis Junior Operative")
+	alt_titles = list("Aegis Cadet")
 	selection_color = "#a7bbc6"
 	wage = WAGE_LABOUR_HAZARD
 	also_known_languages = list(LANGUAGE_CYRILLIC = 25, LANGUAGE_SERBIAN = 25, LANGUAGE_NEOHONGO = 45, LANGUAGE_GERMAN = 10)

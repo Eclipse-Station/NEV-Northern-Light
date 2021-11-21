@@ -310,5 +310,6 @@ Technomancer RIG
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
+		/obj/item/rig_module/storage,
 		/obj/item/rig_module/vision/medhud
 		)

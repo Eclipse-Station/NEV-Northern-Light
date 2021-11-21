@@ -118,7 +118,8 @@ SUBSYSTEM_DEF(dispatcher)
 			log_debug("DISPATCHER: Initial flush completed.")
 		first_run = FALSE
 		return		//We're done with the initial flush.
-	
+
+/*		//Scheduled updates aren't really necessary; the "spawn at dorms, not in tracking" bit works fine.
 	//Periodic list maintenance.
 	if(!(times_fired % 150))	//Every 5 minutes or so, update the tracking data.
 		if(update_in_progress || flush_in_progress)
@@ -172,6 +173,7 @@ SUBSYSTEM_DEF(dispatcher)
 
 		if(DEBUGLEVEL_VERBOSE <= debug_level)
 			log_debug("DISPATCHER: Finished scheduled update.")
+*/
 
 /datum/controller/subsystem/dispatcher/Recover()
 	flush_tracking()

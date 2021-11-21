@@ -24939,9 +24939,6 @@
 	pixel_x = 24
 	},
 /obj/machinery/light,
-/obj/machinery/camera/network/research{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/robotics)
 "bfk" = (
@@ -27008,6 +27005,9 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/machinery/camera/network/research{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/robotics)
@@ -46928,9 +46928,6 @@
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
 "ccS" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/machinery/camera/network/fist_section{
 	dir = 8
 	},
@@ -47136,9 +47133,11 @@
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
 "cdt" = (
-/obj/structure/bed/chair/wood,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/bed/chair/wood{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
@@ -47147,7 +47146,7 @@
 	dir = 8;
 	pixel_x = 25
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/account_database{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -47311,6 +47310,9 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/pen,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
 "cdS" = (
@@ -52513,7 +52515,7 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cpG" = (
-/obj/machinery/portable_atmospherics/canister/plasma/engine_setup,
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/engineering/engine_room)
 "cpH" = (
@@ -59087,10 +59089,10 @@
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck3starboard)
 "cEF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/hologram/holopad,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
 "cEG" = (
@@ -103904,18 +103906,14 @@
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
 "eCv" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 2;
+	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
 /turf/simulated/open,
 /area/eris/engineering/gravity_generator)
 "eCw" = (
@@ -106502,6 +106500,21 @@
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/engineering/breakroom)
+"hfD" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/catwalk,
+/turf/simulated/open,
+/area/eris/engineering/gravity_generator)
 "hhc" = (
 /obj/structure/multiz/stairs/enter{
 	dir = 8
@@ -108921,10 +108934,8 @@
 	dir = 8;
 	tag = "icon-wooden_chair (WEST)"
 	},
-/obj/structure/railing/grey,
 /turf/simulated/floor/wood,
-/turf/simulated/open,
-/area/eris/crew_quarters/bar)
+/area/eris/command/courtroom)
 "rMd" = (
 /obj/spawner/pack/gun_loot/low_chance,
 /turf/simulated/shuttle/floor{
@@ -110354,6 +110365,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
+"xTx" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/carpet/blucarpet,
+/area/eris/command/fo)
 "xUg" = (
 /turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/sleep_female/toilet_female)
@@ -212890,7 +212905,7 @@ bwr
 bwI
 caS
 cbz
-ccl
+xTx
 cEF
 cdt
 cdR
@@ -296188,7 +296203,7 @@ dKs
 dLg
 eBI
 eCv
-eCr
+hfD
 eDB
 eCr
 eFe

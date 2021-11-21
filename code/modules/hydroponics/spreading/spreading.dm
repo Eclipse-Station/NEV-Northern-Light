@@ -49,6 +49,8 @@
 	var/spray_cooldown = FALSE
 	var/chem_regen_cooldown = FALSE
 	var/near_external = FALSE
+	
+	var/creation_time = 0		//Eclipse add: used in limiting spacevine spread.
 
 /obj/effect/plant/Destroy()
 	if(plant_controller)
@@ -64,6 +66,7 @@
 	spread_chance = 0
 
 /obj/effect/plant/New(var/newloc, var/datum/seed/newseed, var/obj/effect/plant/newparent)
+	creation_time = world.time
 	..()
 
 	if(!newparent)
