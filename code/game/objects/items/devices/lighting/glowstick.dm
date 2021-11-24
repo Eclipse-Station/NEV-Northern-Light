@@ -26,12 +26,9 @@
 	update_icon()
 	if(ismob(loc))
 		var/mob/M = loc
-		M.visible_message(
-			"[src] slowly burn out.",
-			"[src] slowly burn out in your hand."
-		)
+		M.visible_message("[src] slowly burns out.") //Eclipse Edit - fixed grammar, removed extra message to make the message more universal.
 	else
-		visible_message("[src] slowly burn out")
+		visible_message("[src] slowly burns out")
 
 /obj/item/device/lighting/glowstick/on_update_icon()
 	cut_overlays()
