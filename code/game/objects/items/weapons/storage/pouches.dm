@@ -257,7 +257,7 @@
 		/obj/item/gun/projectile/revolver,
 		/obj/item/gun/projectile/automatic/molly,
 		/obj/item/gun/projectile/paco,
-		/obj/item/gun/projectile/shotgun/doublebarrel/sawn, //short enough to fit in
+		/obj/item/gun/projectile/shotgun/doublebarrel/sawn, 
 		/obj/item/gun/launcher/syringe,
 		/obj/item/gun/energy/plasma/brigador,
 		/obj/item/gun/projectile/shotgun/pump/sawn,
