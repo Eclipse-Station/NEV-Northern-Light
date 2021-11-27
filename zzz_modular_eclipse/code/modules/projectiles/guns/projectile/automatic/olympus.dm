@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic/olympus
 	name = "FS AR .20 \"Olympus\""
-	desc = "The Olympus was Initially set up as an alternative for wealthy planetary defense forces seeking a hard hitting yet controllable primary weapon for their forces. It proved to be an initial commercial failure due to it's egregious price tag, but found a second life within wealthy bodyguard units seeking a compact yet hard hitting rifle."
+	desc = "The Olympus was Initially set up as an alternative for wealthy planetary defense forces seeking a hard-hitting yet controllable primary weapon for their forces. It proved to be an initial commercial failure due to its egregious price tag, but found a second life within wealthy bodyguard units seeking a compact yet hard-hitting rifle."
 	icon = 'zzz_modular_eclipse/icons/obj/guns/projectile/olympus.dmi'
 	icon_state = "olympus"
 	item_state = "olympus"

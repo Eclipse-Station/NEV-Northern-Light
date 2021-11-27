@@ -237,7 +237,7 @@
 	storage_slots = 1
 	w_class = ITEM_SIZE_NORMAL
 	max_w_class = ITEM_SIZE_NORMAL
-
+	//Eclipse Edit - Squire added to the allowed list
 	can_hold = list(
 		/obj/item/gun/projectile/selfload,
 		/obj/item/gun/projectile/colt,
@@ -264,9 +264,9 @@
 		/obj/item/gun/projectile/boltgun/obrez,
 		/obj/item/gun/energy/retro/sawn,
 		/obj/item/gun/projectile/automatic/luty,
-		/obj/item/gun/energy/laser/squire //Eclipse Edit - pistol for the pistol holster
+		/obj/item/gun/energy/laser/squire 
 		)
-
+		
 	sliding_behavior = TRUE
 
 /obj/item/storage/pouch/pistol_holster/on_update_icon()

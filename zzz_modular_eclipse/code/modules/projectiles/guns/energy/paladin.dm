@@ -1,7 +1,7 @@
 //Laser Musket for the church
 /obj/item/gun/energy/laser/paladin
 	name = "MA LR M \"Paladin\""
-	desc = "The Mekhane Armoury \"Paladin\" laser musket is a cheap, easily produceable firearm that is very popular among the frontier colonies the Children protect. It is best used with Mekhane disposable cells, but can load any standard M class power cell. The weapon fires a single powerful shot, overloading and destroying the cell when fired."
+	desc = "The Mekhane Armoury \"Paladin\" laser musket is a cheap, easily-produced firearm that is very popular among the frontier colonies the Children protect. It is best used with Mekhane disposable cells, but can load any standard M class power cell. The weapon fires a single powerful shot, overloading and destroying the cell when fired."
 	icon = 'zzz_modular_eclipse/icons/obj/guns/energy/paladin.dmi'
 	icon_state = "paladin"
 	item_state = "paladin"
@@ -13,7 +13,7 @@
 	matter = list(MATERIAL_STEEL = 20, "biomatter" = 10, MATERIAL_GOLD = 5)
 	zoom_factor = 0
 	damage_multiplier = 2.5 //75 damage
-	charge_cost = 10000 //No matter what cell you put in, it's gonna fry it.
+	charge_cost = 100000 //No matter what cell you put in, it's gonna fry it.
 	suitable_cell = /obj/item/cell/medium
 	var/consume_cell = TRUE
 	price_tag = 2500

@@ -1,7 +1,7 @@
 //Eclipse Edit - Laser Flintlock for the church - Weaker than the Paladin, but less cumbersome to use, as it can be fired one handed, making reloading easier.
 /obj/item/gun/energy/laser/squire
 	name = "MA LP S \"Squire\""
-	desc = "The Mekhane Armoury \"Squire\" laser pistol is a cheap, easily produced sidearm issued to Mekhane disciples for self-defence. It is best used with Mekhane disposable cells, but can load any standard S class power cell. The weapon fires a single powerful shot, overloading and destroying the cell when fired."
+	desc = "The Mekhane Armory \"Squire\" laser pistol is a cheap, easily-produced sidearm issued to Mekhane disciples for self-defence. It is best used with Mekhane disposable cells, but can load any standard S class power cell. The weapon fires a single powerful shot, overloading and destroying the cell when fired."
 	icon = 'zzz_modular_eclipse/icons/obj/guns/energy/squire.dmi'
 	icon_state = "squire"
 	item_state = "squire"
@@ -13,7 +13,7 @@
 	matter = list(MATERIAL_STEEL = 10, "biomatter" = 5, MATERIAL_GOLD = 2)
 	zoom_factor = 0
 	damage_multiplier = 2 //60 damage base
-	charge_cost = 1000
+	charge_cost = 10000
 	suitable_cell = /obj/item/cell/small
 	var/consume_cell = TRUE
 	price_tag = 2300

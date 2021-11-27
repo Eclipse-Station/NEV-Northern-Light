@@ -6,7 +6,7 @@
 	item_state = "serenity"
 	item_charge_meter = FALSE
 	cell_type = /obj/item/cell/medium
-	desc = "This self-charging laser pistol was originally developed as a custom sidearm for a now deceased free trader captain. NanoTrasen reverse-engineered the design, and put the “Serenity” into production as an option for those requiring a heavy hitting laser pistol that weren’t afraid to sacrifice a bit of punch for a lot of style."
+	desc = "This self-charging laser pistol was originally developed as a custom sidearm for a now-deceased Free Trader captain. NanoTrasen reverse-engineered the design, and put the “Serenity” into production as an option for those requiring a heavy hitting laser pistol that weren’t afraid to sacrifice a bit of punch for a lot of style."
 	force = WEAPON_FORCE_PAINFUL
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
