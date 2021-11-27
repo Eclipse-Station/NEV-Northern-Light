@@ -174,7 +174,7 @@
 //// OBREZ ////
 
 /obj/item/gun/projectile/boltgun/obrez
-	name = "sawn-off EX BR .30 \"Kardashev-Mosin\""
+	name = "sawn-off EX BR .30 \"Kardashev-Mosin\"" //Eclipse Edit - gun names standardized
 	desc = "Weapon for hunting, or endless trench warfare. \
 	     This one has been sawed down into an \"Obrez\" style."
 	icon = 'icons/obj/guns/projectile/obrez_bolt.dmi'

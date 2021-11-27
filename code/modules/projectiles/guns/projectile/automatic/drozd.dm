@@ -2,7 +2,7 @@
 	name = "EX SMG .40 Magnum \"Drozd\""  //Eclipse Edit - gun names standardized
 	desc = "An excellent fully automatic Heavy SMG. Rifled to take a larger caliber than a typical submachine gun, but unlike \
 			other heavy SMGs this one makes use of its increased caliber to achieve excellent armor penetration capabilities. \
-			Suffers a bit less from poor recoil control and has a lower than average fire rate. Uses .40 Magnum rounds."
+			Suffers a bit less from poor recoil control and has a lower than average fire rate. Uses .40 Magnum rounds." //Eclipse Edit - spelling/grammar
 	icon = 'icons/obj/guns/projectile/drozd.dmi'
 	icon_state = "drozd"
 	item_state = "drozd"

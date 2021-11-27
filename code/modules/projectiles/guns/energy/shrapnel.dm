@@ -1,6 +1,6 @@
 /obj/item/gun/energy/shrapnel
 	name = "OSDF ESG S \"Shellshock\"" //Eclipse Edit - gun names standardized
-	desc = "An Oberth Republic Strategic Defence Force design, this mat-fab shotgun tends to burn through cells with use. The matter contained in empty cells can be converted directly into ammunition as well, if the safety bolts are loosened."
+	desc = "An Oberth Republic Strategic Defence Force design, this mat-fab shotgun tends to burn through cells with use. The matter contained in empty cells can be converted directly into ammunition as well, if the safety bolts are loosened." //Eclipse Edit - changed "self defence" to "strategic defence"
 	icon = 'icons/obj/guns/energy/shrapnel.dmi'
 	icon_state = "eshotgun"
 	item_charge_meter = TRUE

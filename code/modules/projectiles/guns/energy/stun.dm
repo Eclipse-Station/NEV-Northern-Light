@@ -1,6 +1,6 @@
 /obj/item/gun/energy/taser
 	name = "NT SHG M \"Counselor\""  //Eclipse Edit - gun names standardized
-	desc = "The NT SP \"Counselor\" is a taser gun used for non-lethal takedowns. Used by Nanotrasen security forces before the Corporate Wars."
+	desc = "The NT SP \"Counselor\" is a taser gun used for non-lethal takedowns. Used by Nanotrasen security forces before the Corporate Wars." //Eclipse Edit - grammar correction
 	icon = 'icons/obj/guns/energy/taser.dmi'
 	icon_state = "taser"
 	item_state = null	//so the human update icon uses the icon_state instead.
@@ -39,7 +39,7 @@
 	projectile_type = /obj/item/projectile/energy/electrode
 
 /obj/item/gun/energy/stunrevolver/moebius
-	name = "Lazarus SREV S \"Zeus\""	//Should get it's own name
+	name = "LF SREV S \"Thor\""	//Eclipse Edit - gun names standardized, and renamed
 	desc = "Also know as stunrevolver. A Lazarus copy of the older and less precise NanoTrasen solution for non-lethal takedowns. This gun has smaller capacity in exchange for S-cells use."
 	icon = 'icons/obj/guns/energy/stunrevolver_moebius.dmi'
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_STEEL = 6, MATERIAL_SILVER = 2, MATERIAL_PLASTIC = 5)

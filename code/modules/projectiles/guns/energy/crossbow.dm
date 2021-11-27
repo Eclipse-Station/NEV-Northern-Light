@@ -1,5 +1,5 @@
 /obj/item/gun/energy/crossbow
-	name = "NT EC SC \"Nemesis\""
+	name = "NT EC SC \"Nemesis\"" //Eclipse Edit - gun names standardized
 	desc = "Mini energy crossbow, reverse-engineering by NanoTrasen scientists from a captured schematic. A weapon favored by many mercenary stealth specialists."
 	icon = 'icons/obj/guns/energy/crossbow.dmi'
 	icon_state = "crossbow"
@@ -24,7 +24,7 @@
 	restrict_safety = TRUE
 
 /obj/item/gun/energy/crossbow/largecrossbow
-	name = "MA EC SC \"Themis\""
+	name = "MA EC SC \"Themis\"" //Eclipse Edit - gun names standardized
 	desc = "Energy crossbow, produced by the Mekhanites. A weapon favored by inquisitorial infiltration teams."
 	icon = 'icons/obj/guns/energy/constantine.dmi'
 	icon_state = "constantine"

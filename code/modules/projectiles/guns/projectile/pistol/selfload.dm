@@ -49,7 +49,7 @@
 
 /obj/item/gun/projectile/selfload/makarov
 	name = "EX .35 Auto \"Makarov\"" //Eclipse Edit - gun names standardized
-	desc = "An old design pistol popular among space communists. Small and easily concealable. Uses .35 Auto rounds."
+	desc = "An old design pistol popular among space communists. Small and easily concealable. Uses .35 Auto rounds." //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/makarov.dmi'
 	icon_state = "makarov"
 	damage_multiplier = 1.2

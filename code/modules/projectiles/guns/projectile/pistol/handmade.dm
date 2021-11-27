@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/handmade_pistol
 	name = "handmade pistol"
-	desc = "Looks unreliable. May blow up in your hands. Due to a strange design, it can only be reloaded after being shot. Or with the use of a screwdriver."
+	desc = "Looks unreliable. May blow up in your hands. Due to a strange design, it can only be reloaded after being shot. Or with the use of a screwdriver." //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/hm_pistol.dmi'
 	icon_state = "hm_pistol"
 	item_state = "pistol"

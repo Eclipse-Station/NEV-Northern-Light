@@ -3,7 +3,7 @@
 	desc = "The C-20r is a lightweight and robust bullpup SMG of ancient design, for when you REALLY need someone dead. \
 			Famous as most popular SMG used by criminal organizations of various sorts. Was recently reverse-engineered by NanoTrasen \
 			almost completely from the scratch, introducing this gun to a broad mass of new customers. \
-			Has a '\"Scarborough Arms\" - Per falcis, per pravitas' buttstock stamp. Uses .35 Auto rounds."
+			Has a '\"Scarborough Arms\" - Per falcis, per pravitas' buttstock stamp. Uses .35 Auto rounds." //Eclipse Edit - spelling/grammar
 	icon = 'icons/obj/guns/projectile/cr20.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
@@ -50,7 +50,7 @@
 /obj/item/gun/projectile/automatic/c20r/moebius
 	name = "LF SMG .35 Auto \"C-20m\""  //Eclipse Edit - gun names standardized
 	desc = "The C-20m is a Lazarus Foundation copy of the infamous C-20r, a lightweight and robust bullpup SMG of ancient design. \
-			Famous as the most popular SMG used by criminal organizations of various sorts. Uses .35 Auto rounds."
+			Famous as the most popular SMG used by criminal organizations of various sorts. Uses .35 Auto rounds." //Eclipse Edit - spelling/grammar
 	icon = 'icons/obj/guns/projectile/c20m.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"

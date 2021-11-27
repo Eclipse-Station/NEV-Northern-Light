@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
 	name = "NT LR M \"Lightfall\""  //Eclipse Edit - gun names standardized
-	desc = "\"NanoTrasen\" brand laser rifle based on the highly successful \"Valkyrie\" pattern. Deadly and radiant, like the ire of Capitalism it represents."
+	desc = "\"NanoTrasen\" brand laser rifle based on the highly successful \"Valkyrie\" pattern. Deadly and radiant, like the ire of Capitalism it represents." //Eclipse Edit - description changed
 	icon = 'icons/obj/guns/energy/laser.dmi'
 	icon_state = "laser"
 	item_state = "laser"
@@ -45,7 +45,7 @@
 
 /obj/item/gun/energy/laser/practice
 	name = "NT LR M \"Lightfall\" - P"  //Eclipse Edit - gun names standardized
-	desc = "A modified version of a \"NanoTrasen\" brand laser rifle, this one fires less concentrated energy bolts, designed for target practice."
+	desc = "A modified version of a \"NanoTrasen\" brand laser rifle, this one fires less concentrated energy bolts, designed for target practice." //Eclipse Edit - description corrected.
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 2)
 	price_tag = 1000
 	projectile_type = /obj/item/projectile/beam/practice
@@ -56,7 +56,7 @@
 	icon = 'icons/obj/guns/energy/retro.dmi'
 	icon_state = "retro"
 	item_state = "retro"
-	desc = "A One Star cheaply produced laser rifle. In the distant past - this was the main weapon of low-rank police forces, billions of copies of this rifle were made. They are ubiquitous."
+	desc = "A One Star cheaply produced laser rifle. In the distant past - this was the main weapon of low-rank police forces, billions of copies of this rifle were made. They are ubiquitous." //Eclipse Edit - description corrected.
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_NORMAL
@@ -80,7 +80,7 @@
 	name = "sawn down OS LR M \"Cog\""  //Eclipse Edit - gun names standardized
 	icon = 'icons/obj/guns/energy/obrez_retro.dmi'
 	desc = "A modified One Star cheaply produced laser rifle. \
-		 In the distant past - this was the main weapon of low-rank police forces, and thus widely used by criminals."
+		 In the distant past - this was the main weapon of low-rank police forces, and thus widely used by criminals." //Eclipse Edit - description corrected.
 	icon_state = "shorty"
 	item_state = "shorty"
 	slot_flags = SLOT_BACK|SLOT_HOLSTER
@@ -217,7 +217,7 @@
 	victims |= victim
 
 	if(contract.completed)
-		to_chat(owner.current, SPAN_DANGER("Somebody has already completed targeted contract."))
+		to_chat(owner.current, SPAN_DANGER("Somebody has already completed targeted contract.")) //Eclipse Edit - grammar fixed.
 		contract = null
 		START_PROCESSING(SSobj, src)
 

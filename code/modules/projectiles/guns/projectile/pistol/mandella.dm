@@ -3,7 +3,7 @@
 	desc = "A rugged, robust operator handgun with inbuilt silencer. Chambered in .25 caseless ammunition, this time-tested handgun is \
 			your absolute choice if you need to take someone down silently, as it's deadly, produces no sound, and leaves no traces. \
 			Built to have enhanced armor penetration abilities. \
-			Uses .25 Caseless rounds."
+			Uses .25 Caseless rounds." //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/mandella.dmi'
 	icon_state = "mandella"
 	item_state = "mandella"

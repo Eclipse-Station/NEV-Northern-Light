@@ -47,7 +47,7 @@
 
 /obj/item/gun/launcher/crossbow
 	name = "powered crossbow"
-	desc = "A 2321AD twist on an old classic. Pick up that can."
+	desc = "A 2321AD twist on an old classic. Pick up that can." //Eclipse Edit - date corrected
 	icon = 'icons/obj/guns/launcher/crossbow-solid.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow-solid"
@@ -206,7 +206,7 @@
 	throwforce = 6
 
 /obj/item/gun/launcher/crossbow/RCD
-	name = "\"RXD\" Rapid Crossbow Device"
+	name = "\"RXD\" Rapid Crossbow Device" //Eclipse Edit - gun names standardized
 	desc = "A hacked together RCD turns an innocent construction tool into the penultimate 'deconstruction' tool. Flashforges projectiles using matter units when the string is drawn back."
 	icon = 'icons/obj/guns/launcher/rxb.dmi'
 	icon_state = "rxb"

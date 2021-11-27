@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/shotgun/slidebarrel
 	name = "slide barrel shotgun"
-	desc = "Made out of trash, but rather special in its design"
+	desc = "Made out of trash, but rather special in its design" //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/slideshotgun.dmi'
 	icon_state = "slideshotgun"
 	item_state = "slideshotgun"
