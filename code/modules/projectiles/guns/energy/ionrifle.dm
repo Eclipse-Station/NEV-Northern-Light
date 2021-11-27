@@ -1,5 +1,5 @@
 /obj/item/gun/energy/ionrifle
-	name = "NT IR E \"Halicon\""
+	name = "NT IR M \"Halicon\"" //Eclipse Edit - gun names standardized
 	desc = "The NT IR Halicon is a man-portable anti-armor weapon designed to disable mechanical threats, produced by NanoTrasen. Not the best of its type, but gets the job done."
 	icon = 'icons/obj/guns/energy/iongun.dmi'
 	icon_state = "ionrifle"

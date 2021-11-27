@@ -20,6 +20,7 @@
 	projectile_type = /obj/item/projectile/beam/midlaser
 	init_firemodes = list(WEAPON_NORMAL)
 	twohanded = FALSE
+	spawn_blacklisted = TRUE //Added to spawn blacklist while waiting for sprite
 
 /obj/item/gun/energy/laser/squire/attackby(obj/item/C, mob/living/user)
 	..()

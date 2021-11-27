@@ -29,7 +29,7 @@
 		bullet = 30,
 		energy = 30,
 		bomb = 25,
-		bio = 200,
+		bio = 200, // Eclipse Edit - Swapped bio with the custodian armour, so Acolyte can run the bioreactor safely. 
 		rad = 75
 	)
 	//helmet = /obj/item/clothing/head/space/void/acolyte
@@ -86,7 +86,7 @@
 		bullet = 25,
 		energy = 25,
 		bomb = 25,
-		bio = 100,
+		bio = 100, // Eclipse Edit - Swapped bio with the acolyte armour, so Acolyte can run the bioreactor safely. 
 		rad = 90
 	)
 	unacidable = TRUE

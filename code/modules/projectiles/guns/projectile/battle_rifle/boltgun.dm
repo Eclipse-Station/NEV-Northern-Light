@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/boltgun
-	name = "EX BR .30 \"Kardashev-Mosin\""
+	name = "EX BR .30 \"Kardashev-Mosin\"" //Eclipse Edit - gun names standardized
 	desc = "Weapon for hunting, or endless trench warfare. \
 			If you’re on a budget, it’s a darn good rifle for just about everything."
 	icon = 'icons/obj/guns/projectile/boltgun.dmi'

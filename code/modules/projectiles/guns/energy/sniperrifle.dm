@@ -1,5 +1,5 @@
 /obj/item/gun/energy/sniperrifle
-	name = "NT LDMR M \"Valkyrie\""
+	name = "NT LDMR M \"Valkyrie\""  //Eclipse Edit - gun names standardized
 	desc = "\"Valkyrie\" is an older NanoTrasen design not in production any longer. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon for killing from a distance."
 	icon = 'icons/obj/guns/energy/sniper.dmi'
 	icon_state = "sniper"

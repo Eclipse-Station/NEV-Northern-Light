@@ -1,5 +1,5 @@
 /obj/item/gun/energy/taser
-	name = "NT SHG M \"Counselor\""
+	name = "NT SHG M \"Counselor\""  //Eclipse Edit - gun names standardized
 	desc = "The NT SP \"Counselor\" is a taser gun used for non-lethal takedowns. Used by Nanotrasen security forces before the Corporate Wars."
 	icon = 'icons/obj/guns/energy/taser.dmi'
 	icon_state = "taser"
@@ -23,7 +23,7 @@
 	recharge_time = 10 //Time it takes for shots to recharge (in ticks)
 
 /obj/item/gun/energy/stunrevolver
-	name = "NT SREV S \"Zeus\""
+	name = "NT SREV S \"Zeus\""  //Eclipse Edit - gun names standardized
 	desc = "Also know as stunrevolver. Older and less precise Nanotrasen solution for non-lethal takedowns. This gun has smaller capacity in exchange for S-cells use."
 	icon = 'icons/obj/guns/energy/stunrevolver.dmi'
 	icon_state = "stunrevolver"

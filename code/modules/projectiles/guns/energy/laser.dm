@@ -1,5 +1,5 @@
 /obj/item/gun/energy/laser
-	name = "NT LR M \"Lightfall\""
+	name = "NT LR M \"Lightfall\""  //Eclipse Edit - gun names standardized
 	desc = "\"NanoTrasen\" brand laser rifle based on the highly successful \"Valkyrie\" pattern. Deadly and radiant, like the ire of Capitalism it represents."
 	icon = 'icons/obj/guns/energy/laser.dmi'
 	icon_state = "laser"
@@ -34,7 +34,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/laser/mounted/blitz
-	name = "OSDF LR \"Strahl\""
+	name = "OSDF LR \"Strahl\""  //Eclipse Edit - gun names standardized
 	desc = "A miniaturized laser rifle, remounted for robotic use only."
 	icon_state = "laser_turret"
 	charge_meter = FALSE
@@ -44,7 +44,7 @@
 	spawn_tags = null
 
 /obj/item/gun/energy/laser/practice
-	name = "NT LR M \"Lightfall\" - P"
+	name = "NT LR M \"Lightfall\" - P"  //Eclipse Edit - gun names standardized
 	desc = "A modified version of a \"NanoTrasen\" brand laser rifle, this one fires less concentrated energy bolts, designed for target practice."
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 2)
 	price_tag = 1000
@@ -52,7 +52,7 @@
 	zoom_factor = 0
 
 /obj/item/gun/energy/retro
-	name = "OS LR M \"Cog\""
+	name = "OS LR M \"Cog\""  //Eclipse Edit - gun names standardized
 	icon = 'icons/obj/guns/energy/retro.dmi'
 	icon_state = "retro"
 	item_state = "retro"
@@ -77,7 +77,7 @@
 	sawn = /obj/item/gun/energy/retro/sawn
 	
 /obj/item/gun/energy/retro/sawn
-	name = "sawn down OS LR M \"Cog\""
+	name = "sawn down OS LR M \"Cog\""  //Eclipse Edit - gun names standardized
 	icon = 'icons/obj/guns/energy/obrez_retro.dmi'
 	desc = "A modified One Star cheaply produced laser rifle. \
 		 In the distant past - this was the main weapon of low-rank police forces, and thus widely used by criminals."
@@ -97,7 +97,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/captain
-	name = "NT LCAR SC \"Destiny\""
+	name = "NT LCAR SC \"Destiny\""  //Eclipse Edit - gun names standardized
 	icon = 'icons/obj/guns/energy/capgun.dmi'
 	icon_state = "caplaser"
 	item_state = "caplaser"

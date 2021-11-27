@@ -48,7 +48,7 @@
 	set_item_state(itemstring)
 
 /obj/item/gun/projectile/selfload/makarov
-	name = "EX .35 Auto \"Makarov\""
+	name = "EX .35 Auto \"Makarov\"" //Eclipse Edit - gun names standardized
 	desc = "An old design pistol popular among space communists. Small and easily concealable. Uses .35 Auto rounds."
 	icon = 'icons/obj/guns/projectile/makarov.dmi'
 	icon_state = "makarov"

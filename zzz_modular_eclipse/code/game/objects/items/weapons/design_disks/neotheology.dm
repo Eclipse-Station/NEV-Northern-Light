@@ -8,8 +8,11 @@
 	license = -1
 	designs = list(
 		/datum/design/bioprinter/nt_cells/medium,
-		/datum/design/bioprinter/nt_cells/small,
         /datum/design/bioprinter/nt_guns/paladin
-        /datum/design/bioprinter/nt_guns/squire
-
-	)
+    )
+/* These datums have been removed while we wait on a final sprite for the Squire:
+		
+		/datum/design/bioprinter/nt_cells/small,
+		/datum/design/bioprinter/nt_guns/squire
+	
+	Once the sprites are ready these can be moved back into the design list*/

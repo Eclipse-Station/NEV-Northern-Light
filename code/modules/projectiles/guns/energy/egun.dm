@@ -1,5 +1,5 @@
 /obj/item/gun/energy/gun
-	name = "FS LHG M \"Spider Rose\""
+	name = "FS LHG M \"Spider Rose\""  //Eclipse Edit - gun names standardized
 	desc = "Spider Rose is a versatile energy based sidearm, capable of switching between low and high capacity projectile settings. In other words: Stun or Kill."
 	icon = 'icons/obj/guns/energy/egun.dmi'
 	icon_state = "energystun100"
@@ -31,7 +31,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/gun/martin
-	name = "FS LHG S \"Martin\""
+	name = "FS LHG S \"Martin\""  //Eclipse Edit - gun names standardized
 	desc = "Martin is essentialy a downscaled Spider Rose, made for Aegis employees and civilians to use as a personal self defence weapon."
 	icon = 'icons/obj/guns/energy/pdw.dmi'
 	icon_state = "PDW"
