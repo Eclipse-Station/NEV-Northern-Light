@@ -74,7 +74,7 @@
 //Botanist
 /obj/item/clothing/suit/apron
 	name = "apron"
-	desc = "A basic blue apron."
+	desc = "A basic yellow apron." //Eclipse Edit - It's fucking yellow, not blue
 	icon_state = "apron"
 	item_state = "apron"
 	blood_overlay_type = "armor"
