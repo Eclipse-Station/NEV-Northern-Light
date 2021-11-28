@@ -291,11 +291,11 @@ var/world_topic_spam_protect_time = world.timeofday
 	if (config && config.server_name)
 		s += "<b>[config.server_name]</b> &#8212; "
 
-	s += "<b>[station_name()]</b>";
 	s += " ("
-	s += "<a href=\"http://\">" //Change this to wherever you want the hub to link to.
+	s += "<a href=\"https://eclipse-station.space/\">" //Change this to wherever you want the hub to link to.
 //	s += "[game_version]"
-	s += "Default"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "Website"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "<br><small><i>\[18+\] Anthro-friendly mix of RP and action! Eris-based HRP with unique content and frequent events!</i></small><br>"
 	s += "</a>"
 	s += ")"
 
