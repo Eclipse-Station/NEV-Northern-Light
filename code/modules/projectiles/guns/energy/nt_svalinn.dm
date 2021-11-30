@@ -25,3 +25,4 @@
 	twohanded = FALSE
 	suitable_cell = /obj/item/cell/small
 	cell_type = /obj/item/cell/small
+

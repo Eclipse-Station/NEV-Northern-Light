@@ -30,6 +30,7 @@
 	no_internal_mag = TRUE
 	var/bolt_open = 0
 	var/item_suffix = ""
+	wield_delay = 0
 
 /obj/item/gun/projectile/heavysniper/on_update_icon()
 	..()
@@ -98,7 +99,12 @@
 		return
 	..()
 
-/obj/item/parts
+/obj/item/gun/projectile/heavysniper/get_ammo() // Let's keep it simple. Count spent casing twice otherwise.
+	if(loaded.len)
+		return 1
+	return 0
+
+/obj/item/weaponparts
 	name = "weaponpart"
 	desc = "how did you get it?"
 	icon = 'icons/obj/weaponparts.dmi'
