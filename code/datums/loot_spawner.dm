@@ -338,7 +338,6 @@ the value of stock parts increases with the rating.
 		if(get_spawn_value(path) == spawn_value)
 			things += path
 	if(!things.len)
-		return
 		return pick(things)
 
 	log_debug("[caller.name] tried to pick_spawn, but the list was empty.")
