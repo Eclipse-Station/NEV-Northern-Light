@@ -69,12 +69,22 @@
 	display_name = "worn squadron leader beret"
 	path = /obj/item/clothing/head/beret/purple/sela
 	ckey = "selakitteh"
-/*
-/datum/gear/custom/timidvi
+
+/datum/gear/custom/timidvi1
 	display_name = "Bambis Black Bodysuit"
 	path = /obj/item/clothing/under/bambi
 	ckey = "timidvi"
 
+/datum/gear/custom/timidvi2
+	display_name = "Bambis Warm Jacket"
+	path = /obj/item/clothing/suit/storage/bambi
+	ckey = "timidvi"
+
+/datum/gear/custom/timidvi3
+	display_name = "Bambis Long Boots"
+	path = /obj/item/clothing/shoes/jackboots/bambi
+	ckey = "timidvi"
+/*
 /datum/gear/custom/scorn7
 	display_name = "Dalphine Panzers Aegis Jager suit"
 	path = /obj/item/clothing/under/rank/dalphine
