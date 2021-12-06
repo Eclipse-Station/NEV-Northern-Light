@@ -97,16 +97,32 @@
 	desc = "hat might seem like a just another worn-out piece of headwear, reveals to be much more upon closer inspection. This beret seems to be connected to an unidentified fighter wing, the emblem on the front of the beret's been worn down to the point that it's only distinct feature are three small chevrons flying in formation with each other. Though age has taken it's toll, the beret seems to be lovingly cared for, as there are small signs of repair upon the fabric."
 	icon_state = "beret_purple"
 
-/* - These items are still waiting on inventory icons. They've been commented out for now, but will be added once icons are ready
 /obj/item/clothing/under/bambi
 	name = "Bambi\'s Black Bodysuit"
-	desc = "A skintight black bodysuit made from a synthetic fabric, it'd look almost like a one-piece swimsuit had the fabric been a little thinner. One of Bambi Boemus' favourite articles of clothing."
+	desc = "Clingy, skintight, and warmer than you'd think for a bodysuit. It's just a little glossy, too!"
 	icon = 'zzz_modular_eclipse/icons/custom_items/under.dmi'
 	icon_state = "timidvi"
 	icon_override = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
 	icon_override_female = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
 	spawn_blacklisted = TRUE
 
+/obj/item/clothing/shoes/jackboots/bambi
+	name = "Bambi\'s Long Boots"
+	desc = "Black and thigh-high high heels. The heels are surprisingly a bit on the shorter side... Or maybe not, when you have to be ready to run from roaches at any time."
+	icon = 'zzz_modular_eclipse/icons/custom_items/shoes.dmi'
+	icon_state = "timidvi_boots"
+	icon_override = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
+	spawn_blacklisted = TRUE
+
+/obj/item/clothing/suit/storage/bambi
+	name = "Bambi\'s Warm Jacket"
+	desc = "Thick and really, really warm. Perfect if you're basically just wearing a swimsuit underneath in the cold corridors of a roach infested spaceship."
+	icon = 'zzz_modular_eclipse/icons/custom_items/suit.dmi'
+	icon_state = "timidvi_jacket"
+	icon_override = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
+	spawn_blacklisted = TRUE
+
+/* - These items are still waiting on inventory icons. They've been commented out for now, but will be added once icons are ready
 /obj/item/clothing/under/rank/dalphine
 	name = "Dalphine Panzer\'s Aegis Jager suit"
 	desc = "A high speed low drag combat suit utilized as a special purpose replacement for standard uniforms issued to stealth specialists and special operations."
