@@ -260,7 +260,7 @@
 		..()
 
 /obj/item/shield/buckler/nt
-	name = "NT Parma"
+	name = "Mekhanite Parma"
 	desc = "A round shield with a golden trim. Has several leather straps on the back to hold melee weapons."
 	icon = 'icons/obj/nt_melee.dmi'
 	icon_state = "nt_buckler"
