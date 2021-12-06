@@ -710,3 +710,10 @@
 /datum/sprite_accessory/hair/zone
 	name = "Zone Braid"
 	icon_state = "zone"
+
+
+
+///Eclipse adds go here
+/datum/sprite_accessory/hair/bedhead_longest
+	name = "Bedhead Longest"
+	icon_state = "hair_longest_bedhead"
