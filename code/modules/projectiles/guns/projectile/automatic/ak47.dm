@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/ak47
-	name = "Excelsior .30 AKMS"
+	name = "EX AR .30 \"AKMS\""  //Eclipse Edit - gun names standardized
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 		 This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 		 It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \
@@ -68,7 +68,7 @@
 //////////////////////////////////////////SA//////////////////////////////////////////
 
 /obj/item/gun/projectile/automatic/ak47/sa
-	name = "SA Car .30 \"Krinkov\""					// US nickname for AKSu
+	name = "SA CAR .30 \"Krinkov\""					// US nickname for AKSu - Eclipse Edit - gun names standardized
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 			This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 			It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \
