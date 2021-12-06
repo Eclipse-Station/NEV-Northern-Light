@@ -572,19 +572,19 @@
 	icon_state = "shavedpart"
 
 /datum/sprite_accessory/hair/short
-	name = "Short"
+	name = "Short Hair"
 	icon_state = "short"
 
 /datum/sprite_accessory/hair/short2
-	name = "Short 2"
+	name = "Short Hair 2"
 	icon_state = "short2"
 
 /datum/sprite_accessory/hair/short3
-	name = "Short 3"
+	name = "Short Hair 3"
 	icon_state = "short3"
 
 /datum/sprite_accessory/hair/shorthair3beta
-	name = "Short 4"
+	name = "Short Hair 4"
 	icon_state = "shorthair3beta"
 
 /datum/sprite_accessory/hair/shortbangs
