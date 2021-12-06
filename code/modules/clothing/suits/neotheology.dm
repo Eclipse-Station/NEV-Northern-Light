@@ -12,24 +12,25 @@
 		bullet = 30,
 		energy = 30,
 		bomb = 25,
-		bio = 100,
+		bio = 200,
 		rad = 75
 	)
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/suit/armor/acolyte
 	name = "Acolyte armor"
-	desc = "Worn heavy, steadfast in the name of God."
+	desc = "Worn heavy, steadfast in the name of Mekhane."
 	icon_state = "acolyte"
 	item_state = "acolyte"
 	matter = list(MATERIAL_PLASTIC = 30, MATERIAL_STEEL = 25, MATERIAL_BIOMATTER = 40)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	// Eclipse Edit - Swapped bio with the custodian armour, so Acolyte can run the bioreactor safely.
 	armor = list(
 		melee = 35,
 		bullet = 30,
 		energy = 30,
 		bomb = 25,
-		bio = 100,
+		bio = 200,  
 		rad = 75
 	)
 	//helmet = /obj/item/clothing/head/space/void/acolyte
@@ -81,12 +82,13 @@
 	flags_inv = BLOCKHAIR
 	light_overlay = "helmet_light"
 	brightness_on = 4
+	// Eclipse Edit - Swapped bio with the acolyte armour, so Acolyte can run the bioreactor safely. 
 	armor = list(
 		melee = 25,
 		bullet = 25,
 		energy = 25,
 		bomb = 25,
-		bio = 200,
+		bio = 100, 
 		rad = 90
 	)
 	unacidable = TRUE
@@ -104,7 +106,7 @@
 		bullet = 25,
 		energy = 25,
 		bomb = 25,
-		bio = 200,
+		bio = 100,
 		rad = 90
 	)
 	unacidable = TRUE

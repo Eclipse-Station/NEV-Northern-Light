@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/revolver/sky_driver
 	name = "S REV .35 Auto \"Sky Driver\""
-	desc = "A prototype revolver, captured as a trophy from a raided Syndicate research base. Uses .35 Auto rounds."
+	desc = "A prototype revolver, captured as a trophy from a raided Syndicate research base. Uses .35 Special rounds."
 	icon = 'icons/obj/guns/projectile/sky_driver.dmi'
 	icon_state = "sky_driver"
 	item_state = "sky_driver"
