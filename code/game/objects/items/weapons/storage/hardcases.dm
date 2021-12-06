@@ -39,7 +39,7 @@
 	options["Red"] = "[sticker_name]_sticker_r"
 	options["Green"] = "[sticker_name]_sticker_g"
 	options["Purple"] = "[sticker_name]_sticker_p"
-	options["IH Blue"] = "[sticker_name]_sticker_ih"
+	options["Aegis Blue"] = "[sticker_name]_sticker_ih"
 
 
 	var/choice = input(user,"Which color do you want?") as null|anything in options
@@ -130,7 +130,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 
 /obj/item/storage/hcases/ammo/ih
 	icon_state = "ammo_case_ih"
-	desc = "An ammo can for Ironhammer. Can hold ammo magazines, boxes, and bullets. Alt+click to open and close."
+	desc = "An ammo can for Aegis. Can hold ammo magazines, boxes, and bullets. Alt+click to open and close."
 
 /obj/item/storage/hcases/ammo/serb
 	icon_state = "ammo_case_serb"
