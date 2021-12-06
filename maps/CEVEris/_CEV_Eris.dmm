@@ -694,14 +694,14 @@
 /area/eris/medical/psych)
 "abP" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
-/obj/item/clothing/suit/armor/heavy/riot/ironhammer,
+/obj/item/clothing/suit/armor/heavy/riot,
+/obj/item/clothing/suit/armor/heavy/riot,
+/obj/item/clothing/suit/armor/heavy/riot,
+/obj/item/clothing/suit/armor/heavy/riot,
+/obj/item/clothing/suit/armor/heavy/riot,
+/obj/item/clothing/suit/armor/heavy/riot,
+/obj/item/clothing/suit/armor/heavy/riot,
+/obj/item/clothing/suit/armor/heavy/riot,
 /obj/item/clothing/head/armor/riot_hud,
 /obj/item/clothing/head/armor/riot_hud,
 /obj/item/clothing/head/armor/riot_hud,
@@ -18691,8 +18691,8 @@
 /area/eris/maintenance/section1deck4central)
 "aSp" = (
 /obj/structure/table/rack,
-/obj/item/gun/launcher/grenade/lenar,
-/obj/item/gun/launcher/grenade/lenar,
+/obj/item/gun/projectile/shotgun/pump/grenade,
+/obj/item/gun/projectile/shotgun/pump/grenade,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"

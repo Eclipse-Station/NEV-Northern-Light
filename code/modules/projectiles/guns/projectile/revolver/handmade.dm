@@ -18,12 +18,15 @@
 			to_chat(user, SPAN_NOTICE("You begin to rechamber \the [src]."))
 			if(caliber == CAL_MAGNUM)
 				caliber = CAL_PISTOL
+				fire_sound = 'sound/weapons/guns/fire/cal/35revolver.ogg'
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .35 Caliber."))
 			else if(caliber == CAL_PISTOL)
 				caliber = CAL_CLRIFLE
+				fire_sound = 'sound/weapons/guns/fire/m41_shoot.ogg'
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .25 Caseless."))
 			else if(caliber == CAL_CLRIFLE)
 				caliber = CAL_MAGNUM
+				fire_sound = 'sound/weapons/guns/fire/revolver_fire.ogg'
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .40 Magnum."))
 		else
 			to_chat(user, SPAN_WARNING("You cannot rechamber a loaded firearm!"))

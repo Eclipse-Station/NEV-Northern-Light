@@ -18,10 +18,10 @@
 	// Strings.
 	var/welcome_text = "The Syndicate has been a thorn in the collected sides of every megacorp in the Galaxy, a band of highly \
 						organized criminals who cause havoc and chaos across the stars. <br><br> \
-						Thatâ€™s what they want you to believe anyway.<br><br>\
-						The Syndicate makes most of its money from the corporations themselves, who pay them to steal from their rivals. You are one of their operatives, contracted through a dizzying array of middle-men and backroom deals to further the Syndicateâ€™s goals aboard the NEV Northern Light.\
+						That’s what they want you to believe anyway.<br><br>\
+						The Syndicate makes most of its money from the corporations themselves, who pay them to steal from their rivals. You are one of their operatives, contracted through a dizzying array of middle-men and backroom deals to further the Syndicate’s goals aboard the NEV Northern Light.\
 						Use your code phrases and responses to find other operatives, and work to complete as many contracts as you can. Your uplink can be used to teleport a number of useful and dangerous items to help you. But be careful, the more overtly you act, the more quickly the crew will move against you.<br><br>\
-						Remember, if the enemy never even knows you were there, then youâ€™ve done everything right."
+						Remember, if the enemy never even knows you were there, then you’ve done everything right."
 
 	// Role data.
 	var/id = null                      		// Unique type identifier.

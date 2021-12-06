@@ -179,6 +179,10 @@
 	if (!BB)
 		to_chat(user, "[(amount == 1)? "This one is" : "These ones are"] spent.")
 
+/obj/item/ammo_casing/Destroy() //Eclipse add - QDEL Fix
+	BB = null
+	..()
+
 //An item that holds casings and can be used to put them inside guns
 /obj/item/ammo_magazine
 	name = "magazine"

@@ -75,7 +75,7 @@
 	twohanded = TRUE
 	saw_off = TRUE
 	sawn = /obj/item/gun/energy/retro/sawn
-	
+
 /obj/item/gun/energy/retro/sawn
 	name = "sawn down OS LR M \"Cog\""  //Eclipse Edit - gun names standardized
 	icon = 'icons/obj/guns/energy/obrez_retro.dmi'

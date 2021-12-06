@@ -58,7 +58,7 @@
 	uniform = /obj/item/clothing/under/rank/medspec
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medspec
 	pda_type = /obj/item/modular_computer/pda/forensics
-	belt = /obj/item/storage/belt/medical
+	belt = /obj/item/storage/belt/medical/emt
 	backpack_contents = list(/obj/item/gun/energy/gun/martin = 1, /obj/item/cell/small/high = 1, /obj/item/storage/briefcase/crimekit = 1) //Eclipse Edit - fixed items not spawning if you spawn in dorms
 
 /decl/hierarchy/outfit/job/security/ihoper
