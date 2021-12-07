@@ -1,9 +1,0 @@
-author: Valanthe500
-delete-after: true
-changes:
-  - rscadd: Added "Paladin"  - new gun for the church
-  - rscadd: Added "Olympus" and "Serenity" - two new guns for the BO
-  - balance: Flipped Acolyte / Custodian armours' BIO resist so Acolytes can do their
-      job once more.
-  - spellcheck: fixed typos and grammar in gun descriptions
-  - spellcheck: brought all guns into line with naming conventions.
