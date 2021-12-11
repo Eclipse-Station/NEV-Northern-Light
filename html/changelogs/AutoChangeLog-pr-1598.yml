@@ -1,0 +1,5 @@
+author: Hatterhat
+delete-after: true
+changes:
+  - bugfix: Hydraulic circuits now have their intended effect, again, instead of the
+      plasma coating's effect. (Earlyported from upstream.)
