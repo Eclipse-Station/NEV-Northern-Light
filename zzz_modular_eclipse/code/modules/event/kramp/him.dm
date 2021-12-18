@@ -12,7 +12,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_kramp, R_ADMIN|R_DEBUG, TRUE)
 		return
 
 	var/T = get_turf(usr)
-	var/mob/living/carbon/human/kramp/bst = new(T)
+	var/mob/living/carbon/human/event/kramp/bst = new(T)
 	bst.ckey = usr.ckey
 	var/list/stat_modifiers = list(
 		STAT_ROB = 99,
@@ -35,71 +35,35 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_kramp, R_ADMIN|R_DEBUG, TRUE)
 	spawn(1)
 		kramp_post_spawn(bst)
 
-/client/proc/kramp_post_spawn(mob/living/carbon/human/kramp/kramp)
+/client/proc/kramp_post_spawn(mob/living/carbon/human/event/kramp/kramp)
 	new /obj/effect/sparks/jpeg_boom(get_turf(kramp))
 	kramp.anchored = FALSE
 
 
 
-/mob/living/carbon/human/kramp
+/mob/living/carbon/human/event/kramp
 	name = "Ol\'Kramp"
 	icon = 'zzz_modular_eclipse/icons/mob/him.dmi'
 	desc = "Nefarious festive horror of the deep space!"
 	icon_state = "krampus"
 	universal_understand = TRUE
 	status_flags = GODMODE
-	var/points = 1000 //Kramp's mischief limit
 
 
-/mob/living/carbon/human/kramp/New()
+
+/mob/living/carbon/human/event/kramp/New()
 	..()
 	name = "Ol\'Kramp"
 	real_name = "Ol\'Kramp"
 	voice_name = "screechy voice"
 	faction = "krampus"
 
-/mob/living/carbon/human/kramp/examine(mob/user)//Have to write a snowflakey one because human overrides
-	var/msg = "<span class='info'>*---------*\nThis is [name] *---------*</span>"
-	msg += "\n"
-	if(icon)
-		msg += "\icon[icon] "
-	msg += desc
 
-	to_chat(user, msg)
-
-
-/mob/living/carbon/human/kramp/update_icons() //Ditto
+/mob/living/carbon/human/event/update_icons() //Ditto
 	icon_state = "krampus"
 	return
 
-/mob/living/carbon/human/kramp/verb/bstwalk()
-	set name = "Ruin Everything"
-	set desc = "Uses festive powers to phase through solid matter and move quickly."
-	set category = "Krampus"
-	set popup_menu = 0
-
-	if(!HasMovementHandler(/datum/movement_handler/mob/incorporeal))
-		if(points > 50)
-			points = points - 50
-			to_chat(src, SPAN_NOTICE("You will now phase through solid matter."))
-			incorporeal_move = TRUE
-			ReplaceMovementHandler(/datum/movement_handler/mob/incorporeal)
-		else
-			to_chat(src, SPAN_NOTICE("No points!"))
-	else
-		to_chat(src, SPAN_NOTICE("You will no-longer phase through solid matter."))
-		incorporeal_move = FALSE
-		RemoveMovementHandler(/datum/movement_handler/mob/incorporeal)
-
-/mob/living/carbon/human/kramp/verb/bstrecover()
-	set name = "Rejuv"
-	set desc = "Use the festive magics within you to restore your health"
-	set category = "Krampus"
-	set popup_menu = FALSE
-
-	src.revive()
-
-/mob/living/carbon/human/kramp/verb/givecone()
+/mob/living/carbon/human/event/kramp/verb/givecone()
 	set name = "Pinecone!"
 	set desc = "Pinecone."
 	set category = "Krampus"
@@ -114,7 +78,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_kramp, R_ADMIN|R_DEBUG, TRUE)
 
 
 
-/mob/living/carbon/human/kramp/verb/givecake()
+/mob/living/carbon/human/event/kramp/verb/givecake()
 	set name = "Fruitcake!"
 	set desc = "Fruitcake."
 	set category = "Krampus"
@@ -128,7 +92,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_kramp, R_ADMIN|R_DEBUG, TRUE)
 		to_chat(src, SPAN_NOTICE("No points!"))
 
 
-/mob/living/carbon/human/kramp/verb/giveshiv()
+/mob/living/carbon/human/event/kramp/verb/giveshiv()
 	set name = "Candy cane!"
 	set desc = "Candy cane."
 	set category = "Krampus"
@@ -142,7 +106,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_kramp, R_ADMIN|R_DEBUG, TRUE)
 		to_chat(src, SPAN_NOTICE("No points!"))
 
 
-/mob/living/carbon/human/kramp/verb/giveft()
+/mob/living/carbon/human/event/kramp/verb/giveft()
 	set name = "Evil gift!"
 	set desc = "Evil gift."
 	set category = "Krampus"
@@ -155,3 +119,26 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_kramp, R_ADMIN|R_DEBUG, TRUE)
 	else
 		to_chat(src, SPAN_NOTICE("No points!"))
 
+
+/mob/living/carbon/human/event/kramp/verb/drop_gifts()
+	set name = "Drop gifts!"
+	set desc = "Evil gift."
+	set category = "Krampus"
+	var/counter = rand(4, 7)
+	var/victims = list()
+	while(counter > 0)
+		if(GLOB.human_mob_list.len)
+			var/mob/living/carbon/human/V = pick(GLOB.human_mob_list)
+			if(V.isMonkey())
+				continue
+			else
+				victims += V
+				counter--
+		else
+			break
+			return
+	for(var/mob/living/carbon/human/H in victims)
+		var/turfs = list()
+		for(var/turf/T in oview(H , 5))
+			turfs += T
+		new /obj/effect/falling_effect/evil_gift_drop(pick(turfs), /mob/living/simple_animal/hostile/foolbox/strong)

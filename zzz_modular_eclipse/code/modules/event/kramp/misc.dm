@@ -81,3 +81,17 @@ ADMIN_VERB_ADD(/datum/admins/proc/call_fun_drop_pod, R_FUN, FALSE)
 		return
 
 	new /datum/random_map/droppod(null, usr.x-1, usr.y-1, usr.z, supplied_drops = spawned_mobs, automated = automatic_pod)
+
+
+
+/obj/effect/falling_effect/evil_gift_drop
+	destructive = FALSE
+	falling_type = /mob/living/simple_animal/hostile/foolbox/strong
+
+
+/obj/item/storage/mrsacks
+	name = "Mr Sacks\'s sack"
+	icon_state = "sack"
+	slot_flags = SLOT_BACK
+	max_w_class = ITEM_SIZE_BULKY * 2
+	max_storage_space = DEFAULT_HUGE_STORAGE * 3
