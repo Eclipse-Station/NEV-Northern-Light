@@ -7,9 +7,9 @@
 	icon_living = "present_mimic"
 
 
-	harm_intent_damage = 5
-	melee_damage_lower = 8
-	melee_damage_upper = 12
+	harm_intent_damage = 7
+	melee_damage_lower = 10
+	melee_damage_upper = 16
 	attacktext = "attacked"
 	attack_sound = 'sound/weapons/bite.ogg'
 
@@ -24,7 +24,7 @@
 	minbodytemp = 0
 
 	faction = "krampus"
-	move_to_delay = 8
+	move_to_delay = 4
 
 /mob/living/simple_animal/hostile/foolbox/death()
 	..()
@@ -36,3 +36,8 @@
 	faction = "krampus"
 	maxHealth = 120
 	health = 120
+
+
+/mob/living/simple_animal/hostile/foolbox/strong
+	health = 75
+	maxHealth = 75

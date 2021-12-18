@@ -5,6 +5,7 @@
 	anchored = TRUE
 	density = FALSE
 	unacidable = TRUE
+	var/destructive = TRUE
 	var/falling_type = /obj/spawner/scrap
 
 /obj/effect/falling_effect/Initialize(mapload, type = /obj/spawner/scrap)
@@ -24,7 +25,10 @@
 	dropped.density = FALSE
 	dropped.opacity = FALSE
 	animate(dropped, pixel_y = initial_y, pixel_x = initial_x , time = 7)
-	addtimer(CALLBACK(dropped, /atom/movable.proc/end_fall), 7)
+	if(destructive)
+		addtimer(CALLBACK(dropped, /atom/movable.proc/end_fall), 7)
+	else
+		addtimer(CALLBACK(dropped, /atom/movable.proc/end_fall_safe), 7)
 	qdel(src)
 
 /atom/movable/proc/end_fall()
@@ -32,6 +36,15 @@
 		if(AM != src)
 			AM.ex_act(1)
 
+	for(var/mob/living/M in oviewers(6, src))
+		shake_camera(M, 2, 2)
+
+	playsound(loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+	density = initial(density)
+	opacity = initial(opacity)
+	plane = initial(plane)
+
+/atom/movable/proc/end_fall_safe()
 	for(var/mob/living/M in oviewers(6, src))
 		shake_camera(M, 2, 2)
 
