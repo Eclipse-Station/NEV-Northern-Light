@@ -88,4 +88,4 @@
 /datum/gear/custom/scorn7
 	display_name = "Dalphine Panzers Aegis Jager suit"
 	path = /obj/item/clothing/under/rank/dalphine
-	ckey = "drexample"
+	ckey = "scorn7"
