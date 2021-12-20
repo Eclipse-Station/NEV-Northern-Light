@@ -122,7 +122,7 @@
 	icon_override = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
 	spawn_blacklisted = TRUE
 
-/* - These items are still waiting on inventory icons. They've been commented out for now, but will be added once icons are ready
+
 /obj/item/clothing/under/rank/dalphine
 	name = "Dalphine Panzer\'s Aegis Jager suit"
 	desc = "A high speed low drag combat suit utilized as a special purpose replacement for standard uniforms issued to stealth specialists and special operations."
@@ -131,4 +131,3 @@
 	icon_override = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
 	icon_override_female = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
 	spawn_blacklisted = TRUE
-*/
