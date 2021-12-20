@@ -84,9 +84,8 @@
 	display_name = "Bambis Long Boots"
 	path = /obj/item/clothing/shoes/jackboots/bambi
 	ckey = "timidvi"
-/*
+
 /datum/gear/custom/scorn7
 	display_name = "Dalphine Panzers Aegis Jager suit"
 	path = /obj/item/clothing/under/rank/dalphine
 	ckey = "scorn7"
-*/
