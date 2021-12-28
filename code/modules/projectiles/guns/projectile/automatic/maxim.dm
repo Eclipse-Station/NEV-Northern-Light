@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic/maxim
 	bad_type = /obj/item/gun/projectile/automatic/maxim
-	name = "Excelsior HMG .30 \"Maxim\""
+	name = "EX HMG .30 \"Maxim\""  //Eclipse Edit - gun names standardized
 	desc = "A bulky yet versatile gun, the Maxim has been used in ships, turrets, and by hand."
 	icon = 'icons/obj/guns/projectile/maxim.dmi'
 	icon_state = "maxim"
@@ -28,11 +28,13 @@
 		list(mode_name = "full auto",  mode_desc = "600 rounds per minute",   mode_type = /datum/firemode/automatic, fire_delay = 1, icon="auto", damage_mult_add = -0.1, move_delay=6),
 		list(mode_name="short bursts", mode_desc="dakka", burst=5,    burst_delay=1, move_delay=6,  icon="burst"),
 		list(mode_name="long bursts", mode_desc="Dakka", burst=8, burst_delay=1, move_delay=8,  icon="burst"),
-		list(mode_name="suppressing fire", mode_desc="DAKKA", burst=16, burst_delay=1, move_delay=110,  icon="burst")
+		list(mode_name="suppressing fire", mode_desc="DAKKA", burst=16, burst_delay=1, move_delay=16,  icon="burst")
 		)
 	twohanded = TRUE
 	spawn_blacklisted = TRUE
 	slowdown_hold = 5
+	wield_delay = 1 SECOND
+	wield_delay_factor = 0.9 // 90 vig
 
 /obj/item/gun/projectile/automatic/maxim/on_update_icon()
 	..()

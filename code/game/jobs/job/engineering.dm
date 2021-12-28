@@ -10,7 +10,7 @@
 	supervisors = "the Captain and NanoTrasen"
 	selection_color = "#c7b97b"
 	req_admin_notify = 1
-	also_known_languages = list(LANGUAGE_CYRILLIC = 100, LANGUAGE_SERBIAN = 25)
+	also_known_languages = list(LANGUAGE_CYRILLIC = 100)
 	wage = WAGE_COMMAND
 	ideal_character_age = 50
 
@@ -69,7 +69,7 @@ Your second loyalty is to your workers. Ensure they are paid, fed and safe. Don'
 	spawn_positions = 5
 	supervisors = "the Chief Engineer"
 	selection_color = "#d5c88f"
-	also_known_languages = list(LANGUAGE_CYRILLIC = 100, LANGUAGE_SERBIAN = 5)
+	also_known_languages = list(LANGUAGE_CYRILLIC = 100)
 	wage = WAGE_PROFESSIONAL
 	alt_titles = list("Engineering Apprentice", "Atmospherics Technician", "Electrician", "Maintenance Technician")
 

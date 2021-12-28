@@ -1,8 +1,8 @@
 /obj/item/gun/projectile/automatic/straylight
 	name = "FS SMG .35 Auto \"Straylight\""
-	desc = "A compact, lightweight and cheap rapid-firing submachine gun. In past was primarily used for testing ammunition and weapon modifications, \
-			novadays mass produced for Aegis security forces. Suffers from poor recoil control and underperforming ballistic impact, \
-			but makes up for this through sheer firerate. Especially effective with rubber ammunition. Uses .35 Auto rounds."
+	desc = "A compact, lightweight and cheap rapid-firing submachine gun. In the past it was primarily used for testing ammunition and weapon modifications, \
+			nowadays it is mass-produced for Aegis security forces. Suffers from poor recoil control and underperforming ballistic impact, \
+			but makes up for this through sheer firerate. Especially effective with rubber ammunition. Uses .35 Auto rounds." //Eclipse Edit - spelling / grammar
 	icon = 'icons/obj/guns/projectile/straylight.dmi'
 	icon_state = "straylight"
 	item_state = "straylight"
@@ -27,6 +27,8 @@
 		FULL_AUTO_600,
 		SEMI_AUTO_NODELAY
 		)
+
+	wield_delay = 0 // Super weak SMG
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 

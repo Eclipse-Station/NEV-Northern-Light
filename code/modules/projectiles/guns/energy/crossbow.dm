@@ -1,5 +1,5 @@
 /obj/item/gun/energy/crossbow
-	name = "NT EC \"Nemesis\""
+	name = "NT EC SC \"Nemesis\"" //Eclipse Edit - gun names standardized
 	desc = "Mini energy crossbow, reverse-engineering by NanoTrasen scientists from a captured schematic. A weapon favored by many mercenary stealth specialists."
 	icon = 'icons/obj/guns/energy/crossbow.dmi'
 	icon_state = "crossbow"
@@ -17,6 +17,7 @@
 	charge_cost = 200
 	price_tag = 2500
 
+
 /obj/item/gun/energy/crossbow/ninja
 	name = "energy dart thrower"
 	projectile_type = /obj/item/projectile/energy/dart
@@ -24,7 +25,7 @@
 	restrict_safety = TRUE
 
 /obj/item/gun/energy/crossbow/largecrossbow
-	name = "MK EC \"Themis\""
+	name = "MA EC SC \"Themis\"" //Eclipse Edit - gun names standardized
 	desc = "Energy crossbow, produced by the Mekhanites. A weapon favored by inquisitorial infiltration teams."
 	icon = 'icons/obj/guns/energy/constantine.dmi'
 	icon_state = "constantine"

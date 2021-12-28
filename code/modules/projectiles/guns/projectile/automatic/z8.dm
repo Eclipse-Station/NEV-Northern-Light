@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic/z8
-	name = "OR CAR .20 \"Z8 Bulldog\""
-	desc = "The Z8 Bulldog is an older bullpup carbine model, made by \"Oberth Republic\". It includes an underbarrel grenade launcher which is compatible with most modern grenade types. Uses .20 Rifle rounds."
+	name = "OSDF CAR .20 \"Z8 Bulldog\""
+	desc = "The Z8 Bulldog is an older bullpup carbine model, made by the \"Oberth Republic Strategic Defence Force\". It includes an underbarrel grenade launcher which is compatible with most modern grenade types. Uses .20 Rifle rounds." //Eclipse Edit - self defence renamed strategic defence
 	icon = 'icons/obj/guns/projectile/carabine.dmi'
 	icon_state = "z8"
 	item_state = "z8"
@@ -31,7 +31,7 @@
 		list(mode_name="fire grenades", mode_desc="Unlocks the underbarrel grenade launcher", burst=null, fire_delay=null, move_delay=null,  icon="grenade", use_launcher=1)
 		)
 
-	var/obj/item/gun/launcher/grenade/underslung/launcher
+	var/obj/item/gun/projectile/shotgun/pump/grenade/underslung/launcher
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
@@ -40,8 +40,8 @@
 	launcher = new(src)
 
 /obj/item/gun/projectile/automatic/z8/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		launcher.load(I, user)
+	if((istype(I, /obj/item/ammo_casing/grenade)))
+		launcher.load_underslung(I, user)
 	else
 		..()
 
@@ -49,7 +49,7 @@
 	var/datum/firemode/cur_mode = firemodes[sel_mode]
 
 	if(user.get_inactive_hand() == src && cur_mode.settings["use_launcher"])
-		launcher.unload(user)
+		launcher.unload_underslung(user)
 	else
 		..()
 

@@ -1,12 +1,12 @@
 /obj/item/gun/projectile/handmade_pistol
 	name = "handmade pistol"
-	desc = "Looks unreliable. May blow up in your hands. Due to a strange design, this one can be reload only after shot. Or with the use of a screwdriver."
+	desc = "Looks unreliable. May blow up in your hands. Due to a strange design, it can only be reloaded after being shot. Or with the use of a screwdriver." //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/hm_pistol.dmi'
 	icon_state = "hm_pistol"
 	item_state = "pistol"
 	caliber = CAL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
+	fire_sound = 'sound/weapons/guns/fire/hpistol_fire.ogg'
 	can_dual = TRUE
 	load_method = SINGLE_CASING
 	max_shells = 1
@@ -42,12 +42,15 @@
 			to_chat(user, SPAN_NOTICE("You begin to rechamber \the [src]."))
 			if(caliber == CAL_MAGNUM)
 				caliber = CAL_PISTOL
+				fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .35 Caliber."))
 			else if(caliber == CAL_PISTOL)
 				caliber = CAL_CLRIFLE
+				fire_sound = 'sound/weapons/guns/fire/m41_shoot.ogg'
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .25 Caseless."))
 			else if(caliber == CAL_CLRIFLE)
 				caliber = CAL_MAGNUM
+				fire_sound = 'sound/weapons/guns/fire/hpistol_fire.ogg'
 				to_chat(user, SPAN_WARNING("You successfully rechamber \the [src] to .40 Magnum."))
 		else
 			to_chat(user, SPAN_WARNING("You cannot rechamber a closed firearm!"))

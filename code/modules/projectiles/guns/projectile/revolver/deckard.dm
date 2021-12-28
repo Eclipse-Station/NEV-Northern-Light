@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/revolver/deckard
 	name = "FS REV .40 Magnum \"Deckard\""
-	desc = "A rare, custom-built revolver. Use when there is no time for Voight-Kampff test. Uses .40 Magnum rounds."
+	desc = "A rare, custom-built revolver. Use when there is no time for Voight-Kampff tests. Uses .40 Magnum rounds." //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/deckard.dmi'
 	icon_state = "deckard"
 	caliber = CAL_MAGNUM
@@ -13,3 +13,4 @@
 	penetration_multiplier = 1.65
 	recoil_buildup = 6
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+
