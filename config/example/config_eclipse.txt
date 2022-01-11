@@ -112,5 +112,5 @@ DISPATCHER_MAXIMUM_COMMAND_PING 1
 ## GHOST ICON GENERATION
 ## Should we generate ghost icons based on the player's character, if they have
 ## no body (e.g. joined as observer)? This may cause a minor performance impact.
-## Uncomment to enable. 
+## Uncomment to enable.
 #GENERATE_GHOST_ICONS
