@@ -52,5 +52,5 @@
 	gloves = /obj/item/clothing/gloves/thick
 	id_type = /obj/item/card/id/boff
 	pda_type = /obj/item/modular_computer/pda/heads/boff
-	backpack_contents = list(/obj/item/gun/energy/gun/martin =  1, /obj/item/cell/small/super = 1)
+	backpack_contents = list(/obj/item/gun/energy/serenity =  1)
 

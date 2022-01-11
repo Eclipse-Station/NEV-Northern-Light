@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/lmg
-	name = "L6 SAW"
+	name = "LMG .30 \"L6 SAW\""  //Eclipse Edit - gun names standardized
 	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. This one is unmarked."
 	icon = 'icons/obj/guns/projectile/l6.dmi'
 	var/icon_base = "l6"
@@ -21,11 +21,14 @@
 	reload_sound = 'sound/weapons/guns/interact/lmg_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/lmg_cock.ogg'
 	fire_sound = 'sound/weapons/guns/fire/lmg_fire.ogg'
-	recoil_buildup = 1.9
+	recoil_buildup = 1.3 // Very rare LMG , should be decent
+	damage_multiplier = 1.3
 	one_hand_penalty = 30 //you're not Stallone. LMG level.
 	spawn_blacklisted = TRUE
 	rarity_value = 80
 	gun_parts = list(/obj/item/part/gun = 1 ,/obj/item/stack/material/plasteel = 4)
+	wield_delay = 1 SECOND
+	wield_delay_factor = 0.9 // 90 vig for instant wield
 
 	init_firemodes = list(
 		FULL_AUTO_600,
@@ -84,7 +87,7 @@
 
 
 /obj/item/gun/projectile/automatic/lmg/pk
-	name = "Pulemyot Kalashnikova"
+	name = "SA LMG .30 \"Pulemyot Kalashnikova\""  //Eclipse Edit - gun names standardized
 	desc = "\"Kalashnikov's Machinegun\", a well preserved and maintained antique weapon of war."
 	icon = 'icons/obj/guns/projectile/pk.dmi'
 	icon_base = "pk"
@@ -99,7 +102,7 @@
 
 
 /obj/item/gun/projectile/automatic/lmg/tk
-	name = "FS LMG .30 Takeshi"
+	name = "FS LMG .30 \"Takeshi\""  //Eclipse Edit - gun names standardized
 	desc = "The \"Takeshi LMG\" is FS's answer to PMC's needs for mass supression and meat grinding, a fine oiled machine of war and death."
 	icon = 'icons/obj/guns/projectile/tk.dmi'
 	icon_base = "tk"

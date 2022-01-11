@@ -33,7 +33,8 @@
 		/datum/design/autolathe/cell/medium/excelsior,
 		/datum/design/autolathe/cell/small/excelsior,
 		/datum/design/autolathe/device/implanter,					//misc
-		/datum/design/autolathe/device/propaganda_chip
+		/datum/design/autolathe/device/propaganda_chip,
+		/datum/design/autolathe/container/ammocan_excel
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/excelsior/weapons
@@ -72,7 +73,8 @@
 		/datum/design/autolathe/clothing/excelsior_armor,
 		/datum/design/autolathe/device/excelbaton,					//security
 		/datum/design/autolathe/device/excelsiormine,
-		/datum/design/autolathe/sec/beartrap
+		/datum/design/autolathe/sec/beartrap,
+		/datum/design/autolathe/container/ammocan_excel
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/excelsior/drozd

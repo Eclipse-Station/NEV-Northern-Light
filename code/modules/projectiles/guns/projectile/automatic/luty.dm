@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/luty
-    name = "handmade SMG .35 Auto \"Luty\""
+    name = "handmade SMG .35 Auto \"Luty\"" 
     desc = "A dead simple open-bolt automatic firearm, easily made and easily concealed.\
             A gun that has gone by many names, from the Grease gun to the Carlo to the Swedish K. \
             Some designs are too good to change."
@@ -27,6 +27,7 @@
     recoil_buildup = 1
     one_hand_penalty = 5 //SMG level.
     spawn_blacklisted = TRUE
+    wield_delay = 0 // No delay for this , its litteraly a junk gun
 
     origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
     matter = list(MATERIAL_STEEL = 15, MATERIAL_WOOD = 10)

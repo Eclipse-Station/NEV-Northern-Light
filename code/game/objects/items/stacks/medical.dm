@@ -297,6 +297,7 @@
 		return 1
 
 	if(amount < 1)
+		to_chat(user, SPAN_NOTICE("The [src] is empty!")) //Eclipse Edit - visible message when empty
 		return
 
 	if(!ishuman(M))
@@ -400,6 +401,7 @@
 		return 1
 
 	if(amount < 1)
+		to_chat(user, SPAN_NOTICE("The [src] is empty!")) //Eclipse Edit - visible message when empty
 		return
 
 	if (ishuman(M))
