@@ -104,3 +104,13 @@ ROLE_PING_SUPPLY
 ## Default: 1 (both)
 DISPATCHER_MAXIMUM_NONCOMMAND_PING 1
 DISPATCHER_MAXIMUM_COMMAND_PING 1
+
+#########
+# MISCELLANEOUS
+#########
+
+## GHOST ICON GENERATION
+## Should we generate ghost icons based on the player's character, if they have
+## no body (e.g. joined as observer)? This may cause a minor performance impact.
+## Uncomment to enable.
+#GENERATE_GHOST_ICONS
