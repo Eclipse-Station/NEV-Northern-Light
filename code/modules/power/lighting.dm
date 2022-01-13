@@ -202,7 +202,7 @@
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 3
-	brightness_power = 1
+	brightness_power = 2
 	desc = "A small lighting fixture."
 	light_type = /obj/item/light/bulb
 
