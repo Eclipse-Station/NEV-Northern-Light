@@ -3,7 +3,7 @@
 // RSpitzer 2020-04-18
 //
 
-#define CURRENT_CONFIG_VERSION 6
+#define CURRENT_CONFIG_VERSION 7
 
 /datum/configuration
 //For things that require delaying until the config loads for things (e.g. the
@@ -43,6 +43,9 @@
 	var/ntdad_role_supply = ""
 	var/ntdad_maximum_noncommand = 0
 	var/ntdad_maximum_command = 0
+	
+// Miscellany.
+	var/generate_ghost_icons = FALSE		//Should we generate ghost icons?
 
 
 /hook/startup/proc/read_eclipse_config()
@@ -115,6 +118,8 @@
 				config.ntdad_maximum_noncommand = text2num(value)
 			if("dispatcher_maximum_command_ping")
 				config.ntdad_maximum_command = text2num(value)
+			if("generate_ghost_icons")
+				config.generate_ghost_icons = TRUE
 
 //Version check, warns if the configuration file is updated and the sysop hasn't updated their copy.
 	if(!config.eclipse_config_version)

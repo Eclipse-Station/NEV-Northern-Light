@@ -1,0 +1,5 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - bugfix: Players who observe now show their character sprite, rather than a generic
+      human.
