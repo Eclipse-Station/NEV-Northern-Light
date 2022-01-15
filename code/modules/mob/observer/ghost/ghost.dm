@@ -44,6 +44,52 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			var/mob/living/carbon/human/H = body
 			icon = H.stand_icon
 			set_overlays(H.overlays_standing)
+		// // // BEGIN ECLIPSE EDITS // // //
+		// Observer sprites are better.
+		else if(config.generate_ghost_icons)
+			var/mob/living/carbon/human/dummy/mannequin/standin = new(null)
+			standin.delete_inventory(TRUE)
+			
+			spawn(1)
+				client.prefs.copy_to(standin)
+				
+				var/unsafe = FALSE		//Flag to indicate sanity checks failed. If this is TRUE, it will throw an exception and abort loading the mob image, and instead use a generic.
+				
+				//Create the job for the stand-in mob
+				var/preferred_job
+				if(client.prefs.job_high)		//They have their top pick for jobs set, so we'll use that.
+					preferred_job = client.prefs.job_high
+				else if(client.prefs.job_medium)	//No top pick set, but they do have a medium-priority job set.
+					preferred_job = pick(client.prefs.job_medium)
+				else if(client.prefs.job_low)		//No medium priority job set, but they do have a lower.
+					preferred_job = pick(client.prefs.job_low)
+				else				//No job set. We'll make em a vagabond.
+					preferred_job = ASSISTANT_TITLE
+					
+				
+				if(preferred_job)		//Sanity check.
+					SSjob.EquipRank(standin, preferred_job)
+				else
+					throw EXCEPTION("Preferred job not set and sanity checks failed.")
+					to_chat(usr,"<span class='warning'>Failed to load your mob image - a sanity check has failed. Please report this to a developer.	\
+					\nPreferred job was not set or could not be assigned to a variable for character generation, and the fallback method failed to set the job to [ASSISTANT_TITLE].</span>")
+					unsafe = TRUE
+				
+				if(!unsafe)		//If everything went through okay, finish generating the mob.
+					equip_custom_items(standin)
+					
+					standin.update_body()
+					standin.update_icon()
+					
+					icon = standin.stand_icon
+					set_overlays(standin.overlays_standing)
+					
+					qdel(standin)
+				if(unsafe)		//If the unsafe flag is set, cancel and delete the mob, then go into the fallback method.
+					qdel(standin)
+					icon = body.icon
+					icon_state = body.icon_state
+					set_overlays(body.overlays)
 		else
 			icon = body.icon
 			icon_state = body.icon_state
@@ -54,6 +100,8 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		gender = body.gender
 		if(body.mind && body.mind.name)
 			name = body.mind.name
+		
+
 		else
 			if(body.real_name)
 				name = body.real_name
@@ -70,6 +118,53 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		var/turf/T = pick_spawn_location("Observer")
 		if(istype(T))
 			src.forceMove(T)
+		
+		
+		if(config.generate_ghost_icons)
+			var/mob/living/carbon/human/dummy/mannequin/standin = new()
+			standin.delete_inventory(TRUE)
+			
+			spawn(1)
+				client.prefs.copy_to(standin)
+				
+				var/unsafe = FALSE		//Flag to indicate sanity checks failed. If this is TRUE, it will throw an exception and abort loading the mob image, and instead use a generic.
+				
+				//Create the job for the stand-in mob
+				var/preferred_job
+				if(client.prefs.job_high)		//They have their top pick for jobs set, so we'll use that.
+					preferred_job = usr.client.prefs.job_high
+				else if(client.prefs.job_medium)	//No top pick set, but they do have a medium-priority job set.
+					preferred_job = pick(client.prefs.job_medium)
+				else if(client.prefs.job_low)		//No medium priority job set, but they do have a lower.
+					preferred_job = pick(usr.client.prefs.job_low)
+				else				//No job set. We'll make em a vagabond.
+					preferred_job = ASSISTANT_TITLE
+					
+				
+				if(preferred_job)		//Sanity check.
+					SSjob.EquipRank(standin, preferred_job)
+				else
+					throw EXCEPTION("Preferred job not set and sanity checks failed.")
+					to_chat(usr,"<span class='warning'>Failed to load your mob image - a sanity check has failed. Please report this to a developer.	\
+					\nPreferred job was not set or could not be assigned to a variable for character generation, and the fallback method failed to set the job to [ASSISTANT_TITLE].</span>")
+					unsafe = TRUE
+				
+				if(!unsafe)		//If everything went through okay, finish generating the mob.
+					equip_custom_items(standin)
+					
+					standin.update_body()
+					standin.update_icon()
+					
+					icon = standin.stand_icon
+					set_overlays(standin.overlays_standing)
+					
+					qdel(standin)
+				if(unsafe)		//If the unsafe flag is set, cancel and delete the mob, then go into the fallback method.
+					qdel(standin)
+					icon = body.icon
+					icon_state = body.icon_state
+					set_overlays(body.overlays)
+	// // // END ECLIPSE EDITS // // //
 
 	if(!name)							//To prevent nameless ghosts
 		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
