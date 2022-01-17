@@ -171,8 +171,8 @@
 /area/erida/maintenance/portsection2deck4)
 "aaB" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "up-supply"
 	},
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -336,8 +336,8 @@
 /area/erida/maintenance/starboardsection2deck3)
 "abc" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -460,8 +460,8 @@
 	tag = "icon-pipe-u (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -516,8 +516,8 @@
 	tag = "icon-pipe-u (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -538,8 +538,8 @@
 /area/eris/engineering/gravity_generator)
 "abx" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -720,8 +720,8 @@
 /area/erida/maintenance/starboardsection2deck4)
 "abP" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "up-supply"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -1273,8 +1273,8 @@
 /area/erida/maintenance/starboardsection2deck4)
 "adn" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -2391,8 +2391,8 @@
 /area/eris/engineering/gravity_generator)
 "afD" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "up-supply"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -2816,8 +2816,8 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/camera/network/fist_section{
 	dir = 4
@@ -3778,8 +3778,8 @@
 	tag = "icon-pipe-u (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "up-supply"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -3886,10 +3886,10 @@
 /area/eris/hallway/side/eschangarb)
 "aiI" = (
 /obj/structure/computerframe{
-	tag = "icon-0 (WEST)";
-	icon_state = "0";
+	anchored = 1;
 	dir = 4;
-	anchored = 1
+	icon_state = "0";
+	tag = "icon-0 (WEST)"
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/maintenance/oldbridge)
@@ -4560,8 +4560,8 @@
 	tag = "icon-pipe-d (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "down-scrubbers"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/starboardsection2deck2)
@@ -4681,8 +4681,8 @@
 /area/eris/medical/medeva)
 "akC" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/starboardsection2deck2)
@@ -4716,8 +4716,8 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -5267,8 +5267,8 @@
 "amd" = (
 /obj/structure/railing,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck2)
@@ -6066,8 +6066,8 @@
 	tag = "icon-pipe-d (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/starboardsection2deck2)
@@ -6726,8 +6726,8 @@
 	tag = "icon-pipe-u (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/railing{
 	dir = 4;
@@ -6766,8 +6766,8 @@
 	tag = "icon-pipe-u (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "up-scrubbers"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck2)
@@ -7406,8 +7406,8 @@
 /area/eris/crew_quarters/bar)
 "aro" = (
 /obj/structure/bed/chair/custom/bar_special{
-	icon_state = "bar_chair";
-	dir = 1
+	dir = 1;
+	icon_state = "bar_chair"
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
@@ -8177,8 +8177,8 @@
 /area/erida/maintenance/portsection2deck3)
 "atq" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/portsection2deck3)
@@ -8432,8 +8432,8 @@
 /area/eris/maintenance/section1deck4central)
 "atR" = (
 /obj/structure/window/reinforced/tinted/frosted{
-	icon_state = "fwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "fwindow"
 	},
 /obj/machinery/shower{
 	dir = 4
@@ -8501,8 +8501,8 @@
 /area/eris/crew_quarters/fitness)
 "atZ" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
@@ -8512,8 +8512,8 @@
 	tag = "icon-pipe-u (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -10084,8 +10084,8 @@
 /area/eris/medical/surgery)
 "axS" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -10222,8 +10222,8 @@
 /area/eris/security/prison)
 "ayj" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
@@ -10592,8 +10592,8 @@
 	tag = "icon-pipe-u (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -11647,8 +11647,8 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/erida/maintenance/portsection2deck4)
@@ -12431,8 +12431,8 @@
 /area/erida/maintenance/portsection2deck4)
 "aDz" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
 /area/eris/command/courtroom)
@@ -12924,8 +12924,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
@@ -13432,8 +13432,8 @@
 	tag = "icon-pipe-u (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/foyer)
@@ -13601,8 +13601,8 @@
 /area/erida/maintenance/portsection2deck3)
 "aGg" = (
 /obj/structure/bed/chair/comfy/lime{
-	icon_state = "comfychair_preview";
-	dir = 1
+	dir = 1;
+	icon_state = "comfychair_preview"
 	},
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/crew_quarters/hydroponics/garden)
@@ -13750,8 +13750,8 @@
 "aGy" = (
 /obj/machinery/gibber,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -14170,8 +14170,8 @@
 /area/erida/maintenance/sciweapondeck)
 "aHB" = (
 /obj/machinery/computer/rdconsole/core{
-	icon_state = "computer";
-	dir = 8
+	dir = 8;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/white/gray_perforated,
 /area/eris/rnd/lab)
@@ -14328,8 +14328,8 @@
 /area/eris/medical/patients_rooms)
 "aIc" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -14414,12 +14414,12 @@
 	tag = "icon-pipe-u (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "up-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "up-supply"
 	},
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -14522,8 +14522,8 @@
 	tag = "icon-pipe-d (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -15135,8 +15135,8 @@
 /area/eris/neotheology/chapelritualroom)
 "aJV" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "up-supply"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -15151,8 +15151,8 @@
 /area/erida/maintenance/starboardsection2deck2)
 "aJW" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -16839,12 +16839,12 @@
 	tag = "icon-railing0 (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "up-supply"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "up-scrubbers"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck4)
@@ -17159,8 +17159,8 @@
 /area/erida/maintenance/portsection2deck3)
 "aOM" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "down-supply"
 	},
 /obj/structure/railing{
 	dir = 4;
@@ -17247,8 +17247,8 @@
 	tag = "icon-pipe-d (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -18393,8 +18393,8 @@
 /area/erida/maintenance/portsection2deck3)
 "aRD" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "down-supply"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -18673,8 +18673,8 @@
 /area/eris/rnd/anomal)
 "aSk" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck4)
@@ -19151,8 +19151,8 @@
 	tag = "icon-pipe-u (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck3)
@@ -19177,8 +19177,8 @@
 /area/erida/maintenance/portsection2deck4)
 "aTp" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck4)
@@ -19991,8 +19991,8 @@
 	tag = "icon-pipe-d (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "down-supply"
 	},
 /obj/structure/railing{
 	dir = 1;
@@ -20133,8 +20133,8 @@
 	tag = "icon-pipe-d (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "down-scrubbers"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/starboardsection2deck1)
@@ -20355,8 +20355,8 @@
 	tag = "icon-pipe-d (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/portsection2deck2)
@@ -20366,8 +20366,8 @@
 	tag = "icon-pipe-d (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -20563,12 +20563,12 @@
 /area/eris/quartermaster/office)
 "aWF" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "up-supply"
 	},
 /obj/structure/railing{
 	dir = 4;
@@ -21114,9 +21114,9 @@
 /area/eris/engineering/atmos)
 "aXZ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	tag = "icon-map (EAST)";
+	dir = 8;
 	icon_state = "map";
-	dir = 8
+	tag = "icon-map (EAST)"
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
@@ -21631,8 +21631,8 @@
 	tag = "icon-pipe-u (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck4)
@@ -21931,8 +21931,8 @@
 	tag = "icon-railing0 (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck2)
@@ -22161,8 +22161,8 @@
 	tag = "icon-railing0 (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -22769,8 +22769,8 @@
 /area/erida/maintenance/portsection2deck2)
 "bco" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "down-supply"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -23113,8 +23113,8 @@
 	tag = "icon-pipe-d (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "down-scrubbers"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/portsection2deck2)
@@ -24858,10 +24858,10 @@
 /area/eris/crew_quarters/bar)
 "bhB" = (
 /obj/structure/computerframe{
-	tag = "icon-0 (WEST)";
-	icon_state = "0";
+	anchored = 1;
 	dir = 4;
-	anchored = 1
+	icon_state = "0";
+	tag = "icon-0 (WEST)"
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -25568,9 +25568,9 @@
 /area/eris/engineering/atmos)
 "bjl" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	tag = "icon-map (EAST)";
+	dir = 8;
 	icon_state = "map";
-	dir = 8
+	tag = "icon-map (EAST)"
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -26642,8 +26642,8 @@
 	tag = "icon-pipe-u (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -26877,8 +26877,8 @@
 /area/eris/security/barracks)
 "bmr" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
@@ -27417,8 +27417,8 @@
 	tag = "icon-railing0 (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -27951,8 +27951,8 @@
 /area/eris/maintenance/section1deck3central)
 "boB" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/eris/maintenance/section1deck3central)
@@ -27962,8 +27962,8 @@
 	tag = "icon-pipe-d (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -29230,8 +29230,8 @@
 /area/eris/command/meo)
 "brm" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/eris/hallway/main/section2)
@@ -30171,8 +30171,8 @@
 /area/eris/engineering/breakroom)
 "btH" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
-	icon_state = "map";
-	dir = 8
+	dir = 8;
+	icon_state = "map"
 	},
 /turf/simulated/floor/hull{
 	flooring_override = "hullcenter18";
@@ -30182,8 +30182,8 @@
 /area/space)
 "btI" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
-	icon_state = "map";
-	dir = 1
+	dir = 1;
+	icon_state = "map"
 	},
 /turf/simulated/floor/hull{
 	flooring_override = "hullcenter18";
@@ -30822,12 +30822,12 @@
 	icon_state = "16-0"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "up-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck4)
@@ -33257,8 +33257,8 @@
 /area/eris/hallway/main/section2)
 "bBi" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/railing{
 	dir = 8;
@@ -33679,8 +33679,8 @@
 /area/eris/maintenance/section1deck2central)
 "bCm" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/eris/maintenance/section1deck2central)
@@ -33860,8 +33860,8 @@
 	tag = "icon-pipe-d (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -34045,8 +34045,8 @@
 /area/eris/maintenance/section1deck2central)
 "bCZ" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -34169,8 +34169,8 @@
 	tag = "icon-pipe-u (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck2central)
@@ -34520,8 +34520,8 @@
 /area/eris/engineering/drone_fabrication)
 "bEa" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "down-supply"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -34531,8 +34531,8 @@
 /area/erida/maintenance/starboardsection2deck1)
 "bEb" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "down-scrubbers"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/starboardsection2deck1)
@@ -35039,15 +35039,15 @@
 /area/eris/command/meeting_room)
 "bFp" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck2central)
 "bFq" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "up-scrubbers"
 	},
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -36670,8 +36670,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
-	icon_state = "map";
-	dir = 8
+	dir = 8;
+	icon_state = "map"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
@@ -36764,8 +36764,8 @@
 	tag = "icon-pipe-d (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -36855,8 +36855,8 @@
 /area/turret_protected/ai)
 "bJz" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/eris/maintenance/section1deck2central)
@@ -36895,8 +36895,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
-	icon_state = "map";
-	dir = 1
+	dir = 1;
+	icon_state = "map"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
@@ -37242,8 +37242,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
-	icon_state = "map";
-	dir = 8
+	dir = 8;
+	icon_state = "map"
 	},
 /turf/simulated/floor/bluegrid,
 /area/eris/command/tcommsat/chamber)
@@ -37602,8 +37602,8 @@
 /area/eris/engineering/foyer)
 "bLe" = (
 /obj/item/modular_computer/console/preset/security/camera{
-	icon_state = "console";
-	dir = 8
+	dir = 8;
+	icon_state = "console"
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/engineering/foyer)
@@ -37850,8 +37850,8 @@
 /area/eris/engineering/foyer)
 "bLO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
-	icon_state = "map";
-	dir = 8
+	dir = 8;
+	icon_state = "map"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
@@ -38121,8 +38121,8 @@
 /area/eris/security/main)
 "bMA" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "up-scrubbers"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/substation/bridge)
@@ -38401,8 +38401,8 @@
 	icon_state = "16-0"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/substation/bridge)
@@ -39273,8 +39273,8 @@
 /area/eris/crew_quarters/sleep/cryo)
 "bOS" = (
 /obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
+	dir = 1;
+	icon_state = "term"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -39405,8 +39405,8 @@
 /area/eris/security/inspectors_office)
 "bPj" = (
 /obj/machinery/computer/supplycomp{
-	icon_state = "computer";
-	dir = 1
+	dir = 1;
+	icon_state = "computer"
 	},
 /obj/machinery/camera/network/second_section{
 	dir = 1
@@ -40017,8 +40017,8 @@
 	icon_state = "16-0"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "up-scrubbers"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/substation/bridge)
@@ -40162,8 +40162,8 @@
 /area/eris/command/exultant)
 "bQM" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/substation/bridge)
@@ -40352,12 +40352,12 @@
 	tag = "icon-pipe-d (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "down-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "down-supply"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -40566,12 +40566,12 @@
 	tag = "icon-pipe-d (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "down-supply"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -40630,12 +40630,12 @@
 	icon_state = "32-1"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "down-supply"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "down-scrubbers"
 	},
 /turf/simulated/open,
 /area/eris/security/lobby)
@@ -42233,8 +42233,8 @@
 	tag = "icon-railing0 (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "down-scrubbers"
 	},
 /turf/simulated/open,
 /area/eris/maintenance/section1deck1central)
@@ -42314,8 +42314,8 @@
 	tag = "icon-railing0 (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "down-supply"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -43306,8 +43306,8 @@
 /area/eris/maintenance/section1deck1central)
 "bYe" = (
 /obj/machinery/atmospherics/pipe/tank/plasma{
-	icon_state = "plasma_map";
-	dir = 8
+	dir = 8;
+	icon_state = "plasma_map"
 	},
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/eris/maintenance/section1deck1central)
@@ -45197,8 +45197,8 @@
 /area/eris/maintenance/section1deck1central)
 "cda" = (
 /obj/machinery/atmospherics/pipe/cap/visible{
-	icon_state = "cap";
-	dir = 4
+	dir = 4;
+	icon_state = "cap"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck1central)
@@ -45217,8 +45217,8 @@
 /area/eris/maintenance/section1deck1central)
 "cdd" = (
 /obj/machinery/atmospherics/pipe/cap/visible{
-	icon_state = "cap";
-	dir = 8
+	dir = 8;
+	icon_state = "cap"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck1central)
@@ -46320,8 +46320,8 @@
 /area/eris/security/inspectors_office)
 "cfz" = (
 /obj/structure/toilet{
-	icon_state = "toilet00";
-	dir = 1
+	dir = 1;
+	icon_state = "toilet00"
 	},
 /obj/machinery/light/small{
 	dir = 8
@@ -46330,8 +46330,8 @@
 /area/eris/security/barracks)
 "cfA" = (
 /obj/structure/toilet{
-	icon_state = "toilet00";
-	dir = 1
+	dir = 1;
+	icon_state = "toilet00"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -47131,8 +47131,8 @@
 	tag = "icon-pipe-d (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -47402,8 +47402,8 @@
 	tag = "icon-pipe-d (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/portsection2deck1)
@@ -48523,9 +48523,9 @@
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	tag = "icon-manifold-f (EAST)";
+	dir = 8;
 	icon_state = "map";
-	dir = 8
+	tag = "icon-manifold-f (EAST)"
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/miningdock)
@@ -48807,12 +48807,12 @@
 	icon_state = "32-8"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "down-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "down-supply"
 	},
 /obj/structure/railing,
 /turf/simulated/open,
@@ -49906,8 +49906,8 @@
 /area/eris/crew_quarters/hydroponics)
 "cnW" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "up-scrubbers"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck4)
@@ -50153,8 +50153,8 @@
 /area/eris/engineering/engine_room)
 "coC" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -53296,10 +53296,10 @@
 /area/erida/maintenance/portsection2deck4)
 "cwd" = (
 /obj/structure/computerframe{
-	tag = "icon-0 (WEST)";
-	icon_state = "0";
+	anchored = 1;
 	dir = 4;
-	anchored = 1
+	icon_state = "0";
+	tag = "icon-0 (WEST)"
 	},
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/erida/maintenance/portsection2deck4)
@@ -53405,8 +53405,8 @@
 	tag = "icon-pipe-u (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "up-scrubbers"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
@@ -53522,8 +53522,8 @@
 	tag = "icon-pipe-u (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/foyer)
@@ -54222,12 +54222,12 @@
 	tag = "icon-pipe-d (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "down-supply"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -54274,8 +54274,8 @@
 /area/eris/crew_quarters/sleep)
 "cyt" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "up-supply"
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -54365,8 +54365,8 @@
 /area/eris/crew_quarters/sleep)
 "cyA" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 1
+	dir = 1;
+	icon_state = "down-supply"
 	},
 /turf/simulated/open,
 /area/eris/crew_quarters/sleep)
@@ -56573,8 +56573,8 @@
 	tag = "icon-pipe-u (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
-	icon_state = "up-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "up-scrubbers"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck3)
@@ -57001,8 +57001,8 @@
 /area/eris/maintenance/oldbridge)
 "cEO" = (
 /obj/item/modular_computer/console/preset/security/camera{
-	icon_state = "console";
-	dir = 8
+	dir = 8;
+	icon_state = "console"
 	},
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/eris/maintenance/oldbridge)
@@ -57028,10 +57028,10 @@
 /area/eris/maintenance/oldbridge)
 "cES" = (
 /obj/structure/computerframe{
-	tag = "icon-0 (WEST)";
-	icon_state = "0";
+	anchored = 1;
 	dir = 4;
-	anchored = 1
+	icon_state = "0";
+	tag = "icon-0 (WEST)"
 	},
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/eris/maintenance/oldbridge)
@@ -58620,8 +58620,8 @@
 /area/erida/maintenance/starboardsection2deck3)
 "cIN" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck3)
@@ -59034,8 +59034,8 @@
 /area/erida/maintenance/portsection2deck3)
 "cJy" = (
 /obj/structure/disposalpipe/sortjunction/wildcard{
-	icon_state = "pipe-j2s";
-	dir = 4
+	dir = 4;
+	icon_state = "pipe-j2s"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck3)
@@ -63621,8 +63621,8 @@
 /obj/spawner/lowkeyrandom/low_chance,
 /obj/spawner/lowkeyrandom/low_chance,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/erida/maintenance/portsection2deck3)
@@ -63702,8 +63702,8 @@
 /area/erida/hallway/side/docks)
 "cWu" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/erida/maintenance/portsection2deck3)
@@ -64925,8 +64925,8 @@
 /area/eris/engineering/engine_room)
 "cZd" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
-	icon_state = "map";
-	dir = 1
+	dir = 1;
+	icon_state = "map"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -65064,9 +65064,9 @@
 /area/eris/engineering/engine_room)
 "cZs" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	tag = "icon-map (EAST)";
+	dir = 8;
 	icon_state = "map";
-	dir = 8
+	tag = "icon-map (EAST)"
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
@@ -65640,10 +65640,9 @@
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
 "daK" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	tag = "icon-intact (SOUTHEAST)";
-	icon_state = "intact";
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+	dir = 4;
+	tag = "icon-map (EAST)"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
@@ -66225,8 +66224,8 @@
 /area/eris/command/tcommsat/chamber)
 "dbN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	icon_state = "intact";
-	dir = 10
+	dir = 10;
+	icon_state = "intact"
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
@@ -66300,22 +66299,14 @@
 /area/eris/engineering/engine_room)
 "dbY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	icon_state = "intact";
-	dir = 10
+	dir = 10;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
 "dbZ" = (
 /obj/structure/catwalk,
 /turf/simulated/open,
-/area/eris/engineering/engine_room)
-"dca" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 4;
-	tag = "icon-intact (EAST)"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
 "dcb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green,
@@ -66398,24 +66389,12 @@
 /area/eris/security/inspectors_office)
 "dco" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	icon_state = "intact";
-	dir = 10
+	dir = 10;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
 "dcp" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 6;
-	tag = "icon-intact (SOUTHEAST)"
-	},
-/turf/simulated/floor/tiled/steel/danger,
-/area/eris/engineering/engine_room)
-"dcq" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	tag = "icon-intact (SOUTHEAST)";
-	icon_state = "intact";
-	dir = 9
-	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
 "dcr" = (
@@ -66487,13 +66466,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
-"dcB" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/danger,
-/area/eris/engineering/engine_room)
 "dcC" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 4;
@@ -66551,7 +66523,10 @@
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
 "dcK" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/cyan,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4;
+	tag = "icon-intact (EAST)"
+	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
 "dcL" = (
@@ -68156,8 +68131,8 @@
 /area/eris/maintenance/section3deck4starboard)
 "dgK" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/portsection2deck4)
@@ -68451,8 +68426,8 @@
 /area/eris/hallway/main/section2)
 "dhz" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/supply{
-	icon_state = "up-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "up-supply"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -68699,8 +68674,8 @@
 /area/eris/crew_quarters/fitness)
 "dic" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
@@ -68800,8 +68775,8 @@
 /area/eris/maintenance/section3deck4starboard)
 "dip" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/maintenance/section1deck3central)
@@ -68858,12 +68833,12 @@
 /area/eris/maintenance/section1deck3central)
 "div" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "down-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 8
+	dir = 8;
+	icon_state = "down-supply"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -68874,8 +68849,8 @@
 /area/eris/maintenance/section1deck3central)
 "diw" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "down-supply"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -68984,8 +68959,8 @@
 /area/eris/crew_quarters/sleep)
 "diH" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/crew_quarters/sleep)
@@ -69067,8 +69042,8 @@
 	tag = "icon-pipe-d (NORTH)"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 1
+	dir = 1;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 32;
@@ -69164,8 +69139,8 @@
 /area/eris/engineering/atmos)
 "diW" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/starboardsection2deck1)
@@ -69190,8 +69165,8 @@
 /area/erida/maintenance/portsection2deck1)
 "diZ" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/techmaint_cargo,
 /area/erida/maintenance/portsection2deck1)
@@ -69306,8 +69281,8 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/quartermaster/miningdock)
@@ -69354,8 +69329,8 @@
 "djo" = (
 /obj/structure/catwalk,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck1)
@@ -69467,8 +69442,8 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck1)
@@ -69507,8 +69482,8 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck1)
@@ -69525,8 +69500,8 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck1)
@@ -69541,8 +69516,8 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck1)
@@ -69903,8 +69878,8 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/quartermaster/miningdock)
@@ -70212,8 +70187,8 @@
 /area/erida/hallway/side/docks)
 "dkO" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/disposal)
@@ -70222,8 +70197,8 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/disposal)
@@ -70232,8 +70207,8 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white/techfloor,
 /area/eris/rnd/docking)
@@ -70416,8 +70391,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/maintenance/junk)
@@ -70428,22 +70403,22 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/maintenance/junk)
 "dlk" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/maintenance/junk)
 "dll" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/maintenance/junk)
@@ -72076,8 +72051,8 @@
 /area/eris/rnd/xenobiology)
 "dph" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -72320,8 +72295,8 @@
 /area/eris/crew_quarters/hydroponics)
 "dpO" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "down-scrubbers"
 	},
 /turf/simulated/open,
 /area/erida/maintenance/starboardsection2deck1)
@@ -74728,8 +74703,8 @@
 /area/eris/security/inspectors_office)
 "dvR" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/holoposter{
 	pixel_y = 32
@@ -74907,12 +74882,12 @@
 /area/eris/crew_quarters/sleep)
 "dwl" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	icon_state = "down-supply";
-	dir = 4
+	dir = 4;
+	icon_state = "down-supply"
 	},
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	icon_state = "down-scrubbers";
-	dir = 4
+	dir = 4;
+	icon_state = "down-scrubbers"
 	},
 /obj/structure/railing{
 	dir = 4;
@@ -75534,8 +75509,8 @@
 /area/erida/hallway/side/docks)
 "dxw" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -75693,12 +75668,12 @@
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
 "dxO" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 10;
-	tag = "icon-intact (SOUTHWEST)"
-	},
 /obj/machinery/alarm{
 	pixel_y = 26
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 4;
+	tag = "icon-intact (EAST)"
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
@@ -75858,8 +75833,8 @@
 "dyg" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/ai_status_display{
 	pixel_y = 32
@@ -75869,8 +75844,8 @@
 "dyh" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/ai_status_display{
 	pixel_y = 32
@@ -76415,8 +76390,8 @@
 /area/eris/command/meo)
 "dzi" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -76487,8 +76462,8 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -76519,8 +76494,8 @@
 /area/erida/hallway/side/docks)
 "dzq" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -76757,8 +76732,8 @@
 /area/erida/hallway/side/docks)
 "dzO" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/structure/sign/department/biblio{
 	pixel_y = 32
@@ -76975,8 +76950,8 @@
 /area/eris/rnd/xenobiology)
 "dAx" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/structure/sign/faction/neotheology_cross/gold{
 	pixel_y = 32
@@ -80066,17 +80041,69 @@
 	},
 /turf/simulated/floor/reinforced/monochloramine,
 /area/eris/engineering/atmos)
+"fEg" = (
+/obj/machinery/camera/network/engineering,
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 10;
+	tag = "icon-intact (SOUTHWEST)"
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/engine_room)
+"jOu" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4;
+	tag = "icon-intact (EAST)"
+	},
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/engine_room)
+"jSU" = (
+/obj/machinery/atmospherics/pipe/zpipe/up{
+	dir = 1
+	},
+/turf/simulated/floor/hull,
+/area/space)
+"kQB" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/eris/engineering/engine_room)
 "lgy" = (
 /obj/structure/sign/double/barsign{
-	icon_state = "empty";
-	dir = 8
+	dir = 8;
+	icon_state = "empty"
 	},
 /turf/simulated/wall/r_wall,
 /area/eris/hallway/main/section2)
+"rok" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/eris/engineering/engine_room)
 "szA" = (
 /obj/structure/sign/double/barsign,
 /turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/bar)
+"tDQ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/simulated/floor/hull,
+/area/space)
+"ukg" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/down{
+	dir = 1;
+	tag = "icon-down (NORTH)"
+	},
+/turf/space,
+/area/space)
+"wvI" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible/cyan,
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/engine_room)
+"ybd" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/simulated/wall/r_wall,
+/area/eris/engineering/engine_room)
 
 (1,1,1) = {"
 aaa
@@ -137665,8 +137692,8 @@ cYE
 cZH
 daz
 daK
-ccW
-aav
+ybd
+jSU
 aId
 aav
 aao
@@ -160455,19 +160482,19 @@ dBh
 dai
 dcl
 dcw
-dcH
-dbJ
-dbJ
-dbJ
-dai
-dai
-dai
-dBo
-ccW
-aav
-aav
-aav
-aaa
+wvI
+rok
+rok
+rok
+kQB
+kQB
+kQB
+jOu
+ybd
+tDQ
+tDQ
+tDQ
+ukg
 aaa
 bsQ
 bsQ
@@ -161060,9 +161087,9 @@ cqB
 cqD
 cqD
 dxO
-dbR
+dai
 dcp
-dcB
+dcj
 dcK
 dbJ
 dbJ
@@ -161211,9 +161238,9 @@ cQL
 cqB
 cud
 cqD
-dFa
-dca
-dcq
+fEg
+dbR
+dcp
 dcC
 dcL
 dbJ
