@@ -817,6 +817,10 @@
 /area/eris/command/courtroom)
 "acc" = (
 /obj/machinery/power/shield_generator/hull/installed,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/shield_generator)
 "acd" = (
@@ -1845,6 +1849,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/shield_generator)
 "aeA" = (
@@ -2176,6 +2185,11 @@
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/shield_generator)
