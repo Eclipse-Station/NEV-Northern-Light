@@ -80090,6 +80090,24 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/eris/hallway/main/section2)
+"oJF" = (
+/obj/structure/catwalk,
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/closet/crate,
+/obj/item/stock_parts/smes_coil,
+/obj/item/stock_parts/smes_coil,
+/obj/item/stock_parts/smes_coil/super_capacity,
+/obj/item/stock_parts/smes_coil/super_capacity,
+/obj/item/stock_parts/smes_coil/super_io,
+/obj/item/stock_parts/smes_coil/super_io,
+/obj/item/electronics/circuitboard/smes,
+/obj/item/electronics/circuitboard/smes,
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/engine_room)
 "rok" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -136170,7 +136188,7 @@ ccW
 ciK
 clV
 cnz
-cnz
+oJF
 cqa
 dDc
 dDf
