@@ -1,7 +1,7 @@
 /datum/reagent/medicine/oblomovin
 	name = "Oblomovin"
 	id = "oblomovin"
-	description = "A highly toxic compound used to treat Kurolesov\'s syndrome. Needs high body temperature to properly metabolize."
+	description = "A highly toxic compound used to treat Kurolesov\'s syndrome. Needs a high body temperature to properly metabolize."
 	taste_description = "battery acid"
 	reagent_state = LIQUID
 	color = "#fc0349"
