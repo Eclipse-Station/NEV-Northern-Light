@@ -80,10 +80,10 @@
 			majormutate()
 
 	//Space antibiotics stop disease completely
-	if(mob.reagents.has_reagent("spaceacillin"))
+	/*if(mob.reagents.has_reagent("spaceacillin"))
 		if(stage == 1 && prob(20))
 			src.cure(mob)
-		return
+		return*/ //Removed by popular (Admin) Demand. Eclipse Edit
 
 	//Virus food speeds up disease progress
 	if(mob.reagents.has_reagent("virusfood"))
