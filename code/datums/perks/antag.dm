@@ -34,6 +34,7 @@
 		for(var/datum/individual_objective/objective in H.mind.individual_objectives)
 			if(objective.limited_antag)
 				H.mind.individual_objectives -= objective
+				qdel(objective)
 
 
 /datum/perk/kurolesovsyndrome/remove()
