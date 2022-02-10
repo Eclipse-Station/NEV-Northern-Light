@@ -39,3 +39,10 @@
 	required_reagents = list("fuel" = 2, "liquid_trichlor" = 5, "radium" = 1)		//8 units in
 	result_amount = 4
 	maximum_temperature = 253
+
+/datum/chemical_reaction/oblomovin
+	result = "oblomovin"
+	required_reagents = list("clonexadone" = 1, "tungsten" = 1, "plasma" = 2, "ethanol" = 2)
+	catalysts = list("plasma" = 5)
+	result_amount = 1
+

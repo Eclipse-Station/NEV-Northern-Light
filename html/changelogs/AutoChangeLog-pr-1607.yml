@@ -1,4 +1,0 @@
-author: drexample
-delete-after: true
-changes:
-  - bugfix: Malf AI now spawns only when crew is capable of handling it.
