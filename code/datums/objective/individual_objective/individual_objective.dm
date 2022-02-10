@@ -52,6 +52,12 @@
 	mind_holder = new_owner.current
 	owner.individual_objectives += src
 	to_chat(owner,  SPAN_NOTICE("You have obtained a new personal objective: [name]"))
+	//Eclipse edit start
+	if(limited_antag)
+		var/mob/living/carbon/human/H = owner.current
+		if(!H.stats.getPerk(/datum/perk/kurolesovsyndrome))
+			H.stats.addPerk(/datum/perk/kurolesovsyndrome)
+	//Eclipse edit end
 
 /datum/individual_objective/proc/completed(fail=FALSE)
 	SHOULD_CALL_PARENT(TRUE)
@@ -121,6 +127,12 @@
 			return FALSE
 	if(req_department.len && (!L.mind.assigned_job || !(L.mind.assigned_job.department in req_department)))
 		return FALSE
+	if(ishuman(L) && limited_antag)//Eclipse edit start
+		var/mob/living/carbon/human/H = L
+		var/datum/perk/kurolesovsyndrome/KS = H.stats.getPerk(/datum/perk/kurolesovsyndrome)
+		if(KS)
+			if(KS.cured)
+				return FALSE//Eclipse edit end
 	return TRUE
 
 /datum/individual_objective/proc/update_faction_score()

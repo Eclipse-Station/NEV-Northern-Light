@@ -507,3 +507,4 @@
 		split_phrase[index] = word
 
 	return sanitize(jointext(split_phrase," "))
+
