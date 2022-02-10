@@ -2903,8 +2903,6 @@
 #include "zzz_modular_eclipse\code\modules\projectiles\guns\energy\serenity.dm"
 #include "zzz_modular_eclipse\code\modules\projectiles\guns\energy\squire.dm"
 #include "zzz_modular_eclipse\code\modules\projectiles\guns\projectile\automatic\olympus.dm"
-#include "zzz_modular_eclipse\code\modules\reagents\medicine.dm"
-#include "zzz_modular_eclipse\code\modules\reagents\recipes.dm"
 #include "zzz_modular_eclipse\code\modules\reagents\toxins.dm"
 #include "zzz_modular_eclipse\code\modules\sanity\sanity_mob.dm"
 #include "zzz_modular_eclipse\code\modules\sprite_accessories\_accessory_facial.dm"
