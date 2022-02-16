@@ -29,10 +29,10 @@
 	update_icon()
 
 
-/obj/structure/dispenser/on_update_icon()
-	cut_overlays()
+/obj/structure/dispenser/update_icon()
+	overlays.Cut()
 	switch(oxygentanks)
-		if(1 to 3)	add_overlays("oxygen-[oxygentanks]")
+		if(1 to 3)	overlays += "oxygen-[oxygentanks]"
 		if(4 to INFINITY) overlays += "oxygen-4"
 	switch(phorontanks)
 		if(1 to 4)	overlays += "phoron-[phorontanks]"

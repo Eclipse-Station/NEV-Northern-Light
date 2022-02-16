@@ -138,8 +138,8 @@ var/global/list/robot_modules = list(
 	R.choose_icon()
 
 /obj/item/robot_module/Destroy()
-	QDEL_NULL_LIST(modules)
-	QDEL_NULL_LIST(synths)
+	QDEL_LIST(modules)
+	QDEL_LIST(synths)
 	qdel(emag)
 	qdel(jetpack)
 	qdel(malfAImodule)
@@ -965,7 +965,7 @@ var/global/list/robot_modules = list(
 	..(R)
 
 
-//Syndicate borg is intended for summoning by traitors. Not currently implemented
+//Syndicate borg is intended for summoning by contractors. Not currently implemented
 /obj/item/robot_module/syndicate
 	name = "syndicate robot module"
 	hide_on_manifest = TRUE

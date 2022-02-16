@@ -35,7 +35,7 @@
 
 	gun_tags = list(GUN_SILENCABLE)
 
-/obj/item/gun/projectile/automatic/olympus/on_update_icon()
+/obj/item/gun/projectile/automatic/olympus/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

@@ -23,7 +23,7 @@
 
 /obj/item/clothing/head/warden
 	name = "Gunnery Sergeant hat"
-	desc = "It's a special helmet issued to the Warden of a securiy force."
+	desc = "A special helmet issued to the Warden of a securiy force."
 	icon_state = "policehelm"
 	body_parts_covered = NONE
 
@@ -133,7 +133,7 @@
  */
 /obj/item/clothing/under/rank/cadet
 	name = "Aegis Cadet jumpskirt"
-	desc = "It's a sailor's uniform used for cadets in training, though more frequently in acts of hazing."
+	desc = "A sailor's uniform used for cadets in training, though more frequently in acts of hazing."
 	icon_state = "cadet"
 	item_state = "cadet"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS

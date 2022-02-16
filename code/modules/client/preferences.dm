@@ -254,7 +254,7 @@
 
 	character.body_markings = body_markings
 
-	QDEL_NULL_LIST(character.worn_underwear)
+	QDEL_LIST(character.worn_underwear)
 	character.worn_underwear = list()
 
 	for(var/underwear_category_name in all_underwear)

@@ -215,9 +215,6 @@
 	display_name = "plague doctor hat"
 	path = /obj/item/clothing/head/plaguedoctorhat
 
-/datum/gear/head/rabbit
-	display_name = "rabbit ears"
-	path = /obj/item/clothing/head/rabbitears
 
 /datum/gear/head/beaverhat
 	display_name = "beaver hat"

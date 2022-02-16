@@ -91,7 +91,7 @@
 
 	M.updatehealth()
 
-/obj/item/stack/medical/on_update_icon()
+/obj/item/stack/medical/update_icon()
 	if(QDELETED(src)) //Checks if the item has been deleted
 		return	//If it has, do nothing
 	..()
@@ -534,7 +534,7 @@
 	matter = list(MATERIAL_BIOMATTER = 3)
 	origin_tech = list(TECH_BIO = 4)
 
-/obj/item/stack/medical/advanced/bruise_pack/nt/on_update_icon()
+/obj/item/stack/medical/advanced/bruise_pack/nt/update_icon()
 	icon_state = "[initial(icon_state)][amount]"
 	..()
 
@@ -549,6 +549,6 @@
 	matter = list(MATERIAL_BIOMATTER = 3)
 	origin_tech = list(TECH_BIO = 4)
 
-/obj/item/stack/medical/advanced/ointment/nt/on_update_icon()
+/obj/item/stack/medical/advanced/ointment/nt/update_icon()
 	icon_state = "[initial(icon_state)][amount]"
 	..()

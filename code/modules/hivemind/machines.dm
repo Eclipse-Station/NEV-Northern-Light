@@ -46,8 +46,8 @@
 	. = ..()
 	GLOB.all_hive_machinery -= src
 
-/obj/machinery/hivemind_machine/on_update_icon()
-	cut_overlays()
+/obj/machinery/hivemind_machine/update_icon()
+	overlays.Cut()
 	if(stat & EMPED)
 		icon_state = "[icon_state]-disabled"
 	else
@@ -95,11 +95,11 @@
 	else if (health < max_health * 0.25)
 		to_chat(user, SPAN_DANGER("It's seriously fucked up!"))
 	else if (health < max_health * 0.50)
-		to_chat(user, SPAN_DANGER("It's very damaged, you can almost see the components inside!"))
+		to_chat(user, SPAN_DANGER("It's very damaged; you can almost see the components inside!"))
 	else if (health < max_health * 0.75)
 		to_chat(user, SPAN_WARNING("It has numerous dents and deep scratches."))
 	else if (health < max_health)
-		to_chat(user, SPAN_WARNING("It's a bit scratched and has dents."))
+		to_chat(user, SPAN_WARNING("It's a bit scratched and dented."))
 
 
 /obj/machinery/hivemind_machine/Process()
@@ -325,7 +325,7 @@
 		var/obj/item/device/flash/flash = I
 		if(!flash.broken)
 			playsound(user, 'sound/weapons/flash.ogg', 100, 1)
-			FLICK("flash2", flash)
+			flick("flash2", flash)
 			flash.times_used++
 			flash.flash_recharge()
 			damage_reaction()
@@ -453,14 +453,14 @@
 		add_wireweed(wireweed)
 
 
-/obj/machinery/hivemind_machine/node/on_update_icon()
-	cut_overlays()
+/obj/machinery/hivemind_machine/node/update_icon()
+	overlays.Cut()
 	if(stat & EMPED)
 		icon_state = "core-disabled"
-		add_overlays("core-smirk_disabled")
+		overlays += "core-smirk_disabled"
 	else
 		icon_state = initial(icon_state)
-		add_overlays("core-smirk")
+		overlays += "core-smirk"
 
 
 /obj/machinery/hivemind_machine/node/use_ability(atom/target)
@@ -578,7 +578,7 @@
 	spawned_mob.loc = loc
 	spawned_creatures.Add(spawned_mob)
 	spawned_mob.master = src
-	FLICK("[icon_state]-anim", src)
+	flick("[icon_state]-anim", src)
 	qdel(CATCH)
 	return TRUE		//We did successfuly spawn a mob, so the cooldown (above) will be set.
 // // // END ECLIPSE EDITS // // //
@@ -611,7 +611,7 @@
 
 //this one is slow, careful with it
 /obj/machinery/hivemind_machine/babbler/use_ability()
-	FLICK("[icon_state]-anim", src)
+	flick("[icon_state]-anim", src)
 	var/msg_cycles = rand(1, 2)
 	var/msg = ""
 	for(var/i = 1 to msg_cycles)
@@ -680,7 +680,7 @@
 					continue
 			use_ability(target)
 	if(can_scream)
-		FLICK("[icon_state]-anim", src)
+		flick("[icon_state]-anim", src)
 		playsound(src, 'sound/hallucinations/veryfar_noise.ogg', 85, 1)
 		set_cooldown()
 
@@ -771,10 +771,10 @@
 		if(prob(100 - H.stats.getStat(STAT_VIG)))
 			H.adjust_hallucination(20, 20)
 		else
-			to_chat(H, SPAN_NOTICE("Reality flickers for a second, but you manage to focus!"))
+			to_chat(H, SPAN_NOTICE("Reality flick_lights for a second, but you manage to focus!"))
 	else if (istype(target))
 		target.adjust_hallucination(20, 20)
-	FLICK("[icon_state]-anim", src)
+	flick("[icon_state]-anim", src)
 
 
 
