@@ -6349,6 +6349,7 @@
 	name = "Substation";
 	req_one_access = list(11,24)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/maintenance/substation/port_section)
 "aoN" = (
@@ -7331,6 +7332,7 @@
 	name = "Substation";
 	req_one_access = list(11,24)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/maintenance/substation/starboard_section)
 "are" = (
@@ -13534,10 +13536,8 @@
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/foyer)
 "aFP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/light,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/erida/maintenance/starboardsection2deck4)
 "aFQ" = (
@@ -16129,6 +16129,7 @@
 /obj/machinery/camera/network/engineering{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "aMh" = (
@@ -22531,6 +22532,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/railing,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bbF" = (
@@ -22540,6 +22542,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/railing,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bbG" = (
@@ -22549,6 +22552,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bbH" = (
@@ -22604,6 +22608,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bbL" = (
@@ -22688,6 +22693,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bbX" = (
@@ -22725,6 +22731,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bcb" = (
@@ -22764,7 +22771,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/substation/port_section)
+/area/erida/maintenance/starboardsection2deck4)
 "bch" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -22777,7 +22784,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/substation/port_section)
+/area/erida/maintenance/starboardsection2deck4)
 "bci" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22796,6 +22803,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bcm" = (
@@ -22840,6 +22848,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bcq" = (
@@ -22982,26 +22991,21 @@
 	icon_state = "1-4"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bcH" = (
 /obj/machinery/power/breakerbox{
 	RCon_tag = "Port Section Substation Bypass"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/danger,
-/area/erida/maintenance/substation/port_section)
-"bcI" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bcJ" = (
 /obj/machinery/power/breakerbox{
 	RCon_tag = "Starboard Section Substation Bypass"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/danger,
 /area/erida/maintenance/substation/starboard_section)
 "bcK" = (
@@ -23016,6 +23020,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bcL" = (
@@ -23931,6 +23936,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "beU" = (
@@ -23942,6 +23948,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/danger,
 /area/erida/maintenance/substation/port_section)
 "beV" = (
@@ -23958,6 +23965,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/danger,
 /area/erida/maintenance/substation/starboard_section)
 "beY" = (
@@ -24017,6 +24025,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bfh" = (
@@ -27507,6 +27516,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bnz" = (
@@ -30574,6 +30584,7 @@
 	name_tag = "Port Section Subgrid"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "buG" = (
@@ -30751,14 +30762,14 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/substation/port_section)
+/area/erida/maintenance/starboardsection2deck4)
 "buY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
@@ -30876,7 +30887,7 @@
 	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/substation/port_section)
+/area/erida/maintenance/starboardsection2deck4)
 "bvh" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
@@ -32152,6 +32163,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "byz" = (
@@ -35509,7 +35521,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/erida/maintenance/substation/port_section)
+/area/erida/maintenance/starboardsection2deck4)
 "bGf" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -67525,7 +67537,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/substation/port_section)
+/area/erida/maintenance/starboardsection2deck4)
 "dfL" = (
 /obj/structure/closet,
 /obj/spawner/surgery_tool,
@@ -79827,6 +79839,10 @@
 /obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
+"gwz" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/erida/maintenance/starboardsection2deck4)
 "gzo" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -79867,12 +79883,6 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
-"hag" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/plating/under,
-/area/erida/maintenance/substation/port_section)
 "hCi" = (
 /obj/structure/cyberplant,
 /obj/structure/extinguisher_cabinet{
@@ -79966,9 +79976,6 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/propulsion/left)
-"jjG" = (
-/turf/simulated/floor/plating/under,
-/area/erida/maintenance/substation/port_section)
 "jpi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -80137,11 +80144,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/lobby)
-"nVb" = (
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/erida/maintenance/substation/port_section)
 "odd" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -80536,6 +80538,10 @@
 	},
 /turf/simulated/open,
 /area/eris/hallway/main/section2)
+"xgm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/wall/r_wall,
+/area/erida/maintenance/substation/port_section)
 "xii" = (
 /obj/structure/railing{
 	dir = 1;
@@ -80547,6 +80553,10 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/quartermaster/miningdock)
+"xiU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/wall/r_wall,
+/area/erida/maintenance/substation/starboard_section)
 "xwl" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/steel/techfloor,
@@ -80561,9 +80571,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/substation/port_section)
+/area/erida/maintenance/starboardsection2deck4)
 "xIC" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 2;
@@ -91449,7 +91458,7 @@ bcG
 beT
 bny
 aoM
-aFq
+bbc
 aFP
 bbr
 aFV
@@ -91600,8 +91609,8 @@ bca
 bcH
 beU
 buF
-bby
-aFq
+xgm
+gwz
 axY
 bbr
 aRl
@@ -91898,13 +91907,13 @@ alC
 alC
 adX
 baZ
-bby
+aan
 dfK
 bcg
-jjG
-jjG
-hag
-beV
+abd
+abd
+abd
+apG
 aFq
 axY
 aqQ
@@ -92050,10 +92059,10 @@ dfs
 dfA
 dfs
 dfs
-nVb
-jjG
+aqQ
+abd
 bch
-bcI
+xHR
 xHR
 buX
 bGe
@@ -92202,13 +92211,13 @@ adX
 adX
 aGw
 baZ
-bby
+aan
 dfK
 bcg
-jjG
-jjG
+abd
+abd
 bvg
-beV
+apG
 aFq
 axY
 aqQ
@@ -92512,8 +92521,8 @@ bcl
 bcJ
 beX
 aMg
-bbA
-aFq
+xiU
+gwz
 axY
 bbr
 dfZ
@@ -92665,7 +92674,7 @@ bcK
 bfg
 byy
 ard
-aFq
+bbc
 aFP
 bbr
 aUx
