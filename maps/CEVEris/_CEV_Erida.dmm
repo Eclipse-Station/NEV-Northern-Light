@@ -30766,11 +30766,11 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck4)
@@ -79882,6 +79882,12 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
+"hag" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating/under,
+/area/erida/maintenance/portsection2deck4)
 "hCi" = (
 /obj/structure/cyberplant,
 /obj/structure/extinguisher_cabinet{
@@ -80556,6 +80562,15 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/reception)
+"xHR" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/plating/under,
+/area/erida/maintenance/portsection2deck4)
 "xIC" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 2;
@@ -91895,7 +91910,7 @@ dfK
 bcg
 apz
 apz
-apz
+hag
 bFZ
 aFq
 axY
@@ -92046,7 +92061,7 @@ asq
 apz
 bch
 bcI
-bcI
+xHR
 buX
 bGe
 cjj
