@@ -22764,7 +22764,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/substation/port_section)
 "bch" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -22777,7 +22777,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/substation/port_section)
 "bci" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22785,16 +22785,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/crew_quarters/hydroponics)
-"bcj" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/erida/maintenance/substation/starboard_section)
 "bck" = (
 /obj/structure/multiz/stairs/enter,
 /turf/simulated/floor/tiled/steel/cargo,
@@ -23007,7 +22997,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/substation/port_section)
 "bcJ" = (
 /obj/machinery/power/breakerbox{
 	RCon_tag = "Starboard Section Substation Bypass"
@@ -23959,11 +23949,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/erida/maintenance/substation/port_section)
-"beW" = (
-/obj/structure/low_wall,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/erida/maintenance/substation/starboard_section)
 "beX" = (
 /obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Starboard Section"
@@ -30773,7 +30758,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/substation/port_section)
 "buY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
@@ -30891,7 +30876,7 @@
 	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/substation/port_section)
 "bvh" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
@@ -35524,7 +35509,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/substation/port_section)
 "bGf" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -67540,7 +67525,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/substation/port_section)
 "dfL" = (
 /obj/structure/closet,
 /obj/spawner/surgery_tool,
@@ -79887,7 +79872,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/substation/port_section)
 "hCi" = (
 /obj/structure/cyberplant,
 /obj/structure/extinguisher_cabinet{
@@ -79981,6 +79966,9 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/propulsion/left)
+"jjG" = (
+/turf/simulated/floor/plating/under,
+/area/erida/maintenance/substation/port_section)
 "jpi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -80149,6 +80137,11 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/lobby)
+"nVb" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/turf/simulated/floor/plating,
+/area/erida/maintenance/substation/port_section)
 "odd" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -80570,7 +80563,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/substation/port_section)
 "xIC" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 2;
@@ -91905,13 +91898,13 @@ alC
 alC
 adX
 baZ
-adj
+bby
 dfK
 bcg
-apz
-apz
+jjG
+jjG
 hag
-bFZ
+beV
 aFq
 axY
 aqQ
@@ -92057,8 +92050,8 @@ dfs
 dfA
 dfs
 dfs
-asq
-apz
+nVb
+jjG
 bch
 bcI
 xHR
@@ -92209,13 +92202,13 @@ adX
 adX
 aGw
 baZ
-adj
+bby
 dfK
 bcg
-apz
-apz
+jjG
+jjG
 bvg
-bFZ
+beV
 aFq
 axY
 aqQ
@@ -92361,13 +92354,13 @@ bbr
 bbr
 bbr
 bbr
-bbA
-bbA
-bcj
-bbA
-beW
-bbA
-bbA
+bby
+bby
+bcc
+bby
+beV
+bby
+bby
 aKB
 axY
 bbr
