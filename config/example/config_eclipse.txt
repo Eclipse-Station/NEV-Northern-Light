@@ -1,7 +1,7 @@
 # Eclipse-specific configurations, for downstream servers and dev environments.
 
 ## Configuration file version.
-CONFIG_FILE_VERSION 6
+CONFIG_FILE_VERSION 7
 
 #########
 # WHITELISTING
