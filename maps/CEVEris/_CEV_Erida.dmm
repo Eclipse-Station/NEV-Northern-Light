@@ -11597,11 +11597,11 @@
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "aBx" = (
-/obj/machinery/light,
+/obj/machinery/shield_diffuser,
 /obj/machinery/computer/jtb_console{
-	dir = 1
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/gray_platform,
+/turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/maintenance/junk)
 "aBy" = (
 /obj/machinery/computer/operating{
@@ -156150,7 +156150,7 @@ dli
 cMQ
 cMP
 cMP
-cMQ
+aBx
 cMP
 dEQ
 cMQ
@@ -156302,7 +156302,7 @@ cNK
 cNM
 cNM
 dsn
-aBx
+cYk
 cqx
 cqx
 cqx
