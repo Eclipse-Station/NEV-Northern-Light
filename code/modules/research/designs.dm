@@ -216,6 +216,15 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/clothing/suit/space/void/science
 	sort_string = "VASAC"
 
+/datum/design/research/item/paramedic_armor
+	name = "Lazarus paramedic armor"
+	build_path = /obj/item/clothing/suit/armor/paramedic
+	sort_string = "VASAD"
+
+/datum/design/research/item/paramedic_helmet
+	name = "Lazarus paramedic helmet"
+	build_path = /obj/item/clothing/head/armor/faceshield/paramedic
+	sort_string = "VASAE"
 
 //Why is there a science design to craft a cardboard box full of things? That is not how this works
 /*

@@ -60,6 +60,7 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_NORMAL
+	force = WEAPON_FORCE_PAINFUL
 	can_dual = TRUE
 	matter = list(MATERIAL_STEEL = 10, MATERIAL_PLASTIC = 15, MATERIAL_GLASS = 5)
 	projectile_type = /obj/item/projectile/beam
@@ -70,7 +71,7 @@
 	price_tag = 750
 	init_firemodes = list(
 		WEAPON_NORMAL,
-		BURST_2_ROUND
+		BURST_2_BEAM
 	)
 	twohanded = TRUE
 	saw_off = TRUE
@@ -165,7 +166,7 @@
 	projectile_type = /obj/item/projectile/beam/psychic
 	icon_contained = TRUE
 	spawn_blacklisted = TRUE
-	var/traitor = FALSE //Check if it's a traitor psychic weapon
+	var/contractor = FALSE //Check if it's a contractor psychic weapon
 	var/datum/mind/owner
 	var/list/victims = list()
 	var/datum/antag_contract/derail/contract
@@ -173,11 +174,11 @@
 
 /obj/item/gun/energy/psychic/Initialize()
 	..()
-	if(traitor)
+	if(contractor)
 		START_PROCESSING(SSobj, src)
 
 /obj/item/gun/energy/psychic/Destroy()
-	if(traitor)
+	if(contractor)
 		STOP_PROCESSING(SSobj, src)
 	return ..()
 
@@ -239,7 +240,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	force = WEAPON_FORCE_NORMAL
 	slot_flags = SLOT_BELT|SLOT_BACK
-	traitor = TRUE
+	contractor = TRUE
 	pierce_multiplier = 2
 	zoom_factor = 0
 	damage_multiplier = 1
@@ -285,4 +286,4 @@
 	init_firemodes = list(
 		WEAPON_NORMAL
 	)
-	spawn_blacklisted = TRUE
+	spawn_tags = SPAWN_TAG_GUN_HANDMADE

@@ -66,28 +66,52 @@ macro "borghotkeymode"
 		name = "NORTHWEST"
 		command = ".northwest"
 	elem 
-		name = "ALT+WEST"
+		name = "ALT+CTRL+WEST"
 		command = "westfaceperm"
 	elem 
 		name = "CTRL+WEST"
 		command = "westface"
 	elem 
-		name = "ALT+NORTH"
+		name = "ALT+CTRL+NORTH"
 		command = "northfaceperm"
 	elem 
 		name = "CTRL+NORTH"
 		command = "northface"
 	elem 
-		name = "ALT+EAST"
+		name = "ALT+CTRL+EAST"
 		command = "eastfaceperm"
 	elem 
 		name = "CTRL+EAST"
 		command = "eastface"
 	elem 
-		name = "ALT+SOUTH"
+		name = "ALT+CTRL+SOUTH"
 		command = "southfaceperm"
 	elem 
 		name = "CTRL+SOUTH"
+		command = "southface"
+	elem 
+		name = "ALT+CTRL+A"
+		command = "westfaceperm"
+	elem 
+		name = "CTRL+A"
+		command = "westface"
+	elem 
+		name = "ALT+CTRL+W"
+		command = "northfaceperm"
+	elem 
+		name = "CTRL+W"
+		command = "northface"
+	elem 
+		name = "ALT+CTRL+D"
+		command = "eastfaceperm"
+	elem 
+		name = "CTRL+D"
+		command = "eastface"
+	elem 
+		name = "ALT+CTRL+S"
+		command = "southfaceperm"
+	elem 
+		name = "CTRL+S"
 		command = "southface"
 	elem 
 		name = "INSERT"
@@ -251,6 +275,7 @@ macro "macro"
 		name = "Northwest"
 		command = ".northwest"
 	elem 
+		name = "ALT+CTRL+WEST"
 		name = "West"
 		command = "MoveKey 8 1"
 	elem 
@@ -260,6 +285,7 @@ macro "macro"
 		name = "CTRL+West"
 		command = "westface"
 	elem 
+		name = "ALT+CTRL+NORTH"
 		name = "CTRL+SHIFT+West"
 		command = "westshift"
 	elem 
@@ -278,6 +304,7 @@ macro "macro"
 		name = "CTRL+SHIFT+North"
 		command = "northshift"
 	elem 
+		name = "ALT+CTRL+EAST"
 		name = "North+UP"
 		command = "MoveKey 1 0"
 	elem 
@@ -293,6 +320,7 @@ macro "macro"
 		name = "CTRL+SHIFT+East"
 		command = "eastshift"
 	elem 
+		name = "ALT+CTRL+SOUTH"
 		name = "East+UP"
 		command = "MoveKey 4 0"
 	elem 
@@ -457,6 +485,7 @@ macro "hotkeymode"
 		name = "Northwest"
 		command = ".northwest"
 	elem 
+		name = "ALT+CTRL+WEST"
 		name = "West"
 		command = "MoveKey 8 1"
 	elem 
@@ -469,6 +498,7 @@ macro "hotkeymode"
 		name = "CTRL+SHIFT+West"
 		command = "westshift"
 	elem 
+		name = "ALT+CTRL+NORTH"
 		name = "West+UP"
 		command = "MoveKey 8 0"
 	elem 
@@ -484,6 +514,7 @@ macro "hotkeymode"
 		name = "CTRL+SHIFT+North"
 		command = "northshift"
 	elem 
+		name = "ALT+CTRL+EAST"
 		name = "North+UP"
 		command = "MoveKey 1 0"
 	elem 
@@ -499,6 +530,7 @@ macro "hotkeymode"
 		name = "CTRL+SHIFT+East"
 		command = "eastshift"
 	elem 
+		name = "ALT+CTRL+SOUTH"
 		name = "East+UP"
 		command = "MoveKey 4 0"
 	elem 
@@ -511,12 +543,33 @@ macro "hotkeymode"
 		name = "CTRL+South"
 		command = "southface"
 	elem 
+		name = "ALT+CTRL+A"
+		command = "westfaceperm"
 		name = "CTRL+SHIFT+South"
 		command = "southshift"
 	elem 
 		name = "South+UP"
 		command = "MoveKey 2 0"
 	elem 
+		name = "ALT+CTRL+W"
+		command = "northfaceperm"
+	elem 
+		name = "CTRL+W"
+		command = "northface"
+	elem 
+		name = "ALT+CTRL+D"
+		command = "eastfaceperm"
+	elem 
+		name = "CTRL+D"
+		command = "eastface"
+	elem 
+		name = "ALT+CTRL+S"
+		command = "southfaceperm"
+	elem 
+		name = "CTRL+S"
+		command = "southface"
+	elem
+		name = "INSERT"
 		name = "Insert"
 		command = "a-intent right"
 	elem 
@@ -633,6 +686,12 @@ macro "hotkeymode"
 	elem 
 		name = "CTRL+Y"
 		command = "Activate-Held-Object"
+	elem 
+		name = "C"
+		command = "rest"
+	elem
+		name = "C+UP"
+		command = "stopSliding"
 	elem 
 		name = "Z"
 		command = "Activate-Held-Object"
@@ -765,25 +824,25 @@ macro "borgmacro"
 		name = "NORTHWEST"
 		command = ".northwest"
 	elem 
-		name = "ALT+WEST"
+		name = "ALT+CTRL+WEST"
 		command = "westfaceperm"
 	elem 
 		name = "CTRL+WEST"
 		command = "westface"
 	elem 
-		name = "ALT+NORTH"
+		name = "ALT+CTRL+NORTH"
 		command = "northfaceperm"
 	elem 
 		name = "CTRL+NORTH"
 		command = "northface"
 	elem 
-		name = "ALT+EAST"
+		name = "ALT+CTRL+EAST"
 		command = "eastfaceperm"
 	elem 
 		name = "CTRL+EAST"
 		command = "eastface"
 	elem 
-		name = "ALT+SOUTH"
+		name = "ALT+CTRL+SOUTH"
 		command = "southfaceperm"
 	elem 
 		name = "CTRL+SOUTH"

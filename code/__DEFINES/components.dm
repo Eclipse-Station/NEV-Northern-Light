@@ -2,6 +2,10 @@
 
 #define SEND_GLOBAL_SIGNAL(sigtype, arguments...) ( SEND_SIGNAL(SSdcs, sigtype, ##arguments) )
 
+/// Signifies that this proc is used to handle signals.
+/// Every proc you pass to RegisterSignal must have this.
+#define SIGNAL_HANDLER SHOULD_NOT_SLEEP(TRUE)
+
 //shorthand
 #define GET_COMPONENT_FROM(varname, path, target) var##path/##varname = ##target.GetComponent(##path)
 #define GET_COMPONENT(varname, path) GET_COMPONENT_FROM(varname, path, src)
@@ -28,6 +32,11 @@
 #define COMSIG_GLOB_FABRIC_NEW "!fabric_new"					//(image/fabric)
 
 //////////////////////////////////////////////////////////////////
+
+// /zone signals
+
+#define COMSIG_ZAS_TICK "z_tick"
+#define COMSIG_ZAS_DELETE "z_del"
 
 // /datum signals
 #define COMSIG_COMPONENT_ADDED "component_added"				//when a component is added to a datum: (/datum/component)

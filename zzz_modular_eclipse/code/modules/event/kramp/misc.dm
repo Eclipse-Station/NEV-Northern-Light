@@ -23,7 +23,7 @@ ADMIN_VERB_ADD(/datum/admins/proc/call_fun_drop_pod, R_FUN, FALSE)
 			M.tag = "awaiting drop"
 			spawned_mobs |= M
 			var/image/dozhdik = image('zzz_modular_eclipse/icons/obj/festive.dmi', src, "dozhdik_overlay")
-			M.add_overlays(dozhdik)
+			M.overlays += dozhdik
 			M.faction = "krampus"
 			M.desc = M.desc + "\nThis one seems to be infested with garland-like worms!"
 	else

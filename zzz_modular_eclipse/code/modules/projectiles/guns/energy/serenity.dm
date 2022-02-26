@@ -30,11 +30,11 @@
 /obj/item/gun/energy/serenity/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	if(current_mode.name == "stun")
-		add_overlays("tazer_serenity")
+		overlays += "tazer_serenity"
 	else
-		add_overlays("laser_serenity")
+		overlays += "laser_serenity"
 
-/obj/item/gun/energy/serenity/on_update_icon()
+/obj/item/gun/energy/serenity/update_icon()
 	cut_overlays()
 	if(cell && cell.charge >= charge_cost) //no overlay if we dont have any power
 		update_mode()

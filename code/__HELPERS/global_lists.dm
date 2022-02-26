@@ -110,7 +110,7 @@ var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 var/global/list/organ_structure = list(
 	torso = list(name= "Torso", children=list(BP_GROIN, BP_HEAD, BP_R_ARM, BP_L_ARM, OP_HEART, OP_LUNGS, OP_STOMACH)),
 	groin = list(name= "Groin",     parent=BP_CHEST, children=list(BP_L_LEG, BP_R_LEG, OP_KIDNEY_LEFT, OP_KIDNEY_RIGHT, OP_LIVER)),
-	head  = list(name= "Head",      parent=BP_CHEST, children=list()),
+	head  = list(name= "Head",      parent=BP_CHEST, children=list(BP_BRAIN, BP_EYES)),
 	r_arm = list(name= "Right arm", parent=BP_CHEST, children=list(BP_R_HAND)),
 	l_arm = list(name= "Left arm",  parent=BP_CHEST, children=list(BP_L_HAND)),
 	r_leg = list(name= "Right leg", parent=BP_GROIN, children=list(BP_R_FOOT)),
@@ -182,6 +182,9 @@ var/global/list/string_slot_flags = list(
 
 //A list of slots where an item doesn't count as "worn" if it's in one of them
 var/global/list/unworn_slots = list(slot_l_hand,slot_r_hand, slot_l_store, slot_r_store,slot_robot_equip_1,slot_robot_equip_2,slot_robot_equip_3)
+
+//Names that shouldn't trigger notifications about low health
+GLOBAL_LIST_EMPTY(ignore_health_alerts_from)
 
 //////////////////////////
 /////Initial Building/////

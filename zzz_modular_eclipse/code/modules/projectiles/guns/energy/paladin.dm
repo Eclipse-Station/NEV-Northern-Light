@@ -53,17 +53,17 @@
 		return new projectile_type(src)
 
 
-/obj/item/gun/energy/laser/paladin/on_update_icon()
+/obj/item/gun/energy/laser/paladin/update_icon()
 	cut_overlays()
 	var/iconstring = initial(icon_state)
 	var/itemstring = ""
-	
+
 	if(wielded)
 		itemstring += "_doble"
 	if(cell)
-		add_overlays("on_paladin")
+		overlays += "on_paladin"
 	if(!cell)
-		add_overlays("off_paladin")
+		overlays += "off_paladin"
 
 	icon_state = iconstring
 	set_item_state(itemstring)

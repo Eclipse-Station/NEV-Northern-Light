@@ -78,7 +78,7 @@
 					body += "<a href='?src=\ref[src];adminplayeropts="+ref+"'>PP</a> - "
 					body += "<a href='?src=\ref[src];notes=show;mob="+ref+"'>N</a> - "
 					body += "<a href='?_src_=vars;Vars="+ref+"'>VV</a> - "
-					body += "<a href='?src=\ref[src];traitor="+ref+"'>TP</a> - "
+					body += "<a href='?src=\ref[src];contractor="+ref+"'>TP</a> - "
 					body += "<a href='?src=\ref[usr];priv_msg=\ref"+ref+"'>PM</a> - "
 					body += "<a href='?src=\ref[src];subtlemessage="+ref+"'>SM</a> - "
 					body += "<a href='?src=\ref[src];manup="+ref+"'>MAN_UP</a> - "
@@ -322,8 +322,9 @@
 
 
 /datum/admins/proc/storyteller_panel()
-	if(get_storyteller())
-		get_storyteller().storyteller_panel()
+	var/datum/storyteller/ST = get_storyteller()
+	if(ST)
+		ST.storyteller_panel()
 	else
 		to_chat(usr, SPAN_WARNING("There is no storyteller."))
 

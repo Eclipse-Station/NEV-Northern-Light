@@ -148,7 +148,6 @@
 	desc = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
 	item_state = "miner_suit"
 	icon_state = "miner_suit"
-	slowdown = 0.35
 	armor = list(
 		melee = 50,
 		bullet = 35,
@@ -184,7 +183,6 @@
 	desc = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
 	icon_state = "rig-medical"
 	item_state = "rig-medical"
-	slowdown = 0.15
 	extra_allowed = list(
 		/obj/item/storage/firstaid,
 		/obj/item/device/scanner/health,
@@ -200,6 +198,7 @@
 		rad = 75
 	)
 	helmet = /obj/item/clothing/head/space/void/medical
+	slowdown = LIGHT_SLOWDOWN
 
 /obj/item/clothing/suit/space/void/medical/equipped
 	boots = /obj/item/clothing/shoes/magboots
@@ -209,7 +208,7 @@
 	//Security
 /obj/item/clothing/head/space/void/security
 	name = "aegis voidsuit helmet"
-	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
+	desc = "A special helmet designed for work in a hazardous, low pressure environment. Sacrifices sight for protection."
 	icon_state = "ihsvoidhelm"
 	item_state = "ihsvoidhelm"
 	item_state_slots = list(
@@ -227,6 +226,7 @@
 	)
 	siemens_coefficient = 0.7
 	light_overlay = "helmet_light_ihs"
+	obscuration = MEDIUM_OBSCURATION
 
 /obj/item/clothing/suit/space/void/security
 	name = "aegis voidsuit"
@@ -314,13 +314,36 @@
 	)
 	siemens_coefficient = 0.4
 	light_overlay = "helmet_light_dual"
+	obscuration = 0
 
 /obj/item/clothing/head/space/void/science
-    var/list/icon_states = list("moebiushelmb","moebiushelmr", "moebiushelmp","moebiushelmg", "moebiushelmy", "moebiushelmw") //TODO: a manual selection anytime.
+	var/list/icon_states = list(
+		"Blue" = "moebiushelmb",
+		"Red" = "moebiushelmr",
+		"Purple" = "moebiushelmp",
+		"Green" = "moebiushelmg",
+		"Yellow" = "moebiushelmy",
+		"White" = "moebiushelmw")
+
+/obj/item/clothing/head/space/void/science/verb/recolor()
+	set name = "Change helmet color"
+	set category = "Object"
+	set src in usr
+
+	var/color = input(usr, "Available colors", "Visor configuration") in icon_states
+	icon_state = icon_states[color]
+	update_wear_icon()
+	usr.update_action_buttons()
 
 /obj/item/clothing/head/space/void/science/New()
-    ..()
-    icon_state = pick(icon_states)
+	..()
+	var/color = pick(icon_states)
+	icon_state = icon_states[color]
+
+/obj/item/clothing/head/space/void/science/emag_act(remaining_charges, mob/user, emag_source)
+	icon_state = "moebiushelmcaramel"
+	update_wear_icon()
+	usr.update_action_buttons()
 
 /obj/item/clothing/suit/space/void/science
 	name = "\improper Lazarus combat voidsuit"
@@ -346,6 +369,7 @@
 	siemens_coefficient = 0.4
 	helmet = /obj/item/clothing/head/space/void/science
 	spawn_blacklisted = TRUE
+	stiffness = MEDIUM_STIFFNESS
 
 /obj/item/clothing/suit/space/void/science/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
@@ -446,3 +470,4 @@
 	species_restricted = list(SPECIES_HUMAN)
 	helmet = /obj/item/clothing/head/space/void/NTvoid
 	spawn_blacklisted = TRUE
+	slowdown = LIGHT_SLOWDOWN

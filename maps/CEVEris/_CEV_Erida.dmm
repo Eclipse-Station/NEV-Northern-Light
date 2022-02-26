@@ -3103,6 +3103,10 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/portsection2deck4)
+"agS" = (
+/obj/effect/shuttle_landmark/merc/mining,
+/turf/space,
+/area/space)
 "agT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3597,11 +3601,13 @@
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck2)
 "ahT" = (
-/obj/effect/shuttle_landmark/merc/medbay{
-	name = "Trading Dock Deck 4"
+/obj/structure/table/rack,
+/obj/item/device/von_krabin,
+/obj/machinery/door/blast/shutters/glass{
+	id = "Von-Krabin"
 	},
-/turf/space,
-/area/space)
+/turf/simulated/floor/tiled/white/gray_platform,
+/area/eris/rnd/lab)
 "ahU" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -6343,6 +6349,7 @@
 	name = "Substation";
 	req_one_access = list(11,24)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/maintenance/substation/port_section)
 "aoN" = (
@@ -7325,6 +7332,7 @@
 	name = "Substation";
 	req_one_access = list(11,24)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/maintenance/substation/starboard_section)
 "are" = (
@@ -12874,18 +12882,14 @@
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/rnd/anomal)
 "aEv" = (
-/obj/structure/table/rack,
-/obj/item/device/von_krabin,
-/obj/machinery/door/blast/shutters/glass{
-	id = "Von-Krabin"
-	},
+/obj/structure/table/standard,
 /obj/machinery/button/remote/blast_door/id_card{
 	id = "Von-Krabin";
 	name = "Von-Krabin Stimulator id lock";
 	pixel_x = 28;
 	req_access = list(5)
 	},
-/turf/simulated/floor/tiled/white/gray_platform,
+/turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/rnd/lab)
 "aEw" = (
 /obj/machinery/vending/robotics,
@@ -13532,10 +13536,8 @@
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/foyer)
 "aFP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/light,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/erida/maintenance/starboardsection2deck4)
 "aFQ" = (
@@ -16127,6 +16129,7 @@
 /obj/machinery/camera/network/engineering{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "aMh" = (
@@ -22529,6 +22532,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/railing,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bbF" = (
@@ -22538,6 +22542,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/railing,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bbG" = (
@@ -22547,6 +22552,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bbH" = (
@@ -22602,6 +22608,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bbL" = (
@@ -22686,6 +22693,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bbX" = (
@@ -22723,6 +22731,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bcb" = (
@@ -22762,7 +22771,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/starboardsection2deck4)
 "bch" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -22775,7 +22784,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/starboardsection2deck4)
 "bci" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22783,16 +22792,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/eris/crew_quarters/hydroponics)
-"bcj" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/erida/maintenance/substation/starboard_section)
 "bck" = (
 /obj/structure/multiz/stairs/enter,
 /turf/simulated/floor/tiled/steel/cargo,
@@ -22804,6 +22803,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bcm" = (
@@ -22848,6 +22848,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bcq" = (
@@ -22990,26 +22991,21 @@
 	icon_state = "1-4"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bcH" = (
 /obj/machinery/power/breakerbox{
 	RCon_tag = "Port Section Substation Bypass"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/danger,
 /area/erida/maintenance/substation/port_section)
-"bcI" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
 "bcJ" = (
 /obj/machinery/power/breakerbox{
 	RCon_tag = "Starboard Section Substation Bypass"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/danger,
 /area/erida/maintenance/substation/starboard_section)
 "bcK" = (
@@ -23024,6 +23020,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bcL" = (
@@ -23939,6 +23936,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "beU" = (
@@ -23950,6 +23948,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/danger,
 /area/erida/maintenance/substation/port_section)
 "beV" = (
@@ -23957,11 +23956,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/erida/maintenance/substation/port_section)
-"beW" = (
-/obj/structure/low_wall,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/erida/maintenance/substation/starboard_section)
 "beX" = (
 /obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Starboard Section"
@@ -23971,6 +23965,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel/danger,
 /area/erida/maintenance/substation/starboard_section)
 "beY" = (
@@ -24030,6 +24025,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "bfh" = (
@@ -27520,6 +27516,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "bnz" = (
@@ -30587,6 +30584,7 @@
 	name_tag = "Port Section Subgrid"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/port_section)
 "buG" = (
@@ -30771,7 +30769,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/starboardsection2deck4)
 "buY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
@@ -30889,7 +30887,7 @@
 	icon_state = "up-supply"
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/starboardsection2deck4)
 "bvh" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
@@ -32165,6 +32163,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/substation/starboard_section)
 "byz" = (
@@ -35522,7 +35521,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/starboardsection2deck4)
 "bGf" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -36283,6 +36282,14 @@
 	},
 /turf/simulated/floor/tiled/dark/bluecorner,
 /area/eris/security/armory)
+"bHZ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/eris/engineering/propulsion/left)
 "bIa" = (
 /obj/structure/cable/cyan{
 	d1 = 1;
@@ -36363,6 +36370,9 @@
 	temperature = 200
 	},
 /area/eris/command/tcommsat/chamber)
+"bIm" = (
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/neotheology/bioreactor)
 "bIn" = (
 /obj/structure/cable/cyan{
 	d1 = 1;
@@ -40456,6 +40466,10 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/prisoncells)
+"bRt" = (
+/obj/machinery/power/nt_obelisk,
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/neotheology/bioreactor)
 "bRu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -53235,10 +53249,6 @@
 /area/eris/neotheology/bioreactor)
 "cwC" = (
 /obj/machinery/biomatter_solidifier,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/neotheology/bioreactor)
-"cwD" = (
-/obj/machinery/power/nt_obelisk,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/bioreactor)
 "cwE" = (
@@ -67527,7 +67537,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/under,
-/area/erida/maintenance/portsection2deck4)
+/area/erida/maintenance/starboardsection2deck4)
 "dfL" = (
 /obj/structure/closet,
 /obj/spawner/surgery_tool,
@@ -75669,13 +75679,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/hallway/main/section2)
-"dyq" = (
-/obj/structure/table/standard,
-/obj/machinery/firealarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/white/brown_perforated,
-/area/eris/rnd/lab)
 "dyr" = (
 /obj/machinery/light{
 	dir = 1
@@ -79782,6 +79785,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/open,
 /area/eris/engineering/engine_room)
+"fmH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/wall/r_wall,
+/area/erida/maintenance/sciweapondeck)
 "fvY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/door/firedoor,
@@ -79792,6 +79800,13 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/cafe,
 /area/eris/crew_quarters/kitchen)
+"fKI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/erida/maintenance/sciweapondeck)
 "fRH" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -79824,6 +79839,10 @@
 /obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
+"gwz" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/steel/techfloor_grid,
+/area/erida/maintenance/starboardsection2deck4)
 "gzo" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -79892,6 +79911,15 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"hLj" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/plating/under,
+/area/erida/maintenance/portsection2deck4)
 "hLJ" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
@@ -79978,6 +80006,12 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/medbreak)
+"ksa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/erida/maintenance/sciweapondeck)
 "kJZ" = (
 /obj/structure/window/basic,
 /obj/machinery/button/remote/driver{
@@ -80076,6 +80110,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
+"lRE" = (
+/obj/spawner/pack/machine,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/techmaint_panels,
+/area/erida/maintenance/portsection2deck4)
 "mdV" = (
 /obj/machinery/status_display,
 /turf/simulated/wall,
@@ -80173,6 +80213,12 @@
 	},
 /turf/simulated/open,
 /area/eris/engineering/propulsion/left)
+"oNV" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/erida/maintenance/sciweapondeck)
 "pKO" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
@@ -80235,6 +80281,11 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"qIf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/plating/under,
+/area/erida/maintenance/portsection2deck4)
 "qVN" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawnplasma,
@@ -80256,6 +80307,12 @@
 /obj/machinery/telecomms/server/presets/common,
 /turf/simulated/floor/bluegrid,
 /area/eris/command/tcommsat/chamber)
+"spc" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/erida/maintenance/sciweapondeck)
 "szA" = (
 /obj/structure/sign/double/barsign,
 /turf/simulated/wall/r_wall,
@@ -80291,13 +80348,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/neotheology/bioreactor)
-"tyr" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/eris/engineering/propulsion/left)
 "tGH" = (
 /obj/structure/catwalk,
 /obj/machinery/firealarm{
@@ -80488,6 +80538,10 @@
 	},
 /turf/simulated/open,
 /area/eris/hallway/main/section2)
+"xgm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/wall/r_wall,
+/area/erida/maintenance/substation/port_section)
 "xii" = (
 /obj/structure/railing{
 	dir = 1;
@@ -80499,6 +80553,10 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/quartermaster/miningdock)
+"xiU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/wall/r_wall,
+/area/erida/maintenance/substation/starboard_section)
 "xwl" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/steel/techfloor,
@@ -80507,6 +80565,14 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/reception)
+"xHR" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating/under,
+/area/erida/maintenance/starboardsection2deck4)
 "xIC" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 2;
@@ -87738,8 +87804,8 @@ cGV
 aSj
 aeM
 afr
-aev
-aev
+oNV
+spc
 afL
 aSQ
 aEf
@@ -87890,12 +87956,12 @@ cGV
 aSj
 aeM
 aLa
-aev
-aev
-afL
-aeX
-aTj
-adq
+ksa
+fKI
+fmH
+lRE
+qIf
+hLj
 chw
 cjr
 bbS
@@ -91392,7 +91458,7 @@ bcG
 beT
 bny
 aoM
-aFq
+bbc
 aFP
 bbr
 aFV
@@ -91543,8 +91609,8 @@ bca
 bcH
 beU
 buF
-bby
-aFq
+xgm
+gwz
 axY
 bbr
 aRl
@@ -91841,13 +91907,13 @@ alC
 alC
 adX
 baZ
-adj
+aan
 dfK
 bcg
-apz
-apz
-apz
-bFZ
+abd
+abd
+abd
+apG
 aFq
 axY
 aqQ
@@ -91993,11 +92059,11 @@ dfs
 dfA
 dfs
 dfs
-asq
-apz
+aqQ
+abd
 bch
-bcI
-bcI
+xHR
+xHR
 buX
 bGe
 cjj
@@ -92145,13 +92211,13 @@ adX
 adX
 aGw
 baZ
-adj
+aan
 dfK
 bcg
-apz
-apz
+abd
+abd
 bvg
-bFZ
+apG
 aFq
 axY
 aqQ
@@ -92297,13 +92363,13 @@ bbr
 bbr
 bbr
 bbr
-bbA
-bbA
-bcj
-bbA
-beW
-bbA
-bbA
+bby
+bby
+bcc
+bby
+beV
+bby
+bby
 aKB
 axY
 bbr
@@ -92455,8 +92521,8 @@ bcl
 bcJ
 beX
 aMg
-bbA
-aFq
+xiU
+gwz
 axY
 bbr
 dfZ
@@ -92608,7 +92674,7 @@ bcK
 bfg
 byy
 ard
-aFq
+bbc
 aFP
 bbr
 aUx
@@ -116325,7 +116391,7 @@ aZa
 crY
 cti
 cuq
-cwC
+bIm
 cwT
 czI
 cwS
@@ -116477,7 +116543,7 @@ bxi
 crZ
 ctz
 cus
-cwD
+cwC
 cwU
 cAI
 dmJ
@@ -116935,7 +117001,7 @@ ctJ
 cuy
 cuy
 cyV
-cwx
+bRt
 deG
 abI
 cCk
@@ -132128,7 +132194,7 @@ asO
 aCO
 aDo
 abi
-dyq
+ahT
 aFh
 aIK
 aJm
@@ -133227,7 +133293,7 @@ bRU
 bRr
 bRr
 bRr
-tyr
+bHZ
 bRr
 bRr
 bRr
@@ -152045,7 +152111,7 @@ aaa
 aaa
 aaa
 aaa
-ahT
+agS
 aaa
 aaa
 aaa
