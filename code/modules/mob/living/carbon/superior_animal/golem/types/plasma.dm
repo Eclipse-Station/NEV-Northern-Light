@@ -3,8 +3,8 @@
 #define DET_DEFUSED 2
 
 /mob/living/carbon/superior_animal/golem/plasma
-	name = "plasma golem"
-	desc = "A moving pile of rocks with plasma specks in it."
+	name = "phoron golem"
+	desc = "A moving pile of rocks with phoron specks in it."
 	icon_state = "golem_plasma"
 	icon_living = "golem_plasma"
 
@@ -59,7 +59,7 @@
 				icon_state = "golem_plasma_explosion"
 				spawn(1.5 SECONDS)
 					// Plasma ball on location
-					visible_message(SPAN_DANGER("\The [src] explodes into a ball of burning palsma!"))
+					visible_message(SPAN_DANGER("\The [src] explodes into a ball of burning phoron!"))
 					for(var/turf/simulated/floor/target_tile in range(2, loc))
 						target_tile.assume_gas("plasma", 10.0, 400 + T0C)
 						spawn (0) target_tile.hotspot_expose(700, 400)

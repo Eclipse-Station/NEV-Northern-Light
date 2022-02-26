@@ -273,12 +273,12 @@ var/list/rank_prefix = list(\
 	"Aegis Gunnery Sergeant" = "Sergeant",\
 	"Aegis Medical Specialist" = "Specialist",\
 	"Aegis Commander" = "Lieutenant",\
-	"NeoTheology Preacher" = "Reverend",\
-	"Moebius Expedition Overseer" = "Overseer",\
-	"Moebius Biolab Officer" = "Doctor",\
+	"Mekhane Preacher" = "Reverend",\
+	"Chief Science Officer" = "CSO",\
+	"Lazarus Biolab Officer" = "Doctor",\
 	"Captain" = "Captain",\
 	"Medical Doctor" = "Doctor",\
-	"Chief Medical Officer" = "Doctor",\
+	"Chief Medical Officer" = "CMO",\
 	)
 
 /mob/living/carbon/human/proc/rank_prefix_name(name)

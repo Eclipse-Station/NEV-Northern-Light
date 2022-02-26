@@ -5,7 +5,7 @@
 		new /datum/wire_description(TAPE_WIRE_STOP, "Stop"),
 		new /datum/wire_description(TAPE_WIRE_PLAY, "Play"),
 		new /datum/wire_description(TAPE_WIRE_RECORD, "Record"),
-		new /datum/wire_description(TAPE_WIRE_WIPE, "Wipe"),
+		new /datum/wire_description(TAPE_WIRE_WIPE, "Erase"),
 	)
 
 var/const/TAPE_WIRE_STOP = 1

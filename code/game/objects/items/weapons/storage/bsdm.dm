@@ -65,7 +65,7 @@
 		QDEL_LIST(contents)
 		if(del_on_send)
 			if(ismob(loc))
-				to_chat(loc, SPAN_NOTICE("[src] flick_lights away in a brief flash of light."))
+				to_chat(loc, SPAN_NOTICE("[src] flickers away in a brief flash of light."))
 			qdel(src)
 
 	else if(href_list["owner"])

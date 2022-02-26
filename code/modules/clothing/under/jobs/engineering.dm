@@ -28,7 +28,7 @@
 	)
 
 /obj/item/clothing/under/rank/roboticist
-	desc = "A orange jumpsuit that great for industrial work."
+	desc = "An orange jumpsuit that great for industrial work."
 	name = "roboticist's jumpsuit"
 	icon_state = "robotics"
 	item_state = "bl_suit"

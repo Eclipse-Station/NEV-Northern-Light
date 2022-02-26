@@ -8,7 +8,7 @@
 	var/charging = FALSE
 	var/charge = 0
 	var/charge_max = 50
-	var/flick_lighting = 0
+	var/flickering = 0
 	var/ticks_before_next_summon = 2
 	var/mobgenlist = list(
 		/mob/living/simple_animal/hostile/bear,
@@ -38,7 +38,7 @@
 		else
 			to_chat(user, "Nothing seems to happen.")
 	else if(charging)
-		if(flick_lighting)
+		if(flickering)
 			to_chat(user, "The portal looks too unstable to pass through!")
 		else
 			to_chat(user, "The teleporter needs time to charge.")
@@ -161,8 +161,8 @@
 				A.activate_ai()
 
 	overlays.Add(image(icon, icon_state = "portal_failing"))
-	visible_message("The portal starts flick_lighting!")
-	flick_lighting = 1
+	visible_message("The portal starts flickering!")
+	flickering = 1
 	sleep(100)
 	update_icon()
 

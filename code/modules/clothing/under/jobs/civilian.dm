@@ -56,7 +56,7 @@
 	item_state = "nt_sports"
 
 /obj/item/clothing/under/rank/chef
-	desc = "An apron which is given only to the most <b>hardcore</b> chefs in space."
+	desc = "An apron, give only to the most <b>hardcore</b> chefs in space."
 	name = "chef's uniform"
 	icon_state = "chef"
 	item_state = "w_suit"

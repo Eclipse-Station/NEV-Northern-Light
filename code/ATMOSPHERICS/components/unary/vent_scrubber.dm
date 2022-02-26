@@ -289,20 +289,20 @@
 		toggle += "sleeping_agent"
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += "sleeping_agent"
-	
+
 	// // // BEGIN ECLIPSE EDITS // // //
 	// Adds chloramines
-	
+
 	if(!isnull(signal.data["ncl3_scrub"]) && text2num(signal.data["ncl3_scrub"]) != ("trichloramine" in scrubbing_gas))
 		toggle += "trichloramine"
 	else if(signal.data["toggle_ncl3_scrub"])
 		toggle += "trichloramine"
-	
+
 	if(!isnull(signal.data["nh2cl_scrub"]) && text2num(signal.data["nh2cl1_scrub"]) != ("monochloramine" in scrubbing_gas))
 		toggle += "monochloramine"
 	else if(signal.data["toggle_nh2cl_scrub"])
 		toggle += "monochloramine"
-	
+
 	// // // END ECLIPSE EDITS // // //
 
 	scrubbing_gas ^= toggle

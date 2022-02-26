@@ -1,5 +1,5 @@
 
-#define FIREDOOR_MAX_TEMP 323 // °C
+#define FIREDOOR_MAX_TEMP 323 // K
 #define FIREDOOR_MIN_TEMP 253
 #define FIREDOOR_MIN_PRESSURE 30
 
@@ -186,7 +186,7 @@
 		text_to_say += SPAN_NOTICE("[cardinal] :/:")
 		if(data[FIREDOOR_ATMOS])
 			var/datum/gas_mixture/gasses = data[FIREDOOR_ATMOS]
-			text_to_say += " PKA : [gasses.return_pressure()] | "
+			text_to_say += " KPA : [gasses.return_pressure()] | "
 		if(!data[FIREDOOR_ALERT])
 			text_to_say += " ALERT : NO DATA |"
 			to_chat(user, text_to_say)
