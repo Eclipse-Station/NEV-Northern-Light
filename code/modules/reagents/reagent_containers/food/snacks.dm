@@ -1307,7 +1307,7 @@
 /obj/item/reagent_containers/food/snacks/human/kabob
 	name = "-kabob"
 	icon_state = "kabob"
-	desc = "A piece human meat on a stick."
+	desc = "A piece of human meat on a stick."
 	trash = /obj/item/stack/rods
 	filling_color = "#A85340"
 	bitesize = 2
@@ -1376,7 +1376,7 @@
 		..()
 
 /obj/item/reagent_containers/food/snacks/sosjerky
-	name = "scaredy's private reserve beef jerky"
+	name = "\improper scaredy's private reserve beef jerky"
 	icon_state = "sosjerky"
 	desc = "Beef jerky made from the finest space cows."
 	trash = /obj/item/trash/sosjerky

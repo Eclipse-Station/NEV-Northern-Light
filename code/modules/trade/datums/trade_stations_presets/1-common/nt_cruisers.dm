@@ -1,6 +1,6 @@
 /datum/trade_station/nt_cruisers
 	name_pool = list(
-		"NTV 'Faith'" = "NeoTheology Vessel 'Faith': \"The most holy purveyors of ecclesiarchic goods!\"",
+		"MV 'Faith'" = "Mekhane Vessel 'Faith': \"The most holy purveyors of ecclesiarchic goods!\"",
 	)
 	icon_states = "nt_cruiser"
 	uid = "nt_basic"
@@ -47,7 +47,7 @@
 			/obj/item/reagent_containers/glass/rag,
 			/obj/item/grenade/chem_grenade/cleaner/nt_cleaner,
 			/obj/item/grenade/chem_grenade/antiweed/nt_antiweed,
-			/obj/structure/mopbucket,		
+			/obj/structure/mopbucket,
 			/obj/structure/janitorialcart
 		)
 	)

@@ -14,7 +14,7 @@
 	stations_recommended = list("illegal2")
 	recommendations_needed = 3
 	assortiment = list(
-		"Syndicate Gear" = list(
+		"Surplus Gear" = list(
 			/obj/item/clothing/under/syndicate,
 			/obj/item/storage/toolbox/syndicate = custom_good_amount_range(list(1, 3)),
 			/obj/item/clothing/suit/space/syndicate = custom_good_amount_range(list(1, 1)),
@@ -32,13 +32,13 @@
 		)
 	)
 	secret_inventory = list(
-		"Syndicate Gear II" = list(
+		"Surplus Gear II" = list(
 			/obj/item/gun/energy/crossbow = custom_good_amount_range(list(1, 1)),
 			/obj/item/clothing/suit/space/syndicate/uplink = custom_good_amount_range(list(1, 1)),
 			/obj/item/clothing/head/space/syndicate/uplink = custom_good_amount_range(list(1, 1)),
 			/obj/item/clothing/glasses/powered/night = custom_good_amount_range(list(1, 1))
 		),
-		"Syndicate Gun Mods" = list(
+		"Surplus Gun Mods" = list(
 			/obj/item/gun_upgrade/barrel/gauss,
 			/obj/item/gun_upgrade/mechanism/glass_widow,
 			/obj/item/gun_upgrade/scope/killer

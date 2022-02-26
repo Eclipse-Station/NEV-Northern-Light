@@ -1,6 +1,6 @@
 /datum/trade_station/ningishzida
 	name_pool = list(
-		"MTB 'Ningishzida'" = "Moebius Trade Beacon 'Ningishzida': Connection with the Moebius surplus network established."
+		"MTB 'Ningishzida'" = "Lazarus Trade Beacon 'Ningishzida': Connection with the Lazarus surplus network established."
 	)
 	icon_states = "moe_capital"
 	uid = "moe_adv"

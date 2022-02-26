@@ -1,6 +1,6 @@
 /datum/trade_station/nt_uncommon
 	name_pool = list(
-		"NTV 'Hope'" = "NeoTheology Vessel 'Hope': \"Reliable, blessed and sanctified goods for the correct price.\""
+		"MV 'Hope'" = "Mekhane Vessel 'Hope': \"Reliable, blessed and sanctified goods for the correct price.\""
 	)
 	icon_states = "nt_cruiser"
 	uid = "nt_uncommon"
@@ -36,7 +36,7 @@
 			/obj/item/storage/pouch/medium_generic,
 			/obj/item/storage/pouch/large_generic
 		),
-		"Neotheology Cells" = list(
+		"Mekhane Cells" = list(
 			/obj/item/cell/small/neotheology,
 			/obj/item/cell/medium/neotheology,
 			/obj/item/cell/large/neotheology
