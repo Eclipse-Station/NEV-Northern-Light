@@ -1,5 +1,0 @@
-author: GuiltyNeko
-delete-after: true
-changes:
-  - bugfix: Maintenance on the Erida will no longer falsely appear to be irradiated
-      during radiation events.
