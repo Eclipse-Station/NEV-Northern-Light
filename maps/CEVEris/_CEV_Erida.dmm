@@ -79258,6 +79258,11 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
+"hlD" = (
+/obj/structure/catwalk,
+/obj/spawner/mob/spiders/cluster,
+/turf/simulated/floor/plating/under,
+/area/erida/maintenance/starboardsection2deck1)
 "hCi" = (
 /obj/structure/cyberplant,
 /obj/structure/extinguisher_cabinet{
@@ -79683,6 +79688,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
+"rPb" = (
+/obj/spawner/mob/spiders/cluster,
+/turf/simulated/floor/tiled/steel/brown_platform,
+/area/erida/maintenance/starboardsection2deck1)
 "szA" = (
 /obj/structure/sign/double/barsign,
 /turf/simulated/wall/r_wall,
@@ -164379,10 +164388,10 @@ aRo
 aVD
 aAE
 aAE
+aAE
 aWk
 aWk
-aWk
-aWk
+aAE
 aAE
 aAE
 bmC
@@ -164985,7 +164994,7 @@ aMk
 doA
 aRF
 dra
-aRF
+rPb
 drl
 drn
 aYF
@@ -165442,7 +165451,7 @@ dqV
 dqZ
 drc
 drg
-aVH
+hlD
 aYF
 drn
 bfO
