@@ -1,0 +1,5 @@
+author: GuiltyNeko
+delete-after: true
+changes:
+  - bugfix: JTB airlock has cycle buttons, and the console has been moved to its appropriate
+      location.
