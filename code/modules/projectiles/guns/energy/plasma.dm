@@ -45,7 +45,8 @@
 
 /obj/item/gun/energy/plasma/destroyer
 	name = "NT PR M \"Purger\""  //Eclipse Edit - gun names standardized
-	desc = "A more recent \"NanoTrasen\" brand plasma rifle, developed in direct response to compete against the highly successful \"Cassad\" design."
+	desc = "A more recent \"NanoTrasen\" brand plasma rifle, developed in direct response to compete against the highly successful \"Cassad\" design. \
+            There\'s an inscription on the stock. \'For those whom the Angels hath cursed: thou wilt find, have no one to help.\'"
 	icon = 'icons/obj/guns/energy/destroyer.dmi'
 	fire_sound = 'sound/weapons/energy/incinerate.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 10, MATERIAL_URANIUM = 5)

@@ -5,7 +5,7 @@
 	switch (pickweight(list("bloodyspai" = 1, "stealth" = 1, "screwed" = 1, "guns" = 1, "murder" = 1, "freedom" = 1, "hacker" = 1, /*"lordsingulo" = 1,*/ "smoothoperator" = 1)))
 		if("bloodyspai")
 			new /obj/item/clothing/under/chameleon(src)
-			new /obj/item/clothing/mask/gas/voice(src)
+			new /obj/item/clothing/mask/chameleon/voice(src)
 			new /obj/item/card/id/syndicate(src)
 			new /obj/item/clothing/shoes/syndigaloshes(src)
 			return
@@ -127,9 +127,16 @@
 	new /obj/item/clothing/suit/space/void/merc/boxed(src)
 	new /obj/item/clothing/mask/gas/syndicate(src)
 
+/obj/item/storage/box/syndie_kit/softsuit
+	name = "boxed soft suit"
+
+/obj/item/storage/box/syndie_kit/softsuit/populate_contents()
+	new /obj/item/clothing/suit/space/syndicate/uplink(src)
+	new /obj/item/clothing/head/space/syndicate/uplink(src)
+
 /obj/item/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
-	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
+	desc = "Comes with all the clothes you need to impersonate most people. Acting lessons sold seperately. Wearing the uniform will allow fot quick switching between appearances."
 
 /obj/item/storage/box/syndie_kit/chameleon/populate_contents()
 	new /obj/item/clothing/under/chameleon(src)
@@ -137,6 +144,7 @@
 	new /obj/item/clothing/suit/chameleon(src)
 	new /obj/item/clothing/shoes/chameleon(src)
 	new /obj/item/storage/backpack/chameleon(src)
+	new /obj/item/storage/backpack/satchel/chameleon(src)
 	new /obj/item/clothing/gloves/chameleon(src)
 	new /obj/item/clothing/mask/chameleon(src)
 	new /obj/item/clothing/glasses/chameleon(src)
@@ -380,25 +388,18 @@
 	new /obj/item/grenade/chem_grenade/cleaner(src)
 	new /obj/item/reagent_containers/spray/cleaner(src)
 
-/obj/item/storage/box/syndie_kit/slmagnum
-	name = ".40 lethal speedloader box"
-	desc = "Contains 2 .40 lethal speedloaders."
-
 /obj/item/storage/box/syndie_kit/slmagnum/populate_contents()
 	new /obj/item/ammo_magazine/slmagnum(src)
 	new /obj/item/ammo_magazine/slmagnum(src)
 
 /obj/item/storage/box/syndie_kit/slmagnum/highvelocity
 	name = ".40 HV speedloader box"
-	desc = "Contains 2 .40 HV speedloaders."
+	desc = "Contains 3 .40 HV speedloaders."
 
 /obj/item/storage/box/syndie_kit/slmagnum/highvelocity/populate_contents()
 	new /obj/item/ammo_magazine/slmagnum/highvelocity(src)
 	new /obj/item/ammo_magazine/slmagnum/highvelocity(src)
-
-/obj/item/storage/box/syndie_kit/slpistol
-	name = ".35 lethal speedloader box"
-	desc = "Contains 2 .35 lethal speedloaders."
+	new /obj/item/ammo_magazine/slmagnum/highvelocity(src)
 
 /obj/item/storage/box/syndie_kit/slpistol/populate_contents()
 	new /obj/item/ammo_magazine/slpistol(src)
@@ -406,9 +407,25 @@
 
 /obj/item/storage/box/syndie_kit/slpistol/hv
 	name = ".35 HV speedloaders box"
-	desc = "Contains 2 .35 HV speedloaders."
+	desc = "Contains 3 .35 HV speedloaders."
 
 /obj/item/storage/box/syndie_kit/slpistol/hv/populate_contents()
 	new /obj/item/ammo_magazine/slpistol/hv(src)
 	new /obj/item/ammo_magazine/slpistol/hv(src)
+	new /obj/item/ammo_magazine/slpistol/hv(src)
 
+/obj/item/storage/box/syndie_kit/slsrifle/hv
+	name = ".20 HV strip box"
+	desc = "Contains 2 .20 HV strips."
+
+/obj/item/storage/box/syndie_kit/slsrifle/hv/populate_contents()
+	new /obj/item/ammo_magazine/slsrifle/hv(src)
+	new /obj/item/ammo_magazine/slsrifle/hv(src)
+
+/obj/item/storage/box/syndie_kit/sllrifle/hv
+	name = ".30 HV strip box"
+	desc = "Contains 2 .30 HV strips."
+
+/obj/item/storage/box/syndie_kit/sllrifle/hv/populate_contents()
+	new /obj/item/ammo_magazine/sllrifle/hv(src)
+	new /obj/item/ammo_magazine/sllrifle/hv(src)

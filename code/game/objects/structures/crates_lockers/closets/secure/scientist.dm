@@ -16,6 +16,7 @@
 	new /obj/item/device/radio/headset/headset_sci(src)
 	new /obj/item/tank/air(src)
 	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/clothing/glasses/regular/goggles/clear(src)
 
 /obj/structure/closet/secure_closet/reinforced/RD
 	name = "Chief Science Officer's locker"
@@ -36,3 +37,4 @@
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/paper/monitorkey(src)
+	new /obj/item/clothing/glasses/regular/goggles/clear(src)

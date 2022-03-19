@@ -356,6 +356,9 @@
 	name = "NT Spear"
 	build_path = /obj/item/tool/sword/nt/spear
 
+/datum/design/autolathe/nt/sword/nt_verutum
+	name = "NT Javelin"
+	build_path = /obj/item/stack/thrown/nt/verutum
 
 /datum/design/autolathe/nt/tool_upgrade/sanctifier
 	name = "Sanctifier"
@@ -368,7 +371,7 @@
 
 /datum/design/autolathe/nt/grenade/nt_frag
 	name = "MA DFG \"Holy Thunder\""
-	build_path = /obj/item/grenade/frag/nt
+	build_path = /obj/item/grenade/heatwave/nt
 
 /datum/design/autolathe/nt/grenade/nt_flashbang
 	name = "MA FBG \"Holy Light\""
