@@ -2904,6 +2904,7 @@
 #include "maps\submaps\planetary_ruins\radshrine\radshrine.dm"
 #include "maps\submaps\planetary_ruins\spider_nest\spider_nest.dm"
 #include "maps\submaps\planetary_ruins\tar_anomaly\tar_anomaly.dm"
+#include "zzz_modular_eclipse\code\datums\autolathe\biomatter.dm"
 #include "zzz_modular_eclipse\code\game\turfs\flooring\flooring_decals.dm"
 #include "zzz_modular_eclipse\code\modules\alternate_appearance\alternate_appearance.dm"
 #include "zzz_modular_eclipse\code\modules\clothing\hat.dm"
