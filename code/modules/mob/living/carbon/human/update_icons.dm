@@ -510,22 +510,31 @@ var/global/list/damage_icon_parts = list()
 
 //gender icons
 /mob/living/carbon/human/proc/get_gender_icon(var/g = MALE, var/slot)
-	var/list/icons = list(
-		"uniform"		= (g == MALE) ? 'icons/inventory/uniform/mob.dmi' : 'icons/inventory/uniform/mob_fem.dmi',
-		"suit"			= (g == MALE) ? 'icons/inventory/suit/mob.dmi' : 'icons/inventory/suit/mob_fem.dmi',
-		"gloves"		= 'icons/inventory/hands/mob.dmi',
-		"glasses"		= 'icons/inventory/eyes/mob.dmi',
-		"ears"			= 'icons/inventory/ears/mob.dmi',
-		"mask"			= 'icons/inventory/face/mob.dmi',
-		"hat"			= 'icons/inventory/head/mob.dmi',
-		"shoes"			= 'icons/inventory/feet/mob.dmi',
-		"misk"			= 'icons/mob/mob.dmi',
-		"belt"			= 'icons/inventory/belt/mob.dmi',
-		"s_store"		= 'icons/inventory/on_suit/mob.dmi',
-		"backpack"		= 'icons/inventory/back/mob.dmi',
-		"underwear"		= 'icons/inventory/underwear/mob.dmi'
-		)
-	return icons[slot]
+	//Eclipse edit start
+	var/mob/living/carbon/human/H = src
+	if(H.species.humaniform)
+	//Eclipse edit end
+		var/list/icons = list(
+			"uniform"		= (g == MALE) ? 'icons/inventory/uniform/mob.dmi' : 'icons/inventory/uniform/mob_fem.dmi',
+			"suit"			= (g == MALE) ? 'icons/inventory/suit/mob.dmi' : 'icons/inventory/suit/mob_fem.dmi',
+			"gloves"		= 'icons/inventory/hands/mob.dmi',
+			"glasses"		= 'icons/inventory/eyes/mob.dmi',
+			"ears"			= 'icons/inventory/ears/mob.dmi',
+			"mask"			= 'icons/inventory/face/mob.dmi',
+			"hat"			= 'icons/inventory/head/mob.dmi',
+			"shoes"			= 'icons/inventory/feet/mob.dmi',
+			"misk"			= 'icons/mob/mob.dmi',
+			"belt"			= 'icons/inventory/belt/mob.dmi',
+			"s_store"		= 'icons/inventory/on_suit/mob.dmi',
+			"backpack"		= 'icons/inventory/back/mob.dmi',
+			"underwear"		= 'icons/inventory/underwear/mob.dmi'
+			)
+		return icons[slot]
+	//Eclipse edit start
+	else
+		return H.species.get_gender_icon(g, slot)
+	//Eclipse edit end
+
 
 //contained sprite gender icons
 /mob/living/carbon/human/proc/get_gender_icon_contained(var/g = MALE)

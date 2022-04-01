@@ -9,3 +9,6 @@
 
 /datum/species/proc/get_tail_animation(var/mob/living/carbon/human/H)
 	return tail_animation
+
+/datum/species/proc/get_gender_icon(var/g = MALE, var/slot)
+	return
