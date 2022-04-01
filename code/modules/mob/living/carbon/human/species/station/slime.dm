@@ -455,7 +455,7 @@
 	step_towards(src, L) // Get on top of them to feed.
 	if(loc != L.loc)
 		return
-	if(L.buckle_mob(src, forced = TRUE))
+	if(L.buckle_mob(src))
 		victim = L
 		update_icon()
 		victim.visible_message("<span class='danger'>\The [src] latches onto [victim]!</span>",
