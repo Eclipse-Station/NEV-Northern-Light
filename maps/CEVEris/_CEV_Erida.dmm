@@ -23940,7 +23940,7 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/space)
+/area/eris/maintenance/section3deck4starboard)
 "bfr" = (
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/armory)
@@ -79459,6 +79459,7 @@
 "lHc" = (
 /obj/structure/catwalk,
 /obj/machinery/holomap{
+	dir = 8;
 	pixel_x = 32
 	},
 /turf/simulated/floor/plating/under,
@@ -134473,7 +134474,7 @@ aKD
 dtV
 aZT
 axH
-aab
+aaM
 aav
 aav
 aav
@@ -139489,7 +139490,7 @@ aIz
 dtV
 aZT
 axH
-aab
+aaM
 aav
 aav
 aav
