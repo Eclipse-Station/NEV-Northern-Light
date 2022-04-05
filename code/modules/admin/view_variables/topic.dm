@@ -321,6 +321,44 @@
 			to_chat(usr, "Set species of [H] to [H.species].")
 		else
 			to_chat(usr, "Failed! Something went wrong.")
+		
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Marking fix procs for post-cloning.
+	else if(href_list["regenmarkings"])
+		if(!check_rights(R_DEBUG|R_ADMIN|R_MOD))
+			return
+		
+		//check the mob exists in the first place
+		var/mob/living/carbon/human/H = locate(href_list["regenmarkings"])
+		if(!H)
+			to_chat(usr, "Unable to regenerate markings: Mob does not exist or is non-human.")
+			return
+		
+		//check that the mob has markings
+		if(!H.dna.body_markings)
+			//If we don't have any markings, we only soft-fail - there may be an edge case where we want to regenerate them anyway.
+			if(alert("This mob has no markings to generate. Regenerate markings anyway?",,"Confirm","Abort") != "Confirm")
+				to_chat(usr, "Unable to generate markings: No markings to regenerate; override prompt aborted by user.")
+				return
+		
+		//Outside of the sanity checks, everything else is fairly simple. We just gotta
+		H.body_markings = H.dna.body_markings.Copy()		// and then we just call
+		H.update_icons()		//and that should be it.
+	
+	//Fully regenerate icons via calling the UpdateAppearance proc.
+	else if(href_list["regenerateiconsfully"])
+		if(!check_rights(R_DEBUG|R_ADMIN|R_MOD))
+			return
+		
+		//Once again, we start by seeing if the mob exists in the first place...
+		var/mob/living/carbon/human/H = locate(href_list["regenerateiconsfully"])
+		if(!H)
+			to_chat(usr, "Unable to regenerate icons: Mob does not exist or is non-human.")
+			return
+			
+		//And we call a proc that literally does it all for us.
+		H.UpdateAppearance()
+	// // // END ECLIPSE EDITS // // //
 
 	else if(href_list["addlanguage"])
 		if(!check_rights(R_FUN))
