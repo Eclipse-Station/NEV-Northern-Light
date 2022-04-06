@@ -951,7 +951,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating/under,
-/area/space)
+/area/erida/maintenance/portsection2deck3)
 "acs" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
@@ -23940,7 +23940,7 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
-/area/space)
+/area/eris/maintenance/section3deck4starboard)
 "bfr" = (
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/security/armory)
@@ -26724,14 +26724,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/main)
-"bmj" = (
-/turf/space,
-/area/turret_protected/ai)
-"bmk" = (
-/turf/space,
-/area/turret_protected/ai_upload_foyer{
-	name = "AI Upload Foyer"
-	})
 "bml" = (
 /obj/machinery/atmospherics/valve/digital/open{
 	dir = 1;
@@ -36468,6 +36460,17 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/item/device/radio/intercom/private{
+	dir = 8;
+	pixel_x = 23
+	},
+/obj/item/device/radio/intercom/private{
+	dir = 4;
+	pixel_x = -23
+	},
+/obj/item/device/radio/intercom/private{
+	pixel_y = 23
+	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/turret_protected/ai)
 "bIX" = (
@@ -36712,6 +36715,18 @@
 /obj/structure/cable/cyan{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/item/device/radio/intercom/private{
+	pixel_x = -5;
+	pixel_y = 21
+	},
+/obj/item/device/radio/intercom/private{
+	pixel_x = 13;
+	pixel_y = 21
+	},
+/obj/item/device/radio/intercom/private{
+	dir = 1;
+	pixel_y = -21
 	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/turret_protected/ai)
@@ -38705,7 +38720,8 @@
 /area/eris/quartermaster/office)
 "bOe" = (
 /obj/machinery/power/smes/buildable/substation{
-	RCon_tag = "Substation - Telecommunications"
+	RCon_tag = "Substation - Telecommunications";
+	input_attempt = 1
 	},
 /obj/structure/cable/cyan{
 	d2 = 8;
@@ -46601,6 +46617,18 @@
 "cgO" = (
 /obj/landmark/join/start/triai,
 /obj/structure/cable/cyan,
+/obj/item/device/radio/intercom/private{
+	dir = 1;
+	pixel_y = -22
+	},
+/obj/item/device/radio/intercom/private{
+	dir = 4;
+	pixel_x = -23
+	},
+/obj/item/device/radio/intercom/private{
+	dir = 8;
+	pixel_x = 23
+	},
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/turret_protected/ai)
 "cgP" = (
@@ -51588,12 +51616,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/breakroom)
-"ctb" = (
-/turf/space,
-/area/eris/command/tcommsat/chamber)
-"ctc" = (
-/turf/space,
-/area/eris/security/lobby)
 "ctd" = (
 /turf/simulated/shuttle/wall/mining,
 /area/shuttle/mining/station)
@@ -79459,6 +79481,7 @@
 "lHc" = (
 /obj/structure/catwalk,
 /obj/machinery/holomap{
+	dir = 8;
 	pixel_x = 32
 	},
 /turf/simulated/floor/plating/under,
@@ -79682,16 +79705,16 @@
 /obj/machinery/telecomms/server/presets/common,
 /turf/simulated/floor/bluegrid,
 /area/eris/command/tcommsat/chamber)
+"rPb" = (
+/obj/spawner/mob/spiders/cluster,
+/turf/simulated/floor/tiled/steel/brown_platform,
+/area/erida/maintenance/starboardsection2deck1)
 "spc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
-"rPb" = (
-/obj/spawner/mob/spiders/cluster,
-/turf/simulated/floor/tiled/steel/brown_platform,
-/area/erida/maintenance/starboardsection2deck1)
 "szA" = (
 /obj/structure/sign/double/barsign,
 /turf/simulated/wall/r_wall,
@@ -134473,7 +134496,7 @@ aKD
 dtV
 aZT
 axH
-aab
+aaM
 aav
 aav
 aav
@@ -139489,7 +139512,7 @@ aIz
 dtV
 aZT
 axH
-aab
+aaM
 aav
 aav
 aav
@@ -144598,7 +144621,7 @@ aaa
 aaa
 aaa
 aaa
-ctb
+aaa
 aaa
 aaa
 aaa
@@ -144750,7 +144773,7 @@ aaa
 aaa
 aaa
 aaa
-ctc
+aaa
 aaa
 aaa
 aaa
@@ -166795,12 +166818,12 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
-bmj
-bmj
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -166947,18 +166970,18 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
-bmj
-bmj
 aaa
 aaa
-bmk
-bmk
-bmk
-bmk
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -167099,18 +167122,18 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
-bmj
-bmj
 aaa
 aaa
-bmk
-bmk
-bmk
-bmk
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -167251,18 +167274,18 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
-bmj
-bmj
 aaa
 aaa
-bmk
-bmk
-bmk
-bmk
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -167403,18 +167426,18 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
-bmj
-bmj
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -167563,10 +167586,10 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -167715,10 +167738,10 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -167867,10 +167890,10 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -168019,10 +168042,10 @@ aaa
 aaa
 aaa
 aaa
-bmj
-bmj
-bmj
-bmj
+aaa
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
