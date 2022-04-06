@@ -15717,10 +15717,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/neotheology/chapelritualroom)
-"aLC" = (
-/obj/structure/low_wall,
-/turf/simulated/floor/plating,
-/area/space)
 "aLD" = (
 /obj/machinery/button/windowtint{
 	pixel_y = -28
@@ -92356,7 +92352,7 @@ bbA
 cjl
 cjC
 bbr
-aLC
+aMx
 aMx
 bbr
 adb
