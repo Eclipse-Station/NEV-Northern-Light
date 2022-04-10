@@ -94,6 +94,7 @@
 	var/threshold_high_temperature_cutout = T0C + 125		//Automatic E-stop if the shield generator hits this point.
 	var/threshold_alarm = FALSE		//Have we played the overheat warning over the radio?
 	var/threshold_shutdown_alarm = FALSE		//Did we shut down due to overheating?
+	var/last_overheat		//When was the last time we were over the critical heat threshold?
 	
 	var/obj/item/device/radio/radio
 
@@ -290,19 +291,19 @@
 		environment = L.return_air()
 		itt = environment.temperature
 		temperature_multiplier = clamp((T0C + 20)/(itt+10), 1, 4)		//If the room is super cold, the equipment is going to use more power because higher oil viscosity or whatever
+		//that also helps it warm up more quickly!
 		
 		//we'll put out heat later, after we calculate energy usage.
 		
 	//Overheat code.
 	if((itt < threshold_critical) && threshold_alarm)	//Overheat alarm sounded, but we're cooled down.
-		if(threshold_alarm < 6)		//Give us a few Process() cycles for hysteresis, to avoid it warning us repeatedly if we're right on the edge.
-			threshold_alarm++
-		else		//We've been under the overheat threshold for 10 seconds, we can reset the alarm now.
+		if(last_overheat < (world.time - 15 SECONDS))		//Give us some hysterisis, just in case.
 			if(!threshold_shutdown_alarm)		//If we caught it before the system cut off, then we announce we're cool enough.
 				radio.autosay("Shield generator returning to safe operating temperatures.", "Shield Generator monitor", "Engineering")
-				threshold_alarm = FALSE
-	
+			threshold_alarm = FALSE
+
 	if(itt > threshold_critical)	//we're overheating.
+		last_overheat = world.time
 		if(!threshold_alarm)		//alarm hasn't sounded.
 			radio.autosay("WARNING: Shield generator temperature very high. Recommend reducing load immediately to return shield generator to normal operating temperatures and avoid a possible automatic emergency stop. Any internal damages caused by overheating are NOT covered by your manufacturer's warranty.", "Shield Generator monitor", "Engineering")
 		threshold_alarm = TRUE		//We explicitly set it true here to reset the hysteresis cycles above.
@@ -313,7 +314,7 @@
 			emergency_shutdown = TRUE
 			offline_for = 300
 			shutdown_field()
-			input_cap = 1
+			input_cap = 1		//Negligible input, to allow us to cool.
 	// // // END ECLIPSE EDITS // // //
 
 	if (!anchored)
