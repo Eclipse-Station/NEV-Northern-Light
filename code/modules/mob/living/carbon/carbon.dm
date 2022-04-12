@@ -234,6 +234,18 @@
 				else
 					M.visible_message(SPAN_NOTICE("[M] hugs [src] to make [t_him] feel better!"), \
 								SPAN_NOTICE("You hug [src] to make [t_him] feel better!"))
+					// // // BEGIN ECLIPSE EDITS // // //
+					//Hugging now restores sanity if it's critically low.
+					
+					if(M.sanity)		//We do the person giving the hug...
+						if(M.sanity.level < config.maximum_hug_sanity_restoration)
+							M.sanity.changelevel(1.5)	//but not as much as...
+					if(src.sanity)		//the person receiving the hug...
+						if(src.sanity.level < config.maximum_hug_sanity_restoration)
+							src.sanity.changelevel(3)		//who's getting more.
+					
+					// // // END ECLIPSE EDITS // // //
+					
 				if(M.fire_stacks >= (src.fire_stacks + 3))
 					src.fire_stacks += 1
 					M.fire_stacks -= 1
