@@ -112,11 +112,19 @@ DISPATCHER_MAXIMUM_COMMAND_PING 1
 
 ## GHOST ICON GENERATION
 ## Should we generate ghost icons based on the player's character, if they have
-## no body (e.g. joined as observer)? This may cause a minor performance impact.
+## no body (e.g. joined as observer)? This may have a minor performance impact.
 ## Uncomment to enable.
 #GENERATE_GHOST_ICONS
 
 ## MAXIMUM SANITY REGENERATION FROM HUGS
 ## How low should sanity be before someone hugging someone else will give them
 ## any benefit?
+## Default: 15
 MAXIMUM_SANITY_REGEN_FROM_HUGS 15
+
+## NUMBER OF EXOPLANETS TO GENERATE
+## How many exoplanets should we generate for the overmap? Note that increasing
+## this value will increase roundstart time, and may have a minor to moderate 
+## impact on performance.
+## Default: 2
+EXOPLANETS_TO_GENERATE 2

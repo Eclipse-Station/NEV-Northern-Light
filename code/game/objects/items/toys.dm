@@ -632,7 +632,7 @@
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> hugs [src]!"),SPAN_NOTICE("You hug [src]!"))
 		// // // BEGIN ECLIPSE EDITS // // //
 		//Hugging plushies regenerates stamina... barely.
-		if(istype(user, /mob/living/carbon/human)
+		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			if(H.sanity)
 				if(H.sanity.level < config.maximum_hug_sanity_restoration)

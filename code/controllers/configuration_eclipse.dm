@@ -47,6 +47,7 @@
 // Miscellany.
 	var/generate_ghost_icons = FALSE		//Should we generate ghost icons?
 	var/maximum_hug_sanity_restoration = 15		//Hugging will restore sanity up to this amount.
+	var/number_of_exoplanets = 2
 
 
 /hook/startup/proc/read_eclipse_config()
@@ -123,6 +124,8 @@
 				config.generate_ghost_icons = TRUE
 			if("maximum_sanity_regen_from_hugs")
 				config.maximum_hug_sanity_restoration = text2num(value)
+			if("exoplanets_to_generate")
+				config.number_of_exoplanets = text2num(value)
 
 //Version check, warns if the configuration file is updated and the sysop hasn't updated their copy.
 	if(!config.eclipse_config_version)
