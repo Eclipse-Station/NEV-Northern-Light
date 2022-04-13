@@ -84,8 +84,12 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 					icon = standin.stand_icon
 					overlays = standin.overlays_standing
 
+					for(var/i in standin.contents)
+						qdel(i)		//Should probably use Destroy() here, but qdel helps mitigate performance impact.
 					qdel(standin)
 				if(unsafe)		//If the unsafe flag is set, cancel and delete the mob, then go into the fallback method.
+					for(var/i in standin.contents)
+						qdel(i)
 					qdel(standin)
 					icon = body.icon
 					icon_state = body.icon_state
@@ -158,8 +162,12 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 					icon = standin.stand_icon
 					overlays = standin.overlays_standing
 
+					for(var/i in standin.contents)
+						qdel(i)
 					qdel(standin)
 				if(unsafe)		//If the unsafe flag is set, cancel and delete the mob, then go into the fallback method.
+					for(var/i in standin.contents)
+						qdel(i)
 					qdel(standin)
 					icon = body.icon
 					icon_state = body.icon_state
