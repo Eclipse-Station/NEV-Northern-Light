@@ -498,7 +498,7 @@
 				if(prob(20))
 					emote("cough")
 				if(reagents)
-					reagents.add_reagent("toxin", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+					reagents.add_reagent("liquid_chlor", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 
 			//Not lethal, but makes loud messages.
 			else

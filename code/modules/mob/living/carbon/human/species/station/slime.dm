@@ -47,6 +47,8 @@
 		BP_L_FOOT = new /datum/organ_description/foot/left/slime,
 		BP_R_FOOT = new /datum/organ_description/foot/right/slime
 	)
+	
+	reagent_tag = IS_SLIME		//Eclipse edit.
 
 /datum/species/slime/handle_death(var/mob/living/carbon/human/H)
 	spawn(1)

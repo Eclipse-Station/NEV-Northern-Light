@@ -22,6 +22,8 @@
 		)
 
 	death_message = "becomes completely motionless..."
+	
+	reagent_tag = IS_GOLEM		//Eclipse edit: Probably not ever going to have anything DONE with this, but future modularity.
 
 /datum/species/golem/handle_post_spawn(var/mob/living/carbon/human/H)
 	if(H.mind)

@@ -49,3 +49,5 @@
 	blurb = "An experiment of growing vast amounts of organic silk gone awry! These insectoid creatures were created by Lazarus Foundation \
 	for commercial profit, but turned out to be sapient. Quickly adopted by the shrewd HR department of NanoTrasen, these arthropods \
 	are educated and assigned mostly as menial workers on NanoTrasen ships and stations."
+	
+	reagent_tag = IS_MOTH

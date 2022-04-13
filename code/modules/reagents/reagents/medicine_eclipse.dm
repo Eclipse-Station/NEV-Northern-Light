@@ -8,6 +8,9 @@
 	scannable = 1
 
 /datum/reagent/medicine/ausgiftrol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
+	if(alien == IS_SLIME)		//Slime people are inherently toxic. This is a mild antitoxin.
+		if(prob(5))
+			M.vomit()
 	M.adjustToxLoss(-((0.3 + (M.getToxLoss() * 0.05)) * effect_multiplier))		//75% as effective as an antitoxin compared to dylo
 	holder.remove_reagent("pararein", 0.8 )		//400% as effective as an antivenin compared to dylo
 	holder.remove_reagent("blattedin", 0.8 )	//Same.
