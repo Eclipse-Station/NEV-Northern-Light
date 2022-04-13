@@ -237,15 +237,15 @@
 					// // // BEGIN ECLIPSE EDITS // // //
 					//Hugging now restores sanity if it's critically low.
 					if(istype(M, /mob/living/carbon/human))
-						var/mob/living/carbon/human/H = M
-						if(H.sanity)		//We do the person giving the hug...
-							if(H.sanity.level < config.maximum_hug_sanity_restoration)
-								H.sanity.changelevel(1.5)	//but not as much as...
+						var/mob/living/carbon/human/R = M
+						if(R.sanity)		//We do the person giving the hug...
+							if(R.sanity.level < config.maximum_hug_sanity_restoration)
+								R.sanity.changeLevel(1.5)	//but not as much as...
 					if(istype(src, /mob/living/carbon/human))
 						var/mob/living/carbon/human/Q = src
 						if(Q.sanity)		//the person receiving the hug...
 							if(Q.sanity.level < config.maximum_hug_sanity_restoration)
-								Q.sanity.changelevel(3)		//who's getting more.
+								Q.sanity.changeLevel(3)		//who's getting more.
 					
 					// // // END ECLIPSE EDITS // // //
 					

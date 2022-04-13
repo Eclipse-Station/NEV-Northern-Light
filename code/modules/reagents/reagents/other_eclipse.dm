@@ -1,6 +1,6 @@
 /datum/reagent/toxin/trichloramine
-	name = "Trichloramine"
-	id = "liquid_trichlor"
+	name = "liquid chloramines"
+	id = "liquid_chlor"
 	description = "A byproduct of mixing chlorine and ammonia, chloramines are used as a cheap source of water sanitization. Production of this is generally described as 'violently explosive'."
 	taste_description = "bleach"
 	reagent_state = LIQUID

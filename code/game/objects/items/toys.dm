@@ -576,9 +576,11 @@
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> hugs [src]!"),SPAN_NOTICE("You hug [src]!"))
 		// // // BEGIN ECLIPSE EDITS // // //
 		//Hugging large plushies regenerates stamina. Somewhat.
-		if(user.sanity)
-			if(user.sanity.level < config.maximum_hug_sanity_restoration)
-				user.sanity.changelevel(1.5)		//On par with hugging someone.
+		if(istype(user, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = user
+			if(H.sanity)
+				if(H.sanity.level < config.maximum_hug_sanity_restoration)
+					H.sanity.changeLevel(1.5)		//On par with the player hugging someone else
 		// // // END ECLIPSE EDITS // // //
 	else if (user.a_intent == I_HURT)
 		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"),SPAN_WARNING("You punch [src]!"))
@@ -636,7 +638,7 @@
 			var/mob/living/carbon/human/H = user
 			if(H.sanity)
 				if(H.sanity.level < config.maximum_hug_sanity_restoration)
-					H.sanity.changelevel(1)		//Not much.
+					H.sanity.changeLevel(1)		//Not much.
 		// // // END ECLIPSE EDITS // // //
 	else if (user.a_intent == I_HURT)
 		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"),SPAN_WARNING("You punch [src]!"))
