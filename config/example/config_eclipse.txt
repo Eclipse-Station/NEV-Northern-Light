@@ -96,15 +96,33 @@ ROLE_PING_RESEARCH
 ROLE_PING_SECURITY 
 ROLE_PING_SERVICE 
 ROLE_PING_SUPPLY 
+ROLE_PING_RESTARTS 
 
 ## DISPATCHER MAXIMA FOR PINGS
 ## Maximum number of players the dispatcher will allow before it won't pass on
 ## a message to the discord. Set to -1 to disable playercount checks. (This is
 ## not recommended and will throw a warning if disabled.)
-## Default: 1 (both)
+## Defaults: 1, 1, 15
 DISPATCHER_MAXIMUM_NONCOMMAND_PING 1
 DISPATCHER_MAXIMUM_COMMAND_PING 1
+DISPATCHER_MAXIMUM_HIVEMIND_PING 15
 
+## DISPATCHER PING ON ROUND END
+## Should the dispatcher ping the "restarts" role when the round ends? This will
+## ping regardless of the maxima above.
+## Uncomment to enable.
+# DISPATCHER_PINGS_ON_ROUND_END
+
+## SECURITY PING ON HIVEMIND ANNOUNCEMENT
+## Should the dispatcher ping the "security" role when a Hivemind event is
+## announced? This will send a ping regardless of player count.
+## Uncomment to enable.
+## WARNING: This option is mutually exclusive with the option immediately below.
+# DISPATCHER_MESSAGES_SECURITY_ON_HIVEMIND
+
+## ALL-HANDS PING ON HIVEMIND ANNOUNCEMENT
+## Should the dispatcher ping all roles, except the restart role, when a
+## Hivemind event is announced?
 
 #########
 # MISCELLANEOUS

@@ -41,8 +41,15 @@
 	var/ntdad_role_security = ""
 	var/ntdad_role_service = ""
 	var/ntdad_role_supply = ""
-	var/ntdad_maximum_noncommand = 0
-	var/ntdad_maximum_command = 0
+	var/ntdad_role_restarts = ""
+		//maxima
+	var/ntdad_maximum_noncommand = 1
+	var/ntdad_maximum_command = 1
+	var/ntdad_maximum_hivemind = 15
+		//Automated pings
+	var/ntdad_roundend_ping = FALSE
+	var/ntdad_level8_ping_sec = FALSE
+	var/ntdad_level8_ping_all = FALSE
 	
 // Miscellany.
 	var/generate_ghost_icons = FALSE		//Should we generate ghost icons?
@@ -116,10 +123,25 @@
 				config.ntdad_role_service = value
 			if("role_ping_supply")
 				config.ntdad_role_supply = value
+			if("role_ping_restarts")
+				config.ntdad_role_restarts = value
 			if("dispatcher_maximum_noncommand_ping")
 				config.ntdad_maximum_noncommand = text2num(value)
 			if("dispatcher_maximum_command_ping")
 				config.ntdad_maximum_command = text2num(value)
+			if("dispatcher_maximum_hivemind_ping")
+				config.ntdad_maximum_hivemind = text2num(value)
+			if("dispatcher_pings_on_round_end")
+				config.ntdad_roundend_ping = TRUE
+			if("dispatcher_messages_security_on_hivemind")
+				config.ntdad_level8_ping_sec = TRUE
+			if("dispatcher_messages_all_on_hivemind")
+				if(!config.ntdad_level8_ping_sec)
+					config.ntdad_level8_ping_all = TRUE
+				else
+					spawn(20 SECONDS)
+						log_and_message_admins("Configuration conflict detected. Check the stack trace in the runtime logs for more information.")
+						throw EXCEPTION("configuration conflict")
 			if("generate_ghost_icons")
 				config.generate_ghost_icons = TRUE
 			if("maximum_sanity_regen_from_hugs")

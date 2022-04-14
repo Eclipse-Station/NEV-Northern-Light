@@ -43,6 +43,7 @@ SUBSYSTEM_DEF(dispatcher)
 	// Bypass switches for personnel requirements to ping Discord.
 	var/bypass_command_ping_requirements = FALSE
 	var/bypass_noncommand_ping_requirements = FALSE
+	var/bypass_hivemind_ping_requirements = FALSE
 
 	//used in player tracking system
 	var/list/tracked_players_all = list()		//All tracked players
@@ -88,6 +89,10 @@ SUBSYSTEM_DEF(dispatcher)
 		message_admins("DISPATCHER/SEVERE: CONFIGURATION WARNING: Dispatcher enabled via config, but maximum non-command players to ping for is zero. This will cause the dispatcher to not ping for non-command roles.")
 		if(DEBUGLEVEL_SEVERE <= debug_level)
 			log_debug("DISPATCHER: Dispatcher for command roles disabled by config:  value.")
+
+//Hivemind as well, but we won't throw a warning here.
+	if(config.ntdad_maximum_hivemind < 0)
+		bypass_hivemind_ping_requirements = TRUE
 
 	if(tracked_players_all.len || tracked_players_sec.len || tracked_players_med.len || tracked_players_sci.len || tracked_players_cmd.len || tracked_players_crg.len || tracked_players_eng.len || tracked_players_svc.len || tracked_players_chr.len)
 		message_admins("DISPATCHER/SEVERE: One or more lists still had data. Lists will be flushed to attempt to clear lists...")
