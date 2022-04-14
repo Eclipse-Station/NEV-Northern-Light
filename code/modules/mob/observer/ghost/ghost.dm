@@ -68,7 +68,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 
 				if(preferred_job)		//Sanity check.
-					SSjob.EquipRank(standin, preferred_job)
+					SSjob.EquipRank(standin, preferred_job, FALSE)
 				else
 					throw EXCEPTION("Preferred job not set and sanity checks failed.")
 					to_chat(usr,"<span class='warning'>Failed to load your mob image - a sanity check has failed. Please report this to a developer.	\
@@ -146,7 +146,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 
 				if(preferred_job)		//Sanity check.
-					SSjob.EquipRank(standin, preferred_job)
+					SSjob.EquipRank(standin, preferred_job, FALSE)
 				else
 					throw EXCEPTION("Preferred job not set and sanity checks failed.")
 					to_chat(usr,"<span class='warning'>Failed to load your mob image - a sanity check has failed. Please report this to a developer.	\
