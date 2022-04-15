@@ -452,6 +452,8 @@
 
 		if(3)
 			adjustBruteLoss(30)
+		if(4)
+			adjustBruteLoss(15)
 
 
 

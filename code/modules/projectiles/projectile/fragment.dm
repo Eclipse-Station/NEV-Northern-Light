@@ -10,11 +10,30 @@
 	muzzle_type = null
 	ignition_source = FALSE		//Eclipse add. If it's that busted, it's probably far from the source of the muzzle and expended most of its energy.
 
+	can_ricochet = TRUE
+	ricochet_ability = 10
+
 /obj/item/projectile/bullet/pellet/fragment/strong
 	damage_types = list(BRUTE = 15)
 
 /obj/item/projectile/bullet/pellet/fragment/weak
 	damage_types = list(BRUTE = 5)
+
+/obj/item/projectile/bullet/pellet/fragment/rubber
+	icon_state = "rubber"
+	name = "stinger"
+	damage_types = list(BRUTE = 5)
+	agony = 25
+	embed = FALSE
+	sharp = FALSE
+
+/obj/item/projectile/bullet/pellet/fragment/rubber/weak
+	icon_state = "rubber"
+	name = "stinger"
+	damage_types = list(BRUTE = 3)
+	agony = 20
+	embed = FALSE
+	sharp = FALSE
 
 /obj/item/projectile/bullet/pellet/fragment/invisible
 	name = "explosion"
