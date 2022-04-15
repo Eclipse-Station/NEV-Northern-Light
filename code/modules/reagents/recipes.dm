@@ -112,9 +112,10 @@
 
 	if(maximum_pressure)
 		var/turf/location = get_turf(holder.my_atom)
-		var/datum/gas_mixture/GM = location.return_air()
-		if(GM.return_pressure() > maximum_pressure)
-			return FALSE
+		if(location)
+			var/datum/gas_mixture/GM = location.return_air()
+			if(GM.return_pressure() > maximum_pressure)
+				return FALSE
 
 
 	return TRUE
