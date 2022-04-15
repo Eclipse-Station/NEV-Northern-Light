@@ -541,7 +541,7 @@
 	projectile_type = /obj/item/projectile/bullet/cap
 
 /obj/item/ammo_casing/flare
-	name = "AG FR \"Floodlight\""
+	name = "FTU FR \"Floodlight\""
 	desc = "A chemical flare shell designed to produce a distress signal or illuminate an area."
 	caliber = CAL_FLARE
 	amount = 3

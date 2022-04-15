@@ -1,12 +1,12 @@
 // NeoTheology
 
 /obj/item/computer_hardware/hard_drive/portable/design/nt
-	disk_name = "NeoTheology Armory"
+	disk_name = "Mekhane Armory"
 	icon_state = "neotheology"
 	license = -1
 
 /obj/item/computer_hardware/hard_drive/portable/design/nt/pouches
-	disk_name = "NeoTheology Armory - Pouches Pack"
+	disk_name = "Mekhane Armory - Pouches Pack"
 	license = 20
 	designs = list(
 		/datum/design/bioprinter/leather/holster,
@@ -29,7 +29,7 @@
 
 // Batteries that printed fully charged, at the cost of some biomatter or plasma being non-refundable
 /obj/item/computer_hardware/hard_drive/portable/design/nt/cells
-	disk_name = "NeoTheology Armory - Power Cells Pack"
+	disk_name = "Mekhane Armory - Power Cells Pack"
 	license = 12
 	designs = list(
 		/datum/design/bioprinter/nt_cells/large = 3,
@@ -42,7 +42,7 @@
 
 // Laser pistol
 /obj/item/computer_hardware/hard_drive/portable/design/nt/nt_svalinn
-	disk_name = "NeoTheology Armory - NT LP \"Svalinn\""
+	disk_name = "Mekhane Armory - NT LP \"Svalinn\""
 	license = 12
 	designs = list(
 		/datum/design/autolathe/gun/nt_svalinn = 2,
@@ -51,7 +51,7 @@
 
 // Javelins & bucklers, speed upgrade TODO: light armor
 /obj/item/computer_hardware/hard_drive/portable/design/nt/velite
-	disk_name = "NeoTheology Armory - \"Velite Arms\""
+	disk_name = "Mekhane Armory - \"Velite Arms\""
 	license = 12
 	designs = list(
 		/datum/design/autolathe/nt/sword/nt_verutum,
@@ -61,7 +61,7 @@
 
 // Grenade launcher with stinger
 /obj/item/computer_hardware/hard_drive/portable/design/nt/nt_protector
-	disk_name = "NeoTheology Armory - NT GL \"Protector\""
+	disk_name = "Mekhane Armory - NT GL \"Protector\""
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 90
 	license = 12
@@ -72,7 +72,7 @@
 
 // Greatshields & greatswords, space-worthy armor, protection upgrade
 /obj/item/computer_hardware/hard_drive/portable/design/nt/principes
-	disk_name = "NeoTheology Armory - \"Principes Arms\""
+	disk_name = "Mekhane Armory - \"Principes Arms\""
 	license = 12
 	designs = list(
 		/datum/design/bioprinter/storage/sheath = 0,
@@ -84,7 +84,7 @@
 
 // First aid kits, TODO: proximity healing/stabilizing cruciform upgrade
 /obj/item/computer_hardware/hard_drive/portable/design/nt/medicii
-	disk_name = "NeoTheology Armory - \"Medicii Supplies\""
+	disk_name = "Mekhane Armory - \"Medicii Supplies\""
 	license = 12
 	designs = list(
 		/datum/design/autolathe/firstaid/nt,
@@ -93,7 +93,7 @@
 
 // Plasma assault rifle
 /obj/item/computer_hardware/hard_drive/portable/design/nt/nt_dominion
-	disk_name = "NeoTheology Armory - NT PR \"Dominion\""
+	disk_name = "Mekhane Armory - NT PR \"Dominion\""
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 50
 	license = 6
@@ -105,7 +105,7 @@
 
 // Heavy weapons, heavy armor
 /obj/item/computer_hardware/hard_drive/portable/design/nt/triarii
-	disk_name = "NeoTheology Armory - \"Triarii Arms\""
+	disk_name = "Mekhane Armory - \"Triarii Arms\""
 	license = 12
 	designs = list(
 		/datum/design/bioprinter/storage/sheath = 0,
@@ -119,7 +119,7 @@
 
 // Grenades - includes heatwave for launchers
 /obj/item/computer_hardware/hard_drive/portable/design/nt/grenades
-	disk_name = "NeoTheology Armory - Grenades Pack"
+	disk_name = "Mekhane Armory - Grenades Pack"
 	license = 12
 	designs = list(
 		/datum/design/autolathe/nt/grenade/nt_heatwave = 2,
@@ -130,7 +130,7 @@
 
 // Laser rifle
 /obj/item/computer_hardware/hard_drive/portable/design/nt/nt_lightfall
-	disk_name = "NeoTheology Armory - Lightfall Laser Gun"
+	disk_name = "Mekhane Armory - Lightfall Laser Gun"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	license = 12
 	designs = list(
@@ -140,7 +140,7 @@
 
 // GIGA lenses
 /obj/item/computer_hardware/hard_drive/portable/design/nt/excruciator
-	disk_name = "NeoTheology Armory - NT \"EXCRUCIATOR\" giga lens"
+	disk_name = "Mekhane Armory - NT \"EXCRUCIATOR\" giga lens"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	license = 4
 	designs = list(

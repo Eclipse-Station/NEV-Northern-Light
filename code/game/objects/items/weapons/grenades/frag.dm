@@ -57,8 +57,8 @@
 	spread_range = 7
 
 /obj/item/grenade/frag/sting/AG
-	name = "AG SG \"Mosquito\""
-	desc = "A standard-issue Asters Guild sting grenade, for use against unruly crowds."
+	name = "HI SG \"Mosquito\""
+	desc = "A standard-issue Hephaestus Industries sting grenade, for use against unruly crowds."
 	icon_state = "sting_ag"
 	item_state = "fraggrenade"
 	fragment_type = /obj/item/projectile/bullet/pellet/fragment/rubber/weak

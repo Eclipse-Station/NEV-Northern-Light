@@ -156,7 +156,7 @@
 	var/force_broken = WEAPON_FORCE_NORMAL
 	var/throwforce_broken = WEAPON_FORCE_HARMLESS
 	w_class = ITEM_SIZE_HUGE
-	slot_flags = SLOT_BACK | SLOT_BELT 
+	slot_flags = SLOT_BACK | SLOT_BELT
 	throwforce = WEAPON_FORCE_LETHAL * 1.5
 	armor_penetration = ARMOR_PEN_HALF
 	throw_speed = 3
@@ -197,7 +197,7 @@
 			to_chat(user, SPAN_NOTICE("You repair the damaged spear-tip."))
 			tipbroken = FALSE
 			force = initial(force)
-			throwforce = initial(throwforce)		
+			throwforce = initial(throwforce)
 
 /obj/item/shield/riot/nt
 	name = "\improper Scutum of the Mekhane"
@@ -322,8 +322,8 @@
 		..()
 
 /obj/item/stack/thrown/nt
-	name = "NT Throwing knife"
-	desc = "A saintly-looking sword forged to do God\'s distant work."
+	name = "Mekhanite Throwing knife"
+	desc = "A saintly-looking sword forged to do Machine\'s distant work."
 	icon_state = "nt_shortsword"
 	item_state = "nt_shortsword"
 	force = WEAPON_FORCE_DANGEROUS
@@ -343,12 +343,12 @@
 		embed_mult = initial(embed_mult)
 
 /obj/item/stack/thrown/nt/verutum
-	name = "NT Verutum"
+	name = "Mekhanite Verutum"
 	desc = "A short, saintly-looking javelin for throwing or use with a shield. They are small enough to allow holding multiple in one hand."
 	icon_state = "nt_verutum"
 	item_state = "nt_verutum"
-	singular_name = "NT Verutum"
-	plural_name = "NT Veruta"
+	singular_name = "Mekhanite Verutum"
+	plural_name = "Mekhanite Veruta"
 	wielded_icon = "nt_verutum_wielded"
 	force = 20
 	force_wielded_multiplier = 1.08

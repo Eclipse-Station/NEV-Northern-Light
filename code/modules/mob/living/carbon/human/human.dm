@@ -1579,8 +1579,9 @@ var/list/rank_prefix = list(\
 	set category = "IC"
 	if(stat) return
 	dodging = !dodging
-	to_chat(src, "<span class='notice'>You are now [dodging ? "dodging incoming fire" : "not dodging incoming fire"].</span>")
+	to_chat(src, "<span class='notice'>You are [dodging ? "now dodging incoming fire" : "no longer dodging incoming fire"].</span>")
 	return
+
 //generates realistic-ish pulse output based on preset levels
 /mob/living/carbon/human/proc/get_pulse(var/method)	//method 0 is for hands, 1 is for machines, more accurate
 	var/temp = 0
