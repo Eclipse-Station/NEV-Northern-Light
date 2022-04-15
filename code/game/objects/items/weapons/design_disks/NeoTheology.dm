@@ -221,7 +221,7 @@
 
 // Basic melee
 /obj/item/computer_hardware/hard_drive/portable/design/nt_melee
-	disk_name = "NeoTheology Armory - \"Hastatii Arms\""
+	disk_name = "Mekhane Armory - \"Hastatii Arms\""
 	icon_state = "neotheology"
 
 	license = -1
@@ -266,7 +266,7 @@
 // Various gun disks not accessible via EOTP
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_nemesis
-	disk_name = "NanoTrasen Armory - Nemesis Energy Crossbow"
+	disk_name = "Mekhane Armory - Nemesis Energy Crossbow"
 	icon_state = "neotheology"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 50
@@ -276,7 +276,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_valkyrie
-	disk_name = "NanoTrasen Armory - Valkyrie Energy Rifle"
+	disk_name = "Mekhane Armory - Valkyrie Energy Rifle"
 	icon_state = "neotheology"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 50
@@ -287,7 +287,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_halicon
-	disk_name = "NanoTrasen Armory - Halicon Ion Rifle"
+	disk_name = "Mekhane Armory - Halicon Ion Rifle"
 	icon_state = "neotheology"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 33.33
@@ -299,7 +299,7 @@
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt/nt_counselor
 
-	disk_name = "NanoTrasen Armory - Councelor PDW E"
+	disk_name = "Mekhane Armory - Councelor PDW E"
 
 	icon_state = "neotheology"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
@@ -312,7 +312,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_mk58
-	disk_name = "NanoTrasen Armory - .35 MK58 Handgun Pack"
+	disk_name = "Mekhane Armory - .35 MK58 Handgun Pack"
 	icon_state = "neotheology"
 	rarity_value = 9
 	license = 12
@@ -325,7 +325,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_regulator
-	disk_name = "NanoTrasen Armory - .50 Regulator Shotgun"
+	disk_name = "Mekhane Armory - .50 Regulator Shotgun"
 	icon_state = "neotheology"
 	rarity_value = 17
 	license = 12
@@ -343,7 +343,7 @@
 	icon_state = "neotheology"
 
 /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_purger
-	disk_name = "NeoTheology Armory - Purger Plasma Rifle"
+	disk_name = "Mekhane Armory - Purger Plasma Rifle"
 	icon_state = "neotheology"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	rarity_value = 90 // LMG level
