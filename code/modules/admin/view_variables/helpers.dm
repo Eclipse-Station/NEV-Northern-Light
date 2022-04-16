@@ -67,7 +67,10 @@
 		<option value='?_src_=vars;makerobot=\ref[src]'>Make cyborg</option>
 		<option value='?_src_=vars;makemonkey=\ref[src]'>Make monkey</option>
 		<option value='?_src_=vars;makeslime=\ref[src]'>Make slime</option>
+		<option value='?_src_=vars;regenmarkings=\ref[src]'>Regenerate markings</option>
+		<option value='?_src_=vars;regenerateiconsfully=\ref[src]'>Regenerate icons (full)</option>
 	"}
+	//Eclipse edit: Adds in 'regen markings' to fix them disappearing when cloning.
 
 /turf/get_view_variables_options()
 	return ..() + {"
