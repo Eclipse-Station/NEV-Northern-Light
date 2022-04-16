@@ -76,10 +76,10 @@
 			else
 				center_of_mass = list("x"=16, "y"=10)
 
-	else
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
-		filling.color = reagents.get_color()
-		add_overlay(filling)
+		else
+			var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
+			filling.color = reagents.get_color()
+			add_overlay(filling)
 
 // for /obj/machinery/vending/sovietsoda
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda
