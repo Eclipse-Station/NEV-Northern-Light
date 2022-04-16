@@ -59957,25 +59957,23 @@
 	},
 /area/shuttle/mining/station)
 "cNA" = (
-/obj/machinery/mining/drill,
+/obj/machinery/mining/deep_drill,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "11,17"
 	},
 /area/shuttle/mining/station)
 "cNB" = (
-/obj/machinery/mining/drill,
+/obj/machinery/mining/deep_drill,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "12,17"
 	},
 /area/shuttle/mining/station)
 "cNC" = (
-/obj/machinery/mining/brace,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "13,17"
 	},
 /area/shuttle/mining/station)
 "cND" = (
-/obj/machinery/mining/brace,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "14,17"
 	},
@@ -60384,13 +60382,11 @@
 	},
 /area/shuttle/mining/station)
 "cOH" = (
-/obj/machinery/mining/brace,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "13,16"
 	},
 /area/shuttle/mining/station)
 "cOI" = (
-/obj/machinery/mining/brace,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "14,16"
 	},
@@ -79682,16 +79678,16 @@
 /obj/machinery/telecomms/server/presets/common,
 /turf/simulated/floor/bluegrid,
 /area/eris/command/tcommsat/chamber)
+"rPb" = (
+/obj/spawner/mob/spiders/cluster,
+/turf/simulated/floor/tiled/steel/brown_platform,
+/area/erida/maintenance/starboardsection2deck1)
 "spc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
-"rPb" = (
-/obj/spawner/mob/spiders/cluster,
-/turf/simulated/floor/tiled/steel/brown_platform,
-/area/erida/maintenance/starboardsection2deck1)
 "szA" = (
 /obj/structure/sign/double/barsign,
 /turf/simulated/wall/r_wall,
@@ -85190,7 +85186,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aYW
 aZz
 bdm
 bdy
