@@ -1,0 +1,6 @@
+author: GuiltyNeko
+delete-after: true
+changes:
+  - tweak: The AI core has intercomms now
+  - tweak: The telecomms SMES should have the input turned on automatically now
+  - bugfix: Removed bad areas from space
