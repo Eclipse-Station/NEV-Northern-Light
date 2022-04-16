@@ -1,10 +1,10 @@
-/obj/item/weapon/holder/cat/fluff/haas
+/obj/item/holder/cat/fluff/haas
 	name = "Jonas"
 	desc = "It's Jonas! A playful tabby cat."
 	gender = MALE
-	icon_state = "cat2"
-	item_state = "cat2"
-	
+	icon_state = "cat"
+	item_state = "cat"
+
 
 /mob/living/simple_animal/cat/fluff/haas
 	name = "Jonas"
@@ -12,7 +12,7 @@
 	gender = MALE
 	icon_state = "cat2"
 	item_state = "cat2"
-	holder_type = /obj/item/weapon/holder/cat/fluff/haas
+	holder_type = /obj/item/holder/cat/fluff/haas
 	var/friend_name = "Stefan Haas"
 
 
@@ -36,13 +36,13 @@
 
 	to_chat(usr, SPAN_NOTICE("[src] ignores you."))
 	return
-	
+
 /obj/item/device/fluff/the_haas_catporter_nine_thousand
 	name = "\improper Mysterious Button"
 	desc = null
 	icon = 'icons/obj/machines/buttons.dmi'
 	icon_state = "launcher0"
-	
+
 /obj/item/device/fluff/the_haas_catporter_nine_thousand/attack_self()
 	if(usr.ckey == "eviljackcarver")
 		new /mob/living/simple_animal/cat/fluff/haas(get_turf(usr))
