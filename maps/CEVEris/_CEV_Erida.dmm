@@ -41326,6 +41326,9 @@
 	layer = 3.3;
 	name = "Maintenance Hatch"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/barbackroom)
 "bUg" = (
@@ -44389,6 +44392,9 @@
 	id = "bar_backrooms_shutters";
 	layer = 3.3;
 	name = "Maintenance Hatch"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/barbackroom)
@@ -79682,16 +79688,16 @@
 /obj/machinery/telecomms/server/presets/common,
 /turf/simulated/floor/bluegrid,
 /area/eris/command/tcommsat/chamber)
+"rPb" = (
+/obj/spawner/mob/spiders/cluster,
+/turf/simulated/floor/tiled/steel/brown_platform,
+/area/erida/maintenance/starboardsection2deck1)
 "spc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
-"rPb" = (
-/obj/spawner/mob/spiders/cluster,
-/turf/simulated/floor/tiled/steel/brown_platform,
-/area/erida/maintenance/starboardsection2deck1)
 "szA" = (
 /obj/structure/sign/double/barsign,
 /turf/simulated/wall/r_wall,
