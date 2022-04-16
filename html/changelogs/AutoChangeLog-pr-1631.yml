@@ -1,0 +1,4 @@
+author: GuiltyNeko
+delete-after: true
+changes:
+  - bugfix: Removed space area from maintenance, ridding us of a maintenance shield.
