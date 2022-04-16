@@ -41338,6 +41338,9 @@
 	layer = 3.3;
 	name = "Maintenance Hatch"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/barbackroom)
 "bUg" = (
@@ -44401,6 +44404,9 @@
 	id = "bar_backrooms_shutters";
 	layer = 3.3;
 	name = "Maintenance Hatch"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/barbackroom)
