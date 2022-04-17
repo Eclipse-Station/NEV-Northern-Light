@@ -1,4 +1,0 @@
-author: GuiltyNeko
-delete-after: true
-changes:
-  - bugfix: Bar disposals will no longer dump trash into the back room.

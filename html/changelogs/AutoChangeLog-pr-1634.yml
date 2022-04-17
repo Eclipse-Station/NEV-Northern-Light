@@ -1,6 +1,0 @@
-author: EvilJackCarver
-delete-after: true
-changes:
-  - admin: Adds in admin tools to fix players' markings. Access it in the VV dropdown.
-  - admin: Adds in admin tools to completely regenerate players' sprites more fully
-      than the Regnerate Icons dropdown does.
