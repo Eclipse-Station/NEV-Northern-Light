@@ -12,6 +12,7 @@
 	supervisors = "your greed"
 	selection_color = "#b3a68c"
 	wage = WAGE_NONE	//Guild merchant draws a salary from the guild account
+	wl_config_heads = TRUE		//Eclipse edit.
 	also_known_languages = list(LANGUAGE_JIVE = 100)
 	access = list(
 		access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_merchant, access_mining,
