@@ -59053,7 +59053,13 @@
 "cLb" = (
 /obj/structure/table/rack,
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	pixel_y = -28
+	dir = 1;
+	frequency = 1380;
+	id_tag = "cargo_bay";
+	name = "cargo bay hatch controller";
+	pixel_y = -24;
+	req_one_access = list(13,31);
+	tag_door = "cargo_bay_door"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
