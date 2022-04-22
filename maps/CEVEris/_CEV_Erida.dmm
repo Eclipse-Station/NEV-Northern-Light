@@ -41278,6 +41278,9 @@
 	layer = 3.3;
 	name = "Maintenance Hatch"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/barbackroom)
 "bUg" = (
@@ -44341,6 +44344,9 @@
 	id = "bar_backrooms_shutters";
 	layer = 3.3;
 	name = "Maintenance Hatch"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/barbackroom)
@@ -59046,6 +59052,9 @@
 /area/eris/maintenance/disposal)
 "cLb" = (
 /obj/structure/table/rack,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
 "cLc" = (
