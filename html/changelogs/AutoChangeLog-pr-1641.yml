@@ -1,6 +1,0 @@
-author: EvilJackCarver
-delete-after: true
-changes:
-  - rscadd: Shield generator now has an overheat mechanic. Don't push it too hard!
-  - tweak: Map and NanoUI tweaks in relation to the shield generator overheat PR.
-  - bugfix: Long-range scanner, once again, starts wired into mains power.
