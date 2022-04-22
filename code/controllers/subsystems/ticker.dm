@@ -532,6 +532,13 @@ SUBSYSTEM_DEF(ticker)
 		to_chat(world, "<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] at the end of this round.</b>")
 
 	GLOB.storyteller.declare_completion()//To declare normal completion.
+	
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Dispatcher can declare round end to Discord.
+	if(config.ntdad_enabled && config.ntdad_roundend_ping)
+		SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended with [GLOB.player_list.len] players. A new round will start in a few minutes.")
+	// // // END ECLIPSE EDITS // // //
+	
 	scoreboard()//scores
 	//Ask the event manager to print round end information
 	SSevent.RoundEnd()

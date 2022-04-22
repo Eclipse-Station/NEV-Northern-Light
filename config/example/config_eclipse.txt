@@ -1,21 +1,22 @@
 # Eclipse-specific configurations, for downstream servers and dev environments.
+# Lines are intentionally wrapped at 80 characters wide (+1 in some cases).
 
 ## Configuration file version.
 CONFIG_FILE_VERSION 8
 
 #########
-# WHITELISTING
+# JOB WHITELISTING
 #########
 
 ## MASTER ENABLE
 ## Uses the jobwhitelist.txt file to whitelist specific jobs.
-## Comment to disable.
+## Uncomment to enable.
 #USE_JOB_WHITELISTING
 
 ## INCLUDE ADMINS
 ## Should admins be required to be whitelisted as a job in order to play it? 
 ## This will not stop them from spawning in a character using the admin tools,
-## only the game preferences.
+## only the character setup preferences.
 ## Uncomment to require them to be whitelisted.
 #ADMINS_RESTRICTED_BY_WHITELIST
 
@@ -108,8 +109,9 @@ DISPATCHER_MAXIMUM_COMMAND_PING 1
 DISPATCHER_MAXIMUM_HIVEMIND_PING 15
 
 ## DISPATCHER PING ON ROUND END
-## Should the dispatcher ping the "restarts" role when the round ends? This will
-## ping regardless of the maxima above.
+## Should the dispatcher ping the "restarts" role when the round ends? The ping
+## will occur just after the lists of antags and silicons are printed out, and
+## pings regardless of the maxima above.
 ## Uncomment to enable.
 # DISPATCHER_PINGS_ON_ROUND_END
 
@@ -123,6 +125,9 @@ DISPATCHER_MAXIMUM_HIVEMIND_PING 15
 ## ALL-HANDS PING ON HIVEMIND ANNOUNCEMENT
 ## Should the dispatcher ping all roles, except the restart role, when a
 ## Hivemind event is announced?
+## Uncomment to enable.
+## WARNING: This option is mutually exclusive with the option immediately above.
+# DISPATCHER_MESSAGES_ALL_ON_HIVEMIND
 
 #########
 # MISCELLANEOUS
@@ -136,7 +141,8 @@ DISPATCHER_MAXIMUM_HIVEMIND_PING 15
 
 ## MAXIMUM SANITY REGENERATION FROM HUGS
 ## How low should sanity be before someone hugging someone else will give them
-## any benefit?
+## any benefit? Note that sanity caps at 100, and goes down to 0 (with certain
+## exceptions based on a player's selected background/perks).
 ## Default: 15
 MAXIMUM_SANITY_REGEN_FROM_HUGS 15
 
