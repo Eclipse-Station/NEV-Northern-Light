@@ -46,6 +46,7 @@
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/engineering/gravity_generator)
 "aaj" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/shield_generator)
 "aak" = (
@@ -1824,6 +1825,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/shield_generator)
 "aey" = (
@@ -7224,6 +7226,11 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/long_range_scanner)
 "aqY" = (
@@ -7267,6 +7274,11 @@
 "arb" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/long_range_scanner)
 "arc" = (
@@ -7654,6 +7666,10 @@
 /area/eris/medical/medbreak)
 "asb" = (
 /obj/machinery/power/long_range_scanner/hull/installed,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/long_range_scanner)
 "asc" = (
@@ -19650,6 +19666,10 @@
 /obj/machinery/camera/network/engineering{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	tag = "icon-manifold-f (EAST)"
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/shield_generator)
 "aUC" = (
@@ -19716,8 +19736,10 @@
 /obj/structure/table/standard,
 /obj/machinery/alarm{
 	dir = 8;
-	pixel_x = 25
+	pixel_x = 25;
+	report_danger_level = 0
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/shield_generator)
 "aUN" = (
@@ -20716,6 +20738,8 @@
 /obj/machinery/camera/network/engineering{
 	dir = 4
 	},
+/obj/spawner/material/building/low_chance,
+/obj/spawner/material/building/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/gravity_generator)
 "aXg" = (
@@ -21568,6 +21592,7 @@
 	dir = 8;
 	pixel_x = 22
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/shield_generator)
 "aZw" = (
@@ -22575,6 +22600,11 @@
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/long_range_scanner)
@@ -24082,6 +24112,7 @@
 	dir = 4;
 	pixel_x = -28
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/shield_generator)
 "bfN" = (
@@ -24716,6 +24747,11 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	pixel_x = 22
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/long_range_scanner)
@@ -32040,12 +32076,16 @@
 /turf/simulated/wall,
 /area/eris/medical/chemstor)
 "byJ" = (
-/obj/structure/table/rack/shelf,
-/obj/spawner/material/building/low_chance,
-/obj/spawner/material/building/low_chance,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = -28
+	},
+/obj/machinery/atmospherics/unary/freezer{
+	dir = 4;
+	icon_state = "freezer_1";
+	power_setting = 60;
+	set_temperature = 173;
+	use_power = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/gravity_generator)
@@ -66993,6 +67033,9 @@
 /area/eris/maintenance/oldbridge)
 "dfm" = (
 /obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/gravity_generator)
 "dfn" = (
@@ -68092,6 +68135,12 @@
 /area/erida/maintenance/starboardsection2deck4)
 "dii" = (
 /obj/structure/table/rack/shelf,
+/obj/spawner/material/building/low_chance,
+/obj/spawner/material/building/low_chance,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	tag = "icon-intact (NORTHEAST)"
+	},
 /obj/spawner/material/building/low_chance,
 /obj/spawner/material/building/low_chance,
 /turf/simulated/floor/tiled/dark,
@@ -79157,6 +79206,12 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/office)
+"dSR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/danger,
+/area/eris/engineering/shield_generator)
 "eeb" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/light{
@@ -79278,6 +79333,14 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
+"hhq" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/long_range_scanner)
 "hlD" = (
 /obj/structure/catwalk,
 /obj/spawner/mob/spiders/cluster,
@@ -79311,6 +79374,14 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"hKJ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/long_range_scanner)
 "hLj" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -79386,6 +79457,10 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
+"jRj" = (
+/obj/machinery/constructable_frame/machine_frame,
+/turf/simulated/floor/tiled/dark,
+/area/eris/engineering/gravity_generator)
 "kaV" = (
 /obj/structure/closet/secure_closet/chemical,
 /obj/item/storage/fancy/vials,
@@ -79405,12 +79480,27 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/medbreak)
+"knD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	tag = "icon-intact (NORTHEAST)"
+	},
+/turf/simulated/floor/tiled/dark/danger,
+/area/eris/engineering/shield_generator)
 "ksa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
+"kFL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/long_range_scanner)
 "kJZ" = (
 /obj/structure/window/basic,
 /obj/machinery/button/remote/driver{
@@ -79538,10 +79628,26 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"ncB" = (
+/obj/machinery/alarm{
+	pixel_y = 26
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/engineering/gravity_generator)
 "nwL" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/lobby)
+"nCy" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	tag = "icon-manifold-f (EAST)"
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/shield_generator)
 "odd" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -79643,6 +79749,13 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/miningdock)
+"pST" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	tag = "icon-manifold-f (EAST)"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/engineering/gravity_generator)
 "pVp" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 24
@@ -79661,6 +79774,16 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
+"qnY" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1;
+	tag = "icon-manifold-f (NORTH)"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/engineering/gravity_generator)
 "qrQ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1
@@ -79730,6 +79853,21 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"sSa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/eris/engineering/gravity_generator)
 "thV" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark/techfloor,
@@ -79777,6 +79915,20 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"tUL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/long_range_scanner)
+"uej" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/plating,
+/area/eris/engineering/shield_generator)
 "ues" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/light{
@@ -79819,6 +79971,10 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/security/lobby)
+"uBS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/eris/engineering/gravity_generator)
 "uHz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -79833,6 +79989,12 @@
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/propulsion/left)
+"vfX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/engineering/gravity_generator)
 "vhr" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold4w/visible/cyan,
@@ -79871,6 +80033,19 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/security/lobby)
+"vxv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/eris/engineering/gravity_generator)
 "vLS" = (
 /turf/space,
 /area/eris/maintenance/junk)
@@ -79953,6 +80128,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/r_wall,
 /area/erida/maintenance/substation/starboard_section)
+"xpV" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	icon_state = "map_vent_in";
+	initialize_directions = 1;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/shield_generator)
 "xwl" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/steel/techfloor,
@@ -94527,13 +94717,13 @@ aaj
 aUB
 aex
 bfM
-aae
+uej
 dii
 aXf
 afC
 ale
 byJ
-dii
+jRj
 aqJ
 bzA
 arv
@@ -94676,15 +94866,15 @@ aan
 aaa
 aac
 aaj
-aat
+dSR
 aey
 aff
 aHj
-dfj
-afC
-afC
-ale
-afC
+qnY
+uBS
+uBS
+sSa
+pST
 dfm
 aqI
 aqW
@@ -94832,7 +95022,7 @@ acc
 aez
 afg
 afV
-agu
+vxv
 agu
 ajl
 alg
@@ -94843,7 +95033,7 @@ aqX
 arx
 arN
 asb
-arM
+kFL
 aqI
 aaa
 aaa
@@ -94979,12 +95169,12 @@ cvI
 aan
 aaa
 aac
-aaj
-aat
+xpV
+knD
 aeA
 afh
 aac
-aXM
+ncB
 dik
 ajq
 alh
@@ -94995,7 +95185,7 @@ arb
 arz
 arM
 arN
-arM
+hKJ
 aqI
 aaa
 aaa
@@ -95131,12 +95321,12 @@ dhp
 aan
 aaa
 aac
-aaj
-aaj
+xpV
+nCy
 aZv
 aUM
-aae
-afC
+uej
+vfX
 bee
 ajD
 ajD
@@ -95145,9 +95335,9 @@ afC
 aqJ
 bbY
 bhw
-arM
-arM
-arM
+tUL
+tUL
+hhq
 aqI
 aaa
 aaa
