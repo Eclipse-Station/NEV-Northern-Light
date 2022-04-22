@@ -152,3 +152,8 @@ MAXIMUM_SANITY_REGEN_FROM_HUGS 15
 ## impact on performance.
 ## Default: 2
 EXOPLANETS_TO_GENERATE 2
+
+## SHIP NAME
+## What is the name of the ship?
+## Parses as a string.
+SHIP_NAME NEV Northern Light

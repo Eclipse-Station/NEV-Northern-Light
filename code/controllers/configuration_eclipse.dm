@@ -148,6 +148,8 @@
 				config.maximum_hug_sanity_restoration = text2num(value)
 			if("exoplanets_to_generate")
 				config.number_of_exoplanets = text2num(value)
+			if("ship_name")
+				station_name = value
 
 //Version check, warns if the configuration file is updated and the sysop hasn't updated their copy.
 	if(!config.eclipse_config_version)
