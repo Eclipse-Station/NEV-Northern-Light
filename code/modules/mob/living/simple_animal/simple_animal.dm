@@ -104,6 +104,12 @@
 
 	mob_classification = CLASSIFICATION_ORGANIC
 
+	//Eclipse-added vars
+	//Simplemob bonus multiplier. This is stacked onto the bullet simplemob damage.
+	//WARNING: SETTING THIS BELOW ONE WILL REDUCE DAMAGE; SETTING THIS BELOW ZERO
+	//MAY CAUSE MOBS TO HEAL WHEN SHOT!
+	var/simplemob_bonus_multiplier = 1
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]")
 
@@ -337,8 +343,13 @@
 		if(istype(Proj, /obj/item/projectile/ion))
 			Proj.on_hit(loc)
 		return
-
-	adjustBruteLoss(Proj.get_total_damage())
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Simplemob bonus damage.
+	var/damage_to_deal = Proj.get_total_damage()
+	if((simplemob_bonus_multiplier != 1) && (Proj.simplemob_damage_multiplier != 1))		//If neither of them are one, then we either take extra damage or take reduced damage. Some guns are not as effective against mobs, and some mobs are more vulnerable than others.
+		damage_to_deal += damage_to_deal * ((Proj.simplemob_damage_multiplier * simplemob_bonus_multiplier) - 1)		//Subtract 1 so we're not straight up multiplying everything by two if something takes no bonus damage.
+	// // // END ECLIPSE EDITS // // //
+	adjustBruteLoss(damage_to_deal)
 	return 0
 
 /mob/living/simple_animal/rejuvenate()

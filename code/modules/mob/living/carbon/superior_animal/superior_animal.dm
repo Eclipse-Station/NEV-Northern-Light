@@ -101,6 +101,12 @@
 
 	// Armor related datum
 	var/datum/armor/armor
+	
+	//Eclipse-added vars
+	//Simplemob bonus multiplier. This is stacked onto the bullet simplemob damage.
+	//WARNING: SETTING THIS BELOW ONE WILL REDUCE DAMAGE; SETTING THIS BELOW ZERO
+	//MAY CAUSE MOBS TO HEAL WHEN SHOT!
+	var/simplemob_bonus_multiplier = 1
 
 /mob/living/carbon/superior_animal/New()
 	..()

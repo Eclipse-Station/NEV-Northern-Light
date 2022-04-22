@@ -93,6 +93,9 @@
 
 	var/noshake = FALSE //Eclipse add
 	var/ignition_source = FALSE		//Eclipse add - see if the projectile is capable of detonating fuel tanks and nitro roaches.
+	
+	//Eclipse added vars
+	var/simplemob_mult = 1		//x1 multiplier, used in mob code to determine whether a mob gets more damage.
 
 /obj/item/projectile/is_hot()
 	if (damage_types[BURN])
@@ -132,6 +135,11 @@
 
 /obj/item/projectile/proc/multiply_projectile_accuracy(newmult)
 	projectile_accuracy = initial(projectile_accuracy) * newmult
+
+// // // BEGIN ECLIPSE EDITS // // //
+/obj/item/projectile/proc/multiply_projectile_simplemob_sdamage(newmult)
+	simplemob_mult = initial(simplemob_mult) * newmult
+// // // END ECLIPSE EDITS // // //
 
 /obj/item/projectile/proc/adjust_damages(var/list/newdamages)
 	if(!newdamages.len)

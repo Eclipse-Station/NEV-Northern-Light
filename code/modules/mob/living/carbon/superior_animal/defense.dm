@@ -21,6 +21,12 @@
 	check_AI_act()
 
 /mob/living/carbon/superior_animal/bullet_act(obj/item/projectile/P, def_zone)
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Simplemob bonus damage.
+	for(var/i in P.damage_types)
+		if((simplemob_bonus_multiplier != 1) && (Proj.simplemob_damage_multiplier != 1))		//If neither of them are one, then we either take extra damage or take reduced damage. Some guns are not as effective against mobs, and some mobs are more vulnerable than others.
+			i += i * ((Proj.simplemob_damage_multiplier * simplemob_bonus_multiplier) - 1)		//Subtract 1 so we're not straight up multiplying everything by two if something takes no bonus damage.
+		// // // END ECLIPSE EDITS // // //
 	. = ..()
 	updatehealth()
 

@@ -38,6 +38,8 @@
 
 	wield_delay = 0 SECOND
 	wield_delay_factor = 0
+	
+	simplemob_damage_multiplier = 0.8		//Eclipse edit: 80% damage to simplemobs.
 
 /obj/item/gun/energy/switch_firemodes()
 	. = ..()

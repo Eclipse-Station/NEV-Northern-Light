@@ -49,6 +49,8 @@
 
 	spawn_tags = SPAWN_TAG_FS_ENERGY
 
+	simplemob_damage_multiplier = 1.2	//Eclipse edit: for personal defence!
+
 /obj/item/gun/energy/gun/martin/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	if(current_mode.name == "stun")
