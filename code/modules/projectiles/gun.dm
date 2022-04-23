@@ -367,7 +367,7 @@
 
 		projectile.multiply_projectile_agony(proj_agony_multiplier)
 
-		projectile.multiply_projectile_simplemob_sdamage(simplemob_damage_multiplier)		//Eclipse addition: simplemob bonus damage
+		projectile.multiply_projectile_simplemob_damage(simplemob_damage_multiplier)		//Eclipse addition: simplemob bonus damage
 
 		if(istype(projectile, /obj/item/projectile))
 			var/obj/item/projectile/P = projectile

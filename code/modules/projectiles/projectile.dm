@@ -137,7 +137,7 @@
 	projectile_accuracy = initial(projectile_accuracy) * newmult
 
 // // // BEGIN ECLIPSE EDITS // // //
-/obj/item/projectile/proc/multiply_projectile_simplemob_sdamage(newmult)
+/obj/item/projectile/multiply_projectile_simplemob_damage(newmult)
 	simplemob_mult = initial(simplemob_mult) * newmult
 // // // END ECLIPSE EDITS // // //
 
