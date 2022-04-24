@@ -356,3 +356,13 @@
 /obj/item/computer_hardware/hard_drive/portable/design/nt/cruciform_upgrade/New()
 	designs = subtypesof(/datum/design/autolathe/cruciform_upgrade)
 	..()
+
+// Eclipse Edit - Mekhane biomatter-forged energy guns. They only get one shot from any cell, but it's a doozy
+/obj/item/computer_hardware/hard_drive/portable/design/nt/guns
+	disk_name = "Mekhane Armoury - Ranged Weapons Pack"
+	designs = list(
+		/datum/design/bioprinter/nt_cells/medium,
+        /datum/design/bioprinter/nt_guns/paladin,
+		/datum/design/bioprinter/nt_cells/small,
+		/datum/design/bioprinter/nt_guns/squire
+    )
