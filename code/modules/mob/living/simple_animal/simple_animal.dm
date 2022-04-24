@@ -343,8 +343,8 @@
 		return
 	// // // BEGIN ECLIPSE EDITS // // //
 	//Simplemob bonus damage.
-	if(simplemob_bonus_enabled)
-		var/damage_to_deal = Proj.get_total_damage()
+	var/damage_to_deal = Proj.get_total_damage()
+	if(simplemob_bonus_enabled && damage_to_deal)		//No sense in multiplying a zero value.
 		if(simplemob_bonus_multiplier || Proj.simplemob_bonus_mult)		//If either of them are nonzero, the damage a bullet will do is changed.
 			damage_to_deal += (damage_to_deal * simplemob_bonus_multiplier) + (damage_to_deal * Proj.simplemob_bonus_mult)
 /*
@@ -355,6 +355,7 @@
  * equals 10 += 4.5 (which equals 14.5)
  * Maths verify as intended.
  */
+		damage_to_deal = max(0.1, damage_to_deal)		//So we don't end up accidentally healing them.
 	// // // END ECLIPSE EDITS // // //
 	adjustBruteLoss(damage_to_deal)
 	return 0

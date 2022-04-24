@@ -36,6 +36,10 @@
 
 	faction = "carp"
 
+	//Eclipse-added vars
+	simplemob_bonus_multiplier = -0.5		//The bark is hardwood and you'd have hell penetrating. (Heh.)
+
+
 /mob/living/simple_animal/hostile/tree/FindTarget()
 	. = ..()
 	if(.)

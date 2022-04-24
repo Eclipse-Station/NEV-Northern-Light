@@ -27,6 +27,9 @@
 	mob_classification = CLASSIFICATION_SYNTHETIC
 	move_to_delay = 9
 
+	//Eclipse-added vars
+	simplemob_bonus_multiplier = -0.5		//You'll just be plinking off the metal here.
+
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "One Star Autonomous Sentinel"
 	icon_state = "range"

@@ -14,6 +14,9 @@
 	var/colour = "grey"
 	can_burrow = TRUE
 
+	//Eclipse-added vars
+	simplemob_bonus_multiplier = -0.75		//Did you think firing bullets into what amounts to ballistics gel would work?
+
 /mob/living/simple_animal/slime/can_force_feed(var/feeder, var/food, var/feedback)
 	if(feedback)
 		to_chat(feeder, "Where do you intend to put \the [food]? \The [src] doesn't have a mouth!")

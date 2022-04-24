@@ -757,7 +757,7 @@
 	data["recoil_buildup"] = recoil_buildup
 	data["recoil_buildup_max"] = initial(recoil_buildup)*10
 	
-	data["sa_bonus"] = simplemob_damage_multiplier * 100
+	data["sa_bonus"] = simplemob_bonus_damage_multiplier * 100
 
 	data += ui_data_projectile(get_dud_projectile())
 

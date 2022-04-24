@@ -78,6 +78,9 @@
 		"hyperzine", "tramadol", "space_drugs"
 		)
 
+	//Eclipse-added vars
+	simplemob_bonus_enabled = FALSE		//No borer simplemob damage for you.
+
 /mob/living/simple_animal/borer/roundstart
 	roundstart = 1
 

@@ -26,6 +26,8 @@
 	if(simplemob_bonus_enabled)
 		if(simplemob_bonus_multiplier || P.simplemob_bonus_mult)		//If either of them are nonzero, the damage a bullet will do is changed.
 			for(var/i in P.damage_types)
+				if(!i)
+					continue		//No sense in multiplying a zero value. It'll just be zero.
 				i += (i * simplemob_bonus_multiplier) + (i * P.simplemob_bonus_mult)
 /* To verify the maths:
  * Bullet base damage of type X is 10. From-mob multiplier of +0.45 (+45%). From-bullet multiplier of +0.1 (+10%).
@@ -34,6 +36,7 @@
  * equals 10 += 5.5, which equals 15.5 damage type X.
  * Maths verify as intended.
  */
+				i = max(0.1, i)
 		// // // END ECLIPSE EDITS // // //
 	. = ..()
 	updatehealth()

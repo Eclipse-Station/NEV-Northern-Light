@@ -30,6 +30,9 @@
 	var/screen_type = "os" //if someone decides to make the drones for something aside from OS and have different desgins
 	var/tool = "laser"
 	var/tooltype = "os"
+	
+	//Eclipse-added vars
+	simplemob_bonus_multiplier = -0.5		//You'll just be plinking off the metal here.
 
 /mob/living/simple_animal/hostile/onestar_custodian/New()
 	. = ..()

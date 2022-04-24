@@ -33,6 +33,9 @@
 	max_scan_interval = 10
 	eat_from_hand = FALSE
 
+	//Eclipse-added vars
+	simplemob_bonus_enabled = FALSE		//don't even think about it.
+
 var/atom/snack = null
 
 var/list/tolerated = list()

@@ -1,5 +1,8 @@
 /mob/living/simple_animal/hostile/retaliate
 	var/list/enemies = list()
+	
+	//Eclipse-added vars
+	simplemob_bonus_enabled = FALSE		//No free kills here!
 
 /mob/living/simple_animal/hostile/retaliate/Found(var/atom/A)
 	if(isliving(A))
