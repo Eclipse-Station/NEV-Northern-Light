@@ -23,9 +23,17 @@
 /mob/living/carbon/superior_animal/bullet_act(obj/item/projectile/P, def_zone)
 	// // // BEGIN ECLIPSE EDITS // // //
 	//Simplemob bonus damage.
-	for(var/i in P.damage_types)
-		if((simplemob_bonus_multiplier != 1) && (P.simplemob_mult != 1))		//If neither of them are one, then we either take extra damage or take reduced damage. Some guns are not as effective against mobs, and some mobs are more vulnerable than others.
-			i += i * ((P.simplemob_mult * simplemob_bonus_multiplier) - 1)		//Subtract 1 so we're not straight up multiplying everything by two if something takes no bonus damage.
+	if(simplemob_bonus_enabled)
+		if(simplemob_bonus_multiplier || P.simplemob_bonus_mult)		//If either of them are nonzero, the damage a bullet will do is changed.
+			for(var/i in P.damage_types)
+				i += (i * simplemob_bonus_multiplier) + (i * P.simplemob_bonus_mult)
+/* To verify the maths:
+ * Bullet base damage of type X is 10. From-mob multiplier of +0.45 (+45%). From-bullet multiplier of +0.1 (+10%).
+ * 10 += (10 * 0.45) + (10 * 0.1)
+ * equals 10 += 4.5 + 1
+ * equals 10 += 5.5, which equals 15.5 damage type X.
+ * Maths verify as intended.
+ */
 		// // // END ECLIPSE EDITS // // //
 	. = ..()
 	updatehealth()

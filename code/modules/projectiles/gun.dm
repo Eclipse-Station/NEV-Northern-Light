@@ -95,7 +95,7 @@
 	var/wield_delay_factor = 0 // A factor that characterizes weapon size , this makes it require more vig to insta-wield this weapon or less , values below 0 reduce the vig needed and above 1 increase it
 	
 	//Eclipse added vars
-	var/simplemob_damage_multiplier = 1		//Simplemob bonus damage.
+	var/simplemob_bonus_damage_multiplier = 0		//Simplemob bonus damage.
 
 /obj/item/gun/wield(mob/user)
 	if(!wield_delay)
@@ -367,7 +367,7 @@
 
 		projectile.multiply_projectile_agony(proj_agony_multiplier)
 
-		projectile.multiply_projectile_simplemob_damage(simplemob_damage_multiplier)		//Eclipse addition: simplemob bonus damage
+		projectile.multiply_projectile_simplemob_damage(simplemob_bonus_damage_multiplier)		//Eclipse addition: simplemob bonus damage
 
 		if(istype(projectile, /obj/item/projectile))
 			var/obj/item/projectile/P = projectile
@@ -757,7 +757,7 @@
 	data["recoil_buildup"] = recoil_buildup
 	data["recoil_buildup_max"] = initial(recoil_buildup)*10
 	
-	data["sa_bonus"] = simplemob_damage_multiplier
+	data["sa_bonus"] = simplemob_damage_multiplier * 100
 
 	data += ui_data_projectile(get_dud_projectile())
 

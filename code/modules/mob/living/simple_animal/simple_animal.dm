@@ -105,10 +105,8 @@
 	mob_classification = CLASSIFICATION_ORGANIC
 
 	//Eclipse-added vars
-	//Simplemob bonus multiplier. This is stacked onto the bullet simplemob damage.
-	//WARNING: SETTING THIS BELOW ONE WILL REDUCE DAMAGE; SETTING THIS BELOW ZERO
-	//MAY CAUSE MOBS TO HEAL WHEN SHOT!
-	var/simplemob_bonus_multiplier = 1
+	var/simplemob_bonus_enabled = TRUE		//Do we even check to see if we take more damage?
+	var/simplemob_bonus_multiplier = 0		//Do we take more or less damage? This is in addition to the bullet itself. Putting this less than -1 may have undesirable consequences (e.g. being healed by being shot)
 
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]")
@@ -345,9 +343,18 @@
 		return
 	// // // BEGIN ECLIPSE EDITS // // //
 	//Simplemob bonus damage.
-	var/damage_to_deal = Proj.get_total_damage()
-	if((simplemob_bonus_multiplier != 1) && (Proj.simplemob_mult != 1))		//If neither of them are one, then we either take extra damage or take reduced damage. Some guns are not as effective against mobs, and some mobs are more vulnerable than others.
-		damage_to_deal += damage_to_deal * ((Proj.simplemob_mult * simplemob_bonus_multiplier) - 1)		//Subtract 1 so we're not straight up multiplying everything by two if something takes no bonus damage.
+	if(simplemob_bonus_enabled)
+		var/damage_to_deal = Proj.get_total_damage()
+		if(simplemob_bonus_multiplier || Proj.simplemob_bonus_mult)		//If either of them are nonzero, the damage a bullet will do is changed.
+			damage_to_deal += (damage_to_deal * simplemob_bonus_multiplier) + (damage_to_deal * Proj.simplemob_bonus_mult)
+/*
+ * To verify the maths: 
+ * Bullet base damage 10; from-mob-code bonus +0.25 (25%), from bullet-code bonus +0.2 (20%)
+ * 10 += (10 * 0.25) + (10 * 0.2)
+ * equals 10 += 2.5 + 2
+ * equals 10 += 4.5 (which equals 14.5)
+ * Maths verify as intended.
+ */
 	// // // END ECLIPSE EDITS // // //
 	adjustBruteLoss(damage_to_deal)
 	return 0

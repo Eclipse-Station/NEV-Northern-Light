@@ -59,6 +59,8 @@
 
 /hook/startup/proc/read_eclipse_config()
 	var/list/Lines = file2list("config/config_eclipse.txt")		//We don't want to add shit to the main config when we update this (merge conflicts)
+	
+	var/_config_error = FALSE
 	for(var/t in Lines)
 		if(!t)	continue
 
@@ -140,14 +142,18 @@
 					config.ntdad_level8_ping_all = TRUE
 				else
 					spawn(20 SECONDS)
-						log_and_message_admins("Configuration conflict detected. Check the stack trace in the runtime logs for more information.")
-						throw EXCEPTION("configuration conflict")
+						_config_error = TRUE
+						throw EXCEPTION("conflicting configuration values")
 			if("generate_ghost_icons")
 				config.generate_ghost_icons = TRUE
 			if("maximum_sanity_regen_from_hugs")
 				config.maximum_hug_sanity_restoration = text2num(value)
 			if("exoplanets_to_generate")
 				config.number_of_exoplanets = text2num(value)
+				if(config.number_of_exoplanets < 0)
+					config.number_of_exoplanets = 0
+					_config_error = TRUE
+					throw EXCEPTION("invalid configuration value")
 			if("ship_name")
 				station_name = value
 
@@ -161,6 +167,11 @@
 	else if(config.eclipse_config_version > CURRENT_CONFIG_VERSION)
 		spawn(20 SECONDS)
 			to_chat(world, "<span class='info'>--- \n\nCAUTION: The Eclipse configuration file you are using is from a newer build of the server. \nUnexpected behaviours may occur.\n\nExpected: [CURRENT_CONFIG_VERSION], got: [config.eclipse_config_version].\n\n---</span>")
+
+//Warn admins on config issues.
+	if(_config_error)
+		spawn(25 SECONDS)
+			log_and_message_admins("One or more configuration errors are present. Check runtime logs for more details.")
 
 
 	config.eclipse_config_loaded = TRUE		//config is loaded
