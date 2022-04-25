@@ -79558,6 +79558,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/gravity_generator)
+"ntW" = (
+/obj/structure/table/bar_special,
+/obj/item/reagent_containers/food/condiment/saltshaker,
+/obj/item/reagent_containers/food/condiment/peppermill{
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/steel/bar_flat,
+/area/eris/crew_quarters/bar)
 "nwL" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/steel/gray_perforated,
@@ -79878,6 +79886,14 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/neotheology/bioreactor)
+"twu" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/food/condiment/saltshaker,
+/obj/item/reagent_containers/food/condiment/peppermill{
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/cafe,
+/area/eris/crew_quarters/kitchen)
 "tGH" = (
 /obj/structure/catwalk,
 /obj/machinery/firealarm{
@@ -80170,6 +80186,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/r_wall,
 /area/erida/maintenance/substation/starboard_section)
+"xjr" = (
+/obj/structure/table/bar_special,
+/obj/item/reagent_containers/food/condiment/saltshaker,
+/obj/item/reagent_containers/food/condiment/peppermill{
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/steel/bar_light,
+/area/eris/crew_quarters/bar)
 "xpV" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	external_pressure_bound = 0;
@@ -116165,7 +116189,7 @@ awU
 aTO
 aVU
 aVJ
-aXp
+twu
 aVJ
 bza
 aTO
@@ -138354,7 +138378,7 @@ aoz
 aoz
 akt
 aqi
-aqi
+xjr
 aro
 arn
 axI
@@ -138822,7 +138846,7 @@ axK
 ayO
 aaG
 aDa
-aDQ
+ntW
 akt
 aBb
 aBb
@@ -138969,7 +138993,7 @@ aaG
 axK
 aqi
 cpa
-aqi
+xjr
 aqi
 aCu
 aaG
