@@ -536,7 +536,7 @@ SUBSYSTEM_DEF(ticker)
 	// // // BEGIN ECLIPSE EDITS // // //
 	// Dispatcher can declare round end to Discord.
 	if(config.ntdad_enabled && config.ntdad_roundend_ping)
-		SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended with [GLOB.player_list.len] players. A new round will start in a few minutes.")
+		SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended aboard the [station_name()] with [GLOB.player_list.len] players. A new round will start in a few minutes.")
 	// // // END ECLIPSE EDITS // // //
 	
 	scoreboard()//scores
