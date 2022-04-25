@@ -252,7 +252,7 @@
 
 	host.reagents.add_reagent(chem, 5) //Eclipse Edit: Halved secretion amount
 	to_chat(src, SPAN_NOTICE("You secrete some chemicals from your reservoirs. There are [host.reagents.get_reagent_amount(chem)] units of [chem_name] in host's bloodstream now."))
-	chemicals -= 25
+	chemicals -= 25  //Eclipse Edit: Halved chemical cost
 
 /mob/living/simple_animal/borer/proc/paralyze_victim()
 	set category = "Abilities"
