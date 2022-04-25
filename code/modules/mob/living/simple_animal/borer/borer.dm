@@ -49,6 +49,7 @@
 		/mob/living/proc/ventcrawl,
 		/mob/living/proc/hide,
 		/mob/living/simple_animal/borer/proc/paralyze_victim,
+		/mob/living/carbon/human/proc/psychic_whisper,
 		/mob/living/simple_animal/borer/proc/infest
 		)
 
@@ -59,6 +60,7 @@
 		/mob/living/simple_animal/borer/proc/read_mind,
 		/mob/living/simple_animal/borer/proc/write_mind,
 		/mob/living/simple_animal/borer/proc/release_host,
+		/mob/living/carbon/human/proc/psychic_whisper,
 		/mob/living/simple_animal/borer/proc/reproduce
 	)
 
