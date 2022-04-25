@@ -1,8 +1,8 @@
 #define BORER_EXP_LEVEL_1 20
 #define BORER_EXP_LEVEL_2 40
 #define BORER_EXP_LEVEL_3 80
-#define BORER_EXP_LEVEL_4 140
-#define BORER_EXP_LEVEL_5 220
+#define BORER_EXP_LEVEL_4 140 //Eclipse Edit: Reduced cost
+#define BORER_EXP_LEVEL_5 220 //Eclipse Edit: Reduced cost
 /mob/living/simple_animal/borer
 	name = "cortical borer"
 	real_name = "cortical borer"
@@ -49,7 +49,7 @@
 		/mob/living/proc/ventcrawl,
 		/mob/living/proc/hide,
 		/mob/living/simple_animal/borer/proc/paralyze_victim,
-		/mob/living/carbon/human/proc/psychic_whisper,
+		/mob/living/carbon/human/proc/psychic_whisper, //Eclipse Edit: Added in from controlling host only
 		/mob/living/simple_animal/borer/proc/infest
 		)
 
@@ -60,7 +60,7 @@
 		/mob/living/simple_animal/borer/proc/read_mind,
 		/mob/living/simple_animal/borer/proc/write_mind,
 		/mob/living/simple_animal/borer/proc/release_host,
-		/mob/living/carbon/human/proc/psychic_whisper,
+		/mob/living/carbon/human/proc/psychic_whisper, //Eclipse Edit: Added in from controlling host only
 		/mob/living/simple_animal/borer/proc/reproduce
 	)
 
@@ -292,7 +292,7 @@
 /mob/living/simple_animal/borer/proc/update_borer_level()
 	if((borer_exp >= BORER_EXP_LEVEL_1) && (borer_level < 1))
 		var/level = 1
-		var/added_reagents = list("inaprovaline", "tricordrazine", "synaptizine", "imidazoline", "hyronalin" "citalopram" "nutriment")
+		var/added_reagents = list("inaprovaline", "tricordrazine", "synaptizine", "imidazoline", "hyronalin" "citalopram" "nutriment") //Eclipse Edit: Added Citalopram and Nutriment
 		var/abilities_IH = list(/mob/living/simple_animal/borer/proc/say_host, /mob/living/simple_animal/borer/proc/whisper_host, /mob/living/simple_animal/borer/proc/commune)
 		var/abilities_SL = list(/mob/living/simple_animal/borer/proc/commune)
 
@@ -300,7 +300,7 @@
 
 	if((borer_exp >= BORER_EXP_LEVEL_2) && (borer_level < 2))
 		var/level = 2
-		var/added_reagents = list("spaceacillin", "quickclot", "detox", "purger", "arithrazine" "ethylredoxrazine")
+		var/added_reagents = list("spaceacillin", "quickclot", "detox", "purger", "arithrazine" "ethylredoxrazine") //Eclipse Edit: Added ethylredoxrazine
 		var/abilities_SL = list(/mob/living/simple_animal/borer/proc/biograde)
 		var/abilities_IC = list(/mob/living/carbon/human/proc/commune)
 
@@ -308,14 +308,14 @@
 
 	if((borer_exp >= BORER_EXP_LEVEL_3) && (borer_level < 3))
 		var/level = 3
-		var/added_reagents = list("meralyne", "dermaline", "dexalinp", "oxycodone", "ryetalyn" "adrenaline" "paroxetine" "dylovene")
+		var/added_reagents = list("meralyne", "dermaline", "dexalinp", "oxycodone", "ryetalyn" "adrenaline" "paroxetine" "dylovene") //Eclipse Edit: Added Adrenaline, Paroxetine, and Dylovene
 		var/abilities_SL = list(/mob/living/simple_animal/borer/proc/invisible)
 
 		level_up(level, added_reagents, null, abilities_SL)
 
 	if((borer_exp >= BORER_EXP_LEVEL_4) && (borer_level < 4))
 		var/level = 4
-		var/added_reagents = list("peridaxon", "rezadone", "ossisine", "kyphotorin", "aminazine" "zombiepowder" "leporazine")
+		var/added_reagents = list("peridaxon", "rezadone", "ossisine", "kyphotorin", "aminazine" "zombiepowder" "leporazine") //Eclipse Edit: Added Zombie Powder, and Leporazine
 		health = 100
 		maxHealth = 100
 		speed = 1
