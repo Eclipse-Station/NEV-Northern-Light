@@ -235,7 +235,7 @@
 		to_chat(src, SPAN_DANGER("You are feeling far too docile to do that."))
 		return
 
-	if(chemicals < 50)
+	if(chemicals < 25)
 		to_chat(src, SPAN_WARNING("You don't have enough chemicals!"))
 		return
 
@@ -247,12 +247,12 @@
 	var/chem_name = input("Select a chemical to secrete.", "Chemicals") as null|anything in chem_names
 	var/chem = chem_names[chem_name]
 
-	if(!chem || chemicals < 50 || !host || controlling || !src || stat) //Sanity check.
+	if(!chem || chemicals < 25 || !host || controlling || !src || stat) //Sanity check.
 		return
 
-	host.reagents.add_reagent(chem, 10)
+	host.reagents.add_reagent(chem, 5)
 	to_chat(src, SPAN_NOTICE("You secrete some chemicals from your reservoirs. There are [host.reagents.get_reagent_amount(chem)] units of [chem_name] in host's bloodstream now."))
-	chemicals -= 50
+	chemicals -= 25
 
 /mob/living/simple_animal/borer/proc/paralyze_victim()
 	set category = "Abilities"
