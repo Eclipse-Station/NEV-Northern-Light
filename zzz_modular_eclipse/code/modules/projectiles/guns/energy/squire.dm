@@ -55,7 +55,9 @@
 /obj/item/gun/energy/laser/squire/update_icon()
 	cut_overlays()
 	if(cell)
-		overlays += "laser_squire"
+		overlays += "on_squire"
+	if(!cell)
+		overlays += "off_squire"
 
 /obj/item/dead_cell/small
 	name = "fried small battery"
