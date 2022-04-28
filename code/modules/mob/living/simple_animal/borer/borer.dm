@@ -308,7 +308,7 @@
 
 	if((borer_exp >= BORER_EXP_LEVEL_3) && (borer_level < 3))
 		var/level = 3
-		var/added_reagents = list("meralyne", "dermaline", "dexalinp", "oxycodone", "ryetalyn", "adrenaline", "paroxetine", "dylovene") //Eclipse Edit: Added Adrenaline, Paroxetine, and Dylovene
+		var/added_reagents = list("meralyne", "dermaline", "dexalinp", "oxycodone", "ryetalyn", "adrenaline", "paroxetine") //Eclipse Edit: Added Adrenaline, Paroxetine, and Dylovene //Eclipse Edit: Removed Dylovene
 		var/abilities_SL = list(/mob/living/simple_animal/borer/proc/invisible)
 
 		level_up(level, added_reagents, null, abilities_SL)
