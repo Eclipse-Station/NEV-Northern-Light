@@ -1,0 +1,4 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - bugfix: Fixes shield generator template not working.
