@@ -41394,10 +41394,13 @@
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/foyer)
 "bUh" = (
-/obj/structure/table/woodentable,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/item/gun/energy/laser/paladin,
+/obj/item/gun/energy/laser/paladin,
+/obj/item/clothing/head/powdered_wig,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "bUi" = (
@@ -79535,7 +79538,8 @@
 /area/eris/engineering/engine_room)
 "lgy" = (
 /obj/structure/sign/double/barsign{
-	dir = 8
+	dir = 8;
+	pixel_y = -32
 	},
 /turf/simulated/wall/r_wall,
 /area/eris/hallway/main/section2)
@@ -137548,8 +137552,8 @@ amy
 dzT
 azH
 aAt
-aaM
 lgy
+aaM
 aaM
 amy
 amy
