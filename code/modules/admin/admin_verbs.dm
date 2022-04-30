@@ -560,6 +560,8 @@ ADMIN_VERB_ADD(/client/proc/man_up, R_ADMIN, FALSE)
 	to_chat(T, SPAN_NOTICE("<b><font size=3>Man up and deal with it.</font></b>"))
 	to_chat(T, SPAN_NOTICE("Move on."))
 
+	T << 'sound/voice/ManUp1.ogg'
+
 	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.")
 	message_admins("\blue [key_name_admin(usr)] told [key_name(T)] to man up and deal with it.", 1)
 
@@ -581,6 +583,8 @@ ADMIN_VERB_ADD(/client/proc/skill_issue, R_ADMIN, FALSE)
 	set category = "Fun"
 	set name = "Skill Issue"
 	set desc = "Tells mob that it is a skill issue and to git gud."
+
+	T << 'zzz_modular_eclipse/sound/voice/skill_issue.ogg'
 
 	to_chat(T, SPAN_NOTICE("<b><font size=3>Diagnosis: skill issue.</font></b>"))
 	to_chat(T, SPAN_NOTICE("Git gud."))
