@@ -232,7 +232,11 @@
 	desc = "Manufacturing"
 	access_type = ACCESS_TYPE_NONE
 
-// /var/const/free_access_id = 37
+/var/const/access_supply_consoles = 37 //Eclipse Edit - console access
+/datum/access/supplyconsoles
+	id = access_supply_consoles
+	desc = "Supply Consoles"
+	region = ACCESS_REGION_SUPPLY
 
 // /var/const/free_access_id = 38
 
@@ -248,7 +252,11 @@
 	desc = "Chief Medical Officer"
 	region = ACCESS_REGION_MEDBAY
 
-// /var/const/free_access_id = 39
+/var/const/access_rd_consoles = 39 //Eclipse Edit - console access
+/datum/access/rdconsoles
+	id = access_rd_consoles
+	desc = "Research Consoles"
+	region = ACCESS_REGION_RESEARCH
 
 // /var/const/free_access_id = 40
 
@@ -282,9 +290,17 @@
 	desc = "Surgery"
 	region = ACCESS_REGION_MEDBAY
 
-// /var/const/free_access_id = 46
+/var/const/access_atmos_consoles = 46 //Eclipse Edit - consoles access
+/datum/access/atmosconsoles
+	id = access_atmos_consoles
+	desc = "Atmospherics Consoles"
+	region = ACCESS_REGION_ENGINEERING
 
-// /var/const/free_access_id = 47
+/var/const/access_engine_consoles = 47 //Eclipe Edit - consoles access
+/datum/access/engineconsoles
+	id = access_engine_consoles
+	desc = "Engineering Consoles"
+	region = ACCESS_REGION_ENGINEERING
 
 /var/const/access_mining = 48
 /datum/access/mining
@@ -304,9 +320,17 @@
 	desc = "Cargo Office"
 	region = ACCESS_REGION_SUPPLY
 
-// /var/const/free_access_id = 51
+/var/const/access_moebius_consoles = 51 //Eclipse Edit - Console access
+/datum/access/moebiusconsoles
+	id = access_moebius_consoles
+	desc = "Lazarus Consoles"
+	region = ACCESS_REGION_MEDBAY
 
-// /var/const/free_access_id = 52
+/var/const/access_armory_consoles = 52
+/datum/access/armoryconsoles
+	id = access_armory_consoles
+	desc = "Armory Consoles"
+	region = ACCESS_REGION_SECURITY
 
 /var/const/access_heads_vault = 53
 /datum/access/heads_vault
@@ -404,7 +428,11 @@
 	desc = "Paramedic's Office"
 	region = ACCESS_REGION_MEDBAY
 
-// /var/const/free_access_id = 69
+/var/const/access_sec_consoles = 69 //Eclipse Edit - consoles access
+/datum/access/secconsoles
+	id = access_sec_consoles
+	desc = "Security Consoles"
+	region = ACCESS_REGION_SECURITY
 
 /**************
 * NeoTheology *
