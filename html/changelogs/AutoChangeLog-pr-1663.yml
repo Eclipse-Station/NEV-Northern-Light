@@ -1,0 +1,5 @@
+author: Valanthe500
+delete-after: true
+changes:
+  - bugfix: Fixed Bridge Officer access. Consoles / programs now have their own access
+      levels by department.
