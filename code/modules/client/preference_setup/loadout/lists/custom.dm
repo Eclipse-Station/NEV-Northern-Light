@@ -89,3 +89,9 @@
 	display_name = "Dalphine Panzers Aegis Jager suit"
 	path = /obj/item/clothing/under/rank/dalphine
 	ckey = "scorn7"
+
+
+/datum/gear/custom/ejcat
+	display_name = "Mysterious Button"
+	path = /obj/item/device/fluff/the_haas_catporter_nine_thousand
+	ckey = "eviljackcarver"

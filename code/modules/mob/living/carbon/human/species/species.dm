@@ -181,6 +181,11 @@
 
 	var/pass_flags = 0
 
+	//Eclipse additions
+	var/humaniform = TRUE //Does the species use default human spritesheet?
+	var/alt_icons_tag
+	var/list/alt_icons = list()
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
