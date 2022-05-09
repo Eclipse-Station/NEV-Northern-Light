@@ -194,7 +194,7 @@ Assist other departments from the bridge when the Captain has no work for you. Y
 							 /datum/computer_file/program/alarm_monitor)
 
 
-	access = list(access_RC_announce, access_keycard_auth, access_heads, access_external_airlocks, access_bar, access_kitchen, access_network, access_engine, access_moebius, access_rd, access_security, access_sec_doors)
+	access = list(access_RC_announce, access_keycard_auth, access_heads, access_external_airlocks, access_bar, access_kitchen, access_network, access_atmos_consoles, access_engine_consoles, access_moebius_consoles, access_rd_consoles, access_armory_consoles, access_sec_consoles, access_sec_doors, access_supply_consoles)
 
 	stat_modifiers = list(
 		STAT_ROB = 15,

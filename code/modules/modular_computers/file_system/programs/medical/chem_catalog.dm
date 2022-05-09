@@ -8,6 +8,7 @@
 	available_on_ntnet = 1
 	nanomodule_path = /datum/nano_module/chem_catalog
 	usage_flags = PROGRAM_ALL
+	required_access = access_moebius_consoles  //Eclipse Edit - anti-powergaming measure. No more of this "just google it, chemistry isn't that hard"
 
 /datum/nano_module/chem_catalog
 	name = "Chemistry Catalog"

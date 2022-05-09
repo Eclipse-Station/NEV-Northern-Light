@@ -14,6 +14,7 @@
 	use_power = NO_POWER_USE // Handles power use in Process()
 	layer = BELOW_OBJ_LAYER
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser
+	req_access = list(access_chemistry) //Eclipse Edit - anti-powergaming measure, locking these machines so that only those who have been believably trained in their use can touch them.
 
 	var/ui_title = "Chem Dispenser 5000"
 	var/obj/item/cell/medium/cell
@@ -126,6 +127,9 @@
 		amount = CLAMP(amount, 0, 120)
 
 	if(href_list["dispense"])
+		if(!src.allowed(usr))
+			to_chat(usr, SPAN_WARNING("Access denied."))
+			return
 		if (dispensable_reagents.Find(href_list["dispense"]) && beaker && beaker.is_refillable())
 			var/obj/item/reagent_containers/B = src.beaker
 			var/datum/reagents/R = B.reagents
@@ -270,6 +274,7 @@ obj/machinery/chemical_dispenser/soda/update_icon()
 	icon = 'icons/obj/machines/chemistry.dmi'
 	icon_state = "industrial_dispenser"
 	ui_title = "Industrial Dispenser 4835"
+	req_access = list(access_moebius) //Eclipse Edit - anti-powergaming measure, see note on parent object above
 
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser/industrial
 

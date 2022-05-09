@@ -6,7 +6,7 @@
 	icon_keyboard = "med_key"
 	icon_screen = "medcomp"
 	light_color = COLOR_LIGHTING_GREEN_MACHINERY
-	req_one_access = list(access_moebius, access_forensics_lockers)
+	req_one_access = list(access_moebius_consoles, access_forensics_lockers)
 	circuit = /obj/item/electronics/circuitboard/med_data
 	var/obj/item/card/id/scan
 	var/authenticated

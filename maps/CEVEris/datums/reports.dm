@@ -78,7 +78,7 @@
 
 /datum/computer_file/report/recipient/sec/New()
 	..()
-	set_access(access_security)
+	set_access(access_sec_consoles)
 	set_access(access_heads, override = 0)
 
 /datum/computer_file/report/recipient/sec/warning
@@ -135,7 +135,7 @@
 	add_field(/datum/report_field/pencode_text, "Summary")
 	add_field(/datum/report_field/pencode_text, "Observations")
 	add_field(/datum/report_field/signature, "Signature")
-	set_access(access_edit = access_security)
+	set_access(access_edit = access_sec_consoles)
 
 /datum/computer_file/report/recipient/sec/incident
 	form_name = "SIR-AS-12"
@@ -156,7 +156,7 @@
 	add_field(/datum/report_field/pencode_text, "Description of Items/Property", "\[small\]\[i\](D-Damaged, E-Evidence, L-Lost, R-Recovered, S-Stolen)\[/i\]\[/small\]")
 	add_field(/datum/report_field/pencode_text, "Narrative")
 	add_field(/datum/report_field/signature, "Reporting Operative's signature")
-	set_access(access_edit = access_security)
+	set_access(access_edit = access_sec_consoles)
 
 /datum/computer_file/report/recipient/sec/evidence
 	form_name = "EPF-AS-02b"
@@ -171,11 +171,11 @@
 	add_field(/datum/report_field/time, "Time")
 	add_field(/datum/report_field/people/from_manifest, "Confiscated from")
 	add_field(/datum/report_field/pencode_text, "List of items in custody/evidence lockup")
-	set_access(access_edit = access_security)
+	set_access(access_edit = access_sec_consoles)
 	temp_field = add_field(/datum/report_field/signature, "Gunnery Sergeant's signature")
-	temp_field.set_access(access_edit = list(access_security, access_armory))
+	temp_field.set_access(access_edit = list(access_sec_consoles, access_armory_consoles))
 	temp_field = add_field(/datum/report_field/signature, "Detective/MedSpec's signature")
-	temp_field.set_access(access_edit = list(access_security, access_forensics_lockers))
+	temp_field.set_access(access_edit = list(access_sec_consoles, access_forensics_lockers))
 
 
 
