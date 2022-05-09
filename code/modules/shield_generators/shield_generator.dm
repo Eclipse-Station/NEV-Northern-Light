@@ -127,8 +127,10 @@
 	connect_to_network()
 	wires = new(src)
 	
-	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
+	// // // BEGIN ECLIPSE EDITS // // //
+	radio = new /obj/item/device/radio{channels=list("Engineering", "Command")}(src)
 	assign_uid()
+	// // // END ECLIPSE EDITS // // //
 
 	//Add all allowed modes to our mode list for users to select
 	mode_list = list()
@@ -295,26 +297,30 @@
 		
 		//we'll put out heat later, after we calculate energy usage.
 		
-	//Overheat code.
+	//Overheat code.	
 	if((itt < threshold_critical) && threshold_alarm)	//Overheat alarm sounded, but we're cooled down.
 		if(last_overheat < (world.time - 15 SECONDS))		//Give us some hysterisis, just in case.
 			if(!threshold_shutdown_alarm)		//If we caught it before the system cut off, then we announce we're cool enough.
-				radio.autosay("Shield generator returning to safe operating temperatures.", "Shield Generator monitor", "Engineering")
+				radio.autosay("Shield generator returning to safe operating temperatures.", "Shield monitor", "Engineering")
+				radio.autosay("Shield generator returning to safe operating temperatures.", "Shield monitor", "Command")
 			threshold_alarm = FALSE
+			threshold_shutdown_alarm = FALSE
 
 	if(itt > threshold_critical)	//we're overheating.
 		last_overheat = world.time
 		if(!threshold_alarm)		//alarm hasn't sounded.
-			radio.autosay("WARNING: Shield generator temperature very high. Recommend reducing load immediately to return shield generator to normal operating temperatures and avoid a possible automatic emergency stop. Any internal damages caused by overheating are NOT covered by your manufacturer's warranty.", "Shield Generator monitor", "Engineering")
+			radio.autosay("WARNING: Shield generator temperature very high. Recommend reducing load immediately to return shield generator to normal operating temperatures and avoid a possible automatic emergency stop. Any internal damages caused by overheating are NOT covered by your manufacturer's warranty.", "Shield monitor", "Engineering")
+			radio.autosay("WARNING: Shield generator temperature very high. Recommend reducing load immediately to return shield generator to normal operating temperatures and avoid a possible automatic emergency stop. Any internal damages caused by overheating are NOT covered by your manufacturer's warranty.", "Shield monitor", "Command")
 		threshold_alarm = TRUE		//We explicitly set it true here to reset the hysteresis cycles above.
 	if(itt > threshold_high_temperature_cutout)		//critical overheat, shut everything down.
 		if(!threshold_shutdown_alarm)		//Alarm has not sounded, so we'll assume everything is still on. Shut it all down.
-			radio.autosay("WARNING: Shield generator temperature critical. Shield generator shutting down immediately to prevent internal damage.", "Shield Generator monitor", "Engineering")
+			radio.autosay("WARNING: Shield generator temperature critical. Shield generator shutting down immediately to prevent internal damage.", "Shield monitor", "Engineering")
+			radio.autosay("WARNING: Shield generator temperature critical. Shield generator shutting down immediately to prevent internal damage.", "Shield monitor", "Command")
 			threshold_shutdown_alarm = TRUE
 			emergency_shutdown = TRUE
 			offline_for = 300
 			shutdown_field()
-			input_cap = 1		//Negligible input, to allow us to cool.
+			input_cap = 1000		//Negligible input, to allow us to cool.
 	// // // END ECLIPSE EDITS // // //
 
 	if (!anchored)
@@ -553,7 +559,7 @@
 		offline_for += 300 //5 minutes, given that procs happen every 2 seconds
 		shutdown_field()
 		emergency_shutdown = TRUE
-		input_cap = 1		//Eclipse edit: Negligible input, because it's an E-stop!
+		input_cap = 1000		//Eclipse edit: Negligible input, because it's an E-stop!
 		log_event(EVENT_DISABLED, src)
 		if(prob(temp_integrity - 50) * 1.75)
 			spawn()
