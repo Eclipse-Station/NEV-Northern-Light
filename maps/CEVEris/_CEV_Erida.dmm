@@ -10211,6 +10211,9 @@
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/roller,
+/obj/structure/fireaxecabinet{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/reception)
 "ayz" = (
@@ -41281,10 +41284,13 @@
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/foyer)
 "bUh" = (
-/obj/structure/table/woodentable,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/item/gun/energy/laser/paladin,
+/obj/item/gun/energy/laser/paladin,
+/obj/item/clothing/head/powdered_wig,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/neotheology/chapelritualroom)
 "bUi" = (
@@ -66669,11 +66675,12 @@
 /area/eris/security/lobby)
 "deN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = 28
 	},
-/obj/structure/fireaxecabinet{
-	pixel_x = 32
+/obj/machinery/camera/network/medbay{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
@@ -74624,13 +74631,13 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
 "dxC" = (
-/obj/machinery/camera/network/medbay{
-	dir = 1
+/obj/structure/table/standard,
+/obj/machinery/vending/wallmed/lobby{
+	pixel_y = -28;
+	products = list(/obj/item/device/scanner/health = 6, /obj/item/stack/medical/bruise_pack = 6, /obj/item/stack/medical/ointment = 6, /obj/item/stack/medical/advanced/bruise_pack = 2, /obj/item/stack/medical/advanced/ointment = 2, /obj/item/stack/nanopaste = 2, /obj/item/reagent_containers/hypospray/autoinjector/antitoxin = 6, /obj/item/reagent_containers/syringe/antitoxin = 5, /obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 6, /obj/item/reagent_containers/syringe/tricordrazine = 5, /obj/item/reagent_containers/hypospray/autoinjector/spaceacillin = 6, /obj/item/reagent_containers/syringe/spaceacillin = 2, /obj/item/implantcase/death_alarm = 2, /obj/item/implanter = 2, /obj/item/stack/medical/splint = 6)
 	},
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/spawner/medical_lowcost,
+/obj/spawner/medical_lowcost,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/reception)
 "dxD" = (
@@ -74980,6 +74987,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/computer/guestpass{
 	pixel_x = 32
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
@@ -79456,7 +79466,8 @@
 /area/eris/engineering/engine_room)
 "lgy" = (
 /obj/structure/sign/double/barsign{
-	dir = 8
+	dir = 8;
+	pixel_y = -32
 	},
 /turf/simulated/wall/r_wall,
 /area/eris/hallway/main/section2)
@@ -79736,6 +79747,12 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
+"qkR" = (
+/obj/structure/table/standard,
+/obj/spawner/medical_lowcost,
+/obj/spawner/medical_lowcost,
+/turf/simulated/floor/tiled/white/brown_platform,
+/area/eris/medical/reception)
 "qnY" = (
 /obj/machinery/light{
 	dir = 1
@@ -135804,7 +135821,7 @@ aAf
 aAN
 aBF
 aCr
-aAN
+qkR
 aoL
 aDC
 aEc
@@ -137625,8 +137642,8 @@ amy
 dzT
 azH
 aAt
-aaM
 lgy
+aaM
 aaM
 amy
 amy
