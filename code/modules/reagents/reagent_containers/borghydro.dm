@@ -26,6 +26,10 @@
 /obj/item/reagent_containers/borghypo/hacked
  	reagent_ids = list("pacid", "lexorin", "mindbreaker", "carpotoxin", "zombiepowder", "cyanide") //Eclipse Edit: Added in hacked hypospray option for emagged Mediborgs
 
+/obj/item/reagent_containers/borghypo/advmedical	
+	reagent_ids = list("meralyne", "dermaline", "hyronalin", "dexalinp", "tricordrazine", "detox", "peridaxon", "citalopram", “quickclot”) //Eclipse Edit: Added advanced hypospray for Mediborg upgrades in future
+
+
 /obj/item/reagent_containers/borghypo/New()
 	..()
 
