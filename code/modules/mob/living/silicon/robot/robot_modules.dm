@@ -1022,7 +1022,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.modules += new /obj/item/tool/crowbar/robotic(src)
-	src.modules += new /obj/item/gun/energy/taser //Eclipse Edit: Added non-lethal option
+	src.modules += new /obj/item/gun/energy/taser(src) //Eclipse Edit: Added non-lethal option
 	src.emag = new /obj/item/gun/energy/lasercannon/mounted(src)
 	..(R)
 
