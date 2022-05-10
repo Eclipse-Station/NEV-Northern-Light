@@ -22,9 +22,8 @@
 
 /obj/item/reagent_containers/borghypo/rescue
 	reagent_ids = list("tricordrazine", "inaprovaline", "tramadol")
-	
 
- /obj/item/reagent_containers/borghypo/hacked
+/obj/item/reagent_containers/borghypo/hacked
  	reagent_ids = list("pacid", "lexorin", "mindbreaker", "carpotoxin", "zombiepowder", "cyanide") //Eclipse Edit: Added in hacked hypospray option for emagged Mediborgs
 
 /obj/item/reagent_containers/borghypo/New()
