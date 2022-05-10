@@ -329,6 +329,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/scanner/reagent/adv(src)
+	src.modules += new /obj/item/reagent_containers/borghypo/advmedical
 	src.modules += new /obj/item/autopsy_scanner(src) // an autopsy scanner
 	src.emag = new /obj/item/reagent_containers/borghypo/hacked(src) //Eclipse Edit: Added hacked hypospray option
 	src.emag = new /obj/item/reagent_containers/spray(src) 
