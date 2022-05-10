@@ -22,6 +22,10 @@
 
 /obj/item/reagent_containers/borghypo/rescue
 	reagent_ids = list("tricordrazine", "inaprovaline", "tramadol")
+	
+
+ /obj/item/reagent_containers/borghypo/hacked
+ 	reagent_ids = list("pacid", "lexorin", "mindbreaker", "carpotoxin", "zombiepowder", "cyanide")
 
 /obj/item/reagent_containers/borghypo/New()
 	..()
