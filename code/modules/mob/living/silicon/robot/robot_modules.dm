@@ -8,8 +8,8 @@ var/global/list/robot_modules = list(
 	"Security" 		= /obj/item/robot_module/security/general,
 	"Engineering"	= /obj/item/robot_module/engineering/general,
 	"Construction"	= /obj/item/robot_module/engineering/construction,
-	"Custodial" 	= /obj/item/robot_module/custodial
-	"Combat" 		= /obj/item/robot_module/combat, //Eclipse Edit: Added option in
+	"Custodial" 	= /obj/item/robot_module/custodial,
+	"Combat" 		= /obj/item/robot_module/combat //Eclipse Edit: Added option in
 	)
 
 /obj/item/robot_module
