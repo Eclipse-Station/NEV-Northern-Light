@@ -330,6 +330,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/scanner/reagent/adv(src)
 	src.modules += new /obj/item/autopsy_scanner(src) // an autopsy scanner
+	src.emag = new /obj/item/reagent_containers/borghypo/hacked(src)
 	src.emag = new /obj/item/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
