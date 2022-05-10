@@ -1,8 +1,0 @@
-author: EvilJackCarver
-delete-after: true
-changes:
-  - bugfix: Shield generator high-temperature cutoff now resets properly.
-  - tweak: Shield generator overheat alarm now additionally broadcasts to the command
-      channel.
-  - tweak: Shield generator emergency stop sets the input cap to 1 kW instead of 1
-      W.

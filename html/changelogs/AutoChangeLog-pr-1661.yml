@@ -1,7 +1,0 @@
-author: Valanthe500
-delete-after: true
-changes:
-  - rscadd: added a micromed to the medbay lobby
-  - bugfix: fixed the barsign, it is now reachable
-  - rscadd: the church now keeps muskets for home defence, as the founding fathers
-      intended.
