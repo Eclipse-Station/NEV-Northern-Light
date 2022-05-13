@@ -20,7 +20,7 @@
 	id_type = /obj/item/card/id/cmo
 	pda_type = /obj/item/modular_computer/pda/heads/cmo
 	belt = /obj/item/storage/belt/medical/
-	backpack_contents = list(/obj/item/storage/firstaid/adv = 1) //Eclipse Edit - fixed items not spawning if you spawn in dorms
+	backpack_contents = list(/obj/item/storage/firstaid/adv = 1, /obj/item/gun/projectile/selfload/moebius = 1, /obj/item/ammo_magazine/pistol/rubber = 2) //Eclipse Edit - fixed items not spawning if you spawn in dorms
 
 /decl/hierarchy/outfit/job/medical/doctor
 	name = OUTFIT_JOB_NAME("Medical Doctor")

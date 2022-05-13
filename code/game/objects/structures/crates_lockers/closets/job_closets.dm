@@ -123,7 +123,7 @@
 	new /obj/item/clothing/shoes/jackboots/neotheology(src)
 /obj/structure/closet/acolyte
 	name = "acolyte closet"
-	desc = "A closet for those that work with the machines of god."
+	desc = "A closet for those that work with the machines of Mekhane." //Eclipse Edit.
 	icon_state = "acolyte"
 
 /obj/structure/closet/acolyte/populate_contents()
@@ -143,9 +143,6 @@
 	new /obj/item/clothing/suit/storage/neotheosports(src)
 	new /obj/item/clothing/head/armor/acolyte(src)
 	new /obj/item/clothing/suit/armor/acolyte(src)
-	new /obj/item/gun/energy/nt_svalinn(src)
-	new /obj/item/cell/small/neotheology(src)
-	new /obj/item/cell/small/neotheology(src)
 	new /obj/item/storage/belt/sheath(src)
 	new /obj/item/tool/sword/nt/shortsword(src)
 	new /obj/item/tool/knife/dagger/nt(src)

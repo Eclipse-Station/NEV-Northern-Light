@@ -201,53 +201,53 @@
     			}
 			</script>
 			<p id='loading'>You start skimming through the manual...</p>
-			<iframe width='100%' height='97%' onload="pageloaded(this)" src="[config.wikiurl]/[page_link]_Eris[config.language]?printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+			<iframe width='100%' height='97%' onload="pageloaded(this)" src="[config.wikiurl]/[page_link][config.language]?printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
 			</body>
 			</html>
 			"}
-
+//Eclipse Edit - fixed broken wiki manual links
 //engineering
 /obj/item/book/manual/wiki/engineering_guide
 	name = "Engineering Textbook"
 	icon_state = "book_engineering"
 	author = "Engineering Encyclopedia"
 	title = "Engineering Textbook"
-	page_link = "Guide_to_Engineering"
+	page_link = "Guide_to_Engineering" //Eclipse Edit - fixing broken wiki links
 
 /obj/item/book/manual/wiki/engineering_construction
 	name = "Ship Repairs and Construction"
 	icon_state = "book_construction"
 	author = "Engineering Encyclopedia"
 	title = "Ship Repairs and Construction"
-	page_link = "Guide_to_Construction"
+	page_link = "Guide_To_Engineering_Eclipse" //Eclipse Edit - fixing broken wiki links
 
 /obj/item/book/manual/wiki/engineering_atmos
 	name = "Pipes and You: Getting To Know Your Scary Tools"
 	icon_state = "book_atmos"
 	author = "Maria Crash, Senior Atmospherics Technician"
 	title = "Pipes and You: Getting To Know Your Scary Tools"
-	page_link = "Guide_to_Atmospherics"
+	page_link = "Guide_to_Atmospherics" //Eclipse Edit - fixing broken wiki links
 
 /obj/item/book/manual/wiki/engineering_hacking
 	name = "Hacking"
 	icon_state = "book_hacking"
 	author = "Engineering Encyclopedia"
 	title = "Hacking"
-	page_link = "Guide_to_Hacking"
+	page_link = "Guide_to_Hacking" //Eclipse Edit - fixing broken wiki links
 
 /obj/item/book/manual/wiki/engineering_singularity
 	name = "Singularity Safety in Special Circumstances"
 	icon_state = "book_singularity"
 	author = "Engineering Encyclopedia"
 	title = "Singularity Safety in Special Circumstances"
-	page_link = "Guide_to_Singularity"
+	page_link = "Guide_to_Singularity" //Eclipse Edit - fixing broken wiki links
 
 /obj/item/book/manual/wiki/engineering_supermatter
 	name = "Supermatter Engine Operating Manual"
 	icon_state = "book_supermatter"
 	author = "Central Engineering Division"
 	title = "Supermatter Engine Operating Manual"
-	page_link = "Guide_to_Supermatter"
+	page_link = "Supermatter_Engine_Eclipse" //Eclipse Edit - fixing broken wiki links
 
 //science
 /obj/item/book/manual/wiki/science_research
@@ -255,14 +255,14 @@
 	icon_state = "book_rnd"
 	author = "Dr. L. Ight"
 	title = "Research and Development 101"
-	page_link = "Guide_to_Research_and_Development"
+	page_link = "Guide_to_Lazarus_Labs_Eclipse" //Eclipse Edit - fixing broken wiki links
 
 /obj/item/book/manual/wiki/science_robotics
 	name = "Cyborgs for Dummies"
 	icon_state = "book_borg"
 	author = "XISC"
 	title = "Cyborgs for Dummies"
-	page_link = "Guide_to_Robotics"
+	page_link = "Guide_to_Robotics" //Eclipse Edit - fixing broken wiki links
 
 //security
 /obj/item/book/manual/wiki/security_ironparagraphs
@@ -271,14 +271,14 @@
 	icon_state = "book_ironparagraphs"
 	author = "Aegis Security"
 	title = "Aegis Laws"
-	page_link = "Laws_Eclipse"
+	page_link = "Laws_Eclipse" //Eclipse Edit - fixing broken wiki links
 
 /obj/item/book/manual/wiki/security_detective
 	name = "The Film Noir: Proper Procedures for Investigations"
 	icon_state = "book_forensics"
 	author = "The Company"
 	title = "The Film Noir: Proper Procedures for Investigations"
-	page_link = "Guide_to_Forensics"
+	page_link = "Guide_to_Forensics" //Eclipse Edit - fixing broken wiki links
 
 //medical
 /obj/item/book/manual/wiki/medical_guide
@@ -287,14 +287,14 @@
 	icon_state = "book_medical"
 	author = "Medical Journal, volume 1"
 	title = "Medical Diagnostics Manual"
-	page_link = "Guide_to_Medical"
+	page_link = "Guide_to_Medicine_Eclipse" //Eclipse Edit - fixing broken wiki links
 
 /obj/item/book/manual/wiki/medical_chemistry
 	name = "Chemistry Textbook"
 	icon_state = "book"//TODO: Add icon
 	author = "Medical Journal, volume 2"
 	title = "Chemistry"
-	page_link = "Guide_to_Chemistry"
+	page_link = "Guide_to_Chemistry_Eclipse" //Eclipse Edit - fixing broken wiki links
 
 //neotheology
 /obj/item/book/manual/wiki/neotheology_cloning //TODO: Completely change this to be NT-oriented.
@@ -302,7 +302,7 @@
 	icon_state = "book"//TODO: Add icon
 	author = "The Church"
 	title = "Cloning Rituals"
-	page_link = "Guide_to_Cloning"
+	page_link = "Guide_to_Cloning" 
 
 //service
 /obj/item/book/manual/wiki/barman_recipes
@@ -310,11 +310,11 @@
 	icon_state = "book"
 	author = "Sir John Rose"
 	title = "Barman Recipes"
-	page_link = "Guide_to_Food_and_Drinks"
+	page_link = "List_of_Drinking_Recipes_Eclipse" //Eclipse Edit - fixing broken wiki links
 
 /obj/item/book/manual/wiki/chef_recipes
 	name = "Chef Recipes"
 	icon_state = "chefbook"
 	author = "Victoria Ponsonby"
 	title = "Chef Recipes"
-	page_link = "Guide_to_Food_and_Drinks"
+	page_link = "List_of_Cooking_Recipes_Eclipse" //Eclipse Edit - fixing broken wiki links

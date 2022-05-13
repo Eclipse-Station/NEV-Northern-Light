@@ -11189,6 +11189,14 @@
 /area/eris/security/exerooms)
 "aAz" = (
 /obj/machinery/vending/boozeomat,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/eastleft{
+	dir = 8;
+	req_access = list(28)
+	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "aAA" = (
@@ -63147,11 +63155,10 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
 "cWI" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/powermat,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
 "cWJ" = (
-/obj/machinery/vending/powermat,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
 "cWK" = (
