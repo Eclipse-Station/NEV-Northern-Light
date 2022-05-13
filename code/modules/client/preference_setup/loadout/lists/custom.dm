@@ -95,3 +95,8 @@
 	display_name = "Mysterious Button"
 	path = /obj/item/device/fluff/the_haas_catporter_nine_thousand
 	ckey = "eviljackcarver"
+
+/datum/gear/custom/sfox63
+	display_name = "Kiras Treasured Synthesizer"
+	path = /obj/item/device/synthesized_instrument/synthesizer/kira
+	ckey = "sfox63"
