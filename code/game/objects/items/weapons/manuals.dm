@@ -291,7 +291,7 @@
 
 /obj/item/book/manual/wiki/medical_chemistry
 	name = "Chemistry Textbook"
-	icon_state = "book"//TODO: Add icon
+	icon_state = "chemistry"//Eclipse Edit
 	author = "Medical Journal, volume 2"
 	title = "Chemistry"
 	page_link = "Guide_to_Chemistry_Eclipse" //Eclipse Edit - fixing broken wiki links
@@ -307,7 +307,7 @@
 //service
 /obj/item/book/manual/wiki/barman_recipes
 	name = "Barman Recipes"
-	icon_state = "book"
+	icon_state = "barbook" //Eclipse Edit
 	author = "Sir John Rose"
 	title = "Barman Recipes"
 	page_link = "List_of_Drinking_Recipes_Eclipse" //Eclipse Edit - fixing broken wiki links
