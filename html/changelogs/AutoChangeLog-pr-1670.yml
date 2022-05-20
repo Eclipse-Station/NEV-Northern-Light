@@ -1,0 +1,10 @@
+author: Valanthe500
+delete-after: true
+changes:
+  - rscadd: Added new wiki manual for The Agreement
+  - rscdel: Removed Engi-Vend from public space
+  - bugfix: Fixed Wiki Manuals not loading correct pages
+  - bugfix: Heads of Staff now receive correct firearms on spawn
+  - tweak: Shield Control program now loads Eclipse shield menu properly
+  - bugfix: Alcoholic perk now selects random alcohol type instead of just Ethanol
+  - bugfix: Fixes missing access for Security Consoles
