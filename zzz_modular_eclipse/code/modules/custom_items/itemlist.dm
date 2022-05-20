@@ -131,3 +131,9 @@
 	icon_override = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
 	icon_override_female = 'zzz_modular_eclipse/icons/custom_items/mob.dmi'
 	spawn_blacklisted = TRUE
+
+
+/obj/item/device/synthesized_instrument/synthesizer/kira
+	name = "Kira\'s Treasured Synthesizer"
+	desc = "This Synthesizer is the only thing that Kira has left of her old life. It is her most precious posession."
+	spawn_blacklisted = TRUE
