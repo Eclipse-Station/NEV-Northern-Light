@@ -79883,9 +79883,7 @@
 /obj/item/ammo_magazine/srifle,
 /obj/item/ammo_magazine/srifle,
 /obj/machinery/door/blast/shutters/glass{
-	desc = "In case of mutiny, break glass.";
-	id = "Armoury";
-	name = "Armoury showcase"
+	desc = "In case of mutiny, break glass."
 	},
 /turf/simulated/floor/tiled/dark/bluecorner,
 /area/eris/command/bridge)
