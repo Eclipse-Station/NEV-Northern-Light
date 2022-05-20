@@ -8,8 +8,8 @@ var/global/list/robot_modules = list(
 	"Security" 		= /obj/item/robot_module/security/general,
 	"Engineering"	= /obj/item/robot_module/engineering/general,
 	"Construction"	= /obj/item/robot_module/engineering/construction,
-	"Custodial" 	= /obj/item/robot_module/custodial
-	//"Combat" 		= /obj/item/robot_module/combat,
+	"Custodial" 	= /obj/item/robot_module/custodial,
+	"Combat" 		= /obj/item/robot_module/combat //Eclipse Edit: Added option in
 	)
 
 /obj/item/robot_module
@@ -329,8 +329,10 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/scanner/reagent/adv(src)
+	src.modules += new /obj/item/reagent_containers/borghypo/advmedical(src) //Eclipse Edit: Added advanced medical hypospray
 	src.modules += new /obj/item/autopsy_scanner(src) // an autopsy scanner
-	src.emag = new /obj/item/reagent_containers/spray(src)
+	src.emag = new /obj/item/reagent_containers/borghypo/hacked(src) //Eclipse Edit: Added hacked hypospray option
+	src.emag = new /obj/item/reagent_containers/spray(src) 
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
 
@@ -1017,10 +1019,11 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/gun/energy/laser/mounted(src)
-	//src.modules += new /obj/item/melee/hammer/powered(src)
+	src.modules += new /obj/item/melee/energy/axe(src) //Eclipse Edit: Changed to equivalent weapon
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.modules += new /obj/item/tool/crowbar/robotic(src)
+	src.modules += new /obj/item/gun/energy/taser(src) //Eclipse Edit: Added non-lethal option
 	src.emag = new /obj/item/gun/energy/lasercannon/mounted(src)
 	..(R)
 
