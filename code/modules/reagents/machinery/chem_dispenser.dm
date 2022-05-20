@@ -190,6 +190,7 @@
 	desc = "A drink fabricating machine, capable of producing many sugary drinks with just one touch."
 	layer = OBJ_LAYER
 	ui_title = "Soda Dispens-o-matic"
+	req_access = list() //Eclipse Edit
 	var/icon_on = "soda_dispenser"
 
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser/soda
@@ -227,6 +228,7 @@ obj/machinery/chemical_dispenser/soda/update_icon()
 	name = "booze dispenser"
 	layer = OBJ_LAYER
 	ui_title = "Booze Portal 9001"
+	req_access = list() //Eclipse Edit
 
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser/beer
 
@@ -253,6 +255,7 @@ obj/machinery/chemical_dispenser/soda/update_icon()
 	name = "debug chem dispenser"
 	desc = "A mysterious chemical dispenser that can produce all sorts of highly advanced medicines at the press of a button."
 	ui_title = "Cheat Synthesizer 1337"
+	req_access = list() //Eclipse Edit
 	dispensable_reagents = list(
 		"inaprovaline","ryetalyn","paracetamol",
 		"tramadol","oxycodone","sterilizine",
