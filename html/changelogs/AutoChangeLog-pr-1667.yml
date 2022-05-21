@@ -1,8 +1,0 @@
-author: Magisterium2022
-delete-after: true
-changes:
-  - rscadd: Added hacked hypospray and upgraded hypospray.
-  - rscdel: Removed older, nonfunctional combat Borg melee weapon.
-  - code_imp: Replaced combat Borg melee weapon, added taser. Added hacked hypospray
-      to Mediborg options. Added upgraded hypospray for Mediborgs, pending upgrade
-      system.
