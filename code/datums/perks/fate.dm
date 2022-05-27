@@ -97,8 +97,9 @@
 
 /datum/perk/fate/alcoholic/assign(mob/living/carbon/human/H)
 	..()
-	if(!(/datum/reagent/ethanol in holder.metabolism_effects.addiction_list))
-		var/datum/reagent/R = new /datum/reagent/ethanol
+	var/alcoholtype = pick(subtypesof(/datum/reagent/alcohol))
+	if(!(alcoholtype in holder.metabolism_effects.addiction_list)) //Eclipse Edit - bugfix
+		var/datum/reagent/R = new alcoholtype
 		holder.metabolism_effects.addiction_list.Add(R)
 
 /datum/perk/fate/alcoholic_active

@@ -3148,6 +3148,7 @@
 /obj/structure/table/marble,
 /obj/spawner/pizza/low_chance,
 /obj/spawner/pizza/low_chance,
+/obj/item/book/manual/wiki/barman_recipes,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/command/meeting_room)
 "ahc" = (
@@ -6009,6 +6010,7 @@
 "aoe" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/mug/old_nt,
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbreak)
 "aof" = (
@@ -6205,6 +6207,7 @@
 	pixel_x = 4;
 	pixel_y = 3
 	},
+/obj/item/book/manual/wiki/medical_guide,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbreak)
 "aoH" = (
@@ -11189,6 +11192,14 @@
 /area/eris/security/exerooms)
 "aAz" = (
 /obj/machinery/vending/boozeomat,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/eastleft{
+	dir = 8;
+	req_access = list(28)
+	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "aAA" = (
@@ -11693,8 +11704,8 @@
 /area/eris/crew_quarters/bar)
 "aBU" = (
 /obj/structure/table/bar_special,
-/obj/item/book/manual/barman_recipes,
 /obj/item/flame/lighter/zippo,
+/obj/item/book/manual/wiki/barman_recipes,
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "aBV" = (
@@ -11732,6 +11743,7 @@
 /obj/structure/table/bar_special,
 /obj/item/reagent_containers/food/drinks/shaker,
 /obj/item/reagent_containers/glass/rag,
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "aCc" = (
@@ -15373,6 +15385,7 @@
 /obj/item/reagent_containers/dropper{
 	pixel_y = -4
 	},
+/obj/item/book/manual/wiki/medical_chemistry,
 /turf/simulated/floor/tiled/white/gray_perforated,
 /area/eris/rnd/lab)
 "aLa" = (
@@ -16784,6 +16797,7 @@
 	eftpos_name = "Quartermaster EFTPOS scanner"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/quartermaster/office)
 "aOc" = (
@@ -21033,6 +21047,7 @@
 /obj/item/device/scanner/price,
 /obj/item/device/scanner/price,
 /obj/item/device/scanner/price,
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/office)
 "aYl" = (
@@ -26399,6 +26414,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/main)
 "blB" = (
@@ -26407,6 +26423,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/main)
 "blC" = (
@@ -30459,6 +30476,7 @@
 "buR" = (
 /obj/structure/catwalk,
 /obj/structure/table/standard,
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
 "buS" = (
@@ -30760,6 +30778,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/item/book/manual/wiki/agreement,
+/obj/item/book/manual/wiki/security_ironparagraphs,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/barracks)
 "bvu" = (
@@ -34059,6 +34079,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/warden)
 "bDx" = (
@@ -42635,6 +42656,7 @@
 "bXm" = (
 /obj/structure/table/standard,
 /obj/item/book/manual/wiki/security_ironparagraphs,
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/brig)
 "bXn" = (
@@ -44520,6 +44542,10 @@
 /turf/simulated/floor/carpet,
 /area/eris/crew_quarters/sleep)
 "cbU" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
 /turf/simulated/floor/carpet,
 /area/eris/crew_quarters/sleep)
 "cbV" = (
@@ -63147,11 +63173,10 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
 "cWI" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/powermat,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
 "cWJ" = (
-/obj/machinery/vending/powermat,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/hallway/side/docks)
 "cWK" = (
@@ -73194,14 +73219,16 @@
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/sleep)
 "duF" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
+/obj/machinery/cryopod{
+	dir = 4;
+	icon_state = "cryopod_0";
+	tag = "icon-cryopod_0 (EAST)"
 	},
-/turf/simulated/floor/carpet,
-/area/eris/crew_quarters/sleep)
+/obj/machinery/holoposter{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/steel/gray_platform,
+/area/eris/crew_quarters/sleep/cryo)
 "duG" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet,
@@ -74108,6 +74135,7 @@
 	dir = 8;
 	pixel_x = 25
 	},
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/chapelritualroom)
 "dwy" = (
@@ -76992,6 +77020,7 @@
 /obj/machinery/camera/network/research{
 	dir = 1
 	},
+/obj/item/book/manual/wiki/agreement,
 /turf/simulated/floor/tiled/white/gray_platform,
 /area/eris/rnd/lab)
 "dCh" = (
@@ -77057,6 +77086,7 @@
 /obj/machinery/camera/network/second_section{
 	dir = 8
 	},
+/obj/item/book/manual/wiki/mekhane_guide,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/chapelritualroom)
 "dCn" = (
@@ -79115,6 +79145,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/meeting_room)
+"eVO" = (
+/obj/machinery/holoposter{
+	pixel_y = 32
+	},
+/turf/simulated/wall/r_wall,
+/area/eris/crew_quarters/sleep/cryo)
 "fbF" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
@@ -79349,6 +79385,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
+"iDw" = (
+/obj/machinery/cryopod,
+/obj/machinery/holoposter{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/steel/gray_platform,
+/area/eris/crew_quarters/sleep/cryo)
 "iQI" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/steel/bar_dance,
@@ -79479,6 +79522,16 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"lAO" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/landmark/join/late/cryo,
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/crew_quarters/sleep/cryo)
 "lBJ" = (
 /obj/structure/cyberplant,
 /obj/machinery/firealarm{
@@ -79552,6 +79605,19 @@
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/propulsion/left)
+"mXX" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/landmark/join/late/cryo,
+/obj/machinery/holoposter{
+	pixel_y = 32
+	},
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/crew_quarters/sleep/cryo)
 "nbj" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -79695,6 +79761,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
+"pxR" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/item/book/manual/wiki/security_detective,
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/security/inspectors_office)
 "pKO" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/medical,
@@ -79810,9 +79883,7 @@
 /obj/item/ammo_magazine/srifle,
 /obj/item/ammo_magazine/srifle,
 /obj/machinery/door/blast/shutters/glass{
-	desc = "In case of mutiny, break glass.";
-	id = "Armoury";
-	name = "Armoury showcase"
+	desc = "In case of mutiny, break glass."
 	},
 /turf/simulated/floor/tiled/dark/bluecorner,
 /area/eris/command/bridge)
@@ -79889,6 +79960,11 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/neotheology/chapelritualroom)
+"tno" = (
+/obj/structure/table/reinforced,
+/obj/item/book/manual/wiki/chef_recipes,
+/turf/simulated/floor/tiled/cafe,
+/area/eris/crew_quarters/kitchen)
 "tqj" = (
 /obj/machinery/alarm{
 	pixel_y = 26
@@ -79935,6 +80011,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/crew_quarters/bar)
+"tJk" = (
+/obj/structure/bookcase,
+/obj/item/book/manual/wiki/engineering_atmos,
+/obj/item/book/manual/wiki/engineering_construction,
+/obj/item/book/manual/wiki/engineering_guide,
+/obj/item/book/manual/wiki/engineering_hacking,
+/obj/item/book/manual/wiki/engineering_supermatter,
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/breakroom)
 "tTi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/meter,
@@ -79948,6 +80033,11 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/long_range_scanner)
+"tWu" = (
+/obj/structure/table/woodentable,
+/obj/item/book/manual/wiki/agreement,
+/turf/simulated/floor/carpet/bcarpet,
+/area/eris/command/meeting_room)
 "uej" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
@@ -94584,7 +94674,7 @@ dts
 ajF
 alq
 alD
-alB
+tWu
 aps
 apK
 ahq
@@ -113073,7 +113163,7 @@ aHy
 aHy
 aHy
 aHy
-bsT
+tJk
 btE
 bsT
 brO
@@ -116054,7 +116144,7 @@ awU
 aTO
 aVQ
 aVJ
-aXp
+tno
 aVJ
 byZ
 aTO
@@ -116998,9 +117088,9 @@ dGf
 cDl
 dGf
 cDl
-dGf
-cDl
-dGf
+duF
+eVO
+duF
 cDl
 aNU
 aHy
@@ -117150,9 +117240,9 @@ dGg
 cDl
 dGq
 cDl
-dGg
+mXX
 cDl
-dGg
+lAO
 cDl
 aNU
 aHy
@@ -118518,9 +118608,9 @@ dGh
 cDl
 dGq
 cDl
-dGg
+lAO
 cDl
-dGg
+lAO
 cDl
 aaa
 aaa
@@ -118670,9 +118760,9 @@ dGi
 cDl
 dGr
 cDl
-dGr
+iDw
 cDl
-dGr
+iDw
 cDl
 aav
 aav
@@ -135484,7 +135574,7 @@ bFB
 bBx
 bBx
 bKq
-bNK
+pxR
 bOu
 bPg
 bQa
@@ -164218,7 +164308,7 @@ aav
 aav
 aav
 cbf
-duF
+cbF
 cbU
 cxJ
 cxP
@@ -164229,7 +164319,7 @@ cyq
 cyy
 cyE
 cbU
-duF
+cbF
 cbf
 aav
 aAE
@@ -164674,7 +164764,7 @@ aav
 aav
 aav
 cbf
-duF
+cbF
 cbU
 cxJ
 cxP
@@ -164685,7 +164775,7 @@ cyr
 cyy
 cyE
 cbU
-duF
+cbF
 cbf
 aav
 aAE
