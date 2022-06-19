@@ -200,7 +200,7 @@
 	<br>\
 	While most ships employ a simple janitor, you are much more than that. Cleanliness is next to godliness, and so, the halls must remain clean. Though the ship is also infested with giant roaches and spiders, which may find their ways out from the maintenance tunnels and into the main corridors where they consequently die.<br>\
 	<br>\
-	Though dead roaches and dead spiders, like you, are more than what they seem. Their corpses are useful for biomatter, both for the bioreactor and for the church's holy cloner. Thus in your duty to keep the halls clean, you also provide precious biomatter for the Church."
+	Though dead roaches and dead spiders, like you, are more than what they seem. Their corpses are useful for biomatter, both for the bioreactor and for the church's holy Basin. Thus in your duty to keep the halls clean, you also provide precious biomatter for the Church."
 
 	duties = "Keep the hallways clean of blood, dirt, and bug carcasses.<br>\
 	Serve the faith."
