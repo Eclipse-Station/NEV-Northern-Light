@@ -21,7 +21,7 @@
 
 /obj/machinery/portable_atmospherics/powered/scrubber/New()
 	..()
-	cell = new/obj/item/cell/medium/high(src)
+	cell = new/obj/item/cell/medium/moebius/nuclear(src) //Eclipse Edit - dirty scrubber fix
 
 /obj/machinery/portable_atmospherics/powered/scrubber/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))
