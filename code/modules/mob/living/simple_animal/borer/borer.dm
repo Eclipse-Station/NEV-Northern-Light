@@ -1,8 +1,8 @@
 #define BORER_EXP_LEVEL_1 20
 #define BORER_EXP_LEVEL_2 40
 #define BORER_EXP_LEVEL_3 80
-#define BORER_EXP_LEVEL_4 140 //Eclipse Edit: Reduced cost
-#define BORER_EXP_LEVEL_5 220 //Eclipse Edit: Reduced cost
+#define BORER_EXP_LEVEL_4 100 //Eclipse Edit: Reduced cost further
+#define BORER_EXP_LEVEL_5 120 //Eclipse Edit: Reduced cost further
 /mob/living/simple_animal/borer
 	name = "cortical borer"
 	real_name = "cortical borer"
@@ -292,7 +292,7 @@
 /mob/living/simple_animal/borer/proc/update_borer_level()
 	if((borer_exp >= BORER_EXP_LEVEL_1) && (borer_level < 1))
 		var/level = 1
-		var/added_reagents = list("inaprovaline", "tricordrazine", "synaptizine", "imidazoline", "hyronalin", "citalopram", "nutriment") //Eclipse Edit: Added Citalopram and Nutriment
+		var/added_reagents = list("inaprovaline", "tricordrazine", "synaptizine", "imidazoline", "hyronalin", "citalopram", "glucose") //Eclipse Edit: Added Citalopram and Nutriment //Eclipse Edit: Replaced Nutriment with Glucose, which is injectable
 		var/abilities_IH = list(/mob/living/simple_animal/borer/proc/say_host, /mob/living/simple_animal/borer/proc/whisper_host, /mob/living/simple_animal/borer/proc/commune)
 		var/abilities_SL = list(/mob/living/simple_animal/borer/proc/commune)
 
