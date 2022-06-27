@@ -79131,6 +79131,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/wall/r_wall,
 /area/erida/maintenance/sciweapondeck)
+"fvi" = (
+/obj/effect/shuttle_landmark/skipjack/southeast,
+/turf/space,
+/area/space)
 "fvY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/door/firedoor,
@@ -79374,7 +79378,7 @@
 /turf/simulated/wall/r_wall,
 /area/eris/command/meeting_room)
 "jmw" = (
-/obj/effect/shuttle_landmark/merc/mining,
+/obj/effect/shuttle_landmark/merc/dock,
 /turf/space,
 /area/space)
 "jpi" = (
@@ -79722,6 +79726,10 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/quartermaster/miningdock)
+"pQa" = (
+/obj/effect/shuttle_landmark/skipjack/northwest,
+/turf/space,
+/area/space)
 "pST" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
@@ -82869,7 +82877,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+pQa
 aaa
 aaa
 aaa
@@ -97265,7 +97273,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+fvi
 aaa
 aaa
 aaa
