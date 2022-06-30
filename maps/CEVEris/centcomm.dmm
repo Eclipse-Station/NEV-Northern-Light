@@ -311,7 +311,7 @@
 /obj/item/modular_computer/console{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/gray_platform,
+/turf/simulated/floor/tiled/steel/monofloor,
 /area/centcom/evac)
 "be" = (
 /obj/structure/bed/chair/shuttle{
@@ -346,9 +346,11 @@
 /area/centcom/evac)
 "bk" = (
 /obj/machinery/light{
-	dir = 4
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/dark/gray_platform,
+/turf/simulated/floor/tiled/steel,
 /area/centcom/evac)
 "bl" = (
 /obj/structure/table/holo_woodentable,
@@ -529,7 +531,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/bcarpet,
+/turf/simulated/floor/tiled/steel,
 /area/centcom/evac)
 "bL" = (
 /turf/simulated/wall/r_wall,
@@ -786,6 +788,9 @@
 /obj/item/gun/energy/serenity,
 /obj/item/clothing/under/magintka_uniform,
 /obj/item/storage/belt/medical,
+/obj/item/storage/firstaid/adv{
+	pixel_x = 1
+	},
 /turf/simulated/floor/carpet/sblucarpet,
 /area/centcom/evac)
 "cw" = (
@@ -1349,22 +1354,6 @@
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
-/area/centcom/evac)
-"el" = (
-/obj/structure/table/woodentable,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/centcom/evac)
-"em" = (
-/obj/structure/table/woodentable,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel/monofloor,
 /area/centcom/evac)
 "en" = (
 /turf/simulated/floor/holofloor/tiled,
@@ -1930,13 +1919,7 @@
 /turf/unsimulated/wall,
 /area/centcom/alien)
 "fW" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = list(150)
-	},
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
-/turf/simulated/floor/tiled/steel/monofloor,
+/turf/simulated/floor/tiled/steel,
 /area/centcom/evac)
 "fZ" = (
 /turf/unsimulated/floor{
@@ -3666,13 +3649,12 @@
 /area/shuttle/mercenary)
 "lu" = (
 /obj/structure/table/woodentable,
-/obj/machinery/chemical_dispenser/soda,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/steel/monofloor,
+/turf/simulated/floor/tiled/steel,
 /area/centcom/evac)
 "lv" = (
 /obj/machinery/door/window/westright{
@@ -3714,11 +3696,10 @@
 /area/shuttle/mercenary)
 "lB" = (
 /obj/structure/table/woodentable,
-/obj/machinery/microwave,
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel/monofloor,
+/turf/simulated/floor/tiled/steel,
 /area/centcom/evac)
 "lC" = (
 /obj/machinery/light{
@@ -4023,22 +4004,6 @@
 	icon_state = "lino"
 	},
 /area/wizard_station)
-"mO" = (
-/obj/structure/table/woodentable,
-/obj/item/storage/box/drinkingglasses{
-	pixel_x = 1;
-	pixel_y = 4
-	},
-/obj/item/storage/box/drinkingglasses{
-	pixel_x = 1;
-	pixel_y = 4
-	},
-/obj/item/storage/box/drinkingglasses{
-	pixel_x = 1;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/centcom/evac)
 "mR" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/sandal/marisa,
@@ -5811,8 +5776,10 @@
 	},
 /area/supply/dock)
 "yJ" = (
-/obj/item/modular_computer/console,
-/turf/simulated/floor/tiled/dark/gray_platform,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
 /area/centcom/evac)
 "yK" = (
 /turf/simulated/shuttle/wall/cargo{
@@ -6316,7 +6283,7 @@
 /area/shuttle/syndicate_elite/mothership)
 "Cf" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark/gray_platform,
+/turf/simulated/floor/tiled/steel/monofloor,
 /area/centcom/evac)
 "Cm" = (
 /obj/structure/table/rack/shelf,
@@ -6662,12 +6629,15 @@
 	},
 /area/centcom/small_base)
 "EY" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = list(150)
 	},
-/turf/simulated/floor/light,
+/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
+/turf/simulated/floor/tiled/steel/bar_flat,
 /area/centcom/evac)
 "EZ" = (
 /obj/structure/table/rack,
@@ -6687,6 +6657,25 @@
 	icon_state = "white"
 	},
 /area/centcom/merc_base)
+"Fh" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "skipjack_shuttle";
+	name = "skipjack shuttle controller";
+	pixel_x = 28;
+	req_access = list(0);
+	req_one_access = list(13);
+	tag_airpump = "skipjack_shuttle_pump";
+	tag_chamber_sensor = "skipjack_shuttle_sensor_chamber";
+	tag_exterior_door = "skipjack_shuttle_outer";
+	tag_exterior_sensor = null;
+	tag_interior_door = "skipjack_shuttle_inner";
+	tag_interior_sensor = "skipjack_shuttle_sensor_interior"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/centcom/raider_base)
 "Fk" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/space,
@@ -7143,6 +7132,12 @@
 	req_one_access = list(150)
 	},
 /obj/structure/catwalk,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1331;
+	id_tag = "skipjack_shuttle_sensor_exterior";
+	pixel_x = -24;
+	pixel_y = -25
+	},
 /turf/space,
 /area/centcom/raider_base)
 "HD" = (
@@ -7238,7 +7233,7 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
 	id_tag = "skipjack_shuttle_sensor_chamber";
-	pixel_x = 25;
+	pixel_x = 28;
 	pixel_y = -8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -7247,10 +7242,12 @@
 	id_tag = "skipjack_shuttle_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
 	frequency = 1331;
 	id_tag = "skipjack_shuttle";
 	name = "skipjack shuttle controller";
-	pixel_x = 28;
+	pixel_x = 25;
+	pixel_y = 2;
 	req_access = list(0);
 	req_one_access = list(13);
 	tag_airpump = "skipjack_shuttle_pump";
@@ -7432,17 +7429,17 @@
 	},
 /area/centcom/evac)
 "KT" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1331;
-	id_tag = "skipjack_shuttle_sensor_interior";
-	pixel_x = 9;
-	pixel_y = 37
-	},
 /obj/structure/table/rack,
 /obj/item/gun/energy/gun,
 /obj/item/cell/medium/high,
 /obj/item/cell/medium/high,
 /obj/item/cell/medium/high,
+/obj/machinery/airlock_sensor/airlock_interior{
+	frequency = 1331;
+	id_tag = "skipjack_shuttle_sensor_interior";
+	pixel_x = 9;
+	pixel_y = 37
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -7487,7 +7484,7 @@
 /obj/item/modular_computer/console{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/gray_platform,
+/turf/simulated/floor/tiled/steel/monofloor,
 /area/centcom/evac)
 "Lp" = (
 /turf/space,
@@ -8220,10 +8217,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/merc_base)
-"Un" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/carpet/bcarpet,
-/area/centcom/evac)
 "Up" = (
 /turf/simulated/shuttle/wall{
 	dir = 4;
@@ -8452,7 +8445,7 @@
 /area/shuttle/mercenary)
 "Zs" = (
 /obj/structure/table/woodentable,
-/turf/simulated/floor/tiled/steel/monofloor,
+/turf/simulated/floor/tiled/steel,
 /area/centcom/evac)
 "ZZ" = (
 /turf/simulated/floor/carpet,
@@ -18116,7 +18109,7 @@ Km
 Ru
 Ru
 Ru
-Ru
+Fh
 Ru
 Ok
 WB
@@ -19278,7 +19271,7 @@ hu
 iG
 kN
 Io
-Vb
+EY
 xd
 xd
 WY
@@ -19466,8 +19459,8 @@ fL
 YT
 xd
 xd
-oc
-oc
+fW
+fW
 xd
 bV
 LX
@@ -19667,9 +19660,9 @@ fg
 fL
 tZ
 Tf
-oc
-oc
-oc
+fW
+UD
+fW
 xd
 KK
 LY
@@ -19869,9 +19862,9 @@ fc
 fQ
 uu
 xd
-oc
-oc
-oc
+fW
+UD
+fW
 xd
 bW
 LX
@@ -20071,9 +20064,9 @@ ga
 gn
 YT
 xd
-oc
-oc
-oc
+fW
+UD
+fW
 xd
 xd
 xd
@@ -20274,8 +20267,8 @@ Tf
 xd
 xd
 bK
-oc
-oc
+UD
+fW
 xd
 WS
 cx
@@ -20474,10 +20467,10 @@ xd
 bi
 MO
 xd
-oc
-oc
-oc
-oc
+fW
+fW
+UD
+fW
 xd
 wT
 cx
@@ -20676,10 +20669,10 @@ xd
 og
 by
 xd
-oc
-oc
-oc
-oc
+fW
+fW
+UD
+fW
 xd
 VZ
 cx
@@ -20880,7 +20873,7 @@ by
 xd
 xd
 xd
-Un
+fI
 xd
 xd
 cd
@@ -21080,22 +21073,22 @@ xd
 xd
 CE
 xd
+fW
+bk
 UD
-bT
+fW
+fW
 oc
-UD
-UD
-oc
-bT
-UD
+bk
+fW
 xd
 Zs
-el
+lu
 fW
 UD
 UD
 lu
-mO
+Zs
 xd
 KS
 xd
@@ -21274,29 +21267,29 @@ fg
 fL
 gn
 Tf
-yJ
+UY
 oc
 oc
 oc
 xd
-EY
+bT
 oc
 xd
-UD
+fW
 oc
 JM
 JM
 JM
 JM
 oc
-UD
+fW
 xd
 Zs
-oc
-oc
-oc
-oc
-oc
+UD
+UD
+UD
+UD
+UD
 Zs
 xd
 oI
@@ -21476,7 +21469,7 @@ fn
 fk
 fL
 Tf
-yJ
+UY
 aP
 oc
 oc
@@ -21492,13 +21485,13 @@ UN
 UN
 oc
 oc
-Un
-oc
-oc
-oc
-oc
-oc
-oc
+fI
+UD
+UD
+UD
+UD
+UD
+UD
 UD
 fI
 UD
@@ -21678,29 +21671,29 @@ fl
 gV
 fL
 Tf
-yJ
+UY
 oc
 oc
 oc
 xd
-bk
+bU
 oc
 xd
-UD
+fW
 oc
 Lv
 Lv
 Lv
 Lv
 oc
-UD
+fW
 xd
 Zs
-oc
-oc
-oc
-oc
-oc
+UD
+UD
+UD
+UD
+UD
 Zs
 xd
 pe
@@ -21888,17 +21881,17 @@ xd
 xd
 bz
 xd
+fW
+yJ
 UD
-bU
+fW
+fW
 oc
-UD
-UD
-oc
-bU
-UD
+yJ
+fW
 xd
 Zs
-em
+lB
 fW
 UD
 UD
@@ -22092,7 +22085,7 @@ bA
 xd
 xd
 xd
-Un
+fI
 xd
 xd
 JQ
@@ -22292,10 +22285,10 @@ xd
 bw
 bA
 xd
-oc
-oc
-oc
-oc
+fW
+fW
+UD
+fW
 xd
 ZZ
 Mm
@@ -22494,10 +22487,10 @@ xd
 bx
 bJ
 xd
-oc
-oc
-oc
-oc
+fW
+fW
+UD
+fW
 xd
 ZZ
 MD
@@ -22698,8 +22691,8 @@ Tf
 xd
 xd
 bK
-oc
-oc
+UD
+fW
 xd
 ZZ
 cY
@@ -22899,9 +22892,9 @@ fQ
 gW
 uu
 xd
-oc
-oc
-oc
+fW
+UD
+fW
 xd
 xd
 xd
@@ -23101,9 +23094,9 @@ fb
 ga
 YT
 xd
-oc
-oc
-oc
+fW
+UD
+fW
 xd
 ce
 cZ
@@ -23303,9 +23296,9 @@ fk
 gI
 tZ
 Tf
-oc
-oc
-oc
+fW
+UD
+fW
 xd
 cf
 da
@@ -23506,8 +23499,8 @@ fL
 uu
 xd
 xd
-oc
-oc
+fW
+fW
 xd
 cv
 da
