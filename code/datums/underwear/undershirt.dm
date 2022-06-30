@@ -38,19 +38,10 @@
 	icon_state = "shirt_long_female_s"
 	has_color = TRUE
 
-/datum/category_item/underwear/undershirt/blouse_female_s
-	name = "Blouse, feminine"
-	icon_state = "blouse_female_s"
-	has_color = TRUE
 
 /datum/category_item/underwear/undershirt/tank_top
 	name = "Tank top"
 	icon_state = "tanktop"
-	has_color = TRUE
-	
-/datum/category_item/underwear/undershirt/tank_top_female
-	name = "Tank top, feminine"
-	icon_state = "tanktop_female"
 	has_color = TRUE
 
 /datum/category_item/underwear/undershirt/tank_top_alt
@@ -128,19 +119,6 @@
 	icon_state = "polo"
 	has_color = TRUE
 
-/datum/category_item/underwear/undershirt/polo_female
-	name = "Polo, feminine"
-	icon_state = "polo_female"
-	has_color = TRUE
-	
-/datum/category_item/underwear/undershirt/ntpolo
-	name = "Polo, Nanotrasen"
-	icon_state = "ntpolo"
-	
-/datum/category_item/underwear/undershirt/dais_polo
-	name = "Polo, Dais"
-	icon_state = "dais_polo"
-
 /datum/category_item/underwear/undershirt/sport_shirt_green
 	name = "Sport shirt, green"
 	icon_state = "greenshirtsport_s"
@@ -160,7 +138,7 @@
 /datum/category_item/underwear/undershirt/shirt_blue_striped
 	name = "Shirt, blue stripes"
 	icon_state = "shirt_stripes_s"
-	
+/*
 /datum/category_item/underwear/undershirt/bowling
 	name = "Bowling Shirt, Red"
 	icon_state = "bowling"
@@ -176,7 +154,7 @@
 /datum/category_item/underwear/undershirt/bowlingw
 	name = "Bowling Shirt, White"
 	icon_state = "bowlingw"
-
+*/
 /datum/category_item/underwear/undershirt/longjon
 	name = "Long John Shirt"
 	icon_state = "ljont"
