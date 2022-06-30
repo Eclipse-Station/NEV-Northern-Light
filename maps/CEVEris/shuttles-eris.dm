@@ -119,11 +119,13 @@
 //Skipjack
 //antag Shuttles disabled by nanako, 2018-09-15
 //These shuttles are created with a subtypesof loop at runtime. Starting points for the skipjack and merc shuttle are not currentl mapped in
-//Eclipse Edit - re-added Skipjack
+//Eclipse Edit - Valanthe500 re-enabled Skipjack 2022-06-28
 
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
 	warmup_time = 0
+	move_time = 180
+	cloaked = 0
 	destination_tags = list(
 		"nav_skipjack_northwest",
 		"nav_skipjack_southeast",
@@ -136,14 +138,14 @@
 	landmark_transition = "nav_skipjack_transition"
 	announcer = "NEV Northern Light Sensor Array"
 	home_waypoint = "nav_skipjack_start"
-	arrival_message = "Attention, vessel detected entering vessel proximity."
-	departure_message = "Attention, vessel detected leaving vessel proximity."
+	arrival_message = "Attention, unidentified vessel detected on long range sensors. \nVessel is approaching on an intercept course. \nHailing frequencies open."
+	departure_message = "Attention, unknown vessel has departed"
 
 /obj/effect/shuttle_landmark/skipjack/start
-	name = "Skipjack Starting Point" //Eclipse Edit - Rename
+	name = "Skipjack Deep Space" //Eclipse Edit - Rename
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_skipjack_start"
-	docking_controller = "skipjack_base"
+	docking_controller = "skipjack_shuttle"
 
 /obj/effect/shuttle_landmark/skipjack/internim
 	name = "In transit"
