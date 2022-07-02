@@ -2590,6 +2590,13 @@
 	icon_state = "wood"
 	},
 /area/wizard_station)
+"ii" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/bed/chair/shuttle,
+/turf/simulated/floor/tiled/steel,
+/area/shuttle/transport1/centcom)
 "ik" = (
 /obj/structure/table/woodentable,
 /obj/item/book/manual/nuclear,
@@ -4464,6 +4471,10 @@
 	icon_state = "fakewindows"
 	},
 /area/wizard_station)
+"os" = (
+/obj/effect/shuttle_landmark/centcom/internim,
+/turf/space/transit/north/shuttlespace_ns12,
+/area/space)
 "ou" = (
 /turf/unsimulated/wall/fakeglass{
 	dir = 8;
@@ -4693,6 +4704,9 @@
 	name = "Starboard Armory";
 	req_access = list(101)
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "qe" = (
@@ -4782,7 +4796,13 @@
 	},
 /area/supply/dock)
 "qD" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	icon_state = "door_locked";
+	id_tag = "centcom_shuttle_outer";
+	locked = 1;
+	req_access = list(150)
+	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/centcom/evac)
 "qF" = (
@@ -4856,23 +4876,15 @@
 	name = "plating"
 	},
 /area/centcom/merc_base)
-"rr" = (
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/steel,
-/area/shuttle/transport1/centcom)
 "rv" = (
 /obj/item/inflatable_duck,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_beach)
 "rz" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	id_tag = "centcom_shuttle_lock";
+	req_access = list(101)
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/shuttle/transport1/centcom)
 "rE" = (
@@ -4891,9 +4903,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/transport1/centcom)
 "rX" = (
@@ -4921,14 +4931,11 @@
 /turf/space,
 /area/supply/dock)
 "sc" = (
-/obj/structure/bed/chair/shuttle,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
 	},
-/turf/simulated/floor/tiled/steel,
-/area/shuttle/transport1/centcom)
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/centcom/evac)
 "sf" = (
 /turf/simulated/shuttle/wall/cargo{
 	icon_state = "cargoshwall17"
@@ -4963,16 +4970,15 @@
 	},
 /area/centcom/evac)
 "st" = (
-/obj/structure/bed/chair/shuttle,
-/obj/machinery/light{
+/obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
-/area/shuttle/transport1/centcom)
-"sA" = (
-/obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/steel/monofloor,
-/area/shuttle/transport1/centcom)
+/area/centcom/evac)
+"sA" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark/golden,
+/area/centcom/evac)
 "sB" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "diagonalWall3"
@@ -4985,17 +4991,14 @@
 	},
 /area/supply/dock)
 "sF" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 1;
-	tag = "icon-shuttle_chair (NORTH)"
-	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	dir = 1
 	},
-/turf/simulated/floor/tiled/steel,
-/area/shuttle/transport1/centcom)
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/centcom/evac)
 "sI" = (
 /obj/structure/shuttle_part/cargo{
 	icon_state = "cargoshwall19"
@@ -5041,6 +5044,13 @@
 	dir = 1;
 	tag = "icon-shuttle_chair (NORTH)"
 	},
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	req_access = list(101)
+	},
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/transport1/centcom)
 "sW" = (
@@ -5061,6 +5071,13 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	req_access = list(101)
 	},
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/transport1/centcom)
@@ -5165,9 +5182,16 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "uc" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/dark/golden,
-/area/centcom/evac)
+/obj/structure/bed/chair/shuttle,
+/obj/machinery/button/remote/airlock{
+	id = "centcom_shuttle_lock";
+	name = "Aft AIrlock Bolts";
+	pixel_x = 8;
+	pixel_y = 36;
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/shuttle/transport1/centcom)
 "ug" = (
 /obj/item/paper{
 	info = "Some stuff is missing...";
@@ -5366,6 +5390,17 @@
 	name = "Cargo Transport Shuttle (A5)"
 	},
 /area/supply/dock)
+"vX" = (
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "centcom_shuttle_lock_2";
+	name = "Port AIrlock Bolts";
+	pixel_x = 5;
+	pixel_y = -28;
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/shuttle/transport1/centcom)
 "vZ" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 1;
@@ -5698,6 +5733,15 @@
 	},
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/centcom/evac)
+"ye" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	id_tag = "centcom_shuttle_lock_2";
+	locked = 1;
+	req_access = list(101)
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/shuttle/transport1/centcom)
 "yl" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/ammo/lowcost/low_chance,
@@ -5852,6 +5896,15 @@
 /obj/effect/shuttle_landmark/skipjack/start,
 /turf/simulated/shuttle/plating,
 /area/skipjack_station/start)
+"zC" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/structure/bed/chair/shuttle,
+/turf/simulated/floor/tiled/steel,
+/area/shuttle/transport1/centcom)
 "zE" = (
 /obj/machinery/button/remote/blast_door{
 	id = "syndieshutters_infirmary";
@@ -5941,6 +5994,26 @@
 	},
 /turf/space,
 /area/supply/dock)
+"Ai" = (
+/obj/structure/table/standard,
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "centcom_shuttle_lock";
+	name = "Aft AIrlock Bolts";
+	pixel_x = -6;
+	pixel_y = 6;
+	specialfunctions = 4
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "centcom_shuttle_lock_2";
+	name = "Port AIrlock Bolts";
+	pixel_x = 5;
+	pixel_y = 6;
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/shuttle/transport1/centcom)
 "Ak" = (
 /obj/structure/closet,
 /turf/unsimulated/floor{
@@ -6285,6 +6358,20 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/centcom/evac)
+"Ch" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 1;
+	tag = "icon-shuttle_chair (NORTH)"
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	req_access = list(101)
+	},
+/turf/simulated/floor/tiled/steel,
+/area/shuttle/transport1/centcom)
 "Cm" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/boxes/low_chance,
@@ -6350,6 +6437,18 @@
 	req_access = list(101)
 	},
 /turf/simulated/floor/carpet/bcarpet,
+/area/centcom/evac)
+"CO" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 1;
+	start_pressure = 740.5
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
 /area/centcom/evac)
 "CT" = (
 /obj/structure/table/rack/shelf,
@@ -6658,24 +6757,14 @@
 	},
 /area/centcom/merc_base)
 "Fh" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/machinery/airlock_sensor/airlock_exterior{
 	frequency = 1331;
-	id_tag = "skipjack_shuttle";
-	name = "skipjack shuttle controller";
-	pixel_x = 28;
-	req_access = list(0);
-	req_one_access = list(13);
-	tag_airpump = "skipjack_shuttle_pump";
-	tag_chamber_sensor = "skipjack_shuttle_sensor_chamber";
-	tag_exterior_door = "skipjack_shuttle_outer";
-	tag_exterior_sensor = null;
-	tag_interior_door = "skipjack_shuttle_inner";
-	tag_interior_sensor = "skipjack_shuttle_sensor_interior"
+	id_tag = "skipjack_shuttle_sensor_exterior";
+	pixel_x = -24;
+	pixel_y = 28
 	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor4"
-	},
-/area/centcom/raider_base)
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/shuttle/transport1/centcom)
 "Fk" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/space,
@@ -6992,6 +7081,9 @@
 	name = "Starboard Thrusters";
 	req_access = list(101)
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/centcom/evac)
 "GK" = (
@@ -7000,6 +7092,23 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
+"GT" = (
+/obj/structure/bed/chair/shuttle,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "centcom_shuttle";
+	name = "centcom shuttle controller";
+	pixel_y = 28;
+	req_access = list(101);
+	tag_airpump = "centcom_shuttle_pump";
+	tag_chamber_sensor = "centcom_shuttle_sensor_cham";
+	tag_exterior_door = "centcom_shuttle_outer";
+	tag_exterior_sensor = "centcom_shuttle_sensor_ext";
+	tag_interior_door = "centcom_shuttle_inner";
+	tag_interior_sensor = "centcom_shuttle_sensor_int"
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/shuttle/transport1/centcom)
 "GU" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = list(150)
@@ -7376,9 +7485,7 @@
 "Kd" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1331;
-	icon_state = "door_locked";
 	id_tag = "skipjack_shuttle_inner";
-	locked = 1;
 	req_access = list(150)
 	},
 /turf/simulated/shuttle/floor{
@@ -7973,9 +8080,16 @@
 	icon_state = "floor3"
 	},
 /area/centcom/raider_base)
-"QF" = (
-/turf/simulated/floor/tiled/steel,
+"Qx" = (
+/obj/effect/window_lwall_spawn/plasma,
+/turf/simulated/floor/tiled/steel/monofloor,
 /area/shuttle/transport1/centcom)
+"QF" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/centcom/evac)
 "QH" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
@@ -8008,6 +8122,13 @@
 	icon_state = "freezerfloor"
 	},
 /area/centcom/merc_base)
+"QS" = (
+/obj/effect/shuttle_landmark/centcom/start,
+/obj/machinery/computer/shuttle_control/multi/centcom{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/shuttle/transport1/centcom)
 "QX" = (
 /obj/machinery/washing_machine,
 /turf/simulated/shuttle/plating,
@@ -8132,6 +8253,7 @@
 /area/centcom/raider_base)
 "Sz" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/structure/window/reinforced/crescent,
 /turf/simulated/shuttle/plating,
 /area/centcom/raider_base)
 "SB" = (
@@ -8140,6 +8262,8 @@
 /area/centcom/raider_base)
 "SF" = (
 /obj/structure/table/rack,
+/obj/structure/window/reinforced/crescent,
+/obj/structure/window/reinforced/crescent,
 /turf/simulated/shuttle/plating,
 /area/centcom/raider_base)
 "SW" = (
@@ -8194,6 +8318,15 @@
 	icon_state = "floor4"
 	},
 /area/centcom/raider_base)
+"TC" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "centcom_shuttle_inner";
+	req_access = list(150)
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/centcom/evac)
 "TT" = (
 /obj/structure/closet{
 	name = "custodial"
@@ -8217,6 +8350,35 @@
 	icon_state = "dark"
 	},
 /area/centcom/merc_base)
+"Ud" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1331;
+	id_tag = "centcom_shuttle_pump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	frequency = 1331;
+	id_tag = "centcom_shuttle";
+	name = "centcom shuttle controller";
+	pixel_x = 25;
+	pixel_y = 2;
+	req_access = list(101);
+	tag_airpump = "centcom_shuttle_pump";
+	tag_chamber_sensor = "centcom_shuttle_sensor_cham";
+	tag_exterior_door = "centcom_shuttle_outer";
+	tag_exterior_sensor = "centcom_shuttle_sensor_ext";
+	tag_interior_door = "centcom_shuttle_inner";
+	tag_interior_sensor = "centcom_shuttle_sensor_int"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "skipjack_shuttle_sensor_chamber";
+	pixel_x = 28;
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/centcom/evac)
 "Up" = (
 /turf/simulated/shuttle/wall{
 	dir = 4;
@@ -8419,6 +8581,26 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/mercenary)
+"YA" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/meter,
+/obj/machinery/airlock_sensor/airlock_interior{
+	dir = 8;
+	frequency = 1331;
+	id_tag = "centcom_shuttle_sensor_int";
+	pixel_x = 28
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	dir = 4;
+	frequency = 1331;
+	master_tag = "centcom_shuttle";
+	name = "Centcom Internal Access Button";
+	pixel_x = -25;
+	req_access = list(101)
+	},
+/turf/simulated/floor/tiled/steel/monofloor,
+/area/centcom/evac)
 "YT" = (
 /turf/simulated/shuttle/wall{
 	dir = 8;
@@ -18109,7 +18291,7 @@ Km
 Ru
 Ru
 Ru
-Fh
+Ru
 Ru
 Ok
 WB
@@ -19459,7 +19641,7 @@ fL
 YT
 xd
 xd
-fW
+UD
 fW
 xd
 bV
@@ -19468,7 +19650,7 @@ db
 Od
 Od
 Od
-uc
+xd
 hv
 RZ
 hv
@@ -19670,7 +19852,7 @@ xd
 Od
 dt
 Od
-xd
+sA
 Jp
 Jp
 Jp
@@ -20290,12 +20472,12 @@ xd
 xd
 Up
 gI
-gS
-gU
-fQ
-gV
-gW
-fC
+fm
+fc
+fl
+fo
+fa
+fd
 fg
 fo
 fc
@@ -20493,10 +20675,10 @@ gI
 gI
 gI
 gI
-Uy
-sA
-sA
-sB
+gV
+gW
+fC
+fF
 gI
 fd
 fg
@@ -20696,9 +20878,9 @@ Nl
 Nl
 Nl
 Nl
-ON
-ON
-Nl
+Qx
+Qx
+sB
 gI
 gI
 fm
@@ -20895,11 +21077,11 @@ XZ
 xd
 qH
 rj
-rr
-QF
-Nl
-sA
-sA
+rQ
+VF
+zC
+ON
+ON
 Nl
 sB
 gW
@@ -21099,10 +21281,10 @@ qZ
 Nl
 Nl
 VF
-sc
+VF
 ON
 ON
-sF
+sQ
 Nl
 Nl
 tY
@@ -21300,7 +21482,7 @@ xd
 xd
 TW
 Nl
-rX
+uc
 rX
 ON
 ON
@@ -21496,20 +21678,20 @@ UD
 fI
 UD
 fI
-UD
-UD
-qD
-UD
+sc
+YA
+TC
+Ud
 qD
 rz
-ON
+Fh
 ON
 ON
 ON
 ON
 tz
 rX
-ON
+QS
 tY
 fR
 fh
@@ -21704,14 +21886,14 @@ xd
 xd
 Up
 Nl
-rX
+GT
 rX
 ON
 ON
-sQ
+Ch
 Nl
 tF
-un
+Ai
 tY
 fQ
 fo
@@ -21900,14 +22082,14 @@ Zs
 xd
 KS
 xd
-UD
+st
 qm
 xd
 Uy
 Nl
 Nl
 VF
-st
+VF
 ON
 ON
 tb
@@ -22102,16 +22284,16 @@ xd
 xd
 pe
 xd
-ps
+sF
 qn
 xd
 qH
 rj
 rQ
-QF
-Nl
-sA
-sA
+VF
+ii
+ON
+vX
 Nl
 tj
 fC
@@ -22304,7 +22486,7 @@ Sb
 KS
 KS
 xd
-UD
+st
 qn
 xd
 qZ
@@ -22312,9 +22494,9 @@ Nl
 Nl
 Nl
 Nl
-ON
-ON
-Nl
+ye
+ye
+tj
 gI
 gI
 fm
@@ -22506,17 +22688,17 @@ sn
 uT
 KS
 pg
-UD
+st
 qn
 xd
 gI
 gI
 gI
 gI
-qZ
-sA
-sA
-tj
+ga
+gn
+fR
+gu
 gI
 fa
 fd
@@ -22714,12 +22896,12 @@ xd
 xd
 TW
 gU
-fQ
-gV
-gW
-fC
-fF
-fL
+fl
+fo
+fa
+fd
+fg
+ff
 fb
 fb
 fn
@@ -22910,8 +23092,8 @@ xd
 xd
 xd
 xd
-UD
-bT
+QF
+CO
 WY
 NZ
 Fk
@@ -23499,7 +23681,7 @@ fL
 uu
 xd
 xd
-fW
+UD
 fW
 xd
 cv
@@ -24379,12 +24561,12 @@ ff
 fb
 fi
 fe
-gn
-fR
-gu
-fC
-fL
-fQ
+fn
+fk
+fh
+fd
+ff
+fl
 fo
 fa
 fd
@@ -24582,10 +24764,10 @@ fL
 fO
 fP
 ga
-fn
-fk
-fh
-fj
+gn
+fR
+gu
+gI
 gS
 fc
 fl
@@ -25598,7 +25780,7 @@ fn
 fk
 fh
 fj
-fm
+os
 fc
 fQ
 fo
@@ -26602,10 +26784,10 @@ fQ
 gV
 gW
 fC
-fg
-fd
-ff
-fh
+fF
+fC
+fL
+gu
 gn
 fk
 fh
@@ -26803,12 +26985,12 @@ fi
 fe
 fn
 fk
-gu
-gI
-gn
-gu
-gV
-gW
+fh
+fj
+fn
+fh
+fo
+fa
 fd
 fg
 ff
