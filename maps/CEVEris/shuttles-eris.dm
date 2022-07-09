@@ -129,7 +129,7 @@
 	destination_tags = list(
 		"nav_skipjack_northwest",
 		"nav_skipjack_southeast",
-//		"nav_skipjack_dock",
+		"nav_skipjack_dock", 
 		"nav_skipjack_start",
 		)
 	shuttle_area =  /area/skipjack_station/start
@@ -151,13 +151,13 @@
 	name = "In transit"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_skipjack_transition"
-/*
+
 /obj/effect/shuttle_landmark/skipjack/dock
-	name = "Docking Port"
+	name = "Docking Port Deck 4" //Eclipse Edit - Renamed landmark
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_skipjack_dock"
-	docking_controller = "skipjack_shuttle_dock_airlock"
-*/
+	dock_target = "second_sec_1_access_console"
+
 /obj/effect/shuttle_landmark/skipjack/northwest
 	name = "Northwest of the Vessel"
 	icon_state = "shuttle-red"

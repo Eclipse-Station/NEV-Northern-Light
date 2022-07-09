@@ -79416,7 +79416,7 @@
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/medbreak)
 "kcX" = (
-/obj/effect/shuttle_landmark/centcom/dock,
+/obj/effect/shuttle_landmark/skipjack/dock,
 /turf/space,
 /area/space)
 "knD" = (
@@ -151817,7 +151817,7 @@ aaa
 aaa
 aaa
 aaa
-kcX
+aaa
 aaa
 aaa
 aaa
@@ -151969,7 +151969,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+kcX
 aaa
 aaa
 aaa
