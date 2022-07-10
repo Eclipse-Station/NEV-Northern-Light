@@ -12,10 +12,10 @@
 	to_chat(usr,SPAN_WARNING("You cannot take the batteries out of \the [src] without using the lever."))
 	
 //Reloading behaviour.
-/obj/item/gun/energy/attackby(obj/item/C, mob/living/user)
+/obj/item/gun/energy/lever_action/attackby(obj/item/C, mob/living/user)
 	if(QUALITY_SAWING in C.tool_qualities)
 		to_chat(user, SPAN_NOTICE("Sawing down \the [src] will render it useless."))
-			return
+		return
 
 	if(magazine.len >= magazine_capacity)
 		to_chat(usr, SPAN_WARNING("\The [src] cannot hold any more batteries."))
