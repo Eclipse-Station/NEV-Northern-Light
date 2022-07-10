@@ -36,7 +36,7 @@
 	var/charge_taser_reference = 50 //The divisor for the agony multiplier for zapping people
 	charge_cost = 100000 //One shot.
 	suitable_cell = /obj/item/cell/small
-	price_tag = 1500
+	price_tag = 2000
 	var/recentpumpmsg = FALSE //Variable to prevent chat message spam
 	var/list/magazine = list()
 	var/magazine_capacity = 3 //We hold 3 cells.
