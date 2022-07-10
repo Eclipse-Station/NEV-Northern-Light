@@ -38,5 +38,5 @@
 	suitable_cell = /obj/item/cell/small
 	price_tag = 1500
 	var/recentpumpmsg = FALSE //Variable to prevent chat message spam
-	var/magazine = list()
+	var/list/magazine = list()
 	var/magazine_capacity = 3 //We hold 3 cells.
