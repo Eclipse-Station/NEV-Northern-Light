@@ -40,6 +40,7 @@
 	wield_delay_factor = 0
 	
 	simplemob_bonus_damage_multiplier = -0.2		//Eclipse edit: -20% damage to simplemobs.
+	var/suppress_already_loaded_message = FALSE		//Eclipse edit: Suppress the "it's already loaded" message
 
 /obj/item/gun/energy/switch_firemodes()
 	. = ..()
@@ -164,7 +165,8 @@
 		return
 
 	if(cell)
-		to_chat(usr, SPAN_WARNING("[src] is already loaded."))
+		if(!suppress_already_loaded_message)		//Eclipse edit: In case of multiple cells.
+			to_chat(usr, SPAN_WARNING("[src] is already loaded."))		//End Eclipse edit.
 		return
 
 	if(istype(C, suitable_cell) && insert_item(C, user))

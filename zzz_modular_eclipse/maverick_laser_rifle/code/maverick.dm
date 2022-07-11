@@ -10,6 +10,8 @@
 	icon_state = "winchester"
 	item_state = "winchester"
 	fire_sound = 'sound/weapons/Laser.ogg'
+	var/firesound_lethal = 'sound/weapons/Laser.ogg'
+	var/firesound_stun = 'sound/weapons/Taser.ogg'
 	var/action_sound = 'sound/weapons/guns/interact/batrifle_cock.ogg' //The sound made when cycling the action.
 	wielded_item_state = "_double"
 	
@@ -22,6 +24,12 @@
 	init_firemodes = list(WEAPON_NORMAL)
 	damage_multiplier = 1 //Base of 30 damage at 250 charge.
 	simplemob_bonus_damage_multiplier = 0.3 //Mobs take 30% extra damage.
+	
+	//Reference values.
+	var/charge_maximum = 400 //Damage multiplier caps at this amount.
+	var/charge_reference = 250 //The divisor for the damage multiplier for death beams
+	var/charge_taser_maximum = 75 //Below this charge, the rifle will fire a Taser shot.
+	var/charge_taser_reference = 50 //The divisor for the agony multiplier for zapping people
 
 	
 	//Research and deconstruction.
@@ -30,13 +38,10 @@
 	
 	//Miscellany.
 	zoom_factor = 0
-	var/charge_maximum = 400 //Damage multiplier caps at this amount.
-	var/charge_reference = 250 //The divisor for the damage multiplier for death beams
-	var/charge_taser_maximum = 75 //Below this charge, the rifle will fire a Taser shot.
-	var/charge_taser_reference = 50 //The divisor for the agony multiplier for zapping people
 	charge_cost = 100000 //One shot.
 	suitable_cell = /obj/item/cell/small
 	price_tag = 2000
 	var/recentpumpmsg = FALSE //Variable to prevent chat message spam
 	var/list/magazine = list()
 	var/magazine_capacity = 3 //We hold 3 cells.
+	suppress_already_loaded_message = TRUE //because we can load more than one cell.

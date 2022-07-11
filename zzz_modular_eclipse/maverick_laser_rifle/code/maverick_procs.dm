@@ -29,7 +29,7 @@
 
 	..()
 
-//Loading and cock behaviour.
+//Loading and action-cycling behaviour.
 /obj/item/gun/energy/lever_action/attack_self(mob/living/user)
 	if(world.time >= recentpumpmsg + 10)
 		cycle_action(user)
@@ -42,6 +42,7 @@
 
 	if(cell)//We have a shell in the chamber
 		cell.forceMove(newloc) //Eject casing
+		cell.SpinAnimation(rand(6,9), 1)
 		cell = null
 
 	if(magazine.len)
@@ -58,18 +59,29 @@
 // FIRING BEHAVIOUR
 ///////////////
 
-// We want to recalculate damage and projectile type when we actually fire, due
-// to the possibility that the player is firing self-charging cells.
+
 /obj/item/gun/energy/lever_action/consume_next_projectile()
-	calculate_projectile_data()
-	..()
+	calculate_projectile_data() // We want to recalculate damage and projectile type when we actually fire, due to the possibility that the player is firing self-charging cells.
+
+	if(!cell)
+		log_debug("CNP ([name] / [\ref(src)]): No cell.")
+		return null
+	if(!ispath(projectile_type))
+		log_debug("CNP ([name] / [\ref(src)]): No projectile type.")
+		return null
+	if(!cell.charge)	//No freebies.
+		log_debug("CNP ([name] / [\ref(src)]): Cell discharged.")
+		return null
+	log_debug("CNP ([name] / [\ref(src)]): Checks pass.")
+	cell.charge = 0		//Complete discharge.
+	return new projectile_type(src)
 
 ///////////////
 // DAMAGE AND BEAM TYPE
 ///////////////
 
 //Recalculates projectile type (taser or laser) and damage multiplier.
-//Called in the firing proc as well as the action cycling proc.
+//Called in the firing proc as well as the action-cycling proc.
 /obj/item/gun/energy/lever_action/proc/calculate_projectile_data()
 	if(cell)
 		var/_chg = cell.charge
@@ -78,9 +90,11 @@
 		//If we're below or equal to the maximum to turn it into a Taser, do that.
 		if(_chg <= charge_taser_maximum)
 			projectile_type = /obj/item/projectile/beam/stun
+			fire_sound = firesound_stun
 			_dmg = 1		//100% agony damage.
 		else		//If we're above taser voltage, it turns it into deathbeam.
 			projectile_type = /obj/item/projectile/beam/midlaser
+			fire_sound = firesound_lethal
 			if(_chg > charge_maximum)
 				_chg = charge_maximum		//No cheating by spawning in BSL cells.
 			_dmg = _chg / charge_reference
@@ -103,3 +117,11 @@
 		icon_state = "[initial(icon_state)]_[magwell]"
 	else			//mag empty
 		icon_state = "[initial(icon_state)]"
+
+	//Wield state for world icon.
+	if(wielded)
+		item_state_slots[slot_l_hand_str] = "lefthand"  + wielded_item_state
+		item_state_slots[slot_r_hand_str] = "righthand" + wielded_item_state
+	else
+		item_state_slots[slot_l_hand_str] = "lefthand"
+		item_state_slots[slot_r_hand_str] = "righthand"
