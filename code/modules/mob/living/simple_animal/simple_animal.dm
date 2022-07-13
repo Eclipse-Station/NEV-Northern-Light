@@ -355,7 +355,7 @@
  * equals 10 += 4.5 (which equals 14.5)
  * Maths verify as intended.
  */
-		damage_to_deal = max(0.1, damage_to_deal)		//So we don't end up accidentally healing them.
+		damage_to_deal = max(0, damage_to_deal)		//So we don't end up accidentally healing them.
 	// // // END ECLIPSE EDITS // // //
 	adjustBruteLoss(damage_to_deal)
 	return 0
