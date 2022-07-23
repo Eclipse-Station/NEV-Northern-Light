@@ -174,13 +174,14 @@
 		_config_error = TRUE
 		spawn(0)
 			throw EXCEPTION("conflicting configuration values: 'DISPATCHER_MESSAGES_SECURITY_ON_HIVEMIND' is mutually exclusive with configuration value 'DISPATCHER_MESSAGES_ALL_ON_HIVEMIND'.")
+		config.ntdad_level8_ping_all = FALSE
 
 	if(!isnum(config.number_of_exoplanets) || config.number_of_exoplanets < 0)
 		_config_error = TRUE
 		_temp_data = config.number_of_exoplanets
 		config.number_of_exoplanets = 0
 		spawn(0)
-			throw EXCEPTION("invalid configuration value: 'EXOPLANETS_TO_GENERATE' requires a positive number or zero as its value. Entry [_temp_data ? "of _temp_data" : "of a non-number"] is not valid.")
+			throw EXCEPTION("invalid configuration value: 'EXOPLANETS_TO_GENERATE' requires a positive number or zero as its value. Entry [_temp_data ? "of [_temp_data]" : "of a non-number"] is not valid.")
 
 	if(_config_error)
 		spawn(25 SECONDS)
