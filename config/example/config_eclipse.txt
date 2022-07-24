@@ -108,10 +108,17 @@ DISPATCHER_MAXIMUM_NONCOMMAND_PING 1
 DISPATCHER_MAXIMUM_COMMAND_PING 1
 DISPATCHER_MAXIMUM_HIVEMIND_PING 15
 
+## DISPATCHER MINIMUM FOR RESTART PING
+## Minimum number of players that must be on before the dispatcher will ping for
+## a server restart. This is a simple comparison, so setting to 0 will ping
+## regardless of player count, and setting to 1 will ping if there's someone on.
+## Default: 3
+DISPATCHER_MINIMUM_ROUND_END_PING 3
+
 ## DISPATCHER PING ON ROUND END
 ## Should the dispatcher ping the "restarts" role when the round ends? The ping
-## will occur just after the lists of antags and silicons are printed out, and
-## pings regardless of the maxima above.
+## will occur just after the lists of antags and silicons are printed out, if
+## enough players are on (set immediately above).
 ## Uncomment to enable.
 # DISPATCHER_PINGS_ON_ROUND_END
 
@@ -154,6 +161,6 @@ MAXIMUM_SANITY_REGEN_FROM_HUGS 15
 EXOPLANETS_TO_GENERATE 2
 
 ## SHIP NAME
-## What is the name of the ship?
+## What is the name of the ship? This is used primarily in announcements.
 ## Parses as a string.
 SHIP_NAME NEV Northern Light

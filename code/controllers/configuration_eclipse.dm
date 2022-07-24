@@ -42,10 +42,11 @@
 	var/ntdad_role_service = ""
 	var/ntdad_role_supply = ""
 	var/ntdad_role_restarts = ""
-		//maxima
+		//maxima and minima
 	var/ntdad_maximum_noncommand = 1
 	var/ntdad_maximum_command = 1
 	var/ntdad_maximum_hivemind = 15
+	var/ntdad_minimum_roundend = 3
 		//Automated pings
 	var/ntdad_roundend_ping = FALSE
 	var/ntdad_level8_ping_sec = FALSE
@@ -132,6 +133,8 @@
 				config.ntdad_maximum_command = text2num(value)
 			if("dispatcher_maximum_hivemind_ping")
 				config.ntdad_maximum_hivemind = text2num(value)
+			if("dispatcher_minimum_round_end_ping")
+				config.ntdad_minimum_roundend = text2num(value)
 			if("dispatcher_pings_on_round_end")
 				config.ntdad_roundend_ping = TRUE
 			if("dispatcher_messages_security_on_hivemind")

@@ -536,7 +536,12 @@ SUBSYSTEM_DEF(ticker)
 	// // // BEGIN ECLIPSE EDITS // // //
 	// Dispatcher can declare round end to Discord.
 	if(config.ntdad_enabled && config.ntdad_roundend_ping)
-		SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended aboard the [station_name()] with [GLOB.player_list.len] players. A new round will start in a few minutes.")
+		var/player_count = GLOB.player_list.len
+		if(player_count >= config.ntdad_minimum_roundend)
+			var/__playertext = "players"
+			if(player_count == 1)		//Take the S off if we've only got one player on.
+				__playertext = "player"
+			SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended aboard \the [station_name()] with player_count] [__playertext]. A new round will start in a few minutes.")
 	// // // END ECLIPSE EDITS // // //
 	
 	scoreboard()//scores

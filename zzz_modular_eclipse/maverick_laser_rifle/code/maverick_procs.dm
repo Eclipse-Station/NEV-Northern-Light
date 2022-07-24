@@ -64,16 +64,12 @@
 	calculate_projectile_data() // We want to recalculate damage and projectile type when we actually fire, due to the possibility that the player is firing self-charging cells.
 
 	if(!cell)
-		log_debug("CNP ([name] / [\ref(src)]): No cell.")
 		return null
 	if(!ispath(projectile_type))
-		log_debug("CNP ([name] / [\ref(src)]): No projectile type.")
 		return null
 	if(!cell.charge)	//No freebies.
-		log_debug("CNP ([name] / [\ref(src)]): Cell discharged.")
 		return null
-	log_debug("CNP ([name] / [\ref(src)]): Checks pass.")
-	cell.charge = 0		//Complete discharge.
+	cell.charge = 0		//Completely discharged.
 	return new projectile_type(src)
 
 ///////////////
