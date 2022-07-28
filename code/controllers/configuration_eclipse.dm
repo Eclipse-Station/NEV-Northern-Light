@@ -55,6 +55,7 @@
 // Miscellany.
 	var/generate_ghost_icons = FALSE		//Should we generate ghost icons?
 	var/maximum_hug_sanity_restoration = 15		//Hugging will restore sanity up to this amount.
+	var/maximum_hug_sanity_restoration_plushie = 5	//Ditto, but for plushies.
 	var/number_of_exoplanets = 2
 
 
@@ -145,6 +146,8 @@
 				config.generate_ghost_icons = TRUE
 			if("maximum_sanity_regen_from_hugs")
 				config.maximum_hug_sanity_restoration = text2num(value)
+			if("maximum_sanity_regen_from_plushies")
+				config.maximum_hug_sanity_restoration_plushie = text2num(value)
 			if("exoplanets_to_generate")
 				config.number_of_exoplanets = text2num(value)
 			if("ship_name")

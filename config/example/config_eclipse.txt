@@ -1,22 +1,21 @@
 # Eclipse-specific configurations, for downstream servers and dev environments.
-# Lines are intentionally wrapped at 80 characters wide (+1 in some cases).
 
 ## Configuration file version.
-CONFIG_FILE_VERSION 8
+CONFIG_FILE_VERSION 6
 
 #########
-# JOB WHITELISTING
+# WHITELISTING
 #########
 
 ## MASTER ENABLE
 ## Uses the jobwhitelist.txt file to whitelist specific jobs.
-## Uncomment to enable.
+## Comment to disable.
 #USE_JOB_WHITELISTING
 
 ## INCLUDE ADMINS
 ## Should admins be required to be whitelisted as a job in order to play it? 
 ## This will not stop them from spawning in a character using the admin tools,
-## only the character setup preferences.
+## only the game preferences.
 ## Uncomment to require them to be whitelisted.
 #ADMINS_RESTRICTED_BY_WHITELIST
 
@@ -43,7 +42,7 @@ CONFIG_FILE_VERSION 8
 ## Should a head of staff be required for the round to start? By default, a head
 ## of staff is required to start the round.
 ## Uncomment to bypass this requirement.
-#BYPASS_HEAD_OF_STAFF_REQUIREMENT
+BYPASS_HEAD_OF_STAFF_REQUIREMENT
 
 ## HEAD OF STAFF AND ENGINEER LOWPOP THRESHOLD
 ## When should we stop bypassing the requirements for an engineer and a head of
@@ -60,7 +59,7 @@ STAFF_REQUIREMENT_LOWPOP_THRESHOLD 10
 ## Should the dispatcher be enabled? If disabled, only the player tracking system
 ## will be functional.
 ## Uncomment to enable.
-# ENABLE_DISPATCHER
+ENABLE_DISPATCHER
 
 ## DEBUG LEVEL
 ## What level should we debug the dispatcher on?
@@ -70,7 +69,7 @@ STAFF_REQUIREMENT_LOWPOP_THRESHOLD 10
 ## 2 - Warnings
 ## 3 - Verbose
 # Default is 1.
-DEBUG_DISPATCHER 1
+DEBUG_DISPATCHER 3
 
 ## DISPATCHER COOLDOWN
 ## After a message is sent, how long should the global cooldown be before another
@@ -89,21 +88,21 @@ MAXIMUM_CONCURRENT_OPERATIONS 10
 ## DISPATCHER ROLE IDENTIFIERS
 ## This is the role IDs used for role-specific pings from the dispatcher system.
 ## Parses as a string.
-ROLE_PING_CHURCH 
-ROLE_PING_COMMAND 
-ROLE_PING_ENGINEERING 
-ROLE_PING_MEDICAL 
-ROLE_PING_RESEARCH 
-ROLE_PING_SECURITY 
-ROLE_PING_SERVICE 
-ROLE_PING_SUPPLY 
-ROLE_PING_RESTARTS 
+ROLE_PING_CHURCH dev_server_church_ping
+ROLE_PING_COMMAND dev_server_command_ping
+ROLE_PING_ENGINEERING dev_server_engi_ping
+ROLE_PING_MEDICAL dev_server_medic_ping
+ROLE_PING_RESEARCH dev_server_research_ping
+ROLE_PING_SECURITY dev_server_sec_ping
+ROLE_PING_SERVICE dev_server_service_ping
+ROLE_PING_SUPPLY dev_server_supply_ping
+ROLE_PING_RESTARTS dev_server_restarts_ping
 
 ## DISPATCHER MAXIMA FOR PINGS
 ## Maximum number of players the dispatcher will allow before it won't pass on
 ## a message to the discord. Set to -1 to disable playercount checks. (This is
 ## not recommended and will throw a warning if disabled.)
-## Defaults: 1, 1, 15
+## Default: 1 (both)
 DISPATCHER_MAXIMUM_NONCOMMAND_PING 1
 DISPATCHER_MAXIMUM_COMMAND_PING 1
 DISPATCHER_MAXIMUM_HIVEMIND_PING 15
@@ -113,38 +112,35 @@ DISPATCHER_MAXIMUM_HIVEMIND_PING 15
 ## a server restart. This is a simple comparison, so setting to 0 will ping
 ## regardless of player count, and setting to 1 will ping if there's someone on.
 ## Default: 3
-DISPATCHER_MINIMUM_ROUND_END_PING 3
+DISPATCHER_MINIMUM_ROUND_END_PING 1
+
 
 ## DISPATCHER PING ON ROUND END
 ## Should the dispatcher ping the "restarts" role when the round ends? The ping
-## will occur just after the lists of antags and silicons are printed out, if
-## enough players are on (set immediately above).
+## will occur just after the lists of antags and silicons are printed out, and
+## pings regardless of the maxima above.
 ## Uncomment to enable.
-# DISPATCHER_PINGS_ON_ROUND_END
+DISPATCHER_PINGS_ON_ROUND_END
 
 ## SECURITY PING ON HIVEMIND ANNOUNCEMENT
 ## Should the dispatcher ping the "security" role when a Hivemind event is
 ## announced? This will send a ping regardless of player count.
 ## Uncomment to enable.
 ## WARNING: This option is mutually exclusive with the option immediately below.
-# DISPATCHER_MESSAGES_SECURITY_ON_HIVEMIND
+DISPATCHER_MESSAGES_SECURITY_ON_HIVEMIND
 
 ## ALL-HANDS PING ON HIVEMIND ANNOUNCEMENT
 ## Should the dispatcher ping all roles, except the restart role, when a
 ## Hivemind event is announced?
 ## Uncomment to enable.
 ## WARNING: This option is mutually exclusive with the option immediately above.
-# DISPATCHER_MESSAGES_ALL_ON_HIVEMIND
-
-#########
-# MISCELLANEOUS
-#########
+DISPATCHER_MESSAGES_ALL_ON_HIVEMIND
 
 ## GHOST ICON GENERATION
 ## Should we generate ghost icons based on the player's character, if they have
 ## no body (e.g. joined as observer)? This may have a minor performance impact.
 ## Uncomment to enable.
-#GENERATE_GHOST_ICONS
+GENERATE_GHOST_ICONS
 
 ## MAXIMUM SANITY REGENERATION FROM HUGS
 ## How low should sanity be before someone hugging someone else will give them
@@ -153,14 +149,22 @@ DISPATCHER_MINIMUM_ROUND_END_PING 3
 ## Default: 15
 MAXIMUM_SANITY_REGEN_FROM_HUGS 15
 
+## MAXIMUM SANITY REGENERATION FROM PLUSH TOYS
+## How low should sanity be before someone hugging a plushie will give them any
+## benefit? 
+## WARNING: Plushies have no hug cooldown, so this should be set fairly low to
+## reduce a player's ability to powergame by carrying a plush toy.
+## Default: 5
+MAXIMUM_SANITY_REGEN_FROM_PLUSHIES 5
+
 ## NUMBER OF EXOPLANETS TO GENERATE
 ## How many exoplanets should we generate for the overmap? Note that increasing
 ## this value will increase roundstart time, and may have a minor to moderate 
 ## impact on performance.
 ## Default: 2
-EXOPLANETS_TO_GENERATE 2
+EXOPLANETS_TO_GENERATE -1
 
 ## SHIP NAME
-## What is the name of the ship? This is used primarily in announcements.
+## What is the name of the ship?
 ## Parses as a string.
-SHIP_NAME NEV Northern Light
+SHIP_NAME DEVSERVER

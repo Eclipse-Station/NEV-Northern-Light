@@ -541,7 +541,7 @@ SUBSYSTEM_DEF(ticker)
 			var/__playertext = "players"
 			if(player_count == 1)		//Take the S off if we've only got one player on.
 				__playertext = "player"
-			SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended aboard \the [station_name()] with player_count] [__playertext]. A new round will start in a few minutes.")
+			SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended aboard \the [station_name()] with [player_count] [__playertext]. A new round will start in a few minutes.")
 	// // // END ECLIPSE EDITS // // //
 	
 	scoreboard()//scores
