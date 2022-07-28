@@ -637,7 +637,7 @@
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			if(H.sanity)
-				if(H.sanity.level < maximum_hug_sanity_restoration_plushie)
+				if(H.sanity.level < config.maximum_hug_sanity_restoration_plushie)
 					H.sanity.changeLevel(1)		//Not much.
 		// // // END ECLIPSE EDITS // // //
 	else if (user.a_intent == I_HURT)
