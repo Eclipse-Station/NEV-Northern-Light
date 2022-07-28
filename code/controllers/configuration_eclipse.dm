@@ -46,11 +46,13 @@
 	var/ntdad_maximum_noncommand = 1
 	var/ntdad_maximum_command = 1
 	var/ntdad_maximum_hivemind = 15
+	var/ntdad_minimum_round_ongoing = 5
 	var/ntdad_minimum_roundend = 3
 		//Automated pings
 	var/ntdad_roundend_ping = FALSE
 	var/ntdad_level8_ping_sec = FALSE
 	var/ntdad_level8_ping_all = FALSE
+	var/ntdad_periodic_ongoing_round_pings = FALSE
 	
 // Miscellany.
 	var/generate_ghost_icons = FALSE		//Should we generate ghost icons?
@@ -134,6 +136,8 @@
 				config.ntdad_maximum_command = text2num(value)
 			if("dispatcher_maximum_hivemind_ping")
 				config.ntdad_maximum_hivemind = text2num(value)
+			if("dispatcher_minimum_ongoing_round")
+				config.ntdad_minimum_round_ongoing = text2num(value)
 			if("dispatcher_minimum_round_end_ping")
 				config.ntdad_minimum_roundend = text2num(value)
 			if("dispatcher_pings_on_round_end")
@@ -142,6 +146,8 @@
 				config.ntdad_level8_ping_sec = TRUE
 			if("dispatcher_messages_all_on_hivemind")
 				config.ntdad_level8_ping_all = TRUE
+			if("dispatcher_periodic_pings")
+				config.ntdad_periodic_ongoing_round_pings = TRUE
 			if("generate_ghost_icons")
 				config.generate_ghost_icons = TRUE
 			if("maximum_sanity_regen_from_hugs")

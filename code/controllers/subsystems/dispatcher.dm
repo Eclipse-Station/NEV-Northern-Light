@@ -40,6 +40,8 @@ SUBSYSTEM_DEF(dispatcher)
 	var/flush_in_progress = FALSE		//stat thing.
 	var/update_in_progress = FALSE		//stat thing
 	
+	var/live_game_announced = FALSE		//have we already announced a Game In Progress?
+	
 	// Bypass switches for personnel requirements to ping Discord.
 	var/bypass_command_ping_requirements = FALSE
 	var/bypass_noncommand_ping_requirements = FALSE
@@ -71,7 +73,7 @@ SUBSYSTEM_DEF(dispatcher)
 //Check command role config opts to see if we need to disable role pings or role ping checks.
 	if(config.ntdad_maximum_command < 0)								//Command role limit bypass
 		bypass_command_ping_requirements = TRUE
-		message_admins("DISPATCHER/SEVERE: Playercount checks for command role pings is disabled by config. This may open a route for exploits...")
+		message_admins("DISPATCHER/SEVERE: Playercount checks for command role pings is disabled by config. This may open a route for abuse...")
 		if(DEBUGLEVEL_SEVERE <= debug_level)
 			log_debug("DISPATCHER: Playercount checks for command roles disabled by config.")
 	else if(!config.ntdad_maximum_command && config.ntdad_enabled)		//Command disabled via role limit.
@@ -82,7 +84,7 @@ SUBSYSTEM_DEF(dispatcher)
 //Same for the non-command roles.
 	if(config.ntdad_maximum_noncommand < 0)								//Non-command role limit bypass
 		bypass_noncommand_ping_requirements = TRUE
-		message_admins("DISPATCHER/SEVERE: Playercount checks for non-command role pings is disabled by config. This may open a route for exploits...")
+		message_admins("DISPATCHER/SEVERE: Playercount checks for non-command role pings is disabled by config. This may open a route for abuse...")
 		if(DEBUGLEVEL_SEVERE <= debug_level)
 			log_debug("DISPATCHER: Playercount checks for non-command roles disabled by config.")
 	else if(!config.ntdad_maximum_noncommand && config.ntdad_enabled)		//Command disabled via role limit.
@@ -123,6 +125,15 @@ SUBSYSTEM_DEF(dispatcher)
 			log_debug("DISPATCHER: Initial flush completed.")
 		first_run = FALSE
 		return		//We're done with the initial flush.
+		
+	// Do we have a Game In Progress?
+	if(!(times_fired % 450) && config.ntdad_periodic_ongoing_round_pings)		//Every 15 minutes or so, update the data
+		if(tracked_players_all.len >= config.ntdad_minimum_round_ongoing)
+			announce_live_game(live_game_announced)
+		else
+			if(live_game_announced)
+				live_game_announced = FALSE
+				push_to_discord("The ongoing round aboard \the [station_name()] has dropped below [config.ntdad_minimum_round_ongoing] active players.")
 
 /*		//Scheduled updates aren't really necessary; the "spawn at dorms, not in tracking" bit works fine.
 	//Periodic list maintenance.
@@ -519,6 +530,12 @@ SUBSYSTEM_DEF(dispatcher)
 
 	send2dispatcher(msg)
 
+/datum/controller/subsystem/dispatcher/proc/announce_live_game(var/_ongoing = FALSE)
+	if(!_ongoing)
+		live_game_announced = TRUE
+		push_to_discord("A round is going on \the [station_name()] with [tracked_players_all.len] active players.")
+	else
+		push_to_discord("A round is still going aboard \the [station_name()] with [tracked_players_all.len] active players.")
 
 
 /datum/controller/subsystem/dispatcher/Shutdown()
