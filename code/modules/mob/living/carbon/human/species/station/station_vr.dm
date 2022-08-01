@@ -37,7 +37,7 @@
 	flesh_color = "#AFA59E"
 	base_color = "#777777"
 
-//	reagent_tag = IS_SERGAL
+	reagent_tag = IS_SERGAL
 
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
@@ -99,7 +99,7 @@
 	base_color = "#777777"
 	blood_color = "#1D2CBF"
 
-//	reagent_tag = IS_AKULA
+	reagent_tag = IS_AKULA
 /*
 /datum/species/akula/can_breathe_water()
 	return TRUE // Surprise, SHERKS.
@@ -140,7 +140,7 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 
-//	reagent_tag = IS_SERGAL
+	reagent_tag = IS_NEVREAN
 
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
@@ -187,6 +187,8 @@
 		"Your overheated skin itches."
 		)
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
+	
+	reagent_tag = IS_ZORREN		//Eclipse edit.
 
 /datum/species/fl_zorren
 	name = SPECIES_ZORREN_FLAT
@@ -228,6 +230,7 @@
 		"Your overheated skin itches."
 		)
 
+	reagent_tag = IS_ZORREN		//Eclipse edit.
 
 /datum/species/vulpkanin
 	name = SPECIES_VULPKANIN
@@ -275,6 +278,8 @@
 
 	min_age = 18
 	max_age = 80
+	
+	reagent_tag = IS_VULP		//Eclipse edit
 /*
 /datum/species/unathi
 	spawn_flags = SPECIES_CAN_JOIN //Species_can_join is the only spawn flag all the races get, so that none of them will be whitelist only if whitelist is enabled.
@@ -330,6 +335,8 @@
 		/mob/living/proc/shred_limb,
 		/mob/living/proc/toggle_pass_table
 		)*/
+
+	reagent_tag = IS_TESHARI
 
 /datum/species/shapeshifter/promethean
 	spawn_flags = SPECIES_CAN_JOIN

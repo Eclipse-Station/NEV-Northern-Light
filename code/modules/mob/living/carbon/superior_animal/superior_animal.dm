@@ -101,6 +101,10 @@
 
 	// Armor related datum
 	var/datum/armor/armor
+	
+	//Eclipse-added vars
+	var/simplemob_bonus_enabled = TRUE		//Do we even check to see if we take more damage?
+	var/simplemob_bonus_multiplier = 0		//Do we take more or less damage? This is in addition to the bullet itself. Putting this less than -1 may have undesirable consequences (e.g. being healed by being shot)
 
 /mob/living/carbon/superior_animal/New()
 	..()

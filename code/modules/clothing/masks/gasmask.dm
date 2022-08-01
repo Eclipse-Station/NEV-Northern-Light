@@ -14,7 +14,7 @@
 	siemens_coefficient = 0.9
 	style_coverage = COVERS_WHOLE_FACE
 	var/gas_filter_strength = 1			//For gas mask filters
-	var/list/filtered_gases = list("phoron", "sleeping_agent")
+	var/list/filtered_gases = list("phoron", "sleeping_agent","trichloramine","monochloramine")
 	armor = list(
 		melee = 0,
 		bullet = 0,

@@ -88,7 +88,7 @@
 	blood_color = "#b3cbc3"
 	base_color = "#066000"
 
-//	reagent_tag = IS_UNATHI
+	reagent_tag = IS_UNATHI
 
 //	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 /*
@@ -200,7 +200,7 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 
-//	reagent_tag = IS_TAJARA
+	reagent_tag = IS_TAJARA
 
 //	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
@@ -285,8 +285,8 @@
 	breath_heat_level_1 = 400	//Default 380 - Higher is better
 	breath_heat_level_2 = 500	//Default 450
 	breath_heat_level_3 = 1350	//Default 1250
-
-	reagent_tag = IS_SKRELL*/
+*/
+	reagent_tag = IS_SKRELL
 
 /*	has_limbs = list(
 		BP_TORSO =  list("path" = /obj/item/organ/external/chest),

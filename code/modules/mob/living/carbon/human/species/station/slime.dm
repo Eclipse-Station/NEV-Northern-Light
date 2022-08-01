@@ -53,6 +53,8 @@
 		BP_L_FOOT = new /datum/organ_description/foot/left/slime,
 		BP_R_FOOT = new /datum/organ_description/foot/right/slime
 	)
+	
+	reagent_tag = IS_SLIME		//Eclipse edit.
 
 
 	var/heal_rate = 0.5 // Temp. Regen per tick.

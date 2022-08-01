@@ -343,8 +343,9 @@ SUBSYSTEM_DEF(job)
 			unassigned -= player
 	return TRUE
 
-
-/datum/controller/subsystem/job/proc/EquipRank(mob/living/carbon/human/H, rank)
+// // // BEGIN ECLIPSE EDITS // // //
+// Fix an issue where mannequins can get emails.
+/datum/controller/subsystem/job/proc/EquipRank(mob/living/carbon/human/H, rank, generate_miscellany = TRUE)
 	if(!H)
 		return null
 
@@ -361,7 +362,8 @@ SUBSYSTEM_DEF(job)
 		//var/list/custom_equip_leftovers = list()
 
 		//Equip job items and language stuff
-		job.setup_account(H)
+		if(generate_miscellany)
+			job.setup_account(H)
 
 		job.equip(H, flavor ? flavor.title : H.mind ? H.mind.role_alt_title : "")
 
@@ -370,8 +372,9 @@ SUBSYSTEM_DEF(job)
 			for(var/datum/gear/G in spawn_in_storage)
 				G.spawn_in_storage_or_drop(H, H.client.prefs.Gear()[G.display_name])
 
-		job.add_stats(H, flavor)
-		job.add_additiional_language(H)
+		if(generate_miscellany)
+			job.add_stats(H, flavor)
+			job.add_additiional_language(H)
 
 		job.apply_fingerprints(H)
 
@@ -383,25 +386,28 @@ SUBSYSTEM_DEF(job)
 				G.spawn_in_storage_or_drop(H, H.client.prefs.Gear()[G.display_name])
 
 		// EMAIL GENERATION
-		if(rank != "Robot" && rank != "AI")		//These guys get their emails later.
-			ntnet_global.create_email(H, H.real_name, pick(GLOB.maps_data.usable_email_tlds))
+		if(generate_miscellany)
+			if(rank != "Robot" && rank != "AI")		//These guys get their emails later.
+				ntnet_global.create_email(H, H.real_name, pick(GLOB.maps_data.usable_email_tlds))
 
 	else
 		to_chat(H, "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
 
 	// If they're head, give them the account info for their department
-	if(H.mind && (job.head_position || job.department_account_access))
-		var/remembered_info = ""
-		var/datum/money_account/department_account = department_accounts[job.department]
-		if(department_account)
-			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
-			remembered_info += "<b>Your department's account pin is:</b> [department_account.remote_access_pin]<br>"
-			remembered_info += "<b>Your department's account funds are:</b> [department_account.money][CREDS]<br>"
-		if(job.head_position)
-			remembered_info += "<b>Your part of nuke code:</b> [SSticker.get_next_nuke_code_part()]<br>"
-			department_account.owner_name = H.real_name //Register them as the point of contact for this account
+	if(generate_miscellany)
+		if(H.mind && (job.head_position || job.department_account_access))
+			var/remembered_info = ""
+			var/datum/money_account/department_account = department_accounts[job.department]
+			if(department_account)
+				remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
+				remembered_info += "<b>Your department's account pin is:</b> [department_account.remote_access_pin]<br>"
+				remembered_info += "<b>Your department's account funds are:</b> [department_account.money][CREDS]<br>"
+			if(job.head_position)
+				remembered_info += "<b>Your part of nuke code:</b> [SSticker.get_next_nuke_code_part()]<br>"
+				department_account.owner_name = H.real_name //Register them as the point of contact for this account
 
-		H.mind.store_memory(remembered_info)
+			H.mind.store_memory(remembered_info)
+	// // // END ECLIPSE EDITS // // //
 
 	var/alt_title = null
 	if(H.mind)

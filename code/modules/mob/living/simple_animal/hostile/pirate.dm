@@ -33,6 +33,9 @@
 
 	faction = "pirate"
 
+	//Eclipse-added vars
+	simplemob_bonus_enabled = FALSE		//Close enough to humans.
+
 /mob/living/simple_animal/hostile/pirate/ranged
 	name = "Pirate Gunner"
 	icon_state = "pirateranged"

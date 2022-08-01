@@ -81,6 +81,9 @@
 	//Parrots are kleptomaniacs. This variable ... stores the item a parrot is holding.
 	var/obj/item/held_item = null
 
+	//Eclipse-added vars
+	simplemob_bonus_multiplier = 0.5		//Hollow bones, easy enough to break.
+
 
 /mob/living/simple_animal/parrot/New()
 	..()

@@ -1,3 +1,7 @@
+///////////////
+// BULLETHEAVEN
+///////////////
+
 /obj/machinery/vending/serbomat
 	name = "BulletHeaven"
 	desc = "Everything you need for protection, in one place!"
@@ -86,7 +90,7 @@
 2021-09-17 ------
 	Changed Money Account from CIVILIAN to GUILD
 
-2020-07-19
+2020-07-19 ------
 	increased ammo packet costs
 		pistol 350 -> 500
 		lrifle 400 -> 450
@@ -109,5 +113,75 @@
 	Stock count changes:
 		uniform_green, uniform_brown, uniform_black: 4 --> 2
 		uniform_light: 2 --> 5
+
+*/
+
+///////////////
+// FROZEN STAR GUNS & AMMO
+///////////////
+
+/obj/machinery/vending/weapon_machine
+	name = "Frozen Star Guns&Ammo"
+	desc = "A self-defense equipment vending machine. When you need to take care of that clown."
+	product_slogans = "The best defense is good offense!;Buy for your whole family today!;Nobody can outsmart bullet!;God created man - Frozen Star made them EQUAL!;Stupidity can be cured! By LEAD.;Dead kids can't bully your children!"
+	product_ads = "Stunning!;Take justice in your own hands!;LEADearship!"
+	icon_state = "weapon"
+	no_criminals = TRUE
+	products = list(/obj/item/device/flash = 6,
+					/obj/item/reagent_containers/spray/pepper = 6,
+					/obj/item/gun/projectile/olivaw = 5,
+					/obj/item/gun/projectile/giskard = 5,
+					/obj/item/gun/energy/gun/martin = 5,
+					/obj/item/gun/energy/gun = 5,
+					/obj/item/gun/energy/lever_action = 2,
+					/obj/item/gun/projectile/revolver/havelock = 5,
+					/obj/item/gun/projectile/automatic/atreides = 3,
+					/obj/item/gun/projectile/shotgun/pump = 3,
+					/obj/item/gun/projectile/automatic/slaught_o_matic = 30,
+					/obj/item/ammo_magazine/pistol/rubber = 20,
+					/obj/item/ammo_magazine/hpistol/rubber = 5,
+					/obj/item/ammo_magazine/slpistol/rubber = 20,
+					/obj/item/ammo_magazine/smg/rubber = 15,
+					/obj/item/ammo_magazine/ammobox/pistol/rubber = 20,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 10,
+					/obj/item/ammo_magazine/ammobox/shotgun/flashshells = 10,
+					/obj/item/ammo_magazine/ammobox/shotgun/blanks = 10,
+					/obj/item/clothing/accessory/holster = 5,
+					/obj/item/clothing/accessory/holster/armpit = 5,
+					/obj/item/clothing/accessory/holster/waist = 5,
+					/obj/item/clothing/accessory/holster/hip = 5,
+					/obj/item/ammo_magazine/slpistol = 5,
+					/obj/item/ammo_magazine/pistol = 5,
+					/obj/item/ammo_magazine/hpistol = 5,
+					/obj/item/ammo_magazine/smg = 3,
+					/obj/item/ammo_magazine/ammobox/pistol = 5,
+					/obj/item/ammo_magazine/ammobox/shotgun = 3,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot = 3,
+					/obj/item/tool/knife/tacknife = 5,
+					/obj/item/storage/box/smokes = 3)
+
+	prices = list(
+					/obj/item/ammo_magazine/ammobox/pistol/rubber = 200,
+					/obj/item/ammo_magazine/slpistol/rubber = 100,
+					/obj/item/ammo_magazine/pistol/rubber = 150,
+					/obj/item/ammo_magazine/hpistol = 300,
+					/obj/item/ammo_magazine/hpistol/rubber = 200,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbags = 300,
+					/obj/item/ammo_magazine/ammobox/shotgun/flashshells = 300,
+					/obj/item/ammo_magazine/ammobox/shotgun/blanks = 50,
+					/obj/item/ammo_magazine/slpistol = 100,
+					/obj/item/ammo_magazine/smg/rubber = 200,
+					/obj/item/ammo_magazine/smg = 400,
+					/obj/item/ammo_magazine/ammobox/pistol = 500,
+					/obj/item/ammo_magazine/ammobox/shotgun = 600,
+					/obj/item/ammo_magazine/ammobox/shotgun/buckshot = 600,
+					/obj/item/tool/knife/tacknife = 300,
+					/obj/item/storage/box/smokes = 200,
+					/obj/item/ammo_magazine/pistol = 300,)
+
+/* FS changelog
+
+2022-07-10 ------
+	Added CA Maverick.
 
 */

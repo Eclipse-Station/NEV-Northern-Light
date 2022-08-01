@@ -2937,6 +2937,8 @@
 #include "zzz_modular_eclipse\code\modules\sprite_accessories\_accessory_facial.dm"
 #include "zzz_modular_eclipse\evac_sign\evacsign.dm"
 #include "zzz_modular_eclipse\gunvendor\gunkits.dm"
+#include "zzz_modular_eclipse\maverick_laser_rifle\code\maverick.dm"
+#include "zzz_modular_eclipse\maverick_laser_rifle\code\maverick_procs.dm"
 #include "zzz_modular_eclipse\radio_sprites\radio_lockers.dm"
 #include "zzz_modular_eclipse\radio_sprites\radios.dm"
 #include "zzz_modular_eclipse\radio_squelch\radios.dm"

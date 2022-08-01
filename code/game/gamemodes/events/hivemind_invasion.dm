@@ -48,11 +48,17 @@
 	//We have enough to be able to start, so we'll call the other stuff.
 	return TRUE
 	
-	// // // END ECLIPSE EDITS // // //
-	
-/datum/event/hivemind/announce()
-	level_eight_announcement() //Different announcement than blob or plants, so the crew doesn't need to struggle trying to figure out if it's blob, plants or hive
 
+// We'll tie this into the Dispatcher code so we can ping around the horn when the hivemind is defeated.
+/datum/event/hivemind/announce()
+	if(config.ntdad_enabled)		//Send a ping to the Discord if the Dispatcher is enabled and the criteria are met
+		if((SSdispatcher.tracked_players_all.len < config.ntdad_maximum_hivemind) || SSdispatcher.bypass_hivemind_ping_requirements)
+			if(config.ntdad_level8_ping_sec)		//Set to ping only Security.
+				SSdispatcher.push_to_discord("[config.ntdad_role_security] Confirmed outbreak of Level-8 bio-mechanical infestation aboard [station_name()]. All personnel must contain the outbreak.")
+			if(config.ntdad_level8_ping_all)		//Shit, let's get everyone in here.
+				SSdispatcher.push_to_discord("[ config.ntdad_role_command] [config.ntdad_role_security] [config.ntdad_role_research] [config.ntdad_role_medical] [config.ntdad_role_supply] [config.ntdad_role_service] [config.ntdad_role_church] [config.ntdad_role_engineering] Confirmed outbreak of Level-8 bio-mechanical infestation aboard [station_name()]. All personnel must contain the outbreak.")
+	level_eight_announcement() //Different announcement than blob or plants, so the crew doesn't need to struggle trying to figure out if it's blob, plants or hive
+	// // // END ECLIPSE EDITS // // //
 
 /datum/event/hivemind/start()
 	var/turf/start_location
