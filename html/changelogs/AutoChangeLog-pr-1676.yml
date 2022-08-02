@@ -1,0 +1,7 @@
+author: timidvi
+delete-after: true
+changes:
+  - rscadd: Added entirely missing undershirts
+  - bugfix: fixed all the broken underwear items which previously were missing sprites
+  - imageadd: added icon_states to mob.dmi
+  - code_imp: slight updates to undershirt.dm to facilitate all the above
