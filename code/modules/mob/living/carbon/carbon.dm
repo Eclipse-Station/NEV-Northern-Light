@@ -234,6 +234,21 @@
 				else
 					M.visible_message(SPAN_NOTICE("[M] hugs [src] to make [t_him] feel better!"), \
 								SPAN_NOTICE("You hug [src] to make [t_him] feel better!"))
+					// // // BEGIN ECLIPSE EDITS // // //
+					//Hugging now restores sanity if it's critically low.
+					if(istype(M, /mob/living/carbon/human))
+						var/mob/living/carbon/human/R = M
+						if(R.sanity)		//We do the person giving the hug...
+							if(R.sanity.level < config.maximum_hug_sanity_restoration)
+								R.sanity.changeLevel(1.5)	//but not as much as...
+					if(istype(src, /mob/living/carbon/human))
+						var/mob/living/carbon/human/Q = src
+						if(Q.sanity)		//the person receiving the hug...
+							if(Q.sanity.level < config.maximum_hug_sanity_restoration)
+								Q.sanity.changeLevel(3)		//who's getting more.
+					
+					// // // END ECLIPSE EDITS // // //
+					
 				if(M.fire_stacks >= (src.fire_stacks + 3))
 					src.fire_stacks += 1
 					M.fire_stacks -= 1

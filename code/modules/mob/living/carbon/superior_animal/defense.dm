@@ -21,6 +21,25 @@
 	check_AI_act()
 
 /mob/living/carbon/superior_animal/bullet_act(obj/item/projectile/P, def_zone)
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Simplemob bonus damage.
+	if(simplemob_bonus_enabled)
+		if(simplemob_bonus_multiplier || P.simplemob_bonus_mult)		//If either of them are nonzero, the damage a bullet will do is changed.
+			for(var/i in P.damage_types)
+				var/_dmg = P.damage_types[i]
+				if(!_dmg)
+					continue		//No sense in multiplying a zero value. It'll just be zero.
+				_dmg += (_dmg * simplemob_bonus_multiplier) + (_dmg * P.simplemob_bonus_mult)
+/* To verify the maths:
+ * Bullet base damage of type X is 10. From-mob multiplier of +0.45 (+45%). From-bullet multiplier of +0.1 (+10%).
+ * 10 += (10 * 0.45) + (10 * 0.1)
+ * equals 10 += 4.5 + 1
+ * equals 10 += 5.5, which equals 15.5 damage type X.
+ * Maths verify as intended.
+ */
+				_dmg = max(0, _dmg)
+				P.damage_types[i] = _dmg
+		// // // END ECLIPSE EDITS // // //
 	. = ..()
 	updatehealth()
 

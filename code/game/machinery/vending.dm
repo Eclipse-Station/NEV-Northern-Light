@@ -1,3 +1,11 @@
+// // // ECLIPSE NOTE // // //
+// Please do not make changes to this file. If you need to add an item to one of
+// the vending machines, copy it over to vending_eclipse.dm and comment it out
+// on this file. Otherwise, you risk BYOND shenanigans when it comes to putting
+// comments inside of lists. (Plus, it makes it a lot easier to see that it's
+// been altered if we go to change it later.)			Thanks. ^R.A.Spitzer
+// // // END ECLIPSE NOTE // // //
+
 #define CUSTOM_VENDOMAT_MODELS list("Generic" = "generic", "Security" = "sec", "Electronics" = "cart", "Research" = "robotics", "Medical" = "med", "Engineering" = "engivend", "Engineering 2" = "engi", "Tools" = "tool", "Shady" = "sovietsoda", "Fridge" = "smartfridge", "Alcohol" = "boozeomat", "Frozen Star" = "weapon", "NeoTheo" = "teomat", "Power Cells" = "powermat", "Disks" = "discomat")
 
 /**
@@ -998,6 +1006,7 @@
 					/obj/item/reagent_containers/food/snacks/cheesiehonkers = 40, /obj/item/reagent_containers/food/snacks/tastybread = 50)
 	vendor_department = DEPARTMENT_CIVILIAN
 
+/*	//Eclipse removal - moved to vending_eclipse.dm
 /obj/machinery/vending/weapon_machine
 	name = "Frozen Star Guns&Ammo"
 	desc = "A self-defense equipment vending machine. When you need to take care of that clown."
@@ -1055,6 +1064,7 @@
 					/obj/item/tool/knife/tacknife = 300,
 					/obj/item/storage/box/smokes = 200,
 					/obj/item/ammo_magazine/pistol = 300,)
+ */
 
 //This one's from bay12
 /obj/machinery/vending/cart

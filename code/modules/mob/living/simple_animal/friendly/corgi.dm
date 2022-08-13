@@ -23,6 +23,9 @@
 	holder_type = /obj/item/holder/corgi
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
+	
+	//Eclipse-added vars
+	simplemob_bonus_multiplier = 0.15	//The poor corgwn.
 
 /mob/living/simple_animal/corgi/New()
 	..()

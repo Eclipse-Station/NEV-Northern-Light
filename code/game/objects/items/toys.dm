@@ -574,6 +574,14 @@
 /obj/structure/plushie/attack_hand(mob/user)
 	if(user.a_intent == I_HELP)
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> hugs [src]!"),SPAN_NOTICE("You hug [src]!"))
+		// // // BEGIN ECLIPSE EDITS // // //
+		//Hugging large plushies regenerates sanity. Somewhat.
+		if(istype(user, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = user
+			if(H.sanity)
+				if(H.sanity.level < config.maximum_hug_sanity_restoration_plushie)
+					H.sanity.changeLevel(1.5)		//On par with the player hugging someone else
+		// // // END ECLIPSE EDITS // // //
 	else if (user.a_intent == I_HURT)
 		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"),SPAN_WARNING("You punch [src]!"))
 	else if (user.a_intent == I_GRAB)
@@ -624,6 +632,14 @@
 /obj/item/toy/plushie/attack_self(mob/user)
 	if(user.a_intent == I_HELP)
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> hugs [src]!"),SPAN_NOTICE("You hug [src]!"))
+		// // // BEGIN ECLIPSE EDITS // // //
+		//Hugging plushies regenerates sanity... barely.
+		if(istype(user, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = user
+			if(H.sanity)
+				if(H.sanity.level < config.maximum_hug_sanity_restoration_plushie)
+					H.sanity.changeLevel(1)		//Not much.
+		// // // END ECLIPSE EDITS // // //
 	else if (user.a_intent == I_HURT)
 		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"),SPAN_WARNING("You punch [src]!"))
 	else if (user.a_intent == I_GRAB)

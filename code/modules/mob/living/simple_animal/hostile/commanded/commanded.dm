@@ -13,6 +13,9 @@
 	var/mob/master = null //undisputed master. Their commands hold ultimate sway and ultimate power.
 	var/list/allowed_targets = list() //WHO CAN I KILL D:
 
+	//Eclipse-added vars
+	simplemob_bonus_enabled = FALSE		//You do not get to attack them willy-nilly.
+
 /mob/living/simple_animal/hostile/commanded/hear_say(var/message, var/verb = "says", var/datum/language/language, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if((speaker in friends) || speaker == master)
 		command_buffer.Add(speaker)

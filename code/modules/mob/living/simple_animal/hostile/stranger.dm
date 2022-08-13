@@ -36,6 +36,10 @@
 	var/empy_cell = FALSE
 	var/prob_tele = 20
 
+	//Eclipse-added vars
+	simplemob_bonus_enabled = FALSE		//I don't even.
+
+
 /mob/living/simple_animal/hostile/stranger/Initialize(mapload)
 	. = ..()
 	do_sparks(3, 0, src.loc)

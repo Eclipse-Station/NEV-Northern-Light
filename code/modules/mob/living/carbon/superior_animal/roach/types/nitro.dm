@@ -9,7 +9,8 @@
 	melee_damage_upper = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/roachmeat/nitro
 	meat_amount = 3
-	var/leaked = FALSE
+	var/fuel_amount = 50
+	var/leaking = FALSE
 	var/impending_explosion = FALSE
 
 	rarity_value = 40
@@ -18,6 +19,13 @@
 /mob/living/carbon/superior_animal/roach/nitro/ex_act()
 	if(!exploded)
 		kerplode()
+
+/mob/living/carbon/superior_animal/roach/nitro/Move()
+	..()
+	if(leaking && (fuel_amount > 0.5))
+		var/transfer = fuel_amount * 0.2
+		new /obj/effect/decal/cleanable/liquid_fuel(src.loc, transfer, 1)
+		fuel_amount -= transfer
 
 /mob/living/carbon/superior_animal/roach/nitro/bullet_act(obj/item/projectile/slug)
 	if(!exploded && slug.ignition_source)
@@ -44,11 +52,13 @@
 	if(isflamesource(I))
 		kerplode()
 	else
+		if(I.sharp)
+			leaking = TRUE
 		. = ..()
 
 /mob/living/carbon/superior_animal/roach/nitro/death()
 	. = ..()
 	if(src)
-		if(!exploded && !leaked)
-			new /obj/effect/decal/cleanable/liquid_fuel(src.loc, 50, 1)		//A welderfuel tank below 50 units makes the explosion above (with no flash), so we'll put 50 here to explain the higher flash range.
-			leaked = TRUE
+		if(!exploded && !leaking)
+			new /obj/effect/decal/cleanable/liquid_fuel(src.loc, max((fuel_amount - 5),2), 1)		//A welderfuel tank below 50 units makes the explosion above (with no flash).
+			leaking = TRUE

@@ -268,3 +268,5 @@
 /obj/proc/multiply_projectile_step_delay(newmult)
 
 /obj/proc/multiply_projectile_agony(newmult)
+
+/obj/proc/multiply_projectile_simplemob_damage(newmult)		//Eclipse addition: Projectile simplemob bonus damage.

@@ -2153,7 +2153,8 @@
 
 /datum/chemical_reaction/rejuvenating_agent
 	result = "rejuvenating_agent"
-	required_reagents = list("cleaner" = 2, "pacid" = 1, "sulfur" = 1)
+//	required_reagents = list("cleaner" = 2, "pacid" = 1, "sulfur" = 1)
+	required_reagents = list("cleaner" = 2, "pacid" = 1, "sulfur" = 1, "ausgiftrol" = 3)		//Eclipse edit: it's now much more annoying to make.
 	result_amount = 2
 
 /datum/chemical_reaction/roachbeer

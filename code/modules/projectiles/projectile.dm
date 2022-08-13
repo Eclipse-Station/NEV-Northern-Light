@@ -93,6 +93,9 @@
 
 	var/noshake = FALSE //Eclipse add
 	var/ignition_source = FALSE		//Eclipse add - see if the projectile is capable of detonating fuel tanks and nitro roaches.
+	
+	//Eclipse added vars
+	var/simplemob_bonus_mult = 0		//0% extra; used in mob code to determine whether a mob gets more damage.
 
 /obj/item/projectile/is_hot()
 	if (damage_types[BURN])
@@ -132,6 +135,11 @@
 
 /obj/item/projectile/proc/multiply_projectile_accuracy(newmult)
 	projectile_accuracy = initial(projectile_accuracy) * newmult
+
+// // // BEGIN ECLIPSE EDITS // // //
+/obj/item/projectile/multiply_projectile_simplemob_damage(newmult)		//Misnomer, but I want to maintain the naming convention.
+	simplemob_bonus_mult = initial(simplemob_bonus_mult) + newmult		//Additive, so we don't have any "multiply by zero" shenanigans.
+// // // END ECLIPSE EDITS // // //
 
 /obj/item/projectile/proc/adjust_damages(var/list/newdamages)
 	if(!newdamages.len)

@@ -68,7 +68,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 
 				if(preferred_job)		//Sanity check.
-					SSjob.EquipRank(standin, preferred_job)
+					SSjob.EquipRank(standin, preferred_job, FALSE)
 				else
 					throw EXCEPTION("Preferred job not set and sanity checks failed.")
 					to_chat(usr,"<span class='warning'>Failed to load your mob image - a sanity check has failed. Please report this to a developer.	\
@@ -84,8 +84,12 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 					icon = standin.stand_icon
 					overlays = standin.overlays_standing
 
+					for(var/i in standin.contents)
+						qdel(i)		//Should probably use Destroy() here, but qdel helps mitigate performance impact.
 					qdel(standin)
 				if(unsafe)		//If the unsafe flag is set, cancel and delete the mob, then go into the fallback method.
+					for(var/i in standin.contents)
+						qdel(i)
 					qdel(standin)
 					icon = body.icon
 					icon_state = body.icon_state
@@ -142,7 +146,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 
 				if(preferred_job)		//Sanity check.
-					SSjob.EquipRank(standin, preferred_job)
+					SSjob.EquipRank(standin, preferred_job, FALSE)
 				else
 					throw EXCEPTION("Preferred job not set and sanity checks failed.")
 					to_chat(usr,"<span class='warning'>Failed to load your mob image - a sanity check has failed. Please report this to a developer.	\
@@ -158,8 +162,12 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 					icon = standin.stand_icon
 					overlays = standin.overlays_standing
 
+					for(var/i in standin.contents)
+						qdel(i)
 					qdel(standin)
 				if(unsafe)		//If the unsafe flag is set, cancel and delete the mob, then go into the fallback method.
+					for(var/i in standin.contents)
+						qdel(i)
 					qdel(standin)
 					icon = body.icon
 					icon_state = body.icon_state

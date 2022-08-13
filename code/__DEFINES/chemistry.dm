@@ -58,3 +58,24 @@
 
 // Reagent specific heat is not yet implemented, this is here for compatibility reasons
 #define SPECIFIC_HEAT_DEFAULT			200
+
+// // // ECLIPSE-ADDED DEFINES BEYOND THIS POINT // // //
+
+// Ported from ES13
+// Some on_mob_life() procs check for alien races.
+// Used mostly to allow chems to react differently for different species.
+#define IS_DIONA		1
+#define IS_VOX			2	//Race not implemented.
+#define IS_SKRELL		3
+#define IS_UNATHI		4
+#define IS_TAJARA		5
+#define IS_XENOS		6	//Race not implemented.
+#define IS_TESHARI		7
+#define IS_SLIME		8
+#define IS_VULP			9
+#define IS_ZORREN		10
+#define IS_SERGAL		11
+#define IS_NEVREAN		12
+#define IS_AKULA		13
+#define IS_GOLEM		14
+#define IS_MOTH			15

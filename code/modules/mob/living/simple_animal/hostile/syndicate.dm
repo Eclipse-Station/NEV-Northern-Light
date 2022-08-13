@@ -34,6 +34,10 @@
 	faction = "syndicate"
 	status_flags = CANPUSH
 
+	//Eclipse-added vars
+	simplemob_bonus_enabled = FALSE		//Close enough to humans.
+
+
 /mob/living/simple_animal/hostile/syndicate/death()
 	..()
 	if(corpse)
