@@ -1,38 +1,38 @@
 # Eclipse-specific configurations, for downstream servers and dev environments.
 
 ## Configuration file version.
-CONFIG_FILE_VERSION 8
+CONFIG_FILE_VERSION 7
 
 #########
-# JOB WHITELISTING
+# WHITELISTING
 #########
 
 ## MASTER ENABLE
 ## Uses the jobwhitelist.txt file to whitelist specific jobs.
 ## Comment to disable.
-# USE_JOB_WHITELISTING
+#USE_JOB_WHITELISTING
 
 ## INCLUDE ADMINS
 ## Should admins be required to be whitelisted as a job in order to play it? 
 ## This will not stop them from spawning in a character using the admin tools,
-## only the character setup preferences.
+## only the game preferences.
 ## Uncomment to require them to be whitelisted.
-# ADMINS_RESTRICTED_BY_WHITELIST
+#ADMINS_RESTRICTED_BY_WHITELIST
 
 ## WHITELIST HEADS OF STAFF
 ## Should heads of staff be whitelisted?
 ## Uncomment to whitelist.
-# WHITELIST_HEADS
+#WHITELIST_HEADS
 
 ## WHITELIST SECURITY DEPARTMENT
 ## Should the Security department be whitelisted?
 ## Uncomment to whitelist.
-# WHITELIST_SECURITY
+#WHITELIST_SECURITY
 
 ## WHITELIST AI/CYBORG
 ## Should silicons be whitelisted? This will not affect pAIs, only AI and borgs.
 ## Uncomment to whitelist.
-# WHITELIST_SILICONS
+#WHITELIST_SILICONS
 
 #########
 # ROUNDSTART REQUIREMENTS
@@ -42,7 +42,7 @@ CONFIG_FILE_VERSION 8
 ## Should a head of staff be required for the round to start? By default, a head
 ## of staff is required to start the round.
 ## Uncomment to bypass this requirement.
-# BYPASS_HEAD_OF_STAFF_REQUIREMENT
+#BYPASS_HEAD_OF_STAFF_REQUIREMENT
 
 ## HEAD OF STAFF AND ENGINEER LOWPOP THRESHOLD
 ## When should we stop bypassing the requirements for an engineer and a head of
@@ -96,13 +96,8 @@ ROLE_PING_RESEARCH
 ROLE_PING_SECURITY 
 ROLE_PING_SERVICE 
 ROLE_PING_SUPPLY 
-ROLE_PING_RESTARTS 
 
-##########
-# DISPATCHER MAXIMA AND MINIMA FOR PINGS
-##########
-
-## DISPATCHER MAXIMA FOR REQUEST PINGS
+## DISPATCHER MAXIMA FOR PINGS
 ## Maximum number of players the dispatcher will allow before it won't pass on
 ## a message to the discord. Set to -1 to disable playercount checks. (This is
 ## not recommended and will throw a warning if disabled.)
@@ -110,87 +105,13 @@ ROLE_PING_RESTARTS
 DISPATCHER_MAXIMUM_NONCOMMAND_PING 1
 DISPATCHER_MAXIMUM_COMMAND_PING 1
 
-## DISPATCHER MAXIMUM FOR HIVEMIND PINGS
-## How many players should the dispatcher allow before it won't pass on a ping
-## for hiveminds?
-DISPATCHER_MAXIMUM_HIVEMIND_PING 15
 
-## DISPATCHER MINIMUM FOR ROUND-END PINGS
-## Minimum number of players that must be on before the dispatcher will ping for
-## a server restart. This is a simple comparison, so setting to 0 will ping
-## regardless of player count, and setting to 1 will ping if there's someone on.
-## Default: 3
-DISPATCHER_MINIMUM_ROUND_END_PING 3
-
-## DISPATCHER MINIMUM FOR PERIODIC ONGOING-ROUND PINGS
-## Minimum number of players that must be on and actively playing before the 
-## dispatcher sends its periodic message that a round is ongoing.
-## Default: 5
-DISPATCHER_MINIMUM_ONGOING_ROUND 5
-
-##########
-# DISPATCHER OPTIONAL PINGS
-##########
-
-## PERIODIC ONGOING-ROUND MESSAGES
-## Should the dispatcher check the number of active players every 15 minutes or
-## so, and send a message if the number of active players is high enough?
-## Uncomment to enable, configure value above.
-# DISPATCHER_PERIODIC_PINGS
-
-## DISPATCHER PING ON ROUND END
-## Should the dispatcher ping the "restarts" role when the round ends? The ping
-## will occur just after the lists of antags and silicons are printed out.
-## Uncomment to enable.
-# DISPATCHER_PINGS_ON_ROUND_END
-
-## SECURITY PING ON HIVEMIND ANNOUNCEMENT
-## Should the dispatcher ping the "security" role when a Hivemind event is
-## announced? This will send a ping regardless of player count.
-## Uncomment to enable.
-## WARNING: This option is mutually exclusive with the option immediately below.
-# DISPATCHER_MESSAGES_SECURITY_ON_HIVEMIND
-
-## ALL-HANDS PING ON HIVEMIND ANNOUNCEMENT
-## Should the dispatcher ping all roles, except the restart role, when a
-## Hivemind event is announced?
-## Uncomment to enable.
-## WARNING: This option is mutually exclusive with the option immediately above.
-# DISPATCHER_MESSAGES_ALL_ON_HIVEMIND
-
-##########
-# MISCELLANY
-##########
+#########
+# MISCELLANEOUS
+#########
 
 ## GHOST ICON GENERATION
 ## Should we generate ghost icons based on the player's character, if they have
-## no body (e.g. joined as observer)? This may have a minor performance impact.
+## no body (e.g. joined as observer)? This may cause a minor performance impact.
 ## Uncomment to enable.
-# GENERATE_GHOST_ICONS
-
-## MAXIMUM SANITY REGENERATION FROM HUGS
-## How low should sanity be before someone hugging someone else will give them
-## any benefit? Note that sanity caps at 100, and goes down to 0 (with certain
-## exceptions based on a player's selected background/perks).
-## Default: 15
-MAXIMUM_SANITY_REGEN_FROM_HUGS 15
-
-## MAXIMUM SANITY REGENERATION FROM PLUSH TOYS
-## How low should sanity be before someone hugging a plushie will give them any
-## benefit? 
-## WARNING: Plushies have no hug cooldown, so this should be set fairly low to
-## reduce a player's ability to powergame by carrying a plush toy.
-## Default: 5
-MAXIMUM_SANITY_REGEN_FROM_PLUSHIES 5
-
-## NUMBER OF EXOPLANETS TO GENERATE
-## How many exoplanets should we generate for the overmap? Note that increasing
-## this value will increase roundstart time, and may have a minor to moderate 
-## impact on performance.
-## Default: 2
-EXOPLANETS_TO_GENERATE 2
-
-## SHIP NAME
-## What is the name of the ship? This is used in announcements.
-## Parses as a string.
-SHIP_NAME Erida-class Vessel
+#GENERATE_GHOST_ICONS

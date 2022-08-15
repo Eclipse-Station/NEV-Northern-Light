@@ -154,3 +154,12 @@
 	display_name = "gold medal"
 	path = /obj/item/clothing/accessory/medal/gold
 	cost = 3
+
+//Eclipse Edit Begins - Adding in new custom commissioned clothes.
+
+/datum/gear/accessory/collar_industrial
+	display_name = "industrial collar"
+	path = /obj/item/clothing/accessory/collar_industrial
+	cost = 3
+
+//Eclipse Edit Ends - Adding in new custom commissioned clothes.

@@ -237,3 +237,8 @@
 	display_name = "kitty ears"
 	path = /obj/item/clothing/head/kitty
 
+//Eclipse Edit Begins - Adding in new custom commissioned clothes.
+/datum/gear/head/hijab
+	display_name = "hijab"
+	path = /obj/item/clothing/head/hijab
+//Eclipse Edit Ends - Adding in new custom commissioned clothes.
