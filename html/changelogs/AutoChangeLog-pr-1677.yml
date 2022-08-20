@@ -1,0 +1,8 @@
+author: timidvi
+delete-after: true
+changes:
+  - rscadd: commissioned clothes, including a dress shirt, cadet clothes, an industrial
+      steel collar, an office blazer, a hijab, kimono, aegis cadet clothing, a stab
+      vest for use by the cadet, a rolled up jumpsuit, etc
+  - tweak: tweaked organization of modular clothing icon files
+  - balance: added style values to some modular clothes
