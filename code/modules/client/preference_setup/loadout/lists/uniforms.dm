@@ -79,10 +79,12 @@
 	path = /obj/item/clothing/under/rank/security/skirt
 	allowed_roles = list("Aegis Operative")
 
-/datum/gear/uniform/cadet
+//Eclipse Edit Begins - Commenting out for modular overwrite
+/*/datum/gear/uniform/cadet
 	display_name = "jumpskirt, cadet"
 	path = /obj/item/clothing/under/rank/cadet
-	allowed_roles = list(JOBS_SECURITY)
+	allowed_roles = list(JOBS_SECURITY)*/
+//Eclipse Edit Ends
 
 /datum/gear/uniform/medspec_skirt
 	display_name = "jumpskirt, medical specialist"
@@ -290,3 +292,27 @@
 	display_name = "battle dress uniform, oberth"
 	path = /obj/item/clothing/under/germansuit
 
+//Eclipse Edit Begins - Adding in new custom commissioned clothes.
+
+/datum/gear/uniform/cadet
+	display_name = "jumpskirt, cadet"
+	path = /obj/item/clothing/under/rank/cadet_skirt
+	allowed_roles = list("Aegis Operative") //replace this with Aegis Cadet once Aegis Cadet role complete
+
+/datum/gear/uniform/jumpsuit_rolled
+	display_name = "rolled-down jumpsuit"
+	path = /obj/item/clothing/under/jumpsuit_rolled
+
+/datum/gear/uniform/office_skirt
+	display_name = "office skirt"
+	path = /obj/item/clothing/under/office_skirt
+
+/datum/gear/uniform/dress_shirt
+	display_name = "dress shirt"
+	path = /obj/item/clothing/under/dress_shirt
+
+/datum/gear/uniform/kimono
+	display_name = "kimono"
+	path = /obj/item/clothing/under/kimono
+
+//Eclipse Edit Ends - Adding in new custom commissioned clothes.

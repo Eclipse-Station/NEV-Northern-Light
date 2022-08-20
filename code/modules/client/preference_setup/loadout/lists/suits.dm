@@ -144,3 +144,10 @@
 	display_name = "crimson puffy coat"
 	path = /obj/item/clothing/suit/storage/puffyred
 	cost = 1
+
+//Eclipse Edit Begins - Adding in new custom commissioned clothes.
+/datum/gear/suit/office_blazer
+	display_name = "office blazer"
+	path = /obj/item/clothing/suit/storage/office_blazer
+	cost = 1
+//Eclipse Edit Ends - Adding in new custom commissioned clothes.
