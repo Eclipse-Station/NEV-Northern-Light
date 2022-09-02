@@ -2944,5 +2944,6 @@
 #include "zzz_modular_eclipse\radio_sprites\radios.dm"
 #include "zzz_modular_eclipse\radio_squelch\radios.dm"
 #include "zzz_modular_eclipse\sawnoff\sawnoff.dm"
+#include "zzz_modular_eclipse\semiotic\semiotic.dm"
 #include "zzz_modular_eclipse\storytellers\tyrant.dm"
 // END_INCLUDE
