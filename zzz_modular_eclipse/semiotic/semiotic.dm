@@ -218,7 +218,7 @@
 
 //00 - BASE DEFINE
 /obj/effect/floor_decal/semiotic
-	icon = 'zzz_modular_eclipse/semiotic/semiotic_signage.dmi'		//Todo: Make separate floor decal file.
+	icon = 'zzz_modular_eclipse/semiotic/semiotic_tile_decals.dmi'
 
 //01 - PRESSURISED AREA
 /obj/effect/floor_decal/semiotic/pressurised
