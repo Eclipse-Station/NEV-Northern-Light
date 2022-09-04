@@ -8471,6 +8471,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/prison)
 "aug" = (
@@ -26390,6 +26393,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/main)
 "bln" = (
@@ -26415,6 +26421,9 @@
 /obj/item/tool/tape_roll,
 /obj/item/tool/tape_roll,
 /obj/item/device/flash,
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/barracks)
 "blq" = (
@@ -36359,6 +36368,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/brig)
 "bIF" = (
@@ -44243,6 +44255,9 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/quartermaster/miningdock)
 "caH" = (
@@ -79374,6 +79389,12 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/office)
+"dQN" = (
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/dark/bluecorner,
+/area/eris/security/armory)
 "dSR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -80136,6 +80157,13 @@
 /obj/spawner/traps/wire_splicing/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck4)
+"mAs" = (
+/obj/structure/bed/chair/comfy/black,
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/dark/gray_platform,
+/area/eris/security/brig)
 "mBJ" = (
 /obj/machinery/atmospherics/valve/digital/open,
 /obj/machinery/light{
@@ -116816,7 +116844,7 @@ avx
 agp
 asm
 agp
-aGG
+dQN
 aiP
 aRv
 aGG
@@ -137192,8 +137220,8 @@ bGS
 bDf
 bHy
 bHM
-bCd
-bIx
+bBx
+mAs
 bCN
 bIy
 cfo
@@ -139016,7 +139044,7 @@ bHa
 bDh
 bHy
 bHM
-bCd
+bBx
 bIE
 bJd
 bJr
