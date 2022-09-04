@@ -38448,10 +38448,6 @@
 /area/eris/engineering/foyer)
 "bNy" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/semiotic/electronics{
-	pixel_x = 8;
-	pixel_y = -10
-	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/security/lobby)
 "bNz" = (
@@ -38644,11 +38640,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 8;
-	pixel_x = -8;
-	pixel_y = 10
-	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/security/lobby)
 "bNS" = (
@@ -38736,11 +38727,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
-	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 4;
-	pixel_x = 8;
-	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/security/lobby)
@@ -46889,11 +46875,6 @@
 	name = "Second Section Internal Access Button - 1";
 	pixel_y = -25
 	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 8;
-	pixel_x = -8;
-	pixel_y = 10
-	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/quartermaster/miningdock)
 "chs" = (
@@ -50917,9 +50898,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/effect/floor_decal/semiotic/airlock{
-	pixel_x = -8
-	},
+/obj/effect/floor_decal/semiotic/airlock,
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/portsection2deck4)
 "cry" = (
@@ -55114,15 +55093,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 4;
-	pixel_x = 8;
-	pixel_y = -6
-	},
-/obj/effect/floor_decal/semiotic/storage{
-	pixel_x = 8;
-	pixel_y = 6
-	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/neotheology/bioreactor)
 "cBE" = (
@@ -56756,15 +56726,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/effect/floor_decal/semiotic/storage{
-	pixel_x = 8;
-	pixel_y = 6
-	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 4;
-	pixel_x = 8;
-	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/crew_quarters/sleep/cryo)
@@ -59550,6 +59511,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/sign/semiotic/nonpressurised_suit{
+	pixel_x = -6;
+	pixel_y = -22
+	},
+/obj/structure/sign/semiotic/directions{
+	pixel_x = 6;
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/maintenance/junk)
 "cLP" = (
@@ -59558,14 +59527,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/semiotic/nopress_grav{
-	pixel_x = -6;
-	pixel_y = -8
-	},
-/obj/effect/floor_decal/semiotic/dir{
-	pixel_x = 6;
-	pixel_y = -8
 	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/maintenance/junk)
@@ -70042,6 +70003,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/sign/semiotic/storage{
+	pixel_x = 22;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/crew_quarters/sleep/cryo)
 "dlE" = (
@@ -76043,10 +76008,6 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/obj/effect/floor_decal/semiotic/storage{
-	pixel_x = -8;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled/white/danger,
 /area/eris/rnd/lab)
 "dzM" = (
@@ -76271,15 +76232,6 @@
 "dAu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 8;
-	pixel_x = -8;
-	pixel_y = -16
-	},
-/obj/effect/floor_decal/semiotic/suit/alt{
-	pixel_x = -8;
-	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/white/danger,
 /area/eris/rnd/lab)
@@ -79787,15 +79739,7 @@
 	name = "Emergency Power Substation"
 	})
 "hWp" = (
-/obj/effect/floor_decal/semiotic/storage{
-	pixel_x = 6;
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 1;
-	pixel_x = -6;
-	pixel_y = 8
-	},
+/obj/effect/floor_decal/semiotic/storage,
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/lab)
 "igM" = (
@@ -79814,15 +79758,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/semiotic/electronics{
-	pixel_x = -6;
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 1;
-	pixel_x = 6;
-	pixel_y = 8
-	},
+/obj/effect/floor_decal/semiotic/electronics,
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/lab)
 "iqm" = (
@@ -79988,16 +79924,6 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/medbreak)
-"kbx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/floor_decal/semiotic/airlock{
-	pixel_x = 8;
-	pixel_y = -10
-	},
-/turf/simulated/floor/tiled/steel,
-/area/eris/rnd/docking)
 "knD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -80306,13 +80232,6 @@
 /obj/spawner/traps/wire_splicing/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck2)
-"nny" = (
-/obj/effect/floor_decal/semiotic/bridge{
-	pixel_x = -8;
-	pixel_y = -10
-	},
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/eris/security/lobby)
 "ntW" = (
 /obj/structure/table/bar_special,
 /obj/item/reagent_containers/food/condiment/saltshaker,
@@ -80654,18 +80573,6 @@
 /obj/machinery/atmospherics/valve,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
-"raX" = (
-/obj/effect/floor_decal/semiotic/airlock{
-	pixel_x = -6;
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 1;
-	pixel_x = 6;
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/dark/golden,
-/area/eris/neotheology/storage)
 "rrA" = (
 /obj/structure/railing{
 	dir = 1;
@@ -80756,9 +80663,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/floor_decal/semiotic/airlock{
-	pixel_x = -8;
-	pixel_y = -10
+/obj/structure/sign/semiotic/airlock{
+	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/quartermaster/miningdock)
@@ -81050,14 +80956,6 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/security/lobby)
-"uyj" = (
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 4;
-	pixel_x = 8;
-	pixel_y = 10
-	},
-/turf/simulated/floor/tiled/steel,
-/area/eris/rnd/docking)
 "uBS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -81456,15 +81354,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/semiotic/dir{
-	dir = 4;
-	pixel_x = 8;
-	pixel_y = -6
-	},
-/obj/effect/floor_decal/semiotic/intercom{
-	pixel_x = 8;
-	pixel_y = 6
-	},
+/obj/effect/floor_decal/semiotic/intercom,
 /turf/simulated/floor/tiled/steel,
 /area/eris/security/lobby)
 "xHR" = (
@@ -120209,7 +120099,7 @@ cpn
 cIX
 cJd
 aCT
-raX
+cwL
 cWG
 cwL
 cBK
@@ -137646,7 +137536,7 @@ bCN
 bDs
 bJH
 dst
-nny
+bKx
 bNR
 bOx
 bOx
@@ -166131,8 +166021,8 @@ dEC
 dxF
 dxF
 cqH
-kbx
-uyj
+cuC
+cxB
 dEL
 dsh
 cLe
