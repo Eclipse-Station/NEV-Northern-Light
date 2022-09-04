@@ -19532,10 +19532,10 @@
 	name = "ammo crate";
 	req_access = list(63)
 	},
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
-/obj/item/ammo_magazine/ammobox/magnum/rubber,
+/obj/item/ammo_magazine/ammobox/srifle/rubber,
+/obj/item/ammo_magazine/ammobox/srifle/rubber,
+/obj/item/ammo_magazine/ammobox/srifle/rubber,
+/obj/item/ammo_magazine/ammobox/srifle/rubber,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "aUq" = (
