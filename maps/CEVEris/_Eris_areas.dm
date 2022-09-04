@@ -591,6 +591,7 @@
 /area/eris/engineering/shield_generator
 	name = "Shield Generator Room"
 	icon_state = "blueold"
+	flags = AREA_FLAG_CRITICAL
 
 /area/eris/engineering/long_range_scanner
 	name = "Long Range Scanner Room"

@@ -1821,14 +1821,16 @@
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
 "aex" = (
-/obj/machinery/power/apc/hyper/critical{
-	pixel_x = -28
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "West APC";
+	pixel_x = -28
+	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/shield_generator)
 "aey" = (
@@ -2510,7 +2512,9 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/critical{
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "East APC";
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
