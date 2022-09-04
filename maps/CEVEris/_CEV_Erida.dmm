@@ -37595,6 +37595,9 @@
 /obj/machinery/camera/network/second_section{
 	dir = 1
 	},
+/obj/structure/sign/semiotic/airlock{
+	pixel_x = 23
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/storage)
 "bLs" = (
@@ -50913,6 +50916,9 @@
 "crx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
+	},
+/obj/effect/floor_decal/semiotic/airlock{
+	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/portsection2deck4)
@@ -79938,6 +79944,22 @@
 	tag = "icon-cargofloor7"
 	},
 /area/eris/hallway/side/eschangarb)
+"jBw" = (
+/obj/structure/railing{
+	dir = 1;
+	tag = "icon-railing0 (NORTH)"
+	},
+/obj/structure/sign/semiotic/directions{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = -6
+	},
+/obj/structure/sign/semiotic/suit/alt{
+	pixel_x = 22;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating/under,
+/area/erida/hallway/side/docks)
 "jRj" = (
 /obj/machinery/constructable_frame/machine_frame,
 /turf/simulated/floor/tiled/dark,
@@ -79961,6 +79983,16 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/medbreak)
+"kbx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/semiotic/airlock{
+	pixel_x = 8;
+	pixel_y = -10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/rnd/docking)
 "knD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -80138,6 +80170,13 @@
 /obj/machinery/status_display,
 /turf/simulated/wall,
 /area/eris/engineering/propulsion/left)
+"mhr" = (
+/obj/landmark/join/start/assistant,
+/obj/structure/sign/semiotic/cryo{
+	pixel_y = -23
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/erida/maintenance/starboardsection2deck4)
 "moz" = (
 /obj/machinery/telecomms/server/presets/nt,
 /turf/simulated/floor/bluegrid,
@@ -80610,6 +80649,34 @@
 /obj/machinery/atmospherics/valve,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"raX" = (
+/obj/effect/floor_decal/semiotic/airlock{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/semiotic/dir{
+	dir = 1;
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark/golden,
+/area/eris/neotheology/storage)
+"rrA" = (
+/obj/structure/railing{
+	dir = 1;
+	tag = "icon-railing0 (NORTH)"
+	},
+/obj/structure/sign/semiotic/directions{
+	dir = 8;
+	pixel_x = -22;
+	pixel_y = -6
+	},
+/obj/structure/sign/semiotic/storage{
+	pixel_x = -22;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating/under,
+/area/erida/hallway/side/docks)
 "rtw" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8;
@@ -80684,8 +80751,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/floor_decal/semiotic/bulkhead_door{
-	pixel_x = -10;
+/obj/effect/floor_decal/semiotic/airlock{
+	pixel_x = -8;
 	pixel_y = -10
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -80768,6 +80835,15 @@
 /obj/spawner/traps/wire_splicing/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
+"tgx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/semiotic/cryo{
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/security/prison)
 "thV" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark/techfloor,
@@ -80814,6 +80890,13 @@
 /obj/spawner/traps/wire_splicing/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck3)
+"tvY" = (
+/obj/landmark/join/start/assistant,
+/obj/structure/sign/semiotic/cryo{
+	pixel_y = 23
+	},
+/turf/simulated/floor/tiled/steel/brown_perforated,
+/area/erida/maintenance/starboardsection2deck4)
 "twu" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/condiment/saltshaker,
@@ -80962,6 +81045,14 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/security/lobby)
+"uyj" = (
+/obj/effect/floor_decal/semiotic/dir{
+	dir = 4;
+	pixel_x = 8;
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/eris/rnd/docking)
 "uBS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -81131,6 +81222,18 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
+"vSI" = (
+/obj/structure/sign/semiotic/no_grav_no_press{
+	pixel_x = -6;
+	pixel_y = 23
+	},
+/obj/structure/sign/semiotic/directions{
+	dir = 4;
+	pixel_x = 6;
+	pixel_y = 23
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/neotheology/storage)
 "vUx" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white/techfloor_grid,
@@ -93292,7 +93395,7 @@ bKS
 bLo
 agA
 bLZ
-bMr
+tgx
 bML
 agA
 cgw
@@ -94085,11 +94188,11 @@ cGD
 adb
 adm
 aan
-baQ
+tvY
 bba
 baQ
 bbt
-baQ
+mhr
 aan
 bcr
 dfT
@@ -120093,7 +120196,7 @@ cpn
 cIX
 cJd
 aCT
-cwL
+raX
 cWG
 cwL
 cBK
@@ -121002,7 +121105,7 @@ amg
 aho
 aav
 cqj
-csu
+vSI
 dmz
 cqj
 dsW
@@ -161001,7 +161104,7 @@ dkF
 cqz
 dkM
 dkT
-dkZ
+rrA
 dld
 bFc
 dbF
@@ -161457,7 +161560,7 @@ dEF
 dAB
 dkN
 dkT
-dkZ
+jBw
 dle
 cqB
 cqC
@@ -166015,8 +166118,8 @@ dEC
 dxF
 dxF
 cqH
-cuC
-cxB
+kbx
+uyj
 dEL
 dsh
 cLe
