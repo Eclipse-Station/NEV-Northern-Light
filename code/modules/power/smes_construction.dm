@@ -398,3 +398,4 @@
 	. = ..()
 	component_parts += new /obj/item/stock_parts/smes_coil(src)
 	RefreshParts()
+	output_attempt = FALSE		//in case it gets the bright idea to ignore the above again.
