@@ -3,6 +3,7 @@
 	var/list/stat_list = list()
 	var/list/datum/perk/perks = list()
 	var/list/obj/effect/perk_stats = list() // Holds effects representing perks, to display them in stat()
+	var/statMax = 150
 
 /datum/stat_holder/New(mob/living/L)
 	holder = L
@@ -47,7 +48,11 @@
 
 /datum/stat_holder/proc/changeStat(statName, Value)
 	var/datum/stat/S = stat_list[statName]
-	S.changeValue(Value)
+	if(S + Value <= statMax)
+		S.changeValue(Value)
+	else
+		S.setValue(Value)
+
 	SEND_SIGNAL(holder, COMSIG_STAT, S.name, S.getValue(), S.getValue(TRUE))
 
 /datum/stat_holder/proc/setStat(statName, Value)
