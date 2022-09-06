@@ -51,7 +51,7 @@
 	if(S + Value <= statMax)
 		S.changeValue(Value)
 	else
-		S.setValue(Value)
+		S.setValue(statMax) //Eclipse Edit: Changes stats to not exceed a certain value. Editable at top of file.
 
 	SEND_SIGNAL(holder, COMSIG_STAT, S.name, S.getValue(), S.getValue(TRUE))
 
