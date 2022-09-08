@@ -84,7 +84,6 @@
 		if(stage == 1 && prob(20))
 			src.cure(mob)
 		return
-
 	//Virus food speeds up disease progress
 	if(mob.reagents.has_reagent("virusfood"))
 		mob.reagents.remove_reagent("virusfood",0.1)
