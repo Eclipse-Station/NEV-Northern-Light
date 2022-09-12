@@ -4265,6 +4265,10 @@
 	icon_state = "wood"
 	},
 /area/wizard_station)
+"nA" = (
+/obj/effect/shuttle_landmark/centcom/dock,
+/turf/space,
+/area/space)
 "nB" = (
 /obj/item/target,
 /turf/unsimulated/floor{
@@ -6007,6 +6011,13 @@
 	},
 /turf/space,
 /area/supply/dock)
+"zw" = (
+/obj/effect/shuttle_landmark/centcom/start,
+/obj/machinery/computer/shuttle_control/multi/centcom,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/centcom/raider_base)
 "zB" = (
 /turf/simulated/shuttle/wall{
 	dir = 1;
@@ -8533,6 +8544,10 @@
 	icon_state = "floor6"
 	},
 /area/shuttle/mercenary)
+"TV" = (
+/obj/effect/shuttle_landmark/centcom/internim,
+/turf/space/transit/north/shuttlespace_ns5,
+/area/space)
 "TW" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "diagonalWall3"
@@ -18092,7 +18107,7 @@ aa
 aa
 aa
 Ta
-Ru
+zw
 BF
 BZ
 Ru
@@ -26882,7 +26897,7 @@ fo
 fa
 fd
 fF
-ff
+TV
 fb
 fi
 fe
@@ -35083,7 +35098,7 @@ aa
 aa
 aa
 aa
-aa
+nA
 aa
 aa
 aa

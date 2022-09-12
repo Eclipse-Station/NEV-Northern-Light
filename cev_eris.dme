@@ -2909,6 +2909,7 @@
 #include "zzz_modular_eclipse\code\datums\autolathe\biomatter.dm"
 #include "zzz_modular_eclipse\code\game\objects\items\weapons\design_disks\neotheology.dm"
 #include "zzz_modular_eclipse\code\game\turfs\flooring\flooring_decals.dm"
+#include "zzz_modular_eclipse\code\maps\NEVNothern_Light\shuttles-eclipse.dm"
 #include "zzz_modular_eclipse\code\modules\alternate_appearance\alternate_appearance.dm"
 #include "zzz_modular_eclipse\code\modules\clothing\hat.dm"
 #include "zzz_modular_eclipse\code\modules\clothing\suit.dm"
