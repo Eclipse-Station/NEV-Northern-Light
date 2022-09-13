@@ -2,7 +2,7 @@
 // R.A. Spitzer 2022-07-10
 
 /obj/item/gun/energy/lever_action
-	name = "CA ELAR S \"Maverick\"" 
+	name = "\improper CA ELAR S \"Maverick\"" 
 	desc = "A revision of Chiropteran Arms' popular lever-action varmint-hunting rifle, this rifle design was produced in smaller numbers for colonists who needed the versatility of a laser weapon with the power of a ballistic weapon."
 	
 	//Icon and sounds. //TODO TODO TODO - CHANGE ALL THIS!
