@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/dallas //it's a good way to die
-	name = "PAR .25 CS \"Dallas\""
+	name = "\improper PAR .25 CS \"Dallas\""
 	desc = "Dallas is a pulse-action air-cooled automatic assault rifle made by unknown manufacturer. This weapon is very rare, but deadly efficient. \
 			It's used by elite mercenaries, assassins or bald marines. Uses .25 Caseless rounds."
 	icon = 'icons/obj/guns/projectile/dallas.dmi'
@@ -45,7 +45,7 @@
 	return
 
 /obj/item/part/gun/frame/dallas
-	name = "Dallas frame"
+	name = "\improper Dallas frame"
 	desc = "A Dallas pulse rifle frame. Sawing aliens in twain since time immemorial."
 	icon_state = "frame_dallas"
 	result = /obj/item/gun/projectile/automatic/dallas

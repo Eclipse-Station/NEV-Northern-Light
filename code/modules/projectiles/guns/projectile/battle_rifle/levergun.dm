@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/boltgun/levergun
-	name = "FS BR .40 \"Svengali\""
+	name = "\improper FS BR .40 \"Svengali\""
 	desc = "A perfect modernization of an old earth classic hailing popular use with gun ho lawmen and bounty hunters. \
 	When you need someone to have a closed casket funeral!"
 	icon_state = "lever_winchester"
@@ -41,7 +41,7 @@
 	twohanded = FALSE
 
 /obj/item/gun/projectile/boltgun/levergun/shotgun
-	name = "FS BR \"Sogekihei\""
+	name = "\improper FS BR \"Sogekihei\""
 	desc = "A refined weapon for the lawmen who wants to get up close and personal. \
 	Marketed as the number one choice for crack shots on Oberth colonies and large vessels."
 	icon_state = "lever_shotgun"

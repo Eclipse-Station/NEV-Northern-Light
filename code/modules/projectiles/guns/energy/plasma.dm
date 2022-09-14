@@ -1,5 +1,5 @@
 /obj/item/gun/energy/plasma
-	name = "NT PR M \"Dominion\""  //Eclipse Edit - gun names standardized
+	name = "\improper NT PR M \"Dominion\""  //Eclipse Edit - gun names standardized
 	desc = "A \"NanoTrasen\" weapon that uses advanced plasma generation technology to emit highly controllable blasts of energized matter. Due to its complexity and cost, it is rarely seen in use, except by specialists."
 	description_info = "Plasma weapons excel at armor penetration, especially with high-power modes due to extreme temperatures they cause."
 	icon = 'icons/obj/guns/energy/pulse.dmi'
@@ -37,14 +37,14 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/plasma/mounted/blitz
-	name = "OSDF PR \"Sprengen\""  //Eclipse Edit - gun names standardized
+	name = "\improper OSDF PR \"Sprengen\""  //Eclipse Edit - gun names standardized
 	desc = "A miniaturized plasma rifle, remounted for robotic use only."
 	icon_state = "plasma_turret"
 	charge_meter = FALSE
 	spawn_tags = null
 
 /obj/item/gun/energy/plasma/destroyer
-	name = "NT PR M \"Purger\""  //Eclipse Edit - gun names standardized
+	name = "\improper NT PR M \"Purger\""  //Eclipse Edit - gun names standardized
 	desc = "A more recent \"NanoTrasen\" brand plasma rifle, developed in direct response to compete against the highly successful \"Cassad\" design. \
             There\'s an inscription on the stock. \'For those whom the Angels hath cursed: thou wilt find, have no one to help.\'"
 	icon = 'icons/obj/guns/energy/destroyer.dmi'
@@ -63,8 +63,8 @@
 
 
 /obj/item/gun/energy/plasma/cassad
-	name = "FS PR M \"Cassad\""  //Eclipse Edit - gun names standardized
-	desc = "\"Frozen Star\" brand energy assault rifle, capable of prolonged combat. When surrender is not an option."
+	name = "\improper FS PR M \"Cassad\""  //Eclipse Edit - gun names standardized
+	desc = "A \"Frozen Star\" brand energy assault rifle, capable of prolonged combat. When surrender is not an option."
 	icon = 'icons/obj/guns/energy/cassad.dmi'
 	icon_state = "cassad"
 	item_state = "cassad"
@@ -87,8 +87,8 @@
 	set_item_state(null, back = TRUE)
 
 /obj/item/gun/energy/plasma/brigador
-	name = "NT PHG S \"Brigador\""  //Eclipse Edit - gun names standardized
-	desc = "\"NanoTrasen\" brand energy pistol, for personal overprotection."
+	name = "\improper NT PHG S \"Brigador\""  //Eclipse Edit - gun names standardized
+	desc = "A \"NanoTrasen\" brand energy pistol, for personal overprotection."
 	icon = 'icons/obj/guns/energy/brigador.dmi'
 	icon_state = "brigador"
 	can_dual = TRUE

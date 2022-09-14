@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/boltgun
-	name = "EX BR .30 \"Kardashev-Mosin\"" //Eclipse Edit - gun names standardized
+	name = "\improper EX BR .30 \"Kardashev-Mosin\"" //Eclipse Edit - gun names standardized
 	desc = "Weapon for hunting, or endless trench warfare. \
 			If you’re on a budget, it’s a darn good rifle for just about everything."
 	icon = 'icons/obj/guns/projectile/boltgun.dmi'
@@ -117,7 +117,7 @@
 	..()
 
 /obj/item/gun/projectile/boltgun/serbian
-	name = "SA BR .30 \"Novakovic\""
+	name = "\improper SA BR .30 \"Novakovic\""
 	desc = "Weapon for hunting, or endless trench warfare. \
 			If you’re on a budget, it’s a darn good rifle for just about everything. \
 			This copy, in fact, is a reverse-engineered poor-quality copy of a more perfect copy of an ancient rifle"
@@ -132,7 +132,7 @@
 
 //Custom item for Yeehawguvnah
 /obj/item/gun/projectile/boltgun/serbian/levergun
-	name = "SA BR .30 \"Greener Grass\""
+	name = "\improper SA BR .30 \"Greener Grass\""
 	desc = "Weapon for \"hunting\". \
 			If you’re on a budget, it’s a darn good rifle for just about everything. \
 			This is a somewhat-modified (and visibly used) rifle, using a lever-operated action. There's an inscription on the side: \"Wish you were here\""
@@ -149,7 +149,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/boltgun = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/mechanism/boltgun = 1, /obj/item/part/gun/barrel/lrifle/steel = 1)
 
 /obj/item/gun/projectile/boltgun/fs
-	name = "FS BR .20 \"Tosshin\""
+	name = "\improper FS BR .20 \"Tosshin\""
 	desc = "Weapon for hunting, or endless coastal warfare. \
 			A replica of an ancient bolt action known for its easy maintenance and low price. \
 			This is mounted with a scope, for ranges longer than a maintenance tunnel."
@@ -174,7 +174,7 @@
 	price_tag = 1200
 
 /obj/item/part/gun/frame/tosshin
-	name = "Tosshin frame"
+	name = "\improper Tosshin frame"
 	desc = "A Tosshin bolt-action rifle frame. For hunting or endless coastal warfare."
 	icon_state = "frame_excelrifle"
 	result = /obj/item/gun/projectile/boltgun/fs

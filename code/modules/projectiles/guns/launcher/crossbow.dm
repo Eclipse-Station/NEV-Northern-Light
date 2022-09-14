@@ -206,7 +206,7 @@
 	throwforce = 6
 
 /obj/item/gun/launcher/crossbow/RCD
-	name = "\"RXD\" Rapid Crossbow Device" //Eclipse Edit - gun names standardized
+	name = "\improper \"RXD\" Rapid Crossbow Device" //Eclipse Edit - gun names standardized
 	desc = "A hacked together RCD turns an innocent construction tool into the penultimate 'deconstruction' tool. Flashforges projectiles using matter units when the string is drawn back."
 	icon = 'icons/obj/guns/launcher/rxb.dmi'
 	icon_state = "rxb"

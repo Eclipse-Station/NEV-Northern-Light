@@ -1,7 +1,7 @@
 /obj/item/gun/energy/nt_svalinn
-	name = "NT LHG S \"Svalinn\""  //Eclipse Edit - gun names standardized
+	name = "\improper NT LHG S \"Svalinn\""  //Eclipse Edit - gun names standardized
 
-	desc = "\"Mekhane\" brand laser pistol manufactured by NanoTrasen for use by the Children of Mekhane. Small and easily concealable, it's still a reasonable punch for a laser weapon."
+	desc = "A \"Mekhane\" brand laser pistol manufactured by NanoTrasen for use by the Children of Mekhane. Small and easily concealable, it still packs a reasonable punch for a laser weapon."
 
 	icon = 'icons/obj/guns/energy/nt_svalinn.dmi'
 	icon_state = "nt_svalinn"

@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/kovacs
-	name = "SA BR .20 \"Kovacs\""
+	name = "\improper SA BR .20 \"Kovacs\""
 	desc = "The \"Kovacs\" is a refined battle rifle fit for taking down heavily armoured targets. \
 			This extremely efficient rifle design has gone into disuse over the years but still sees use by mercenaries. \
 			Uses .20 Rifle rounds."
@@ -50,7 +50,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/kovacs
-	name = "Kovacs frame"
+	name = "\improper Kovacs frame"
 	desc = "A Kovacs battle rifle frame. To punch through armor with panache."
 	icon_state = "frame_kovacs"
 	result = /obj/item/gun/projectile/kovacs

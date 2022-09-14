@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/molly
-	name = "FS MP .35 Auto \"Molly\""
+	name = "\improper FS MP .35 Auto \"Molly\""
 	desc = "An experimental fully automatic pistol, designed as a middle ground between SMGs and Pistols. \
 			Primarily employed in CQC scenarios or as a civilian self defence tool. \
 			Takes both highcap pistol and smg mags. Uses .35 Auto rounds."
@@ -65,7 +65,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/molly
-	name = "Molly frame"
+	name = "\improper Molly frame"
 	desc = "A Molly machine pistol frame. Toeing the line between pistol and SMG."
 	icon_state = "frame_autopistol"
 	result = /obj/item/gun/projectile/automatic/molly

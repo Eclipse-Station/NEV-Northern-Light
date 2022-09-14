@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/mk58
-	name = "NT HG .35 Auto \"Mk58\""
+	name = "\improper NT HG .35 Auto \"Mk58\""
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, that was produced by a NanoTrasen subsidiary. Uses standard .35 and high capacity magazines."
 	icon = 'icons/obj/guns/projectile/mk58.dmi'
 	icon_state = "mk58"
@@ -30,7 +30,7 @@
 
 
 /obj/item/gun/projectile/mk58/wood
-	name = "NT HG .35 Auto \"Mk58-C\""
+	name = "\improper NT HG .35 Auto \"Mk58-C\""
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip. Uses standard .35 Auto mags."
 	icon_state = "mk58_wood"
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_WOOD = 6)
@@ -38,7 +38,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/mk58 = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/pistol = 1)
 
 /obj/item/part/gun/frame/mk58
-	name = "MK58 frame"
+	name = "\improper MK58 frame"
 	desc = "A MK58 pistol frame. The standard issue of the Nanotrasen Corporation."
 	icon_state = "frame_mk58"
 	result = /obj/item/gun/projectile/mk58

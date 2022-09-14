@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/vintorez
-	name = "EX DMR .20 \"Vintorez\"" //Eclipse Edit - gun names standardized
+	name = "\improper EX DMR .20 \"Vintorez\"" //Eclipse Edit - gun names standardized
 	desc = "This gun is a copy of a design from a country that no longer exists. It is still highly prized for its armor piercing capabilities. \
 			The design was made to be able to fit long magazine alongside the standard ones."
 	icon = 'icons/obj/guns/projectile/vintorez.dmi'
@@ -45,7 +45,7 @@
 	item_state = itemstring
 
 /obj/item/part/gun/frame/vintorez
-	name = "Vintorez frame"
+	name = "\improper Vintorez frame"
 	desc = "A Vintorez rifle frame. Accurate and damaging."
 	icon_state = "frame_vintorez"
 	result = /obj/item/gun/projectile/automatic/vintorez

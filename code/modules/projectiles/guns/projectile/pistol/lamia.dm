@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/lamia
-	name = "FS HG .40 Magnum \"Lamia\""
-	desc = "FS HG .40 Magnum \"Lamia\", a heavy pistol of Aegis enforcers. Uses .40 Magnum rounds."
+	name = "\improper FS HG .40 Magnum \"Lamia\""
+	desc = "It's a FS HG .40 Magnum \"Lamia\", a heavy pistol of Aegis enforcers. Uses .40 Magnum rounds."
 	icon = 'icons/obj/guns/projectile/lamia.dmi'
 	icon_state = "lamia"
 	item_state = "lamia"
@@ -35,7 +35,7 @@
 	return
 
 /obj/item/part/gun/frame/lamia
-	name = "Lamia frame"
+	name = "\improper Lamia frame"
 	desc = "A Lamia pistol frame. Summary executions are never the same without it."
 	icon_state = "frame_lamia"
 	result = /obj/item/gun/projectile/lamia

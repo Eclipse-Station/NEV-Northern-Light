@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/pump/gladstone
-	name = "FS SG \"Gladstone\""
+	name = "\improper FS SG \"Gladstone\""
 	desc = "It is a next-generation Frozen Star shotgun intended as a cost-effective competitor to the aging NT \"Regulator 1000\". It has a semi-rifled lightweight full-length barrel which gives it exceptional projectile velocity and armor piercing capabilites with slugs, with a high-capacity magazine tube below it. Can hold up to 9 shells in a tube magazine."
 	icon = 'icons/obj/guns/projectile/gladstone.dmi'
 	icon_state = "gladstone"
@@ -20,7 +20,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/gladstone = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/shotgun = 1, /obj/item/part/gun/barrel/shotgun = 1)
 
 /obj/item/part/gun/frame/gladstone
-	name = "Gladstone frame"
+	name = "\improper Gladstone frame"
 	desc = "A Gladstone shotgun frame. Where capacity and force combine."
 	icon_state = "frame_gladstone"
 	result = /obj/item/gun/projectile/shotgun/pump/gladstone

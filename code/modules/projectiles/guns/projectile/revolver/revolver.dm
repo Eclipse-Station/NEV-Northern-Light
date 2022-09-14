@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver
-	name = "FS REV .40 Magnum \"Miller\""
+	name = "\improper FS REV .40 Magnum \"Miller\""
 	desc = "The \"Frozen Star\" \"Miller\" is a revolver of choice when you absolutely, positively need to make a hole in someone. Uses .40 Magnum ammo."
 	icon = 'icons/obj/guns/projectile/revolver.dmi'
 	icon_state = "revolver"
@@ -86,7 +86,7 @@
 	gun_tags |= GUN_REVOLVER
 
 /obj/item/part/gun/frame/miller
-	name = "Miller frame"
+	name = "\improper Miller frame"
 	desc = "A Miller revolver frame. I hope you're feeling lucky, punk."
 	icon_state = "frame_revolver"
 	result = /obj/item/gun/projectile/revolver/mateba

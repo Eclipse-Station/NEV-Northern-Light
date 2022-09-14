@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/gyropistol
-	name = "NT GP \"Zeus\""
+	name = "\improper NT GP \"Zeus\""
 	desc = "A bulky pistol designed to fire self-propelled rounds."
 	icon = 'icons/obj/guns/projectile/gyropistol.dmi'
 	icon_state = "gyropistol"

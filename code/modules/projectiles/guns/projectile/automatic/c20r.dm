@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/c20r
-	name = "S SMG .35 Auto \"C-20r\""  //Eclipse Edit - gun names standardized
+	name = "\improper S SMG .35 Auto \"C-20r\""  //Eclipse Edit - gun names standardized
 	desc = "The C-20r is a lightweight and robust bullpup SMG of ancient design, for when you REALLY need someone dead. \
 			Famous as most popular SMG used by criminal organizations of various sorts. Was recently reverse-engineered by NanoTrasen \
 			almost completely from the scratch, introducing this gun to a broad mass of new customers. \
@@ -38,7 +38,7 @@
 
 
 /obj/item/part/gun/frame/c20r
-	name = "C20r frame"
+	name = "\improper C20r frame"
 	desc = "A C20r SMG frame. The syndicate's bread and butter."
 	icon_state = "frame_syndi"
 	result = /obj/item/gun/projectile/automatic/c20r
@@ -62,7 +62,7 @@
 	update_icon()
 
 /obj/item/gun/projectile/automatic/c20r/moebius
-	name = "LF SMG .35 Auto \"C-20m\""  //Eclipse Edit - gun names standardized
+	name = "\improper LF SMG .35 Auto \"C-20m\""  //Eclipse Edit - gun names standardized
 	desc = "The C-20m is a Lazarus Foundation copy of the infamous C-20r, a lightweight and robust bullpup SMG of ancient design. \
 			Famous as the most popular SMG used by criminal organizations of various sorts. Uses .35 Auto rounds." //Eclipse Edit - spelling/grammar
 	icon = 'icons/obj/guns/projectile/c20m.dmi'
@@ -73,7 +73,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/c20r/moebius = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/smg = 1, /obj/item/part/gun/barrel/pistol = 1)
 
 /obj/item/part/gun/frame/c20r/moebius
-	name = "C-20M frame"
+	name = "\improper C-20M frame"
 	desc = "A C-20M SMG frame. The syndicate's bread and butter, reverse-engineered."
 	icon_state = "frame_moe"
 	result = /obj/item/gun/projectile/automatic/c20r/moebius

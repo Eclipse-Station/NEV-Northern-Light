@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/sol
-	name = "FS CAR .25 CS \"Sol\""
+	name = "\improper FS CAR .25 CS \"Sol\""
 	desc = "A standard-issue weapon used by Aegis operatives. Compact and reliable. Uses .25 Caseless rounds."
 	icon = 'icons/obj/guns/projectile/sol.dmi'
 	icon_state = "sol"

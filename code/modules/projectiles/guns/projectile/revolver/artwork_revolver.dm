@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver/artwork_revolver
-	name = "Weird Revolver"
+	name = "weird revolver"
 	desc = "This is an artistically-made revolver."
 	icon = 'icons/obj/guns/projectile/artwork_revolver.dmi'
 	icon_state = "artwork_revolver_1"

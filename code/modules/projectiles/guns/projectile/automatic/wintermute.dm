@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/automatic/wintermute
-	name = "FS AR .20 \"Wintermute\""
+	name = "\improper FS AR .20 \"Wintermute\""
 	desc = "A high end military grade assault rifle, designed as a modern ballistic infantry weapon. Primarily used by and produced for soldiers. Uses .20 Rifle magazines. \
-			The design was made to be able to fit long magazine alongside the standard ones."
+			The design was made to be able to fit long magazines alongside the standard ones."
 	icon = 'icons/obj/guns/projectile/wintermute.dmi'
 	icon_state = "wintermute"
 	item_state = "wintermute"
@@ -60,7 +60,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/wintermute
-	name = "Wintermute frame"
+	name = "\improper Wintermute frame"
 	desc = "A Wintermute assault rifle frame. The finest of the Aegis lineup."
 	icon_state = "frame_wintermute"
 	result = /obj/item/gun/projectile/automatic/wintermute

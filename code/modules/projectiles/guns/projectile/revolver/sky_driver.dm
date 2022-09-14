@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver/sky_driver
-	name = "S REV .35 Auto \"Sky Driver\""
+	name = "\improper S REV .35 Auto \"Sky Driver\""
 	desc = "A prototype revolver, captured as a trophy from a raided Syndicate research base. Uses .35 Special rounds."
 	icon = 'icons/obj/guns/projectile/sky_driver.dmi'
 	icon_state = "sky_driver"
@@ -39,7 +39,7 @@
 	..()
 
 /obj/item/part/gun/frame/sky_driver
-	name = "Sky Driver frame"
+	name = "\improper Sky Driver frame"
 	desc = "A Sky Driver revolver frame. A device that can put holes in ships, let alone a person."
 	icon_state = "frame_skydriver"
 	result = /obj/item/gun/projectile/revolver/sky_driver

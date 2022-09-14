@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/straylight
-	name = "FS SMG .35 Auto \"Straylight\""
+	name = "\improper FS SMG .35 Auto \"Straylight\""
 	desc = "A compact, lightweight and cheap rapid-firing submachine gun. In the past it was primarily used for testing ammunition and weapon modifications, \
 			nowadays it is mass-produced for Aegis security forces. Suffers from poor recoil control and underperforming ballistic impact, \
 			but makes up for this through sheer firerate. Especially effective with rubber ammunition. Uses .35 Auto rounds." //Eclipse Edit - spelling / grammar
@@ -58,7 +58,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/straylight
-	name = "Straylight frame"
+	name = "\improper Straylight frame"
 	desc = "A Straylight SMG frame. A rabidly fast bullet hose."
 	icon_state = "frame_ihsmg"
 	result = /obj/item/gun/projectile/automatic/straylight

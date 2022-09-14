@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver/havelock
-	name = "FS REV .35 Auto \"Havelock\""
+	name = "\improper FS REV .35 Auto \"Havelock\""
 	desc = "A cheap Frozen Star knock-off of a Smith & Wesson Model 10. Uses .35 Special rounds."
 	icon = 'icons/obj/guns/projectile/havelock.dmi'
 	icon_state = "havelock"
@@ -21,7 +21,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/havelock = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/mechanism/revolver = 1, /obj/item/part/gun/barrel/pistol = 1)
 
 /obj/item/part/gun/frame/havelock
-	name = "Havelock frame"
+	name = "\improper Havelock frame"
 	desc = "A Havelock revolver frame. Personal defense in a small package."
 	icon_state = "frame_havelock"
 	result = /obj/item/gun/projectile/revolver/havelock

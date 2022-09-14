@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/pump
-	name = "FS SG \"Kammerer\""
+	name = "\improper FS SG \"Kammerer\""
 	desc = "When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds."
 	icon = 'icons/obj/guns/projectile/shotgun.dmi'
 	icon_state = "shotgun"
@@ -51,7 +51,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/kammerer
-	name = "Kammerer frame"
+	name = "\improper Kammerer frame"
 	desc = "A Kammerer shotgun frame. A militiaman's favorite."
 	icon_state = "frame_shotgun"
 	result = /obj/item/gun/projectile/shotgun/pump

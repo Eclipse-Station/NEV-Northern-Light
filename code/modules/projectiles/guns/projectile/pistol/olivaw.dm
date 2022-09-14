@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/olivaw
-	name = "FS MP .35 Auto \"Olivaw\""
+	name = "\improper FS MP .35 Auto \"Olivaw\""
 	desc = "A popular \"Frozen Star\" machine pistol. This one has a two-round burst-fire mode and is chambered for .35 auto. It can use normal and high capacity magazines."
 	icon = 'icons/obj/guns/projectile/olivawcivil.dmi'
 	icon_state = "olivawcivil"
@@ -32,7 +32,7 @@
 		icon_state = "olivawcivil_empty"
 
 /obj/item/part/gun/frame/olivaw
-	name = "Olivaw frame"
+	name = "\improper Olivaw frame"
 	desc = "An Olivaw pistol frame. Why shoot one bullet when you can shoot two?"
 	icon_state = "frame_olivaw"
 	result = /obj/item/gun/projectile/olivaw

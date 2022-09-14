@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/type_17
-    name = "OS AR .20 \"Type XVII\""
+    name = "\improper OS AR .20 \"Type XVII\""
     desc = "An old Onestar assault rifle. A reliable, if unintuitive, design. Uses .20 Rifle magazines."
     icon = 'icons/obj/guns/projectile/os/type_17.dmi'
     icon_state = "type_17"
