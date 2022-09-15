@@ -71,6 +71,8 @@
 	damage_multiplier = 1	//Not quite as good as real syndi
 	penetration_multiplier = 1.2 //12 with lethal, 24 with HV
 	gun_parts = list(/obj/item/part/gun/frame/c20r/moebius = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/smg = 1, /obj/item/part/gun/barrel/pistol = 1)
+	
+	simplemob_bonus_damage_multiplier = 0.15 //Eclipse edit: Balancing.
 
 /obj/item/part/gun/frame/c20r/moebius
 	name = "\improper C-20M frame"

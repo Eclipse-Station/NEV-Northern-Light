@@ -31,6 +31,8 @@
     spawn_blacklisted = TRUE //until loot rework
 
     gun_tags = list(GUN_SILENCABLE)
+	
+	simplemob_bonus_damage_multiplier = 0.1 //Eclipse edit: Balancing.
 
 /obj/item/gun/projectile/automatic/type_17/update_icon()
 	..()

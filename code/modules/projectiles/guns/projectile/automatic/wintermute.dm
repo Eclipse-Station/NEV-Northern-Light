@@ -36,6 +36,7 @@
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 	gun_parts = list(/obj/item/part/gun/frame/wintermute = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/autorifle = 1, /obj/item/part/gun/barrel/srifle = 1)
 
+	simplemob_bonus_damage_multiplier = 0.05 //Eclipse edit: Balancing.
 
 /obj/item/gun/projectile/automatic/wintermute/update_icon()
 	..()

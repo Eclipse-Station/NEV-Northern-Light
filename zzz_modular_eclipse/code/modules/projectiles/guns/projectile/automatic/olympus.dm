@@ -31,6 +31,8 @@
 		BURST_3_ROUND
 		)
 
+	simplemob_bonus_damage_multiplier = 0.1
+
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
 	gun_tags = list(GUN_SILENCABLE)

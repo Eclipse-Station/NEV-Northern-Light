@@ -19,6 +19,8 @@
 	price_tag = 100
 	rarity_value = 40
 	gun_parts = list(/obj/item/stack/material/plastic = 2)
+	
+	simplemob_bonus_damage_multiplier = 0.35 //Eclipse edit: Balancing.
 
 	safety = FALSE
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'

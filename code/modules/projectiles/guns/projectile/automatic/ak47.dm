@@ -108,6 +108,8 @@
 	gun_parts = list(/obj/item/part/gun/frame/ak47 = 1, /obj/item/part/gun/grip/serb = 1, /obj/item/part/gun/mechanism/autorifle = 1, /obj/item/part/gun/barrel/lrifle = 1)
 
 	price_tag = 3500
+	
+	simplemob_bonus_damage_multiplier = 0.2 //Eclipse edit: Balancing.
 
 /obj/item/gun/projectile/automatic/ak47/sa/CtrlShiftClick(mob/user)
 	. = ..()

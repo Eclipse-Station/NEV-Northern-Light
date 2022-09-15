@@ -32,6 +32,8 @@
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 	gun_parts = list(/obj/item/part/gun/frame/straylight = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/smg = 1, /obj/item/part/gun/barrel/pistol = 1)
+	
+	simplemob_bonus_damage_multiplier = 0.3 //Eclipse edit: Balancing.
 
 /obj/item/gun/projectile/automatic/straylight/update_icon()
 	..()

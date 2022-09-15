@@ -37,6 +37,8 @@
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 	wield_delay = 0 // pistols don't get delays. X Doubt
 	gun_parts = list(/obj/item/part/gun/frame/molly = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/pistol = 1)
+	
+	simplemob_bonus_damage_multiplier = 0.25 //Eclipse edit: Balancing.
 
 /obj/item/gun/projectile/automatic/molly/update_icon()
 	..()

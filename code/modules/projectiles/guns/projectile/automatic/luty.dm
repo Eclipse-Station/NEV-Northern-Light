@@ -15,6 +15,8 @@
 	ammo_type = /obj/item/ammo_casing/pistol
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL|MAG_WELL_H_PISTOL|MAG_WELL_SMG
+	
+	simplemob_bonus_damage_multiplier = 0.4 //Eclipse edit: Balancing.
 
 	init_firemodes = list(
 		FULL_AUTO_400,

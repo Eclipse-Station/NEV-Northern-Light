@@ -30,6 +30,8 @@
 		SEMI_AUTO_NODELAY
 		)
 	gun_parts = list(/obj/item/part/gun/frame/bojevic = 1, /obj/item/part/gun/grip/serb = 1, /obj/item/part/gun/mechanism/shotgun = 1, /obj/item/part/gun/barrel/shotgun = 1)
+	
+	simplemob_bonus_damage_multiplier = -0.1 //Eclipse edit: Balancing.
 
 /obj/item/gun/projectile/shotgun/bojevic/update_icon()
 	..()
