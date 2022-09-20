@@ -1,0 +1,25 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - bugfix: Shield generator room is now listed as a critical area for purposes of
+      gridchecks.
+  - bugfix: Shield generator air alarm changed to a different subtype, to hopefully
+      fix an issue where the vents would cut off.
+  - bugfix: Toxins' mixing chambers now use fireproof glass.
+  - bugfix: Engineering and Medical equipment storage now have the correct rolls of
+      cordon tape.
+  - bugfix: Added missing section of hull plating near the Cargo shuttle.
+  - bugfix: Replaced .40 magnum rubber ammo in the armoury with .20 rifle rubber ammo.
+  - rscadd: Added OC spray refill stations around Security.
+  - rscadd: The Church can now print cruciforms again.
+  - rscadd: Night shift has finally gotten around to installing some of the signs
+      on the ship. You can examine them to see what they mean.
+  - rscadd: Added a backup emergency SMES unit. Its substation is just forward of
+      Atmospherics.
+  - rscadd: Medbay now has a storage area in the elevated walkway between medical
+      and R&D.
+  - rscadd: Medbay now has sinks.
+  - rscadd: Virology now has a centrifuge and a pathogenic isolator.
+  - balance: Night shift's electricians have gotten lazy again. Same for the janitors.
+  - balance: All substations now have at least one guaranteed power cell spawn, with
+      a chance at more.
