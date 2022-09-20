@@ -1,0 +1,6 @@
+author: Valanthe500
+delete-after: true
+changes:
+  - rscadd: Added an event shuttle for shenanigans
+  - tweak: Heavily remodeled the centcom map.
+  - bugfix: Changed the holodeck maps to align with the holodeck doors
