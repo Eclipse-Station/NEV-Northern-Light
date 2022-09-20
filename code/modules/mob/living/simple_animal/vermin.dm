@@ -58,6 +58,8 @@
 	"sound/effects/vermin/vermin4.ogg"
 	)
 
+	simplemob_bonus_multiplier = -0.75 //Shell is suspectible to blunt force, but not bullets
+
 
 /mob/living/simple_animal/vermin/New()
 	..()
