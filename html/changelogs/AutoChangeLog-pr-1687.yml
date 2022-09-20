@@ -1,0 +1,9 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - spellcheck: All firearm names now have the \improper flag, turning their examine
+      text from "This is Wintermute" to "This is a Wintermute".
+  - spellcheck: Minor spelling and grammar tweaks to firearms and firearm mods.
+  - rscadd: Maverick now has a diskette.
+  - balance: Rebalanced some firearms with low damage.
+  - balance: Blob is now a bit tougher to beat.
