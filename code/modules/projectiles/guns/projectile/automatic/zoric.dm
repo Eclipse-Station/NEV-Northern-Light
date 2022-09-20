@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/zoric
-	name = "SA SMG .40 Magnum \"Zoric\""
+	name = "\improper SA SMG .40 Magnum \"Zoric\""
 	desc = "A Heavy Submachine Gun made by \"Serbian Arms\", for paramilitary and private security use. \
 			Rifled to take a larger caliber than a typical submachine gun, it boasts a greater impact, but suffers \
 			from poor recoil control and worse than average armor penetration capabilities as a result. \
@@ -45,7 +45,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/zoric
-	name = "Zoric frame"
+	name = "\improper Zoric frame"
 	desc = "A Zoric SMG frame. Workhorse of the Excelsior force."
 	icon_state = "frame_zorik"
 	result = /obj/item/gun/projectile/automatic/zoric

@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic/maxim
 	bad_type = /obj/item/gun/projectile/automatic/maxim
-	name = "EX HMG .30 \"Maxim\""  //Eclipse Edit - gun names standardized
+	name = "\improper EX HMG .30 \"Maxim\""  //Eclipse Edit - gun names standardized
 	desc = "A bulky yet versatile gun, the Maxim has been used in ships, turrets, and by hand."
 	icon = 'icons/obj/guns/projectile/maxim.dmi'
 	icon_state = "maxim"
@@ -57,7 +57,7 @@
 	set_item_state(itemstring)
 
 /obj/item/part/gun/frame/maxim
-	name = "Maxim frame"
+	name = "\improper Maxim frame"
 	desc = "A Maxim HMG frame. Whatever happens, we have got the Maxim gun and they have not."
 	icon_state = "frame_maxim"
 	result = /obj/item/gun/projectile/automatic/maxim

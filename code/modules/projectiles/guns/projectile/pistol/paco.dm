@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/paco
-	name = "FS HG .35 Auto \"Paco\""
+	name = "\improper FS HG .35 Auto \"Paco\""
 	desc = "A modern and reliable sidearm for the soldier in the field. Commonly issued as a sidearm to Aegis Operatives. Uses standard .35 and high capacity magazines."
 	icon = 'icons/obj/guns/projectile/paco.dmi'
 	icon_state = "paco"
@@ -50,7 +50,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/paco
-	name = "Paco frame"
+	name = "\improper Paco frame"
 	desc = "A Paco pistol frame. A reliable companion in the field."
 	icon_state = "frame_paco"
 	result = /obj/item/gun/projectile/paco

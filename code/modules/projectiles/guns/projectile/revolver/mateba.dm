@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver/mateba
-	name = "FS REV .40 Magnum \"Mateba\""
+	name = "\improper FS REV .40 Magnum \"Mateba\""
 	desc = "Very old, reliable hand-cannon with a robust design. This is a gun for a real officer, not just a self-proclaimed \"leader\". Revolver of choice when you want to put someone down. Permanently. Uses .40 Magnum ammo."
 	icon = 'icons/obj/guns/projectile/mateba.dmi'
 	icon_state = "mateba"
@@ -14,7 +14,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/mateba = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/revolver = 1, /obj/item/part/gun/barrel/magnum = 1)
 
 /obj/item/part/gun/frame/mateba
-	name = "Mateba frame"
+	name = "\improper Mateba frame"
 	desc = "A Mateba revolver frame. The officer's choice."
 	icon_state = "frame_mateba"
 	result = /obj/item/gun/projectile/revolver/mateba

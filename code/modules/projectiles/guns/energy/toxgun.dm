@@ -1,5 +1,5 @@
 /obj/item/gun/energy/toxgun
-	name = "Prototype: phoron pistol"
+	name = "\improper Prototype: phoron pistol"
 	desc = "A specialized firearm designed to fire lethal bolts of phoron."
 	icon = 'icons/obj/guns/energy/toxgun.dmi'
 	icon_state = "toxgun"

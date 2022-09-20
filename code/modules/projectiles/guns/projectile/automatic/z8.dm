@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/z8
-	name = "OSDF CAR .20 \"Z8 Bulldog\""
+	name = "\improper OSDF CAR .20 \"Z8 Bulldog\""
 	desc = "The Z8 Bulldog is an older bullpup carbine model, made by the \"Oberth Republic Strategic Defence Force\". It includes an underbarrel grenade launcher which is compatible with most modern grenade types. Uses .20 Rifle rounds." //Eclipse Edit - self defence renamed strategic defence
 	icon = 'icons/obj/guns/projectile/carabine.dmi'
 	icon_state = "z8"
@@ -25,6 +25,8 @@
 	zoom_factor = 0.2
 	one_hand_penalty = 10 //bullpup rifle level
 	gun_tags = list(GUN_FA_MODDABLE)
+	
+	simplemob_bonus_damage_multiplier = 0.1 //Eclipse edit: Balancing.
 
 	init_firemodes = list(
 		SEMI_AUTO_NODELAY,
@@ -90,7 +92,7 @@
 		to_chat(user, "\The [launcher] is empty.")
 
 /obj/item/part/gun/frame/z8
-	name = "Z8 Bulldog frame"
+	name = "\improper Z8 Bulldog frame"
 	desc = "A Z8 Bulldog carbine frame. Old but gold."
 	icon_state = "frame_pug"
 	result = /obj/item/gun/projectile/automatic/z8

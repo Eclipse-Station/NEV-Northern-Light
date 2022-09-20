@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/giskard
-	name = "FS HG .35 Auto \"Giskard\""
+	name = "\improper FS HG .35 Auto \"Giskard\""
 	desc = "A popular \"Frozen Star\" brand pocket pistol chambered for the ubiquitous .35 auto round. Uses standard capacity magazines."
 	icon = 'icons/obj/guns/projectile/giskard.dmi'
 	icon_state = "giskard"
@@ -46,7 +46,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/giskard
-	name = "Giskard frame"
+	name = "\improper Giskard frame"
 	desc = "A Giskard pistol frame. A ubiquitous pocket deterrent."
 	icon_state = "frame_giskard"
 	result = /obj/item/gun/projectile/giskard

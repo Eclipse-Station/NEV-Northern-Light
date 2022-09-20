@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/lmg
-	name = "LMG .30 \"L6 SAW\""  //Eclipse Edit - gun names standardized
+	name = "\improper LMG .30 \"L6 SAW\""  //Eclipse Edit - gun names standardized
 	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. This one is unmarked."
 	icon = 'icons/obj/guns/projectile/l6.dmi'
 	var/icon_base = "l6"
@@ -90,7 +90,7 @@
 
 
 /obj/item/gun/projectile/automatic/lmg/pk
-	name = "SA LMG .30 \"Pulemyot Kalashnikova\""  //Eclipse Edit - gun names standardized
+	name = "\improper SA LMG .30 \"Pulemyot Kalashnikova\""  //Eclipse Edit - gun names standardized
 	desc = "\"Kalashnikov's Machinegun\", a well preserved and maintained antique weapon of war."
 	icon = 'icons/obj/guns/projectile/pk.dmi'
 	icon_base = "pk"
@@ -100,7 +100,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/pk = 1, /obj/item/part/gun/grip/serb = 1, /obj/item/part/gun/mechanism/machinegun = 1, /obj/item/part/gun/barrel/lrifle = 1)
 
 /obj/item/part/gun/frame/pk
-	name = "Pulemyot Kalashnikova frame"
+	name = "\improper Pulemyot Kalashnikova frame"
 	desc = "A Pulemyot Kalashnikova LMG frame. A violent and beautiful spark of the past."
 	icon_state = "frame_pk"
 	result = /obj/item/gun/projectile/automatic/lmg/pk
@@ -115,7 +115,7 @@
 
 
 /obj/item/gun/projectile/automatic/lmg/tk
-	name = "FS LMG .30 \"Takeshi\""  //Eclipse Edit - gun names standardized
+	name = "\improper FS LMG .30 \"Takeshi\""  //Eclipse Edit - gun names standardized
 	desc = "The \"Takeshi LMG\" is FS's answer to PMC's needs for mass supression and meat grinding, a fine oiled machine of war and death."
 	icon = 'icons/obj/guns/projectile/tk.dmi'
 	icon_base = "tk"
@@ -128,7 +128,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/tk = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/machinegun = 1, /obj/item/part/gun/barrel/lrifle = 1)
 
 /obj/item/part/gun/frame/tk
-	name = "Takeshi frame"
+	name = "\improper Takeshi frame"
 	desc = "A Takeshi LMG frame. A fine-oiled machine of war and death."
 	icon_state = "frame_mg"
 	result = /obj/item/gun/projectile/automatic/lmg/tk

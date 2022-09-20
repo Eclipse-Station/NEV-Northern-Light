@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/pump/grenade
-	name = "NT GL \"Protector\""
+	name = "\improper NT GL \"Protector\""
 	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
 	icon = 'icons/obj/guns/launcher/riotgun.dmi'
 	icon_state = "riotgun"
@@ -60,7 +60,7 @@
 	twohanded = FALSE
 
 /obj/item/gun/projectile/shotgun/pump/grenade/lenar
-	name = "FS GL \"Lenar\""
+	name = "\improper FS GL \"Lenar\""
 	desc = "A more than bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
 	icon = 'icons/obj/guns/launcher/grenadelauncher.dmi'
 	icon_state = "Grenadelauncher_PMC"
@@ -112,7 +112,7 @@
 	unload_underslung(user)
 
 /obj/item/gun/projectile/shotgun/pump/grenade/china
-	name = "China Lake"
+	name = "\improper China Lake"
 	desc = "This centuries-old design was recently rediscovered and adapted for use in modern battlefields. \
 		Working similar to a pump-action combat shotgun, its light weight and robust design quickly made it a popular weapon. \
 		It uses specialised grenade shells."

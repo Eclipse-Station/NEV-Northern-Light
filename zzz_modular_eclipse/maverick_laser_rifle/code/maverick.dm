@@ -2,7 +2,7 @@
 // R.A. Spitzer 2022-07-10
 
 /obj/item/gun/energy/lever_action
-	name = "CA ELAR S \"Maverick\"" 
+	name = "\improper CA ELAR S \"Maverick\"" 
 	desc = "A revision of Chiropteran Arms' popular lever-action varmint-hunting rifle, this rifle design was produced in smaller numbers for colonists who needed the versatility of a laser weapon with the power of a ballistic weapon."
 	
 	//Icon and sounds. //TODO TODO TODO - CHANGE ALL THIS!
@@ -22,8 +22,8 @@
 	force = WEAPON_FORCE_NORMAL
 	projectile_type = /obj/item/projectile/beam/midlaser
 	init_firemodes = list(WEAPON_NORMAL)
-	damage_multiplier = 1 //Base of 30 damage at 250 charge.
-	simplemob_bonus_damage_multiplier = 0.3 //Mobs take 30% extra damage.
+	damage_multiplier = 1.5 //Base of 45 damage at 250 charge.
+	simplemob_bonus_damage_multiplier = 0.5 //Mobs take 30% extra damage.
 	
 	//Reference values.
 	var/charge_maximum = 400 //Damage multiplier caps at this amount.

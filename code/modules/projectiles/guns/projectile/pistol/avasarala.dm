@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/avasarala
-	name = "NT HG .40 Magnum \"Avasarala\""
+	name = "\improper NT HG .40 Magnum \"Avasarala\""
 	desc = "An obvious replica of an old Earth \"Desert Eagle\". Robust and straight, this is a gun for a leader, not just an officer."
 
 	icon = 'icons/obj/guns/projectile/avasarala.dmi'
@@ -50,7 +50,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/avasarala
-	name = "Avasarala frame"
+	name = "\improper Avasarala frame"
 	desc = "An Avasarala pistol frame. Something to command respect."
 	icon_state = "frame_deagle"
 	result = /obj/item/gun/projectile/avasarala

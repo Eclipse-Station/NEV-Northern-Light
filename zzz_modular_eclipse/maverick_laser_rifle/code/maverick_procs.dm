@@ -42,7 +42,7 @@
 
 	if(cell)//We have a shell in the chamber
 		cell.forceMove(newloc) //Eject casing
-		cell.SpinAnimation(rand(6,9), 1)
+		cell.SpinAnimation(rand(7,9), 1)
 		cell = null
 
 	if(magazine.len)

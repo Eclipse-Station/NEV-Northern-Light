@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/slaught_o_matic
-	name = "FS HG .35 Auto \"Slaught-o-Matic\""
+	name = "\improper FS HG .35 Auto \"Slaught-o-Matic\""
 	desc = "This disposable plastic handgun is mass-produced by Frozen Star for civilian use. It often is used by street urchin, thugs, or terrorists on a budget. For what it's worth, it's not an awful handgun - but you only get one magazine before the gun locks up and becomes useless."
 	icon = 'icons/obj/guns/projectile/slaught_o_matic.dmi'
 	icon_state = "slaught"
@@ -19,6 +19,8 @@
 	price_tag = 100
 	rarity_value = 40
 	gun_parts = list(/obj/item/stack/material/plastic = 2)
+	
+	simplemob_bonus_damage_multiplier = 0.35 //Eclipse edit: Balancing.
 
 	safety = FALSE
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'

@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/ak47
-	name = "EX AR .30 \"AKMS\""  //Eclipse Edit - gun names standardized
+	name = "\improper EX AR .30 \"AKMS\""  //Eclipse Edit - gun names standardized
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 		 This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 		 It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \
@@ -38,7 +38,7 @@
 	var/folded = FALSE
 
 /obj/item/part/gun/frame/ak47
-	name = "AK frame"
+	name = "\improper AK frame"
 	desc = "An AK rifle frame. The eternal firearm."
 	icon_state = "frame_ak"
 	matter = list(MATERIAL_PLASTEEL = 8)
@@ -90,7 +90,7 @@
 //////////////////////////////////////////SA//////////////////////////////////////////
 
 /obj/item/gun/projectile/automatic/ak47/sa
-	name = "SA CAR .30 \"Krinkov\""					// US nickname for AKSu - Eclipse Edit - gun names standardized
+	name = "\improper SA CAR .30 \"Krinkov\""					// US nickname for AKSu - Eclipse Edit - gun names standardized
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 			This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 			It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \
@@ -108,6 +108,8 @@
 	gun_parts = list(/obj/item/part/gun/frame/ak47 = 1, /obj/item/part/gun/grip/serb = 1, /obj/item/part/gun/mechanism/autorifle = 1, /obj/item/part/gun/barrel/lrifle = 1)
 
 	price_tag = 3500
+	
+	simplemob_bonus_damage_multiplier = 0.2 //Eclipse edit: Balancing.
 
 /obj/item/gun/projectile/automatic/ak47/sa/CtrlShiftClick(mob/user)
 	. = ..()
@@ -153,7 +155,7 @@
 //////////////////////////////////////////FS//////////////////////////////////////////
 
 /obj/item/gun/projectile/automatic/ak47/fs
-	name = "FS AR .30 \"Vipr\""						// Vipr like a play on Viper and Vepr
+	name = "\improper FS AR .30 \"Vipr\""						// Vipr like a play on Viper and Vepr
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 			This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 			It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \
@@ -183,7 +185,7 @@
 //////////////////////////////////////////IH//////////////////////////////////////////
 
 /obj/item/gun/projectile/automatic/ak47/fs/ih
-	name = "FS AR .30 \"Venger\""						// From a song
+	name = "\improper FS AR .30 \"Venger\""						// From a song
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 			This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 			It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \
@@ -236,7 +238,7 @@
 //////////////////////////////////////////Makeshift//////////////////////////////////////////
 
 /obj/item/gun/projectile/automatic/ak47/makeshift
-	name = "Makeshift AR .30 \"Kalash\""
+	name = "makeshift AR .30 \"Kalash\""
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 			This is a copy of an ancient semi-automatic rifle chambered for .30 Rifle. If it won't fire, percussive maintenance should get it working again. \
 			It is known for its easy maintenance, and low price. This gun is not in active military service anymore, but has become ubiquitous among criminals and insurgents. \

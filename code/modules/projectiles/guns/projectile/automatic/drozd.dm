@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/drozd
-	name = "EX SMG .40 Magnum \"Drozd\""  //Eclipse Edit - gun names standardized
+	name = "\improper EX SMG .40 Magnum \"Drozd\""  //Eclipse Edit - gun names standardized
 	desc = "An excellent fully automatic Heavy SMG. Rifled to take a larger caliber than a typical submachine gun, but unlike \
 			other heavy SMGs this one makes use of its increased caliber to achieve excellent armor penetration capabilities. \
 			Suffers a bit less from poor recoil control and has a lower than average fire rate. Uses .40 Magnum rounds." //Eclipse Edit - spelling/grammar
@@ -43,7 +43,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/drozd
-	name = "Drozd frame"
+	name = "\improper Drozd frame"
 	desc = "A Drozd SMG frame. Workhorse of the Excelsior force."
 	icon_state = "frame_excelsmg"
 	result = /obj/item/gun/projectile/automatic/drozd

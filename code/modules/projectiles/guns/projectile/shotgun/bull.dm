@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/bull
-	name = "FS SG \"Bull\""
+	name = "\improper FS SG \"Bull\""
 	desc = "A \"Frozen Star\" double-barreled pump-action shotgun. Marvel of engineering, this gun is often used by Aegis tactical units. \
 			Due to shorter than usual barrels, damage are somewhat lower and recoil kicks slightly harder, but possibility to fire two barrels at once overshadows all bad design flaws."
 	icon = 'icons/obj/guns/projectile/bull.dmi'
@@ -106,7 +106,7 @@
 	update_charge()
 
 /obj/item/part/gun/frame/bull
-	name = "Bull frame"
+	name = "\improper Bull frame"
 	desc = "A Bull shotgun frame. Double-barrel and pump action, through a miracle of engineering."
 	icon_state = "frame_bull"
 	result = /obj/item/gun/projectile/shotgun/bull

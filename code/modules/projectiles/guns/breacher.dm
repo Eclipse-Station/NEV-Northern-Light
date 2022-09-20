@@ -3,7 +3,7 @@
 //There's also a robot version which uses power instead of gas tubes.
 
 /obj/item/hatton
-	name = "Excelsior BT \"Hatton\""
+	name = "\improper Excelsior BT \"Hatton\""
 	desc = "More an instrument than a weapon, this breaching tool was designed for emergency situations."
 	icon = 'icons/obj/guns/breacher.dmi'
 	icon_state = "Hatton_Hammer_1"
@@ -145,7 +145,7 @@
 
 // Magazine
 /obj/item/hatton_magazine
-	name = "Excelsior BT \"Hatton\" gas tube"
+	name = "\improper Excelsior BT \"Hatton\" gas tube"
 	icon = 'icons/obj/guns/breacher.dmi'
 	icon_state = "Hatton_box1"
 	w_class = ITEM_SIZE_SMALL
@@ -203,7 +203,7 @@
 	return
 
 /obj/item/hatton/moebius
-	name = "NanoTrasen BT \"Q-del\""
+	name = "\improper NanoTrasen BT \"Q-del\""
 	desc = {"This breaching tool was reverse engineered from the \"Hatton\" design.
 	Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,
 	this device suffers from a wide number of reliability issues stemming from it being lathe printed."}

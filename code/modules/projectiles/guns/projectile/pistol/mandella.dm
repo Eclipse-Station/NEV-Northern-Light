@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/mandella
-	name = "OSDF HG .25 CS \"Mandella\"" //Eclipse Edit - gun names standardized
+	name = "\improper OSDF HG .25 CS \"Mandella\"" //Eclipse Edit - gun names standardized
 	desc = "A rugged, robust operator handgun with inbuilt silencer. Chambered in .25 caseless ammunition, this time-tested handgun is \
 			your absolute choice if you need to take someone down silently, as it's deadly, produces no sound, and leaves no traces. \
 			Built to have enhanced armor penetration abilities. \
@@ -45,7 +45,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/mandella
-	name = "Mandella frame"
+	name = "\improper Mandella frame"
 	desc = "A Mandella pistol frame. Covertness never looked so good."
 	icon_state = "frame_mandella"
 	result = /obj/item/gun/projectile/mandella

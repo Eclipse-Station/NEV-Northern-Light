@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver/deckard
-	name = "FS REV .40 Magnum \"Deckard\""
+	name = "\improper FS REV .40 Magnum \"Deckard\""
 	desc = "A rare, custom-built revolver. Use when there is no time for Voight-Kampff tests. Uses .40 Magnum rounds." //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/deckard.dmi'
 	icon_state = "deckard"
@@ -16,7 +16,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/deckard = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/mechanism/revolver = 1, /obj/item/part/gun/barrel/magnum = 1)
 
 /obj/item/part/gun/frame/deckard
-	name = "Deckard frame"
+	name = "\improper Deckard frame"
 	desc = "A Deckard revolver frame. The secret policeman's choice."
 	icon_state = "frame_thatgun"
 	result = /obj/item/gun/projectile/revolver/deckard

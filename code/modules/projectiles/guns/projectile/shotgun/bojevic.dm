@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/bojevic
-	name = "SA SG \"Bojevic\""
+	name = "\improper SA SG \"Bojevic\""
 	desc = "Semi-auto, half polymer, all serbian. \
 			It's magazine-fed shotgun designed for close quarters combat, nicknamed 'Striker' by boarding parties. \
 			Robust and reliable design allows you to swap magazines on go and dump as many shells at your foes as you want... \
@@ -30,6 +30,8 @@
 		SEMI_AUTO_NODELAY
 		)
 	gun_parts = list(/obj/item/part/gun/frame/bojevic = 1, /obj/item/part/gun/grip/serb = 1, /obj/item/part/gun/mechanism/shotgun = 1, /obj/item/part/gun/barrel/shotgun = 1)
+	
+	simplemob_bonus_damage_multiplier = -0.1 //Eclipse edit: Balancing.
 
 /obj/item/gun/projectile/shotgun/bojevic/update_icon()
 	..()
@@ -53,7 +55,7 @@
 	update_icon()
 
 /obj/item/part/gun/frame/bojevic
-	name = "Bojevic frame"
+	name = "\improper Bojevic frame"
 	desc = "A Bojevic shotgun frame. Specially designed to sweep streets and spaceship halls."
 	icon_state = "frame_bojevic"
 	result = /obj/item/gun/projectile/shotgun/bojevic

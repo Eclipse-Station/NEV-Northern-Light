@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/heavysniper
-	name = "SA AMR .60 \"Hristov\""
+	name = "\improper SA AMR .60 \"Hristov\""
 	desc = "A portable anti-armour rifle, fitted with a night-vision scope, it was originally designed for use against armored exosuits. It is capable of punching through windows and non-reinforced walls with ease, but suffers from overpenetration at close range. Fires armor piercing .60 shells. Can be upgraded using thermal glasses."
 	icon = 'icons/obj/guns/projectile/heavysniper.dmi'
 	icon_state = "heavysniper"
@@ -36,7 +36,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/heavysniper = 1, /obj/item/part/gun/grip/serb = 1, /obj/item/part/gun/mechanism/boltgun = 1, /obj/item/part/gun/barrel/antim = 1)
 
 /obj/item/part/gun/frame/heavysniper
-	name = "Hristov frame"
+	name = "\improper Hristov frame"
 	desc = "A Hristov AMR frame. For removing chunks of man and machine alike."
 	icon_state = "frame_antimaterial"
 	result = /obj/item/gun/projectile/heavysniper
