@@ -48,10 +48,10 @@
 
 /datum/stat_holder/proc/changeStat(statName, Value)
 	var/datum/stat/S = stat_list[statName]
-	if(S + Value <= statMax)
+	if(S.value + Value <= statMax) // Start of Eclipse Edit
 		S.changeValue(Value)
 	else
-		S.setValue(statMax) //Eclipse Edit: Changes stats to not exceed a certain value. Editable at top of file.
+		S.setValue(statMax) //End Of Eclipse Edit: Changes stats to not exceed a certain value. Editable at top of file.
 
 	SEND_SIGNAL(holder, COMSIG_STAT, S.name, S.getValue(), S.getValue(TRUE))
 
