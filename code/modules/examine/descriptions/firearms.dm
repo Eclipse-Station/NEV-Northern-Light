@@ -8,7 +8,6 @@
 /obj/item/gun/energy
 	description_info = "This is an energy weapon. To fire the weapon, ensure the \
 	 safety is off, and click where you want to fire. \n\
-	\n\
 	Most lasers can safely fire through glass without harming it."
 
 /obj/item/gun/energy/get_description_interaction()
@@ -24,7 +23,7 @@
 	else
 		results += "Most energy weapons require a \
 		power cell in order to fire. Power cells can be removed by dragging from \
-		the gun into an empty hand. You can tell what poewr cell a gun needs by \
+		the gun into an empty hand. You can tell what power cell a gun needs by \
 		the letter immediately before the gun's nickname."
 	
 	if(can_dual)
