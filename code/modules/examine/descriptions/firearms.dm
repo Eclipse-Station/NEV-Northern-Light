@@ -7,7 +7,8 @@
 //Generic energy gun.
 /obj/item/gun/energy
 	description_info = "This is an energy weapon. To fire the weapon, ensure the \
-	 safety is off, and click where you want to fire. \n\
+	safety is off, and click where you want to fire. \n\
+	\n\
 	Most lasers can safely fire through glass without harming it."
 
 /obj/item/gun/energy/get_description_interaction()

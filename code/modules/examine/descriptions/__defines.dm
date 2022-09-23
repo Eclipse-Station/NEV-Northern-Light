@@ -12,3 +12,8 @@
 #define GENERIC_FLUFF_FIREARMS_OBERTH ""
 #define GENERIC_FLUFF_FIREARMS_ONESTAR ""
 #define GENERIC_FLUFF_FIREARMS_MEKHANE ""
+
+//Generic antag texts.
+#define GENERIC_ANTAG_EMAG_WILL_UNLOCK "You can use a crypotgraphic sequencer to unlock this."
+#define GENERIC_ANTAG_STAYAWAY "Regardless of your antag status, sabotaging or tampering with this will probably get you in deep water with the administrators."
+#define GENERIC_ANTAG_STAYAWAY_SUPERMATTER "Regardless of your antag status, sabotaging the Supermatter, or any of its related equipment, is a huge no-no and will almost always get you in deep trouble with the administrators."

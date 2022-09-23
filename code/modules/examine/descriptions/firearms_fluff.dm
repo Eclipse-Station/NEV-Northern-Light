@@ -1,4 +1,4 @@
-//Fluff text.
+//Fluff text for firearms.
 
 ///////////////
 // ENERGY
