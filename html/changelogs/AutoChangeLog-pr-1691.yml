@@ -1,0 +1,4 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - rscadd: Adds a warning if the number of mobs gets too insane.
