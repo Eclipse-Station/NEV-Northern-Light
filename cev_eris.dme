@@ -1682,6 +1682,7 @@
 #include "code\modules\examine\descriptions\engineering.dm"
 #include "code\modules\examine\descriptions\firearms.dm"
 #include "code\modules\examine\descriptions\firearms_fluff.dm"
+#include "code\modules\examine\descriptions\lazarus.dm"
 #include "code\modules\examine\descriptions\machinery_nol.dm"
 #include "code\modules\examine\descriptions\tools_and_mods.dm"
 #include "code\modules\ext_scripts\irc.dm"

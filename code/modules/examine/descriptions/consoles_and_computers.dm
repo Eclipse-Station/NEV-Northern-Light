@@ -52,7 +52,7 @@
 /obj/machinery/computer/arcade
 	description_antag = "You can use a crypographic sequencer to crank the difficulty \
 	up to Realism Mode. In Realism Mode, if the player dies in the arcade game, \
-	they die in front of the arcade game, as well."
+	they die in front of the arcade cabinet, as well."
 
 /obj/machinery/computer/arcade/get_description_interaction()
 	var/list/results = list()

@@ -161,3 +161,100 @@
 
 /obj/machinery/atmospherics/omni/mixer
 	description_info = "Gas omni-mixers will mix the gases of up to three pipelines."
+
+//Air alarms.
+/obj/machinery/alarm
+	description_info = "Air alarms control an area's vents and scrubbers, and to \
+	a lesser extent, the firelock doors (which are also controlled by a fire alarm). \
+	If the air alarm is locked, about all you'll be able to control is the thermostat \
+	and the ability for people with access to remotely control them."
+
+	description_antag = "Air alarms are known to throw false alarms from time to \
+	time. You can use this to your advantage, for example, by remotely sending an \
+	air alarm in a public area away from you into an alarm."
+
+/obj/machinery/alarm/get_description_interaction()
+	var/list/results = list()
+	if(locked)
+		results += "To unlock an air alarm, swipe an ID with appropriate access, or \
+		alt-click if you have access."
+	else
+		results += "To lock an air alarm and prevent others from tampering with it, \
+		swipe an ID with appropriate access, or alt-click if you have access."
+		
+		switch(screen)
+			if(AALARM_SCREEN_MAIN)
+				results += "The air alarm's interface is currently in the main menu. \
+				You can select the various sub-menus and look back up here to see \
+				the basics of what each menu entails."
+			if(AALARM_SCREEN_VENT)
+				results += "The air alarm's interface is currently in the control \
+				screen for the vents. Here you can toggle the power, adjust the \
+				desired pressure, range, and metering mode for the vents."
+				results += "The vents have two metering modes: Internal and External. \
+				For Internal, the vents will try to shunt out (pressurizing) or \
+				suck in (siphoning) gas until the internal pipe pressure reaches \
+				that amount; for External, the vents will try to shunt out (pressurizing) \
+				or suck in (siphoning) gas until the ambient pressure reaches that amount."
+			if(AALARM_SCREEN_SCRUB)
+				results += "The air alarm's interface is currently in the control \
+				screen for the scrubbers. Here you can toggle the power, adjust the \
+				range, select the scrubber mode, and select which gases are scrubbed."
+				results +=  "Scrubbers have two main modes: Scrub (remove specified \
+				gases from the ambient atmosphere), and Siphon (remove ALL gases \
+				from the ambient atmosphere). Scrubbing is the most useful, unless \
+				you really need to fully depressurize a room."
+			if(AALARM_SCREEN_MODE)
+				results += "The air alarm's interface is currently in the mode selection \
+				menu. Here you can select various presets to vent and scrubber settings. \
+				There are several modes to choose from, each with their own settings."
+				results += "- Filtering: This is the main mode for the air alarm to \
+				be operating in. It filters out common contaminants from the air."
+				results += "- Replace Air: This sets the scrubbers to siphon, but \
+				leaves the vents on. This is useful for equalizing temperatures."
+				results += "- Panic: This sets the scrubbers to siphon, and turns \
+				off vents. This is useful for depressurizing an area."
+				results += "- Cycle: This is two-stage. Stage One sets the mode to \
+				Panic, and removes nearly all gas from the area. Once the pressure \
+				is low enough, it sets the mode to Fill and repressurizes the area. \
+				This is useful if a contamination or temperature is too extreme for \
+				another mode, but takes a lot longer."
+				results += "- Fill: This turns off the scrubbers. It is useful for \
+				getting pressure back, as gas isn't scrubbed, but has its downsides."
+				results += "- Off: Turns everything off. This is the default mode \
+				the system goes to if a breach is detected."
+			if(AALARM_SCREEN_SENSORS)
+				results += "The air alarm's interface is currently in the control \
+				screen for the internal sensors. Here you can adjust what conditions \
+				will trigger an alarm from the air alarm. You can also disable the \
+				sensors here by setting them to a value of '-1', but be warned that \
+				disabling one threshold will also disable all thresholds to the left \
+				of it."
+	
+	return results
+
+//Fire alarms
+/obj/machinery/firealarm
+	description_info = "Fire alarms warn of fires and control the firelock doors. \
+	You can also use them to seal an area off, in the event of another emergency."
+
+	description_antag = "Fire alarms can also be activated by hitting them, or \
+	\"remotely\" activated by shooting them."
+
+//canisters
+/obj/machinery/portable_atmospherics/canister
+	description_info = "Canisters are a way to transport a large amount of gas. You \
+	can refill them by using a connector port to which gas you want to fill them \
+	with."
+
+	description_antag = "Canisters are also a good way to flood an area with gas. \
+	Just be mindful of using it to phoronflood, as that could easily get you in trouble \
+	with the administrators."
+
+//portable gas tanks.
+/obj/item/tank
+	description_info = "Gas tanks hold gas. The most common type is an oxygen tank, \
+	which is used to breathe in a vacuum when paired with a suitable mask or helmet. \
+	You can adjust the regulator pressure by activating it in your hand; but be aware \
+	that humans need 16 kPa of oxygen to be able to breathe, and other species may \
+	need more or less, depending on the species."
