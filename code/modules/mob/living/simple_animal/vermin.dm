@@ -137,6 +137,7 @@
 
 /mob/living/simple_animal/vermin/proc/spawn_vermin(mob/parent)
 	var/list/turfs = cardinal_turfs(src)
+	var/list/potential_candidates = list()		//Reduces north/south bias.
 	for (var/t in turfs)
 		var/turf/T = t
 		var/turf/U = get_connecting_turf(T, loc)//This handles Zlevel stuff
@@ -147,6 +148,8 @@
 			continue
 		else
 			if(istype(T, /turf/unsimulated/) || istype(T, /turf/space) || (istype(T, /turf/simulated/mineral) && T.density))
+				continue
+			if(istype(T, /turf/simulated/open))		//If we spawn over open space, we're in for a bad time.
 				continue
 			if(istype(T, /turf/simulated/wall))//slowly chip away
 				var/turf/simulated/wall/SW = T
@@ -181,18 +184,22 @@
 			if(M?.density == FALSE)
 				M = null
 
-			if (S == null && M == null)
-				T.Enter(src) //This should make them travel down stairs
-				var/mob/living/simple_animal/vermin/child = new /mob/living/simple_animal/vermin(T)
-				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
-				smoke.set_up(1, 0, T)
-				smoke.attach(child)
-				smoke.start()
+			if (isnull(S) && isnull(M))
+				potential_candidates += T
+	
+	if(potential_candidates.len)
+		var/turf/chosen_turf = pick(potential_candidates)	//Again, to reduce north/south spread bias.
 
+		chosen_turf.Enter(src) //This should make them travel down stairs
+		var/mob/living/simple_animal/vermin/child = new /mob/living/simple_animal/vermin(chosen_turf)
+		var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
+		smoke.set_up(1, 0, chosen_turf)
+		smoke.attach(child)
+		smoke.start()
 
-				return
-
-	power_nutrition = power_nutrition - 75
+		power_nutrition = power_nutrition - 75
+	else
+		power_nutrition = min(power_nutrition, 80)		//Cap the nutrition so it doesn't try and spawn twenty immediately.
 
 /mob/living/simple_animal/vermin/attackby(var/obj/item/O as obj)
 	. = ..()
