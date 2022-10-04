@@ -45,6 +45,16 @@
 	</tr>
 </table>
 
+			<h2 class="date">04 October 2022</h2>
+			<h3 class="author">EvilJackCarver updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactor of Vermin spawn code.</li>
+				<li class="bugfix">Vermin will no longer attempt to spawn more Vermin above open spaces.</li>
+				<li class="bugfix">Vermin should no longer be biased north/south when they spawn a new Vermin. Any bias left is the result of inherent bias within the pick() proc.</li>
+				<li class="bugfix">Vermin now have a cap of 80 "power nutrition", meaning if a player hacks their way to one that is waiting to spawn another Vermin, then only one Vermin will be spawned by it (up to 3 due to neighbouring Vermin).</li>
+				<li class="server">This PR does NOT revert the "excess mob count" warning, so admins (and players, if no admin is on) will still be notified if things Go Sideways.</li>
+			</ul>
+
 			<h2 class="date">24 September 2022</h2>
 			<h3 class="author">EvilJackCarver updated:</h3>
 			<ul class="changes bgimages16">
@@ -107,23 +117,6 @@
 				<li class="bugfix">fixed all the broken underwear items which previously were missing sprites</li>
 				<li class="imageadd">added icon_states to mob.dmi</li>
 				<li class="code_imp">slight updates to undershirt.dm to facilitate all the above</li>
-			</ul>
-
-			<h2 class="date">02 August 2022</h2>
-			<h3 class="author">EvilJackCarver updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Hugs will now give sanity if the person doing the hugging or the person being hugged has low enough sanity.</li>
-				<li class="rscadd">Benzins can now continue to leak while being dragged, or when hit with a sharp object.</li>
-				<li class="rscadd">Added a config option to allow the server operator to change the number of exoplanets that are generated.</li>
-				<li class="rscadd">Ports EclipseStation13 species-specific chemistry reaction framework.</li>
-				<li class="rscadd">Dispatcher can now announce the presence, and defeat, of a hivemind.</li>
-				<li class="rscadd">Adds basic framework for simplemob bonus damage.</li>
-				<li class="rscadd">Adds the Chiropteran Arms Maverick, a lever-action energy gun designed to bridge the gap between single-shot high-damage (e.g. the Paladin) and repeating energy weapons (e.g. pretty much every other laser out there sans the Squire).</li>
-				<li class="tweak">Rejuvinating agent is a bit more difficult to make.</li>
-				<li class="tweak">Minor under-the-hood changes for the Liquid Trichloramine reagent.</li>
-				<li class="tweak">Tweaks to various wording in Eclipse configs.</li>
-				<li class="bugfix">Gas masks now filter out chloramines.</li>
-				<li class="bugfix">Fixes an issue where dummymobs created by the ghost icon generation system could be emailed.</li>
 			</ul>
 <br>
 <b>NEV Northern Light Development Team</b>
