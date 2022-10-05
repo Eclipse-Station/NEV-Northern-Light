@@ -227,6 +227,8 @@
 	change the cell by using a screwdriver to remove the old cell, then putting \
 	a new cell inside."
 	
+	return results
+	
 /obj/item/device/defib_kit/jumper_kit
 	description_info = "A jumper cable kit is a special type of defibrillator used \
 	to revive a full-body prosthetic from the dead.\n\
@@ -243,6 +245,20 @@
 	description_info = "Medical stands can be used to hang blood bags, beakers, and \
 	anaesthetic tanks. You can perform a blood draw using a medical stand and a \
 	blood bag or beaker."
+
+/obj/item/device/scanner/mass_spectrometer
+	description_info = "A mass spectrometer is used to identify chemicals in a \
+	blood sample. You can use it on a beaker (or other glassware) or a syringe. \
+	Blood must be the only thing in the sample for it to work, else the sample will \
+	be considered 'contaminated' and give no results."
+
+/obj/item/device/scanner/mass_spectrometer/get_description_interaction()
+	var/list/results = list()
+	if(details)
+		results += "An advanced mass spectrometer will also tell you how much of \
+		a reagent was found in the blood sample."
+	
+	return results
 	
 ///////////////
 // CHEMISTRY MACHINERY
@@ -282,6 +298,10 @@
 /obj/machinery/electrolyzer
 	description_info = "An electrolyzer is used to separate a compound into its \
 	basic chemicals."
+
+/obj/machinery/reagentgrinder
+	description_info = "Grinders are used to grind sheets of material, such as iron \
+	or phoron, into reagents."
 
 ///////////////
 // CHEMISTRY ITEMS
@@ -330,4 +350,57 @@ obj/item/reagent_containers/glass/bottle
 	description_info = "Droppers are used to precisely mix reagents. You can adjust \
 	how much reagent you transfer between a single unit, up to the full dropper, \
 	by right-clicking it."
+
+///////////////
+// RESEARCH MACHINERY
+///////////////
+
+/obj/machinery/autolathe/rnd/protolathe
+	description_info = "A protolathe is used to construct prototypes. It can be \
+	operated from an R&D Console.\n\
+	\n\
+	A protolathe requires materials to be able to print. You can insert sheets of metal, \
+	plastic, wood, etc. to get materials from that, or you can also recycle items \
+	to get materials that way."
+
+/obj/machinery/autolathe/rnd/imprinter
+	description_info = "A circuit imprinter is used to create circuit boards for \
+	various machinery, computers, and other things that don't fit neatly within those \
+	two categories. It can be operated from an R&D Console. \n\
+	\n\
+	Most circuit boards require certain reagents to produce. You can remove the \
+	beaker and refill it if necessary by detaching it from the imprinter's menu."
+
+
+/obj/machinery/r_n_d/destructive_analyzer
+	description_info = "A destructive analyzer can be used to break down items inserted \
+	into them and analyze them for their research value. More valuable items will \
+	generally yield higher research values, and higher research values are needed \
+	to be able to produce better items and components. It can be operated from an \
+	R&D Console."
+
+/obj/machinery/autolathe/mechfab
+	description_info = "An exosuit fabricator is used to create robotic parts for \
+	cyborgs, mechs, and prosthetics. It functions similarly to an autolathe, but \
+	you'll want to sync it with the R&D Console, as increased research levels may \
+	yield newer and better designs."
+
+/obj/machinery/bioprinter		//Here because it's in Research Surgery.
+	description_info = "A bioprinter is used to create replacement or prosthetic \
+	organs out of biomass. To create a replacement organ, you will need to inject \
+	a blood sample so the organ is not immediately rejected."
+
+///////////////
+// RESEARCH ITEMS
+///////////////
+
+/obj/item/device/science_tool
+	description_info = "A science tool is used to get data from autopsy reports \
+	and artifacts, as well as check what research value an item has."
+
+/obj/item/stock_parts
+	description_info = "Stock parts (in general) are used in machinery to allow them \
+	to perform their various tasks. Different 'tiers' of stock part exist, and a \
+	higher 'tier' of part will generally allow machinery to perform its job better. \
+	Exactly what effect a 'tier' will have, however, depends on the machine itself."
 

@@ -15,7 +15,7 @@
 /obj/machinery/vending/get_description_interaction()
 	var/list/results = list()
 	
-	if(premium)
+	if(premium.len)
 		results += "This machine in particular also has premium items available. \
 		To show or dispense premium items, insert a coin."
 	

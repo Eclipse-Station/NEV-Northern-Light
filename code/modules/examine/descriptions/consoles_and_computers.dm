@@ -68,7 +68,7 @@
 	var/list/results = list()
 	results += "This console is used to print guest passes. Guest passes function \
 	identically to ID cards, and can have access put on them by the person creating \
-	the guest pass (up to and including all of their access, but expire after a \
+	the guest pass (up to and including all of their access), but expire after a \
 	period of time."
 
 	return results
