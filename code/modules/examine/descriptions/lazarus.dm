@@ -102,6 +102,18 @@
 	
 	return results
 
+/obj/item/storage/firstaid/o2/get_description_interaction()
+	var/list/results = list()
+	
+	results += "An oxygen-deprivation first aid kit contains medicines to help treat \
+	oxygen deprivation and suffocation."
+	
+	return results
+	
+/obj/item/storage/firstaid/surgery 
+	description_info = "A surgery kit holds surgical tools and contains everything \
+	you might need to open up someone who is still alive."
+
 /obj/item/stack/medical/bruise_pack		//Gauze
 	description_info = "Gauze is used to bandage, cover, and protect most external \
 	wounds. Bandaged wounds have a far lower chance of becoming infected."
@@ -131,27 +143,6 @@
 /obj/item/stack/medical/splint
 	description_info = "Splints are used to restrict broken bones from movement, \
 	allowing a patient or casualty to move about without jostling them painfully."
-
-/obj/item/reagent_containers/syringe
-	description_info = "A syringe is used to inject reagents into a patient. They \
-	can also be used to draw blood."
-	
-	description_antag = "Syringes do not change their name based on the reagent \
-	that is currently inside them. However, be careful when loading one with toxins, \
-	as a victim might be able to tell something's up by the color of the reagent \
-	inside the syringe."
-
-/obj/item/reagent_containers/hypospray/autoinjector
-	description_info = "An autoinjector is used to quickly inject a small amount \
-	of medicine into a casualty or patient. Unlike a regular syringe, autoinjectors \
-	cannot be refilled once they are used, and cannot be used to draw blood."
-
-/obj/item/reagent_containers/pill
-	description_info = "Pills are a way to administer medicines or drugs."
-	
-	description_antag = "Pills can be used to spike drinks or beakers with lethal \
-	chemicals. If you have the Fast Fingers perk, nobody but you will know you slipped \
-	a pill in; otherwise, anyone who is close will be able to see you do it."
 
 //Patient transport
 /obj/item/bodybag
@@ -201,3 +192,142 @@
 	transport a patient or casualty who is incapable of transporting themselves, \
 	such as a casualty with a broken leg. To deploy a roller bed, use it in your \
 	hand."
+	
+/obj/item/implant/core_implant/soulcrypt
+	description_info = "A soulcrypt is used to back up a patient's DNA and mind in \
+	the event of death. It can be used in an STL-73 Clonepod to clone a deceased \
+	patient."
+	
+/obj/item/device/defib_kit
+	description_info = "A defibrillator (officially, a Manual External Defibrillator) \
+	is used to shock a patient's heart. This is useful to revive a patient from the \
+	dead, or stop and restart their heart due to a cardiac arrest. \n\
+	\n\
+	Defibrillating a patient will cause some minor electrical burns. You cannot defib \
+	a casualty if their brute, burn, or toxin damage is too high, and you cannot defib \
+	someone who has been dead for more than 8 minutes."
+	
+/obj/item/device/defib_kit/get_description_interaction()
+	var/list/results = list()
+	results += "To defibrillate a casualty, wear the defibrillator on your back, click \
+	the defibrillator to pull the paddles out, use the paddles in your hand to hold \
+	them with both hands, then click the casualty."
+	results += "A back-worn defibrillator uses an internal L-size cell. You can \
+	change the cell by using a screwdriver to remove the old cell, then putting \
+	a new cell inside."
+	
+	return results
+
+/obj/item/device/defib_kit/compact/get_description_interaction()
+	var/list/results = list()
+	results += "To defibrillate a casualty, wear the defibrillator on your belt, click \
+	the defibrillator to pull the paddles out, use the paddles in your hand to hold \
+	them with both hands, then click the casualty."
+	results += "A belt-worn defibrillator uses an internal M-size cell. You can \
+	change the cell by using a screwdriver to remove the old cell, then putting \
+	a new cell inside."
+	
+/obj/item/device/defib_kit/jumper_kit
+	description_info = "A jumper cable kit is a special type of defibrillator used \
+	to revive a full-body prosthetic from the dead.\n\
+	\n\
+	Defibrillating a patient will cause some minor electrical burns. You cannot defib \
+	a casualty if their brute, burn, or toxin damage is too high, and you cannot defib \
+	someone who has been dead for more than 8 minutes."
+	
+/obj/item/implanter
+	description_info = "An implanter is used to put implants, such as a death alarm \
+	or soulcrypt, into someone."
+	
+/obj/structure/medical_stand 
+	description_info = "Medical stands can be used to hang blood bags, beakers, and \
+	anaesthetic tanks. You can perform a blood draw using a medical stand and a \
+	blood bag or beaker."
+	
+///////////////
+// CHEMISTRY MACHINERY
+///////////////
+
+/obj/machinery/centrifuge
+	description_info = "A centrifuge is used to separate reagents from beakers."
+
+/obj/machinery/chemical_dispenser
+	description_info = "A chemical dispenser is used to dispense reagents into \
+	beakers or other glassware."
+
+/obj/machinery/chemical_dispenser/get_description_interaction()
+	if(hacked_reagents.len)
+		description_antag = "You can hack this to allow it to dispense other reagents."
+
+/obj/machinery/chemical_dispenser/soda		//Not strictly chemistry equipment.
+	description_info = "A soda dispenser is used to fill drinkware with various \
+	different non-alcoholic beverages."
+
+/obj/machinery/chemical_dispenser/beer
+	description_info = "A booze dispenser is used to fill drinkware with alcoholic \
+	beverages."
+
+/obj/machinery/chem_heater
+	description_info = "Chemical heaters are used to adjust the temperature of reagents \
+	in a beaker. This is normally used to force them to react and create a different \
+	reagent."
+
+/obj/machinery/chem_master
+	description_info = "A ChemMaster 3000 is used to analyze reagents within a beaker, \
+	as well as create smaller bottles of reagent. It can also create pills."
+
+/obj/machinery/chem_master/condimaster		//TODO: Check and see.
+	description_info = null
+
+/obj/machinery/electrolyzer
+	description_info = "An electrolyzer is used to separate a compound into its \
+	basic chemicals."
+
+///////////////
+// CHEMISTRY ITEMS
+///////////////
+
+/obj/item/reagent_containers/syringe
+	description_info = "A syringe is used to inject reagents into a patient. They \
+	can also be used to draw blood."
+	
+	description_antag = "Syringes do not change their name based on the reagent \
+	that is currently inside them. However, be careful when loading one with toxins, \
+	as a victim might be able to tell something's up by the color of the reagent \
+	inside the syringe."
+
+/obj/item/reagent_containers/hypospray/autoinjector
+	description_info = "An autoinjector is used to quickly inject a small amount \
+	of medicine into a casualty or patient. Unlike a regular syringe, autoinjectors \
+	cannot be refilled once they are used, and cannot be used to draw blood."
+
+/obj/item/reagent_containers/pill
+	description_info = "Pills are a way to administer medicines or drugs."
+	
+	description_antag = "Pills can be used to spike drinks or beakers with lethal \
+	chemicals. If you have the Fast Fingers perk, nobody but you will know you slipped \
+	a pill in; otherwise, anyone who is close will be able to see you do it."
+
+/obj/item/reagent_containers/glass/beaker
+	description_info = "Beakers, vials, and other similar glassware are used to \
+	hold and mix reagents. You can drink from them, though it isn't recommended if \
+	you don't know what reagents are in the beaker."
+
+obj/item/reagent_containers/glass/bottle
+	description_info = "Beakers, vials, and other similar glassware are used to \
+	hold and mix reagents. You can drink from them, though it isn't recommended if \
+	you don't know what reagents are in the beaker."
+
+/obj/item/reagent_containers/glass/beaker/bowl	//Technically not a chemistry item, but here for consistency.
+	description_info = null
+
+/obj/item/reagent_containers/glass/bucket		//Also not strictly chemistry.
+	description_info = "Buckets are usually used to ferry large amounts of water \
+	from Point A to Point B. You can use these to water plants, put water in a mop \
+	cart, or even use a mop directly in the bucket to wet a mop."
+
+/obj/item/reagent_containers/dropper
+	description_info = "Droppers are used to precisely mix reagents. You can adjust \
+	how much reagent you transfer between a single unit, up to the full dropper, \
+	by right-clicking it."
+

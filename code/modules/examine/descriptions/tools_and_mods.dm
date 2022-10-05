@@ -43,7 +43,7 @@
 		if(QUALITY_DRILLING in src.tool_qualities)
 			results += "This tool can be used as a surgical drill."
 		if(QUALITY_HAMMERING in src.tool_qualities)
-			results += "This tool can be used as a hammer. Hammers are used for\
+			results += "This tool can be used as a hammer. Hammers are used for \
 			precise, focused applications of blunt-force trauma."
 		if(QUALITY_SAWING in src.tool_qualities)
 			results += "This tool can be used as a saw. Saws are mostly used to amputate \
