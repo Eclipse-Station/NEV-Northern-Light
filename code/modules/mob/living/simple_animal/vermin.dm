@@ -16,6 +16,7 @@
 
 	var/power_nutrition = 0
 	var/origin_entity
+	var/children_left = 4 //Only spawned manually/by event ones have four. The children only have 2
 
 	var/forbidden_machinery_types = list(/obj/machinery/alarm,
 	/obj/machinery/atmospherics,
@@ -92,10 +93,10 @@
 	var/area/A = get_area(src)
 	if(A)
 		if(A.powered(STATIC_ENVIRON))
-			A.use_power(850, STATIC_ENVIRON)
+			A.use_power(1000, STATIC_ENVIRON)
 			power_nutrition++
 
-	if (power_nutrition > 75)
+	if (power_nutrition > 90 && children_left > 0)
 		spawn_vermin(src)
 
 
@@ -136,9 +137,9 @@
 	return TRUE
 
 /mob/living/simple_animal/vermin/proc/spawn_vermin(mob/parent)
-	var/list/turfs = cardinal_turfs(src)
+	var/list/turfs = oview(src, 5)
 	var/list/potential_candidates = list()		//Reduces north/south bias.
-	for (var/t in turfs)
+	for (var/turf/t in turfs)
 		var/turf/T = t
 		var/turf/U = get_connecting_turf(T, loc)//This handles Zlevel stuff
 		//If the target turf connects to another across Zlevels, U will hold the destination
@@ -151,32 +152,6 @@
 				continue
 			if(istype(T, /turf/simulated/open))		//If we spawn over open space, we're in for a bad time.
 				continue
-			if(istype(T, /turf/simulated/wall))//slowly chip away
-				var/turf/simulated/wall/SW = T
-				SW.take_damage(rand(0,3))
-				power_nutrition = power_nutrition - 5
-				return
-			var/obj/structure/girder/G = locate() in T
-			if(G)
-				G.take_damage(100)
-				power_nutrition = power_nutrition - 5
-				return
-			var/obj/structure/window/W = locate() in T
-			if(W)
-				W.take_damage(rand(0,7)) //Reinforced windows have 6 resistance so this will rarely damage them
-				power_nutrition = power_nutrition - 5
-				return
-			var/obj/structure/grille/GR = locate() in T
-			if(GR)
-				qdel(GR)
-				power_nutrition = power_nutrition - 5
-				return
-
-			for(var/obj/machinery/door/D in T)
-				if(D.density)
-					D.take_damage(15)
-					//Vermin eat through doors
-					return
 			var/obj/structure/S = locate() in T
 			var/obj/machinery/M = locate() in T
 			if(S?.density == FALSE)
@@ -186,20 +161,48 @@
 
 			if (isnull(S) && isnull(M))
 				potential_candidates += T
-	
+
 	if(potential_candidates.len)
 		var/turf/chosen_turf = pick(potential_candidates)	//Again, to reduce north/south spread bias.
+		if(istype(chosen_turf, /turf/simulated/wall))//slowly chip away
+			var/turf/simulated/wall/SW = chosen_turf
+			SW.take_damage(rand(0,3))
+			power_nutrition = power_nutrition - 5
+			return
+		var/obj/structure/girder/G = locate() in chosen_turf
+		if(G)
+			G.take_damage(100)
+			power_nutrition = power_nutrition - 5
+			return
+		var/obj/structure/window/W = locate() in chosen_turf
+		if(W)
+			W.take_damage(rand(0,7)) //Reinforced windows have 6 resistance so this will rarely damage them
+			power_nutrition = power_nutrition - 5
+			return
+		var/obj/structure/grille/GR = locate() in chosen_turf
+		if(GR)
+			qdel(GR)
+			power_nutrition = power_nutrition - 5
+			return
+
+		for(var/obj/machinery/door/D in chosen_turf)
+			if(D.density)
+				D.take_damage(15)
+				//Vermin eat through doors
+				return
 
 		chosen_turf.Enter(src) //This should make them travel down stairs
 		var/mob/living/simple_animal/vermin/child = new /mob/living/simple_animal/vermin(chosen_turf)
 		var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
+		child.children_left = 2 //So they spread more slowly
+		children_left--
 		smoke.set_up(1, 0, chosen_turf)
 		smoke.attach(child)
 		smoke.start()
 
-		power_nutrition = power_nutrition - 75
+		power_nutrition = power_nutrition - 90
 	else
-		power_nutrition = min(power_nutrition, 80)		//Cap the nutrition so it doesn't try and spawn twenty immediately.
+		power_nutrition = min(power_nutrition, 100)		//Cap the nutrition so it doesn't try and spawn twenty immediately.
 
 /mob/living/simple_animal/vermin/attackby(var/obj/item/O as obj)
 	. = ..()
