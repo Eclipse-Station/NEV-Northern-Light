@@ -99,3 +99,14 @@
 	You can also use it to view logs of what was said over the radio."
 
 	return results
+
+/obj/machinery/computer/helm/get_description_interaction()
+	var/list/results = list()
+	results += "This console is used to pilot the ship."
+
+	return results
+
+/obj/machinery/computer/engines/get_description_interaction()
+	var/list/results = list()
+	results += "This console is used to check the status of the thrusters. You can \
+	also control the thrust limiter and shut down thrusters with it."
