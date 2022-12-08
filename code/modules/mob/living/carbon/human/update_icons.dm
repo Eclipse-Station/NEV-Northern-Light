@@ -231,7 +231,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				icon_key += "nolips"
 
-			var/has_eyes = species.has_process[OP_EYES]
+			var/has_eyes = species.has_process[OP_EYES] //Eclipse add - to distinguish species that have no "eye" organ, but still have eye sprites
 			if(!has_eyes)
 				icon_key += "[r_eyes], [g_eyes], [b_eyes]"
 
@@ -281,6 +281,8 @@ var/global/list/damage_icon_parts = list()
 				else
 					base_icon.Blend(temp, ICON_OVERLAY)
 
+			//Eclipse add start
+
 			var/has_eyes = species.has_process[OP_EYES] //For species that have eyes, but don't have it as an organ
 			if(!has_eyes && (species.appearance_flags & HAS_EYE_COLOR))
 				var/icon/eyes_icon = new/icon('icons/mob/human_face.dmi', "eye_l")
@@ -288,6 +290,8 @@ var/global/list/damage_icon_parts = list()
 				var/newcolour = rgb(r_eyes, g_eyes, b_eyes)
 				eyes_icon.Blend(newcolour, ICON_ADD)
 				base_icon.Blend(eyes_icon, ICON_OVERLAY)
+
+			//Eclipse add end
 
 
 			if(!skeleton)

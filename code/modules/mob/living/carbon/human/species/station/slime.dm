@@ -3,8 +3,8 @@
 	name_plural = "Prometheans"
 	mob_size = MOB_SMALL
 
-	icobase = 'icons/mob/human_races/r_human_vr.dmi'
-	deform = 'icons/mob/human_races/r_human_vr.dmi'
+	icobase = 'icons/mob/human_races/r_human_vr.dmi' //Eclipse edit
+	deform = 'icons/mob/human_races/r_human_vr.dmi'	//Eclipse edit
 
 	blurb = "Prometheans (Macrolimus artificialis) are a species of artificially-created gelatinous humanoids, \
 	chiefly characterized by their primarily liquid bodies and ability to change their bodily shape and color in order to  \
@@ -14,9 +14,9 @@
 
 	language = null //todo?
 	unarmed_types = list(/datum/unarmed_attack/slime_glomp)
-	inherent_verbs = list(/mob/living/carbon/human/proc/regenerate_organs, /mob/living/carbon/human/proc/promethean_morph)
+	inherent_verbs = list(/mob/living/carbon/human/proc/regenerate_organs, /mob/living/carbon/human/proc/promethean_morph) //Eclipse edit
 	flags = NO_SCAN | NO_SLIP | NO_BREATHE | NO_MINOR_CUT
-	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_SKIN_COLOR | HAS_EYE_COLOR
+	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_SKIN_COLOR | HAS_EYE_COLOR //Eclipse edit
 	total_health = 200
 	brute_mod = 1.2
 	burn_mod = 0.7
@@ -24,8 +24,8 @@
 	siemens_coefficient = 3 //conductive
 	darksight = 3
 
-	blood_color = "#03bafc"
-	flesh_color = "#03bafc"
+	blood_color = "#03bafc" //Eclipse edit
+	flesh_color = "#03bafc" //Eclipse edit
 
 	remains_type = /obj/effect/decal/cleanable/ash
 	death_message = "rapidly loses cohesion, splattering across the ground..."
@@ -34,7 +34,7 @@
 		BP_BRAIN = /obj/item/organ/internal/brain/slime
 		)
 
-	var/original = TRUE
+	var/original = TRUE //Eclipse edit -- used to determine if this is the "base" species used by global lists or a "local" version used for shapeshifting
 
 	breath_type = null
 	poison_type = null
@@ -743,7 +743,6 @@
 		else
 			var/datum/species/slime/my_species = species
 			if(my_species.original)
-				visible_message("MAKING NEW ONE")
 				var/datum/species/slime/special_species = new /datum/species/slime //Can't use global one or all prommies will be affected, no need to rebuild, because same type
 				special_species.original = FALSE
 				species = special_species
