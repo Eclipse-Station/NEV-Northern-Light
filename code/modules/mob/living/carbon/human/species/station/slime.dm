@@ -3,8 +3,8 @@
 	name_plural = "Prometheans"
 	mob_size = MOB_SMALL
 
-	icobase = 'icons/mob/human_races/r_slime.dmi'
-	deform = 'icons/mob/human_races/r_slime.dmi'
+	icobase = 'icons/mob/human_races/r_human_vr.dmi'
+	deform = 'icons/mob/human_races/r_human_vr.dmi'
 
 	blurb = "Prometheans (Macrolimus artificialis) are a species of artificially-created gelatinous humanoids, \
 	chiefly characterized by their primarily liquid bodies and ability to change their bodily shape and color in order to  \
@@ -14,8 +14,9 @@
 
 	language = null //todo?
 	unarmed_types = list(/datum/unarmed_attack/slime_glomp)
-	inherent_verbs = list(/mob/living/carbon/human/proc/regenerate_organs)
+	inherent_verbs = list(/mob/living/carbon/human/proc/regenerate_organs, /mob/living/carbon/human/proc/promethean_morph)
 	flags = NO_SCAN | NO_SLIP | NO_BREATHE | NO_MINOR_CUT
+	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	total_health = 200
 	brute_mod = 1.2
 	burn_mod = 0.7
@@ -23,8 +24,8 @@
 	siemens_coefficient = 3 //conductive
 	darksight = 3
 
-	blood_color = "#05FF9B"
-	flesh_color = "#05FFFB"
+	blood_color = "#03bafc"
+	flesh_color = "#03bafc"
 
 	remains_type = /obj/effect/decal/cleanable/ash
 	death_message = "rapidly loses cohesion, splattering across the ground..."
@@ -32,6 +33,8 @@
 	has_process = list(
 		BP_BRAIN = /obj/item/organ/internal/brain/slime
 		)
+
+	var/original = TRUE
 
 	breath_type = null
 	poison_type = null
@@ -53,7 +56,7 @@
 		BP_L_FOOT = new /datum/organ_description/foot/left/slime,
 		BP_R_FOOT = new /datum/organ_description/foot/right/slime
 	)
-	
+
 	reagent_tag = IS_SLIME		//Eclipse edit.
 
 
@@ -531,7 +534,7 @@
 
 
 /mob/living/simple_animal/promethean_blob/proc/get_max_nutrition() // Can't go above it
-	return 1000
+	return target_nutrition*1.2
 
 /mob/living/simple_animal/promethean_blob/proc/get_grow_nutrition() // Above it we grow, below it we can eat
 	return 800
@@ -719,3 +722,105 @@
 				..()
 		else
 			..()
+
+
+
+
+/mob/living/carbon/human/proc/promethean_morph()
+	set name = "Morph"
+	set category = "Abilities"
+
+	if(stat!=CONSCIOUS)
+		reset_view(0)
+		remoteview_target = null
+		return
+
+	var/new_species = input("Please select species icon base.") as null|anything in playable_species
+	var/datum/species/newicon_s = all_species[new_species]
+	if(new_species)
+		if(!newicon_s.humaniform)
+			to_chat(usr, "<span class='warning'>You can't morph into this species!</span>")
+		else
+			var/datum/species/slime/my_species = species
+			if(my_species.original)
+				visible_message("MAKING NEW ONE")
+				var/datum/species/slime/special_species = new /datum/species/slime //Can't use global one or all prommies will be affected, no need to rebuild, because same type
+				special_species.original = FALSE
+				species = special_species
+
+			species.color_mult = newicon_s.color_mult
+			species.race_key = newicon_s.race_key
+			species.tail = newicon_s.tail
+			species.tail_animation = newicon_s.tail_animation
+			species.icobase = newicon_s.icobase
+			species.deform = newicon_s.icobase //also icobase because slimes don't really bleed or get deformed
+
+	var/new_skin = input(usr, "Please select your character's skin colour: ", "Skin Color", rgb(r_skin, g_skin, b_skin)) as color|null
+	if(new_skin)
+		var/r_skin = hex2num(copytext(new_skin, 2, 4))
+		var/g_skin = hex2num(copytext(new_skin, 4, 6))
+		var/b_skin = hex2num(copytext(new_skin, 6, 8))
+		change_skin_color(r_skin, g_skin, b_skin)
+
+	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
+	if(new_facial)
+		r_facial = hex2num(copytext(new_facial, 2, 4))
+		g_facial = hex2num(copytext(new_facial, 4, 6))
+		b_facial = hex2num(copytext(new_facial, 6, 8))
+
+	var/new_hair = input("Please select hair color.", "Character Generation",rgb(r_hair,g_hair,b_hair)) as color
+	if(new_facial)
+		r_hair = hex2num(copytext(new_hair, 2, 4))
+		g_hair = hex2num(copytext(new_hair, 4, 6))
+		b_hair = hex2num(copytext(new_hair, 6, 8))
+
+	var/new_eyes = input("Please select eye color.", "Character Generation",rgb(r_eyes,g_eyes,b_eyes)) as color
+	if(new_eyes)
+		r_eyes = hex2num(copytext(new_eyes, 2, 4))
+		g_eyes = hex2num(copytext(new_eyes, 4, 6))
+		b_eyes = hex2num(copytext(new_eyes, 6, 8))
+		update_eyes()
+
+
+	// hair
+	var/list/all_hairs = typesof(/datum/sprite_accessory/hair) - /datum/sprite_accessory/hair
+	var/list/hairs = list()
+
+	// loop through potential hairs
+	for(var/x in all_hairs)
+		var/datum/sprite_accessory/hair/H = new x // create new hair datum based on type x
+		hairs.Add(H.name) // add hair name to hairs
+		qdel(H) // delete the hair after it's all done
+
+	var/new_style = input("Please select hair style", "Character Generation",h_style)  as null|anything in hairs
+
+	// if new style selected (not cancel)
+	if (new_style)
+		h_style = new_style
+
+	// facial hair
+	var/list/all_fhairs = typesof(/datum/sprite_accessory/facial_hair) - /datum/sprite_accessory/facial_hair
+	var/list/fhairs = list()
+
+	for(var/x in all_fhairs)
+		var/datum/sprite_accessory/facial_hair/H = new x
+		fhairs.Add(H.name)
+		qdel(H)
+
+	new_style = input("Please select facial style", "Character Generation",f_style)  as null|anything in fhairs
+
+	if(new_style)
+		f_style = new_style
+
+	var/new_gender = alert(usr, "Please select gender.", "Character Generation", "Male", "Female", "Neutral")
+	if (new_gender)
+		if(new_gender == "Male")
+			gender = MALE
+		if(new_gender == "Neutral")
+			gender = PLURAL
+		else
+			gender = FEMALE
+	regenerate_icons()
+	check_dna()
+
+	visible_message("\blue \The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!", "\blue You change your appearance!", "\red Oh, god!  What the hell was that?  It sounded like something goopy shifting and squelching!")
