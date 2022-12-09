@@ -68,6 +68,8 @@
 		if(H)
 			H.gib()
 
+//Eclipse edits from here to EoF
+
 /mob/living/carbon/human/proc/regenerate_organs()
 	set name = "Regenerate missing limb"
 	set desc = "Regenerate a missing limb at the cost of nutrition"
@@ -534,7 +536,7 @@
 
 
 /mob/living/simple_animal/promethean_blob/proc/get_max_nutrition() // Can't go above it
-	return target_nutrition*1.2
+	return target_nutrition * 1.2
 
 /mob/living/simple_animal/promethean_blob/proc/get_grow_nutrition() // Above it we grow, below it we can eat
 	return 800
@@ -730,7 +732,7 @@
 	set name = "Morph"
 	set category = "Abilities"
 
-	if(stat!=CONSCIOUS)
+	if(stat != CONSCIOUS)
 		reset_view(0)
 		remoteview_target = null
 		return
@@ -754,20 +756,20 @@
 			species.icobase = newicon_s.icobase
 			species.deform = newicon_s.icobase //also icobase because slimes don't really bleed or get deformed
 
-	var/new_skin = input(usr, "Please select your character's skin colour: ", "Skin Color", rgb(r_skin, g_skin, b_skin)) as color|null
+	var/new_skin = input(usr, "Please select your character's skin color: ", "Skin Color", rgb(r_skin, g_skin, b_skin)) as color|null
 	if(new_skin)
 		var/r_skin = hex2num(copytext(new_skin, 2, 4))
 		var/g_skin = hex2num(copytext(new_skin, 4, 6))
 		var/b_skin = hex2num(copytext(new_skin, 6, 8))
 		change_skin_color(r_skin, g_skin, b_skin)
 
-	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
+	var/new_facial = input("Please select facial hair color.", "Character Generation", rgb(r_facial, g_facial, b_facial)) as color
 	if(new_facial)
 		r_facial = hex2num(copytext(new_facial, 2, 4))
 		g_facial = hex2num(copytext(new_facial, 4, 6))
 		b_facial = hex2num(copytext(new_facial, 6, 8))
 
-	var/new_hair = input("Please select hair color.", "Character Generation",rgb(r_hair,g_hair,b_hair)) as color
+	var/new_hair = input("Please select hair color.", "Character Generation", rgb(r_hair, g_hair, b_hair)) as color
 	if(new_facial)
 		r_hair = hex2num(copytext(new_hair, 2, 4))
 		g_hair = hex2num(copytext(new_hair, 4, 6))
@@ -791,7 +793,7 @@
 		hairs.Add(H.name) // add hair name to hairs
 		qdel(H) // delete the hair after it's all done
 
-	var/new_style = input("Please select hair style", "Character Generation",h_style)  as null|anything in hairs
+	var/new_style = input("Please select hair style", "Character Generation", h_style) as null|anything in hairs
 
 	// if new style selected (not cancel)
 	if (new_style)
@@ -806,7 +808,7 @@
 		fhairs.Add(H.name)
 		qdel(H)
 
-	new_style = input("Please select facial style", "Character Generation",f_style)  as null|anything in fhairs
+	new_style = input("Please select facial style", "Character Generation", f_style) as null|anything in fhairs
 
 	if(new_style)
 		f_style = new_style
@@ -822,4 +824,4 @@
 	regenerate_icons()
 	check_dna()
 
-	visible_message("\blue \The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!", "\blue You change your appearance!", "\red Oh, god!  What the hell was that?  It sounded like something goopy shifting and squelching!")
+	visible_message("<span class='notice'>\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!</span>", "<span class='notice'>You change your appearance!"</span>, "<span class='warning'>Oh, god! What the hell was that?  It sounded like something goopy shifting and squelching!</span>")
