@@ -1687,6 +1687,7 @@
 #include "code\modules\examine\descriptions\machinery_nol.dm"
 #include "code\modules\examine\descriptions\security.dm"
 #include "code\modules\examine\descriptions\tools_and_mods.dm"
+#include "code\modules\examine\descriptions\union.dm"
 #include "code\modules\ext_scripts\irc.dm"
 #include "code\modules\ext_scripts\python.dm"
 #include "code\modules\flufftext\Dreaming.dm"
