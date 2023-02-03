@@ -117,7 +117,7 @@
 	\n\
 	Heavy mining equipment, such as the drill head, have a tendency to disturb the \
 	local fauna. You should be prepared to defend the drill (and your life!) if the \
-	wildlife take exception to your mining operations. \
+	wildlife take exception to your mining operations. \n\
 	\n\
 	A deep mining drill runs off a size-L power cell. To remove the cell, open \
 	the maintenance panel with a screwdriver, then take the cell out by hand. To \

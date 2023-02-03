@@ -110,3 +110,5 @@
 	var/list/results = list()
 	results += "This console is used to check the status of the thrusters. You can \
 	also control the thrust limiter and shut down thrusters with it."
+	
+	return results

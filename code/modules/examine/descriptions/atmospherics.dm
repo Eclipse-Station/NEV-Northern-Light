@@ -1,4 +1,5 @@
 // Atmospherics-related help texts.
+// Note: TEG circulators are located in engineering.dm instead.
 
 //Pipes.
 /obj/machinery/atmospherics/pipe
