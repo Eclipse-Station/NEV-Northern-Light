@@ -26,6 +26,9 @@
 	vision_range = 15
 	sanity_damage = 0.5
 
+	//Eclipse-added vars
+	simplemob_bonus_enabled = TRUE		//Intentional here. You want to kill a boss with a BB gun? Go right on ahead.
+
 /mob/living/simple_animal/hostile/megafauna/Initialize(mapload)
 	. = ..()
 	for(var/action_type in attack_action_types)
@@ -78,6 +81,8 @@
 
 		if(3)
 			adjustBruteLoss(50)
+		if(4)
+			adjustBruteLoss(25)
 
 /mob/living/simple_animal/hostile/megafauna/proc/SetRecoveryTime(buffer_time)
 	recovery_time = world.time + buffer_time

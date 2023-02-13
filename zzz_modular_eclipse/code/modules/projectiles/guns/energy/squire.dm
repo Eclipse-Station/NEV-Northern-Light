@@ -28,7 +28,7 @@
 	if(!cell) return null
 	if(cell && cell.charge <= 250)
 		damage_multiplier *= 0.85 //51 damage
-	else if(cell && cell.charge >= 999) 
+	else if(cell && cell.charge >= 999)
 		damage_multiplier *= 1200 //God is pissed at you damage
 	else if(cell && cell.charge >= 500)
 		damage_multiplier *= 1.25 //75 damage
@@ -52,10 +52,12 @@
 	else
 		return new projectile_type(src)
 
-/obj/item/gun/energy/laser/squire/on_update_icon()
+/obj/item/gun/energy/laser/squire/update_icon()
 	cut_overlays()
 	if(cell)
-		add_overlays("laser_squire")
+		overlays += "on_squire"
+	if(!cell)
+		overlays += "off_squire"
 
 /obj/item/dead_cell/small
 	name = "fried small battery"

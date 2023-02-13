@@ -186,6 +186,10 @@
 	name= "Engineering supply pouch"
 	build_path = /obj/item/storage/pouch/engineering_supply
 
+/datum/design/bioprinter/engineering_material
+	name = "Engineering material pouch"
+	build_path = /obj/item/storage/pouch/engineering_material
+
 /datum/design/bioprinter/ammo
 	name= "Ammo pouch"
 	build_path = /obj/item/storage/pouch/ammo
@@ -352,6 +356,9 @@
 	name = "NT Spear"
 	build_path = /obj/item/tool/sword/nt/spear
 
+/datum/design/autolathe/nt/sword/nt_verutum
+	name = "NT Javelin"
+	build_path = /obj/item/stack/thrown/nt/verutum
 
 /datum/design/autolathe/nt/tool_upgrade/sanctifier
 	name = "Sanctifier"
@@ -362,9 +369,13 @@
 	name = "MA SG \"Holy Fog\""
 	build_path = /obj/item/grenade/smokebomb/nt
 
+/datum/design/autolathe/nt/grenade/nt_heatwave
+	name = "NT HG \"Inferno\""
+	build_path = /obj/item/grenade/heatwave/nt
+
 /datum/design/autolathe/nt/grenade/nt_frag
 	name = "MA DFG \"Holy Thunder\""
-	build_path = /obj/item/grenade/frag/nt
+	build_path = /obj/item/grenade/heatwave/nt
 
 /datum/design/autolathe/nt/grenade/nt_flashbang
 	name = "MA FBG \"Holy Light\""
@@ -418,7 +429,33 @@
 	build_path = /obj/item/stack/medical/advanced/ointment
 
 /datum/design/bioprinter/lungs
-	name = "Extended Lungs"
+	name = "Long lungs"
 	materials = list(MATERIAL_BIOMATTER = 30)
 	build_path = /obj/item/organ/internal/lungs/long
+
+/datum/design/bioprinter/heart
+	name = "Five chamber heart"
+	materials = list(MATERIAL_BIOMATTER = 45)
+	build_path = /obj/item/organ/internal/heart/huge
+
+/datum/design/bioprinter/liver
+	name = "Gargantuan liver"
+	materials = list(MATERIAL_BIOMATTER = 30)
+	build_path = /obj/item/organ/internal/liver/big
+
+/datum/design/bioprinter/nerves
+	name = "Hypersensitive nerves"
+	materials = list(MATERIAL_BIOMATTER = 15, MATERIAL_GOLD = 1)
+	build_path = /obj/item/organ/internal/nerve/sensitive_nerve
+
+/datum/design/bioprinter/muscle
+	name = "Super-strength muscle"
+	materials = list(MATERIAL_BIOMATTER = 30)
+	build_path = /obj/item/organ/internal/muscle/super_muscle
+
+/datum/design/bioprinter/blood_vessel
+	name = "Extensive blood vessels"
+	materials = list(MATERIAL_BIOMATTER = 30, MATERIAL_PLASTIC = 2)
+	build_path = /obj/item/organ/internal/blood_vessel/extensive
+
 //[/MED]

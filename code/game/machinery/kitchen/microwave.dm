@@ -18,6 +18,9 @@
 	var/global/list/acceptable_items // List of the items you can put in
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 0
+	var/list/blacklisted_from_buffs = list(
+	/obj/item/reagent_containers/food/snacks/donkpocket
+	)
 
 
 // see code/modules/food/recipes_microwave.dm for recipes
@@ -156,13 +159,13 @@
 		return
 	if(QUALITY_BOLT_TURNING in I.tool_qualities)
 		user.visible_message( \
-		"<span class='notice'>\The [user] begins [src.anchored ? "securing" : "unsecuring"] the [src].</span>", \
-		"<span class='notice'>You attempt to [src.anchored ? "secure" : "unsecure"] the [src].</span>"
+		"<span class='notice'>\The [user] begins [src.anchored ? "unsecuring" : "securing"] the [src].</span>", \
+		"<span class='notice'>You attempt to [src.anchored ? "unsecure" : "secure"] the [src].</span>"
 		)
 		if(I.use_tool(user, src, WORKTIME_FAST, QUALITY_BOLT_TURNING, FAILCHANCE_EASY,  required_stat = STAT_MEC))
 			user.visible_message( \
-			"<span class='notice'>\The [user] [src.anchored ? "secures" : "unsecures"] the [src].</span>", \
-			"<span class='notice'>You [src.anchored ? "secure" : "unsecure"] the [src].</span>"
+			"<span class='notice'>\The [user] [src.anchored ? "unsecures" : "secures"] the [src].</span>", \
+			"<span class='notice'>You [src.anchored ? "unsecure" : "secure"] the [src].</span>"
 			)
 			src.anchored = !src.anchored
 	else
@@ -449,13 +452,13 @@
 /obj/machinery/microwave/campfire/abort()
 	..()
 	playsound(loc, 'sound/effects/flare.ogg', 50, 1)
-	icon_state = "barrelfire1"	
+	icon_state = "barrelfire1"
 
 /obj/machinery/microwave/campfire/stop()
 	..()
 	playsound(loc, 'sound/effects/flare.ogg', 50, 1)
 	icon_state = "barrelfire1"
-	
+
 /obj/machinery/microwave/campfire/dispose()
 	..()
 	playsound(loc, 'sound/effects/flare.ogg', 50, 1)

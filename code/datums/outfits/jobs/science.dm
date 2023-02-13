@@ -18,7 +18,7 @@
 	uniform = /obj/item/clothing/under/rank/expedition_overseer
 	id_type = /obj/item/card/id/rd
 	pda_type = /obj/item/modular_computer/pda/heads/rd
-	backpack_contents = list(/obj/item/oddity/secdocs = 1, /obj/item/clipboard = 1) //Eclipse Edit - fixed items not spawning if you spawn in dorms
+	backpack_contents = list(/obj/item/oddity/secdocs = 1, /obj/item/clipboard = 1, /obj/item/gun/projectile/selfload/moebius = 1, /obj/item/ammo_magazine/pistol/rubber = 2) //Eclipse Edit - fixed items not spawning if you spawn in dorms
 
 /decl/hierarchy/outfit/job/science/scientist
 	name = OUTFIT_JOB_NAME("Scientist")

@@ -1,6 +1,6 @@
 /obj/item/gun/energy/sniperrifle
-	name = "NT LDMR M \"Valkyrie\""  //Eclipse Edit - gun names standardized
-	desc = "\"Valkyrie\" is an older NanoTrasen design not in production any longer. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon for killing from a distance." //Eclipse Edit - altered description
+	name = "\improper NT LDMR M \"Valkyrie\""  //Eclipse Edit - gun names standardized
+	desc = "The \"Valkyrie\" is an older NanoTrasen design not in production any longer. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon for killing from a distance." //Eclipse Edit - altered description
 	icon = 'icons/obj/guns/energy/sniper.dmi'
 	icon_state = "sniper"
 	item_state = "sniper"
@@ -17,6 +17,7 @@
 	price_tag = 5000
 	cell_type = /obj/item/cell/medium
 	zoom_factor = 2
+	scoped_offset_reduction = 8
 	init_firemodes = list(
 		WEAPON_NORMAL,
 		WEAPON_CHARGE

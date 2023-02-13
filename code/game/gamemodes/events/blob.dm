@@ -9,6 +9,8 @@
 	In an emergency, a phoron canister and a lighter will bring a quick end to a blob
 */
 
+#define BLOB_HEATING_POWER 1100
+
 /datum/storyevent/blob
 	id = "blob"
 	name = "Blob"
@@ -68,7 +70,7 @@
 	anchored = TRUE
 	mouse_opacity = 2
 
-	var/maxHealth = 20
+	var/maxHealth = 40		//Eclipse edit: buff blobs a bit.
 	var/health = 1
 	var/health_regen = 1.7
 	var/brute_resist = 1.25
@@ -90,7 +92,7 @@
 	//Expansion gets slower as the blob gets farther away from the origin core
 	var/next_expansion = 0
 	var/coredist = 1
-	var/dist_time_scaling = 1.5
+	var/dist_time_scaling = 1.4875		//Eclipse edit: Speeds up blob growth marginally.
 
 /obj/effect/blob/New(loc, var/obj/effect/blob/_parent)
 	if (_parent)
@@ -200,15 +202,15 @@
 	if(ambient.total_moles)		//Do we even have an atmosphere?
 		var/thermalChange = ambient.get_thermal_energy_change(desired_temperature)
 		var/heat_transfer = 0
-		if(thermalChange > 0)
-			heat_transfer = min(thermalChange , 500)
+		if(thermalChange > 0)		//heating an area
+			heat_transfer = min(thermalChange , BLOB_HEATING_POWER)
 
 			ambient.add_thermal_energy(heat_transfer)
-		else
+		else		//cooling an area
 			thermalChange = abs(thermalChange)
 
 			var/cop = ambient.temperature/T20C
-			heat_transfer = min(thermalChange, cop * 500)	//limit the rate the blob cools a room
+			heat_transfer = min(thermalChange, cop * BLOB_HEATING_POWER)	//limit the rate the blob cools a room
 
 			ambient.add_thermal_energy(-heat_transfer)
 // // // END ECLIPSE EDITS // // //
@@ -295,12 +297,14 @@
 			take_damage(rand(60, 100) / brute_resist)
 		if(3)
 			take_damage(rand(20, 60) / brute_resist)
+		if(4)
+			take_damage(rand(10, 30) / brute_resist)
 
 
 /obj/effect/blob/fire_act()
 	take_damage(rand(20, 60) / fire_resist)
 
-/obj/effect/blob/on_update_icon()
+/obj/effect/blob/update_icon()
 	var/healthpercent = health / maxHealth
 	if(healthpercent > 0.5)
 		icon_state = "blob"
@@ -551,7 +555,7 @@
 	core = src //It is its own core
 	..()
 
-/obj/effect/blob/core/on_update_icon()
+/obj/effect/blob/core/update_icon()
 	return
 
 //When the core dies, wake up all our sub-blobs so they can slowly die too
@@ -579,7 +583,7 @@
 	density = TRUE
 	icon_scale = 1.2
 
-/obj/effect/blob/shield/on_update_icon()
+/obj/effect/blob/shield/update_icon()
 	var/healthpercent = health / maxHealth
 	if(healthpercent > 0.6)
 		icon_state = "blob_idle"

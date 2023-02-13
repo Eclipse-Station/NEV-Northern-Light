@@ -254,7 +254,7 @@
 
 	character.body_markings = body_markings
 
-	QDEL_NULL_LIST(character.worn_underwear)
+	QDEL_LIST(character.worn_underwear)
 	character.worn_underwear = list()
 
 	for(var/underwear_category_name in all_underwear)
@@ -263,7 +263,9 @@
 			var/underwear_item_name = all_underwear[underwear_category_name]
 			var/datum/category_item/underwear/UWD = underwear_category.items_by_name[underwear_item_name]
 			var/metadata = all_underwear_metadata[underwear_category_name]
-			var/obj/item/underwear/UW = UWD.create_underwear(character, metadata, 'icons/inventory/underwear/mob.dmi')
+			// begin Eclipse Edit //
+			var/obj/item/underwear/UW = UWD.create_underwear(character, metadata, 'zzz_modular_eclipse/icons/inventory/underwear/mob.dmi')
+			//end Eclipse Edit //
 			if(UW)
 				UW.ForceEquipUnderwear(character, FALSE)
 		else

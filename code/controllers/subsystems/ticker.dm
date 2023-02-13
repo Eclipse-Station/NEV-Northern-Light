@@ -21,7 +21,7 @@ SUBSYSTEM_DEF(ticker)
 
 	var/random_players = 0 	// if set to nonzero, ALL players who latejoin or declare-ready join will have random appearances/genders
 
-	var/list/syndicate_coalition = list() // list of traitor-compatible factions
+	var/list/syndicate_coalition = list() // list of contractor-compatible factions
 	var/list/factions = list()			  // list of all factions
 	var/list/availablefactions = list()	  // list of factions with openings
 
@@ -319,11 +319,11 @@ SUBSYSTEM_DEF(ticker)
 	//Now animate the cinematic
 	sleep(30)
 
-	FLICK("intro_nuke", cinematic)
+	flick("intro_nuke", cinematic)
 
 	sleep(30)
 
-	FLICK("ship_explode_fade_red", cinematic)
+	flick("ship_explode_fade_red", cinematic)
 
 	sleep(15)
 
@@ -532,6 +532,18 @@ SUBSYSTEM_DEF(ticker)
 		to_chat(world, "<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] at the end of this round.</b>")
 
 	GLOB.storyteller.declare_completion()//To declare normal completion.
+	
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Dispatcher can declare round end to Discord.
+	if(config.ntdad_enabled && config.ntdad_roundend_ping)
+		var/player_count = GLOB.player_list.len
+		if(player_count >= config.ntdad_minimum_roundend)
+			var/__playertext = "players"
+			if(player_count == 1)		//Take the S off if we've only got one player on.
+				__playertext = "player"
+			SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended aboard \the [station_name()] with [player_count] [__playertext]. A new round will start in a few minutes.")
+	// // // END ECLIPSE EDITS // // //
+	
 	scoreboard()//scores
 	//Ask the event manager to print round end information
 	SSevent.RoundEnd()

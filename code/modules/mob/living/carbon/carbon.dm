@@ -18,9 +18,9 @@
 	qdel(ingested)
 	qdel(touching)
 	// We don't qdel(bloodstr) because it's the same as qdel(reagents)
-	QDEL_NULL_LIST(internal_organs)
-	QDEL_NULL_LIST(stomach_contents)
-	QDEL_NULL_LIST(hallucinations)
+	QDEL_LIST(internal_organs)
+	QDEL_LIST(stomach_contents)
+	QDEL_LIST(hallucinations)
 	return ..()
 
 /mob/living/carbon/rejuvenate()
@@ -234,6 +234,21 @@
 				else
 					M.visible_message(SPAN_NOTICE("[M] hugs [src] to make [t_him] feel better!"), \
 								SPAN_NOTICE("You hug [src] to make [t_him] feel better!"))
+					// // // BEGIN ECLIPSE EDITS // // //
+					//Hugging now restores sanity if it's critically low.
+					if(istype(M, /mob/living/carbon/human))
+						var/mob/living/carbon/human/R = M
+						if(R.sanity)		//We do the person giving the hug...
+							if(R.sanity.level < config.maximum_hug_sanity_restoration)
+								R.sanity.changeLevel(1.5)	//but not as much as...
+					if(istype(src, /mob/living/carbon/human))
+						var/mob/living/carbon/human/Q = src
+						if(Q.sanity)		//the person receiving the hug...
+							if(Q.sanity.level < config.maximum_hug_sanity_restoration)
+								Q.sanity.changeLevel(3)		//who's getting more.
+					
+					// // // END ECLIPSE EDITS // // //
+					
 				if(M.fire_stacks >= (src.fire_stacks + 3))
 					src.fire_stacks += 1
 					M.fire_stacks -= 1
@@ -272,6 +287,11 @@
 	var/atom/movable/item = src.get_active_hand()
 
 	if(!item) return
+
+	if(istype(item, /obj/item/stack/thrown))
+		var/obj/item/stack/thrown/V = item
+		V.fireAt(target, src)
+		return
 
 	if (istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
@@ -377,6 +397,7 @@
 		to_chat(src, SPAN_WARNING("You slipped on [slipped_on]!"))
 		playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 	Weaken(stun_duration)
+
 	return TRUE
 
 /mob/living/carbon/proc/add_chemical_effect(var/effect, var/magnitude = 1)

@@ -36,6 +36,7 @@
 	var/stasis_timeofdeath = 0
 	var/pulse = PULSE_NORM
 	var/global/list/overlays_cache = null
+	var/dodge_time = 0 // will be set to timeofgame on dodging
 
 /mob/living/carbon/human/Life()
 	set invisibility = 0
@@ -78,6 +79,12 @@
 		handle_pain()
 
 		handle_medical_side_effects()
+
+		if (life_tick % 4 == 1 && (get_game_time() >= dodge_time + 5 SECONDS))
+			if (confidence == FALSE && style > 0)
+				to_chat(src, SPAN_NOTICE("You feel confident again."))
+				confidence = TRUE
+			regen_slickness()
 
 		if(life_tick % 2)	//Upadated every 2 life ticks, lots of for loops in this, needs to feel smother in the UI
 			for(var/obj/item/organ/external/E in organs)
@@ -266,7 +273,7 @@
 			if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
 				radiation -= 5 * RADIATION_SPEED_COEFFICIENT
 				to_chat(src, SPAN_WARNING("You feel weak."))
-				Weaken(3)
+				Weaken(3, FALSE)
 				if(!lying)
 					emote("collapse")
 			if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.get_bodytype() == SPECIES_HUMAN) //apes go bald
@@ -297,11 +304,9 @@
 	/** breathing **/
 
 /mob/living/carbon/human/handle_chemical_smoke(var/datum/gas_mixture/environment)
-	if(wear_mask && (wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(wear_mask && (wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT & AIRTIGHT))
 		return
-	if(glasses && (glasses.item_flags & BLOCK_GAS_SMOKE_EFFECT))
-		return
-	if(head && (head.item_flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(head && (head.item_flags & BLOCK_GAS_SMOKE_EFFECT & AIRTIGHT))
 		return
 	..()
 
@@ -493,7 +498,7 @@
 				if(prob(20))
 					emote("cough")
 				if(reagents)
-					reagents.add_reagent("toxin", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+					reagents.add_reagent("liquid_chlor", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 
 			//Not lethal, but makes loud messages.
 			else
@@ -1206,7 +1211,7 @@
 		else if(((mRemote in mutations) || remoteviewer) && remoteview_target)
 			if(remoteview_target.stat == CONSCIOUS)
 				isRemoteObserve = TRUE
-		if(!isRemoteObserve && client && !client.adminobs)
+		if(!isRemoteObserve && client && !client.adminobs && !using_scope)
 			remoteview_target = null
 			reset_view(null, FALSE)
 
@@ -1219,6 +1224,14 @@
 		return
 	if(XRAY in mutations)
 		sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+
+/mob/living/carbon/human/proc/regen_slickness(var/source_modifier = 1)
+	var/slick = TRUE
+	if (slickness == style*10) // is slickness at the maximum?
+		slick = FALSE
+	slickness = max(min(slickness + 1 * source_modifier * style, style*10), 0)
+	if (slick && slickness == style*10 && style > 0) // if slickness was not at the maximum and now is
+		to_chat(src, SPAN_NOTICE("You feel slick!")) // notify of slickness entering maximum
 
 /mob/living/carbon/human/proc/EnterStasis()
 	in_stasis = TRUE

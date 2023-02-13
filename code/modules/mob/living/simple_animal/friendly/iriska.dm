@@ -33,6 +33,9 @@
 	max_scan_interval = 10
 	eat_from_hand = FALSE
 
+	//Eclipse-added vars
+	simplemob_bonus_enabled = FALSE		//don't even think about it.
+
 var/atom/snack = null
 
 var/list/tolerated = list()
@@ -132,14 +135,16 @@ var/list/despised = list()
 		return B
 
 /mob/living/simple_animal/iriska/proc/despise(mob/living/carbon/human/M as mob)
-	despised |= M.real_name
-	if(M.real_name in tolerated)
-		tolerated -= M.real_name
+	if(istype(M))
+		despised |= M.real_name
+		if(M.real_name in tolerated)
+			tolerated -= M.real_name
 
 /mob/living/simple_animal/iriska/proc/tolerate(mob/living/carbon/human/M as mob)
-	if(!(M.real_name in tolerated) && prob(30))
-		visible_emote("looks at [M] approvingly.")
-		tolerated += M.real_name
+	if(istype(M))
+		if(!(M.real_name in tolerated) && prob(30))
+			visible_emote("looks at [M] approvingly.")
+			tolerated += M.real_name
 
 /mob/living/simple_animal/iriska/attackby(var/obj/item/O, var/mob/user)
 	. = ..()
@@ -176,6 +181,7 @@ var/list/despised = list()
 			H.sanity.negative_prob += 30
 			H.sanity.positive_prob = 0
 			H.sanity.level = 0
+			H.max_style = MIN_HUMAN_STYLE
 			for(var/stat in ALL_STATS)
 				H.stats.changeStat(stat, -10)
 			to_chat(H, SPAN_DANGER("The shadows seem to lengthen, the walls are closing in. The ship itself wants you dead."))

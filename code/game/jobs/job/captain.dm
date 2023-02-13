@@ -4,7 +4,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	title = "Captain"
 	flag = CAPTAIN
 	department = DEPARTMENT_COMMAND
-	head_position = 1
+	head_position = TRUE
+	aster_guild_member = TRUE
 	department_flag = COMMAND
 	faction = "NEV Northern Light"
 	total_positions = 1
@@ -76,7 +77,8 @@ Your third loyalty is to your command officers. The heads of each faction. Liste
 	title = "First Officer"
 	flag = FIRSTOFFICER
 	department = DEPARTMENT_COMMAND
-	head_position = 1
+	head_position = TRUE
+	aster_guild_member = TRUE
 	department_flag = COMMAND
 	faction = "NEV Northern Light"
 	total_positions = 1
@@ -192,7 +194,7 @@ Assist other departments from the bridge when the Captain has no work for you. Y
 							 /datum/computer_file/program/alarm_monitor)
 
 
-	access = list(access_RC_announce, access_keycard_auth, access_heads, access_external_airlocks, access_bar, access_kitchen, access_network, access_engine, access_moebius, access_rd, access_security)
+	access = list(access_RC_announce, access_keycard_auth, access_heads, access_external_airlocks, access_bar, access_kitchen, access_network, access_atmos_consoles, access_engine_consoles, access_moebius_consoles, access_rd_consoles, access_armory_consoles, access_sec_consoles, access_sec_doors, access_supply_consoles)
 
 	stat_modifiers = list(
 		STAT_ROB = 15,

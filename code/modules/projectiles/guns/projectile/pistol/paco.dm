@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/paco
-	name = "FS HG .35 Auto \"Paco\""
+	name = "\improper FS HG .35 Auto \"Paco\""
 	desc = "A modern and reliable sidearm for the soldier in the field. Commonly issued as a sidearm to Aegis Operatives. Uses standard .35 and high capacity magazines."
 	icon = 'icons/obj/guns/projectile/paco.dmi'
 	icon_state = "paco"
@@ -24,8 +24,9 @@
 	gun_tags = list(GUN_SILENCABLE)
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	gun_parts = list(/obj/item/part/gun/frame/paco = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/pistol = 1)
 
-/obj/item/gun/projectile/paco/on_update_icon()
+/obj/item/gun/projectile/paco/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -47,3 +48,12 @@
 /obj/item/gun/projectile/paco/Initialize()
 	. = ..()
 	update_icon()
+
+/obj/item/part/gun/frame/paco
+	name = "\improper Paco frame"
+	desc = "A Paco pistol frame. A reliable companion in the field."
+	icon_state = "frame_paco"
+	result = /obj/item/gun/projectile/paco
+	grip = /obj/item/part/gun/grip/rubber
+	mechanism = /obj/item/part/gun/mechanism/pistol
+	barrel = /obj/item/part/gun/barrel/pistol 

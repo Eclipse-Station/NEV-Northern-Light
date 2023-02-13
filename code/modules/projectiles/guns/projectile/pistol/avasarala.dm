@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/avasarala
-	name = "NT HG .40 Magnum \"Avasarala\""
+	name = "\improper NT HG .40 Magnum \"Avasarala\""
 	desc = "An obvious replica of an old Earth \"Desert Eagle\". Robust and straight, this is a gun for a leader, not just an officer."
 
 	icon = 'icons/obj/guns/projectile/avasarala.dmi'
@@ -27,8 +27,9 @@
 	price_tag = 1600
 	gun_tags = list(GUN_GILDABLE)
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	gun_parts = list(/obj/item/part/gun/frame/avasarala = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/magnum = 1)
 
-/obj/item/gun/projectile/avasarala/on_update_icon()
+/obj/item/gun/projectile/avasarala/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -47,3 +48,12 @@
 /obj/item/gun/projectile/avasarala/Initialize()
 	. = ..()
 	update_icon()
+
+/obj/item/part/gun/frame/avasarala
+	name = "\improper Avasarala frame"
+	desc = "An Avasarala pistol frame. Something to command respect."
+	icon_state = "frame_deagle"
+	result = /obj/item/gun/projectile/avasarala
+	grip = /obj/item/part/gun/grip/black
+	mechanism = /obj/item/part/gun/mechanism/pistol
+	barrel = /obj/item/part/gun/barrel/magnum

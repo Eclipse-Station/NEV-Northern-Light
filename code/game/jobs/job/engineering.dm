@@ -20,7 +20,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/engineering/exultant
 
 	access = list(
-		access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
+		access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_engine_consoles, access_atmos_consoles,
 		access_teleporter, access_network, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 		access_heads, access_construction, access_sec_doors,
 		access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_change_engineering
@@ -78,7 +78,7 @@ Your second loyalty is to your workers. Ensure they are paid, fed and safe. Don'
 
 	access = list(
 		access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
-		access_external_airlocks, access_construction, access_atmospherics
+		access_external_airlocks, access_construction, access_atmospherics, access_engine_consoles, access_atmos_consoles
 	)
 
 	stat_modifiers = list(

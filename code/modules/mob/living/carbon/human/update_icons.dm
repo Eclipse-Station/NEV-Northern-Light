@@ -148,14 +148,14 @@ Please contact me on #coderbus IRC. ~Carn x
 /mob/living/carbon/human/update_icons()
 	lying_prev = lying	//so we don't update overlays for lying/standing unless our stance changes again
 //	update_hud()		//TODO: remove the need for this
-	cut_overlays()
+	overlays.Cut()
 
 	if (icon_update)
 		icon = stand_icon
 		for(var/image/I in overlays_standing)
-			add_overlays(I)
+			overlays += I
 		if(species.has_floating_eyes)
-			associate_with_overlays(species.get_eyes(src))
+			overlays |= species.get_eyes(src)
 
 var/global/list/damage_icon_parts = list()
 
@@ -195,7 +195,7 @@ var/global/list/damage_icon_parts = list()
 		else
 			DI = damage_icon_parts[cache_index]
 
-		standing_image.overlays.Add(DI)
+		standing_image.overlays += DI
 
 	overlays_standing[DAMAGE_LAYER] = standing_image
 
@@ -230,6 +230,10 @@ var/global/list/damage_icon_parts = list()
 				icon_key += "[lip_style]"
 			else
 				icon_key += "nolips"
+
+			var/has_eyes = species.has_process[OP_EYES] //Eclipse add - to distinguish species that have no "eye" organ, but still have eye sprites
+			if(!has_eyes)
+				icon_key += "[r_eyes], [g_eyes], [b_eyes]"
 
 			for(var/organ_tag in species.has_limbs)
 				var/obj/item/organ/external/part = organs_by_name[organ_tag]
@@ -276,6 +280,19 @@ var/global/list/damage_icon_parts = list()
 					base_icon.Blend(temp2, ICON_UNDERLAY)
 				else
 					base_icon.Blend(temp, ICON_OVERLAY)
+
+			//Eclipse add start
+
+			var/has_eyes = species.has_process[OP_EYES] //For species that have eyes, but don't have it as an organ
+			if(!has_eyes && (species.appearance_flags & HAS_EYE_COLOR))
+				var/icon/eyes_icon = new/icon('icons/mob/human_face.dmi', "eye_l")
+				eyes_icon.Blend(icon('icons/mob/human_face.dmi', "eye_r"), ICON_OVERLAY)
+				var/newcolour = rgb(r_eyes, g_eyes, b_eyes)
+				eyes_icon.Blend(newcolour, ICON_ADD)
+				base_icon.Blend(eyes_icon, ICON_OVERLAY)
+
+			//Eclipse add end
+
 
 			if(!skeleton)
 				if(husk)
@@ -422,7 +439,7 @@ var/global/list/damage_icon_parts = list()
 	for(var/mut in mutations)
 		switch(mut)
 			if(LASER)
-				standing.overlays.Add("lasereyes_s")
+				standing.overlays += "lasereyes_s"
 				add_image = 1
 	if(add_image)
 		overlays_standing[MUTATIONS_LAYER]	= standing
@@ -440,7 +457,7 @@ var/global/list/damage_icon_parts = list()
 		if(I.is_external() && I.wearer == src)
 			var/image/mob_icon = I.get_mob_overlay(gender)
 			if(mob_icon)
-				standing.overlays.Add(mob_icon)
+				standing.overlays += mob_icon
 				have_icon = TRUE
 
 	if(have_icon)
@@ -510,22 +527,33 @@ var/global/list/damage_icon_parts = list()
 
 //gender icons
 /mob/living/carbon/human/proc/get_gender_icon(var/g = MALE, var/slot)
-	var/list/icons = list(
-		"uniform"		= (g == MALE) ? 'icons/inventory/uniform/mob.dmi' : 'icons/inventory/uniform/mob_fem.dmi',
-		"suit"			= (g == MALE) ? 'icons/inventory/suit/mob.dmi' : 'icons/inventory/suit/mob_fem.dmi',
-		"gloves"		= 'icons/inventory/hands/mob.dmi',
-		"glasses"		= 'icons/inventory/eyes/mob.dmi',
-		"ears"			= 'icons/inventory/ears/mob.dmi',
-		"mask"			= 'icons/inventory/face/mob.dmi',
-		"hat"			= 'icons/inventory/head/mob.dmi',
-		"shoes"			= 'icons/inventory/feet/mob.dmi',
-		"misk"			= 'icons/mob/mob.dmi',
-		"belt"			= 'icons/inventory/belt/mob.dmi',
-		"s_store"		= 'icons/inventory/on_suit/mob.dmi',
-		"backpack"		= 'icons/inventory/back/mob.dmi',
-		"underwear"		= 'icons/inventory/underwear/mob.dmi'
-		)
-	return icons[slot]
+	//Eclipse edit start
+	var/mob/living/carbon/human/H = src
+	if(H.species.humaniform)
+	//Eclipse edit end
+		var/list/icons = list(
+			"uniform"		= (g == MALE) ? 'icons/inventory/uniform/mob.dmi' : 'icons/inventory/uniform/mob_fem.dmi',
+			"suit"			= (g == MALE) ? 'icons/inventory/suit/mob.dmi' : 'icons/inventory/suit/mob_fem.dmi',
+			"gloves"		= 'icons/inventory/hands/mob.dmi',
+			"glasses"		= 'icons/inventory/eyes/mob.dmi',
+			"ears"			= 'icons/inventory/ears/mob.dmi',
+			"mask"			= 'icons/inventory/face/mob.dmi',
+			"hat"			= 'icons/inventory/head/mob.dmi',
+			"shoes"			= 'icons/inventory/feet/mob.dmi',
+			"misk"			= 'icons/mob/mob.dmi',
+			"belt"			= 'icons/inventory/belt/mob.dmi',
+			"s_store"		= 'icons/inventory/on_suit/mob.dmi',
+			"backpack"		= 'icons/inventory/back/mob.dmi',
+			//Eclipse Edit begin
+			"underwear"		= 'zzz_modular_eclipse/icons/inventory/underwear/mob.dmi'
+			//Eclipse Edit end
+			)
+		return icons[slot]
+	//Eclipse edit start
+	else
+		return H.species.get_gender_icon(g, slot)
+	//Eclipse edit end
+
 
 //contained sprite gender icons
 /mob/living/carbon/human/proc/get_gender_icon_contained(var/g = MALE)
@@ -740,7 +768,7 @@ var/global/list/damage_icon_parts = list()
 		if(shoes.blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = shoes.blood_color
-			standing.overlays.Add(bloodsies)
+			standing.overlays += bloodsies
 		standing.color = shoes.color
 		overlays_standing[SHOES_LAYER] = standing
 	else
@@ -832,7 +860,7 @@ var/global/list/damage_icon_parts = list()
 			var/obj/item/clothing/head/hat = head
 			var/cache_key = "[hat.light_overlay]_[species.get_bodytype()]"
 			if(hat.on && light_overlay_cache[cache_key])
-				standing.overlays |= (light_overlay_cache[cache_key])
+				standing.overlays |= light_overlay_cache[cache_key]
 
 		standing.color = head.color
 		overlays_standing[HEAD_LAYER] = standing
@@ -926,7 +954,7 @@ var/global/list/damage_icon_parts = list()
 		var/obj/item/clothing/suit/suit = wear_suit
 		if(istype(suit) && suit.accessories.len)
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
-				standing.overlays |= (A.get_mob_overlay())
+				standing.overlays |= A.get_mob_overlay()
 
 		overlays_standing[SUIT_LAYER]	= standing
 
@@ -1035,7 +1063,7 @@ var/global/list/damage_icon_parts = list()
 			var/obj/item/rig/rig = back//Maybe add if(rig.installed_modules.len) below this since the code for accessories does that far as I know.
 			for(var/obj/item/rig_module/module in rig.installed_modules)
 				if(module.suit_overlay)
-					standing.overlays.Add(image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay))
+					standing.overlays += image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay)
 
 		//create the image
 		overlays_standing[BACK_LAYER] = standing
@@ -1290,7 +1318,7 @@ var/global/list/damage_icon_parts = list()
 	for(var/obj/item/organ/external/E in organs)
 		if(E.open)
 			var/image/I = image("icon"='icons/mob/surgery.dmi', "icon_state"="[E.name][round(E.open)]", "layer"=-SURGERY_LAYER)
-			total.overlays.Add(I)
+			total.overlays += I
 	overlays_standing[SURGERY_LAYER] = total
 	if(update_icons)   update_icons()
 

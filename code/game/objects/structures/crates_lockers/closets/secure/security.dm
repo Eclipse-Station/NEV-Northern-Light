@@ -229,6 +229,7 @@
 	new /obj/item/ammo_magazine/slmagnum/rubber(src)
 	new /obj/item/storage/pouch/pistol_holster(src)
 	new /obj/item/storage/pouch/pistol_holster(src)
+	new /obj/item/storage/briefcase/crimekit(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
@@ -280,10 +281,6 @@
 	new /obj/item/device/radio/headset/heads/boff(src)
 	new /obj/item/storage/belt/tactical/ironhammer(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/ammo_magazine/srifle(src)
-	new /obj/item/ammo_magazine/srifle(src)
-	new /obj/item/ammo_magazine/srifle(src)
-	new /obj/item/gun/projectile/automatic/olympus(src)
 	new /obj/item/storage/pouch/pistol_holster(src)
 	new /obj/item/clothing/under/rank/bridge_officer(src)
 	new /obj/item/clothing/suit/storage/boff(src)

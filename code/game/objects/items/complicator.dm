@@ -9,8 +9,8 @@
 	origin_tech = list(TECH_POWER = 7, TECH_BLUESPACE = 4, TECH_MAGNET = 9)
 	spawn_frequency = 0
 	spawn_blacklisted = TRUE
-	var/last_summon = -30 MINUTES
-	var/cooldown = 30 MINUTES
+	var/last_summon = -20 MINUTES
+	var/cooldown = 20 MINUTES
 
 /obj/item/complicator/New()
 	..()
@@ -34,7 +34,7 @@
 		user.apply_effect((rand_points/10),IRRADIATE)
 
 	else
-		to_chat(user, SPAN_WARNING("The [src] need sometime to reload!"))
+		to_chat(user, SPAN_WARNING("The [src] needs more time to recalibrate!"))
 
 /obj/item/complicator/attackby(obj/item/I, mob/living/user, params)
 	if(nt_sword_attack(I, user))

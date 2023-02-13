@@ -104,6 +104,10 @@
 
 	mob_classification = CLASSIFICATION_ORGANIC
 
+	//Eclipse-added vars
+	var/simplemob_bonus_enabled = TRUE		//Do we even check to see if we take more damage?
+	var/simplemob_bonus_multiplier = 0		//Do we take more or less damage? This is in addition to the bullet itself. Putting this less than -1 may have undesirable consequences (e.g. being healed by being shot)
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]")
 
@@ -337,8 +341,23 @@
 		if(istype(Proj, /obj/item/projectile/ion))
 			Proj.on_hit(loc)
 		return
-
-	adjustBruteLoss(Proj.get_total_damage())
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Simplemob bonus damage.
+	var/damage_to_deal = Proj.get_total_damage()
+	if(simplemob_bonus_enabled && damage_to_deal)		//No sense in multiplying a zero value.
+		if(simplemob_bonus_multiplier || Proj.simplemob_bonus_mult)		//If either of them are nonzero, the damage a bullet will do is changed.
+			damage_to_deal += (damage_to_deal * simplemob_bonus_multiplier) + (damage_to_deal * Proj.simplemob_bonus_mult)
+/*
+ * To verify the maths: 
+ * Bullet base damage 10; from-mob-code bonus +0.25 (25%), from bullet-code bonus +0.2 (20%)
+ * 10 += (10 * 0.25) + (10 * 0.2)
+ * equals 10 += 2.5 + 2
+ * equals 10 += 4.5 (which equals 14.5)
+ * Maths verify as intended.
+ */
+		damage_to_deal = max(0, damage_to_deal)		//So we don't end up accidentally healing them.
+	// // // END ECLIPSE EDITS // // //
+	adjustBruteLoss(damage_to_deal)
 	return 0
 
 /mob/living/simple_animal/rejuvenate()
@@ -439,7 +458,7 @@
 /mob/living/simple_animal/ex_act(severity)
 	if(!blinded)
 		if (HUDtech.Find("flash"))
-			FLICK("flash", HUDtech["flash"])
+			flick("flash", HUDtech["flash"])
 	switch (severity)
 		if (1)
 			adjustBruteLoss(500)
@@ -452,6 +471,8 @@
 
 		if(3)
 			adjustBruteLoss(30)
+		if(4)
+			adjustBruteLoss(15)
 
 
 
@@ -628,7 +649,7 @@
 /mob/living/simple_animal/lay_down()
 	set name = "Rest"
 	set category = "Abilities"
-	if(resting && can_stand_up())
+	if(resting)
 		wake_up()
 	else if (!resting)
 		fall_asleep()

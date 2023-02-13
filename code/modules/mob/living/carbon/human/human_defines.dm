@@ -84,6 +84,7 @@
 
 	var/gunshot_residue
 	var/pulling_punches // Are you trying not to hurt your opponent?
+	var/dodging = TRUE // are you dodging those shots?
 
 	mob_bump_flag = HUMAN
 	mob_push_flags = ~HEAVY
@@ -107,6 +108,11 @@
 	mob_classification = CLASSIFICATION_ORGANIC | CLASSIFICATION_HUMANOID
 
 	var/datum/sanity/sanity
+
+	var/style = 0
+	var/max_style = MAX_HUMAN_STYLE
+	var/slickness = 0 // used for stylish dodging stuff, capped at style * 10
+	var/confidence = TRUE // needed to notify player when slickness passively regens
 
 	var/shock_resist = 0 // Resistance to paincrit
 

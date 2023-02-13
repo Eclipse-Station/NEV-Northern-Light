@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/molly
-	name = "FS MP .35 Auto \"Molly\""
+	name = "\improper FS MP .35 Auto \"Molly\""
 	desc = "An experimental fully automatic pistol, designed as a middle ground between SMGs and Pistols. \
 			Primarily employed in CQC scenarios or as a civilian self defence tool. \
 			Takes both highcap pistol and smg mags. Uses .35 Auto rounds."
@@ -36,8 +36,11 @@
 	price_tag = 1400
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 	wield_delay = 0 // pistols don't get delays. X Doubt
+	gun_parts = list(/obj/item/part/gun/frame/molly = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/pistol = 1)
+	
+	simplemob_bonus_damage_multiplier = 0.25 //Eclipse edit: Balancing.
 
-/obj/item/gun/projectile/automatic/molly/on_update_icon()
+/obj/item/gun/projectile/automatic/molly/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -62,3 +65,12 @@
 /obj/item/gun/projectile/automatic/molly/Initialize()
 	. = ..()
 	update_icon()
+
+/obj/item/part/gun/frame/molly
+	name = "\improper Molly frame"
+	desc = "A Molly machine pistol frame. Toeing the line between pistol and SMG."
+	icon_state = "frame_autopistol"
+	result = /obj/item/gun/projectile/automatic/molly
+	grip = /obj/item/part/gun/grip/rubber
+	mechanism = /obj/item/part/gun/mechanism/pistol
+	barrel = /obj/item/part/gun/barrel/pistol

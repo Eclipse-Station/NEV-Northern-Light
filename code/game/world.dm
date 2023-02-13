@@ -395,4 +395,3 @@ proc/establish_db_connection()
 		return //No change required.
 
 	fps = new_value
-

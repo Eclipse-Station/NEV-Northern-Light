@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/selfload
-	name = "S HG .35 Auto \"Clarissa\""
+	name = "\improper S HG .35 Auto \"Clarissa\""
 	desc = "A small, easily concealable, but somewhat underpowered gun. Uses both standard and highcap .35 Auto mags."
 
 	icon = 'icons/obj/guns/projectile/clarissa.dmi'
@@ -29,8 +29,9 @@
 
 
 	//spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	gun_parts = list(/obj/item/part/gun/frame/clarissa = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/pistol = 1)
 
-/obj/item/gun/projectile/selfload/on_update_icon()
+/obj/item/gun/projectile/selfload/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -49,8 +50,17 @@
 	icon_state = iconstring
 	set_item_state(itemstring)
 
+/obj/item/part/gun/frame/clarissa
+	name = "\improper Clarissa frame"
+	desc = "A Clarissa pistol frame. Concealable yet anemic yet fast."
+	icon_state = "frame_clarissa"
+	result = /obj/item/gun/projectile/selfload
+	grip = /obj/item/part/gun/grip/black
+	mechanism = /obj/item/part/gun/mechanism/pistol
+	barrel = /obj/item/part/gun/barrel/pistol
+
 /obj/item/gun/projectile/selfload/makarov
-	name = "EX .35 Auto \"Makarov\"" //Eclipse Edit - gun names standardized
+	name = "\improper EX .35 Auto \"Makarov\"" //Eclipse Edit - gun names standardized
 	desc = "An old design pistol popular among space communists. Small and easily concealable. Uses .35 Auto rounds." //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/makarov.dmi'
 	icon_state = "makarov"
@@ -61,3 +71,18 @@
 	init_firemodes = list(
 		SEMI_AUTO_NODELAY
 		)
+	gun_parts = list(/obj/item/part/gun/frame/makarov = 1, /obj/item/part/gun/grip/excel = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/pistol = 1)
+
+/obj/item/part/gun/frame/makarov
+	name = "\improper Makarov frame"
+	desc = "A Makarov pistol frame. Technology may have stagnated, but effectiveness hasn't."
+	icon_state = "frame_makarov"
+	result = /obj/item/gun/projectile/selfload/makarov
+	grip = /obj/item/part/gun/grip/excel
+	mechanism = /obj/item/part/gun/mechanism/pistol
+	barrel = /obj/item/part/gun/barrel/pistol
+
+/obj/item/gun/projectile/selfload/moebius
+	name = "\improper Lazarus HG .35 Auto \"Anne\"" // ML stands for Moebius Laboratories
+	desc = "Self-loading pistol of Syndicate design reverse-engineered. Uses both standard and highcap .35 Auto mags."
+	icon = 'icons/obj/guns/projectile/clarissa_white.dmi'

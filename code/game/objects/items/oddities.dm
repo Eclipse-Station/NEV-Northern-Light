@@ -50,6 +50,7 @@
 	prob_perk = 60
 	bad_type = /obj/item/oddity/common
 	spawn_blacklisted = FALSE
+	price_tag = 500
 
 /obj/item/oddity/common/blueprint
 	name = "strange blueprint"
@@ -111,13 +112,17 @@
 
 /obj/item/oddity/common/old_newspaper
 	name = "old newspaper"
-	desc = "It contains a report on some old and strange phenomenon. Maybe it's lies, maybe it's corporate experiments gone wrong."
+	desc = "It contains a report on some old and strange phenomenon. Maybe it's lies, maybe it's corporate experiments gone wrong. Wait, there are two comically obvious holes for peering through!"
 	icon_state = "old_newspaper"
 	oddity_stats = list(
 		STAT_MEC = 4,
 		STAT_COG = 4,
 		STAT_BIO = 4,
 	)
+
+/obj/item/oddity/common/old_newspaper/attack_self(mob/user)
+	zoom(8, 8)
+	..()
 
 /obj/item/oddity/common/paper_crumpled
 	name = "torn-out page"

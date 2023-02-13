@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/type_69
-    name = "OS MP .40 \"Type LXIX\""
+    name = "\improper OS MP .40 \"Type LXIX\""
     desc = "A Onestar machine pistol. While unwieldy, its users can't deny that it is brutally effective. Uses .40 pistol magazines." //Eclipse Edit - grammar
     icon = 'icons/obj/guns/projectile/os/type_69.dmi'
     icon_state = "type_69"
@@ -25,7 +25,7 @@
 
     spawn_blacklisted = TRUE //until loot rework
 
-/obj/item/gun/projectile/type_69/on_update_icon()
+/obj/item/gun/projectile/type_69/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

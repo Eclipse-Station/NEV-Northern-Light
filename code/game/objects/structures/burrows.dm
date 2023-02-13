@@ -10,7 +10,7 @@
 	plane = FLOOR_PLANE
 	icon = 'icons/obj/burrows.dmi'
 	icon_state = "cracks"
-	level = BELOW_PLATING_LEVEL
+	level = ABOVE_PLATING_LEVEL //Eclipse Edit: Changed "Below" to "Above"
 	layer = ABOVE_NORMAL_TURF_LAYER
 
 	//health is used when attempting to collapse this hole. It is a multiplier on the time taken and failure rate

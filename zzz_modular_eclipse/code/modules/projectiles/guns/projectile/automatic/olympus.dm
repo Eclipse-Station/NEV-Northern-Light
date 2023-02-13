@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/olympus
-	name = "FS AR .20 \"Olympus\""
+	name = "\improper FS AR .20 \"Olympus\""
 	desc = "The Olympus was Initially set up as an alternative for wealthy planetary defense forces seeking a hard-hitting yet controllable primary weapon for their forces. It proved to be an initial commercial failure due to its egregious price tag, but found a second life within wealthy bodyguard units seeking a compact yet hard-hitting rifle."
 	icon = 'zzz_modular_eclipse/icons/obj/guns/projectile/olympus.dmi'
 	icon_state = "olympus"
@@ -31,11 +31,13 @@
 		BURST_3_ROUND
 		)
 
+	simplemob_bonus_damage_multiplier = 0.1
+
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 
 	gun_tags = list(GUN_SILENCABLE)
 
-/obj/item/gun/projectile/automatic/olympus/on_update_icon()
+/obj/item/gun/projectile/automatic/olympus/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

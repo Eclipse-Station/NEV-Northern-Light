@@ -103,8 +103,9 @@
 			audible_message("You have already used up your underwear quota for this shift. Please return previously acquired items to increase it.", WARDROBE_BLIND_MESSAGE(H))
 			return
 		LAZYSET(amount_of_underwear_by_id_card, id, ++current_quota)
-
-		var/obj/UW = UWI.create_underwear(loc, metadata_list, 'icons/inventory/underwear/mob.dmi')
+		//Eclipse Edit begin
+		var/obj/UW = UWI.create_underwear(loc, metadata_list, 'zzz_modular_eclipse/icons/inventory/underwear/mob.dmi')
+		//Eclipse Edit end
 		UW.forceMove(loc)
 		H.put_in_hands(UW)
 

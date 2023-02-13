@@ -1,5 +1,5 @@
 /obj/item/gun/energy/lasersmg
-	name = "Disco Vazer \"Lasblender\""
+	name = "\improper Disco Vazer \"Lasblender\""
 	desc = "This conversion of the \"Atreides\" enables it to shoot lasers. Unlike in other laser weapons, the process of creating a laser is based on a chain reaction of localized micro-explosions.\
 			While this method is charge-effective, it worsens accuracy, and the chain-reaction makes the gun always fire in bursts. \
 			Sometimes jokingly called the \"Disco Vazer\"."
@@ -38,7 +38,7 @@
 	..()
 	return ..()
 
-/obj/item/gun/energy/lasersmg/on_update_icon()
+/obj/item/gun/energy/lasersmg/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -48,18 +48,18 @@
 		iconstring += "_mag"
 		itemstring += "_mag"
 
-/obj/item/gun/energy/lasersmg/on_update_icon()//TODO: Rework overlays, check assets storage for charge states.
+/obj/item/gun/energy/lasersmg/update_icon()//TODO: Rework overlays, check assets storage for charge states.
 	cut_overlays()
 	..()
 
 	if(istype(cell, /obj/item/cell/medium/moebius/nuclear))
-		add_overlays(image(icon, "nuke_cell"))
+		overlays += image(icon, "nuke_cell")
 
 	else if(istype(cell, /obj/item/cell/medium/moebius))
-		add_overlays(image(icon, "moeb_cell"))
+		overlays += image(icon, "moeb_cell")
 
 	else if(istype(cell, /obj/item/cell/medium/excelsior))
-		add_overlays(image(icon, "excel_cell"))
+		overlays += image(icon, "excel_cell")
 
 	else if(istype(cell, /obj/item/cell/medium))
-		add_overlays(image(icon, "guild_cell"))
+		overlays += image(icon, "guild_cell")

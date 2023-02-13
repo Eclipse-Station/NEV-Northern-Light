@@ -10,7 +10,7 @@
 /turf/space
 	isTransparent = TRUE
 
-/turf/simulated/open/on_update_icon(var/update_neighbors, var/roundstart_update = FALSE)
+/turf/simulated/open/update_icon(var/update_neighbors, var/roundstart_update = FALSE)
 	if (SSticker.current_state != GAME_STATE_PLAYING)
 		return
 
@@ -35,7 +35,7 @@
 	_initialized_transparency = TRUE
 	update_openspace() //propagate update upwards
 
-/turf/space/on_update_icon(var/update_neighbors, var/roundstart_update = FALSE)
+/turf/space/update_icon(var/update_neighbors, var/roundstart_update = FALSE)
 	if (SSticker.current_state < GAME_STATE_PLAYING)
 		return
 
@@ -46,7 +46,7 @@
 		if (testBelow && testBelow.isTransparent && !testBelow._initialized_transparency)
 			return //turf below will update this one
 
-	cut_overlays()
+	overlays.Cut()
 	var/turf/below = GetBelow(src)
 	if (istype(below, /turf/simulated/open))
 		ChangeTurf(/turf/simulated/open)
@@ -60,12 +60,12 @@
 	update_openspace()
 
 /hook/roundstart/proc/init_openspace()
-	var/counter = 0 //Eclipse edit - turf count is so huge the game thinks this proc is an infinite loop
+//	var/counter = 0 //Eclipse edit - turf count is so huge the game thinks this proc is an infinite loop
 	for (var/turf/T in turfs)
 		if (T.isTransparent)
 			T.update_icon(null, TRUE)
-		if(counter % 250 == 0)//Eclipse edit
-			CHECK_TICK
+//		if(counter % 250 == 0)//Eclipse edit
+//			CHECK_TICK
 	return TRUE
 
 /atom/proc/update_openspace()

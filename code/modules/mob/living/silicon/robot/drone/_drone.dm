@@ -141,7 +141,7 @@ var/list/mob_hat_cache = list()
 	additional_law_channels["Drone"] = "d"
 	if(!laws) laws = new law_type
 
-	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
+	flavor_text = "A tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
@@ -167,13 +167,13 @@ var/list/mob_hat_cache = list()
 
 	cut_overlays()
 	if(stat == CONSCIOUS && eyecolor)
-		add_overlays("eyes-drone[eyecolor]")
+		overlays += "eyes-drone[eyecolor]"
 
 	if(armguard)
-		add_overlays("model-[armguard]")
+		overlays += "model-[armguard]"
 
 	if(hat) // Let the drones wear hats.
-		associate_with_overlays(get_hat_icon(hat, hat_x_offset, hat_y_offset))
+		overlays |= get_hat_icon(hat, hat_x_offset, hat_y_offset)
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -374,7 +374,7 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/construction/updateicon()
 	cut_overlays()
 	if(stat == CONSCIOUS)
-		add_overlays("eyes-[module_sprites[icontype]]")
+		overlays += "eyes-[module_sprites[icontype]]"
 
 /proc/too_many_active_drones()
 	var/drones = 0

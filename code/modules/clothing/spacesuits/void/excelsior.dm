@@ -13,9 +13,9 @@
 	)
 
 	armor = list(
-		melee = 35,
+		melee = 40,
 		bullet = 40,
-		energy = 30,
+		energy = 50,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -68,15 +68,15 @@
 
 /obj/item/clothing/suit/space/void/excelsior
 	name = "Excelsior armor"
-	desc = "An ancient space suit design, remade with advanced materials. Provides good protection, especially against energy discharges."
+	desc = "An ancient space suit design, remade with advanced materials. Provides good protection, especially against energy discharges, while remaining surprisingly flexible."
 	icon_state = "soviet_skaf"
 	item_state = "soviet_skaf"
 	slowdown = 0.2
 	w_class = ITEM_SIZE_NORMAL
 	armor = list(
-		melee = 35,
+		melee = 40,
 		bullet = 40,
-		energy = 30,
+		energy = 50,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -91,3 +91,5 @@
 	)
 	helmet = /obj/item/clothing/head/space/void/excelsior
 	spawn_blacklisted = TRUE
+	slowdown = MEDIUM_SLOWDOWN
+	stiffness = LIGHT_STIFFNESS

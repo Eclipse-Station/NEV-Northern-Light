@@ -28,6 +28,9 @@
 	melee_damage_upper = 10
 	rarity_value = 36
 	spawn_tags = SPAWN_TAG_MOB_ROOMBA
+	
+	//Eclipse-added vars
+	simplemob_bonus_multiplier = 0.1	//Cheap plastic.
 
 /mob/living/simple_animal/hostile/roomba/death()
 	..()

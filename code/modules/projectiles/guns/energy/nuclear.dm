@@ -1,5 +1,5 @@
 /obj/item/gun/energy/nuclear
-	name = "Prototype: advanced energy gun"
+	name = "\improper Prototype: advanced energy gun"
 	desc = "An energy handgun with an experimental miniaturized reactor. Able to fire in two shot bursts."
 	icon = 'icons/obj/guns/energy/nucgun.dmi'
 	icon_state = "nucgun"
@@ -17,7 +17,7 @@
 
 	init_firemodes = list(
 		WEAPON_NORMAL,
-		BURST_2_ROUND
+		BURST_2_BEAM
 		)
 
 	var/lightfail = 0
@@ -39,6 +39,6 @@
 		if("stun") overlays += "nucgun-stun"
 		if("lethal") overlays += "nucgun-kill"
 
-/obj/item/gun/energy/nuclear/on_update_icon()
+/obj/item/gun/energy/nuclear/update_icon()
 	cut_overlays()
 	update_mode()

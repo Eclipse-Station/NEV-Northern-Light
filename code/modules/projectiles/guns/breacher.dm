@@ -3,7 +3,7 @@
 //There's also a robot version which uses power instead of gas tubes.
 
 /obj/item/hatton
-	name = "Excelsior BT \"Hatton\""
+	name = "\improper Excelsior BT \"Hatton\""
 	desc = "More an instrument than a weapon, this breaching tool was designed for emergency situations."
 	icon = 'icons/obj/guns/breacher.dmi'
 	icon_state = "Hatton_Hammer_1"
@@ -27,15 +27,15 @@
 	. = ..()
 	update_icon()
 
-/obj/item/hatton/on_update_icon()
+/obj/item/hatton/update_icon()
 	cut_overlays()
 	if(magazine)
 		if(magazine.charge)
 			icon_state = "Hatton_Hammer_1"
-			add_overlays(icon(icon, "[magazine.charge]/3"))
+			overlays += icon(icon, "[magazine.charge]/3")
 		else
 			icon_state = "Hatton_Hammer_1_empty"
-			add_overlays(icon(icon, "1/3"))
+			overlays += icon(icon, "1/3")
 	else
 		icon_state="Hatton_Hammer_0"
 
@@ -145,7 +145,7 @@
 
 // Magazine
 /obj/item/hatton_magazine
-	name = "Excelsior BT \"Hatton\" gas tube"
+	name = "\improper Excelsior BT \"Hatton\" gas tube"
 	icon = 'icons/obj/guns/breacher.dmi'
 	icon_state = "Hatton_box1"
 	w_class = ITEM_SIZE_SMALL
@@ -161,7 +161,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/hatton_magazine/on_update_icon()
+/obj/item/hatton_magazine/update_icon()
 	if(charge)
 		icon_state = "Hatton_box1"
 	else
@@ -173,7 +173,7 @@
 	matter = list(MATERIAL_PLASMA = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
 	charge = 2
 
-/obj/item/hatton_magazine/moebius/on_update_icon()
+/obj/item/hatton_magazine/moebius/update_icon()
 	if(charge)
 		icon_state = "Moebius_box1"
 	else
@@ -203,7 +203,7 @@
 	return
 
 /obj/item/hatton/moebius
-	name = "NanoTrasen BT \"Q-del\""
+	name = "\improper NanoTrasen BT \"Q-del\""
 	desc = {"This breaching tool was reverse engineered from the \"Hatton\" design.
 	Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,
 	this device suffers from a wide number of reliability issues stemming from it being lathe printed."}
@@ -213,15 +213,15 @@
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_SILVER = 5, MATERIAL_PLASTIC = 5)
 	spawn_blacklisted = TRUE
 
-/obj/item/hatton/moebius/on_update_icon()
+/obj/item/hatton/moebius/update_icon()
 	cut_overlays()
 	if(magazine)
 		if(magazine.charge)
 			icon_state = "Moebius_Hammer_1"
-			add_overlays(icon(icon, "[magazine.charge]/3"))
+			overlays += icon(icon, "[magazine.charge]/3")
 		else
 			icon_state = "Moebius_Hammer_1_empty"
-			add_overlays(icon(icon, "1/3"))
+			overlays += icon(icon, "1/3")
 	else
 		icon_state = "Moebius_Hammer_0"
 

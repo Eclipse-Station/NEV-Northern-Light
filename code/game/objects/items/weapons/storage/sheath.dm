@@ -16,12 +16,16 @@
 		/obj/item/tool/sword/nt,
 		/obj/item/tool/sword/nt_sword,
 		/obj/item/tool/sword/saber,
-		/obj/item/tool/sword
+		/obj/item/tool/sword/katana,
+		/obj/item/tool/sword/katana/nano,
+		/obj/item/tool/sword,
+		/obj/item/toy/katana,
+		/obj/item/tool/sword/improvised
 		)
 	cant_hold = list(
 		/obj/item/tool/knife/dagger/nt,
-		/obj/item/tool/sword/katana/nano,
-		/obj/item/tool/sword/nt/halberd
+		/obj/item/tool/sword/nt/halberd,
+		/obj/item/tool/sword/nt/spear
 		)
 /obj/item/storage/belt/sheath/attack_hand(mob/living/carbon/human/user)
 	if(contents.len && (src in user))
@@ -35,9 +39,9 @@
 	else
 		..()
 
-/obj/item/storage/belt/sheath/on_update_icon()
+/obj/item/storage/belt/sheath/update_icon()
 	var/icon_to_set
-	for(var/obj/item/tool/sword/SW in contents)
+	for(var/obj/item/SW in contents)
 		icon_to_set = SW.icon_state
 	icon_state = "sheath_[contents.len ? icon_to_set :"0"]"
 	item_state = "sheath_[contents.len ? icon_to_set :"0"]"

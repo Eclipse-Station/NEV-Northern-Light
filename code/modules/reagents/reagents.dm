@@ -89,7 +89,7 @@
 	return removed
 
 /datum/reagent/proc/consumed_amount_human(mob/living/carbon/human/consumer, alien, location)
-	var/removed
+	var/removed = metabolism
 	if(location == CHEM_INGEST)
 		var/calculated_buff = ((consumer.get_organ_efficiency(OP_LIVER) + consumer.get_organ_efficiency(OP_HEART) + consumer.get_organ_efficiency(OP_STOMACH)) / 3) / 100
 		if(ingest_met)
@@ -215,24 +215,28 @@
 	return null
 
 // Addiction
-/datum/reagent/proc/addiction_act_stage1(mob/living/carbon/M)
+// Addiction
+/datum/reagent/proc/addiction_act_stage1(mob/living/carbon/human/M)
 	if(prob(30))
 		to_chat(M, SPAN_NOTICE("You feel like having some [name] right about now."))
 
-/datum/reagent/proc/addiction_act_stage2(mob/living/carbon/M)
+/datum/reagent/proc/addiction_act_stage2(mob/living/carbon/human/M)
 	if(prob(30))
 		to_chat(M, SPAN_NOTICE("You feel like you need [name]. You just can't get enough."))
 
-/datum/reagent/proc/addiction_act_stage3(mob/living/carbon/M)
+/datum/reagent/proc/addiction_act_stage3(mob/living/carbon/human/M)
 	if(prob(30))
 		to_chat(M, SPAN_DANGER("You have an intense craving for [name]."))
+		M.sanity.changeLevel(-5)
 
-/datum/reagent/proc/addiction_act_stage4(mob/living/carbon/M)
+/datum/reagent/proc/addiction_act_stage4(mob/living/carbon/human/M)
 	if(prob(30))
 		to_chat(M, SPAN_DANGER("You're not feeling good at all! You really need some [name]."))
+		M.sanity.changeLevel(-10)
 
-/datum/reagent/proc/addiction_end(mob/living/carbon/M)
+/datum/reagent/proc/addiction_end(mob/living/carbon/human/M)
 	to_chat(M, SPAN_NOTICE("You feel like you've gotten over your need for [name]."))
+	M.sanity.changeLevel(15)
 
 // Withdrawal
 /datum/reagent/proc/withdrawal_start(mob/living/carbon/M)

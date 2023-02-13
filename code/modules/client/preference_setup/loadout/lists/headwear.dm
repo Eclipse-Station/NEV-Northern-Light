@@ -215,9 +215,6 @@
 	display_name = "plague doctor hat"
 	path = /obj/item/clothing/head/plaguedoctorhat
 
-/datum/gear/head/rabbit
-	display_name = "rabbit ears"
-	path = /obj/item/clothing/head/rabbitears
 
 /datum/gear/head/beaverhat
 	display_name = "beaver hat"
@@ -240,3 +237,8 @@
 	display_name = "kitty ears"
 	path = /obj/item/clothing/head/kitty
 
+//Eclipse Edit Begins - Adding in new custom commissioned clothes.
+/datum/gear/head/hijab
+	display_name = "hijab"
+	path = /obj/item/clothing/head/hijab
+//Eclipse Edit Ends - Adding in new custom commissioned clothes.

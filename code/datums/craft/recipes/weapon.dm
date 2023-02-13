@@ -67,6 +67,15 @@
 		list(QUALITY_SCREW_DRIVING, 10, 70,"time" = 3),
 	)
 
+/datum/craft_recipe/weapon/throwing_knife
+	name = "throwing knife"
+	result = /obj/item/stack/thrown/throwing_knife
+	steps = list(
+		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTEEL),
+		list(QUALITY_WELDING, 10, "time" = 30),
+		list(QUALITY_HAMMERING, 10, "time" = 20)
+	)
+
 /datum/craft_recipe/weapon/knife_blade
 	name = "knife blade"
 	result = /obj/item/material/butterflyblade
@@ -273,21 +282,6 @@
 		list(QUALITY_ADHESIVE, 15, 70)
 	)
 
-/datum/craft_recipe/weapon/armgun
-	name = "embedded SMG"
-	result = /obj/item/organ_module/active/simple/armsmg
-	steps = list(
-		list(/obj/item/gun/projectile/automatic, 1),
-		list(/obj/item/trash/material/metal, "time" = 10),
-		list(CRAFT_MATERIAL, 20, MATERIAL_PLASTEEL, "time" = 10),
-		list(/obj/item/gun/projectile, 1, "time" = 20),
-		list(QUALITY_WELDING, 10, "time" = 40),
-		list(/obj/item/stack/cable_coil, 5, "time" = 20),
-		list(/obj/item/trash/material/circuit, 1),
-		list(CRAFT_MATERIAL, 5, MATERIAL_PLASTIC, "time" = 10),
-		list(QUALITY_ADHESIVE, 15, 70)
-	)
-
 /datum/craft_recipe/weapon/landmine
 	name = "makeshift landmine"
 	result = /obj/item/mine/improv
@@ -299,3 +293,20 @@
 		list(/obj/item/device/assembly/igniter, 2),
 		list(/obj/item/stack/cable_coil, 5, "time" = 20)
 	)
+
+/datum/craft_recipe/weapon/pipebomb
+	name = "improvised pipebomb"
+	result = /obj/item/grenade/frag/pipebomb
+	steps = list(
+		list(/obj/item/cell/medium, 1),
+		list(QUALITY_SAWING, 10),
+		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTEEL),
+		list(QUALITY_WELDING, 10, "time" = 30),
+		list(CRAFT_MATERIAL, 1, MATERIAL_PLASMA), //similary to the makeshift landmine, as explosive, frags come from the shell itself
+		list(QUALITY_WELDING, 10, "time" = 30),
+		list(/obj/item/device/assembly/igniter, 1),
+		list(QUALITY_SCREW_DRIVING, 10, "time" = 30),
+		list(/obj/item/stack/cable_coil, 5),
+		list(QUALITY_WIRE_CUTTING, 10, "time" = 20),
+	)
+

@@ -159,6 +159,7 @@
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
+#define PROJECTILE_FORCE_MISS_SILENCED -2.5 //if the projectile should do the same thing as above, but not give the miss message
 
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
@@ -244,6 +245,10 @@
 #define text_starts_with(text, start) (copytext(text, 1, length(start) + 1) == start)
 
 #define attack_animation(A) if(istype(A)) A.do_attack_animation(src)
+
+// Overlays
+// (placeholders for if/when TG overlays system is ported)
+#define cut_overlays(...)			overlays.Cut()
 
 #define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 
@@ -347,3 +352,7 @@
 /// Required minimum values to see reagents in a beaker
 #define HUMAN_REQ_COG_FOR_REG 35
 #define HUMAN_REQ_BIO_FOR_REG 50
+
+/// Misc atmos equations
+
+#define FIRESTACKS_TEMP_CONV(firestacks) min(5200,max(2.25*round(FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE*(fire_stacks/FIRE_MAX_FIRESUIT_STACKS)**2), 700))

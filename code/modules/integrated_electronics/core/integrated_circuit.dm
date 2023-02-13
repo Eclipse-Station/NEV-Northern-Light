@@ -1,6 +1,6 @@
 /obj/item/integrated_circuit
 	name = "integrated circuit"
-	desc = "It's a tiny chip!  This one doesn't seem to do much, however."
+	desc = "A tiny chip!  This one doesn't seem to do much, however."
 	icon = 'icons/obj/assemblies/electronic_components.dmi'
 	icon_state = "template"
 	w_class = ITEM_SIZE_TINY
@@ -123,8 +123,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		var/obj/machinery/power/apc/A = AM
 		cell = A.cell
 
-	else if(istype(AM, /obj/machinery/mining/drill))
-		var/obj/machinery/mining/drill/hdrill = AM
+	else if(istype(AM, /obj/machinery/mining/deep_drill))
+		var/obj/machinery/mining/deep_drill/hdrill = AM
 		cell = hdrill.cell
 
 	else if(istype(AM, /obj/item/gun/energy))
@@ -154,9 +154,9 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/Destroy()
 	. = ..()
-	QDEL_CLEAR_LIST(inputs)
-	QDEL_CLEAR_LIST(outputs)
-	QDEL_CLEAR_LIST(activators)
+	QDEL_LIST(inputs)
+	QDEL_LIST(outputs)
+	QDEL_LIST(activators)
 	SScircuit_components.dequeue_component(src)
 	if(ext_moved_triggerable && moved_event_created)
 		GLOB.moved_event.unregister(moved_object, src)

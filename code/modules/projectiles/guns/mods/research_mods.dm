@@ -3,7 +3,7 @@
 
 //Increases penetration multiplier, projectile speed. Increases fire delay. Acquired via science
 /obj/item/gun_upgrade/barrel/mag_accel
-	name = "Lazarus \"Penetrator\" magnetic accelerator barrel"
+	name = "\improper Lazarus \"Penetrator\" magnetic accelerator barrel"
 	desc = "Uses sympathetic magnetic coiling to increase exit velocity of a metal projectile."
 	icon_state = "Penetrator"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1)
@@ -24,7 +24,7 @@
 
 //Adds +10 burn damage to a bullet, lowers armor penetration, adds a constant projectile offset, increases recoil and fire delay. Acquired via science
 /obj/item/gun_upgrade/barrel/overheat
-	name = "Lazarus \"Caster\" magnetic overheat barrel"
+	name = "\improper Lazarus \"Caster\" magnetic overheat barrel"
 	desc = "Uses magnetic induction to heat the projectile of a weapon. Arguable combat effectiveness, but flashy nonetheless."
 	icon_state = "Caster"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1)
@@ -47,7 +47,7 @@
 
 // Double damage at the cost of more recoil and a tripled energy consumption
 /obj/item/gun_upgrade/mechanism/battery_shunt
-	name = "Lazarus \"Thunder\" battery shunt"
+	name = "\improper Lazarus \"Thunder\" battery shunt"
 	desc = "This experimental battery shunt is a cutting edge tool attachment which bypasses battery protection circuits to deliver the maximum amount of power in the shortest amount of time."
 	icon_state = "battery_shunt"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1, MATERIAL_URANIUM = 1)
@@ -65,7 +65,7 @@
 
 // Greatly increase firerate at the cost of lower damage
 /obj/item/gun_upgrade/mechanism/overdrive
-	name = "Lazarus \"Tesla\" overdrive chip"
+	name = "\improper Lazarus \"Tesla\" overdrive chip"
 	desc = "This experimental chip is a cutting edge tool attachment which bypasses power management protocols to dramatically increase the rate of fire at the cost of a reduced stopping power."
 	icon_state = "overdrive"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1, MATERIAL_URANIUM = 1)
@@ -87,7 +87,7 @@
 
 // Add toxin damage to your weapon
 /obj/item/gun_upgrade/barrel/toxin_coater
-	name = "Lazarus \"Black Mamba\" toxin coater"
+	name = "\improper Lazarus \"Black Mamba\" toxin coater"
 	desc = "This experimental barrel coats bullets with a thin layer of toxins just before they leave the weapon. Do not lick it."
 	icon_state = "toxin_coater"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 2)
@@ -103,7 +103,7 @@
 
 // Add radiation damage to your weapon
 /obj/item/gun_upgrade/barrel/isotope_diffuser
-	name = "Lazarus \"Atomik\" isotope diffuser"
+	name = "\improper Lazarus \"Atomik\" isotope diffuser"
 	desc = "This experimental barrel constantly sprays a thin mist of radioactive isotopes to make projectiles leaving the weapons deadlier. Do not put it in your mouth."
 	icon_state = "isotope_diffuser"
 	matter = list(MATERIAL_PLASTIC = 2, MATERIAL_PLASTEEL = 1, MATERIAL_URANIUM = 2)
@@ -119,7 +119,7 @@
 
 // Add psy damage to your weapon
 /obj/item/gun_upgrade/mechanism/psionic_catalyst
-	name = "Lazarus \"Mastermind\" psionic catalyst"
+	name = "\improper Lazarus \"Mastermind\" psionic catalyst"
 	desc = "This controversial device greatly amplifies the natural psionic ability of the user and allows them to project their will into the world. Before the development of the Psi Amp, psionic disciplines were mostly detectable only in a lab environment."
 	icon_state = "psionic_catalyst"
 	matter = list(MATERIAL_SILVER = 3, MATERIAL_PLASTEEL = 3, MATERIAL_URANIUM = 3)
@@ -134,8 +134,8 @@
 	I.gun_loc_tag = GUN_MECHANISM
 
 /obj/item/gun_upgrade/barrel/gauss
-	name = "Syndicate \"Gauss Coil\" barrel"
-	desc = "Make bullet pierce through wall and penetrate armors easily, but losing rate of fire and increece recoil."
+	name = "\improper Syndicate \"Gauss Coil\" barrel"
+	desc = "Makes bullets pierce through walls and penetrate armor easily, but at the cost of a lower rate of fire and increased recoil."	//Eclipse edit: Grammar
 	icon_state = "Gauss"
 	spawn_blacklisted = TRUE
 

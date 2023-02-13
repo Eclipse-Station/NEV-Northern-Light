@@ -20,6 +20,7 @@
 	spawn_blacklisted = TRUE
 	spawn_frequency = 0
 	spawn_tags = null
+	style_damage = 13 // stylish people can dodge lots of projectiles
 	var/bumped = FALSE		//Prevents it from hitting more than one guy at once
 	var/hitsound_wall = "ricochet"
 	var/list/mob_hit_sound = list('sound/effects/gore/bullethit2.ogg', 'sound/effects/gore/bullethit3.ogg') //Sound it makes when it hits a mob. It's a list so you can put multiple hit sounds there.
@@ -32,6 +33,7 @@
 	var/shot_from = "" // name of the object which shot us
 	var/atom/original = null // the target clicked (not necessarily where the projectile is headed). Should probably be renamed to 'target' or something.
 	var/turf/starting = null // the projectile's starting turf
+	var/turf/last_interact = null // the last turf where def_zone calculation took place
 	var/list/permutated = list() // we've passed through these atoms, don't try to hit them again
 
 	var/p_x = 16
@@ -91,6 +93,9 @@
 
 	var/noshake = FALSE //Eclipse add
 	var/ignition_source = FALSE		//Eclipse add - see if the projectile is capable of detonating fuel tanks and nitro roaches.
+	
+	//Eclipse added vars
+	var/simplemob_bonus_mult = 0		//0% extra; used in mob code to determine whether a mob gets more damage.
 
 /obj/item/projectile/is_hot()
 	if (damage_types[BURN])
@@ -130,6 +135,11 @@
 
 /obj/item/projectile/proc/multiply_projectile_accuracy(newmult)
 	projectile_accuracy = initial(projectile_accuracy) * newmult
+
+// // // BEGIN ECLIPSE EDITS // // //
+/obj/item/projectile/multiply_projectile_simplemob_damage(newmult)		//Misnomer, but I want to maintain the naming convention.
+	simplemob_bonus_mult = initial(simplemob_bonus_mult) + newmult		//Additive, so we don't have any "multiply by zero" shenanigans.
+// // // END ECLIPSE EDITS // // //
 
 /obj/item/projectile/proc/adjust_damages(var/list/newdamages)
 	if(!newdamages.len)
@@ -259,6 +269,19 @@
 	else
 		return 0
 
+/obj/item/projectile/proc/check_hit_zone(turf/target_turf, distance)
+	var/hit_zone = check_zone(def_zone)
+	if(hit_zone)
+		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later, it is more likely to hit the same part
+		if(def_zone)
+			var/spread = max(base_spreading - (spreading_step * distance), 0)
+			var/aim_hit_chance = max(0, projectile_accuracy)
+
+			if(!prob(aim_hit_chance))
+				def_zone = ran_zone(def_zone,spread)
+			last_interact = target_turf
+		return TRUE
+	return FALSE
 
 //Called when the projectile intercepts a mob. Returns 1 if the projectile hit the mob, 0 if it missed and should keep flying.
 /obj/item/projectile/proc/attack_mob(mob/living/target_mob, distance, miss_modifier=0)
@@ -267,40 +290,32 @@
 
 	//roll to-hit
 	miss_modifier = 0
-	var/hit_zone = check_zone(def_zone)
 
 	var/result = PROJECTILE_FORCE_MISS
-	if(hit_zone)
-		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
-		if(def_zone)
-			var/spread = max(base_spreading - (spreading_step * distance), 0)
-			var/aim_hit_chance = max(0, projectile_accuracy)
-			
-			if(!prob(aim_hit_chance))
-				def_zone = ran_zone(def_zone,spread)
 
-			if(iscarbon(target_mob))
-				var/mob/living/carbon/C = target_mob
-				var/obj/item/shield/S
-				for(S in get_both_hands(C))
-					if(S && S.block_bullet(C, src, def_zone))
-						on_hit(S,def_zone)
-						qdel(src)
-						return TRUE
-					break //Prevents shield dual-wielding
-				S = C.get_equipped_item(slot_back)
+	if(check_hit_zone(get_turf(target_mob), distance))
+		if(iscarbon(target_mob))
+			var/mob/living/carbon/C = target_mob
+			var/obj/item/shield/S
+			for(S in get_both_hands(C))
 				if(S && S.block_bullet(C, src, def_zone))
 					on_hit(S,def_zone)
 					qdel(src)
 					return TRUE
-			result = target_mob.bullet_act(src, def_zone)
-			
-			
-			if(prob(base_miss_chance[def_zone] * ((100 - (aim_hit_chance * 2)) / 100)))	//For example: the head has a base 45% chance to not get hit, if the shooter has 50 vig the chance to miss will be reduced by 50% to 22.5%
-				result = PROJECTILE_FORCE_MISS
+				break //Prevents shield dual-wielding
+	//		S = C.get_equipped_item(slot_back)
+	//		if(S && S.block_bullet(C, src, def_zone))
+	//			on_hit(S,def_zone)
+	//			qdel(src)
+	//			return TRUE
 
-	if(result == PROJECTILE_FORCE_MISS)
-		if(!silenced)
+		result = target_mob.bullet_act(src, def_zone)
+		var/aim_hit_chance = max(0, projectile_accuracy)
+		if(prob(base_miss_chance[def_zone] * ((100 - (aim_hit_chance * 2)) / 100)))	//For example: the head has a base 45% chance to not get hit, if the shooter has 50 vig the chance to miss will be reduced by 50% to 22.5%
+			result = PROJECTILE_FORCE_MISS
+
+	if(result == PROJECTILE_FORCE_MISS || result == PROJECTILE_FORCE_MISS_SILENCED)
+		if(!silenced && result == PROJECTILE_FORCE_MISS)
 			visible_message(SPAN_NOTICE("\The [src] misses [target_mob] narrowly!"))
 		return FALSE
 
@@ -348,7 +363,7 @@
 	if(istype(src, /obj/item/projectile/beam/psychic) && istype(target_mob, /mob/living/carbon/human))
 		var/obj/item/projectile/beam/psychic/psy = src
 		var/mob/living/carbon/human/H = target_mob
-		if(psy.traitor && result && (H.sanity.level <= 0))
+		if(psy.contractor && result && (H.sanity.level <= 0))
 			psy.holder.reg_break(H)
 
 	return TRUE
@@ -364,11 +379,18 @@
 		return FALSE
 
 	var/passthrough = FALSE //if the projectile should continue flying
-	var/distance = get_dist(starting,loc)
+	var/distance = get_dist(last_interact,loc)
 
 	var/tempLoc = get_turf(A)
 
 	bumped = TRUE
+	if(istype(A, /obj/structure/multiz/stairs/active))
+		var/obj/structure/multiz/stairs/active/S = A
+		if(S.target)
+			forceMove(get_turf(S.target))
+			trajectory.loc_z = loc.z
+			bumped = FALSE
+			return FALSE
 	if(ismob(A))
 		var/mob/M = A
 		if(isliving(A))
@@ -473,6 +495,7 @@
 	// setup projectile state
 	starting = startloc
 	current = startloc
+	last_interact = startloc
 	yo = targloc.y - startloc.y + y_offset
 	xo = targloc.x - startloc.x + x_offset
 
@@ -533,7 +556,7 @@
 /obj/item/projectile/proc/luminosity_effect()
     if (!location)
         return
-    
+
     if(attached_effect)
         attached_effect.Move(src.loc)
 
@@ -629,3 +652,4 @@
 	var/icon/I = new(P.icon, P.icon_state)
 	I.Blend(color)
 	return I
+

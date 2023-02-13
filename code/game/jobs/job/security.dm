@@ -23,7 +23,7 @@
 		access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 		access_moebius, access_engine, access_mining, access_construction, access_mailsorting,
 		access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway,
-		access_external_airlocks, access_change_sec
+		access_external_airlocks, access_change_sec, access_moebius_consoles, access_armory_consoles, access_sec_consoles
 	)
 
 	stat_modifiers = list(
@@ -83,7 +83,7 @@
 	access = list(
 		access_security, access_moebius, access_medspec, access_engine, access_mailsorting,
 		access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue,
-		access_external_airlocks
+		access_external_airlocks, access_moebius_consoles, access_armory_consoles, access_sec_consoles
 	)
 
 	stat_modifiers = list(
@@ -135,7 +135,7 @@
 
 	outfit_type = /decl/hierarchy/outfit/job/security/inspector
 
-	access = list(access_security, access_moebius, access_medspec, access_engine, access_mailsorting, access_eva, access_sec_doors, access_forensics_lockers, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks)
+	access = list(access_security, access_moebius, access_medspec, access_engine, access_mailsorting, access_eva, access_sec_doors, access_forensics_lockers, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_moebius_consoles, access_armory_consoles, access_sec_consoles)
 
 	stat_modifiers = list(
 		STAT_BIO = 15,
@@ -190,7 +190,7 @@
 
 	outfit_type = /decl/hierarchy/outfit/job/security/medspec
 
-	access = list(access_security, access_moebius, access_medspec, access_engine, access_mailsorting, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_medical_equip)
+	access = list(access_security, access_moebius, access_medspec, access_engine, access_mailsorting, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_medical_equip, access_moebius_consoles, access_armory_consoles, access_sec_consoles)
 
 	stat_modifiers = list(
 		STAT_BIO = 25,
@@ -246,7 +246,7 @@
 
 	access = list(
 		access_security, access_moebius, access_engine, access_mailsorting,access_eva,
-		access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks
+		access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_moebius_consoles, access_armory_consoles, access_sec_consoles
 	)
 
 	stat_modifiers = list(

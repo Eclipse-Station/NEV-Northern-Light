@@ -4,17 +4,17 @@
 		return 0
 	switch(network)
 		if(NETWORK_ENGINEERING, NETWORK_ALARM_ATMOS, NETWORK_ALARM_CAMERA, NETWORK_ALARM_FIRE, NETWORK_ALARM_POWER)
-			return access_engine
+			return access_engine_consoles
 		if(NETWORK_MEDICAL,NETWORK_RESEARCH)
-			return access_moebius
+			return access_moebius_consoles
 		if(NETWORK_MINE)
-			return access_mailsorting // Cargo office - all cargo staff should have access here.
+			return access_supply_consoles // Cargo office - all cargo staff should have access here.
 		if(NETWORK_ROBOTS)
-			return access_rd
+			return access_rd_consoles
 		if(NETWORK_PRISON)
-			return access_security
+			return access_sec_consoles
 		if(NETWORK_ENGINEERING,NETWORK_ENGINE)
-			return access_engine
+			return access_engine_consoles
 		if(NETWORK_COMMAND)
 			return access_heads
 		if(NETWORK_THUNDER)

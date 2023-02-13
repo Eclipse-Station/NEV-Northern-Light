@@ -11,10 +11,10 @@
 	nanomodule_path = /datum/nano_module/shield_control
 	program_icon_state = "engine"
 	extended_desc = "This program allows remote management of the hull shield generator. Cannot be run on tablet computers."
-	required_access = access_atmospherics
+	required_access = access_atmos_consoles
 	requires_ntnet = 1
 	network_destination = "shield control system"
-	required_access = access_engine //Restricted to engineering and the bridge
+	required_access = access_engine_consoles //Restricted to engineering and the bridge
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE
 	size = 24
@@ -98,7 +98,7 @@
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "shieldgen.tmpl", src.name, 600, 800, state = state)
+		ui = new(user, src, ui_key, "shieldgen_eclipse.tmpl", src.name, 600, 800, state = state) //Eclipse Edit
 		if(nano_host().update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.
 			ui.auto_update_layout = 1
 		ui.set_initial_data(data)

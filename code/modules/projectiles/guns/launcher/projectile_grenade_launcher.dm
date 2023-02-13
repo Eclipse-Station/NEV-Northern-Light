@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/pump/grenade
-	name = "NT GL \"Protector\""
+	name = "\improper NT GL \"Protector\""
 	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
 	icon = 'icons/obj/guns/launcher/riotgun.dmi'
 	icon_state = "riotgun"
@@ -20,6 +20,7 @@
 	matter = list(MATERIAL_PLASTEEL = 30, MATERIAL_WOOD = 10)
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
 	price_tag = 3000
+	gun_parts = list(/obj/item/part/gun = 2, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/mechanism/shotgun = 1)
 
 /obj/item/gun/projectile/shotgun/pump/grenade/examine(mob/user)
 	if(..(user, 2))
@@ -59,7 +60,7 @@
 	twohanded = FALSE
 
 /obj/item/gun/projectile/shotgun/pump/grenade/lenar
-	name = "FS GL \"Lenar\""
+	name = "\improper FS GL \"Lenar\""
 	desc = "A more than bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
 	icon = 'icons/obj/guns/launcher/grenadelauncher.dmi'
 	icon_state = "Grenadelauncher_PMC"
@@ -68,15 +69,16 @@
 	slot_flags = SLOT_BACK
 	matter = list(MATERIAL_PLASTEEL = 30, MATERIAL_PLASTIC = 10)
 	fire_sound = 'sound/weapons/empty.ogg'
+	gun_parts = list(/obj/item/part/gun = 2, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/shotgun = 1)
 
 /obj/item/gun/projectile/shotgun/pump/grenade/lenar/proc/update_charge()
-	var/ratio = (contents.len + (chambered? 1 : 0)) / (max_shells + 1)
+	var/ratio = (contents.len + (chambered? 1 : 0)) / (max_shells + 1.2)
 	if(ratio < 0.33 && ratio != 0)
 		ratio = 0.33
 	ratio = round(ratio, 0.33) * 100
-	add_overlays("grenademag_[ratio]")
+	overlays += "grenademag_[ratio]"
 
-/obj/item/gun/projectile/shotgun/pump/grenade/lenar/on_update_icon()
+/obj/item/gun/projectile/shotgun/pump/grenade/lenar/update_icon()
 	cut_overlays()
 	update_charge()
 
@@ -91,6 +93,8 @@
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_WOOD = 10)
 	price_tag = 500
 	max_shells = 0
+	spawn_blacklisted = FALSE//this may be a bad idea
+	spawn_tags = SPAWN_TAG_GUN_HANDMADE
 
 /obj/item/gun/projectile/shotgun/pump/grenade/makeshift/attackby(obj/item/I, mob/user)
 	if((istype(I, /obj/item/ammo_casing/grenade)))
@@ -108,7 +112,7 @@
 	unload_underslung(user)
 
 /obj/item/gun/projectile/shotgun/pump/grenade/china
-	name = "China Lake"
+	name = "\improper China Lake"
 	desc = "This centuries-old design was recently rediscovered and adapted for use in modern battlefields. \
 		Working similar to a pump-action combat shotgun, its light weight and robust design quickly made it a popular weapon. \
 		It uses specialised grenade shells."

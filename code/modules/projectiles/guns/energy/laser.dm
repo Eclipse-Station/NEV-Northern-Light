@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
-	name = "NT LR M \"Lightfall\""  //Eclipse Edit - gun names standardized
-	desc = "\"NanoTrasen\" brand laser rifle based on the highly successful \"Valkyrie\" pattern. Deadly and radiant, like the ire of Capitalism it represents." //Eclipse Edit - description changed
+	name = "\improper NT LR M \"Lightfall\""  //Eclipse Edit - gun names standardized
+	desc = "A \"NanoTrasen\" brand laser rifle based on the highly successful \"Valkyrie\" pattern. Deadly and radiant, like the ire of Capitalism it represents." //Eclipse Edit - description changed
 	icon = 'icons/obj/guns/energy/laser.dmi'
 	icon_state = "laser"
 	item_state = "laser"
@@ -34,7 +34,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/laser/mounted/blitz
-	name = "OSDF LR \"Strahl\""  //Eclipse Edit - gun names standardized
+	name = "\improper OSDF LR \"Strahl\""  //Eclipse Edit - gun names standardized
 	desc = "A miniaturized laser rifle, remounted for robotic use only."
 	icon_state = "laser_turret"
 	charge_meter = FALSE
@@ -44,7 +44,7 @@
 	spawn_tags = null
 
 /obj/item/gun/energy/laser/practice
-	name = "NT LR M \"Lightfall\" - P"  //Eclipse Edit - gun names standardized
+	name = "\improper NT LR M \"Lightfall\" - P"  //Eclipse Edit - gun names standardized
 	desc = "A modified version of a \"NanoTrasen\" brand laser rifle, this one fires less concentrated energy bolts, designed for target practice." //Eclipse Edit - description corrected.
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 8, MATERIAL_SILVER = 2)
 	price_tag = 1000
@@ -52,7 +52,7 @@
 	zoom_factor = 0
 
 /obj/item/gun/energy/retro
-	name = "OS LR M \"Cog\""  //Eclipse Edit - gun names standardized
+	name = "\improper OS LR M \"Cog\""  //Eclipse Edit - gun names standardized
 	icon = 'icons/obj/guns/energy/retro.dmi'
 	icon_state = "retro"
 	item_state = "retro"
@@ -60,6 +60,7 @@
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEM_SIZE_NORMAL
+	force = WEAPON_FORCE_PAINFUL
 	can_dual = TRUE
 	matter = list(MATERIAL_STEEL = 10, MATERIAL_PLASTIC = 15, MATERIAL_GLASS = 5)
 	projectile_type = /obj/item/projectile/beam
@@ -70,7 +71,7 @@
 	price_tag = 750
 	init_firemodes = list(
 		WEAPON_NORMAL,
-		BURST_2_ROUND
+		BURST_2_BEAM
 	)
 	twohanded = TRUE
 	saw_off = TRUE
@@ -97,7 +98,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/captain
-	name = "NT LCAR SC \"Destiny\""  //Eclipse Edit - gun names standardized
+	name = "\improper NT LCAR SC \"Destiny\""  //Eclipse Edit - gun names standardized
 	icon = 'icons/obj/guns/energy/capgun.dmi'
 	icon_state = "caplaser"
 	item_state = "caplaser"
@@ -123,7 +124,7 @@
 	spawn_blacklisted = TRUE//antag_item_targets
 
 /obj/item/gun/energy/lasercannon
-	name = "Prototype: laser cannon"
+	name = "\improper Prototype: laser cannon"
 	desc = "With the laser cannon, the lasing medium is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core. This incredible technology may help YOU achieve high excitation rates with small laser volumes!"
 	icon = 'icons/obj/guns/energy/lascannon.dmi'
 	icon_state = "lasercannon"
@@ -165,19 +166,19 @@
 	projectile_type = /obj/item/projectile/beam/psychic
 	icon_contained = TRUE
 	spawn_blacklisted = TRUE
-	var/traitor = FALSE //Check if it's a traitor psychic weapon
+	var/contractor = FALSE //Check if it's a contractor psychic weapon
 	var/datum/mind/owner
 	var/list/victims = list()
 	var/datum/antag_contract/derail/contract
-	pierce_multiplier = 2
+	pierce_multiplier = 4
 
 /obj/item/gun/energy/psychic/Initialize()
 	..()
-	if(traitor)
+	if(contractor)
 		START_PROCESSING(SSobj, src)
 
 /obj/item/gun/energy/psychic/Destroy()
-	if(traitor)
+	if(contractor)
 		STOP_PROCESSING(SSobj, src)
 	return ..()
 
@@ -227,7 +228,7 @@
 		START_PROCESSING(SSobj, src)
 
 /obj/item/gun/energy/psychic/lasercannon
-	name = "Prototype: psychic laser cannon"
+	name = "\improper Prototype: psychic laser cannon"
 	desc = "A laser cannon that attacks the minds of people, causing sanity loss and inducing mental breakdowns."
 	icon = 'icons/obj/guns/energy/psychiccannon.dmi'
 	icon_state = "psychic_lasercannon"
@@ -239,8 +240,8 @@
 	w_class = ITEM_SIZE_NORMAL
 	force = WEAPON_FORCE_NORMAL
 	slot_flags = SLOT_BELT|SLOT_BACK
-	traitor = TRUE
-	pierce_multiplier = 2
+	contractor = TRUE
+	pierce_multiplier = 4
 	zoom_factor = 0
 	damage_multiplier = 1
 	charge_cost = 50
@@ -254,7 +255,7 @@
 	twohanded = FALSE
 
 /obj/item/gun/energy/psychic/mindflayer
-	name = "Prototype: mind flayer"
+	name = "\improper Prototype: mind flayer"
 	desc = "A cruel weapon designed to break the minds of those it targets, causing sanity loss and mental breakdowns."
 	icon = 'icons/obj/guns/energy/xray.dmi'
 	icon_state = "xray"
@@ -285,4 +286,4 @@
 	init_firemodes = list(
 		WEAPON_NORMAL
 	)
-	spawn_blacklisted = TRUE
+	spawn_tags = SPAWN_TAG_GUN_HANDMADE

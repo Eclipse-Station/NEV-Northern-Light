@@ -6,7 +6,7 @@
 
 /obj/item/tool/multitool
 	name = "multitool"
-	desc = "Used for pulsing wires to test which to cut. You can use this on airlocks or APCs to try to hack them."
+	desc = "Used for pulsing wires to test which to cut. You can use this on airlocks, lockers, or APCs to try to hack them."
 	icon_state = "multitool"
 	flags = CONDUCT
 	force = WEAPON_FORCE_HARMLESS

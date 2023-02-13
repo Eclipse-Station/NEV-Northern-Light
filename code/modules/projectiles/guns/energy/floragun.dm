@@ -1,5 +1,5 @@
 /obj/item/gun/energy/floragun
-	name = "Prototype: floral somatoray"
+	name = "\improper Prototype: floral somatoray"
 	desc = "A tool that discharges controlled radiation which induces mutation in plant cells."
 	icon = 'icons/obj/guns/energy/flora.dmi'
 	icon_state = "floramut100"

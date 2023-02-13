@@ -117,15 +117,18 @@
 //Drag and drop onto low walls. Copied from tables
 //This is mainly so that janiborg can put things on tables
 /obj/structure/low_wall/MouseDrop_T(atom/A, mob/user, src_location, over_location, src_control, over_control, params)
+	if(!CanMouseDrop(A, user))
+		return
+
 	if(ismob(A.loc))
 		user.unEquip(A, loc)
 		set_pixel_click_offset(A, params)
 		return
 
-	if (istype(A, /obj/item) && istype(A.loc, /turf) && (A.Adjacent(src) || user.Adjacent(src)))
+	if(istype(A, /obj/item) && istype(A.loc, /turf) && (A.Adjacent(src) || user.Adjacent(src)))
 		var/obj/item/O = A
 		//Mice can push around pens and paper, but not heavy tools
-		if (O.w_class <= user.can_pull_size)
+		if(O.w_class <= user.can_pull_size)
 			O.forceMove(loc)
 			set_pixel_click_offset(O, params, animate=TRUE)
 			return
@@ -148,33 +151,37 @@
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
 /obj/structure/low_wall/proc/check_cover(obj/item/projectile/P, turf/from)
-	var/turf/cover
-	cover = get_step(loc, get_dir(from, loc))
-	if(!cover)
-		return 1
 	if (get_dist(P.starting, loc) <= 1) //Tables won't help you if people are THIS close
 		return 1
-	if (get_turf(P.original) == cover)
-		var/chance = 20
-		if (ismob(P.original))
-			var/mob/M = P.original
-			if (M.lying)
-				chance += 20				//Lying down lets you catch less bullets
-		if(prob(chance))
-			health -= P.get_structure_damage()/2
-			if (health > 0)
-				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
-				return 0
-			else
-				visible_message(SPAN_WARNING("[src] breaks down!"))
-				qdel(src)
-				return 1
+	var/valid = FALSE
+	var/distance = get_dist(P.last_interact,loc)
+
+	if(!P.def_zone)
+		return 1 // Emitters, or anything with no targeted bodypart will always bypass the cover
+	P.check_hit_zone(loc, distance)
+	var/targetzone = check_zone(P.def_zone)
+	if (targetzone in list(BP_R_LEG, BP_L_LEG, BP_GROIN))
+		valid = TRUE //The lower body is always concealed
+	if (ismob(P.original))
+		var/mob/M = P.original
+		if (M.lying)
+			valid = TRUE			//Lying down covers your whole body
+	if(valid)
+		var/pierce = P.check_penetrate(src)
+		health -= P.get_structure_damage()/2
+		if (health > 0)
+			visible_message(SPAN_WARNING("[P] hits \the [src]!"))
+			return pierce
+		else
+			visible_message(SPAN_WARNING("[src] breaks down!"))
+			qdel(src)
+			return 1
 	return 1
 
 
 //Icon procs.mostly copied from tables
-/obj/structure/low_wall/on_update_icon()
-	cut_overlays()
+/obj/structure/low_wall/update_icon()
+	overlays.Cut()
 
 	var/image/I
 
@@ -182,7 +189,7 @@
 	for(var/i = 1 to 4)
 		I = image(icon, "[icon_state]_[connections[i]]", dir = 1<<(i-1))
 		I.color = wall_color
-		add_overlays(I)
+		overlays += I
 
 
 	for (var/obj/structure/window/W in loc)
@@ -196,7 +203,7 @@
 		I = image(icon, "[icon_state]_over_[wall_connections[i]]", dir = 1<<(i-1))
 		I.color = wall_color
 		I.layer = ABOVE_WINDOW_LAYER
-		add_overlays(I)
+		overlays += I
 
 
 
@@ -385,7 +392,7 @@
 		return
 
 	//If the user isn't in harm intent and there's no window ontop of this wall, it is treated like a table.
-		//Items used on it will be placed on it like a surface
+		//Items used on it will be placed on it like a surface, if you use a gun on it while on help intent, you brace the gun.
 
 	var/tool_type = I.get_tool_type(user, list(QUALITY_WELDING), src)
 	switch(tool_type)
@@ -413,12 +420,15 @@
 					return
 
 	//Turn on harm intent to override this behaviour and instead attack the wall
-	if (!(locate(/obj/structure/window) in loc) && user.a_intent != I_HURT)
+	if (!(locate(/obj/structure/window) in loc) && user.a_intent != I_HURT && user.a_intent != I_HELP)
 		if (user.unEquip(I, src.loc))
 			set_pixel_click_offset(I, params)
 			return
-
-
+	//Gun bracing
+	if(!(locate(/obj/structure/window) in loc) && user.a_intent == I_HELP && istype(I, /obj/item/gun))
+		var/obj/item/gun/G = I
+		G.gun_brace(user, src) //.../modules/projectiles/gun.dm
+		return
 	//Hitting the wall with stuff
 	if(!istype(I,/obj/item/rcd) && !istype(I, /obj/item/reagent_containers))
 		if(!I.force)

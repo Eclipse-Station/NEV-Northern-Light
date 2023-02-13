@@ -270,10 +270,10 @@
 // Proc: update_icon()
 // Parameters: None
 // Description: Allows us to use special icon overlay for critical SMESs
-/obj/machinery/power/smes/buildable/on_update_icon()
+/obj/machinery/power/smes/buildable/update_icon()
 	if (failing)
-		cut_overlays()
-		add_overlays(image('icons/obj/power.dmi', "smes-crit"))
+		overlays.Cut()
+		overlays += image('icons/obj/power.dmi', "smes-crit")
 	else
 		..()
 
@@ -380,3 +380,22 @@
 	. = ..()
 	component_parts += new /obj/item/stock_parts/smes_coil(src)
 	RefreshParts()
+	
+// // // ECLIPSE ADDITIONS BEYOND THIS POINT // // //
+//Backup emergency SMES unit, to allow the ship to operate in minimum-power situations.
+/obj/machinery/power/smes/buildable/backup
+	capacity = 15e6		//To  power the station for a while.
+	charge = 8e6		//Same as engine.
+	
+	output_attempt = FALSE		//Manual activation...
+	input_attempt = TRUE		//Automatic charge.
+	
+	input_level = 25e3		//25 kW trickle charge.
+	
+	RCon_tag = "Backup Emergency SMES"
+	
+/obj/machinery/power/smes/buildable/backup/Initialize()
+	. = ..()
+	component_parts += new /obj/item/stock_parts/smes_coil(src)
+	RefreshParts()
+	output_attempt = FALSE		//in case it gets the bright idea to ignore the above again.

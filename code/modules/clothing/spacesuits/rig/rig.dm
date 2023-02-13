@@ -23,7 +23,7 @@
 	item_flags = DRAG_AND_DROP_UNEQUIP|EQUIP_SOUNDS
 	spawn_tags = SPAWN_TAG_RIG
 	rarity_value = 10
-	bad_type = /obj/item/rig
+	bad_type = /obj/item/rig //TODO: Resprite these, remove old bay leftover RIGs, add a RIG to moeb R&D, add more RIGs in general
 
 	// These values are passed on to all component pieces.
 	armor = list(
@@ -39,7 +39,9 @@
 	siemens_coefficient = 0.1
 	permeability_coefficient = 0.1
 	unacidable = 1
-	slowdown = 1
+	slowdown = HEAVY_SLOWDOWN // Very slow, but gimbal makes aim steady
+	stiffness = LIGHT_STIFFNESS
+	obscuration = LIGHT_OBSCURATION
 
 	var/interface_path = "hardsuit.tmpl"
 	var/ai_interface_path = "hardsuit.tmpl"
@@ -91,13 +93,14 @@
 	var/seal_delay = SEAL_DELAY
 	var/sealing                                               // Keeps track of seal status independantly of canremove.
 	var/offline = 1                                           // Should we be applying suit maluses?
-	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
+	var/offline_slowdown = HEAVY_SLOWDOWN * 3                 // If the suit is deployed and unpowered, it sets slowdown to this.
 	var/vision_restriction
 	var/offline_vision_restriction = 1                        // 0 - none, 1 - welder vision, 2 - blind. Maybe move this to helmets.
 	var/airtight = 1 //If set, will adjust AIRTIGHT and STOPPRESSUREDAMAGE flags on components. Otherwise it should leave them untouched.
 
 	var/emp_protection = 0
 
+	// 2022- Just so everyone knows , this doesn't get checked at all down the line. It only checks if its on the back , regardles of its value.
 	var/rig_wear_slot = slot_back //Changing this allows for rigs that are worn as a belt or a tie or something
 
 	// Wiring! How exciting.
@@ -158,6 +161,7 @@
 	if(helm_type)
 		helmet = new helm_type(src)
 		verbs |= /obj/item/rig/proc/toggle_helmet
+		helmet.obscuration = obscuration
 	if(boot_type)
 		boots = new boot_type(src)
 		verbs |= /obj/item/rig/proc/toggle_boots
@@ -167,6 +171,7 @@
 		if(allowed)
 			chest.allowed |= allowed
 		chest.slowdown = offline_slowdown
+		chest.stiffness = stiffness
 		verbs |= /obj/item/rig/proc/toggle_chest
 
 	if(initial_modules && initial_modules.len)
@@ -381,7 +386,7 @@
 						else
 							to_chat(wearer, SPAN_DANGER("Your suit beeps stridently, and suddenly you're wearing a leaden mass of metal and plastic composites instead of a powered suit."))
 					if(offline_vision_restriction == 1)
-						to_chat(wearer, SPAN_DANGER("The suit optics flicker and die, leaving you with restricted vision."))
+						to_chat(wearer, SPAN_DANGER("The suit optics flickers and die, leaving you with restricted vision."))
 					else if(offline_vision_restriction == 2)
 						to_chat(wearer, SPAN_DANGER("The suit optics drop out completely, drowning you in darkness."))
 		if(!offline)
@@ -526,11 +531,11 @@
 /obj/item/rig/proc/get_species_icon()
 	return 'icons/mob/rig_back.dmi'
 
-/obj/item/rig/on_update_icon(var/update_mob_icon)
+/obj/item/rig/update_icon(var/update_mob_icon)
 	if(installed_modules.len)
 		for(var/obj/item/rig_module/module in installed_modules)
 			if(module.suit_overlay && !module.suit_overlay_mob_only)
-				chest.add_overlays(image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay, "dir" = SOUTH))
+				chest.overlays += image("icon" = 'icons/mob/rig_modules.dmi', "icon_state" = module.suit_overlay, "dir" = SOUTH)
 
 /obj/item/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
 
@@ -586,6 +591,9 @@
 	else if(href_list["toggle_suit_lock"])
 		if (locked != -1)
 			locked = !locked
+
+	// Makes it so the UI instantly updates , instead of using the MC tick, way faster at high stress.
+	SSnano.update_uis(src)
 
 	usr.set_machine(src)
 	add_fingerprint(usr)

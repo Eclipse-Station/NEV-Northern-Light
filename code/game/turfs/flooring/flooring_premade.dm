@@ -405,7 +405,32 @@
 	if(!air) make_air()
 	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
 
+// // // BEGIN ECLIPSE EDITS // // //
+// Master airmix tanks for flooring
 
+/turf/simulated/floor/reinforced/trichloramine
+	oxygen = 0
+	nitrogen = 0
+
+/turf/simulated/floor/reinforced/trichloramine/New()
+	..()
+	sleep(-1)
+	if(!air)
+		make_air()
+	air.adjust_gas("trichloramine", ATMOSTANK_NITROUSOXIDE)		//We want some, but not much. Trichloramine is a very dangerous flammable.
+
+/turf/simulated/floor/reinforced/monochloramine
+	oxygen = 0
+	nitrogen = 0
+
+/turf/simulated/floor/reinforced/monochloramine/New()
+	..()
+	sleep(-1)
+	if(!air)
+		make_air()
+	air.adjust_gas("monochloramine", ATMOSTANK_NITROUSOXIDE / 2)		//Less useful to us than trichloramine.
+
+// // // END ECLIPSE EDITS // // //
 
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless
@@ -754,5 +779,5 @@
 
 /turf/simulated/floor/beach/water/New()
 	..()
-	add_overlays(image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1))
+	overlays += image("icon"='icons/misc/beach.dmi',"icon_state"="water5","layer"=MOB_LAYER+0.1)
 

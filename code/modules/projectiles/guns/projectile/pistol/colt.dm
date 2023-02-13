@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/colt
-	name = "FS HG .35 Auto \"Colt M1911\""
+	name = "\improper FS HG .35 Auto \"Colt M1911\""
 	desc = "A cheap knock-off of a Colt M1911. Uses standard .35 and high capacity magazines."
 	icon = 'icons/obj/guns/projectile/colt.dmi'
 	icon_state = "colt"
@@ -16,8 +16,9 @@
 	recoil_buildup = 4
 	gun_tags = list(GUN_GILDABLE)
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	gun_parts = list(/obj/item/part/gun/frame/colt = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/pistol = 1)
 
-/obj/item/gun/projectile/colt/on_update_icon()
+/obj/item/gun/projectile/colt/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -36,3 +37,12 @@
 /obj/item/gun/projectile/colt/Initialize()
 	. = ..()
 	update_icon()
+
+/obj/item/part/gun/frame/colt
+	name = "\improper Colt 1911 frame"
+	desc = "A Colt pistol frame. Winner of dozens of world wars, and loser of many more guerilla wars."
+	icon_state = "frame_1911"
+	result = /obj/item/gun/projectile/colt
+	grip = /obj/item/part/gun/grip/wood
+	mechanism = /obj/item/part/gun/mechanism/pistol
+	barrel = /obj/item/part/gun/barrel/pistol

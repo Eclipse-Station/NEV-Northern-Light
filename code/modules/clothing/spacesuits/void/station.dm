@@ -135,7 +135,7 @@
 		)
 	armor = list(
 		melee = 50,
-		bullet = 35,
+		bullet = 40,
 		energy = 30,
 		bomb = 25,
 		bio = 100,
@@ -148,10 +148,9 @@
 	desc = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
 	item_state = "miner_suit"
 	icon_state = "miner_suit"
-	slowdown = 0.35
 	armor = list(
 		melee = 50,
-		bullet = 35,
+		bullet = 40,
 		energy = 30,
 		bomb = 25,
 		bio = 100,
@@ -173,7 +172,7 @@
 	armor = list(
 		melee = 30,
 		bullet = 10,
-		energy = 35,
+		energy = 40,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -184,7 +183,6 @@
 	desc = "A special suit that protects against hazardous, low pressure environments. Has minor radiation shielding."
 	icon_state = "rig-medical"
 	item_state = "rig-medical"
-	slowdown = 0.15
 	extra_allowed = list(
 		/obj/item/storage/firstaid,
 		/obj/item/device/scanner/health,
@@ -200,6 +198,7 @@
 		rad = 75
 	)
 	helmet = /obj/item/clothing/head/space/void/medical
+	slowdown = LIGHT_SLOWDOWN
 
 /obj/item/clothing/suit/space/void/medical/equipped
 	boots = /obj/item/clothing/shoes/magboots
@@ -209,7 +208,7 @@
 	//Security
 /obj/item/clothing/head/space/void/security
 	name = "aegis voidsuit helmet"
-	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
+	desc = "A special helmet designed for work in a hazardous, low pressure environment. Sacrifices sight for protection."
 	icon_state = "ihsvoidhelm"
 	item_state = "ihsvoidhelm"
 	item_state_slots = list(
@@ -219,14 +218,15 @@
 
 	armor = list(
 		melee = 35,
-		bullet = 45,
-		energy = 35,
+		bullet = 50,
+		energy = 40,
 		bomb = 25,
 		bio = 100,
 		rad = 75
 	)
 	siemens_coefficient = 0.7
 	light_overlay = "helmet_light_ihs"
+	obscuration = MEDIUM_OBSCURATION
 
 /obj/item/clothing/suit/space/void/security
 	name = "aegis voidsuit"
@@ -235,8 +235,8 @@
 	item_state = "ihvoidsuit"
 	armor = list(
 		melee = 35,
-		bullet = 45,
-		energy = 35,
+		bullet = 50,
+		energy = 40,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -306,21 +306,44 @@
 	price_tag = 200
 	armor = list(
 		melee = 40,
-		bullet = 40,
-		energy = 55,
+		bullet = 50,
+		energy = 60,
 		bomb = 40,
 		bio = 100,
 		rad = 75
 	)
 	siemens_coefficient = 0.4
 	light_overlay = "helmet_light_dual"
+	obscuration = 0
 
 /obj/item/clothing/head/space/void/science
-    var/list/icon_states = list("moebiushelmb","moebiushelmr", "moebiushelmp","moebiushelmg", "moebiushelmy", "moebiushelmw") //TODO: a manual selection anytime.
+	var/list/icon_states = list(
+		"Blue" = "moebiushelmb",
+		"Red" = "moebiushelmr",
+		"Purple" = "moebiushelmp",
+		"Green" = "moebiushelmg",
+		"Yellow" = "moebiushelmy",
+		"White" = "moebiushelmw")
+
+/obj/item/clothing/head/space/void/science/verb/recolor()
+	set name = "Change helmet color"
+	set category = "Object"
+	set src in usr
+
+	var/color = input(usr, "Available colors", "Visor configuration") in icon_states
+	icon_state = icon_states[color]
+	update_wear_icon()
+	usr.update_action_buttons()
 
 /obj/item/clothing/head/space/void/science/New()
-    ..()
-    icon_state = pick(icon_states)
+	..()
+	var/color = pick(icon_states)
+	icon_state = icon_states[color]
+
+/obj/item/clothing/head/space/void/science/emag_act(remaining_charges, mob/user, emag_source)
+	icon_state = "moebiushelmcaramel"
+	update_wear_icon()
+	usr.update_action_buttons()
 
 /obj/item/clothing/suit/space/void/science
 	name = "\improper Lazarus combat voidsuit"
@@ -335,8 +358,8 @@
 	)
 	armor = list(
 		melee = 40,
-		bullet = 40,
-		energy = 55,
+		bullet = 50,
+		energy = 60,
 		bomb = 40, //platinum price justifies bloated stats
 		bio = 100,
 		rad = 75
@@ -346,6 +369,7 @@
 	siemens_coefficient = 0.4
 	helmet = /obj/item/clothing/head/space/void/science
 	spawn_blacklisted = TRUE
+	stiffness = MEDIUM_STIFFNESS
 
 /obj/item/clothing/suit/space/void/science/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
@@ -375,9 +399,9 @@
 	slowdown = 2
 
 	armor = list(
-		melee = 20,
-		bullet = 15,
-		energy = 20,
+		melee = 30,
+		bullet = 30,
+		energy = 30,
 		bomb = 25,
 		bio = 100,
 		rad = 0
@@ -392,9 +416,9 @@
 	item_state = "makeshift_void"
 	siemens_coefficient = 0.4
 	armor = list(
-		melee = 10,
-		bullet = 20,
-		energy = 20,
+		melee = 30,
+		bullet = 30,
+		energy = 30,
 		bomb = 25,
 		bio = 100,
 		rad = 0
@@ -414,8 +438,8 @@
 	flags_inv = BLOCKHAIR
 	armor = list(
 		melee = 40,
-		bullet = 30,
-		energy = 30,
+		bullet = 40,
+		energy = 40,
 		bomb = 30,
 		bio = 100,
 		rad = 50
@@ -434,8 +458,8 @@
 	flags_inv = HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL
 	armor = list(
 	    melee = 40,
-		bullet = 30,
-		energy = 30,
+		bullet = 40,
+		energy = 40,
 		bomb = 30,
 		bio = 100,
 		rad = 50
@@ -446,3 +470,4 @@
 	species_restricted = list(SPECIES_HUMAN)
 	helmet = /obj/item/clothing/head/space/void/NTvoid
 	spawn_blacklisted = TRUE
+	slowdown = LIGHT_SLOWDOWN

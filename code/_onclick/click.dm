@@ -149,6 +149,10 @@
 	if(!isturf(loc)) // This is going to stop you from telekinesing from inside a closet, but I don't shed many tears for that
 		return
 
+	if(W && !W.can_use_lying && src.lying)
+		to_chat(src, SPAN_WARNING("You cannot use \the [W] while lying down!"))
+		return 1
+
 	//Atoms on turfs (not on your person)
 	// A is a turf or is on a turf, or in something on a turf (pen in a box); but not something in something on a turf (pen in a box in a backpack)
 	sdepth = A.storage_depth_turf()
@@ -380,6 +384,9 @@ GLOBAL_LIST_INIT(click_catchers, create_click_catcher())
 /obj/screen/click_catcher/Destroy()
 	return QDEL_HINT_LETMELIVE
 
+/obj/screen/click_catcher/New(_name = "", mob/living/_parentmob, _icon, _icon_state)
+	..()
+
 /proc/create_click_catcher()
 	. = list()
 	for(var/i = 0, i<15, i++)
@@ -405,36 +412,3 @@ GLOBAL_LIST_INIT(click_catchers, create_click_catcher())
 /obj/screen/click_catcher/proc/resolve(var/mob/user)
 	var/turf/T = screen_loc2turf(screen_loc, get_turf(user))
 	return T
-
-/mob/living/carbon/human/proc/absolute_grab(mob/living/carbon/human/T)
-	if(!ishuman(T))
-		return
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		to_chat(src, "You cannot leap in your current state.")
-		return
-	if(l_hand && r_hand)
-		to_chat(src, SPAN_DANGER("You need to have one hand free to grab someone."))
-		return
-
-	if(!T || !src || src.stat)
-		return
-	if(get_dist(get_turf(T), get_turf(src)) < 2)
-		return
-	if(get_dist_euclidian(get_turf(T), get_turf(src)) >= 3)
-		return
-	if(last_special > world.time)
-		return
-	last_special = world.time + 75
-	status_flags |= LEAPING
-	src.visible_message(SPAN_DANGER("\The [src] leaps at [T]!"))
-	src.throw_at(get_step(get_turf(T),get_turf(src)), 4, 1, src)
-	mob_playsound(src.loc, 'sound/voice/shriek1.ogg', 50, 1)
-	sleep(5)
-	if(status_flags & LEAPING)
-		status_flags &= ~LEAPING
-
-		if(!src.Adjacent(T))
-			to_chat(src, SPAN_WARNING("You miss!"))
-			Weaken(3)
-			return
-		T.attack_hand(src)

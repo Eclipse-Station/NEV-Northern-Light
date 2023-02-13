@@ -279,7 +279,7 @@
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //can be used offensively
 			if(M.HUDtech.Find("flash"))
-				FLICK("flash", M.HUDtech["flash"])
+				flick("flash", M.HUDtech["flash"])
 	else
 		return ..()
 
@@ -312,10 +312,10 @@
 	desc = "A hand-held security flashlight."
 	icon_state = "seclite"
 	item_state = "seclite"
-	light_spot_radius = 3
 	light_spot_power = 2.5
+	tick_cost = 0.2
 
-/obj/item/device/lighting/toggleable/flashlight/seclite/on_update_icon()
+/obj/item/device/lighting/toggleable/flashlight/seclite/update_icon()
 	. = ..()
 
 	if(on)

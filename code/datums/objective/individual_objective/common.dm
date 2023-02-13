@@ -164,7 +164,7 @@
 
 /datum/individual_objective/helper
 	name = "Helping Hand"
-	units_requested = 15 MINUTES
+	units_requested = 5 MINUTES
 	based_time = TRUE
 	var/mob/living/carbon/human/target
 	var/timer
@@ -206,7 +206,7 @@
 	name = "Obsessive Observation"
 	var/mob/living/carbon/human/target
 	var/timer
-	units_requested = 5 MINUTES
+	units_requested = 3 MINUTES
 	based_time = TRUE
 
 /datum/individual_objective/obsession/can_assign(mob/living/L)
@@ -335,7 +335,7 @@
 	target = pick(valids_targets)
 	units_requested = rand(500, 1000)
 	desc = "The money must always flow but you must also prevent fees from ruining you.  \
-			Make a back transfer from you personal account for amount of [units_requested][CREDITS]."
+			Make a bank transfer from you personal account for amount of [units_requested][CREDITS]."
 	RegisterSignal(owner.initial_account, COMSIG_TRANSATION, .proc/task_completed)
 
 /datum/individual_objective/economy/task_completed(datum/money_account/S, datum/money_account/T, amount)

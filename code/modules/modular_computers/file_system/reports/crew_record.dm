@@ -211,14 +211,14 @@ FIELD_SHORT("Email",email, null, access_change_ids)
 FIELD_NUM("Account",account, null, access_change_ids)
 
 // MEDICAL RECORDS
-FIELD_LIST("Blood Type", bloodtype, GLOB.blood_types, access_moebius, access_moebius)
-FIELD_LONG("Medical Record", medRecord, access_moebius, access_moebius)
+FIELD_LIST("Blood Type", bloodtype, GLOB.blood_types, access_moebius_consoles, access_moebius_consoles)
+FIELD_LONG("Medical Record", medRecord, access_moebius_consoles, access_moebius_consoles)
 
 // SECURITY RECORDS
-FIELD_LIST("Criminal Status", criminalStatus, GLOB.security_statuses, access_security, access_security)
-FIELD_LONG("Security Record", secRecord, access_security, access_security)
-FIELD_SHORT("DNA", dna, access_security, access_security)
-FIELD_SHORT("Fingerprint", fingerprint, access_security, access_security)
+FIELD_LIST("Criminal Status", criminalStatus, GLOB.security_statuses, access_sec_consoles, access_sec_consoles)
+FIELD_LONG("Security Record", secRecord, access_sec_consoles, access_sec_consoles)
+FIELD_SHORT("DNA", dna, access_sec_consoles, access_sec_consoles)
+FIELD_SHORT("Fingerprint", fingerprint, access_sec_consoles, access_sec_consoles)
 
 // EMPLOYMENT RECORDS
 FIELD_LONG("Employment Record", emplRecord, access_heads, access_heads)

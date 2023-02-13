@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/olivaw
-	name = "FS MP .35 Auto \"Olivaw\""
+	name = "\improper FS MP .35 Auto \"Olivaw\""
 	desc = "A popular \"Frozen Star\" machine pistol. This one has a two-round burst-fire mode and is chambered for .35 auto. It can use normal and high capacity magazines."
 	icon = 'icons/obj/guns/projectile/olivawcivil.dmi'
 	icon_state = "olivawcivil"
@@ -22,10 +22,20 @@
 		)
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	gun_parts = list(/obj/item/part/gun/frame/olivaw = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/pistol = 1)
 
-/obj/item/gun/projectile/olivaw/on_update_icon()
+/obj/item/gun/projectile/olivaw/update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "olivawcivil"
 	else
 		icon_state = "olivawcivil_empty"
+
+/obj/item/part/gun/frame/olivaw
+	name = "\improper Olivaw frame"
+	desc = "An Olivaw pistol frame. Why shoot one bullet when you can shoot two?"
+	icon_state = "frame_olivaw"
+	result = /obj/item/gun/projectile/olivaw
+	grip = /obj/item/part/gun/grip/wood
+	mechanism = /obj/item/part/gun/mechanism/pistol
+	barrel = /obj/item/part/gun/barrel/pistol

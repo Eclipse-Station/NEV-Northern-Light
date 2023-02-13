@@ -43,11 +43,25 @@
 /datum/uplink_item/item/visible_weapons/assaultrifle
 	name = "Assault Rifle"
 	item_cost = 10
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syndie_kit/sts35
+
+/datum/uplink_item/item/visible_weapons/winchesterrifle
+	name = "FS BR .40 \"Svengali\""
+	item_cost = 10
+	antag_roles = list(ROLE_MARSHAL)
+	path = /obj/item/storage/box/syndie_kit/winchester
+
+/datum/uplink_item/item/visible_weapons/lshotgun
+	name = "FS BR \"Sogekihei\""
+	item_cost = 8
+	antag_roles = list(ROLE_MARSHAL)
+	path = /obj/item/storage/box/syndie_kit/lshotgun
 
 /datum/uplink_item/item/visible_weapons/pug
 	name = "Pug Shotgun"
 	item_cost = 8
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syndie_kit/pug
 
 /datum/uplink_item/item/visible_weapons/heavysniper
@@ -58,13 +72,13 @@
 /datum/uplink_item/item/visible_weapons/rigged
 	name = "Weapon Reverse Loader"
 	item_cost = 5
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/gun_upgrade/mechanism/reverse_loader
 
 /datum/uplink_item/item/visible_weapons/boom_trigger
 	name = "Syndicate \"Self Destruct\" trigger"
 	item_cost = 5
-	antag_roles = list(ROLE_TRAITOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/gun_upgrade/trigger/boom
 
 /datum/uplink_item/item/visible_weapons/dna_trigger

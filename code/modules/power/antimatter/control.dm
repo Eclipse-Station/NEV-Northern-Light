@@ -109,6 +109,8 @@
 			stability -= 40
 		if(3)
 			stability -= 20
+		if(4)
+			stability -= 10
 	check_stability()
 	return
 
@@ -126,7 +128,7 @@
 	return
 
 
-/obj/machinery/power/am_control_unit/on_update_icon()
+/obj/machinery/power/am_control_unit/update_icon()
 	if(active) icon_state = "control_on"
 	else icon_state = "control"
 	//No other icons for it atm

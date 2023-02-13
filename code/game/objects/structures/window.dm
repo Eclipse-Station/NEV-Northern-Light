@@ -102,12 +102,12 @@
 	if (is_full_window())
 		return
 	if (overlays)
-		cut_overlays()
+		overlays.Cut()
 
 	var/image/img = image(src.icon, src.icon_state)
 	img.color = "#ffffff"
 	img.alpha = silicate * 255 / 100
-	add_overlays(img)
+	overlays += img
 
 //Setting the explode var makes the shattering louder and more violent, possibly injuring surrounding mobs
 /obj/structure/window/proc/shatter(var/display_message = 1, var/explode = FALSE)
@@ -160,14 +160,13 @@
 	switch(severity)
 		if(1)
 			qdel(src)
-			return
 		if(2)
 			shatter(0,TRUE)
-			return
 		if(3)
+			shatter(0,TRUE)
+		if(4)
 			if(prob(50))
 				shatter(0,TRUE)
-				return
 
 //TODO: Make full windows a separate type of window.
 //Once a full window, it will always be a full window, so there's no point
@@ -196,6 +195,9 @@
 
 /obj/structure/window/hitby(AM as mob|obj)
 	..()
+	if(isliving(AM))
+		hit_by_living(AM)
+		return
 	visible_message(SPAN_DANGER("[src] was hit by [AM]."))
 	var/tforce = 0
 	if(ismob(AM))
@@ -281,6 +283,23 @@
 	sleep(5) //Allow a littleanimating time
 	return TRUE
 
+/obj/structure/window/proc/hit_by_living(var/mob/living/M)
+	var/body_part = pick(BP_HEAD, BP_CHEST, BP_GROIN)
+	var/direction = get_dir(M, src)
+	visible_message(SPAN_DANGER("[M] slams against \the [src]!"))
+	if(prob(30))
+		M.Weaken(1)
+	M.damage_through_armor(rand(7,10), BRUTE, body_part, ARMOR_MELEE)
+
+	var/tforce = (M.stats.getPerk(PERK_ASS_OF_CONCRETE) ? 60 : 15)
+	if(reinf) tforce *= 0.25
+	if(health - tforce <= 7 && !reinf)
+		set_anchored(FALSE)
+		step(src, direction)
+		if(M.stats.getPerk(PERK_ASS_OF_CONCRETE)) //if your ass is heavy and the window is not reinforced, you are moved on the tile where it was
+			M.forceMove(get_step(M.loc, direction), direction)
+	hit(tforce)
+	mount_check()
 
 /obj/structure/window/attackby(obj/item/I, mob/user)
 
@@ -476,10 +495,10 @@
 		verbs += /obj/structure/window/proc/revrotate
 
 //merges adjacent full-tile windows into one (blatant ripoff from game/smoothwall.dm)
-/obj/structure/window/on_update_icon()
+/obj/structure/window/update_icon()
 	//A little cludge here, since I don't know how it will work with slim windows. Most likely VERY wrong.
 	//this way it will only update full-tile ones
-	cut_overlays()
+	overlays.Cut()
 	if(!is_fulltile())
 		icon_state = "[basestate]"
 		return
@@ -507,7 +526,7 @@
 	icon_state = ""
 	for(var/i = 1 to 4)
 		var/image/I = image(icon, "[basestate][connections[i]]", dir = 1<<(i-1))
-		add_overlays(I)
+		overlays += I
 
 	return
 
@@ -711,7 +730,7 @@
 	if(active && !powered(power_channel))
 		toggle_tint()
 
-/obj/machinery/button/windowtint/on_update_icon()
+/obj/machinery/button/windowtint/update_icon()
 	icon_state = "light[active]"
 
 

@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/mandella
-	name = "OSDF HG .25 CS \"Mandella\"" //Eclipse Edit - gun names standardized
+	name = "\improper OSDF HG .25 CS \"Mandella\"" //Eclipse Edit - gun names standardized
 	desc = "A rugged, robust operator handgun with inbuilt silencer. Chambered in .25 caseless ammunition, this time-tested handgun is \
 			your absolute choice if you need to take someone down silently, as it's deadly, produces no sound, and leaves no traces. \
 			Built to have enhanced armor penetration abilities. \
@@ -18,14 +18,16 @@
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_PISTOL
 	magazine_type = /obj/item/ammo_magazine/cspistol
-	damage_multiplier = 1.2
-	penetration_multiplier = 1.7
+	proj_step_multiplier = 0.8
+	damage_multiplier = 1.6
+	penetration_multiplier = 3
 	recoil_buildup = 2
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
+	gun_parts = list(/obj/item/part/gun/frame/mandella = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/clrifle = 1)
 
 
-/obj/item/gun/projectile/mandella/on_update_icon()
+/obj/item/gun/projectile/mandella/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)
@@ -41,3 +43,12 @@
 /obj/item/gun/projectile/mandella/Initialize()
 	. = ..()
 	update_icon()
+
+/obj/item/part/gun/frame/mandella
+	name = "\improper Mandella frame"
+	desc = "A Mandella pistol frame. Covertness never looked so good."
+	icon_state = "frame_mandella"
+	result = /obj/item/gun/projectile/mandella
+	grip = /obj/item/part/gun/grip/black
+	mechanism = /obj/item/part/gun/mechanism/pistol
+	barrel = /obj/item/part/gun/barrel/clrifle

@@ -21,6 +21,25 @@
 	check_AI_act()
 
 /mob/living/carbon/superior_animal/bullet_act(obj/item/projectile/P, def_zone)
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Simplemob bonus damage.
+	if(simplemob_bonus_enabled)
+		if(simplemob_bonus_multiplier || P.simplemob_bonus_mult)		//If either of them are nonzero, the damage a bullet will do is changed.
+			for(var/i in P.damage_types)
+				var/_dmg = P.damage_types[i]
+				if(!_dmg)
+					continue		//No sense in multiplying a zero value. It'll just be zero.
+				_dmg += (_dmg * simplemob_bonus_multiplier) + (_dmg * P.simplemob_bonus_mult)
+/* To verify the maths:
+ * Bullet base damage of type X is 10. From-mob multiplier of +0.45 (+45%). From-bullet multiplier of +0.1 (+10%).
+ * 10 += (10 * 0.45) + (10 * 0.1)
+ * equals 10 += 4.5 + 1
+ * equals 10 += 5.5, which equals 15.5 damage type X.
+ * Maths verify as intended.
+ */
+				_dmg = max(0, _dmg)
+				P.damage_types[i] = _dmg
+		// // // END ECLIPSE EDITS // // //
 	. = ..()
 	updatehealth()
 
@@ -107,10 +126,10 @@
 	..()
 	if(!blinded)
 		if (HUDtech.Find("flash"))
-			FLICK("flash", HUDtech["flash"])
+			flick("flash", HUDtech["flash"])
 
+	var/bomb_defense = getarmor(null, ARMOR_BOMB)
 	var/b_loss = null
-	var/f_loss = null
 	switch (severity)
 		if (1)
 			gib()
@@ -118,7 +137,6 @@
 
 		if (2)
 			b_loss += 60
-			f_loss += 60
 			adjustEarDamage(30,120)
 
 		if (3)
@@ -126,9 +144,16 @@
 			if (prob(50))
 				Paralyse(1)
 			adjustEarDamage(15,60)
+		
+		if (4)
+			b_loss += 15
+			if (prob(25))
+				Paralyse(1)
+			adjustEarDamage(15,60)
+
+	b_loss = max(0, b_loss - bomb_defense)
 
 	adjustBruteLoss(b_loss)
-	adjustFireLoss(f_loss)
 
 	updatehealth()
 
@@ -344,22 +369,27 @@
 		if(toxins_pp > min_breath_poison_type)
 			adjustToxLoss(2)
 
-	return 1
+	return TRUE
 
-/mob/living/carbon/superior_animal/handle_fire()
-	if(..())
-		return
-
-	var/burn_temperature = fire_burn_temperature()
-	var/thermal_protection = get_heat_protection(burn_temperature)
-
-	if (thermal_protection < 1 && bodytemperature < burn_temperature)
-		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection), 1)
+/mob/living/carbon/superior_animal/handle_fire(flammable_gas, turf/location)
+	// if its lower than 0 , just bring it back to 0
+	fire_stacks = fire_stacks > 0 ? min(0, ++fire_stacks) : fire_stacks
+	// branchless programming , faster than conventional the more we avoid if checks
+	var/handling_needed = on_fire && (fire_stacks < 0 || flammable_gas < 1)
+	if(handling_needed)
+		ExtinguishMob() //Fire's been put out.
+		return TRUE
+	if(!on_fire)
+		return FALSE
+	adjustFireLoss(2 * bodytemperature / max_bodytemperature * (1 - heat_protection)) // scaling with how much you are over your body temp
+	bodytemperature += fire_stacks * 5 * ( 1 - heat_protection )// 5 degrees per firestack
+	if(isturf(location))
+		location.hotspot_expose( FIRESTACKS_TEMP_CONV(fire_stacks), 50, 1)
 
 /mob/living/carbon/superior_animal/update_fire()
-	remove_overlays(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+	overlays -= image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing")
 	if(on_fire)
-		add_overlays(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+		overlays += image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing")
 
 //The most common cause of an airflow stun is a sudden breach. Evac conditions generally
 /mob/living/carbon/superior_animal/airflow_stun()
@@ -374,3 +404,26 @@
 	var/obj/structure/burrow/B = find_visible_burrow(src)
 	if (B)
 		B.evacuate()
+
+/mob/living/carbon/superior_animal/attack_generic(mob/user, var/damage, var/attack_message)
+
+	if(!damage || !istype(user))
+		return
+
+	var/penetration = 0
+	if(istype(user, /mob/living))
+		var/mob/living/L = user
+		penetration = L.armor_penetration
+
+	damage_through_armor(damage, BRUTE, attack_flag=ARMOR_MELEE, armour_pen=penetration)
+	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>")
+	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
+	src.visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
+	user.do_attack_animation(src)
+	spawn(1) updatehealth()
+	return TRUE
+
+/mob/living/carbon/superior_animal/adjustHalLoss(amount)
+	if(status_flags & GODMODE)
+		return FALSE	//godmode
+	halloss = min(max(halloss + (amount / 2), 0),(maxHealth*2)) // Agony is less effective against beasts

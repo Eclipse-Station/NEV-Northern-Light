@@ -36,19 +36,20 @@
 	update_icon()
 
 /obj/item/reagent_containers/proc/get_filling_state()
-	var/percent = round((reagents.total_volume / volume) * 100)
-	var/list/increments = cached_number_list_decode(filling_states)
-	if(!length(increments))
-		return
+	if(reagents)
+		var/percent = round((reagents.total_volume / volume) * 100)
+		var/list/increments = cached_number_list_decode(filling_states)
+		if(!length(increments))
+			return
 
-	var/last_increment = increments[1]
-	for(var/increment in increments)
-		if(percent < increment)
-			break
+		var/last_increment = increments[1]
+		for(var/increment in increments)
+			if(percent < increment)
+				break
 
-		last_increment = increment
+			last_increment = increment
 
-	return last_increment
+		return last_increment
 
 /obj/item/reagent_containers/proc/standard_dispenser_refill(mob/user, atom/target) // This goes into afterattack
 	if(!target.is_drainable())

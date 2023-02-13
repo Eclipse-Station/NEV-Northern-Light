@@ -1,5 +1,5 @@
 /obj/item/gun/energy/decloner
-	name = "Prototype: biological demolecularisor"
+	name = "\improper Prototype: biological demolecularisor"
 	desc = "A gun that discharges high amounts of controlled radiation to slowly break a target into component elements."
 	icon = 'icons/obj/guns/energy/decloner.dmi'
 	icon_state = "decloner"

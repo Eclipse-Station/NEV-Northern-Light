@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver/sky_driver
-	name = "S REV .35 Auto \"Sky Driver\""
+	name = "\improper S REV .35 Auto \"Sky Driver\""
 	desc = "A prototype revolver, captured as a trophy from a raided Syndicate research base. Uses .35 Special rounds."
 	icon = 'icons/obj/guns/projectile/sky_driver.dmi'
 	icon_state = "sky_driver"
@@ -15,12 +15,12 @@
 	price_tag = 20000
 	damage_multiplier = 1.1
 	penetration_multiplier = 20
-	pierce_multiplier = 5
+	pierce_multiplier = 10
 	recoil_buildup = 6
 	spawn_frequency = 0
 	spawn_blacklisted = TRUE
 	noricochet = TRUE
-	gun_parts = list(/obj/item/gun_upgrade/barrel/gauss = 3, /obj/item/stack/material/plasteel = 2)
+	gun_parts = list(/obj/item/part/gun/frame/sky_driver = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/revolver = 1, /obj/item/part/gun/barrel/pistol = 1)
 
 /obj/item/gun/projectile/revolver/sky_driver/New()
 	..()
@@ -38,3 +38,12 @@
 		return FALSE
 	..()
 
+/obj/item/part/gun/frame/sky_driver
+	name = "\improper Sky Driver frame"
+	desc = "A Sky Driver revolver frame. A device that can put holes in ships, let alone a person."
+	icon_state = "frame_skydriver"
+	result = /obj/item/gun/projectile/revolver/sky_driver
+	grip = /obj/item/part/gun/grip/black
+	mechanism = /obj/item/part/gun/mechanism/revolver
+	barrel = /obj/item/part/gun/barrel/pistol
+	spawn_blacklisted = TRUE

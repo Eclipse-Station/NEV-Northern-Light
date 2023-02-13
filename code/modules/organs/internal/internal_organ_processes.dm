@@ -25,7 +25,10 @@
 	if(process_list && process_list.len)
 		for(var/organ in process_list)
 			var/obj/item/organ/internal/I = organ
-			effective_efficiency += I.get_process_efficiency(process_define)
+			if(I)
+				effective_efficiency += I.get_process_efficiency(process_define)
+			else
+				internal_organs_by_efficiency[process_define] -= I
 
 	return effective_efficiency ? effective_efficiency : 1
 
@@ -157,7 +160,7 @@
 		eye_blurry = max(eye_blurry,6)
 		adjustOxyLoss(1)
 		if(prob(15))
-			Paralyse(rand(1,3))
+			Weaken(rand(1,3))
 			to_chat(src, SPAN_WARNING("You feel extremely [pick("dizzy","woosey","faint")]"))
 
 	else if(blood_volume < blood_safe)

@@ -26,6 +26,9 @@
 	density = TRUE //Should be 0, but then these things would be a nightmare to kill.
 	faction = "spiders"
 
+	//Eclipse-added vars
+	simplemob_bonus_enabled = FALSE		//Did you think you could kill a carrion THAT easily?
+
 /mob/living/simple_animal/spider_core/New()
 	. = ..()
 	verbs |= /mob/living/proc/ventcrawl

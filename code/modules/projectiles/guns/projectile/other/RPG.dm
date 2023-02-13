@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/rpg
-	name = "SA RPG \"RPG-17\"" //Eclipse Edit - gun names standardized
+	name = "\improper SA RPG \"RPG-17\"" //Eclipse Edit - gun names standardized
 	desc = "A modified ancient rocket-propelled grenade launcher, this design is centuries old, but well preserved. \
 			Modification altered gun mechanism to take much more compact, but sligtly less devastating in close quaters rockets and remove backfire. \
 			Their priming and proplusion was altered too for more robust speed, so it has strong recoil."
@@ -28,7 +28,7 @@
 	wield_delay = 1 SECOND
 	wield_delay_factor = 0.8 // 80 vig
 
-/obj/item/gun/projectile/rpg/on_update_icon()
+/obj/item/gun/projectile/rpg/update_icon()
 	. = ..()
 	cut_overlays()
 
@@ -37,7 +37,7 @@
 	if (loaded.len)
 		iconstring += "_he"
 
-	add_overlays(iconstring)
+	overlays += iconstring
 
 	update_wear_icon()
 

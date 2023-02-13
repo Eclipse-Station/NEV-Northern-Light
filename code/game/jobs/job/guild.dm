@@ -3,7 +3,8 @@
 	title = "Free Trade Union Merchant"
 	flag = MERCHANT
 	department = DEPARTMENT_GUILD
-	head_position = 1
+	head_position = TRUE
+	aster_guild_member = TRUE
 	department_flag = GUILD | COMMAND
 	faction = "NEV Northern Light"
 	total_positions = 1
@@ -11,11 +12,12 @@
 	supervisors = "your greed"
 	selection_color = "#b3a68c"
 	wage = WAGE_NONE	//Guild merchant draws a salary from the guild account
+	wl_config_heads = TRUE		//Eclipse edit.
 	also_known_languages = list(LANGUAGE_JIVE = 100)
 	access = list(
 		access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_merchant, access_mining,
 		access_heads, access_mining_station, access_RC_announce, access_keycard_auth, access_sec_doors,
-		access_eva, access_external_airlocks, access_change_cargo, access_artist
+		access_eva, access_external_airlocks, access_change_cargo, access_artist, access_supply_consoles
 	)
 	ideal_character_age = 40
 	stat_modifiers = list(
@@ -81,7 +83,7 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 
 	access = list(
 		access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining,
-		access_mining_station
+		access_mining_station, access_supply_consoles
 	)
 
 	stat_modifiers = list(
@@ -155,7 +157,7 @@ Character Expectations:<br>\
 
 	access = list(
 		access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining,
-		access_mining_station
+		access_mining_station, access_supply_consoles
 	)
 
 
@@ -189,7 +191,7 @@ Character Expectations:<br>\
 	supervisors = "the Union Merchant"
 	selection_color = "#dddddd"
 	also_known_languages = list(LANGUAGE_JIVE = 100)
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining, access_mining_station, access_artist, access_theatre)
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_mining, access_mining_station, access_artist, access_theatre, access_supply_consoles)
 
 	outfit_type = /decl/hierarchy/outfit/job/cargo/artist
 	wage = WAGE_LABOUR_DUMB	//Barely a retaining fee. Actor can busk for credits to keep themselves fed

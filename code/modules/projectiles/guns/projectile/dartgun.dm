@@ -38,11 +38,11 @@
 	caliber = CAL_DART
 	ammo_type = /obj/item/ammo_casing/chemdart
 	max_ammo = 5
-	multiple_sprites = 1
 	mag_well = MAG_WELL_DART
+	ammo_states = list(1, 2, 3, 4, 5)
 
 /obj/item/gun/projectile/dartgun
-	name = "ZHP DG \"Artemis\"" //Eclipse Edit - gun names standardized
+	name = "\improper ZHP DG \"Artemis\"" //Eclipse Edit - gun names standardized
 	desc = "Zeng-Hu Pharmaceutical's entry into the arms market, the Z-H P Artemis is a gas-powered dart gun capable of delivering chemical cocktails swiftly across short distances."
 	icon = 'icons/obj/guns/projectile/dartgun.dmi'
 	icon_state = "dartgun-empty"
@@ -75,7 +75,7 @@
 			beakers += B
 	update_icon()
 
-/obj/item/gun/projectile/dartgun/on_update_icon()
+/obj/item/gun/projectile/dartgun/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "dartgun-[round(ammo_magazine.stored_ammo.len,2)]"

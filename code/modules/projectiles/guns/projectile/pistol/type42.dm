@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/type_42
-	name = "OS HG .25 CS \"Type XLII\""
+	name = "\improper OS HG .25 CS \"Type XLII\""
 	desc = "An old Onestar pistol, designed with esoteric mechanisms. Uses .25 Caseless rounds."
 	icon = 'icons/obj/guns/projectile/os/type_42.dmi'
 	icon_state = "type_42"
@@ -23,7 +23,7 @@
 	spawn_blacklisted = TRUE //until loot rework
 
 
-/obj/item/gun/projectile/type_42/on_update_icon()
+/obj/item/gun/projectile/type_42/update_icon()
 	..()
 
 	var/iconstring = initial(icon_state)

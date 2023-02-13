@@ -13,12 +13,6 @@
 #define TICKET_STAFF_MESSAGE_ADMIN_CHANNEL 1
 #define TICKET_STAFF_MESSAGE_PREFIX 2
 
-#define ADMIN_QUE(user,display) "<a href='?_src_=holder;adminmoreinfo=\ref[user]'>[display]</a>"
-#define ADMIN_PP(user,display) "<a href='?_src_=holder;adminplayeropts=\ref[user]'>[display]</a>"
-#define ADMIN_VV(atom,display) "<a href='?_src_=vars;Vars=\ref[atom]'>[display]</a>"
-#define ADMIN_SM(user,display) "<a href='?_src_=holder;subtlemessage=\ref[user]'>[display]</a>"
-#define ADMIN_TP(user,display) "<a href='?_src_=holder;traitor=\ref[user]'>[display]</a>"
-
 SUBSYSTEM_DEF(tickets)
 	name = "Admin Tickets"
 	init_order = INIT_ORDER_TICKETS
@@ -127,7 +121,7 @@ SUBSYSTEM_DEF(tickets)
 /datum/controller/subsystem/tickets/proc/makeUrlMessage(client/C, msg, ticketNum)
 	var/list/L = list()
 	L += "<span class='[ticket_help_span]'>[ticket_help_type]: </span><span class='boldnotice'>[key_name(C, TRUE, ticket_help_type)] "
-	L += "([ADMIN_QUE(C.mob,"?")]) ([ADMIN_PP(C.mob,"PP")]) ([ADMIN_VV(C.mob,"VV")]) ([ADMIN_TP(C.mob,"TP")]) ([ADMIN_SM(C.mob,"SM")]) "
+	L += "([ADMIN_QUE(C.mob)]) ([ADMIN_PP(C.mob)]) ([ADMIN_VV(C.mob)]) ([ADMIN_TP(C.mob)]) ([ADMIN_SM(C.mob)]) "
 	L += "([admin_jump_link(C.mob)]) (<a href='?_src_=holder;openticket=[ticketNum][anchor_link_extra]'>TICKET</a>) "
 	L += "[isAI(C.mob) ? "(<a href='?_src_=holder;adminchecklaws=\ref[C.mob]'>CL</a>)" : ""] (<a href='?_src_=holder;take_question=[ticketNum][anchor_link_extra]'>TAKE</a>) "
 	L += "(<a href='?_src_=holder;resolve=[ticketNum][anchor_link_extra]'>RESOLVE</a>) (<a href='?_src_=holder;autorespond=[ticketNum][anchor_link_extra]'>AUTO</a>) "
@@ -230,7 +224,7 @@ SUBSYSTEM_DEF(tickets)
 		"Happens Again" = "Thanks, let us know if it continues to happen.",
 		"Github Issue Report" = "To report a bug, please go to our <a href='[config.githuburl]'>Github page</a>. Then go to 'Issues'. Then 'New Issue'. Then fill out the report form. If the report would reveal current-round information, file it after the round ends.",
 		"Clear Cache" = "To fix a blank screen, go to the 'Special Verbs' tab and press 'Reload UI Resources'. If that fails, clear your BYOND cache (instructions provided with 'Reload UI Resources'). If that still fails, please adminhelp again, stating you have already done the following." ,
-		"IC Issue" = "This is an In Character (IC) issue and will not be handled by admins. You could speak to Security, Internal Affairs, a Departmental Head, NT rep, or any other relevant authority currently on station.",
+		"IC Issue" = "This is an In Character (IC) issue and will not be handled by admins. You could speak to Security, a Departmental Head, or any other relevant authority currently on station.",
 		"Reject" = "Reject",
 		"Man Up" = "Man Up",
 		"Skill Issue" = "Skill Issue",
@@ -255,7 +249,7 @@ SUBSYSTEM_DEF(tickets)
 		if("Man Up")
 			C.man_up(returnClient(N))
 		if("Skill Issue")
-			C.skill_issue(returnClient(N))	
+			C.skill_issue(returnClient(N))
 		else
 			to_chat_safe(returnClient(N), "<span class='[span_class]'>[C] is autoresponding with: <span/> <span class='adminticketalt'>[response_phrases[message_key]]</span>")//for this we want the full value of whatever key this is to tell the player so we do response_phrases[message_key]
 	sound_to(returnClient(N), "sound/effects/adminhelp.ogg")

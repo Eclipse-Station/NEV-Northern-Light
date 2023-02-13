@@ -1,7 +1,13 @@
 /datum/wires/rig
-	random = 1
 	holder_type = /obj/item/rig
 	wire_count = 5
+	descriptions = list(
+			new /datum/wire_description(RIG_SECURITY, "Security"),
+			new /datum/wire_description(RIG_AI_OVERRIDE, "AI override"),
+			new /datum/wire_description(RIG_SYSTEM_CONTROL, "System control"),
+			new /datum/wire_description(RIG_INTERFACE_LOCK, "Interface lock"),
+			new /datum/wire_description(RIG_INTERFACE_SHOCK, "Interface shock")
+	)
 
 //The defines for the wires are moved to rig.dm, as they are used there
 /*

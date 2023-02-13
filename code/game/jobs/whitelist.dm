@@ -122,3 +122,4 @@ ADMIN_VERB_ADD(/client/proc/reload_whitelist, R_ADMIN, FALSE)
 
 	if(!check_rights(R_ADMIN)) return
 	load_aeiouwhitelist()
+	load_jobwhitelist()

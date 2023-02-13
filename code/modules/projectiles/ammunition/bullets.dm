@@ -4,6 +4,7 @@
 	desc = "A .35 Auto bullet casing."
 	icon_state = "pistol_c_l"
 	spent_icon = "pistol_c_l-spent"
+	shell_color = "l"
 	caliber = CAL_PISTOL
 	projectile_type = /obj/item/projectile/bullet/pistol
 	maxamount = 15
@@ -16,6 +17,7 @@
 	desc = "A .35 Auto high-velocity bullet casing."
 	icon_state = "pistol_c_hv"
 	spent_icon = "pistol_c_hv-spent"
+	shell_color = "hv"
 	caliber = CAL_PISTOL
 	projectile_type = /obj/item/projectile/bullet/pistol/hv
 
@@ -23,6 +25,7 @@
 	desc = "A .35 Auto practice bullet casing."
 	icon_state = "pistol_c_p"
 	spent_icon = "pistol_c_p-spent"
+	shell_color = "p"
 	caliber = CAL_PISTOL
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
 
@@ -30,6 +33,7 @@
 	desc = "A .35 Auto rubber bullet casing."
 	icon_state = "pistol_c_r"
 	spent_icon = "pistol_c_r-spent"
+	shell_color = "r"
 	caliber = CAL_PISTOL
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 
@@ -37,6 +41,7 @@
 	desc = "An old .35 Auto bullet casing."
 	icon_state = "pistol_c_s"
 	spent_icon = "pistol_c_s-spent"
+	shell_color = "s"
 	caliber = CAL_PISTOL
 	projectile_type = /obj/item/projectile/bullet/pistol/scrap
 
@@ -50,6 +55,7 @@
 	caliber = CAL_MAGNUM
 	icon_state = "magnum_c_l"
 	spent_icon = "magnum_c_l-spent"
+	shell_color = "l"
 	projectile_type = /obj/item/projectile/bullet/magnum
 	maxamount = 6
 
@@ -61,6 +67,7 @@
 	desc = "A .40 Magnum practice bullet casing."
 	icon_state = "magnum_c_p"
 	spent_icon = "magnum_c_p-spent"
+	shell_color = "p"
 	caliber = CAL_MAGNUM
 	projectile_type = /obj/item/projectile/bullet/magnum/practice
 
@@ -68,6 +75,7 @@
 	desc = "A .40 Magnum high-velocity bullet casing."
 	icon_state = "magnum_c_hv"
 	spent_icon = "magnum_c_hv-spent"
+	shell_color = "hv"
 	caliber = CAL_MAGNUM
 	projectile_type = /obj/item/projectile/bullet/magnum/hv
 
@@ -75,6 +83,7 @@
 	desc = "A .40 Magnum rubber bullet casing."
 	icon_state = "magnum_c_r"
 	spent_icon = "magnum_c_r-spent"
+	shell_color = "r"
 	caliber = CAL_MAGNUM
 	projectile_type = /obj/item/projectile/bullet/magnum/rubber
 
@@ -83,6 +92,7 @@
 	caliber = CAL_MAGNUM
 	icon_state = "magnum_c_s"
 	spent_icon = "magnum_c_s-spent"
+	shell_color = "s"
 	projectile_type = /obj/item/projectile/bullet/magnum/scrap
 
 /obj/item/ammo_casing/magnum/scrap/prespawned
@@ -144,6 +154,7 @@
 	desc = "A .25 Caseless Rifle bullet casing."
 	icon_state = "clrifle_c_l"
 	spent_icon = "clrifle_c_l-spent"
+	shell_color = "l"
 	caliber = CAL_CLRIFLE
 	projectile_type = /obj/item/projectile/bullet/clrifle
 	is_caseless = TRUE
@@ -157,6 +168,7 @@
 	desc = "A .25 Caseless Rifle practice bullet casing."
 	icon_state = "clrifle_c_p"
 	spent_icon = "clrifle_c_p-spent"
+	shell_color = "p"
 	caliber = CAL_CLRIFLE
 	projectile_type = /obj/item/projectile/bullet/clrifle/practice
 	is_caseless = TRUE
@@ -165,6 +177,7 @@
 	desc = "A .25 Caseless Rifle high-velocity bullet casing."
 	icon_state = "clrifle_c_hv"
 	spent_icon = "clrifle_c_hv-spent"
+	shell_color = "hv"
 	caliber = CAL_CLRIFLE
 	projectile_type = /obj/item/projectile/bullet/clrifle/hv
 	is_caseless = TRUE
@@ -173,6 +186,7 @@
 	desc = "A .25 Caseless Rifle rubber bullet casing."
 	icon_state = "clrifle_c_r"
 	spent_icon = "clrifle_c_r-spent"
+	shell_color = "r"
 	caliber = CAL_CLRIFLE
 	projectile_type = /obj/item/projectile/bullet/clrifle/rubber
 	is_caseless = TRUE
@@ -181,6 +195,7 @@
 	desc = "An old .25 Caseless Rifle bullet casing."
 	icon_state = "clrifle_c_s"
 	spent_icon = "clrifle_c_s-spent"
+	shell_color = "s"
 	caliber = CAL_CLRIFLE
 	projectile_type = /obj/item/projectile/bullet/clrifle/scrap
 
@@ -193,6 +208,7 @@
 	desc = "A .30 rifle bullet casing."
 	icon_state = "lrifle_c_l"
 	spent_icon = "lrifle_c_l-spent"
+	shell_color = "l"
 	caliber = CAL_LRIFLE
 	projectile_type = /obj/item/projectile/bullet/lrifle
 	maxamount = 10
@@ -205,6 +221,7 @@
 	desc = "A .30 rifle practice bullet casing."
 	icon_state = "lrifle_c_p"
 	spent_icon = "lrifle_c_p-spent"
+	shell_color = "p"
 	caliber = CAL_LRIFLE
 	projectile_type = /obj/item/projectile/bullet/lrifle/practice
 
@@ -212,6 +229,7 @@
 	desc = "A .30 Rifle high-velocity bullet casing."
 	icon_state = "lrifle_c_hv"
 	spent_icon = "lrifle_c_hv-spent"
+	shell_color = "hv"
 	caliber = CAL_LRIFLE
 	projectile_type = /obj/item/projectile/bullet/lrifle/hv
 
@@ -219,6 +237,7 @@
 	desc = "A .30 Rifle rubber bullet casing."
 	icon_state = "lrifle_c_r"
 	spent_icon = "lrifle_c_r-spent"
+	shell_color = "r"
 	caliber = CAL_LRIFLE
 	projectile_type = /obj/item/projectile/bullet/lrifle/rubber
 
@@ -226,6 +245,7 @@
 	desc = "An old .30 rifle bullet casing."
 	icon_state = "lrifle_c_s"
 	spent_icon = "lrifle_c_s-spent"
+	shell_color = "s"
 	caliber = CAL_LRIFLE
 	projectile_type = /obj/item/projectile/bullet/lrifle/scrap
 
@@ -424,42 +444,57 @@
 //// Grenade Shells ////
 
 /obj/item/ammo_casing/grenade
-	name = "baton round"
-	desc = "A less-lethal rubber round, designed to be fired from grenade launchers"
+	name = "FS SR \"Sasumata\""
+	desc = "A high-grade Frozen Star sting round, for use against unruly crowds."
 	icon_state = "baton-round"
 	spent_icon = "grenadeshell"
-	projectile_type = /obj/item/projectile/bullet/batonround
+	projectile_type = /obj/item/projectile/bullet/grenade/frag/sting
 	w_class = ITEM_SIZE_SMALL
 	caliber = CAL_GRENADE
+	is_caseless = TRUE
 	maxamount = 1
 	spawn_tags = SPAWN_TAG_AMMO
+	rarity_value = 15
+
+/obj/item/ammo_casing/grenade/weak
+	name = "NT SR \"Dard\""
+	desc = "A standard-issue sting round for use against unruly crowds. The abbreviation \"NT\" marks its producer, but the lack of details makes it ubiquitous."
+	projectile_type = /obj/item/projectile/bullet/grenade/frag/sting/weak
 	rarity_value = 10
 
 /obj/item/ammo_casing/grenade/blast
-	name = "blast grenade shell"
-	desc = "An explosive grenade shell, designed to be fired from grenade launchers"
+	name = "OR OBR \"Puff\""
+	desc = "A military-grade explosive shell, designed to be fired from grenade launchers."
 	icon_state = "blast"
-	projectile_type = /obj/item/projectile/bullet/grenade
+	projectile_type = /obj/item/projectile/bullet/grenade/blast
 	rarity_value = 25
 
 /obj/item/ammo_casing/grenade/frag
-	name = "frag grenade shell"
-	desc = "A frag grenade shell, designed to be fired from grenade launchers"
+	name = "NT DFR \"Pallad\""
+	desc = "A military-grade grenade shell, designed to be fired from grenade launchers. The abbreviation \"NT\" marks its producer, but the lack of detatil makes it ubiquitous."
 	icon_state = "frag"
 	projectile_type = /obj/item/projectile/bullet/grenade/frag
 	rarity_value = 25
 
 /obj/item/ammo_casing/grenade/emp
-	name = "emp grenade shell"
-	desc = "An EMP grenade shell, designed to be fired from grenade launchers"
+	name = "NT EMPR \"Remote Switch\""
+	desc = "An EMP grenade shell, designed to be fired from grenade launchers. The abbreviation \"NT\" marks its producer, but the lack of detatil makes it ubiquitous."
 	icon_state = "emp"
 	projectile_type = /obj/item/projectile/bullet/grenade/emp // gonna keep this from being maint-lootable for now
+
+/obj/item/ammo_casing/grenade/heatwave
+	name = "NT HG \"Purifico\""
+	desc = "A military-grade offensive heatwave grenade shell, designed to be fired from grenade launchers. \
+			There\'s an inscription along the sides. \'For those who disbelieve, for them are cut out garments of fire, boiling water shall be poured over their heads.\'"
+	icon_state = "blast"
+	projectile_type = /obj/item/projectile/bullet/grenade/heatwave
+	rarity_value = 40 // Neotheology
 
 //// Other ////
 
 /obj/item/ammo_casing/rocket
-	name = "PG-7VL grenade"
-	desc = "A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape."
+	name = "PG-7VL HE grenade"
+	desc = "A high explosive warhead designed for the RPG-7 launcher. Has a tubular shape."
 	icon_state = "rocketshell"
 	projectile_type = /obj/item/projectile/bullet/rocket
 	caliber = CAL_ROCKET
@@ -468,20 +503,45 @@
 	is_caseless = TRUE
 	w_class = ITEM_SIZE_NORMAL
 
+/obj/item/ammo_casing/rocket/scrap
+	name = "scrap rocket"
+	desc = "An old improvised rocket shell for the RPG-7 launcher. Has a tubular shape."
+	icon_state = "old_rocketshell"
+	projectile_type = /obj/item/projectile/bullet/rocket/scrap
+	caliber = CAL_ROCKET
+
+/obj/item/ammo_casing/rocket/hesh
+	name = "PG-7V2 HESH grenade"
+	desc = "A high-explosive squash head anti-vehicle warhead designed for the RPG-7 launcher. Has a tubular shape."
+	icon_state = "rocketshell_hesh"
+	projectile_type = /obj/item/projectile/bullet/rocket/hesh
+	caliber = CAL_ROCKET
+	maxamount = 1
+	reload_delay = 15
+	is_caseless = TRUE
+	w_class = ITEM_SIZE_NORMAL
+
+/obj/item/ammo_casing/rocket/scrap/prespawned
+	amount = 1
+
 /obj/item/ammo_casing/a75
-	desc = "A .70 bullet casing."
+	desc = "Self-propelled explosive 'bolt' which explodes once it has penetrated its target."
+	icon_state = "atmr"
+	spent_icon = "atmr-spent"
 	caliber = CAL_70
 	projectile_type = /obj/item/projectile/bullet/gyro
 
 /obj/item/ammo_casing/cap
 	name = "cap"
 	desc = "A cap for children toys."
+	icon_state = "magnum_c_r"
 	caliber = CAL_CAP
 	color = "#FF0000"
+	shell_color = "r"
 	projectile_type = /obj/item/projectile/bullet/cap
 
 /obj/item/ammo_casing/flare
-	name = "flare shell"
+	name = "FTU FR \"Floodlight\""
 	desc = "A chemical flare shell designed to produce a distress signal or illuminate an area."
 	caliber = CAL_FLARE
 	amount = 3

@@ -78,10 +78,10 @@
 	. = ..()
 	update_icon(1)
 
-/turf/simulated/floor/exoplanet/on_update_icon(var/update_neighbors)
+/turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
 	cut_overlays()
 	if(LAZYLEN(decals))
-		add_overlays(decals)
+		overlays += decals
 	for(var/direction in GLOB.cardinal)
 		var/turf/turf_to_check = get_step(src,direction)
 		if(!istype(turf_to_check, type))
@@ -96,11 +96,11 @@
 					rock_side.pixel_x += world.icon_size
 				if(WEST)
 					rock_side.pixel_x -= world.icon_size
-			add_overlays(rock_side)
+			overlays += rock_side
 		else if(update_neighbors)
 			turf_to_check.update_icon()
 
-/turf/simulated/floor/exoplanet/water/on_update_icon()
+/turf/simulated/floor/exoplanet/water/update_icon()
 	return
 
 /turf/simulated/planet_edge
@@ -215,6 +215,10 @@
 
 	else
 		..(C,user)
+
+/turf/simulated/floor/exoplanet/take_damage(var/damage, var/damage_type = BRUTE, var/ignore_resistance = FALSE)
+	// Exoplanet turfs are indestructible, otherwise they can be destroyed at some point and expose metal plating
+	return
 
 
 /turf/simulated/floor/exoplanet/proc/update_connections()

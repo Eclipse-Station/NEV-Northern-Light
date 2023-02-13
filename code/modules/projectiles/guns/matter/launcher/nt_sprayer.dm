@@ -1,6 +1,6 @@
 /obj/item/gun/matter/launcher/nt_sprayer
-	name = "NT BCR BM \"Street Sprayer\""  //Eclipse Edit - gun names standardized
-	desc = "\"NanoTrasen\" brand cleansing carbine. Uses solid biomass as ammo and dispense cleansing liquid on hit."
+	name = "\improper NT BCR BM \"Street Sprayer\""  //Eclipse Edit - gun names standardized
+	desc = "A \"NanoTrasen\" brand cleansing carbine. Uses solid biomass as ammo and dispense cleansing liquid on hit."
 	icon_state = "nt_sprayer"
 	icon = 'icons/obj/guns/matter/nt_sprayer.dmi'
 	slot_flags = SLOT_BACK | SLOT_BELT

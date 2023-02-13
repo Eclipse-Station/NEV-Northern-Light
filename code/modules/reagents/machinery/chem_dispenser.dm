@@ -14,6 +14,7 @@
 	use_power = NO_POWER_USE // Handles power use in Process()
 	layer = BELOW_OBJ_LAYER
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser
+	req_access = list(access_chemistry) //Eclipse Edit - anti-powergaming measure, locking these machines so that only those who have been believably trained in their use can touch them.
 
 	var/ui_title = "Chem Dispenser 5000"
 	var/obj/item/cell/medium/cell
@@ -126,6 +127,9 @@
 		amount = CLAMP(amount, 0, 120)
 
 	if(href_list["dispense"])
+		if(!src.allowed(usr))
+			to_chat(usr, SPAN_WARNING("Access denied."))
+			return
 		if (dispensable_reagents.Find(href_list["dispense"]) && beaker && beaker.is_refillable())
 			var/obj/item/reagent_containers/B = src.beaker
 			var/datum/reagents/R = B.reagents
@@ -186,6 +190,7 @@
 	desc = "A drink fabricating machine, capable of producing many sugary drinks with just one touch."
 	layer = OBJ_LAYER
 	ui_title = "Soda Dispens-o-matic"
+	req_access = list() //Eclipse Edit
 	var/icon_on = "soda_dispenser"
 
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser/soda
@@ -207,15 +212,15 @@
 			to_chat(user, "You change the mode from 'Pizza King' to 'McNano'.")
 			dispensable_reagents -= hacked_reagents
 
-obj/machinery/chemical_dispenser/soda/on_update_icon()
+obj/machinery/chemical_dispenser/soda/update_icon()
 	cut_overlays()
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = icon_on+"_off"
 	else
 		icon_state = icon_on
-	
+
 	if(beaker)
-		add_overlays(image(icon, icon_on+"_loaded"))
+		overlays += image(icon, icon_on+"_loaded")
 
 
 /obj/machinery/chemical_dispenser/beer
@@ -223,6 +228,7 @@ obj/machinery/chemical_dispenser/soda/on_update_icon()
 	name = "booze dispenser"
 	layer = OBJ_LAYER
 	ui_title = "Booze Portal 9001"
+	req_access = list() //Eclipse Edit
 
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser/beer
 
@@ -249,6 +255,7 @@ obj/machinery/chemical_dispenser/soda/on_update_icon()
 	name = "debug chem dispenser"
 	desc = "A mysterious chemical dispenser that can produce all sorts of highly advanced medicines at the press of a button."
 	ui_title = "Cheat Synthesizer 1337"
+	req_access = list() //Eclipse Edit
 	dispensable_reagents = list(
 		"inaprovaline","ryetalyn","paracetamol",
 		"tramadol","oxycodone","sterilizine",
@@ -270,6 +277,7 @@ obj/machinery/chemical_dispenser/soda/on_update_icon()
 	icon = 'icons/obj/machines/chemistry.dmi'
 	icon_state = "industrial_dispenser"
 	ui_title = "Industrial Dispenser 4835"
+	req_access = list(access_moebius) //Eclipse Edit - anti-powergaming measure, see note on parent object above
 
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser/industrial
 

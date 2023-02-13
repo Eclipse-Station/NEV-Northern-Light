@@ -12,6 +12,24 @@
 /obj/item/gun_upgrade/muzzle
 	bad_type = /obj/item/gun_upgrade/muzzle
 
+/obj/item/gun_upgrade/underbarrel
+	bad_type = /obj/item/gun_upgrade/underbarrel
+
+/obj/item/gun_upgrade/underbarrel/bipod
+	name = "bipod"
+	desc = "A simple set of telescopic poles to keep a weapon stabilized during firing. It greatly reduces recoil when deployed, but also increases the gun\'s weight, making it unwieldy unless braced."
+	icon_state = "bipod"
+	rarity_value = 15
+
+/obj/item/gun_upgrade/underbarrel/bipod/New()
+	..()
+	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
+	I.weapon_upgrades = list(
+		GUN_UPGRADE_BIPOD = TRUE,
+		GUN_UPGRADE_RECOIL = 1.2
+		)
+	I.gun_loc_tag = GUN_UNDERBARREL
+
 //Silences the weapon, reduces damage multiplier slightly, Legacy port.
 /obj/item/gun_upgrade/muzzle/silencer
 	name = "silencer"
@@ -50,7 +68,7 @@
 	I.req_gun_tags = list(GUN_PROJECTILE)
 
 /obj/item/gun_upgrade/barrel/blender
-	name = "OR \"Bullet Blender\" barrel"
+	name = "\improper OR \"Bullet Blender\" barrel"
 	desc = "A curious-looking barrel bearing the Oberth insignia. A small label reads \"No refunds for any collateral damage caused\"."
 	icon_state = "Penetrator"
 	rarity_value = 30
@@ -70,7 +88,7 @@
 
 //For energy weapons, increases the damage output, but also the charge cost. Acquired through loot spawns or Eye of the Protector.
 /obj/item/gun_upgrade/barrel/excruciator
-	name = "NanoTrasen \"EXCRUCIATOR\" giga lens"
+	name = "\improper NanoTrasen \"EXCRUCIATOR\" giga lens"
 	desc = "It's time for us to shine."
 	icon_state = "Excruciator"
 	matter = list(MATERIAL_BIOMATTER = 3, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1, MATERIAL_GLASS = 1)
@@ -91,7 +109,7 @@
 
 //Disables the ability to toggle the safety, toggles the safety permanently off, decreases fire delay. Acquired through loot spawns
 /obj/item/gun_upgrade/trigger/dangerzone
-	name = "Frozen Star \"Danger Zone\" Trigger"
+	name = "\improper Frozen Star \"Danger Zone\" Trigger"
 	desc = "When you need that extra edge."
 	icon_state = "Danger_Zone"
 	rarity_value = 15
@@ -108,7 +126,7 @@
 
 //Disables the ability to toggle the safety, toggles the safety permanently on, takes 2 minutes to remove (yikes). Acquired through loot spawns
 /obj/item/gun_upgrade/trigger/cop_block
-	name = "Frozen Star \"Cop Block\" Trigger"
+	name = "\improper Frozen Star \"Cop Block\" Trigger"
 	desc = "A simpler way of making a weapon display-only"
 	icon_state = "Cop_Block"
 	rarity_value = 15
@@ -124,7 +142,7 @@
 	I.breakable = FALSE
 
 /obj/item/gun_upgrade/trigger/dnalock
-	name = "Frozen Star \"DNA lock\" Trigger"
+	name = "\improper Frozen Star \"DNA lock\" Trigger"
 	desc = "There are many guns, but that one will be yours. Prevents others from using weapon with this trigger."
 	icon_state = "DNA_lock"
 	rarity_value = 15
@@ -145,7 +163,7 @@
 
 //Adds +3 to the internal magazine of a weapon. Acquired through loot spawns.
 /obj/item/gun_upgrade/mechanism/overshooter
-	name = "Frozen Star \"Overshooter\" internal magazine kit"
+	name = "\improper Frozen Star \"Overshooter\" internal magazine kit"
 	desc = "A method of overloading a weapon's internal magazine, fitting more ammunition within the weapon."
 	icon_state = "Overshooter"
 	rarity_value = 20
@@ -161,7 +179,7 @@
 
 //Adds radiation damage to .35 rounds. Acquired through telecrystal uplink
 /obj/item/gun_upgrade/mechanism/glass_widow
-	name = "Syndicate \"Glass Widow\" infuser"
+	name = "\improper Syndicate \"Glass Widow\" infuser"
 	desc = "An illegal modification, used to make formerly useless civilian-grade weaponry into something much more lethal."
 	icon_state = "Glass_Widow"
 	rarity_value = 50
@@ -178,8 +196,8 @@
 
 //Lets the SOL be made into a fully automatic weapon, but increases recoil. Acquirable through Frozen Star Guns&Ammo Vendor
 /obj/item/gun_upgrade/mechanism/weintraub
-	name = "Frozen Star \"Weintraub\" full auto kit"
-	desc = "A fully automatic receiver for the .25 \"Sol\"."
+	name = "\improper Frozen Star \"Weintraub\" full auto kit"
+	desc = "A fully automatic receiver for rifles"
 	icon_state = "Weintraub"
 	rarity_value = 30
 
@@ -190,12 +208,12 @@
 		GUN_UPGRADE_FULLAUTO = TRUE,
 		GUN_UPGRADE_RECOIL = 1.2
 	)
-	I.req_gun_tags = list(GUN_SOL)
+	I.req_gun_tags = list(GUN_FA_MODDABLE)
 	I.gun_loc_tag = GUN_MECHANISM
 
 //Causes your weapon to shoot you in the face, then explode. Acquired through uplink
 /obj/item/gun_upgrade/mechanism/reverse_loader
-	name = "Syndicate reverse loader"
+	name = "\improper Syndicate reverse loader"
 	desc = "Makes bullets loaded into the weapon fire backwards, into its user."
 	icon_state = "Reverse_loader"
 	spawn_blacklisted = TRUE
@@ -210,11 +228,8 @@
 	I.req_gun_tags = list(GUN_PROJECTILE)
 	I.gun_loc_tag = GUN_MECHANISM
 
-/obj/item/gun_upgrade/underbarrel
-	bad_type = /obj/item/gun_upgrade/underbarrel
-
 /obj/item/storage/box/gun_upgrades
-	name = "Big box of gun fun"
+	name = "\improper Big Box of Gun Fun"
 	desc = "If seen, please report to your nearest \[REDACTED\]"
 	spawn_blacklisted = TRUE
 
@@ -229,7 +244,7 @@
 	new /obj/item/tool_upgrade/augment/ai_tool(src)
 
 /obj/item/gun_upgrade/trigger/boom
-	name = "Syndicate \"Self Destruct\" trigger"
+	name = "\improper Syndicate \"Self Destruct\" trigger"
 	desc = "Trigger that shorts the battery of an energy weapon, causing it to explode when fired."
 	icon_state = "Boom"
 	spawn_blacklisted = TRUE
@@ -248,7 +263,7 @@
 	bad_type = /obj/item/gun_upgrade/scope
 
 /obj/item/gun_upgrade/scope/watchman
-	name = "Frozen Star \"Watchman\" scope"
+	name = "\improper Frozen Star \"Watchman\" scope"
 	desc = "Scope that can be attached to an average gun."
 	icon_state = "Watchman"
 
@@ -263,7 +278,7 @@
 	I.req_gun_tags = list(GUN_SCOPE)
 
 /obj/item/gun_upgrade/scope/killer
-	name = "Syndicate \"Contract Killer\" scope"
+	name = "\improper Syndicate \"Contract Killer\" scope"
 	desc = "Scope used for sniping from large distances."
 	icon_state = "Killer"
 	spawn_blacklisted = TRUE
@@ -299,7 +314,7 @@
 	bad_type = /obj/item/gun_upgrade/cosmetic
 
 /obj/item/gun_upgrade/cosmetic/gold
-	name = "\"Scaramanga\" gold paint"
+	name = "\improper \"Scaramanga\" gold paint"
 	desc = "A small pot of gold paint, for the kingpin in your life."
 	icon_state = "gold_pot"
 	matter = list(MATERIAL_GOLD = 15)
@@ -318,7 +333,7 @@
 //Trash mods, for putting on old guns
 
 /obj/item/gun_upgrade/trigger/faulty
-	name = "Faulty Trigger"
+	name = "faulty trigger"
 	desc = "Weirdly sticky, and none of your fingers seem to fit to it comfortably. This causes more recoil and increases delay between shots as you try to compensate for it."
 	icon_state = "Cop_Block"
 	spawn_blacklisted = TRUE
@@ -336,7 +351,7 @@
 	I.removable = FALSE
 
 /obj/item/gun_upgrade/barrel/faulty
-	name = "Warped Barrel"
+	name = "warped barrel"
 	desc = "Extreme heat has warped this barrel off-target. This decreases the impact force of bullets fired through it and makes it more difficult to correctly aim the weapon it's attached to."
 	icon_state = "Forged_barrel"
 	spawn_blacklisted = TRUE
@@ -355,7 +370,7 @@
 	I.removable = FALSE
 
 /obj/item/gun_upgrade/muzzle/faulty
-	name = "Failed Makeshift Silencer"
+	name = "failed makeshift silencer"
 	desc = "Inspired by cheesy action movies, somebody has left trash on the end of this weapon. This causes the attached weapon to suffer from weaker armor penetration."
 	icon_state = "silencer"
 	spawn_blacklisted = TRUE
@@ -374,7 +389,7 @@
 	I.removable = FALSE
 
 /obj/item/gun_upgrade/mechanism/faulty
-	name = "Unknown Clockwork Mechanism"
+	name = "unknown clockwork mechanism"
 	desc = "It's really not clear what this modification actually does. It appears to effect the attached weapon's recoil, but if it actually helps or hinders the weapon is unclear."
 	icon_state = "Weintraub"
 	spawn_blacklisted = TRUE
@@ -391,7 +406,7 @@
 	I.removable = FALSE
 
 /obj/item/gun_upgrade/scope/faulty
-	name = "Misaligned sights"
+	name = "misaligned sights"
 	desc = "Some bad knocks have changed the angling on the sights of this weapon. This causes the attached weapon to suffer from decreased accuracy."
 	icon_state = "Watchman"
 	spawn_blacklisted = TRUE
@@ -409,7 +424,7 @@
 	I.removable = FALSE
 
 /obj/item/gun_upgrade/trigger/better
-	name = "Refined trigger"
+	name = "refined trigger"
 	desc = "This trigger seems to be made of durable alloys and cut to the precision of milimeters."
 	spawn_blacklisted = TRUE
 	price_tag = 100
@@ -424,7 +439,7 @@
 	I.gun_loc_tag = GUN_TRIGGER
 
 /obj/item/gun_upgrade/barrel/better
-	name = "High-temperature forged barrel"
+	name = "high-temperature forged barrel"
 	desc = "A barrel forged in high temperature, making the metal more resistant."
 	spawn_blacklisted = TRUE
 	price_tag = 150
@@ -439,7 +454,7 @@
 	I.gun_loc_tag = GUN_BARREL
 
 /obj/item/gun_upgrade/muzzle/better
-	name = "Resonance muzzle"
+	name = "resonance muzzle"
 	desc = "A high tech muzzle, made to resonate at the same frequency as the sound that comes from the gun."
 	spawn_blacklisted = TRUE
 	price_tag = 150
@@ -455,7 +470,7 @@
 	I.gun_loc_tag = GUN_MUZZLE
 
 /obj/item/gun_upgrade/mechanism/better
-	name = "Hydraulic mechanism"
+	name = "hydraulic mechanism"
 	desc = "A high tech mechanism that uses hydraulic pumps to keep recoil at a minimum."
 	spawn_blacklisted = TRUE
 	price_tag = 300
@@ -470,7 +485,7 @@
 	I.gun_loc_tag = GUN_MECHANISM
 
 /obj/item/gun_upgrade/scope/better
-	name = "High-res scope"
+	name = "high-res scope"
 	desc = "A high resolution scope"
 	spawn_blacklisted = TRUE
 	price_tag = 100

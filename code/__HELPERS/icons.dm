@@ -848,7 +848,7 @@ proc
 			if(2)	I.pixel_x++
 			if(3)	I.pixel_y--
 			if(4)	I.pixel_y++
-		add_overlays(I)//And finally add the overlay.
+		overlays += I//And finally add the overlay.
 
 /proc/getHologramIcon(icon/A, safety=1, var/hologram_opacity = 0.5, var/hologram_color)//If safety is on, a new icon is not created.
 	var/icon/flat_icon = safety ? A : new(A)//Has to be a new icon to not constantly change the same icon.
@@ -1318,43 +1318,3 @@ proc/get_average_color(var/icon, var/icon_state, var/image_dir)
 	qdel(west)
 	return full
 
-/proc/FLICK(state, datum/D)
-	if(istype(D))
-		return D.flicker(state)
-	else
-		CRASH("[D](\ref[D]) is not datum, aborting /proc/FLICK. Additional info: {[json_encode(args)]}")
-
-/datum/proc/flicker(iconOrState)
-	// To handle not only state changes in update icon if need
-	flick(iconOrState, src)
-
-/atom/proc/SetIcon(value)
-	icon = value
-
-/atom/proc/SetIconState(value)
-	icon_state = value
-
-
-// Overlays' hadlers
-	//!!! DO NOT USE RAW overlays' OPERATIONS IF YOU DON'T KNOW WHY YOU USE THEM RAW !!!
-//associate_with_overlays("temp4", "alive", "meter")
-	//overlays |=
-/atom/proc/associate_with_overlays()
-	overlays |= args
-//add_overlays("temp4", "alive", "meter")
-	//overlays.Add;overlays +=
-/atom/proc/add_overlays()
-	return overlays.Add(args)
-
-//remove_overlays("temp4", "alive", "meter")
-	//
-/atom/proc/remove_overlays()
-	return overlays.Remove(args)
-//set_overlays(list("temp4", "alive", "meter"))
-	//overlays =
-/atom/proc/set_overlays(list/value)
-	overlays = value
-
-// (placeholders for if/when TG overlays system is ported)
-/atom/proc/cut_overlays(Start=1, End=0)
-	return overlays.Cut(Start, End)
