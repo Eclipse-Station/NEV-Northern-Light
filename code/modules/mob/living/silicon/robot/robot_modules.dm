@@ -79,7 +79,7 @@ var/global/list/robot_modules = list(
 	add_languages(R)
 	add_subsystems(R)
 	apply_status_flags(R)
-	R.radio.recalculateChannels()
+	R.radio.recalculateChannels() //Eclipse edit- removed the way it originally called recalculation and forced it immediately.
 
 /*	if(R.radio)
 		R.radio.recalculateChannels()*/
