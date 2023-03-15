@@ -1,8 +1,9 @@
 /mob/living/carbon/superior_animal/giant_spider/taser //Eclipse Edit: Eclipse-level port of Sojourn mob "shock rock spider"
 	name = "Shibireru Spider"
-	desc = "A massive \[unknown]\ spider. This peculiar arachnid seems to have sparks across it's chitin. "
+	desc = "A massive tarrantula. This peculiar arachnid seems to have sparks across it's chitin. "
 	icon = 'zzz_modular_eclipse/icons/mob/mob.dmi'
-	icon_state = "taser"
+	icon_state = "spark"
+	icon_living = "spark"
 	rarity_value = 70
 	spawn_frequency = 15
 	poison_per_bite = 0
@@ -16,7 +17,7 @@
 	var/cooldown = 0
 	/// How much cooldown will be incremented
 	var/cooldown_increment = 5
-	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider/taser
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider
 
 /mob/living/carbon/superior_animal/giant_spider/taser/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()

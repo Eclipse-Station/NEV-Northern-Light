@@ -1,8 +1,9 @@
 /mob/living/carbon/superior_animal/giant_spider/spiceder //Eclipse Edit: Eclipse-level port of Sojourn mob "pepper spider"
 	name = "Tsurai Spider"
-	desc = "A large \[unknown]\ spider. This peculiar arachnid reeks of spicy peppers."
+	desc = "A massive tarrantula. This peculiar arachnid reeks of spicy peppers."
 	icon = 'zzz_modular_eclipse/icons/mob/mob.dmi'
 	icon_state = "pepper"
+	icon_living = "pepper"
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider/spiceder
 	emote_see = list("chitters.","rubs its legs.","vibrates.","belches flames!")
 	var/datum/reagents/gas_sac //Stores gas. Can't use the default reagents since that is now bloodstream
@@ -13,9 +14,9 @@
 	/// How much of the reagent is required to fire, how much is fired.
 	var/amount_per_transfer_from_this = 10
 	/// Minimum delay for spraying pepper in ticks
-	var/spray_delay_minimum = 0
+	var/spray_delay_minimum = 5
 	/// Maximum delay for spraying pepper in ticks
-	var/spray_delay_maximum = 5
+	var/spray_delay_maximum = 10
 	/// The message to be displayed when we spray
 	var/spray_message = "suddenly sprays out a red-colored liquid at"
 	/// Tracker var for our cooldown, will be set to cooldown_increment + world.time apon successful spray
@@ -28,7 +29,7 @@
 	var/spray_lifespan = 10
 	poison_per_bite = 2
 	poison_type = "condensedcapsaicin"
-
+	rarity_value = 70
 /mob/living/carbon/superior_animal/giant_spider/spiceder/New()
 	.=..()
 	gas_sac = new /datum/reagents(spray_max, src)
