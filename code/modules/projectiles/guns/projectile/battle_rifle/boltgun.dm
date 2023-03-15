@@ -35,7 +35,7 @@
 	var/bolt_open = 0
 	var/item_suffix = ""
 	var/message = "bolt"        // what message appears when cocking, eg "You work the [bolt] open, ejecting a casing!"
-	gun_parts = list(/obj/item/part/gun/frame/boltgun = 1, /obj/item/part/gun/grip/wood = 1) //Eclipse Edit: only gives you the frame and the grip, since only the frame and the grip are needed to create.
+	gun_parts = list(/obj/item/part/gun/frame/boltgun = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/barrel/lrifle = 1) //Eclipse Edit: only gives you the frame and the grip, since only the frame and the grip are needed to create.
 
 /obj/item/part/gun/frame/boltgun
 	name = "bolt-action rifle frame"
@@ -44,7 +44,7 @@
 	result = /obj/item/gun/projectile/boltgun
 	variant_grip = TRUE
 	gripvars = /obj/item/part/gun/grip/wood //eclipse edit: changed to not allow excelsior parts
-	resultvars =/obj/item/gun/projectile/boltgun //Eclipse edit: can ONLY make the boltgun
+	resultvars = /obj/item/gun/projectile/boltgun //Eclipse edit: can ONLY make the boltgun
 	mechanism = /obj/item/part/gun/mechanism/boltgun
 	barrel = /obj/item/part/gun/barrel/lrifle
 
