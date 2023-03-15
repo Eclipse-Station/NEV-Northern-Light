@@ -1,5 +1,5 @@
 /mob/living/carbon/superior_animal/giant_spider/phoron //Eclipse Edit: Eclipse-level port of Sojourn mob "plasma spider"
-	name = "plasma spider"
+	name = "Hakai spider"
 	desc = "A massive tarantula. This one is infused with plasma and has mutated spikes protruding from its chitin."
 	icon = 'zzz_modular_eclipse/icons/mob/mob.dmi'
 	icon_state = "phoron"
