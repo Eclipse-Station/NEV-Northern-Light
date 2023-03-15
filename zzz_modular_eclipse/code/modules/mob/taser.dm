@@ -17,7 +17,7 @@
 	var/cooldown = 0
 	/// How much cooldown will be incremented
 	var/cooldown_increment = 5
-	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider/taser
 
 /mob/living/carbon/superior_animal/giant_spider/taser/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()

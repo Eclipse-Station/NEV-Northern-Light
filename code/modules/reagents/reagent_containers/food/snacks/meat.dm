@@ -96,7 +96,7 @@
 
 	bitesize = 6
 	preloaded_reagents = list("protein" = 6, "aranecolmin" = 8,"pararein" = 8)
-.//Beginning of Eclipse Edit: adding in Sojourn Mobs for maintenance diversity.
+//Beginning of Eclipse Edit: adding in Sojourn Mobs for maintenance diversity.
 /obj/item/reagent_containers/food/snacks/meat/spider/spiceder
 	name = "Tsurai meat"
 	desc = "A bloated slab of brilliant-red meat cut from a firey spider. The sting from this one isn't venom, surprisingly!"
@@ -114,7 +114,7 @@
 
 	bitesize = 6
 	preloaded_reagents = list("protein" = 4, "lithium" = 2)
-
+//end of eclipse edit
 
 
 /obj/item/reagent_containers/food/snacks/meat/carp
