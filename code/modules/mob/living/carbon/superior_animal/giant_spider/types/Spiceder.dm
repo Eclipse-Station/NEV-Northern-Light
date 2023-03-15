@@ -1,9 +1,9 @@
-/mob/living/carbon/superior_animal/giant_spider/spiceder //An Eclipse Edit port of the Sojourn "pepper spider"
+/mob/living/carbon/superior_animal/giant_spider/spiceder //Eclipse Edit: Eclipse-level port of Sojourn mob "pepper spider"
 	name = "Tsurai Spider"
 	desc = "A large \[unknown]\ spider. This peculiar arachnid reeks of spicy peppers."
+	icon = 'zzz_modular_eclipse/icons/mob/mob.dmi'
 	icon_state = "pepper"
-	icon_living = "pepper"
-	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider // Eclipse edit: temporary meat type until the spicy meat is made
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider/spiceder
 	emote_see = list("chitters.","rubs its legs.","vibrates.","belches flames!")
 	var/datum/reagents/gas_sac //Stores gas. Can't use the default reagents since that is now bloodstream
 	/// How much we can hold in our gas sac.
@@ -26,7 +26,8 @@
 	var/spray_movement_delay = 5
 	/// The amount of ticks the spray will exist for
 	var/spray_lifespan = 10
-
+	poison_per_bite = 2
+	poison_type = "condensedcapsaicin"
 
 /mob/living/carbon/superior_animal/giant_spider/spiceder/New()
 	.=..()

@@ -158,6 +158,18 @@
 						busy = 0
 						stop_automated_movement = 0
 
+/mob/living/carbon/superior_animal/giant_spider/nurse/midwife
+	name = "midwife spider"
+	desc = "Furry and black, it makes you shudder to look at it. This one has brilliant green eyes and purple stripes on the back."
+	icon_state = "midwife"
+	icon_living = "midwife"
+	maxHealth = 50
+	health = 50
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+	poison_per_bite = 4
+	egg_inject_chance = 5 //Yes
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider
 
 
 #undef SPINNING_WEB
