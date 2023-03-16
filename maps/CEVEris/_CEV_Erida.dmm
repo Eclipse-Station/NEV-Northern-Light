@@ -404,8 +404,8 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "abn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -419,8 +419,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
+/obj/effect/floor_decal/industrial/danger{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "abp" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -507,8 +510,8 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "abv" = (
 /obj/structure/disposalpipe/up{
 	dir = 8;
@@ -654,10 +657,6 @@
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck3)
 "abK" = (
-/obj/machinery/door/airlock/security{
-	id_tag = "CourtRoom";
-	name = "Courtroom"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -675,8 +674,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark/cargo,
-/area/eris/command/courtroom)
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "abL" = (
 /obj/structure/low_wall,
 /obj/machinery/door/firedoor,
@@ -762,8 +762,8 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "abW" = (
 /obj/machinery/door/airlock/maintenance_security{
 	name = "Security Maintenance";
@@ -802,12 +802,11 @@
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck2)
 "acb" = (
-/obj/structure/bed/chair/wood,
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "acc" = (
 /obj/machinery/power/shield_generator/hull/installed,
 /obj/structure/cable/green{
@@ -823,10 +822,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/structure/table/woodentable,
-/obj/machinery/button/windowtint,
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "ace" = (
 /obj/spawner/junk/low_chance,
 /obj/machinery/power/apc{
@@ -978,8 +975,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark/bluecorner,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "acv" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating/under,
@@ -1028,8 +1025,10 @@
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/section3deck4starboard)
 "acE" = (
-/turf/simulated/wall/r_wall,
-/area/eris/command/courtroom)
+/obj/structure/target_stake,
+/obj/item/target/syndicate,
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "acF" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
@@ -1522,12 +1521,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark/bluecorner,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "adP" = (
-/obj/effect/window_lwall_spawn/reinforced/polarized,
-/turf/simulated/floor/plating,
-/area/eris/command/courtroom)
+/obj/structure/table/reinforced,
+/obj/item/clothing/ears/earmuffs,
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "adQ" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1639,7 +1640,7 @@
 "aee" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
-	name = "Courtroom"
+	name = "Shooting Range"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1649,7 +1650,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/cargo,
-/area/eris/command/courtroom)
+/area/eris/crew_quarters/fitness)
 "aef" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -2244,9 +2245,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/maintenance/section1deck4central)
-"afn" = (
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
 "afo" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2822,17 +2820,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/gravity_generator)
 "agn" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/machinery/camera/network/fist_section{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/bluecorner,
-/area/eris/command/courtroom)
+/obj/structure/table/rack,
+/obj/item/cell/medium/high,
+/obj/item/gun/energy/laser/practice,
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "ago" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5536,12 +5534,6 @@
 /obj/structure/railing,
 /turf/simulated/floor/plating/under,
 /area/eris/medical/reception)
-"anb" = (
-/obj/machinery/camera/network/fist_section{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
 "anc" = (
 /obj/structure/closet/l3closet/general,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -6699,15 +6691,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck2)
-"apS" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/item/device/radio/intercom{
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/dark/bluecorner,
-/area/eris/command/courtroom)
 "apT" = (
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/white/brown_platform,
@@ -6812,14 +6795,11 @@
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "aql" = (
-/obj/machinery/button/windowtint{
-	pixel_x = 28
-	},
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "aqm" = (
 /obj/structure/disposalpipe/junction{
 	dir = 1;
@@ -8800,11 +8780,6 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/erida/maintenance/substation/docking_section)
-"auO" = (
-/obj/machinery/door/firedoor,
-/obj/effect/window_lwall_spawn/smartspawn,
-/turf/simulated/floor/plating,
-/area/eris/command/courtroom)
 "auP" = (
 /obj/machinery/flasher{
 	id = "Cell 6";
@@ -9258,23 +9233,21 @@
 /turf/simulated/floor/plating/under,
 /area/eris/security/disposal)
 "awa" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/bluecorner,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "awb" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark/bluecorner,
-/area/eris/command/courtroom)
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "awc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9471,9 +9444,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
-"awx" = (
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
 "awy" = (
 /obj/structure/multiz/ladder,
 /turf/simulated/floor/tiled/techmaint,
@@ -9893,12 +9863,11 @@
 /turf/simulated/floor/wood,
 /area/eris/medical/psych)
 "axD" = (
-/obj/structure/bed/chair/wood,
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "axE" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10355,12 +10324,6 @@
 /obj/machinery/ai_status_display,
 /turf/simulated/wall/r_wall,
 /area/eris/command/bridge)
-"ayN" = (
-/obj/structure/table/woodentable,
-/obj/item/book/manual/wiki/security_ironparagraphs,
-/obj/item/folder/cyan,
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
 "ayO" = (
 /obj/structure/cyberplant,
 /turf/simulated/floor/tiled/steel/bar_dance,
@@ -10637,16 +10600,16 @@
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/reception)
 "azq" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/light,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = -28
 	},
-/turf/simulated/floor/tiled/dark/bluecorner,
-/area/eris/command/courtroom)
+/obj/structure/table/rack,
+/obj/item/cell/medium/high,
+/obj/item/gun/energy/laser/practice,
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "azr" = (
 /obj/structure/kitchenspike,
 /obj/machinery/alarm{
@@ -12372,8 +12335,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "aDA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -13286,10 +13249,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/erida/maintenance/starboardsection2deck4)
-"aFx" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
 "aFy" = (
 /obj/structure/closet/secure_closet/brig,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -13341,11 +13300,11 @@
 /area/eris/medical/patients_rooms)
 "aFC" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/table/woodentable,
-/obj/item/book/manual/wiki/security_ironparagraphs,
-/obj/item/folder,
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
+/obj/effect/floor_decal/industrial/danger{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "aFD" = (
 /obj/machinery/ai_status_display,
 /turf/simulated/wall/r_wall,
@@ -13791,10 +13750,6 @@
 /obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/security/exerooms)
-"aGP" = (
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
 "aGQ" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16933,7 +16888,7 @@
 	input_tag = "waste_in";
 	name = "Gas Mix Tank Control";
 	output_tag = "waste_out";
-	sensors = list("mix_sensor" = "Tank")
+	sensors = list("mix_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -19874,7 +19829,7 @@
 	input_tag = "tox_in";
 	name = "Plasma Supply Control";
 	output_tag = "tox_out";
-	sensors = list("tox_sensor" = "Tank")
+	sensors = list("tox_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -20977,7 +20932,7 @@
 	input_tag = "n2o_in";
 	name = "Nitrous Oxide Supply Control";
 	output_tag = "n2o_out";
-	sensors = list("n2o_sensor" = "Tank")
+	sensors = list("n2o_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -21850,8 +21805,8 @@
 /area/erida/maintenance/starboardsection2deck2)
 "baf" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "bag" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -24436,7 +24391,7 @@
 	input_tag = "toxins1_in";
 	name = "Mixing Chamber 1 Monitor";
 	output_tag = "toxins1_out";
-	sensors = list("toxins_mixing_1" = "Mixing Chamber - 1")
+	sensors = list("toxins_mixing_1"="Mixing Chamber - 1")
 	},
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
@@ -24845,7 +24800,7 @@
 	input_tag = "toxins2_in";
 	name = "Mixing Chamber 2 Monitor";
 	output_tag = "toxins2_out";
-	sensors = list("toxins_mixing_2" = "Mixing Chamber - 2")
+	sensors = list("toxins_mixing_2"="Mixing Chamber - 2")
 	},
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
@@ -25294,7 +25249,7 @@
 	dir = 4;
 	frequency = 1430;
 	name = "Mixing Chamber Monitor";
-	sensors = list("toxins_mixing_1" = "Mixing Chamber - 1", "toxins_mixing_2" = "Mixing Chamber - 2")
+	sensors = list("toxins_mixing_1"="Mixing Chamber - 1","toxins_mixing_2"="Mixing Chamber - 2")
 	},
 /turf/simulated/floor/tiled/white/gray_perforated,
 /area/eris/rnd/mixing)
@@ -25818,7 +25773,7 @@
 	input_tag = "n2_in";
 	name = "Nitrogen Supply Control";
 	output_tag = "n2_out";
-	sensors = list("n2_sensor" = "Tank")
+	sensors = list("n2_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -26571,7 +26526,7 @@
 	input_tag = "o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "o2_out";
-	sensors = list("o2_sensor" = "Tank")
+	sensors = list("o2_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -26927,7 +26882,7 @@
 	name = "Mixed Air Supply Control";
 	output_tag = "air_out";
 	pressure_setting = 2000;
-	sensors = list("air_sensor" = "Tank")
+	sensors = list("air_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -27190,7 +27145,7 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Control";
 	output_tag = "co2_out";
-	sensors = list("co2_sensor" = "Tank")
+	sensors = list("co2_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -27280,8 +27235,8 @@
 	dir = 4
 	},
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "bnq" = (
 /obj/structure/bed/chair,
 /obj/structure/disposalpipe/segment{
@@ -27377,7 +27332,7 @@
 	input_tag = "ncl3_in";
 	name = "Trichloramine Supply Control";
 	output_tag = "ncl3_out";
-	sensors = list("ncl3_sensor" = "Tank")
+	sensors = list("ncl3_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -27971,7 +27926,7 @@
 	input_tag = "nh2cl_in";
 	name = "Monochloramine Supply Control";
 	output_tag = "nh2cl_out";
-	sensors = list("nh2cl_sensor" = "Tank")
+	sensors = list("nh2cl_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
@@ -28061,8 +28016,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "boW" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -28075,20 +28030,12 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck3)
-"boX" = (
-/obj/structure/bed/chair/wood{
-	dir = 8;
-	tag = "icon-wooden_chair (WEST)"
-	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
 "boY" = (
-/obj/structure/showcase{
-	desc = "Ancient robotic frame, that is long deactivated and rusted solid. However, it still strikes am awesome pose, that somehow makes you think of justice and righteousness.";
-	name = "Statue of Judge Boopsky"
+/obj/machinery/camera/network/fist_section{
+	dir = 8
 	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "boZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -28103,14 +28050,11 @@
 /turf/simulated/floor/plating/under,
 /area/eris/crew_quarters/bar)
 "bpa" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/bluecorner,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "bpb" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -28131,11 +28075,8 @@
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck3)
 "bpc" = (
-/obj/structure/table/woodentable,
-/obj/item/book/manual/wiki/security_ironparagraphs,
-/obj/item/folder/yellow,
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "bpd" = (
 /obj/structure/table/standard,
 /obj/item/device/lighting/toggleable/lamp,
@@ -29186,11 +29127,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/table/woodentable,
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/simulated/floor/carpet/sblucarpet,
-/area/eris/command/courtroom)
+/obj/effect/floor_decal/industrial/danger,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "brq" = (
 /obj/spawner/pack/machine,
 /turf/simulated/floor/tiled/techmaint_cargo,
@@ -29232,13 +29171,6 @@
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/armory)
-"brv" = (
-/obj/structure/bed/chair/wood{
-	dir = 1;
-	tag = "icon-wooden_chair (NORTH)"
-	},
-/turf/simulated/floor/wood,
-/area/eris/command/courtroom)
 "brw" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/reinforced/airmix,
@@ -32918,11 +32850,14 @@
 /area/eris/crew_quarters/fitness)
 "bAE" = (
 /obj/structure/table/reinforced,
-/obj/item/gun/energy/laser/practice,
+/obj/item/gun/energy/laser/practice{
+	cell = /obj/item/cell/medium/high
+	},
 /obj/item/paper{
 	info = "Directions:<br><i>First you'll want to make sure there is a target stake in the center of the magnetic platform. Next, take an aluminum target from the crates back there and slip it into the stake. Make sure it clicks! Next, there should be a control console mounted on the wall somewhere in the room.<br><br> This control console dictates the behaviors of the magnetic platform, which can move your firing target around to simulate real-world combat situations. From here, you can turn off the magnets or adjust their electromagnetic levels and magnetic fields. The electricity level dictates the strength of the pull - you will usually want this to be the same value as the speed. The magnetic field level dictates how far the magnetic pull reaches.<br><br>Speed and path are the next two settings. Speed is associated with how fast the machine loops through the designated path. Paths dictate where the magnetic field will be centered at what times. There should be a pre-fabricated path input already. You can enable moving to observe how the path affects the way the stake moves. To script your own path, look at the following key:</i><br><br>N: North<br>S: South<br>E: East<br>W: West<br>C: Center<br>R: Random (results may vary)<br>; or &: separators. They are not necessary but can make the path string better visible.";
 	name = "Firing Range Instructions"
 	},
+/obj/item/cell/medium/high,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/range)
 "bAF" = (
@@ -40033,7 +39968,7 @@
 	frequency = 1443;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("mair_in_meter" = "Mixed Air In", "air_sensor" = "Mixed Air Supply Tank", "mair_out_meter" = "Mixed Air Out", "dloop_atm_meter" = "Distribution Loop", "wloop_atm_meter" = "Engine Waste")
+	sensors = list("mair_in_meter"="Mixed Air In","air_sensor"="Mixed Air Supply Tank","mair_out_meter"="Mixed Air Out","dloop_atm_meter"="Distribution Loop","wloop_atm_meter"="Engine Waste")
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/exultant)
@@ -40068,7 +40003,7 @@
 	dir = 1;
 	frequency = 1441;
 	name = "Tank Monitor";
-	sensors = list("n2_sensor" = "Nitrogen", "o2_sensor" = "Oxygen", "co2_sensor" = "Carbon Dioxide", "tox_sensor" = "Toxins", "n2o_sensor" = "Nitrous Oxide", "waste_sensor" = "Gas Mix Tank")
+	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous Oxide","waste_sensor"="Gas Mix Tank")
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/exultant)
@@ -47715,7 +47650,7 @@
 	input_tag = "left_propulsion_in";
 	name = "Left Propulsion Control";
 	output_tag = "left_propulsion_out";
-	sensors = list("left_propulsion_sensor" = "Tank")
+	sensors = list("left_propulsion_sensor"="Tank")
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -49276,7 +49211,7 @@
 	input_tag = "right_propulsion_in";
 	name = "Right Propulsion Control";
 	output_tag = "right_propulsion_out";
-	sensors = list("right_propulsion_sensor" = "Tank")
+	sensors = list("right_propulsion_sensor"="Tank")
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -49846,7 +49781,7 @@
 	input_tag = "tox_in";
 	name = "Toxin Supply Control";
 	output_tag = "tox_out";
-	sensors = list("tox_sensor" = "Tank")
+	sensors = list("tox_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/propulsion/right)
@@ -50865,7 +50800,7 @@
 	input_tag = "o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "o2_out";
-	sensors = list("o2_sensor" = "Tank")
+	sensors = list("o2_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/propulsion/right)
@@ -59598,7 +59533,7 @@
 	input_tag = "incernator_in";
 	name = "Incernator Control";
 	output_tag = "incernator_out";
-	sensors = list("incernator_sensor" = "Tank")
+	sensors = list("incernator_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/maintenance/disposal)
@@ -64930,7 +64865,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor" = "Engine Core")
+	sensors = list("engine_sensor"="Engine Core")
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/engineering/engine_room)
@@ -70324,7 +70259,9 @@
 /turf/simulated/floor/grass,
 /area/eris/crew_quarters/hydroponics)
 "dmu" = (
-/obj/machinery/vending/weapon_machine,
+/obj/machinery/vending/weapon_machine{
+	dir = 1
+	},
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
@@ -70426,7 +70363,7 @@
 /area/eris/quartermaster/storage)
 "dmE" = (
 /obj/machinery/vending/containers{
-	products = list(/obj/structure/closet/crate/freezer = 4, /obj/structure/closet = 6, /obj/structure/closet/crate = 10)
+	products = list(/obj/structure/closet/crate/freezer=4,/obj/structure/closet=6,/obj/structure/closet/crate=10)
 	},
 /obj/machinery/light{
 	dir = 4
@@ -74889,7 +74826,7 @@
 /obj/structure/table/standard,
 /obj/machinery/vending/wallmed/lobby{
 	pixel_y = -28;
-	products = list(/obj/item/device/scanner/health = 6, /obj/item/stack/medical/bruise_pack = 6, /obj/item/stack/medical/ointment = 6, /obj/item/stack/medical/advanced/bruise_pack = 2, /obj/item/stack/medical/advanced/ointment = 2, /obj/item/stack/nanopaste = 2, /obj/item/reagent_containers/hypospray/autoinjector/antitoxin = 6, /obj/item/reagent_containers/syringe/antitoxin = 5, /obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 6, /obj/item/reagent_containers/syringe/tricordrazine = 5, /obj/item/reagent_containers/hypospray/autoinjector/spaceacillin = 6, /obj/item/reagent_containers/syringe/spaceacillin = 2, /obj/item/implantcase/death_alarm = 2, /obj/item/implanter = 2, /obj/item/stack/medical/splint = 6)
+	products = list(/obj/item/device/scanner/health=6,/obj/item/stack/medical/bruise_pack=6,/obj/item/stack/medical/ointment=6,/obj/item/stack/medical/advanced/bruise_pack=2,/obj/item/stack/medical/advanced/ointment=2,/obj/item/stack/nanopaste=2,/obj/item/reagent_containers/hypospray/autoinjector/antitoxin=6,/obj/item/reagent_containers/syringe/antitoxin=5,/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine=6,/obj/item/reagent_containers/syringe/tricordrazine=5,/obj/item/reagent_containers/hypospray/autoinjector/spaceacillin=6,/obj/item/reagent_containers/syringe/spaceacillin=2,/obj/item/implantcase/death_alarm=2,/obj/item/implanter=2,/obj/item/stack/medical/splint=6)
 	},
 /obj/spawner/medical_lowcost,
 /obj/spawner/medical_lowcost,
@@ -79383,6 +79320,12 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
+"eet" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "eeZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
@@ -79687,6 +79630,15 @@
 	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/security/lobby)
+"hCH" = (
+/obj/machinery/vending/weapon_machine{
+	name = "Frozen Star: Practice Rounds";
+	desc = "A self-defense equipment vending machine. For practice use only!";
+	prices = list(/obj/item/ammo_magazine/cspistol/practice = 20,/obj/item/storage/box/shotgunammo = 20,/obj/item/ammo_magazine/hpistol/practice = 20);
+	products = list(/obj/item/ammo_magazine/cspistol/practice = 200,/obj/item/storage/box/shotgunammo = 200)
+	},
+/turf/simulated/floor/tiled/dark/panels,
+/area/eris/crew_quarters/fitness)
 "hFl" = (
 /obj/structure/table/standard,
 /obj/machinery/door/firedoor,
@@ -79854,7 +79806,7 @@
 	input_tag = "o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "o2_out";
-	sensors = list("o2_sensor" = "Tank")
+	sensors = list("o2_sensor"="Tank")
 	},
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -80109,6 +80061,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techmaint_panels,
 /area/erida/maintenance/portsection2deck4)
+"maV" = (
+/obj/effect/floor_decal/industrial/danger,
+/obj/effect/floor_decal/industrial/danger,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "mdV" = (
 /obj/machinery/status_display,
 /turf/simulated/wall,
@@ -80364,7 +80321,7 @@
 	input_tag = "tox_in";
 	name = "Toxin Supply Control";
 	output_tag = "tox_out";
-	sensors = list("tox_sensor" = "Tank")
+	sensors = list("tox_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/propulsion/left)
@@ -80690,6 +80647,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
+"syw" = (
+/obj/effect/floor_decal/industrial/danger{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/crew_quarters/fitness)
 "szA" = (
 /obj/structure/sign/double/barsign,
 /turf/simulated/wall/r_wall,
@@ -80705,6 +80668,10 @@
 /obj/spawner/medical/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/medical/reception)
+"sJS" = (
+/obj/effect/floor_decal/industrial/danger,
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "sKe" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 4;
@@ -80998,6 +80965,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/medical/reception)
+"vdS" = (
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/crew_quarters/fitness)
 "veZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -89978,12 +89948,12 @@ atZ
 aaf
 agy
 abT
-acE
-auO
-auO
-auO
-acE
-acE
+abT
+abY
+abY
+abY
+abT
+abT
 abY
 abY
 abY
@@ -90129,13 +90099,13 @@ atr
 aua
 aaf
 aav
-acE
+abT
 agn
 awa
-awx
+hCH
 bpa
 azq
-acE
+abT
 ats
 bzE
 bzZ
@@ -90281,8 +90251,8 @@ aeI
 aub
 aaf
 aaa
-acE
-apS
+abT
+bpc
 awb
 abu
 acu
@@ -90433,13 +90403,13 @@ aeI
 aub
 aaf
 aaa
-acE
+abT
 adP
-adP
+abT
 abK
+abT
 adP
-adP
-acE
+abT
 agc
 apA
 asz
@@ -90585,13 +90555,13 @@ aeI
 aub
 aaf
 aaa
-acE
+abT
 abm
 abo
 abV
-awx
-afn
-acE
+maV
+bpc
+abT
 adS
 abT
 bAD
@@ -90737,13 +90707,13 @@ atx
 aud
 aaf
 aaa
-acE
+abT
 axD
-ayN
+syw
 bnp
+sJS
 bpc
-brv
-acE
+abT
 akD
 abT
 bAT
@@ -90889,13 +90859,13 @@ aty
 aub
 aaf
 aaa
-acE
+abT
 acb
-aFx
+eet
 boV
-aFx
-brv
-acE
+sJS
+bpc
+abT
 akD
 abT
 abT
@@ -91041,13 +91011,13 @@ aty
 aub
 aaf
 aaa
-acE
+abT
 aDz
 aFC
 acd
 brp
 baf
-acE
+abT
 akD
 arA
 apz
@@ -91193,13 +91163,13 @@ oIH
 aub
 aaf
 aaa
-acE
+abT
 aql
-afn
-boX
-afn
-anb
-acE
+eet
+vdS
+sJS
+bpc
+abT
 akD
 arA
 asq
@@ -91345,13 +91315,13 @@ aty
 aub
 aaf
 aaa
+abT
 acE
-acE
-aGP
+eet
 boY
-aGP
+sJS
 acE
-acE
+abT
 akD
 apz
 apz
@@ -91497,13 +91467,13 @@ atE
 aud
 aaf
 aaa
-acE
-acE
-acE
-acE
-acE
-acE
-acE
+abT
+abT
+abT
+abT
+abT
+abT
+abT
 akE
 apz
 asr
