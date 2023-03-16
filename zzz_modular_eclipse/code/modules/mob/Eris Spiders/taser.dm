@@ -1,6 +1,6 @@
 /mob/living/carbon/superior_animal/giant_spider/taser //Eclipse Edit: Eclipse-level port of Sojourn mob "shock rock spider"
 	name = "Shibireru Spider"
-	desc = "A massive tarrantula. This peculiar arachnid seems to have sparks across it's chitin. "
+	desc = "A massive tarantula. This peculiar arachnid seems to have sparks across it's chitin. "
 	icon = 'zzz_modular_eclipse/icons/mob/mob.dmi'
 	icon_state = "spark"
 	icon_living = "spark"
