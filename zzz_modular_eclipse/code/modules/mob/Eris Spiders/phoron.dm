@@ -19,9 +19,9 @@
 	var/exploded = FALSE
 	var/impending_explosion = FALSE
 
-/mob/living/carbon/superior_animal/giant_spider/phoron/UnarmedAttack(var/atom/A, var/proximity)
-	. = ..()
-	kerplode()
+/mob/living/carbon/superior_animal/giant_spider/phoron/attackby(obj/item/I) //Eclipse Edit: Not a stab? Not a bullet? BOOM! Instead of rush up kerplode
+	if(!I.sharp)
+		kerplode()
 
 /mob/living/carbon/superior_animal/giant_spider/phoron/proc/kerplode()
 	impending_explosion = TRUE
