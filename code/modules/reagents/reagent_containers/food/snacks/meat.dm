@@ -67,6 +67,8 @@
 	preloaded_reagents = list("protein" = 6, "blattedin" = 6, "gewaltine" = 6, "uncap nanites" = 2, "nanites" = 3)
 /obj/item/reagent_containers/food/snacks/meat/roachmeat/nitro
 	preloaded_reagents = list("protein" = 6, "fuel" = 4)
+	name = "Benzin meat"
+	desc = "A slab of sickly-green meat cut from a benzin roach, reeking of welding fuel. Delicious!"
 
 /obj/item/reagent_containers/food/snacks/meat/spider
 	name = "Senshi meat"
@@ -94,6 +96,26 @@
 
 	bitesize = 6
 	preloaded_reagents = list("protein" = 6, "aranecolmin" = 8,"pararein" = 8)
+//Beginning of Eclipse Edit: adding in Sojourn Mobs for maintenance diversity.
+/obj/item/reagent_containers/food/snacks/meat/spider/spiceder
+	name = "Tsurai meat"
+	desc = "A bloated slab of brilliant-red meat cut from a firey spider. The sting from this one isn't venom, surprisingly!"
+	icon_state = "xenomeat"
+	filling_color = "#BF2916"
+
+	bitesize = 6
+	preloaded_reagents = list("protein" = 9, "condensedcapsaicin" = 8)
+
+/obj/item/reagent_containers/food/snacks/meat/spider/taser
+	name = "Shibireru meat"
+	desc = "A bloated slab of sickly-green meat cut from a shocking spider. It still tingles to the touch!"
+	icon_state = "xenomeat"
+	filling_color = "#E2FFDE"
+
+	bitesize = 6
+	preloaded_reagents = list("protein" = 4, "lithium" = 2)
+//end of eclipse edit
+
 
 /obj/item/reagent_containers/food/snacks/meat/carp
 	name = "carp fillet"
