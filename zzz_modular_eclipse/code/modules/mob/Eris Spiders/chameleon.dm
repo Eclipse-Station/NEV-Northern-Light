@@ -12,7 +12,7 @@
 	meat_amount = 4
 	desc = "A massive tarantula. This one has a weaker chameleonic chitin that makes it hard to see."
 	alpha = 50
-	armor = list(melee = 5, bullet = 0, energy = 5, bomb = 0, bio = 10, rad = 25, agony = 0)
+	armor = list(melee = 5, bullet = 0, energy = 5, bomb = 0, bio = 10, rad = 25)
 	rarity_value = 90
 
 /mob/living/carbon/superior_animal/giant_spider/chameleon/death() //We are now unable to chameleonic chitin do to being dead
