@@ -1,6 +1,6 @@
 /mob/living/carbon/superior_animal/giant_spider/spiceder //Eclipse Edit: Eclipse-level port of Sojourn mob "pepper spider"
 	name = "Tsurai Spider"
-	desc = "A massive tarrantula. This peculiar arachnid reeks of spicy peppers."
+	desc = "A massive tarantula. This peculiar arachnid reeks of spicy peppers."
 	icon = 'zzz_modular_eclipse/icons/mob/mob.dmi'
 	icon_state = "pepper"
 	icon_living = "pepper"
