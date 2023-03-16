@@ -1,5 +1,0 @@
-author: MciReloaded
-delete-after: true
-changes:
-  - rscdel: Deleted magnet.dm from the compiled server's objects
-  - rscdel: removed all magnets from the map
