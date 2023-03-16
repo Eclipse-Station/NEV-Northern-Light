@@ -79,9 +79,10 @@ var/global/list/robot_modules = list(
 	add_languages(R)
 	add_subsystems(R)
 	apply_status_flags(R)
+	R.radio.recalculateChannels() //Eclipse edit- removed the way it originally called recalculation and forced it immediately.
 
-	if(R.radio)
-		R.radio.recalculateChannels()
+/*	if(R.radio)
+		R.radio.recalculateChannels()*/
 
 	//Setting robot stats
 	var/healthpercent = R.health / R.maxHealth //We update the health to remain at the same percentage it was before
@@ -332,7 +333,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/reagent_containers/borghypo/advmedical(src) //Eclipse Edit: Added advanced medical hypospray
 	src.modules += new /obj/item/autopsy_scanner(src) // an autopsy scanner
 	src.emag = new /obj/item/reagent_containers/borghypo/hacked(src) //Eclipse Edit: Added hacked hypospray option
-	src.emag = new /obj/item/reagent_containers/spray(src) 
+	src.emag = new /obj/item/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
 
