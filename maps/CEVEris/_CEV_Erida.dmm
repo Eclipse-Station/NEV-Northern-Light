@@ -32855,7 +32855,7 @@
 "bAE" = (
 /obj/structure/table/reinforced,
 /obj/item/gun/energy/laser/practice{
-	cell = /obj/item/cell/medium/high;
+	cell = /obj/item/cell/medium/;
 	cell_type = /obj/item/cell/medium/
 	},
 /obj/item/paper{
