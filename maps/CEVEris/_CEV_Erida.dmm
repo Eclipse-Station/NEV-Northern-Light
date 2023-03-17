@@ -79634,8 +79634,9 @@
 /obj/machinery/vending/weapon_machine{
 	name = "Frozen Star: Practice Rounds";
 	desc = "A self-defense equipment vending machine. For practice use only!";
-	prices = list(/obj/item/ammo_magazine/cspistol/practice = 20,/obj/item/storage/box/shotgunammo = 20,/obj/item/ammo_magazine/hpistol/practice = 20);
-	products = list(/obj/item/ammo_magazine/cspistol/practice = 200,/obj/item/storage/box/shotgunammo = 200)
+	prices = list(/obj/item/ammo_magazine/ammobox/lrifle_small/practice=20,/obj/item/ammo_magazine/ammobox/shotgun/practiceshells=20,/obj/item/ammo_magazine/ammobox/pistol/practice=20,/obj/item/ammo_magazine/ammobox/magnum/practice=20,/obj/item/ammo_magazine/ammobox/pistol/practice=20,/obj/item/ammo_magazine/ammobox/clrifle_small/practice=20,/obj/item/ammo_magazine/ammobox/pistol/practice=20,/obj/item/ammo_magazine/ammobox/srifle_small/practice=20);
+	products = list(/obj/item/ammo_magazine/ammobox/lrifle_small/practice=200,/obj/item/ammo_magazine/ammobox/shotgun/practiceshells=200,/obj/item/ammo_magazine/ammobox/pistol/practice=200,/obj/item/ammo_magazine/ammobox/magnum/practice=200,/obj/item/ammo_magazine/ammobox/pistol/practice=200,/obj/item/ammo_magazine/ammobox/clrifle_small/practice=200,/obj/item/ammo_magazine/ammobox/pistol/practice=200,/obj/item/ammo_magazine/ammobox/srifle_small/practice=200);
+	product_slogans = "The best offense is practice!;Buy for your whole family today!;Nobody can outsmart bullet!;God created man - Frozen Star made them EQUAL!;Stupidity can be cured! By LEAD.;Dead kids can't bully your children!;Fix that shitty aim!"
 	},
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/fitness)
@@ -80648,10 +80649,8 @@
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
 "syw" = (
-/obj/effect/floor_decal/industrial/danger{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/techfloor_grid,
+/obj/effect/window_lwall_spawn/reinforced,
+/turf/space,
 /area/eris/crew_quarters/fitness)
 "szA" = (
 /obj/structure/sign/double/barsign,
@@ -90099,7 +90098,7 @@ atr
 aua
 aaf
 aav
-abT
+syw
 agn
 awa
 hCH
@@ -90251,7 +90250,7 @@ aeI
 aub
 aaf
 aaa
-abT
+syw
 bpc
 awb
 abu
@@ -90403,7 +90402,7 @@ aeI
 aub
 aaf
 aaa
-abT
+syw
 adP
 abT
 abK
@@ -90709,7 +90708,7 @@ aaf
 aaa
 abT
 axD
-syw
+eet
 bnp
 sJS
 bpc
@@ -91469,9 +91468,9 @@ aaf
 aaa
 abT
 abT
-abT
-abT
-abT
+syw
+syw
+syw
 abT
 abT
 akE
