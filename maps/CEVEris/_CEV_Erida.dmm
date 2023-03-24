@@ -79623,13 +79623,7 @@
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/security/lobby)
 "hCH" = (
-/obj/machinery/vending/weapon_machine{
-	name = "Frozen Star: Practice Rounds";
-	desc = "A self-defense equipment vending machine. For practice use only!";
-	prices = list(/obj/item/ammo_magazine/ammobox/lrifle_small/practice=20,/obj/item/ammo_magazine/ammobox/shotgun/practiceshells=20,/obj/item/ammo_magazine/ammobox/pistol/practice=20,/obj/item/ammo_magazine/ammobox/magnum/practice=20,/obj/item/ammo_magazine/ammobox/pistol/practice=20,/obj/item/ammo_magazine/ammobox/clrifle_small/practice=20,/obj/item/ammo_magazine/ammobox/pistol/practice=20,/obj/item/ammo_magazine/ammobox/srifle_small/practice=20);
-	products = list(/obj/item/ammo_magazine/ammobox/lrifle_small/practice=200,/obj/item/ammo_magazine/ammobox/shotgun/practiceshells=200,/obj/item/ammo_magazine/ammobox/pistol/practice=200,/obj/item/ammo_magazine/ammobox/magnum/practice=200,/obj/item/ammo_magazine/ammobox/pistol/practice=200,/obj/item/ammo_magazine/ammobox/clrifle_small/practice=200,/obj/item/ammo_magazine/ammobox/pistol/practice=200,/obj/item/ammo_magazine/ammobox/srifle_small/practice=200);
-	product_slogans = "The best offense is practice!;Buy for your whole family today!;Nobody can outsmart bullet!;God created man - Frozen Star made them EQUAL!;Stupidity can be cured! By LEAD.;Dead kids can't bully your children!;Fix that shitty aim!"
-	},
+/obj/machinery/vending/weapon_machine_practice,
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/fitness)
 "hFl" = (
