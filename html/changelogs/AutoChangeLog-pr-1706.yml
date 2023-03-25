@@ -1,6 +1,0 @@
-author: MciReloaded
-delete-after: true
-changes:
-  - rscadd: added in public shooting range
-  - rscadd: practice round Frozen Star vendor
-  - rscdel: removed the courtroom
