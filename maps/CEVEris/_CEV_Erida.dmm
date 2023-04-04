@@ -404,6 +404,9 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/structure/table/reinforced,
+/obj/item/clothing/ears/earmuffs,
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/fitness)
 "abn" = (
@@ -422,7 +425,7 @@
 /obj/effect/floor_decal/industrial/danger{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/techfloor,
+/turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/fitness)
 "abp" = (
 /obj/structure/disposalpipe/segment,
@@ -674,8 +677,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/dark/techfloor,
+/turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/fitness)
 "abL" = (
 /obj/structure/low_wall,
@@ -762,6 +764,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/crew_quarters/fitness)
 "abW" = (
@@ -6794,7 +6797,8 @@
 /area/eris/crew_quarters/bar)
 "aql" = (
 /obj/item/device/radio/intercom{
-	pixel_y = 24
+	dir = 8;
+	pixel_x = 22
 	},
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/fitness)
@@ -9240,10 +9244,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/fitness)
 "awc" = (
@@ -9860,12 +9860,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/medical/psych)
-"axD" = (
-/obj/machinery/firealarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/dark/panels,
-/area/eris/crew_quarters/fitness)
 "axE" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -80046,7 +80040,7 @@
 "maV" = (
 /obj/effect/floor_decal/industrial/danger,
 /obj/effect/floor_decal/industrial/danger,
-/turf/simulated/floor/tiled/dark/techfloor,
+/turf/simulated/wall/r_wall,
 /area/eris/crew_quarters/fitness)
 "mdV" = (
 /obj/machinery/status_display,
@@ -90384,11 +90378,11 @@ aub
 aaf
 aaa
 syw
-adP
-abT
+bpc
+aql
 abK
-abT
-adP
+bpc
+bpc
 abT
 agc
 apA
@@ -90540,7 +90534,7 @@ abm
 abo
 abV
 maV
-bpc
+adP
 abT
 adS
 abT
@@ -90688,7 +90682,7 @@ aud
 aaf
 aaa
 abT
-axD
+bpc
 eet
 bnp
 sJS
@@ -91144,7 +91138,7 @@ aub
 aaf
 aaa
 abT
-aql
+bpc
 eet
 vdS
 sJS
