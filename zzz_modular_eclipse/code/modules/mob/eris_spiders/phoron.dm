@@ -22,6 +22,8 @@
 /mob/living/carbon/superior_animal/giant_spider/phoron/attackby(obj/item/I) //Eclipse Edit: Not a stab? Not a bullet? BOOM! Instead of rush up kerplode
 	if(!I.sharp)
 		kerplode()
+	else
+		. = ..()
 
 /mob/living/carbon/superior_animal/giant_spider/phoron/proc/kerplode()
 	impending_explosion = TRUE

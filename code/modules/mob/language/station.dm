@@ -199,6 +199,7 @@
 	desc = "A bastardized hybrid of many languages, including Chinese, English, French, and more; it is the common language of the Sol system."
 	speech_verb = "says"
 	whisper_verb = "whispers"
+	ask_verb = "asks"
 	colour = "solcom"
 	key = "1"
 	flags = WHITELISTED
