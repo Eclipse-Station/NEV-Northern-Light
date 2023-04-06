@@ -1,7 +1,0 @@
-author: MciReloaded
-delete-after: true
-changes:
-  - rscdel: Deleted the unintended Midwife spider, which was invisible. Fun.
-  - tweak: moved around some things in the public shooting range to prevent accidents
-  - bugfix: Fixed a potential issue where plasmas would not explode
-  - bugfix: Fixed the /list issue with sol common
