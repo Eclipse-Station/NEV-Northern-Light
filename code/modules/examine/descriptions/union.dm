@@ -22,7 +22,7 @@
 
 /obj/item/device/scanner/mining
 	description_info = "A subsurface ore detector is used to detect ores deep below \
-	the surface of a planet, and has a range of 2 tiles (a 5×5 square) of the scan \
+	the surface of a planet, and has a range of two tiles (a 5×5 square) from the scan \
 	point."
 
 

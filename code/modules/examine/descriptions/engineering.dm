@@ -107,9 +107,8 @@
 	it is powered and turned on - \"small\", of course, being relative to a planet. \n\
 	\n\
 	A gravity generator emits quite a bit of radiation while it is charging up or \
-	powering down. You should wear radiation equipment while nearby it, in the event \
-	it unexpectedly shuts off while you're working nearby - if you can see it, you're \
-	in range."
+	powering down. You should wear radiation equipment while working nearby, in  \
+	the event it unexpectedly shuts off - if you can see it, you're in range."
 
 /obj/machinery/power/shield_generator
 	description_info = "A shield generator produces a protective shield when it is \
@@ -124,16 +123,18 @@
 	would be to source a replacement, this is probably for the best. \n\
 	\n\
 	For most shield generators, the trip point for this is 125 Celsius, or about \
-	398 Kelvin. Keep an ear on your radio for an overheat alarm."
+	398 Kelvin. Keep an ear on your radio for an overheat alarm. In the event it \
+	overheats and shuts down, it will also set itself to only draw 1 kilowatt of \
+	power, to prevent an infinite overheat loop."
 
 /obj/machinery/power/shield_generator/hull/installed		//The one installed on the ship.
 	description_fluff = "This shield generator has seen better days. It's been \
 	kept running with the manufacturer's recommended grease... that's been filtered \
 	and reused at least a hundred times, using spare parts that have been hastily \
 	repaired or - in some cases - substituted with a makeshift equivalent when said \
-	spare parts ran out, and has clocked up more than enough Hobbs hours to qualify \
-	for a senior citizen's discount at Blue's Recluse, multiple times. The fact that \
-	it even runs at all is a miracle in and of itself."
+	spare parts ran out, and has clocked enough Hobbs hours to qualify for a senior \
+	citizen's discount at Blue's Recluse many times over. The fact that it still \
+	runs at all is a miracle in and of itself."
 	description_antag = GENERIC_ANTAG_STAYAWAY
 
 /obj/machinery/shield_conduit

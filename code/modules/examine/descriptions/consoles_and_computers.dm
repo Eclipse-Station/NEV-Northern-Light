@@ -109,6 +109,6 @@
 /obj/machinery/computer/engines/get_description_interaction()
 	var/list/results = list()
 	results += "This console is used to check the status of the thrusters. You can \
-	also control the thrust limiter and shut down thrusters with it."
+	also control the thrust limiter and shut down the thrusters with it."
 	
 	return results

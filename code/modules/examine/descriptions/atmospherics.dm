@@ -25,7 +25,7 @@
 	of space."
 
 /obj/machinery/atmospherics/pipe/vent
-	description_info = "Exhaust vents are essentially an opening where gas from \
+	description_info = "Exhaust vents are essentially an opening where gases from \
 	a pipe can freely mix with the ambient surrounding gases. They do not require \
 	power to function."
 
@@ -249,8 +249,8 @@
 	with."
 
 	description_antag = "Canisters are also a good way to flood an area with gas. \
-	Just be mindful of using it to phoronflood, as that could easily get you in trouble \
-	with the administrators."
+	Just be mindful of using it to flood an area with phoron, as that could easily \
+	get you in trouble with the administrators."
 
 //portable gas tanks.
 /obj/item/tank
