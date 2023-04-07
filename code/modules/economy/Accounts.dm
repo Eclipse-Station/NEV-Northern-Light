@@ -224,3 +224,5 @@
 		return 0
 
 	return account.money
+
+/proc/save_persistent()

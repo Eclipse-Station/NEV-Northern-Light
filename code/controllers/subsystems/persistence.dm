@@ -109,3 +109,12 @@ SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON 
 	var/payload = json_encode(all_data)
 	fdel(json_file)
 	WRITE_FILE(json_file, payload)
+/datum/controller/subsystem/proc/check_existing_account(owner_ckey,character_name)
+	. = list()
+	for(var/datum/bank_account/bank_account as anything in bank_account)
+		if(bank_account.owner_ckey && bank_account.character_name)
+			return TRUE
+	return FALSE
+
+
+

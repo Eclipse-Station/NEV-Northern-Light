@@ -50,7 +50,6 @@ SUBSYSTEM_DEF(event)
 
 /datum/controller/subsystem/event/proc/event_complete(datum/event/E)
 	active_events -= E
-
 	if(!E.storyevent || !E.severity)	// datum/event is used here and there for random reasons, maintaining "backwards compatibility"
 		log_debug("Event of '[E.type]' with missing meta-data has completed.")
 		return
@@ -64,7 +63,7 @@ SUBSYSTEM_DEF(event)
 /datum/controller/subsystem/event/proc/RoundEnd()
 	if(!report_at_round_end)
 		return
-
+	SSpersistence.save_bank_accounts() //Eclipse Edit: Save our bank accounts to the JSON
 	to_chat(world, "<br><br><br><font size=3><b>Random Events This Round:</b></font>")
 	for(var/datum/event/E in active_events|finished_events)
 		var/datum/storyevent/SE = E.storyevent

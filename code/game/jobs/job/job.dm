@@ -96,7 +96,7 @@
 /datum/job/proc/setup_account(var/mob/living/carbon/human/H)
 	if(!account_allowed || (H.mind && H.mind.initial_account))
 		return
-	if(!check_existing(H))
+	if(!SSpersistence.check_existing_account(H.ckey, H.real_name)) //Eclipse Edit: checks for an existing persistence account before creating a new one
 	//give them an account in the station database
 		if(H.job == "Vagabond") // Vagabound do not get an account.
 			H.mind.store_memory("As a freelancer you do not have a bank account.")
