@@ -185,3 +185,26 @@
 	Added CA Maverick.
 
 */
+/obj/machinery/vending/weapon_machine_practice //Adds in practice round vendor for the shooting range
+	name = "Frozen Star: Practice Rounds"
+	desc = "A self-defense equipment vending machine. For practice use only!"
+	product_slogans = "Practice like a pro with Frozen Star's Practice Rounds!;Stay sharp without the risk with Frozen Star's Practice Rounds!;Get realistic training without the danger with Frozen Star's Practice Rounds!;Train smarter, not harder with Frozen Star's Practice Rounds!;The safest way to sharpen your skills - Frozen Star's Practice Rounds!;Practice makes perfect, and Frozen Star's Practice Rounds make it safe!;Train like a pro without the worry with Frozen Star's Practice Rounds!;Unleash your potential with Frozen Star's Practice Rounds!;The most reliable practice ammunition - Frozen Star's Practice Rounds!;Take your training to the next level with Frozen Star's Practice Rounds - completely safe, completely realistic!"
+	product_ads = "Tracers not included!;Take justice in your own hands!;Now with 50% less penetration!"
+	icon_state = "weapon"
+	no_criminals = TRUE
+	products = list(/obj/item/ammo_magazine/ammobox/lrifle_small/practice=200,
+	/obj/item/ammo_magazine/ammobox/shotgun/practiceshells=200,
+	/obj/item/ammo_magazine/ammobox/pistol/practice=200,
+	/obj/item/ammo_magazine/ammobox/magnum/practice=200,
+	/obj/item/ammo_magazine/ammobox/pistol/practice=200,
+	/obj/item/ammo_magazine/ammobox/clrifle_small/practice=200,
+	/obj/item/ammo_magazine/ammobox/pistol/practice=200,
+	/obj/item/ammo_magazine/ammobox/srifle_small/practice=200)
+	prices = list(/obj/item/ammo_magazine/ammobox/lrifle_small/practice=20,
+	/obj/item/ammo_magazine/ammobox/shotgun/practiceshells=20,
+	/obj/item/ammo_magazine/ammobox/pistol/practice=20,
+	/obj/item/ammo_magazine/ammobox/magnum/practice=20,
+	/obj/item/ammo_magazine/ammobox/pistol/practice=20,
+	/obj/item/ammo_magazine/ammobox/clrifle_small/practice=20,
+	/obj/item/ammo_magazine/ammobox/pistol/practice=20,
+	/obj/item/ammo_magazine/ammobox/srifle_small/practice=20)

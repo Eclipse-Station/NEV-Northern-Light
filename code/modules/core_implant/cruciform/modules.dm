@@ -180,7 +180,7 @@
 
 /datum/core_module/rituals/cruciform/priest/acolyte
 	ritual_types = list(/datum/ritual/cruciform/priest/acolyte,
-	/datum/ritual/targeted/cruciform/priest/acolyte)
+	/datum/ritual/targeted/cruciform/priest/acolyte,/datum/ritual/cruciform/priest/reincarnation) //Eclipse Edit
 
 
 /datum/core_module/rituals/cruciform/inquisitor
