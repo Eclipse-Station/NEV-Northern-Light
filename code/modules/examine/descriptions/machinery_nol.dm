@@ -54,7 +54,10 @@
 //jukebox
 /obj/machinery/media/jukebox
 	description_info = "A jukebox is used to play music. What music it contains is \
-	entirely up to the server operator."
+	entirely up to the server operator. \n\
+	\n\
+	If you wish, you can also load a music tape into a jukebox and have it play \
+	from that."
 
 //cyborg charger
 /obj/machinery/recharge_station
