@@ -96,31 +96,31 @@
 /datum/job/proc/setup_account(var/mob/living/carbon/human/H)
 	if(!account_allowed || (H.mind && H.mind.initial_account))
 		return
-
+	if(!check_existing(H))
 	//give them an account in the station database
-	if(H.job == "Vagabond") // Vagabound do not get an account.
-		H.mind.store_memory("As a freelancer you do not have a bank account.")
-		return
-	var/species_modifier = (H.species ? economic_species_modifier[H.species.type] : 2)
-	if(!species_modifier)
-		species_modifier = economic_species_modifier[/datum/species/human]
+		if(H.job == "Vagabond") // Vagabound do not get an account.
+			H.mind.store_memory("As a freelancer you do not have a bank account.")
+			return
+		var/species_modifier = (H.species ? economic_species_modifier[H.species.type] : 2)
+		if(!species_modifier)
+			species_modifier = economic_species_modifier[/datum/species/human]
 
-	var/money_amount = one_time_payment(species_modifier)
-	var/datum/money_account/M = create_account(H.real_name, money_amount, null, department, wage, aster_guild_member)
-	if(H.mind)
-		var/remembered_info = ""
-		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
-		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
-		remembered_info += "<b>Your account funds are:</b> [M.money][CREDS]<br>"
+		var/money_amount = one_time_payment(species_modifier)
+		var/datum/money_account/M = create_account(H.real_name, money_amount, null, department, wage, aster_guild_member)
+		if(H.mind)
+			var/remembered_info = ""
+			remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
+			remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
+			remembered_info += "<b>Your account funds are:</b> [M.money][CREDS]<br>"
 
-		if(M.transaction_log.len)
-			var/datum/transaction/T = M.transaction_log[1]
-			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.source_terminal]<br>"
-		H.mind.store_memory(remembered_info)
+			if(M.transaction_log.len)
+				var/datum/transaction/T = M.transaction_log[1]
+				remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.source_terminal]<br>"
+			H.mind.store_memory(remembered_info)
 
-		H.mind.initial_account = M
+			H.mind.initial_account = M
 
-	to_chat(H, SPAN_NOTICE("<b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b>"))
+		to_chat(H, SPAN_NOTICE("<b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b>"))
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/qdel()
 /datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title, var/datum/branch, var/additional_skips)
@@ -216,3 +216,9 @@
 /datum/job/proc/dress_mannequin(var/mob/living/carbon/human/dummy/mannequin/mannequin)
 	mannequin.delete_inventory(TRUE)
 	equip_preview(mannequin, additional_skips = OUTFIT_ADJUSTMENT_SKIP_BACKPACK|OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR)
+
+/datum/job/proc/check_existing(var/mob/living/carbon/human/H)//Eclipse Edit for persistent economy: checks the current existing
+	return FALSE
+
+
+
