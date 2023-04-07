@@ -27,6 +27,10 @@
 /obj/item/electronics/ai_module
 	description_info = "AI modules are used to set the laws of an artificial intelligence \
 	unit or robot to a pre-defined law or set of laws."
+	
+	description_antag = "The AI is a nigh-omnipresent force on the ship that makes \
+	it hard for you to get anywhere you're not supposed to. Using these modules, \
+	however, you may be able to bend these rules to suit you and your needs better."
 
 /obj/item/electronics/ai_module/get_description_interaction()
 	var/list/results = list()
