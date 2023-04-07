@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON Persistence system for our uses
 	name = "Persistence"
 	init_order = INIT_ORDER_PERSISTENCE
-	flags = SS_NO_FIRE
+	//flags = SS_NO_FIRE
 	//instantiated character bank account data
 	var/list/bank_accounts = list()
 

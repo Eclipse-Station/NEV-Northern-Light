@@ -117,7 +117,6 @@
 #define INIT_ORDER_SQUEAK -40
 #define INIT_ORDER_XENOARCH	-50
 #define INIT_ORDER_DISPATCHER	-51		//Eclipse addition
-#define INIT_ORDER_PERSISTENCE -2 //Eclipse Edit: Port of /tg/'s persistence
 #define INIT_ORDER_PERSISTENCE -100
 #define INIT_OPEN_SPACE -150
 #define INIT_ORDER_CRAFT -175
