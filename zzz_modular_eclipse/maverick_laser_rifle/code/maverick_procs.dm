@@ -93,7 +93,7 @@
 			fire_sound = firesound_lethal
 			if(_chg > charge_maximum)
 				_chg = charge_maximum		//No cheating by spawning in BSL cells.
-			_dmg = _chg / charge_reference
+			_dmg = (_chg / charge_reference) * initial(damage_multiplier)
 			
 		damage_multiplier = _dmg
 	return
