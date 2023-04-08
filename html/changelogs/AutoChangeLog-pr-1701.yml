@@ -1,0 +1,7 @@
+author: EvilJackCarver
+delete-after: true
+changes:
+  - rscadd: Helptext is in for a good chunk of items. To see the helptext, examine
+      an item and look at your Examine tab.
+  - bugfix: Fixes an issue where the Maverick's damage calculations could come out
+      wrong.
