@@ -225,4 +225,3 @@
 
 	return account.money
 
-/proc/save_persistent()

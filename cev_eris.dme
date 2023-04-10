@@ -19,7 +19,6 @@
 #include "code\__DEFINES\_globals.dm"
 #include "code\__DEFINES\_helpers.dm"
 #include "code\__DEFINES\_hydro_setup.dm"
-#include "code\__DEFINES\_is_helpers.dm"
 #include "code\__DEFINES\_planes+layers.dm"
 #include "code\__DEFINES\admin.dm"
 #include "code\__DEFINES\appearance.dm"

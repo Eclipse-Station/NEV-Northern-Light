@@ -1,16 +1,13 @@
 SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON Persistence system for our uses
 	name = "Persistence"
 	init_order = INIT_ORDER_PERSISTENCE
+	priority = SS_PRIORITY_PERSITENCE
 	flags = SS_NO_FIRE
 	//instantiated character bank account data
 	var/list/saved_bank_accounts = list()
 
 
 /datum/controller/subsystem/persistence/Initialize()
-	load_bank_accounts()
-
-
-
 	var/json_file = file("data/bank_accounts.json")
 	if(fexists(json_file))
 		var/list/raw_data = json_decode(file2text(json_file))
@@ -20,17 +17,6 @@ SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON 
 			saved_bank_accounts += loaded_accounts
 
 
-
-///Collects all data to persist.
-/datum/controller/subsystem/persistence/proc/collect_data()
-	save_bank_accounts()
-
-
-
-/datum/controller/subsystem/persistence/proc/save_bank_accounts() //Saves all persistent bank accounts
-
-
-	save_to_file()
 
 
 
@@ -60,7 +46,7 @@ SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON 
 		saved_bank_accounts += parsed_account_data
 
 
-	log_world("Successfully loaded persistent bank accounts!")
+
 
 /datum/bank_account
 	var/owner_ckey
@@ -68,7 +54,6 @@ SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON 
 	var/account_number
 	var/account_pin
 	var/account_funds
-	var/loaded_from_json = FALSE
 
 /datum/bank_account/proc/load_from_json(list/json_data)
 	owner_ckey = json_data["ckey"]
@@ -76,7 +61,6 @@ SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON 
 	account_number = json_data["account_number"]
 	account_pin = json_data["account_pin"]
 	account_funds = json_data["account_funds"]
-	loaded_from_json = TRUE
 
 /datum/bank_account/proc/to_json()
 	var/list/new_data = list()
@@ -87,6 +71,7 @@ SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON 
 	new_data["account_funds"] = account_funds
 	return new_data
 
+//saves all currently tracked account data to file
 /datum/controller/subsystem/persistence/proc/save_to_file()
 	var/json_file = file("data/bank_accounts.json")
 
@@ -98,7 +83,7 @@ SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON 
 
 	var/list/accounting_data = list()
 	for(var/datum/bank_account/bank_account as anything in saved_bank_accounts)
-		collated_data[saved_bank_accounts] = bank_account.to_json()
+		collated_data[bank_account.account_number].to_json()
 
 
 	// Flatten the resulting list
@@ -109,7 +94,10 @@ SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON 
 	var/payload = json_encode(all_data)
 	fdel(json_file)
 	WRITE_FILE(json_file, payload)
-/datum/controller/subsystem/proc/check_existing_account(owner_ckey,character_name)
+
+
+
+datum/controller/subsystem/proc/check_existing_account(owner_ckey,character_name)
 	. = list()
 	for(var/datum/bank_account/bank_account as anything in bank_account)
 		if(bank_account.owner_ckey && bank_account.character_name)
@@ -117,4 +105,30 @@ SUBSYSTEM_DEF(persistence) //Eclipse Edit: An eclipse-level port of /tg/'s JSON 
 	return FALSE
 
 
+/*/datum/controller/subsystem/persistent_paintings/proc/save_paintings()
+	// Collect new painting data
+	for(var/obj/structure/sign/painting/painting_frame as anything in painting_frames)
+		painting_frame.save_persistent()
+
+	save_to_file()*/
+/datum/controller/subsystem/persistence/proc/save_accounts()
+	//Collect new Account Data
+	for(var/datum/money_account/saving as anything in /datum/money_account)
+		save_persistent(saving)
+	save_to_file()
+
+/proc/save_persistent(var/datum/money_account/saving)
+	var/owner_name = saving.owner_name
+	var/account_number = saving.account_number
+	var/list/current = SSpersistence.saved_bank_accounts[account_number]
+	if(!current)
+		current = list()
+	for(var/datum/money_account/entry in SSpersistence.saved_bank_accounts)
+		if(entry.account_number == account_number && entry.owner_name == owner_name) // Update existing account data if detected
+			return
+	saving.account_number = account_number
+
+
+
+	SSpersistence.saved_bank_accounts += saving.account_number
 

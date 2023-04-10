@@ -63,7 +63,7 @@ SUBSYSTEM_DEF(event)
 /datum/controller/subsystem/event/proc/RoundEnd()
 	if(!report_at_round_end)
 		return
-	SSpersistence.save_bank_accounts() //Eclipse Edit: Save our bank accounts to the JSON
+	SSpersistence.save_accounts() //Eclipse Edit: Save our bank accounts to the JSON
 	to_chat(world, "<br><br><br><font size=3><b>Random Events This Round:</b></font>")
 	for(var/datum/event/E in active_events|finished_events)
 		var/datum/storyevent/SE = E.storyevent
