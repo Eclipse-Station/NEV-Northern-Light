@@ -106,7 +106,7 @@
 			species_modifier = economic_species_modifier[/datum/species/human]
 
 		var/money_amount = one_time_payment(species_modifier)
-		var/datum/money_account/M = create_account(H.real_name, money_amount, null, department, wage, aster_guild_member)
+		var/datum/money_account/M = create_account(H.real_name, money_amount, null, department, wage, aster_guild_member,H.ckey)
 		if(H.mind)
 			var/remembered_info = ""
 			remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"

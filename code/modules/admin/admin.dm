@@ -786,6 +786,7 @@ ADMIN_VERB_ADD(/datum/admins/proc/immreboot, R_SERVER, FALSE)
 		return
 	to_chat(world, "\red <b>Rebooting world!</b> \blue Initiated by [usr.client.holder.fakekey ? "Admin" : usr.key]!")
 	log_admin("[key_name(usr)] initiated an immediate reboot.")
+	SSpersistence.save_accounts() //Eclipse Debug Edit: here to allow for easier testing of persistence loading without waiting for roundend
 	world.Reboot()
 
 

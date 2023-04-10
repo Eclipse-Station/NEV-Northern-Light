@@ -1,4 +1,5 @@
 /datum/money_account
+	var/ckey = "" // Eclipse Edit: ckey for persistence checking
 	var/owner_name = ""
 	var/account_name = "" //Some accounts have a name that is distinct from the name of the owner
 	var/account_number = 0
@@ -82,7 +83,7 @@
 /datum/transaction/proc/Copy()
 	return new/datum/transaction(amount, target_name, purpose, source_terminal, date, time)
 
-/proc/create_account(new_owner_name = "Default user", starting_funds = 0, obj/machinery/account_database/source_db, department, wage, aster_guild_member)
+/proc/create_account(new_owner_name = "Default user", starting_funds = 0, obj/machinery/account_database/source_db, department, wage, aster_guild_member,ckey)
 
 	//create a new account
 	var/datum/money_account/M = new()
@@ -93,6 +94,7 @@
 	M.wage_original = wage
 	M.wage = wage
 	M.can_make_accounts = aster_guild_member
+	M.ckey = ckey
 
 	//create an entry in the account transaction log for when it was created
 	var/datum/transaction/T = new()
@@ -225,3 +227,21 @@
 
 	return account.money
 
+
+datum/money_account/proc/save_persistent() // eclipse edit: a proc to save data for persistence
+/*	var/owner_name = saving.owner_name
+	var/account_number = saving.account_number
+
+	for(var/datum/money_account/entry as anything in /datum/money_account)
+		if(entry.account_number == account_number && entry.owner_name == owner_name) // Update existing account data if detected
+			return
+		saving.account_number = account_number
+		SSpersistence.saved_bank_accounts += saving*/
+	var/list/new_data = list()
+	new_data["owner_ckey"] = ckey
+	new_data["character_name"] = owner_name
+	new_data["account_number"] = account_number
+	new_data["account_pin"] = remote_access_pin
+	new_data["account_funds"] = money
+	new_data["unique_key"] = ckey + "?" + owner_name
+	return new_data
