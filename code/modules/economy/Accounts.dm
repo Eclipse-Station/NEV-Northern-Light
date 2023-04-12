@@ -229,19 +229,12 @@
 
 
 datum/money_account/proc/save_persistent() // eclipse edit: a proc to save data for persistence
-/*	var/owner_name = saving.owner_name
-	var/account_number = saving.account_number
 
-	for(var/datum/money_account/entry as anything in /datum/money_account)
-		if(entry.account_number == account_number && entry.owner_name == owner_name) // Update existing account data if detected
-			return
-		saving.account_number = account_number
-		SSpersistence.saved_bank_accounts += saving*/
 	var/list/new_data = list()
 	new_data["owner_ckey"] = ckey
 	new_data["character_name"] = owner_name
 	new_data["account_number"] = account_number
 	new_data["account_pin"] = remote_access_pin
 	new_data["account_funds"] = money
-	new_data["unique_key"] = ckey + "?" + owner_name
+
 	return new_data

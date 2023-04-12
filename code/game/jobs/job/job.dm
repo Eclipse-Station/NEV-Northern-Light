@@ -121,6 +121,26 @@
 			H.mind.initial_account = M
 
 		to_chat(H, SPAN_NOTICE("<b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b>"))
+	else
+		var unique_key = H.ckey + "?" + H.real_name
+		var/datum/money_account/M = list()
+		var/list/loaded_account = SSpersistence.saved_bank_accounts[unique_key]
+		M.ckey = loaded_account["ckey"]
+		M.owner_name = loaded_account["character_name"]
+		M.account_number = loaded_account["account_number"]
+		M.remote_access_pin = loaded_account["pin_number"]
+		M.money =  loaded_account["account_funds"]
+
+
+		if(H.mind)
+			var/remembered_info = ""
+			remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
+			remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
+			remembered_info += "<b>Your account funds are:</b> [M.money][CREDS]<br>"
+			H.mind.store_memory(remembered_info)
+			H.mind.initial_account = M
+		to_chat(H, SPAN_NOTICE("<b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b>"))
+
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/qdel()
 /datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title, var/datum/branch, var/additional_skips)
 	var/decl/hierarchy/outfit/outfit = get_outfit(H, alt_title)
