@@ -94,7 +94,7 @@
 	else
 		gib()
 	
-	SSMobs.all_vermin += src
+	SSmobs.all_vermin += src
 
 
 
@@ -114,7 +114,7 @@
 
 
 /mob/living/simple_animal/vermin/death()
-	SSMobs.all_vermin -= src
+	SSmobs.all_vermin -= src
 	overlays.Cut()
 	visible_message("<b>[src]</b> splatters!")
 	playsound(loc, pick(death_sounds), 100, 0)
@@ -162,9 +162,9 @@
 		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
 			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
 			if(job)
-				crew++
-	var/_count = SSMobs.all_vermin.len
-	var/_limit = clamp(100 + (50 * crew - 3), 5, MAXIMUM_NUMBER_OF_VERMIN)		//No fewer than 5 (for testing purposes), no more than 750 (at 13 players).
+				_crew++
+	var/_count = SSmobs.all_vermin.len
+	var/_limit = clamp(100 + (50 * _crew - 3), 5, MAXIMUM_NUMBER_OF_VERMIN)		//No fewer than 5 (for testing purposes), no more than 750 (at 13 players).
 	
 	if(_count >= _limit)
 		return FALSE
@@ -247,7 +247,7 @@
 	if(QUALITY_HAMMERING in O.tool_qualities)
 		death()
 
-#undefine POWER_TO_SPREAD
-#undefine MAX_POWER_RESERVE
-#undefine MAXIMUM_NUMBER_OF_VERMIN
-#undefine DESIRED_TEMPERATURE_VERMIN
+#undef POWER_TO_SPREAD
+#undef MAX_POWER_RESERVE
+#undef MAXIMUM_NUMBER_OF_VERMIN
+#undef DESIRED_TEMPERATURE_VERMIN

@@ -109,7 +109,7 @@
 	if (GLOB.storyteller)
 		GLOB.storyteller.modify_points(get_cost(type)*(1 - completion), type)
 
-/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE, var/_forced == FALSE)		//Eclipse edit: Allow force-spawning of events.
+/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE, var/_forced = FALSE)		//Eclipse edit: Allow force-spawning of events.
 	if (event_type)
 		var/datum/event/E = new event_type(src, severity)
 		if (!E.can_trigger() && !_forced)	//Eclipse edit: Force-spawning.
