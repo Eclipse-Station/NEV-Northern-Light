@@ -91,6 +91,8 @@
 		assume_appearance(origin)
 	else
 		gib()
+	
+	SSMobs.all_vermin += src
 
 
 
@@ -110,6 +112,7 @@
 
 
 /mob/living/simple_animal/vermin/death()
+	SSMobs.all_vermin -= src
 	overlays.Cut()
 	visible_message("<b>[src]</b> splatters!")
 	playsound(loc, pick(death_sounds), 100, 0)
@@ -143,7 +146,33 @@
 
 	return TRUE
 
+
+/* Proc to check if we can safely spawn more vermin in. Called in the reproduction 
+ * code. This is NOT called in New() in case an admin wants to force it to spawn.
+ *
+ * Returns 0 or FALSE if you can't spawn one with the current number of players.
+ * For debugging purposes, returns a number in case we can (with the number being
+ * how many can be spawned safely).
+ */
+/mob/living/simple_animal/vermin/proc/can_reproduce()
+	var/_crew = 0
+	for(var/mob/M in GLOB.player_list)		//I wish there was a cheaper way to do this...
+		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
+			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
+			if(job)
+				crew++
+	var/_count = SSMobs.all_vermin.len
+	var/_limit = max(100 + (50 * crew - 3), 5)		//Lower bound of 5, for testing and admin shenanigan purposes.
+	
+	if(_count >= _limit)
+		return FALSE
+	
+	return (_limit - _count)
+
 /mob/living/simple_animal/vermin/proc/spawn_vermin(mob/parent)
+	if(!can_reproduce())
+		return		//We don't want to overwhelm the crew.
+
 	var/list/turfs = oview(src, 5)
 	var/list/potential_candidates = list()		//Reduces north/south bias.
 	for (var/turf/t in turfs)

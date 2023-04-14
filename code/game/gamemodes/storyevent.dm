@@ -94,8 +94,8 @@
 	return weight
 
 
-/datum/storyevent/proc/create(var/severity)
-	if(trigger_event(severity))
+/datum/storyevent/proc/create(var/severity, var/forced = FALSE)
+	if(trigger_event(severity, forced))
 		ocurrences++
 		last_trigger_time = world.time
 		if(processing)
@@ -109,10 +109,10 @@
 	if (GLOB.storyteller)
 		GLOB.storyteller.modify_points(get_cost(type)*(1 - completion), type)
 
-/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE)
+/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE, var/_forced == FALSE)		//Eclipse edit: Allow force-spawning of events.
 	if (event_type)
 		var/datum/event/E = new event_type(src, severity)
-		if (!E.can_trigger())
+		if (!E.can_trigger() && !_forced)	//Eclipse edit: Force-spawning.
 			return FALSE
 		//If we get here, the event is fine to fire!
 

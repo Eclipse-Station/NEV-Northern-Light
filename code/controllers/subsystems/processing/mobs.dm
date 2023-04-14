@@ -13,6 +13,8 @@ PROCESSING_SUBSYSTEM_DEF(mobs)
 	//ECLIPSE ADDED VARS
 	var/alarm = FALSE
 	var/alarm_time
+	
+	var/list/all_vermin
 
 /datum/controller/subsystem/processing/mobs/PreInit()
 	mob_list = processing // Simply setups a more recognizable var name than "processing"
@@ -31,7 +33,7 @@ PROCESSING_SUBSYSTEM_DEF(mobs)
 /datum/controller/subsystem/processing/mobs/fire(resumed = 0)
 	..()		//Run everything else first.
 	
-	if(!alarm && mob_list.len > 2000)		//If we ever get this high, something has gone seriously wrong.
+	if(!alarm && mob_list.len > 3000)		//If we ever get this high, something has gone seriously wrong.
 		alarm = TRUE
 	if(alarm)		//If we're in alarm, notify everyone.
 		if(mob_list.len > 2000)
