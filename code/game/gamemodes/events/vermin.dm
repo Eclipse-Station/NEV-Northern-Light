@@ -27,6 +27,34 @@ Physically harmless to the crew, but still dangerous to the ship itself
 	var/num_areas = 1
 
 
+/datum/event/vermin/can_trigger()		//Add in crew requirements
+//This is literally copy-pasted from Hivemind code.
+	var/crew = 0
+	var/engis = 0
+	var/sec = 0
+	var/command = 0
+	
+	//Let's get a list of active players first, and run through that.
+	for(var/mob/M in GLOB.player_list)
+		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
+			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
+			if(job)
+				crew++
+				if(job in list(JOBS_ENGINEERING))		//Engi?
+					engis++
+				if(job in list(JOBS_SECURITY))		//Sec?
+					sec++
+				if(job in list(JOBS_COMMAND))		//Head of staff?
+					command++
+	if(crew < 3)			//Because one's not enough, and two's too few.
+		return FALSE
+	else if(crew >= 3 && crew < 6)		//Debatable...
+		if(!engis && !sec && !command)
+			return FALSE		//Security and command should have access; Engineers can get anywhere they need to go because **hacking**
+
+	//We have enough to be able to start, so we'll call the other stuff.
+	return TRUE
+
 /datum/event/vermin/setup()
 	announceWhen = rand(20,80) //Very large random window for announcement,
 	num_areas = 1

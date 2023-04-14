@@ -1,3 +1,10 @@
+//Defines, so rebalancing is easier.
+#define POWER_TO_SPREAD 200
+#define MAX_POWER_RESERVE 350
+
+//Currently unimplemented...
+#define DESIRED_TEMPERATURE T0C+65
+
 /mob/living/simple_animal/vermin
 	name = "pile of viscera"
 	desc = "A non-descript amalgamation of guts"
@@ -96,7 +103,7 @@
 			A.use_power(1000, STATIC_ENVIRON)
 			power_nutrition++
 
-	if (power_nutrition > 90 && children_left > 0)
+	if (power_nutrition > POWER_TO_SPREAD && children_left > 0)
 		spawn_vermin(src)
 
 
@@ -200,11 +207,14 @@
 		smoke.attach(child)
 		smoke.start()
 
-		power_nutrition = power_nutrition - 90
+		power_nutrition = power_nutrition - POWER_TO_SPREAD
 	else
-		power_nutrition = min(power_nutrition, 100)		//Cap the nutrition so it doesn't try and spawn twenty immediately.
+		power_nutrition = min(power_nutrition, MAX_POWER_RESERVE)		//Cap the nutrition so it doesn't try and spawn twenty immediately.
 
 /mob/living/simple_animal/vermin/attackby(var/obj/item/O as obj)
 	. = ..()
 	if(QUALITY_HAMMERING in O.tool_qualities)
 		death()
+
+#undefine POWER_TO_SPREAD
+#undefine MAX_POWER_RESERVE
