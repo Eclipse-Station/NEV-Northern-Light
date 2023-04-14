@@ -1,9 +1,11 @@
 //Defines, so rebalancing is easier.
 #define POWER_TO_SPREAD 200
 #define MAX_POWER_RESERVE 350
+#define MAXIMUM_NUMBER_OF_VERMIN 750
+//Todo: Make that last one a config option.
 
 //Currently unimplemented...
-#define DESIRED_TEMPERATURE T0C+65
+#define DESIRED_TEMPERATURE_VERMIN T0C+65
 
 /mob/living/simple_animal/vermin
 	name = "pile of viscera"
@@ -162,7 +164,7 @@
 			if(job)
 				crew++
 	var/_count = SSMobs.all_vermin.len
-	var/_limit = max(100 + (50 * crew - 3), 5)		//Lower bound of 5, for testing and admin shenanigan purposes.
+	var/_limit = clamp(100 + (50 * crew - 3), 5, MAXIMUM_NUMBER_OF_VERMIN)		//No fewer than 5 (for testing purposes), no more than 750 (at 13 players).
 	
 	if(_count >= _limit)
 		return FALSE
@@ -247,3 +249,5 @@
 
 #undefine POWER_TO_SPREAD
 #undefine MAX_POWER_RESERVE
+#undefine MAXIMUM_NUMBER_OF_VERMIN
+#undefine DESIRED_TEMPERATURE_VERMIN
