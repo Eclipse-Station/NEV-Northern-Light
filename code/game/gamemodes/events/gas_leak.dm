@@ -19,6 +19,7 @@
 
 
 // We need to ensure an engineer is present to deal with it. That's about it, really.
+//Spitzer note: Forced doesn't do anything here; this is intentional.
 /datum/event/gas_leak/can_trigger()
 	for(var/mob/M in GLOB.player_list)
 		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
