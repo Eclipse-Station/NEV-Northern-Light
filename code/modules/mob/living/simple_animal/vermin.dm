@@ -4,9 +4,6 @@
 #define MAXIMUM_NUMBER_OF_VERMIN 750
 //Todo: Make that last one a config option.
 
-//Currently unimplemented...
-#define DESIRED_TEMPERATURE_VERMIN T0C+65
-
 /mob/living/simple_animal/vermin
 	name = "pile of viscera"
 	desc = "A non-descript amalgamation of guts"
@@ -150,11 +147,11 @@
 
 
 /* Proc to check if we can safely spawn more vermin in. Called in the reproduction 
- * code. This is NOT called in New() in case an admin wants to force it to spawn.
+ * code. This is NOT called in New() in case an admin wants to manually plop some 
+ * more down through the mob-spawn panel.
  *
  * Returns 0 or FALSE if you can't spawn one with the current number of players.
- * For debugging purposes, returns a number in case we can (with the number being
- * how many can be spawned safely).
+ * Returns how many more we can safely spawn in (for debugging purposes) otherwise.
  */
 /mob/living/simple_animal/vermin/proc/can_reproduce()
 	var/_crew = 0

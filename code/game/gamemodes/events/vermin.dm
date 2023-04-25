@@ -27,8 +27,11 @@ Physically harmless to the crew, but still dangerous to the ship itself
 	var/num_areas = 1
 
 
-/datum/event/vermin/can_trigger()		//Add in crew requirements
+/datum/event/vermin/can_trigger(forced)		//Add in crew requirements
 //This is literally copy-pasted from Hivemind code.
+	if(forced)
+		return TRUE
+
 	var/crew = 0
 	var/engis = 0
 	var/sec = 0
@@ -80,7 +83,7 @@ Physically harmless to the crew, but still dangerous to the ship itself
 /datum/event/vermin/proc/choose_area()
 	for (var/i = 1; i <= num_areas; i++)
 		var/area/A
-		A = random_ship_area(TRUE, TRUE)
+		A = random_ship_area(filter_players = TRUE, filter_maintenance = TRUE, filter_critical = TRUE, need_apc = TRUE)		//we need to have power to be able to reproduce, and we don't want them to spawn in the engine room - as much fun as that is.
 		var/turf/T = A.random_space()
 		if(!T)
 			//We somehow failed to find a turf, decrement i so we get another go

@@ -30,13 +30,15 @@ PROCESSING_SUBSYSTEM_DEF(mobs)
 
 //ECLIPSE ADDED SPAGHETTI BEYOND THIS POINT
 //ABANDON ALL HOPE YE WHO ENTER HERE.
+#define GLOBAL_MOB_WARNING_LIMIT 3000
+
 /datum/controller/subsystem/processing/mobs/fire(resumed = 0)
 	..()		//Run everything else first.
 	
-	if(!alarm && mob_list.len > 3000)		//If we ever get this high, something has gone seriously wrong.
+	if(!alarm && mob_list.len > GLOBAL_MOB_WARNING_LIMIT)		//If we ever get this high, something has gone seriously wrong.
 		alarm = TRUE
 	if(alarm)		//If we're in alarm, notify everyone.
-		if(mob_list.len > 2000)
+		if(mob_list.len > GLOBAL_MOB_WARNING_LIMIT)
 			if(times_fired > alarm_time)
 				alarm_time = times_fired + 60		//Once every 2 seconds, so warn us every 2 minutes.
 				message_admins("MOB/SEVERE: !! DANGER !! Total number of mobs exceeds reasonable limits. Performance issues are imminent if left unchecked. Check the subsystem variables for any mobs that are spawning uncontrollably.")

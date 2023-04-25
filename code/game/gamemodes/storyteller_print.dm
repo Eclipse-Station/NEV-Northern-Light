@@ -252,7 +252,7 @@
 				if (!evt.can_trigger(href_list["severity"], debug_mode? usr : null))
 					var/answer = alert(usr, "\"[evt.id]\" is not allowed to trigger.\n\
 					To find out why, turn on debug mode in the storyteller panel and try again. \n\
-					You can also try to bypass the requirement and force it anyway, but this may cause issues or undesirable behavior, especially on role-based events (e.g. turning an AI malf when there is no AI present).\n \
+					You can also try to bypass the requirement and force it anyway, but this won't always work and may cause issues or undesirable behavior, especially on role-based events (e.g. turning an AI malf when there is no AI present).\n \
 					 Would you like to force it anyway?.", "Force Event? ", "yes", "no")
 					if (answer == "no")
 						return
