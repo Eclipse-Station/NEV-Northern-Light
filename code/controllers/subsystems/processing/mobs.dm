@@ -53,6 +53,3 @@ PROCESSING_SUBSYSTEM_DEF(mobs)
 					to_world(SPAN_DANGER("SUBSYSTEM WARNING: An issue has been detected with the Mobs subsystem and no administrators are online to correct it. Please notify administrators of this in Discord. Include the following debugging information: \" SUBST_MOBS/0x7D0 EXCESSIVE MOB COUNT\"."))
 		else
 			alarm = FALSE
-
-//Cleanup.
-#undef GLOBAL_MOB_WARNING_LIMIT

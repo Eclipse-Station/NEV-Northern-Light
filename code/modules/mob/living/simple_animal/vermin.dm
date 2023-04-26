@@ -1,7 +1,6 @@
 //Defines, so rebalancing is easier.
 #define POWER_TO_SPREAD 200
 #define MAX_POWER_RESERVE 350
-#define MAXIMUM_NUMBER_OF_VERMIN 750
 //Todo: Make that last one a config option.
 
 /mob/living/simple_animal/vermin
@@ -152,6 +151,8 @@
  *
  * Returns 0 or FALSE if you can't spawn one with the current number of players.
  * Returns how many more we can safely spawn in (for debugging purposes) otherwise.
+ *
+ * MAXIMUM_NUMBER_OF_VERMIN is defined in /code/game/gamemodes/events/vermin.dm.
  */
 /mob/living/simple_animal/vermin/proc/can_reproduce()
 	var/_crew = 0
@@ -246,4 +247,3 @@
 
 #undef POWER_TO_SPREAD
 #undef MAX_POWER_RESERVE
-#undef MAXIMUM_NUMBER_OF_VERMIN

@@ -1,3 +1,5 @@
+#define MAXIMUM_NUMBER_OF_VERMIN 750
+
 /*
 Vermin are rapidly reproducing energy-sucking menace
 That is capable of causing hull breaches and blackouts
@@ -27,15 +29,22 @@ Physically harmless to the crew, but still dangerous to the ship itself
 	var/num_areas = 1
 
 
-/datum/event/vermin/can_trigger(forced)		//Add in crew requirements
-//This is literally copy-pasted from Hivemind code.
-	if(forced)
-		return TRUE
+/datum/event/vermin/can_trigger(forced)		//Add in crew requirements, etc
+/* Make sure we're not over the maximum allowable limit for mobs. If we're above
+ * that limit, it'll mean bad times for the players (lag, etc).
+ *
+ * Because of that, regardless of whether it's forced, we don't want the event
+ * to happen.
+ */
+	if(SSmobs.mob_list.len >= GLOBAL_MOB_WARNING_LIMIT)
+		return FALSE
 
+//This is literally copy-pasted from Hivemind code.
 	var/crew = 0
 	var/engis = 0
 	var/sec = 0
 	var/command = 0
+	var/player_check = TRUE
 	
 	//Let's get a list of active players first, and run through that.
 	for(var/mob/M in GLOB.player_list)
@@ -50,12 +59,32 @@ Physically harmless to the crew, but still dangerous to the ship itself
 				if(job in list(JOBS_COMMAND))		//Head of staff?
 					command++
 	if(crew < 3)			//Because one's not enough, and two's too few.
-		return FALSE
+		player_check = FALSE
 	else if(crew >= 3 && crew < 6)		//Debatable...
 		if(!engis && !sec && !command)
-			return FALSE		//Security and command should have access; Engineers can get anywhere they need to go because **hacking**
+			player_check = FALSE		//Security and command should have access; Engineers can get anywhere they need to go because **hacking**
 
-	//We have enough to be able to start, so we'll call the other stuff.
+	if(!player_check && !forced)		//We don't have enough players, and an admin is not forcing this. Abort.
+		return FALSE
+	//We have enough players to be able to start, so we'll check that we're not about to crash the server.
+	
+/* Since the player check code is already done, we'll reuse it down here to verify
+ * that we can still reproduce with the number of players we have online, since
+ * the Vermin's maximum count is influenced by the number of active players.
+ */
+	var/mob_count_sanity_checks = TRUE		//Verify that we can actually spawn more.
+	var/_count = SSmobs.all_vermin.len
+	var/_limit = clamp(100 + (50 * crew - 3), 5, MAXIMUM_NUMBER_OF_VERMIN)		//Variable limit, based on player count.
+
+	if(_count >= (MAXIMUM_NUMBER_OF_VERMIN - 25))
+		mob_count_sanity_checks = FALSE		//We're too close to the absolute limit; another infestation has likely gone unchecked.
+
+	if(_count >= (_limit - 25))
+		mob_count_sanity_checks = FALSE		//We're too close to going over our maximum allowable limit based on player count.
+
+	if(!mob_count_sanity_checks && !forced)
+		return FALSE		//it's not safe to spawn Vermin in right now . . .
+	
 	return TRUE
 
 /datum/event/vermin/setup()
