@@ -1,3 +1,6 @@
+//Eclipse-added defines
+#define GLOBAL_MOB_WARNING_LIMIT 3000
+
 PROCESSING_SUBSYSTEM_DEF(mobs)
 	name = "Mobs"
 	priority = SS_PRIORITY_MOB
@@ -30,8 +33,6 @@ PROCESSING_SUBSYSTEM_DEF(mobs)
 
 //ECLIPSE ADDED SPAGHETTI BEYOND THIS POINT
 //ABANDON ALL HOPE YE WHO ENTER HERE.
-#define GLOBAL_MOB_WARNING_LIMIT 3000
-
 /datum/controller/subsystem/processing/mobs/fire(resumed = 0)
 	..()		//Run everything else first.
 	
@@ -52,3 +53,6 @@ PROCESSING_SUBSYSTEM_DEF(mobs)
 					to_world(SPAN_DANGER("SUBSYSTEM WARNING: An issue has been detected with the Mobs subsystem and no administrators are online to correct it. Please notify administrators of this in Discord. Include the following debugging information: \" SUBST_MOBS/0x7D0 EXCESSIVE MOB COUNT\"."))
 		else
 			alarm = FALSE
+
+//Cleanup.
+#undef GLOBAL_MOB_WARNING_LIMIT

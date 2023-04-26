@@ -113,12 +113,17 @@
 	if (GLOB.storyteller)
 		GLOB.storyteller.modify_points(get_cost(type)*(1 - completion), type)
 
-/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE, var/_forced = FALSE)		//Eclipse edit: Allow force-spawning of events.
+
+// // // BEGIN ECLIPSE EDITS // // //
+// Allows for force-spawning of events.
+/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE, var/_forced = FALSE)
 	if (event_type)
 		var/datum/event/E = new event_type(src, severity)
-		if (!E.can_trigger(forced = _forced))	//Eclipse edit: Force-spawning.
+		if (!E.can_trigger(forced = _forced))
 			return FALSE
 		//If we get here, the event is fine to fire!
+
+// // // END ECLIPSE EDITS // // //
 
 		//And away it goes.
 		E.Initialize()
