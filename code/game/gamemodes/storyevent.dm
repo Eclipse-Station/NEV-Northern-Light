@@ -92,14 +92,13 @@
 		qdel(E)
 	return
 
-// // // END ECLIPSE EDITS // // //
 
 /datum/storyevent/proc/get_special_weight(var/weight)
 	return weight
 
 
 /datum/storyevent/proc/create(var/severity, var/forced = FALSE)
-	if(trigger_event(severity, forced))
+	if(trigger_event(severity, forced))		// // // END ECLIPSE EDITS // // //
 		ocurrences++
 		last_trigger_time = world.time
 		if(processing)
