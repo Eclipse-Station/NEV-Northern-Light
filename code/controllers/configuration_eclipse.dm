@@ -203,7 +203,7 @@
 		_temp_data = config.maximum_vermin
 		config.maximum_vermin = 250		//A low number, just in case.
 		spawn(0)
-			throw EXCEPTION("invalid configuration value: 'VERMIN_LIMITER' requires a positive number or zero as its value. Entry [_temp_data ? "of [_temp-data]" : "of a non_number"] is not valid.")
+			throw EXCEPTION("invalid configuration value: 'VERMIN_LIMITER' requires a positive number or zero as its value. Entry [_temp_data ? "of [_temp_data]" : "of a non-number"] is not valid.")
 
 	if(_config_error)
 		spawn(25 SECONDS)
