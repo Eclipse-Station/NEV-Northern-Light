@@ -1,7 +1,6 @@
 //Defines, so rebalancing is easier.
 #define POWER_TO_SPREAD 200
 #define MAX_POWER_RESERVE 350
-//Todo: Make that last one a config option.
 
 /mob/living/simple_animal/vermin
 	name = "pile of viscera"
@@ -151,8 +150,6 @@
  *
  * Returns 0 or FALSE if you can't spawn one with the current number of players.
  * Returns how many more we can safely spawn in (for debugging purposes) otherwise.
- *
- * MAXIMUM_NUMBER_OF_VERMIN is defined in /code/game/gamemodes/events/vermin.dm.
  */
 /mob/living/simple_animal/vermin/proc/can_reproduce()
 	var/_crew = 0
@@ -162,7 +159,7 @@
 			if(job)
 				_crew++
 	var/_count = SSmobs.all_vermin.len
-	var/_limit = clamp(100 + (50 * _crew - 3), 5, MAXIMUM_NUMBER_OF_VERMIN)		//No fewer than 5 (for testing purposes), no more than 750 (at 13 players).
+	var/_limit = clamp(100 + (50 * _crew - 3), 5, config.maximum_vermin)		//No fewer than 5 (for testing purposes), no more than 750 (at 13 players).
 	
 	if(_count >= _limit)
 		return FALSE
