@@ -159,7 +159,7 @@
 			if(job)
 				_crew++
 	var/_count = SSmobs.all_vermin.len
-	var/_limit = clamp(100 + (50 * _crew - 3), 5, config.maximum_vermin)		//No fewer than 5 (for testing purposes), no more than 750 (at 13 players).
+	var/_limit = clamp(100 + (50 * (_crew - 3)), 5, config.maximum_vermin)		//No fewer than 5 (for testing purposes), no more than 750 (at 13 players).
 	
 	if(_count >= _limit)
 		return FALSE

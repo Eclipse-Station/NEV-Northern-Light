@@ -72,7 +72,7 @@ Physically harmless to the crew, but still dangerous to the ship itself
  */
 	var/mob_count_sanity_checks = TRUE		//Verify that we can actually spawn more.
 	var/_count = SSmobs.all_vermin.len
-	var/_limit = clamp(100 + (50 * crew - 3), 5, config.maximum_vermin)		//Variable limit, based on player count.
+	var/_limit = clamp(100 + (50 * (crew - 3)), 5, config.maximum_vermin)		//Variable limit, based on player count.
 
 	if(_count >= (config.maximum_vermin - 25))
 		mob_count_sanity_checks = FALSE		//We're too close to the absolute limit; another infestation has likely gone unchecked.

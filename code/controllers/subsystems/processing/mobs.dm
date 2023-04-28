@@ -17,7 +17,7 @@ PROCESSING_SUBSYSTEM_DEF(mobs)
 	var/alarm = FALSE
 	var/alarm_time
 	
-	var/list/all_vermin
+	var/list/all_vermin = list()
 
 /datum/controller/subsystem/processing/mobs/PreInit()
 	mob_list = processing // Simply setups a more recognizable var name than "processing"
