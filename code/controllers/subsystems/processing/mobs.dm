@@ -1,3 +1,6 @@
+//Eclipse-added defines
+#define GLOBAL_MOB_WARNING_LIMIT 3000
+
 PROCESSING_SUBSYSTEM_DEF(mobs)
 	name = "Mobs"
 	priority = SS_PRIORITY_MOB
@@ -13,6 +16,8 @@ PROCESSING_SUBSYSTEM_DEF(mobs)
 	//ECLIPSE ADDED VARS
 	var/alarm = FALSE
 	var/alarm_time
+	
+	var/list/all_vermin = list()
 
 /datum/controller/subsystem/processing/mobs/PreInit()
 	mob_list = processing // Simply setups a more recognizable var name than "processing"
@@ -31,10 +36,10 @@ PROCESSING_SUBSYSTEM_DEF(mobs)
 /datum/controller/subsystem/processing/mobs/fire(resumed = 0)
 	..()		//Run everything else first.
 	
-	if(!alarm && mob_list.len > 2000)		//If we ever get this high, something has gone seriously wrong.
+	if(!alarm && mob_list.len > GLOBAL_MOB_WARNING_LIMIT)		//If we ever get this high, something has gone seriously wrong.
 		alarm = TRUE
 	if(alarm)		//If we're in alarm, notify everyone.
-		if(mob_list.len > 2000)
+		if(mob_list.len > GLOBAL_MOB_WARNING_LIMIT)
 			if(times_fired > alarm_time)
 				alarm_time = times_fired + 60		//Once every 2 seconds, so warn us every 2 minutes.
 				message_admins("MOB/SEVERE: !! DANGER !! Total number of mobs exceeds reasonable limits. Performance issues are imminent if left unchecked. Check the subsystem variables for any mobs that are spawning uncontrollably.")

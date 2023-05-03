@@ -17,7 +17,7 @@
 
 //Checks if the event can fire now.
 //This should always be called before paying for the event
-/datum/event/proc/can_trigger()
+/datum/event/proc/can_trigger(var/forced = FALSE)		//Eclipse edit: If we can't otherwise start (e.g. due to a playercount issue), can we safely bypass that requirement?
 	return TRUE
 
 //Called first before processing.
