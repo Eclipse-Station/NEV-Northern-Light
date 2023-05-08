@@ -5297,7 +5297,6 @@
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "amt" = (
-/obj/structure/closet/secure_closet/personal/paramedic,
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/medbreak)
 "amu" = (
@@ -9821,7 +9820,6 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/surgery)
 "axz" = (
-/obj/structure/closet/secure_closet/personal/paramedic,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -12365,6 +12363,14 @@
 /area/eris/security/armory)
 "aDG" = (
 /obj/structure/closet/secure_closet/personal/patient,
+/obj/machinery/flasher{
+	id = "Iso 2";
+	pixel_y = -28;
+	dir = 1
+	},
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/mask/muzzle,
+/obj/item/clothing/glasses/sunglasses/blindfold,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/patients_rooms)
 "aDH" = (
@@ -25963,7 +25969,6 @@
 /area/eris/security/main)
 "bky" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/landmark/join/start/paramedic,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbreak)
 "bkz" = (
@@ -26707,10 +26712,9 @@
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/main)
 "bmh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/landmark/join/start/paramedic,
-/turf/simulated/floor/tiled/white/brown_perforated,
-/area/eris/medical/medbreak)
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/patients_rooms)
 "bmi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -27010,10 +27014,8 @@
 /turf/simulated/floor/tiled/white,
 /area/eris/command/mbo)
 "bmR" = (
-/obj/structure/table/standard,
-/obj/item/taperoll/medical,
-/obj/item/taperoll/medical,
 /obj/machinery/camera/network/medbay,
+/obj/structure/closet/secure_closet/personal/paramedic,
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/medical/patients_rooms)
 "bmS" = (
@@ -29548,13 +29550,20 @@
 /area/eris/rnd/storage)
 "bsC" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_medical{
-	id_tag = null;
-	name = "Medical Isolator";
-	req_access = list(5)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/window/brigdoor{
+	dir = 2;
+	id = "Iso 4";
+	name = "Cell 4";
+	req_access = list(5)
+	},
+/obj/machinery/door/window/brigdoor{
+	dir = 1;
+	id = "Iso 4";
+	name = "Cell 4";
+	req_access = list(5)
+	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/patients_rooms)
 "bsD" = (
@@ -29886,9 +29895,17 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/portsection2deck3)
 "btq" = (
-/obj/landmark/join/start/paramedic,
+/obj/structure/closet/secure_closet/personal/patient,
+/obj/machinery/flasher{
+	id = "Iso 4";
+	pixel_y = -28;
+	dir = 1
+	},
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/mask/muzzle,
+/obj/item/clothing/glasses/sunglasses/blindfold,
 /turf/simulated/floor/tiled/white/brown_perforated,
-/area/eris/medical/medbreak)
+/area/eris/medical/patients_rooms)
 "btr" = (
 /obj/machinery/door/blast/regular/open{
 	id = "xenobio4";
@@ -31428,13 +31445,16 @@
 /turf/simulated/floor/tiled/white/gray_perforated,
 /area/eris/rnd/xenobiology)
 "bxe" = (
-/obj/structure/closet/wardrobe/pjs,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25
+	},
+/obj/machinery/door_timer/lazarus{
+	pixel_y = 32;
+	id = "Iso 1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patients_rooms)
@@ -40263,10 +40283,22 @@
 /turf/simulated/wall/r_wall,
 /area/eris/command/fo)
 "bRz" = (
-/obj/item/device/radio/intercom{
-	pixel_y = 24
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/window/brigdoor{
+	dir = 2;
+	id = "Iso 1";
+	name = "Cell 4";
+	req_access = list(5)
 	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/door/window/brigdoor{
+	dir = 1;
+	id = "Iso 1";
+	name = "Cell 4";
+	req_access = list(5)
+	},
+/turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/patients_rooms)
 "bRA" = (
 /obj/structure/computerframe{
@@ -49565,6 +49597,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/spawner/scrap,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
 "cor" = (
@@ -49668,6 +49701,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/structure/table/standard,
+/obj/item/storage/box/handcuffs,
+/obj/item/taperoll/medical,
+/obj/item/taperoll/medical,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patients_rooms)
 "coH" = (
@@ -50009,7 +50046,7 @@
 /turf/simulated/floor/plating/under,
 /area/eris/medical/patients_rooms)
 "cpw" = (
-/obj/structure/girder,
+/obj/structure/closet/secure_closet/personal/paramedic,
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/medical/patients_rooms)
 "cpx" = (
@@ -53689,6 +53726,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/spawner/scrap,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
 "cyq" = (
@@ -53819,6 +53857,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/spawner/scrap,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
 "cyC" = (
@@ -57139,17 +57178,17 @@
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck3)
 "cGC" = (
-/obj/structure/table/standard,
-/obj/item/clothing/suit/straight_jacket,
-/obj/item/clothing/suit/straight_jacket,
-/obj/item/clothing/mask/muzzle,
-/obj/item/clothing/mask/muzzle,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/item/device/radio/intercom{
+	pixel_x = 24;
+	dir = 8
+	},
+/obj/machinery/door_timer/lazarus{
+	pixel_y = -32;
+	id = "Iso 2";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patients_rooms)
@@ -68060,6 +68099,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/spawner/scrap,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
 "dia" = (
@@ -68074,6 +68114,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
 "dib" = (
@@ -79519,6 +79560,16 @@
 /obj/spawner/traps/wire_splicing/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck3)
+"gBu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/spawner/junk/low_chance,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section1deck3central)
 "gDb" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark/danger,
@@ -79936,6 +79987,24 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/eris/engineering/engine_room)
+"lfG" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/window/brigdoor{
+	dir = 2;
+	id = "Iso 2";
+	name = "Cell 4";
+	req_access = list(5)
+	},
+/obj/machinery/door/window/brigdoor{
+	dir = 1;
+	id = "Iso 2";
+	name = "Cell 4";
+	req_access = list(5)
+	},
+/turf/simulated/floor/tiled/white/cargo,
+/area/eris/medical/patients_rooms)
 "lgy" = (
 /obj/structure/sign/double/barsign{
 	dir = 8;
@@ -80053,6 +80122,15 @@
 	},
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/erida/maintenance/starboardsection2deck4)
+"mmi" = (
+/obj/machinery/door_timer/lazarus{
+	pixel_y = -32;
+	id = "Iso 4";
+	dir = 1
+	},
+/obj/landmark/join/start/paramedic,
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/patients_rooms)
 "moz" = (
 /obj/machinery/telecomms/server/presets/nt,
 /turf/simulated/floor/bluegrid,
@@ -80301,6 +80379,17 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/propulsion/left)
+"oBB" = (
+/obj/structure/closet/secure_closet/personal/patient,
+/obj/machinery/flasher{
+	id = "Iso 1";
+	pixel_y = 28
+	},
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/mask/muzzle,
+/obj/item/clothing/glasses/sunglasses/blindfold,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/medical/patients_rooms)
 "oIH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -80355,6 +80444,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/erida/maintenance/medicalward)
+"pgZ" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/eris/medical/patients_rooms)
 "pxR" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
@@ -80426,6 +80520,14 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
+"qeT" = (
+/obj/machinery/door_timer/lazarus{
+	pixel_y = 32;
+	id = "Iso 3"
+	},
+/obj/landmark/join/start/paramedic,
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/patients_rooms)
 "qkR" = (
 /obj/structure/table/standard,
 /obj/spawner/medical_lowcost,
@@ -80716,6 +80818,24 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/neotheology/chapelritualroom)
+"tlQ" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/window/brigdoor{
+	dir = 2;
+	id = "Iso 3";
+	name = "Cell 4";
+	req_access = list(5)
+	},
+/obj/machinery/door/window/brigdoor{
+	dir = 1;
+	id = "Iso 3";
+	name = "Cell 4";
+	req_access = list(5)
+	},
+/turf/simulated/floor/tiled/white/cargo,
+/area/eris/medical/patients_rooms)
 "tno" = (
 /obj/structure/table/reinforced,
 /obj/item/book/manual/wiki/chef_recipes,
@@ -81009,6 +81129,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/security/lobby)
+"vsJ" = (
+/obj/structure/closet/wardrobe/pjs,
+/turf/simulated/floor/tiled/white,
+/area/eris/medical/patients_rooms)
 "vtK" = (
 /obj/spawner/closet/low_chance,
 /turf/simulated/floor/tiled/techmaint,
@@ -81243,6 +81367,18 @@
 	},
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
+"xlo" = (
+/obj/structure/closet/secure_closet/personal/patient,
+/obj/machinery/flasher{
+	id = "Iso 3";
+	pixel_y = 28
+	},
+/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/mask/muzzle,
+/obj/item/clothing/mask/muzzle,
+/obj/item/clothing/glasses/sunglasses/blindfold,
+/turf/simulated/floor/tiled/white/brown_perforated,
+/area/eris/medical/patients_rooms)
 "xoo" = (
 /obj/structure/multiz/stairs/enter/bottom{
 	dir = 1
@@ -110456,17 +110592,17 @@ aav
 aav
 aav
 aAq
-aDG
+xlo
 bpU
 bPC
-aBG
-aFB
-aFB
-aFB
-aBG
+aAq
+qeT
+bmh
+mmi
+aAq
 bPC
 bpU
-aDG
+btq
 aAq
 aav
 aav
@@ -110611,7 +110747,7 @@ aBG
 aFm
 aHJ
 aIa
-bsC
+tlQ
 coF
 cqi
 coF
@@ -110763,8 +110899,8 @@ aAq
 cDy
 aVN
 aIb
-aAq
-bRz
+pgZ
+vsJ
 crw
 aFB
 aBG
@@ -111064,11 +111200,11 @@ aaa
 aaa
 aaa
 aAq
-aDG
+oBB
 bpU
 bPC
 aBG
-aFB
+vsJ
 csi
 aFB
 aBG
@@ -111219,11 +111355,11 @@ aBG
 aFm
 aHJ
 aIa
-bsC
+bRz
 coH
 csj
 cGi
-bsC
+lfG
 cHJ
 cHO
 aFm
@@ -111371,11 +111507,11 @@ aAq
 bmI
 aVN
 aIb
-aBG
+aAq
 bxe
 csi
 cGC
-aBG
+aAq
 aIb
 aVN
 bvh
@@ -116683,7 +116819,7 @@ ceO
 ceO
 ceO
 ceO
-ceO
+gBu
 cyp
 cyB
 avi
@@ -133865,7 +134001,7 @@ aaa
 akN
 alX
 bky
-bmh
+amI
 amI
 ant
 cYT
@@ -134018,7 +134154,7 @@ akM
 alY
 axz
 amt
-btq
+amr
 anu
 dnZ
 dzP

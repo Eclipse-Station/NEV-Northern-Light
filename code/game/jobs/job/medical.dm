@@ -206,9 +206,10 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 	icon_state = "player-green"
 	join_tag = /datum/job/psychiatrist
 
+//Beginning of Eclipse Edit - Paramedic replaced with "Trauma Team" role.
 
 /datum/job/paramedic
-	title = "Paramedic"
+	title = "Trauma Team"
 	flag = PARAMEDIC
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
@@ -226,9 +227,9 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 
 	stat_modifiers = list(
 		STAT_BIO = 20,
-		STAT_ROB = 10,
+		STAT_ROB = 20,
 		STAT_TGH = 10,
-		STAT_VIG = 10,
+		STAT_VIG = 15,
 	)
 
 	perks = list(/datum/perk/selfmedicated)
@@ -237,36 +238,22 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 							/datum/computer_file/program/chem_catalog,
 							 /datum/computer_file/program/camera_monitor)
 
-	description = "You are a Lazarus Paramedic, The hero of the hour! While doctors largely spend their time cloistered away in medbay, your job is to be out there on the frontlines. You work in the field, sometimes treating people on the spot, sometimes bringing them back to medical for specialist treatment. <br>\
+	description = "Members of the trauma team are not scientists or doctors, you are strictly in charge of enforcing the orders of Lazarus leadership.<br>\
+	Your primary role is that of a security officer for Lazarus. You make sure that the medical and science departmetns remain safe by ensuring people don't trespass or steal items and remove those who shouldn't be there, by force if necessary.<br>\
+	Your secondary responsibility is that of an enforcer. Actions that require in house enforcement such as aiding doctors and security with violent patients in medical, securing the virology lab during an outbreak, and aiding in the destruction of escaped slimes or experiments from science.<br>\
+	Your third duty is to aid medical doctors and act as a paramedic. Fixing and collecting patients, this can include retrieving chemicals, doing basic triage, and going out into maintenance recover the injured.<br>\
+	You are fully licensed to enforce the will of the Lazarus Foundation and to protect its property, its staff, and your patients with your personal weapons and armor."
 
-You have significant medical training, but typically you are not a doctor, and will most likely lack a medical degree. The actual doctors have seniority, and you should follow their orders, especially concerning treatment and diagnosis of a patient<br>\
-<br>\
-You need to be ready to run at a moment's notice, and as such you should take careful care of your gear. Pack as many medicines, treatments, rollerbeds and other equipment as you can. Be sure to bring along some kind of heavy tool for breaching sealed areas.<br>\
-<br>\
-When the wounded are inside medbay, you will often act as a porter, transporting patients to and from various specialist treatment rooms. If your labour can save time for a doctor, get to it.<br>\
-<br>\
-Once your duty to the living is dispensed, your secondary duty is to the dead. You are the designated corpse recovery staff, and you will often need to retrieve bodies from where they died, bring them back and store them in the morgue. This gives a reduction in that player's respawn time.<br>\
-<br>\
-This is the most dangerous part of your job, and recovery should only be attempted if you can reasonably do so without endangering yourself. If there are hostile creatures preventing recovery, call Security to deal with them.<br>\
-<br>\
-Character Expectations:<br>\
-Paramedic is a physically demanding job, your character must be fit and strong. No fat bodies allowed<br>\
-EVA training is expected, you should be confident in a medical Voidsuit, and optionally in driving an odysseus mech<br>\
+	duties = "Act as a guard for Lazarus, watching for and detaining tresspassers and thieves.<br>\
+		Aid medical doctors in any way you can.<br>\
+		Act as a nurse for minor injuries, treating patients that a doctor needn't bother with.<br>\
+		Ensure that any outbreaks are contained, such as slimes, infected monkeys, or kudzu."
 
-Remember that you are a noncombatant. Any weapons you carry should be used for breaching and rescue, not for killing. Use violence only as a last resort to defend yourself or your patient"
-
-	duties = "	Respond to distress calls, extract wounded people from dangerous situations, stabilize them at the scene, and take them to medbay for farther treatment as necessary<br>\
-	Watch the crew monitor for signs of injuries or deaths and respond accordingly.<br>\
-	Tour around departments checking up on the health of the crew. Administer first aid on scene as required<br>\
-	During quieter times, retrieve the corpses of the dead from around the ship<br>\
-	Run errands for the medbay staff, act as their hands outside of the medbay"
-
-	loyalties = "	As a medical specialist, your first loyalty is to save lives, you swore an oath to do no harm. When in any dangerous situation, do your best to ensure as many as possible come out of it alive. A martyr complex is not uncommon in paramedics<br>\
-	<br>\
-	Your second loyalty is to your immediate superior, the Chief Medical Officer. Follow their instructions and policies."
+	loyalties = "As a security specialist aboard the Northern Light, your first and only loyalty is to the Lazarus Foundation, protect their staff to the best of your ability, and follow their instructions and policies."
 
 /obj/landmark/join/start/paramedic
-	name = "Paramedic"
+	name = "Trauma Team"
 	icon_state = "player-green"
 	join_tag = /datum/job/paramedic
 
+//End of Eclipse edit.

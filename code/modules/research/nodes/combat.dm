@@ -206,7 +206,7 @@
 
 /datum/technology/basic_armor
 	name = "Armor Solutions"
-	desc = "Standard issue armor of Lazarus paramedic teams."
+	desc = "Standard issue armor of Lazarus trauma teams." //Eclipse Edit - Replaced paramedic with Trauma Team.
 	tech_type = RESEARCH_COMBAT
 
 	x = 0.8

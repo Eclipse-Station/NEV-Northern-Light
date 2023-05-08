@@ -2920,6 +2920,7 @@
 #include "maps\submaps\planetary_ruins\spider_nest\spider_nest.dm"
 #include "maps\submaps\planetary_ruins\tar_anomaly\tar_anomaly.dm"
 #include "zzz_modular_eclipse\code\datums\autolathe\biomatter.dm"
+#include "zzz_modular_eclipse\code\game\machinery\doors\brigdoors.dm"
 #include "zzz_modular_eclipse\code\game\objects\items\weapons\manuals.dm"
 #include "zzz_modular_eclipse\code\game\objects\items\weapons\design_disks\neotheology.dm"
 #include "zzz_modular_eclipse\code\game\objects\items\weapons\grenades\chem_grenade.dm"
