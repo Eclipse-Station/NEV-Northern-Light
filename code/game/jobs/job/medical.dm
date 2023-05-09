@@ -92,10 +92,9 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 
 
 	description = "You are a highly educated professional doctor, working a placement aboard the NEV Northern Light to treat the injured.<br>\
-Your tasks will primarily keep you inside medbay, the place needs to have a doctor onsite at all times to treat incoming wounded. As a general rule, you should not leave medbay if you're the only one in it, make sure someone is covering for you if you go elsewhere.<br>\
-
-As a doctor, a broad range of medical procedures fall under your potential purview. You are not expected to be able to perform all of these yourself, being a specialist is fine. <br>\
-<br>\
+	Your tasks will primarily keep you inside medbay, the place needs to have a doctor onsite at all times to treat incoming wounded. As a general rule, you should not leave medbay if you're the only one in it, make sure someone is covering for you if you go elsewhere.<br>\
+	As a doctor, a broad range of medical procedures fall under your potential purview. You are not expected to be able to perform all of these yourself, being a specialist is fine. <br>\
+	<br>\
 	-Diagnostics: Figuring out what's wrong and how to fix it as quickly as possible. <br>\
 	-General Treatment: Administering bandages, medicine, casts and placing people in a cryocell as necessary<br>\
 	-Surgery: Opening the body under general anaesthetic to treat broken bones, organ damage and internal bleeding<br>\

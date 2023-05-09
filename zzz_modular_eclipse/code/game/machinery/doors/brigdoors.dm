@@ -5,3 +5,7 @@
 	req_access = list(access_moebius)
 	advanced_access = list(access_cmo)
 
+/obj/machinery/door_timer/engineering
+	name = "Engineering Brig Timer"
+	req_access = list(access_engine)
+	advanced_access = list(access_engine_equip)
