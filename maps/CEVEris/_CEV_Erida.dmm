@@ -2380,13 +2380,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/under,
 /area/erida/neotheology/generator)
-"afz" = (
-/obj/machinery/atmospherics/pipe/zpipe/up,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section3deck4starboard)
 "afA" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -7052,7 +7045,9 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/smes/buildable/substation{
-	RCon_tag = "Substation - Civilian Subsection"
+	RCon_tag = "Substation - Civilian Subsection";
+	inputting = 2;
+	input_attempt = 1
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/erida/maintenance/substation/civilian_section)
@@ -8068,12 +8063,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/starboardsection2deck3)
 "ato" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/machinery/light,
-/turf/simulated/floor/plating/under,
-/area/eris/maintenance/section3deck4starboard)
+/turf/simulated/floor/tiled/dark/techfloor,
+/area/eris/engineering/foyer)
 "atp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -23759,7 +23755,9 @@
 /area/erida/maintenance/substation/port_section)
 "beU" = (
 /obj/machinery/power/smes/buildable/substation{
-	RCon_tag = "Substation - Port Section"
+	RCon_tag = "Substation - Port Section";
+	inputting = 2;
+	input_attempt = 1
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -23776,7 +23774,9 @@
 /area/erida/maintenance/substation/port_section)
 "beX" = (
 /obj/machinery/power/smes/buildable/substation{
-	RCon_tag = "Substation - Starboard Section"
+	RCon_tag = "Substation - Starboard Section";
+	inputting = 2;
+	input_attempt = 1
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -36753,7 +36753,9 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/smes/buildable/substation{
-	RCon_tag = "Substation - Bridge"
+	RCon_tag = "Substation - Bridge";
+	inputting = 2;
+	input_attempt = 1
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/maintenance/substation/bridge)
@@ -38694,7 +38696,8 @@
 "bOe" = (
 /obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Telecommunications";
-	input_attempt = 1
+	input_attempt = 1;
+	inputting = 2
 	},
 /obj/structure/cable/cyan{
 	d2 = 8;
@@ -40132,7 +40135,8 @@
 /area/eris/engineering/foyer)
 "bRg" = (
 /obj/machinery/power/breakerbox{
-	RCon_tag = "Engineering Substation Bypass"
+	RCon_tag = "Engineering Substation Bypass";
+	on = 1
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/engineering/foyer)
@@ -41438,6 +41442,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/foyer)
 "bUq" = (
@@ -41451,6 +41460,11 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/foyer)
@@ -46597,11 +46611,21 @@
 "cgQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/foyer)
 "cgR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/foyer)
@@ -46647,11 +46671,21 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/foyer)
 "cgY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/foyer)
@@ -47276,7 +47310,14 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/smes/buildable/engine{
-	RCon_tag = "Engine - Main 1"
+	RCon_tag = "Engine - Main 1";
+	output_level = 1500000;
+	output_level_max = 1500000;
+	outputting = 2;
+	inputting = 2;
+	input_used = 1500000;
+	input_level_max = 1500000;
+	input_level = 1500000
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/engine_room)
@@ -47286,7 +47327,13 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/smes/buildable/engine{
-	RCon_tag = "Engine - Main 2"
+	RCon_tag = "Engine - Main 2";
+	output_level = 1500000;
+	output_level_max = 1500000;
+	input_level_max = 1500000;
+	inputting = 2;
+	input_used = 1500000;
+	input_level = 1500000
 	},
 /obj/structure/cable,
 /turf/simulated/floor/plating,
@@ -49266,6 +49313,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
 "cnC" = (
@@ -49459,7 +49511,9 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/smes/buildable/substation{
-	RCon_tag = "Substation - Docking Subsection"
+	RCon_tag = "Substation - Docking Subsection";
+	inputting = 2;
+	input_attempt = 1
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/erida/maintenance/substation/docking_section)
@@ -51523,7 +51577,9 @@
 "csV" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	name = "Port to Cooling Loop"
+	name = "Port to Cooling Loop";
+	use_power = 1;
+	target_pressure = 15000
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
@@ -64130,6 +64186,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
 "cYC" = (
@@ -64759,7 +64816,9 @@
 "cZT" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	name = "Port to Core"
+	name = "Port to Core";
+	use_power = 1;
+	target_pressure = 15000
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/engineering/engine_room)
@@ -65871,7 +65930,9 @@
 "dct" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
-	name = "Port to Waste Cooling Loop"
+	name = "Port to Waste Cooling Loop";
+	target_pressure = 15000;
+	use_power = 1
 	},
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
@@ -65900,8 +65961,7 @@
 /obj/machinery/atmospherics/omni/filter{
 	tag_east = 2;
 	tag_north = 4;
-	tag_south = 1;
-	use_power = 0
+	tag_south = 1
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
@@ -65995,7 +66055,8 @@
 /area/eris/engineering/engine_room)
 "dcO" = (
 /obj/machinery/power/emitter/anchored{
-	id = "EngineEmitter"
+	id = "EngineEmitter";
+	active = 1
 	},
 /obj/structure/cable/cyan{
 	d2 = 2;
@@ -67486,12 +67547,6 @@
 /obj/spawner/scrap,
 /turf/simulated/floor/plating/under,
 /area/space)
-"dgx" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section3deck4starboard)
 "dgy" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/reinforced,
@@ -67534,11 +67589,19 @@
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/erida/maintenance/starboardsection2deck2)
 "dgG" = (
-/obj/machinery/light{
-	dir = 8
+/obj/structure/catwalk,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section3deck4starboard)
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/engine_room)
 "dgH" = (
 /obj/machinery/light{
 	dir = 8
@@ -67549,10 +67612,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos/storage)
-"dgJ" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section3deck4starboard)
 "dgL" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark/danger,
@@ -67782,10 +67841,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section3deck4starboard)
-"dht" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/maintenance/section3deck4starboard)
 "dhu" = (
 /obj/machinery/light{
@@ -68162,12 +68217,6 @@
 /obj/spawner/pack/tech_loot/low_chance,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/engineering/gravity_generator)
-"dil" = (
-/obj/structure/table/standard,
-/obj/machinery/light,
-/obj/spawner/pack/tech_loot/low_chance,
-/turf/simulated/floor/tiled/techmaint,
-/area/eris/maintenance/section3deck4starboard)
 "dim" = (
 /obj/structure/table/standard,
 /obj/spawner/pack/tech_loot/low_chance,
@@ -70840,7 +70889,9 @@
 /area/eris/engineering/foyer)
 "dnN" = (
 /obj/machinery/power/smes/buildable/substation{
-	RCon_tag = "Substation - Engineering"
+	RCon_tag = "Substation - Engineering";
+	inputting = 2;
+	input_attempt = 1
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -74485,6 +74536,7 @@
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
 "dwW" = (
@@ -75474,6 +75526,11 @@
 	dir = 8;
 	pixel_x = 28
 	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
 "dyV" = (
@@ -76224,6 +76281,11 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering";
 	req_access = list(10)
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/engineering/engine_room)
@@ -77058,7 +77120,9 @@
 "dBS" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	name = "Radiator to Cooling Loop"
+	name = "Radiator to Cooling Loop";
+	target_pressure = 15000;
+	use_power = 1
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
@@ -77537,6 +77601,11 @@
 /obj/machinery/camera/network/engineering{
 	dir = 8
 	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
 "dCW" = (
@@ -77605,6 +77674,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
 "dDe" = (
@@ -77747,6 +77817,7 @@
 /obj/machinery/camera/network/engineering{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/plasma,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
 "dDn" = (
@@ -78612,6 +78683,7 @@
 /obj/machinery/camera/network/engineering{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/nitrogen/prechilled,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
 "dFg" = (
@@ -79462,6 +79534,13 @@
 /area/eris/maintenance/substation/section1{
 	name = "Emergency Power Substation"
 	})
+"gdC" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/plasma,
+/turf/simulated/floor/tiled/steel/danger,
+/area/eris/engineering/engine_room)
 "goT" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
@@ -92269,12 +92348,12 @@ aaw
 aeZ
 ajI
 amB
-ajI
 aob
 aob
-ajI
 aob
-ajI
+aob
+aob
+aob
 atd
 aaw
 bIU
@@ -92415,10 +92494,10 @@ adj
 aaa
 aaw
 aaw
-dfg
+aeK
 aeK
 aaw
-afz
+aeZ
 ajM
 anY
 ajM
@@ -92427,7 +92506,7 @@ ajM
 ajM
 ajM
 aoc
-ato
+aDW
 aaw
 aso
 ave
@@ -92575,7 +92654,7 @@ aeK
 aeK
 aeK
 aeK
-dgx
+aeK
 aeK
 aeK
 asV
@@ -92881,7 +92960,7 @@ ali
 alo
 apv
 aaw
-dfg
+aeK
 asV
 aDW
 ajS
@@ -93198,9 +93277,9 @@ ajS
 aaa
 aaa
 aaw
-dfg
 aeK
-dgJ
+aeK
+aeK
 aaw
 aaa
 aaa
@@ -93329,7 +93408,7 @@ aaw
 act
 acy
 acD
-dht
+acD
 bdT
 aeK
 cDS
@@ -93491,7 +93570,7 @@ apv
 ajS
 aeK
 asV
-ato
+aDW
 aaw
 alP
 aqA
@@ -93633,11 +93712,11 @@ aaw
 act
 acy
 acD
-dht
+acD
 bdT
 aeK
 aeK
-dgx
+aeK
 aeK
 aeK
 aaw
@@ -93800,7 +93879,7 @@ aaw
 alP
 aqA
 aaw
-dfg
+aeK
 aeK
 aaw
 aaa
@@ -94416,7 +94495,7 @@ aeK
 azw
 aeK
 aeK
-dgJ
+aeK
 aaw
 aaw
 dio
@@ -95172,7 +95251,7 @@ arr
 arr
 agQ
 aah
-dfg
+aeK
 azw
 aeK
 aeK
@@ -95328,7 +95407,7 @@ ayE
 azD
 ddF
 aeK
-dil
+dim
 aaw
 aaw
 aaa
@@ -95624,7 +95703,7 @@ afj
 aeK
 aeK
 aeK
-dgG
+aeK
 aeK
 aeK
 afj
@@ -137269,8 +137348,8 @@ ccW
 dDb
 cYA
 cYP
-cuw
-cuw
+gdC
+gdC
 cZA
 cZQ
 dad
@@ -137567,7 +137646,7 @@ bUm
 ccW
 ciL
 clW
-cnA
+dgG
 gvo
 cqd
 cnA
@@ -138020,14 +138099,14 @@ dul
 dnM
 bTG
 bUm
-bPH
+ato
 ccW
 ccW
 ccW
 ccW
 ccW
 dwV
-cuw
+gdC
 cYS
 cZo
 cZo
