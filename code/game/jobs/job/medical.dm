@@ -204,7 +204,7 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 	icon_state = "player-green"
 	join_tag = /datum/job/psychiatrist
 
-/* Beginning of Eclipse Edit - Paramedic replaced with "Trauma Team" role.
+
 /datum/job/paramedic
 	title = "Paramedic"
 	flag = PARAMEDIC
@@ -262,8 +262,6 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 	Your second loyalty is to your immediate superior, the Chief Medical Officer. Follow their instructions and policies."
 
 /obj/landmark/join/start/paramedic
-	name = "Paramedic"
+	name = "Trauma Team" //Eclipse Edit - Repolacing Paramedic with Trauma Team
 	icon_state = "player-green"
 	join_tag = /datum/job/paramedic
-
-End of Eclipse edit. */
