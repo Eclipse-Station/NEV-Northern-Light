@@ -2831,6 +2831,8 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
+/obj/item/cell/medium/high,
+/obj/item/gun/energy/laser/practice,
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/fitness)
 "ago" = (
@@ -10606,6 +10608,8 @@
 	pixel_x = -28
 	},
 /obj/structure/table/rack,
+/obj/item/cell/medium/high,
+/obj/item/gun/energy/laser/practice,
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/fitness)
 "azr" = (
@@ -33355,6 +33359,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/item/gun/energy/laser/practice,
+/obj/item/cell/medium/high,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/range)
 "bBL" = (
