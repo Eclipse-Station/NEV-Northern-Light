@@ -18,4 +18,4 @@
 		Act as a nurse for minor injuries, treating patients that a doctor needn't bother with.<br>\
 		Ensure that any outbreaks are contained, such as slimes, infected monkeys, or kudzu."
 
-	loyalties = "As a security specialist aboard the Northern Light, your first and only loyalty is to the Lazarus Foundation, protect their staff to the best of your ability, and follow their instructions and policies."
+	loyalties = "As a security specialist aboard the Northern Light, your first and only loyalty is to the Lazarus Foundation. Protect their staff to the best of your ability, and follow their instructions and policies."
