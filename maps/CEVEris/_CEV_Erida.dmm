@@ -40688,6 +40688,7 @@
 "bSr" = (
 /obj/structure/table/woodentable,
 /obj/item/device/megaphone,
+/obj/item/storage/box/iancubes,
 /turf/simulated/floor/wood,
 /area/eris/command/fo)
 "bSs" = (
