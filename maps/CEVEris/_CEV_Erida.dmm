@@ -29110,6 +29110,7 @@
 "brl" = (
 /obj/structure/closet/secure_closet/reinforced/RD,
 /obj/item/bluespace_harpoon,
+/obj/item/storage/box/catcubes,
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/command/meo)
 "brm" = (
@@ -40688,6 +40689,7 @@
 "bSr" = (
 /obj/structure/table/woodentable,
 /obj/item/device/megaphone,
+/obj/item/storage/box/iancubes,
 /turf/simulated/floor/wood,
 /area/eris/command/fo)
 "bSs" = (
@@ -81928,6 +81930,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/command/meeting_room)
+"xbY" = (
+/mob/living/simple_animal/corgi/Ian,
+/turf/simulated/floor/carpet/blucarpet,
+/area/eris/command/fo)
 "xdK" = (
 /obj/structure/catwalk,
 /obj/machinery/computer/guestpass{
@@ -136924,7 +136930,7 @@ bRy
 bSr
 bSN
 bTe
-bSN
+xbY
 bSN
 bUP
 bRy
