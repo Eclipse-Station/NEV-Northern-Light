@@ -29110,6 +29110,7 @@
 "brl" = (
 /obj/structure/closet/secure_closet/reinforced/RD,
 /obj/item/bluespace_harpoon,
+/obj/item/storage/box/catcubes,
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/command/meo)
 "brm" = (
