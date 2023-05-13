@@ -217,12 +217,12 @@ other types of metals and chemistry for reagents).
 	sort_string = "VASAC"
 
 /datum/design/research/item/paramedic_armor
-	name = "Lazarus paramedic armor"
+	name = "Lazarus Trauma Team armor" //Eclipse Edit - Replaced paramedic with Trauma Team.
 	build_path = /obj/item/clothing/suit/armor/paramedic
 	sort_string = "VASAD"
 
 /datum/design/research/item/paramedic_helmet
-	name = "Lazarus paramedic helmet"
+	name = "Lazarus Trauma Team helmet" //Eclipse Edit - Replaced paramedic with Trauma Team.
 	build_path = /obj/item/clothing/head/armor/faceshield/paramedic
 	sort_string = "VASAE"
 

@@ -91,6 +91,13 @@
 /obj/item/gun/energy/laser/squire
 	description_fluff = GENERIC_FLUFF_FIREARMS_MEKHANE
 
+/obj/item/gun/energy/guanyu
+	description_fluff = GENERIC_FLUFF_FIREARMS_HEAVENS_MANDATE
+
+/obj/item/gun/energy/gun/mao
+	description_fluff = GENERIC_FLUFF_FIREARMS_HEAVENS_MANDATE
+
+
 ///////////////
 // LAUNCHERS
 ///////////////
@@ -186,7 +193,10 @@
 /obj/item/gun/projectile/automatic/zoric
 	description_fluff = GENERIC_FLUFF_FIREARMS_SERBIAN
 
-//--- 
+/obj/item/gun/projectile/huangdi
+	description_fluff = GENERIC_FLUFF_FIREARMS_HEAVENS_MANDATE
+
+//---
 
 /obj/item/gun/projectile/boltgun
 	description_fluff = GENERIC_FLUFF_FIREARMS_EXCELSIOR

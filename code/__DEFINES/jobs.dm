@@ -3,11 +3,11 @@
 //Jobs depatment lists for use in constant expressions
 #define JOBS_SECURITY "Aegis Commander","Gunnery Sergeant","Aegis Inspector","Aegis Operative","Aegis Medical Specialist"
 #define JOBS_COMMAND "Captain","First Officer","Bridge Officer","Aegis Commander","Free Trade Union Merchant","Chief Engineer","Chief Medical Officer","Chief Science Officer"
-#define JOBS_ENGINEERING "Chief Engineer","Ship Engineer"
-#define JOBS_LAZARUS "Chief Medical Officer","Medical Doctor","Psychiatrist","Chemist","Paramedic", "Chief Science Officer","Scientist","Roboticist"
+#define JOBS_ENGINEERING "Chief Engineer","Ship Engineer","Xingyun Enforcer" //Eclipse Edit - Added Xingyun Enforcer
+#define JOBS_LAZARUS "Chief Medical Officer","Medical Doctor","Psychiatrist","Chemist","Trauma Team", "Chief Science Officer","Scientist","Roboticist" //Eclipse Edit - Replaced Paramedic with Trauma Team
 #define JOBS_CARGO "Free Trade Union Merchant","Union Cargo Technician","Union Miner"
 #define JOBS_CIVILIAN "Club Manager","Club Worker",ASSISTANT_TITLE
-#define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Chemist","Paramedic"
+#define JOBS_MEDICAL "Chief Medical Officer","Medical Doctor","Psychiatrist","Chemist","Trauma Team" //Eclipse Edit - replaced Paramedic with Trauma Team
 #define JOBS_SCIENCE "Chief Science Officer","Scientist","Roboticist"
 #define JOBS_CHURCH "Mekhane Preacher","Mekhane Acolyte","Mekhane Custodian","Mekhane Agrolyte",
 #define JOBS_NONHUMAN "AI","Robot","pAI"

@@ -90,12 +90,10 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 							/datum/computer_file/program/chem_catalog,
 							/datum/computer_file/program/camera_monitor)
 
-
 	description = "You are a highly educated professional doctor, working a placement aboard the NEV Northern Light to treat the injured.<br>\
-Your tasks will primarily keep you inside medbay, the place needs to have a doctor onsite at all times to treat incoming wounded. As a general rule, you should not leave medbay if you're the only one in it, make sure someone is covering for you if you go elsewhere.<br>\
-
-As a doctor, a broad range of medical procedures fall under your potential purview. You are not expected to be able to perform all of these yourself, being a specialist is fine. <br>\
-<br>\
+	Your tasks will primarily keep you inside medbay, the place needs to have a doctor onsite at all times to treat incoming wounded. As a general rule, you should not leave medbay if you're the only one in it, make sure someone is covering for you if you go elsewhere.<br>\
+	As a doctor, a broad range of medical procedures fall under your potential purview. You are not expected to be able to perform all of these yourself, being a specialist is fine. <br>\
+	<br>\
 	-Diagnostics: Figuring out what's wrong and how to fix it as quickly as possible. <br>\
 	-General Treatment: Administering bandages, medicine, casts and placing people in a cryocell as necessary<br>\
 	-Surgery: Opening the body under general anaesthetic to treat broken bones, organ damage and internal bleeding<br>\
@@ -238,22 +236,20 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 							 /datum/computer_file/program/camera_monitor)
 
 	description = "You are a Lazarus Paramedic, The hero of the hour! While doctors largely spend their time cloistered away in medbay, your job is to be out there on the frontlines. You work in the field, sometimes treating people on the spot, sometimes bringing them back to medical for specialist treatment. <br>\
-
-You have significant medical training, but typically you are not a doctor, and will most likely lack a medical degree. The actual doctors have seniority, and you should follow their orders, especially concerning treatment and diagnosis of a patient<br>\
-<br>\
-You need to be ready to run at a moment's notice, and as such you should take careful care of your gear. Pack as many medicines, treatments, rollerbeds and other equipment as you can. Be sure to bring along some kind of heavy tool for breaching sealed areas.<br>\
-<br>\
-When the wounded are inside medbay, you will often act as a porter, transporting patients to and from various specialist treatment rooms. If your labour can save time for a doctor, get to it.<br>\
-<br>\
-Once your duty to the living is dispensed, your secondary duty is to the dead. You are the designated corpse recovery staff, and you will often need to retrieve bodies from where they died, bring them back and store them in the morgue. This gives a reduction in that player's respawn time.<br>\
-<br>\
-This is the most dangerous part of your job, and recovery should only be attempted if you can reasonably do so without endangering yourself. If there are hostile creatures preventing recovery, call Security to deal with them.<br>\
-<br>\
-Character Expectations:<br>\
-Paramedic is a physically demanding job, your character must be fit and strong. No fat bodies allowed<br>\
-EVA training is expected, you should be confident in a medical Voidsuit, and optionally in driving an odysseus mech<br>\
-
-Remember that you are a noncombatant. Any weapons you carry should be used for breaching and rescue, not for killing. Use violence only as a last resort to defend yourself or your patient"
+	You have significant medical training, but typically you are not a doctor, and will most likely lack a medical degree. The actual doctors have seniority, and you should follow their orders, especially concerning treatment and diagnosis of a patient<br>\
+	<br>\
+	You need to be ready to run at a moment's notice, and as such you should take careful care of your gear. Pack as many medicines, treatments, rollerbeds and other equipment as you can. Be sure to bring along some kind of heavy tool for breaching sealed areas.<br>\
+	<br>\
+	When the wounded are inside medbay, you will often act as a porter, transporting patients to and from various specialist treatment rooms. If your labour can save time for a doctor, get to it.<br>\
+	<br>\
+	Once your duty to the living is dispensed, your secondary duty is to the dead. You are the designated corpse recovery staff, and you will often need to retrieve bodies from where they died, bring them back and store them in the morgue. This gives a reduction in that player's respawn time.<br>\
+	<br>\
+	This is the most dangerous part of your job, and recovery should only be attempted if you can reasonably do so without endangering yourself. If there are hostile creatures preventing recovery, call Security to deal with them.<br>\
+	<br>\
+	Character Expectations:<br>\
+	Paramedic is a physically demanding job, your character must be fit and strong. No fat bodies allowed<br>\
+	EVA training is expected, you should be confident in a medical Voidsuit, and optionally in driving an odysseus mech<br>\
+	Remember that you are a noncombatant. Any weapons you carry should be used for breaching and rescue, not for killing. Use violence only as a last resort to defend yourself or your patient"
 
 	duties = "	Respond to distress calls, extract wounded people from dangerous situations, stabilize them at the scene, and take them to medbay for farther treatment as necessary<br>\
 	Watch the crew monitor for signs of injuries or deaths and respond accordingly.<br>\
@@ -261,12 +257,11 @@ Remember that you are a noncombatant. Any weapons you carry should be used for b
 	During quieter times, retrieve the corpses of the dead from around the ship<br>\
 	Run errands for the medbay staff, act as their hands outside of the medbay"
 
-	loyalties = "	As a medical specialist, your first loyalty is to save lives, you swore an oath to do no harm. When in any dangerous situation, do your best to ensure as many as possible come out of it alive. A martyr complex is not uncommon in paramedics<br>\
+	loyalties = "As a medical specialist, your first loyalty is to save lives, you swore an oath to do no harm. When in any dangerous situation, do your best to ensure as many as possible come out of it alive. A martyr complex is not uncommon in paramedics<br>\
 	<br>\
 	Your second loyalty is to your immediate superior, the Chief Medical Officer. Follow their instructions and policies."
 
 /obj/landmark/join/start/paramedic
-	name = "Paramedic"
+	name = "Trauma Team" //Eclipse Edit - Repolacing Paramedic with Trauma Team
 	icon_state = "player-green"
 	join_tag = /datum/job/paramedic
-
