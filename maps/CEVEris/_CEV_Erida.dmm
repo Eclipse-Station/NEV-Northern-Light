@@ -81928,6 +81928,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/eris/command/meeting_room)
+"xbY" = (
+/mob/living/simple_animal/corgi/Ian,
+/turf/simulated/floor/carpet/blucarpet,
+/area/eris/command/fo)
 "xdK" = (
 /obj/structure/catwalk,
 /obj/machinery/computer/guestpass{
@@ -136924,7 +136928,7 @@ bRy
 bSr
 bSN
 bTe
-bSN
+xbY
 bSN
 bUP
 bRy
