@@ -30,6 +30,7 @@
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
 		B.clean_blood()
+	dirt = 0 //Eclipse Edit - anything that can clean blood can also clean the "dirt" off the floor
 	..()
 
 //expects an atom containing the reagents used to clean the turf
