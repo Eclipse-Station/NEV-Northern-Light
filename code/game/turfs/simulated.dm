@@ -33,11 +33,11 @@
 		var/mob/living/M = A
 		if(M.lying)
 			return ..()
-		dirt++ //Eclipse Edit - Floors get dirty as they're walked on
+		dirt++ //Begin Eclipse Edit - Floors get dirty as they're walked on
 		if (dirt > 40)
 			dirt = 0
 			if (!locate(/obj/effect/decal/cleanable/dirt, src))
-				new /obj/effect/decal/cleanable/dirt(src)
+				new /obj/effect/decal/cleanable/dirt(src) 		//End of Eclipse Edit
 
 		// Ugly hack :( Should never have multiple plants in the same tile.
 		var/obj/effect/plant/plant = locate() in contents
