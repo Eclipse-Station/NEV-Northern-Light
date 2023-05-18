@@ -2,7 +2,7 @@
 	name = LANGUAGE_NEOHONGO
 	desc = "The language widely used by Frozen Star"
 	colour = "neohongo"
-	key = "j"
+	key = "n" //Eclipse Edit - fixing key conflict with Tajaran
 	space_chance = 80
 	shorthand = "NEO"
 	syllables = list("hai", "iie", "konnichiwa", "arigatou", "gomen nasai", "sumimasen", "shichi", "ashita", \
