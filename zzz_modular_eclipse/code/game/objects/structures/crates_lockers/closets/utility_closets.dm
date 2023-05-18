@@ -1,6 +1,6 @@
 //A basic closet with some simple cleaning supplies to help keep the ship clean if there are no custodians
 /obj/structure/closet/mopcloset
-	name = "\improper Janitorial closet"
+	name = "\improper janitorial closet"
 	desc = "A storage unit for basic cleaning supplies."
 	icon = 'zzz_modular_eclipse/icons/obj/closet.dmi'
 	icon_state = "mop"
