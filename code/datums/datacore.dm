@@ -217,6 +217,8 @@ var/global/ManifestJSON
 		L.fields["sex"]			= H.gender
 		L.fields["b_type"]		= H.b_type
 		L.fields["b_dna"]		= H.dna_trace
+		L.fields["enzymes"]		= H.dna.SE // Used in respawning
+		L.fields["identity"]	= H.dna.UI // "
 		L.fields["image"]		= getFlatIcon(H)	//This is god-awful
 		if(H.exploit_record && !jobban_isbanned(H, "Records"))
 			L.fields["exploit_record"] = H.exploit_record

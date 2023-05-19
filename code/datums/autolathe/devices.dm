@@ -50,6 +50,10 @@
 	name = "propaganda chip"
 	build_path = /obj/item/device/propaganda_chip
 
+/datum/design/autolathe/device/propaganda_chip
+	name = "propaganda chip"
+	build_path = /obj/item/device/propaganda_chip
+
 /datum/design/autolathe/device/flamethrower
 	name = "flamethrower"
 	build_path = /obj/item/flamethrower
@@ -59,7 +63,7 @@
 	build_path = /obj/item/melee/baton/excelbaton
 
 /datum/design/autolathe/device/headset_church
-	name = "NeoTheology Radio Encryption Key"
+	name = "Church Radio Encryption Key"
 	build_path = /obj/item/device/encryptionkey/headset_church
 
 /datum/design/autolathe/device/landmine

@@ -50,12 +50,12 @@
 	if(!musicTrack)
 		return
 	if(C.get_preference_value(/datum/client_preference/play_lobby_music) == GLOB.PREF_YES)
-		sound_to(C, sound(musicTrack, repeat = 0, wait = 0, volume = 85, channel = GLOB.lobby_sound_channel))
+		sound_to(C, sound(musicTrack, repeat = 0, wait = 0, volume = 40, channel = GLOB.lobby_sound_channel))
 
 /datum/lobbyscreen/proc/stop_music(client/C)
 	if(!musicTrack)
 		return
-	sound_to(C, sound(null, repeat = 0, wait = 0, volume = 85, channel = GLOB.lobby_sound_channel))
+	sound_to(C, sound(null, repeat = 0, wait = 0, volume = 40, channel = GLOB.lobby_sound_channel))
 
 
 /datum/lobbyscreen/proc/show_titlescreen(client/C)
@@ -67,4 +67,3 @@
 	if(C.mob) // Check if the client is still connected to something
 		// Hide title screen, allowing player to see the map
 		winset(C, "lobbybrowser", "is-disabled=true;is-visible=false")
-

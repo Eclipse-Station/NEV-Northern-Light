@@ -12,7 +12,7 @@
 	BACKPACK_OVERRIDE_RESEARCH
 
 /decl/hierarchy/outfit/job/science/rd
-	name = OUTFIT_JOB_NAME("Moebius Expedition Overseer")
+	name = OUTFIT_JOB_NAME("Chief Science Officer")
 	l_ear = /obj/item/device/radio/headset/heads/rd
 	shoes = /obj/item/clothing/shoes/reinforced
 	uniform = /obj/item/clothing/under/rank/expedition_overseer
@@ -22,13 +22,13 @@
 	backpack_contents = list(/obj/item/oddity/secdocs = 1, /obj/item/gun/projectile/selfload/moebius = 1, /obj/item/ammo_magazine/pistol/rubber = 2)
 
 /decl/hierarchy/outfit/job/science/scientist
-	name = OUTFIT_JOB_NAME("Moebius Scientist")
+	name = OUTFIT_JOB_NAME("Scientist")
 
 /decl/hierarchy/outfit/job/science/xenobiologist
-	name = OUTFIT_JOB_NAME("Moebius Xenobiologist")
+	name = OUTFIT_JOB_NAME("Xenobiologist")
 
 /decl/hierarchy/outfit/job/science/roboticist
-	name = OUTFIT_JOB_NAME("Moebius Roboticist")
+	name = OUTFIT_JOB_NAME("Roboticist")
 	uniform = /obj/item/clothing/under/rank/roboticist
 	suit = /obj/item/clothing/suit/storage/robotech_jacket
 	belt = /obj/item/storage/belt/utility/full
@@ -40,9 +40,3 @@
 /decl/hierarchy/outfit/job/science/roboticist/New()
 	..()
 	backpack_overrides.Cut()
-
-/decl/hierarchy/outfit/job/science/psychiatrist
-	name = OUTFIT_JOB_NAME("Moebius Psychiatrist")
-	uniform = /obj/item/clothing/under/rank/psych
-	belt = /obj/item/storage/belt/medical
-	l_pocket = /obj/item/reagent_containers/glass/beaker/vial/psilocybin

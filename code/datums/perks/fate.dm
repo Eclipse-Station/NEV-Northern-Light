@@ -128,7 +128,7 @@
 	if(!..())
 		return
 	holder.sanity.environment_cap_coeff -= 1
-	if(!holder.last_name)
+	if(!holder.family_name)
 		holder.stats.removePerk(src.type)
 		return
 	var/turf/T = get_turf(holder)
@@ -156,8 +156,8 @@
 				/obj/item/gun/projectile/revolver = 0.4))
 	holder.sanity.valid_inspirations += W
 	W = new W(T)
-	W.desc += " It has been inscribed with the \"[holder.last_name]\" family name."
-	W.name = "[W] of [holder.last_name]"
+	W.desc += " It has been inscribed with the \"[holder.family_name]\" family name."
+	W.name = "[W] of [holder.family_name]"
 	var/oddities = rand(2,4)
 	var/list/stats = ALL_STATS
 	var/list/final_oddity = list()

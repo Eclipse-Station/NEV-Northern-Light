@@ -11,12 +11,12 @@
 
 //The outfit that mercs spawn in. They get their armor and weapons from the merc base
 /decl/hierarchy/outfit/antagonist/mercenary/casual
-	name = "Serbian Mercenary fatigues"
+	name = "Mercenary fatigues"
 
 
 //He gets a snazzy beret
 /decl/hierarchy/outfit/antagonist/mercenary/commander
-	name = "Serbian Mercenary Commander"
+	name = "Mercenary Commander"
 	head = /obj/item/clothing/head/beret/merc
 
 
@@ -24,7 +24,7 @@
 //This outfit is just for admin fun. Spawns them fully equipped
 //Actual mercs equip themselves by picking up their armor from their base
 /decl/hierarchy/outfit/antagonist/mercenary/equipped
-	name = "Serbian Mercenary combat gear"
+	name = "Mercenary combat gear"
 
 	suit = /obj/item/clothing/suit/space/void/SCAF
 	suit_store = /obj/item/tank/jetpack/oxygen

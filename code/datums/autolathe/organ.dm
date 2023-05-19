@@ -46,32 +46,32 @@
 	category = "Back Alley"
 	starts_unlocked = FALSE
 
-/datum/design/organ/back_alley/ex_lungs
-	name = "Extended Lungs"
+/datum/design/organ/back_alley/lungs
+	name = "Long lungs"
 	materials = list(MATERIAL_BIOMATTER = 30)
 	build_path = /obj/item/organ/internal/lungs/long
 
-/datum/design/organ/back_alley/huge_heart
-	name = "Huge Heart"
+/datum/design/organ/back_alley/heart
+	name = "Five chamber heart"
 	materials = list(MATERIAL_BIOMATTER = 45)
 	build_path = /obj/item/organ/internal/heart/huge
 
-/datum/design/organ/back_alley/big_liver
-	name = "Big Liver"
+/datum/design/organ/back_alley/liver
+	name = "Gargantuan liver"
 	materials = list(MATERIAL_BIOMATTER = 30)
 	build_path = /obj/item/organ/internal/liver/big
 
-/datum/design/organ/back_alley/hyper_nerves
-	name = "Hypersensitive Nerves"
-	materials = list(MATERIAL_BIOMATTER = 15)
+/datum/design/organ/back_alley/nerves
+	name = "Hypersensitive nerves"
+	materials = list(MATERIAL_BIOMATTER = 15, MATERIAL_GOLD = 1)
 	build_path = /obj/item/organ/internal/nerve/sensitive_nerve
 
-/datum/design/organ/back_alley/super_muscle
-	name = "Super Muscle"
+/datum/design/organ/back_alley/muscle
+	name = "Super-strength muscle"
 	materials = list(MATERIAL_BIOMATTER = 30)
 	build_path = /obj/item/organ/internal/muscle/super_muscle
 
-/datum/design/organ/back_alley/ex_blood_vessel
-	name = "Extensive Blood Vessels"
-	materials = list(MATERIAL_BIOMATTER = 30)
+/datum/design/organ/back_alley/blood_vessel
+	name = "Extensive blood vessels"
+	materials = list(MATERIAL_BIOMATTER = 30, MATERIAL_PLASTIC = 2)
 	build_path = /obj/item/organ/internal/blood_vessel/extensive

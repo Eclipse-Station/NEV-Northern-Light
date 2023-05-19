@@ -130,7 +130,7 @@
 	)
 
 /datum/craft_recipe/gun/armgun
-	name = "Embedded SMG"
+	name = "embedded SMG"
 	result = /obj/item/organ_module/active/simple/armsmg
 	steps = list(
 		list(/obj/item/part/gun/frame/luty, 1),

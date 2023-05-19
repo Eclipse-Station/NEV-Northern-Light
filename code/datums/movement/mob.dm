@@ -311,6 +311,12 @@
 	for (var/obj/item/grab/G in mob.grabbed_by)
 		G.adjust_position()
 	*/
+
+	//Eclipse edit start
+	mob.pixel_x = mob.default_pixel_x //Reset pixel shifting x
+	mob.pixel_y = mob.default_pixel_y //REset pixel shifting y
+	//Eclipse edit end
+
 	mob.moving = 0
 
 /datum/movement_handler/mob/movement/MayMove(var/mob/mover)

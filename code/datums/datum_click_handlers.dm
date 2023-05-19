@@ -1,4 +1,6 @@
 /datum/click_handler
+//	var/mob_type
+	var/species
 	var/handler_name
 	var/one_use_flag = 1//drop client.CH after succes ability use
 	var/client/owner

@@ -36,11 +36,11 @@
 
 
 /datum/design/autolathe/part/laserguide
-	name = "Asters \"Guiding Light\" laser guide"
+	name = "\"Guiding Light\" laser guide"
 	build_path = /obj/item/tool_upgrade/refinement/laserguide
 
 /datum/design/autolathe/part/diamondblade
-	name = "Asters \"Gleaming Edge\": Diamond blade"
+	name = "\"Gleaming Edge\": Diamond blade"
 	build_path = /obj/item/tool_upgrade/productivity/diamond_blade
 
 /datum/design/autolathe/part/solar_assembly

@@ -74,7 +74,7 @@
 	..()
 
 /datum/perk/vagabond
-	name = "Vagabond"
+	name = "Drifter"
 	desc = "You're used to see the worst sight the world has to offer. Your mind feels more resistant. \
 			This perk reduces the total sanity damage you can take from what is happening around you."
 	icon_state = "vagabond" // https://game-icons.net/1x1/lorc/eye-shield.html
@@ -247,6 +247,20 @@
 		holder.sanity_damage += 2
 	..()
 
+/datum/perk/boff
+	name = "Nerves of Plasteel"
+	desc = "You've seen it all, and nothing surprises you. The horrors of this vessel seem to affect you less than everyone around you."
+	icon_state = "vagabond" // https://game-icons.net/1x1/lorc/eye-shield.html
+
+/datum/perk/boff/assign(mob/living/carbon/human/H)
+	..()
+	if(holder)
+		holder.sanity.view_damage_threshold += 20
+
+/datum/perk/boff/remove()
+	if(holder)
+		holder.sanity.view_damage_threshold -= 20
+	..()
 /datum/perk/channeling
 	name = "Channeling"
 	desc = "You know how to channel spiritual energy during rituals. You gain additional skill points \
@@ -255,7 +269,7 @@
 
 /datum/perk/codespeak
 	name = "Codespeak"
-	desc = "You know Ironhammer PMC's code language, adapted to use aboard of CEV Eris."
+	desc = "You know Aegis PMC's code language, adapted to use aboard of NEV Northern Light." //Eclipse edit - lore compliance
 	icon_state = "codespeak" // https://game-icons.net/1x1/delapouite/police-officer-head.html
 	var/list/codespeak_procs = list(
 		/mob/living/carbon/human/proc/codespeak_help,

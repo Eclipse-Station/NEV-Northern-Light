@@ -34,15 +34,15 @@
 
 //[CLOTHES, ARMOR AND ACCESORIES]
 /datum/design/bioprinter/nt_clothes/acolyte_armor
-	name = "NT Acolyte Armor"
+	name = "Acolyte Armor"
 	build_path = /obj/item/clothing/suit/armor/acolyte
 
 /datum/design/bioprinter/nt_clothes/agrolyte_armor
-	name = "NT Agrolyte Armor"
+	name = "Agrolyte Armor"
 	build_path = /obj/item/clothing/suit/armor/agrolyte
 
 /datum/design/bioprinter/nt_clothes/custodian_armor
-	name = "NT Custodian Armor"
+	name = "Custodian Armor"
 	build_path = /obj/item/clothing/suit/armor/custodian
 
 /datum/design/bioprinter/nt_clothes/acolyte_armor_head
@@ -58,31 +58,31 @@
 	build_path = /obj/item/clothing/head/armor/custodian
 
 /datum/design/bioprinter/nt_clothes/preacher_coat
-	name = "NT Preacher Longcoat"
+	name = "Preacher Longcoat"
 	build_path = /obj/item/clothing/suit/storage/neotheology_coat
 
 /datum/design/bioprinter/nt_clothes/acolyte_jacket
-	name = "NT Acolyte Jacket"
+	name = "Acolyte Jacket"
 	build_path = /obj/item/clothing/suit/storage/neotheology_jacket
 
 /datum/design/bioprinter/nt_clothes/acolyte_jacket/black
-	name = "NT Black Acolyte Jacket"
+	name = "Black Acolyte Jacket"
 	build_path = /obj/item/clothing/suit/storage/neotheology_jacket/black
 
 /datum/design/bioprinter/nt_clothes/sports_jacket
-	name = "NT Sports Jacket"
+	name = "Sports Jacket"
 	build_path = /obj/item/clothing/suit/storage/neotheosports
 
 /datum/design/bioprinter/nt_clothes/acolyte_uniform
-	name = "NT Acolyte Garment"
+	name = "Acolyte Garment"
 	build_path = /obj/item/clothing/under/rank/acolyte
 
 /datum/design/bioprinter/nt_clothes/sports_uniform
-	name = "NT Sport Clothes"
+	name = "Sport Clothes"
 	build_path = /obj/item/clothing/under/rank/church/sport
 
 /datum/design/bioprinter/nt_clothes/church_uniform
-	name = "NT Church Garment"
+	name = "Church Garment"
 	build_path = /obj/item/clothing/under/rank/church
 
 /datum/design/bioprinter/jackboots
@@ -91,11 +91,11 @@
 	materials = list(MATERIAL_BIOMATTER = 20)
 
 /datum/design/bioprinter/belt/utility
-	name = "Neotheology utility belt"
+	name = "Mekhane utility belt"
 	build_path = /obj/item/storage/belt/utility/neotheology
 
 /datum/design/bioprinter/belt/security
-	name = "Neotheology tactical belt"
+	name = "Mekhane tactical belt"
 	build_path = /obj/item/storage/belt/tactical/neotheology
 
 /datum/design/bioprinter/backpack
@@ -135,7 +135,7 @@
 	build_path = /obj/item/storage/pouch/holster/belt/knife
 
 /datum/design/bioprinter/leather/holster/accessory
-	name = "concealed carry holster"
+	name = "shoulder holster"
 	build_path = /obj/item/clothing/accessory/holster
 
 /datum/design/bioprinter/leather/holster/accessory/scabbard
@@ -146,12 +146,31 @@
 	name = "throwing knife rig"
 	build_path = /obj/item/clothing/accessory/holster/knife
 
+/datum/design/bioprinter/leather/holster/armpit
+	name = "armpit holster"
+	build_path = /obj/item/clothing/accessory/holster/armpit
+
+/datum/design/bioprinter/leather/holster/waist
+	name = "waist holster"
+	build_path = /obj/item/clothing/accessory/holster/waist
+
+/datum/design/bioprinter/leather/holster/hip
+	name = "hip holster"
+	build_path = /obj/item/clothing/accessory/holster/hip
 /datum/design/bioprinter/belt
 	materials = list(MATERIAL_BIOMATTER = 30)
+
+/datum/design/bioprinter/belt/utility/neotheology
+	name = "Mekhane utility belt"
+	build_path = /obj/item/storage/belt/utility/neotheology
 
 /datum/design/bioprinter/belt/medical
 	name = "Medical belt"
 	build_path = /obj/item/storage/belt/medical
+
+/datum/design/bioprinter/belt/security/neotheology
+	name = "Mekhane tactical belt"
+	build_path = /obj/item/storage/belt/tactical/neotheology
 
 /datum/design/bioprinter/belt/medical/emt
 	name = "EMT belt"
@@ -221,9 +240,44 @@
 //[/CLOTHES, ARMOR AND ACCESORIES]
 
 //[MISC]
+/datum/design/bioprinter/storage/sheath
+	name = "sheath"
+	build_path = /obj/item/storage/belt/sheath
+
 /datum/design/bioprinter/holyvacuum
 	name = "\"Tersus\" Vacuum Cleaner"
 	build_path = /obj/item/holyvacuum
+
+//[CELLS]
+/datum/design/bioprinter/nt_cells/large
+	name = "NT \"Spark 13000L\""
+	build_path = /obj/item/cell/large/neotheology
+	materials = list(MATERIAL_BIOMATTER = 15)
+
+/datum/design/bioprinter/nt_cells/large/plasma
+	name = "NT \"Radiance 20000L\""
+	build_path = /obj/item/cell/large/neotheology/plasma
+	materials = list(MATERIAL_PLASMA = 3)
+
+/datum/design/bioprinter/nt_cells/medium
+	name = "NT \"Spark 1000M\""
+	build_path = /obj/item/cell/medium/neotheology/
+	materials = list(MATERIAL_BIOMATTER = 10)
+
+/datum/design/bioprinter/nt_cells/medium/plasma
+	name = "NT \"Radiance 1500M\""
+	build_path = /obj/item/cell/medium/neotheology/plasma
+	materials = list(MATERIAL_PLASMA = 2)
+
+/datum/design/bioprinter/nt_cells/small
+	name = "NT \"Spark 300S\""
+	build_path = /obj/item/cell/small/neotheology/
+	materials = list(MATERIAL_BIOMATTER = 5)
+
+/datum/design/bioprinter/nt_cells/small/plasma
+	name = "NT \"Radiance 500S\""
+	build_path = /obj/item/cell/small/neotheology/plasma
+	materials = list(MATERIAL_PLASMA = 1)
 
 //[CELLS]
 /datum/design/bioprinter/nt_cells/large
@@ -261,12 +315,12 @@
 	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/autolathe/firstaid/nt
-	name = "NeoTheology Medkit"
+	name = "Mekhane Medkit"
 	build_path = /obj/item/storage/firstaid/nt
 	factions = list(FACTION_NEOTHEOLOGY)
 
 /datum/design/autolathe/excruciator
-	name = "NeoTheology \"EXCRUCIATOR\" giga lens"
+	name = "NanoTrasen \"EXCRUCIATOR\" giga lens"
 	build_path = /obj/item/gun_upgrade/barrel/excruciator
 	factions = list(FACTION_NEOTHEOLOGY)
 
@@ -300,27 +354,28 @@
 
 //[MELEE]
 /datum/design/autolathe/nt/sword/nt_sword
-	name = "NT Shortsword"
+	name = "Mekhane Shortsword"
 	build_path = /obj/item/tool/sword/nt/shortsword
 
 /datum/design/autolathe/nt/sword/nt_longsword
-	name = "NT Longsword"
+	name = "Mekhane Longsword"
 	build_path = /obj/item/tool/sword/nt/longsword
 
 /datum/design/autolathe/nt/sword/nt_dagger
-	name = "NT Dagger"
+	name = "Mekhane Dagger"
 	build_path = /obj/item/tool/knife/dagger/nt
 
 /datum/design/autolathe/nt/sword/nt_halberd
-	name = "NT Halberd"
+	name = "Mekhane Halberd"
 	build_path = /obj/item/tool/sword/nt/halberd
 
 /datum/design/autolathe/nt/sword/nt_scourge
-	name = "NT Scourge"
+	name = "Mekhane Scourge"
 	build_path = /obj/item/tool/sword/nt/scourge
 
 /datum/design/autolathe/nt/shield/nt_shield
-	name = "NT Shield"
+	name = "Mekhane Shield"
+
 	build_path = /obj/item/shield/riot/nt
 
 /datum/design/autolathe/nt/shield/nt_buckler
@@ -341,19 +396,24 @@
 
 //[GRENADES]
 /datum/design/autolathe/nt/grenade/nt_smokebomb
-	name = "NT SG \"Holy Fog\""
+	name = "MA SG \"Holy Fog\""
 	build_path = /obj/item/grenade/smokebomb/nt
 
 /datum/design/autolathe/nt/grenade/nt_heatwave
 	name = "NT HG \"Inferno\""
 	build_path = /obj/item/grenade/heatwave/nt
 
+/datum/design/autolathe/nt/grenade/nt_frag
+	name = "MA DFG \"Holy Thunder\""
+	build_path = /obj/item/grenade/heatwave/nt
+
 /datum/design/autolathe/nt/grenade/nt_flashbang
-	name = "NT FBG \"Holy Light\""
+	name = "MA FBG \"Holy Light\""
 	build_path = /obj/item/grenade/flashbang/nt
 
 /datum/design/autolathe/nt/grenade/nt_explosive
-	name = "NT OBG \"Holy Grail\""
+	name = "MA OBG \"Holy Grail\""
+
 	build_path = /obj/item/grenade/explosive/nt
 
 //[CRUSADE]
@@ -366,7 +426,7 @@
 	build_path = /obj/item/clothing/head/armor/helmet/crusader
 
 /datum/design/autolathe/clothing/NTvoid
-	name = "neotheology voidsuit"
+	name = "\improper Mekhanite voidsuit"
 	build_path = /obj/item/clothing/suit/space/void/NTvoid
 	factions = list(FACTION_NEOTHEOLOGY)
 
@@ -397,5 +457,6 @@
 /datum/design/bioprinter/medical/advanced/ointment
 	name = "Advanced burn kit"
 	build_path = /obj/item/stack/medical/advanced/ointment
+
 
 //[/MED]
