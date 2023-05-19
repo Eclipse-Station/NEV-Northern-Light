@@ -513,7 +513,7 @@ SUBSYSTEM_DEF(air)
 		return FALSE
 	if(A.nitrogen != B.nitrogen)
 		return FALSE
-	if(A.plasma  != B.plasma )
+	if(A.phoron  != B.phoron )
 		return FALSE
 	if(A.carbon_dioxide != B.carbon_dioxide)
 		return FALSE

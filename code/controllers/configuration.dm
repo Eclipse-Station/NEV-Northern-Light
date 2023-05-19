@@ -7,6 +7,8 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 	var/nudge_script_path = "nudge.py"  // where the nudge.py script is located
 
+	var/usealienwhitelist = 1 //Eclipse addition
+
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
@@ -115,6 +117,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/forbid_singulo_possession = 0
 
 	var/organs_decay
+	var/default_brain_health = 400
 
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
 	//so that it's similar to HALLOSS. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
@@ -232,6 +235,8 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/generate_loot_data = FALSE //for loot rework
 
 	var/profiler_permission = R_DEBUG | R_SERVER
+
+	var/allow_ic_printing = TRUE
 
 /datum/configuration/New()
 	fill_storyevents_list()
@@ -371,6 +376,9 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if ("vote_delay")
 					config.vote_delay = text2num(value)
+
+				if ("disable_ic_printing")
+					config.allow_ic_printing = FALSE
 
 				if ("vote_period")
 					config.vote_period = text2num(value)
@@ -772,6 +780,10 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 					config.organ_damage_spillover_multiplier = value / 100
 				if("organs_can_decay")
 					config.organs_decay = 1
+				if("default_brain_health")
+					config.default_brain_health = text2num(value)
+					if(!config.default_brain_health || config.default_brain_health < 1)
+						config.default_brain_health = initial(config.default_brain_health)
 				if("bones_can_break")
 					config.bones_can_break = value
 				if("limbs_can_break")

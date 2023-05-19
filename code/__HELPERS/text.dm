@@ -18,6 +18,13 @@
 	var/sqltext = dbcon.Quote(t);
 	return copytext(sqltext, 2, length(sqltext));//Quote() adds quotes around input, we already do that
 
+/proc/generateRandomString(length)
+	. = list()
+	for(var/a in 1 to length)
+		var/letter = rand(33,126)
+		. += ascii2text(letter)
+	. = jointext(., null)
+
 /*
  * Text sanitization
  */
@@ -60,7 +67,7 @@
 //If you have a problem with sanitize() in chat, when quotes and >, < are displayed as html entites -
 //this is a problem of double-encode(when & becomes &amp;), use sanitize() with encode=0, but not the sanitizeSafe()!
 /proc/sanitizeSafe(var/input, var/max_length = MAX_MESSAGE_LEN, var/encode = 1, var/trim = 1, var/extra = 1)
-	return sanitize(replace_characters(input, list(">"=" ", "<"=" ", "\""="'","&lt;" = " ","&gt;" = " ")), max_length, encode, trim, extra)
+	return sanitize(replace_characters(input, list(">"=" ", "<"=" ", "\""="'","&lt;" = " ","&gt;" = " ", "@" = "")), max_length, encode, trim, extra)	//Eclipse edit: Sanitise @ character as well
 
 //Filters out undesirable characters from names
 /proc/sanitizeName(input, max_length = MAX_NAME_LEN, allow_numbers = 0)

@@ -12,6 +12,7 @@ SUBSYSTEM_DEF(job)
 	var/list/unassigned = list()			//Players who need jobs
 	var/list/job_debug = list()				//Debug info
 	var/list/job_mannequins = list()				//Cache of icons for job info window
+	var/list/whitelisted_jobs = list()		//eclipse addition - whitelisted jobs
 	var/list/ckey_to_job_to_playtime = list()
 	var/list/ckey_to_job_to_can_play = list()
 	var/list/job_to_playtime_requirement = list()
