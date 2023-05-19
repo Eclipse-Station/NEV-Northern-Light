@@ -68,7 +68,7 @@
 	return mobs
 
 /obj/machinery/bssilk_hub/proc/teleport_back(mob/target)
-	to_chat(target, SPAN_WARNING("You feel something pull you into bluespace."))
+	to_chat(target, SPAN_WARNING("You feel like something pull you in bluespace."))
 	//Creat animation and move  mob into it and mob will not walking. Camera will follow animation.
 	var/obj/effect/temporary/A = new(get_turf(target), 24.5, animation_icon, back_animation)
 	target.dir = 2
@@ -107,10 +107,10 @@
 
 /obj/machinery/computer/bssilk_control/attack_hand(mob/user)
 	if(connected_hub) connected_hub.sync_with_parts()
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/computer/bssilk_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/list/data = ui_data()
+/obj/machinery/computer/bssilk_control/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+	var/list/data = nano_ui_data()
 
 	if(!connected_hub)
 		data["fail_connect"] = TRUE

@@ -85,7 +85,7 @@
 		admin_attack_log(user, src, "Attempted to remove \a [target_slot]", "Target of an attempt to remove \a [target_slot].", "attempted to remove \a [target_slot] from")
 		unEquip(target_slot)
 		if(istype(target_slot,  /obj/item/storage/backpack))
-			SEND_SIGNAL(user, COMSIG_EMPTY_POCKETS, src)
+			SEND_SIGNAL_OLD(user, COMSIG_EMPTY_POCKETS, src)
 	else if(user.unEquip(held))
 		equip_to_slot_if_possible(held, text2num(slot_to_strip), TRUE) // Disable warning
 		if(held.loc != src)
@@ -104,7 +104,7 @@
 		visible_message(SPAN_DANGER("\The [user] empties \the [src]'s pockets!"))
 	else
 		to_chat(user, SPAN_NOTICE("You empty \the [src]'s pockets."))
-	SEND_SIGNAL(user, COMSIG_EMPTY_POCKETS, src)
+	SEND_SIGNAL_OLD(user, COMSIG_EMPTY_POCKETS, src)
 
 // Remove all splints.
 /mob/living/carbon/human/proc/remove_splints(var/mob/living/user)
@@ -117,7 +117,7 @@
 
 	if(can_reach_splints)
 		var/removed_splint
-		for(var/organ in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_CHEST))	//Eclipse edit
+		for(var/organ in list(BP_R_ARM, BP_L_ARM, BP_R_LEG, BP_L_LEG, BP_GROIN, BP_HEAD, BP_CHEST))
 			var/obj/item/organ/external/o = get_organ(organ)
 			if (o && o.status & ORGAN_SPLINTED)
 				var/obj/item/W = new /obj/item/stack/medical/splint(get_turf(src), 1)

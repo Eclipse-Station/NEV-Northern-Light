@@ -15,7 +15,6 @@
 
 
 /datum/event/ionstorm
-	var/botEmagChance = 0.5
 	var/list/players = list()
 
 /datum/event/ionstorm/setup()
@@ -64,7 +63,7 @@
 								"Give relationship advice to [pick("anyone who speaks to you", random_player)].",
 								"When asked a question, respond with the least-obvious and least-rational answer.",
 								"[pick("Everyone", random_player)] is wearing a pretty pink dress! Compliment it!",
-								"You are the ship psychologist. Give advice to [pick("the crew", random_player)].",
+								"You are the ship's psychologist. Give advice to [pick("the crew", random_player)].",
 								"[random_player] is the monarch of of England. Ensure all crewmembers pay due respect.",
 								"[pick("The crew", random_player)] is [pick("ugly","beautiful")]. Ensure all are aware.",
 								"Reminding the crew of their mortality is good for the morale. Keep the crew's morale up.",
@@ -100,12 +99,6 @@
 					"admin","ponies","heresy","meow","Pun Pun","monkey","Ian","moron","pizza","message","spam",\
 					"director", "Hello", "Hi!"," ","nuke","crate","dwarf","xeno")
 
-/datum/event/ionstorm/tick()
-	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in world)
-			if(prob(botEmagChance))
-				bot.emag_act(1)
-
 /datum/event/ionstorm/end()
 	spawn(rand(5000,8000))
 		if(prob(50))
@@ -134,7 +127,7 @@
 	return default_if_none
 
 
-/proc/IonStorm(botEmagChance = 10)
+/proc/IonStorm()
 
 /*Deuryn's current project, notes here for those who care.
 Revamping the random laws so they don't suck.
@@ -170,9 +163,9 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 			switch(rand(1,14))
 				if(1)
 					to_chat(M, "<br>")
-					to_chat(M, "\red THERE ARE [amount] [who2] ON THE SHIP...LAWS UPDATED")
+					to_chat(M, "\red THERE ARE [amount] [who2] ON THE STATION...LAWS UPDATED")
 					to_chat(M, "<br>")
-					M.add_ion_law("THERE ARE [amount] [who2] ON THE SHIP")
+					M.add_ion_law("THERE ARE [amount] [who2] ON THE STATION")
 				if(2)
 					to_chat(M, "<br>")
 					to_chat(M, "\red [what2] ARE DANGEROUS TO HUMANS...LAWS UPDATED")
@@ -180,9 +173,9 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					M.add_ion_law("[what2] ARE DANGEROUS TO HUMANS")
 				if(3)
 					to_chat(M, "<br>")
-					to_chat(M, "\red THE ESCAPE-SHUTTLE CANNOT BE CALLED BECAUSE OF [who2] ON THE SHIP...LAWS UPDATED")
+					to_chat(M, "\red THE ESCAPE-SHUTTLE CANNOT BE CALLED BECAUSE OF [who2] ON THE STATION...LAWS UPDATED")
 					to_chat(M, "<br>")
-					M.add_ion_law("THE ESCAPE SHUTTLE CANNOT BE CALLED BECAUSE OF [who2] ON THE SHIP")
+					M.add_ion_law("THE ESCAPE SHUTTLE CANNOT BE CALLED BECAUSE OF [who2] ON THE STATION")
 				if(4)
 					to_chat(M, "<br>")
 					to_chat(M, "\red HUMANS NEED TO EAT [what2pref] [what2] TO SURVIVE...LAWS UPDATED")
@@ -195,9 +188,9 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					M.add_ion_law("THE CAPTAIN, HOP AND HOS ARE [who2]")
 				if(6)
 					to_chat(M, "<br>")
-					to_chat(M, "\red THE SHIP IS BUILT FOR [who2]...LAWS UPDATED")
+					to_chat(M, "\red THE STATION IS BUILT FOR [who2]...LAWS UPDATED")
 					to_chat(M, "<br>")
-					M.add_ion_law("THE SHIP IS BUILT FOR [who2]")
+					M.add_ion_law("THE STATION IS BUILT FOR [who2]")
 				if(7)
 					to_chat(M, "<br>")
 					to_chat(M, "\red YOU ARE [amount] [who2]...LAWS UPDATED")
@@ -235,11 +228,6 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 					M.add_ion_law("[crew] is [allergysev] to [allergy]")
 				if(14)
 					to_chat(M, "<br>")
-					to_chat(M, "\red THE SHIP IS [who2pref] [who2]...LAWS UPDATED")
+					to_chat(M, "\red THE STATION IS [who2pref] [who2]...LAWS UPDATED")
 					to_chat(M, "<br>")
-					M.add_ion_law("THE SHIP IS [who2pref] [who2]")
-
-	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in world)
-			if(prob(botEmagChance))
-				bot.emag_act()
+					M.add_ion_law("THE STATION IS [who2pref] [who2]")

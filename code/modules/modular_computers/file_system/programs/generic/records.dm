@@ -15,7 +15,7 @@
 	var/datum/computer_file/report/crew_record/active_record
 	var/message = null
 
-/datum/nano_module/records/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, state = GLOB.default_state)
+/datum/nano_module/records/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, state = GLOB.default_state)
 	var/list/data = host.initial_data()
 	var/list/user_access = get_record_access(user)
 
@@ -23,7 +23,7 @@
 	if(active_record)
 		user << browse_rsc(active_record.photo_front, "front_[active_record.uid].png")
 		user << browse_rsc(active_record.photo_side, "side_[active_record.uid].png")
-		data["pic_edit"] = check_access(user, access_heads) || check_access(user, access_sec_consoles)
+		data["pic_edit"] = check_access(user, access_heads) || check_access(user, access_security)
 		data += active_record.generate_nano_data(user_access)
 	else
 		var/list/all_records = list()
@@ -36,8 +36,8 @@
 			)))
 		data["all_records"] = all_records
 		data["creation"] = check_access(user, access_heads)
-		data["dnasearch"] = check_access(user, access_moebius_consoles) || check_access(user, access_forensics_lockers)
-		data["fingersearch"] = check_access(user, access_sec_consoles)
+		data["dnasearch"] = check_access(user, access_moebius) || check_access(user, access_forensics_lockers)
+		data["fingersearch"] = check_access(user, access_security)
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
@@ -117,13 +117,13 @@
 		var/photo = get_photo(usr)
 		if(photo && active_record)
 			active_record.photo_front = photo
-			ui_interact(usr)
+			nano_ui_interact(usr)
 		return 1
 	if(href_list["edit_photo_side"])
 		var/photo = get_photo(usr)
 		if(photo && active_record)
 			active_record.photo_side = photo
-			ui_interact(usr)
+			nano_ui_interact(usr)
 		return 1
 	if(href_list["edit_field"])
 		edit_field(usr, text2num(href_list["edit_field"]))

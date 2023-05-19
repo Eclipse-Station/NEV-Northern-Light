@@ -8,10 +8,8 @@
 	max_blood_storage = 7.5
 	oxygen_req = 2.5
 	nutriment_req = 2
-	price_tag = 400
+	price_tag = 400	
 
 /obj/item/organ/internal/kidney/left
-	organ_efficiency = list(OP_KIDNEYS = 50, OP_KIDNEY_LEFT = 50)
 /obj/item/organ/internal/kidney/right
-	organ_efficiency = list(OP_KIDNEYS = 50, OP_KIDNEY_RIGHT = 50)
 	icon_state = "kidney_right"

@@ -153,7 +153,7 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/stack/material/plasma
-	name = "solid phoron"
+	name = "solid plasma"
 	icon_state = "sheet-plasma"
 	default_type = MATERIAL_PLASMA
 	price_tag = 30
@@ -356,6 +356,7 @@
 	icon_state = "sheet-glass"
 	default_type = MATERIAL_GLASS
 	price_tag = 2
+	novariants = FALSE
 
 /obj/item/stack/material/glass/random
 	rand_min = 3
@@ -370,14 +371,16 @@
 	name = "reinforced glass"
 	icon_state = "sheet-rglass"
 	default_type = MATERIAL_RGLASS
+	novariants = FALSE
 
 /obj/item/stack/material/glass/plasmaglass
 	name = "borosilicate glass"
-	desc = "This sheet is special phoron-glass alloy designed to withstand large temperatures"
+	desc = "This sheet is special plasma-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
 	icon_state = "sheet-plasmaglass"
 	default_type = MATERIAL_PLASMAGLASS
 	price_tag = 10
+	novariants = FALSE
 
 /obj/item/stack/material/glass/plasmaglass/random
 	rand_min = 3
@@ -387,11 +390,12 @@
 
 /obj/item/stack/material/glass/plasmarglass
 	name = "reinforced borosilicate glass"
-	desc = "This sheet is special phoron-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
+	desc = "This sheet is special plasma-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
-	icon_state = "sheet-plasmaglass"
+	icon_state = "sheet-plasmarglass"
 	default_type = MATERIAL_RPLASMAGLASS
 	price_tag = 12
+	novariants = FALSE
 
 /obj/item/stack/material/biomatter
 	name = "biomatter"
@@ -399,7 +403,7 @@
 	singular_name = "biomatter sheet"
 	icon_state = "sheet-biomatter"
 	default_type = MATERIAL_BIOMATTER
-	price_tag = 10
+	price_tag = 5
 	novariants = FALSE
 	var/biomatter_in_sheet = BIOMATTER_PER_SHEET // defined in solidifier.dm
 
@@ -421,6 +425,3 @@
 	item_state = "rcdammo"
 	default_type = MATERIAL_COMPRESSED
 	price_tag = 30
-
-/obj/item/stack/material/compressed/full
-	amount = 60

@@ -152,13 +152,7 @@ GLOBAL_DATUM_INIT(sound_player, /decl/sound_player, new)
 
 	for(var/listener in current_listeners)
 		update_listener_loc(listener)
-	//Eclipse Edit start
-	for(var/listener in current_listeners)
-		var/mob/living/carbon/human/sanlistener
-		if(istype(listener,/mob/living/carbon/human))
-			sanlistener = listener
-			sanlistener.sanity.onMusic()
-	//Eclipse Edit end
+
 /datum/sound_token/proc/set_status(var/new_status)
 	if((status & SOUND_STOPPED) || (new_status == status))
 		return

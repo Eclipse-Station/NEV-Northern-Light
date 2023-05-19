@@ -66,6 +66,7 @@
 /obj/item/card/emag
 	desc = "A card with a magnetic strip attached to some circuitry."
 	name = "cryptographic sequencer"
+	description_antag = "This item has 10 by default. Emagging turrets turns them lethal to everyone. Emagging a door opens it and bolts it. Emagging a non-sentient robot turns them hostile. Emagging a cyborg forces them to obey you. Emagging an APC lets only you acces it."
 	icon_state = "emag"
 	item_state = "card-id"
 	origin_tech = list(TECH_MAGNET = 2, TECH_COVERT = 2)
@@ -140,7 +141,6 @@ var/const/NO_EMAG_ACT = -50
 		user << browse_rsc(side, "side.png")
 	var/datum/browser/popup = new(user, "idcard", name, 600, 250)
 	popup.set_content(dat())
-	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
 	return
 
@@ -148,19 +148,17 @@ var/const/NO_EMAG_ACT = -50
 	name = "[src.registered_name]'s ID Card ([src.assignment])"
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
-	front = getFlatIcon(M, defdir=SOUTH)
-	side = getFlatIcon(M, defdir=WEST)
+	front = getFlatIcon(M, SOUTH)
+	side = getFlatIcon(M, WEST)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
 	id_card.age = 0
 	id_card.registered_name		= real_name
 	id_card.sex 				= capitalize(gender)
 	id_card.set_id_photo(src)
-
-	if(dna)
-		id_card.blood_type		= dna.b_type
-		id_card.dna_hash		= dna.unique_enzymes
-		id_card.fingerprint_hash= md5(dna.uni_identity)
+	id_card.blood_type		= b_type
+	id_card.dna_hash		= dna_trace
+	id_card.fingerprint_hash= fingers_trace
 	id_card.update_name()
 
 /mob/living/carbon/human/set_id_info(var/obj/item/card/id/id_card)
@@ -221,6 +219,7 @@ var/const/NO_EMAG_ACT = -50
 	item_state = "tdgreen"
 	assignment = "Synthetic"
 	spawn_tags = null
+	bad_type = /obj/item/card/id/synthetic
 
 /obj/item/card/id/synthetic/New()
 	access = get_all_station_access() + access_synth
@@ -294,10 +293,6 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/hop
 	icon_state = "id_hop"
-
-/obj/item/card/id/boff
-	icon = 'zzz_modular_eclipse/bridge_officer_sprites/card.dmi'
-	icon_state = "id_boff"
 
 /obj/item/card/id/ce
 	icon_state = "id_ce"

@@ -174,7 +174,7 @@ var/global/ManifestJSON
 		foundrecord.fields["real_rank"] = real_title
 
 /datum/datacore/proc/manifest_inject(var/mob/living/carbon/human/H)
-	if(H.mind && !player_is_antag(H.mind, only_offstation_roles = 1) && H.job != "VagaBond")
+	if(H.mind && !player_is_antag(H.mind, only_offstation_roles = 1) && H.job != ASSISTANT_TITLE)
 		var/assignment = GetAssignment(H)
 
 		var/id = generate_record_id()
@@ -184,7 +184,7 @@ var/global/ManifestJSON
 		G.fields["real_rank"]	= H.mind.assigned_role
 		G.fields["rank"]		= assignment
 		G.fields["age"]			= H.age
-		G.fields["fingerprint"]	= md5(H.dna.uni_identity)
+		G.fields["fingerprint"]	= H.fingers_trace
 		if(H.mind.initial_account)
 			G.fields["pay_account"]	= H.mind.initial_account.account_number ? H.mind.initial_account.account_number : "N/A"
 		G.fields["email"]		= H.mind.initial_email_login["login"]
@@ -197,7 +197,7 @@ var/global/ManifestJSON
 		//Medical Record
 		var/datum/data/record/M = CreateMedicalRecord(H.real_name, id)
 		M.fields["b_type"]		= H.b_type
-		M.fields["b_dna"]		= H.dna.unique_enzymes
+		M.fields["b_dna"]		= H.dna_trace
 		//M.fields["id_gender"]	= gender2text(H.identifying_gender)
 		if(H.med_record && !jobban_isbanned(H, "Records"))
 			M.fields["notes"] = H.med_record
@@ -213,13 +213,10 @@ var/global/ManifestJSON
 		L.fields["name"]		= H.real_name
 		L.fields["rank"] 		= H.mind.assigned_role
 		L.fields["age"]			= H.age
-		L.fields["fingerprint"]	= md5(H.dna.uni_identity)
+		L.fields["fingerprint"]	= H.fingers_trace
 		L.fields["sex"]			= H.gender
-		///L.fields["id_gender"]	= gender2text(H.identifying_gender)
 		L.fields["b_type"]		= H.b_type
-		L.fields["b_dna"]		= H.dna.unique_enzymes
-		L.fields["enzymes"]		= H.dna.SE // Used in respawning
-		L.fields["identity"]	= H.dna.UI // "
+		L.fields["b_dna"]		= H.dna_trace
 		L.fields["image"]		= getFlatIcon(H)	//This is god-awful
 		if(H.exploit_record && !jobban_isbanned(H, "Records"))
 			L.fields["exploit_record"] = H.exploit_record
@@ -239,12 +236,12 @@ var/global/ManifestJSON
 	var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[H.h_style]
 	if(hair_style)
 		temp = new/icon(hair_style.icon, hair_style.icon_state)
-		temp.Blend(rgb(H.r_hair, H.g_hair, H.b_hair), ICON_ADD)
+		temp.Blend(H.hair_color, ICON_ADD)
 
 	hair_style = GLOB.facial_hair_styles_list[H.h_style]
 	if(hair_style)
 		var/icon/facial = new/icon(hair_style.icon, hair_style.icon_state)
-		facial.Blend(rgb(H.r_facial, H.g_facial, H.b_facial), ICON_ADD)
+		facial.Blend(H.facial_color, ICON_ADD)
 		temp.Blend(facial, ICON_OVERLAY)
 
 	preview_icon.Blend(temp, ICON_OVERLAY)
@@ -271,8 +268,8 @@ var/global/ManifestJSON
 	var/icon/front
 	var/icon/side
 	if(H)
-		front = getFlatIcon(H, defdir=SOUTH)
-		side = getFlatIcon(H, defdir=WEST)
+		front = getFlatIcon(H, SOUTH)
+		side = getFlatIcon(H, WEST)
 	else
 		var/mob/living/carbon/human/dummy = new()
 		front = new(get_id_photo(dummy), dir = SOUTH)

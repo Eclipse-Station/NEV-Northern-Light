@@ -3,7 +3,7 @@
 //There's also a robot version which uses power instead of gas tubes.
 
 /obj/item/hatton
-	name = "\improper Excelsior BT \"Hatton\""
+	name = "Excelsior BT \"Hatton\""
 	desc = "More an instrument than a weapon, this breaching tool was designed for emergency situations."
 	icon = 'icons/obj/guns/breacher.dmi'
 	icon_state = "Hatton_Hammer_1"
@@ -90,11 +90,11 @@
 		click_empty()
 		return
 
-	if(isliving(user))
-		var/mob/living/M = user
-		if (HULK in M.mutations)
-			to_chat(M, SPAN_WARNING("Your meaty finger is much too large for the trigger guard!"))
-			return
+//	if(isliving(user))
+//		var/mob/living/M = user
+//		if (HULK in M.mutations)
+//			to_chat(M, SPAN_WARNING("Your meaty finger is much too large for the trigger guard!"))
+//			return
 	if (!Adjacent(loc, target))
 		to_chat(user, SPAN_WARNING("You're too far away to breach that!"))
 		return
@@ -107,7 +107,7 @@
 
 
 
-	if(isliving(user))
+/*	if(isliving(user))
 		var/mob/living/M = user
 		if ((CLUMSY in M.mutations) && prob(50))
 			to_chat(user, SPAN_DANGER("[src] blows up in your face."))
@@ -115,7 +115,7 @@
 			Fire(get_turf(M))
 			del(src)
 			return
-
+*/
 	if (use_charge())
 		last_fired = world.time
 		playsound(user, fire_sound, 70, 1)
@@ -145,7 +145,7 @@
 
 // Magazine
 /obj/item/hatton_magazine
-	name = "\improper Excelsior BT \"Hatton\" gas tube"
+	name = "Excelsior BT \"Hatton\" gas tube"
 	icon = 'icons/obj/guns/breacher.dmi'
 	icon_state = "Hatton_box1"
 	w_class = ITEM_SIZE_SMALL
@@ -168,7 +168,7 @@
 		icon_state = "Hatton_box0"
 
 /obj/item/hatton_magazine/moebius
-	name = "NanoTrasen BT \"Q-del\" gas tube"
+	name = "Moebius BT \"Q-del\" gas tube"
 	icon_state = "Moebius_box1"
 	matter = list(MATERIAL_PLASMA = 10, MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 2)
 	charge = 2
@@ -203,11 +203,10 @@
 	return
 
 /obj/item/hatton/moebius
-	name = "\improper NanoTrasen BT \"Q-del\""
+	name = "Moebius BT \"Q-del\""
 	desc = {"This breaching tool was reverse engineered from the \"Hatton\" design.
 	Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,
 	this device suffers from a wide number of reliability issues stemming from it being lathe printed."}
-	//Eclipse Note: Leaving this reference to technomancers intact since it doesn't imply that our engineering staff is contracted out ^Spitzer
 	icon_state = "Moebius_Hammer_1"
 	item_state = "Moebius_Hammer_1"
 	matter = list(MATERIAL_PLASTEEL = 8, MATERIAL_SILVER = 5, MATERIAL_PLASTIC = 5)

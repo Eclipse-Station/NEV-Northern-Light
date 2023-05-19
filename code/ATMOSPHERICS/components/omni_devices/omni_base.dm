@@ -105,7 +105,7 @@
 		return
 
 	src.add_fingerprint(usr)
-	ui_interact(user)
+	nano_ui_interact(user)
 	return
 
 /obj/machinery/atmospherics/omni/proc/build_icons()
@@ -178,7 +178,7 @@
 			if(ATM_OUTPUT)
 				ic_on += "_out_glow"
 				ic_off += "_out"
-			if(ATM_O2 to ATM_HIGHEST)		//Eclipse edit: Futureproofing
+			if(ATM_O2 to ATM_N2O)
 				ic_on += "_filter"
 				ic_off += "_out"
 

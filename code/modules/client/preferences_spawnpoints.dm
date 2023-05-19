@@ -150,8 +150,6 @@
 	if(M.buckled && istype(M.buckled, /obj/structure/bed/chair/wheelchair))
 		M.buckled.forceMove(M.loc)
 		M.buckled.set_dir(M.dir)
-		
-	SSdispatcher.add_to_tracking(M)		//Eclipse edit: Add to dispatcher tracking.
 	return TRUE
 
 /datum/spawnpoint/nosearch //for when we want people to start on the exact tile of the spawn landmark
@@ -198,8 +196,6 @@
 
 		//When spawning in cryo, you start off asleep for a few moments and wake up
 		M.Paralyse(2)
-		
-		SSdispatcher.add_to_tracking(M)		//Eclipse edit: Add to dispatcher tracking.
 
 		//You can get yourself out of the cryopod, or it will auto-eject after one minute
 		spawn(600)
@@ -259,8 +255,6 @@
 		M.Paralyse(2)
 
 		//Once you wake up, you can get yourself out of bed. I've made it real easy, just click basically anything
-		
-		SSdispatcher.add_to_tracking(M)		//Eclipse addition: Add to dispatcher tracking.
 
 		return TRUE
 	return FALSE

@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/roomba
-	name = "RMB-A unit"
+	name = "One Star RMB-A unit"
 	desc = "A small round drone, usually tasked with carrying out menial tasks. This one seems pretty harmless"
 	icon = 'icons/mob/battle_roomba.dmi'
 	icon_state = "roomba"
@@ -28,9 +28,7 @@
 	melee_damage_upper = 10
 	rarity_value = 36
 	spawn_tags = SPAWN_TAG_MOB_ROOMBA
-	
-	//Eclipse-added vars
-	simplemob_bonus_multiplier = 0.1	//Cheap plastic.
+
 
 /mob/living/simple_animal/hostile/roomba/death()
 	..()
@@ -39,12 +37,21 @@
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
+	if(prob(20))
+		var/os_components_reward = pick(list(
+			/obj/item/stock_parts/capacitor/one_star,
+			/obj/item/stock_parts/scanning_module/one_star,
+			/obj/item/stock_parts/manipulator/one_star,
+			/obj/item/stock_parts/micro_laser/one_star,
+			/obj/item/stock_parts/matter_bin/one_star
+		))
+		new os_components_reward(get_turf(src))
 	qdel(src)
 	return
 
 
 /mob/living/simple_animal/hostile/roomba/slayer
-	name = "RMB-A unit"
+	name = "One Star RMB-A unit"
 	desc = "A small round drone, usually tasked with carrying out menial tasks. This one seems to have a knife taped to it..?"
 	icon_state = "roomba_knife"
 	health = 35
@@ -56,7 +63,7 @@
 
 
 /mob/living/simple_animal/hostile/roomba/boomba
-	name = "RMB-A unit"
+	name = "One Star RMB-A unit"
 	desc = "A small round drone, usually tasked with carrying out menial tasks. Is that a fucking anti-personel mine?!"
 	icon_state = "boomba"
 	health = 15
@@ -74,7 +81,7 @@
 		death()
 
 /mob/living/simple_animal/hostile/roomba/gun_ba
-	name = "RMB-A unit"
+	name = "One Star RMB-A unit"
 	desc = "A small round drone, usually tasked with carrying out menial tasks. And this one has a gun."
 	icon_state = "roomba_lmg"
 	health = 30

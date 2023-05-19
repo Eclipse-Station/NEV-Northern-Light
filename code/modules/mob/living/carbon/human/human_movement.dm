@@ -19,6 +19,8 @@
 				tally += 0.5
 	if(stats.getPerk(PERK_FAST_WALKER))
 		tally -= 0.5
+	if(blocking)
+		tally += 1
 
 	var/obj/item/implant/core_implant/cruciform/C = get_core_implant(/obj/item/implant/core_implant/cruciform)
 	if(C && C.active)
@@ -31,12 +33,8 @@
 	if(hunger_deficiency >= 200) tally += (hunger_deficiency / 100) //If youre starving, movement slowdown can be anything up to 4.
 
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
-		for(var/organ_name in list(BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM))
-			var/obj/item/organ/external/E = get_organ(organ_name)
-			if(!E)
-				tally += 4
-			else
-				tally += E.get_tally()
+		//Not porting bay's silly organ checking code here
+		tally += 1 //Small slowdown so wheelchairs aren't turbospeed
 	else
 		if(wear_suit)
 			tally += wear_suit.slowdown
@@ -96,3 +94,26 @@
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
+
+/mob/living/carbon/human/add_momentum(direction)
+	if(momentum_dir == direction)
+		momentum_speed++
+	else if(momentum_dir == reverse_dir[direction])
+		momentum_speed = 0
+		momentum_dir = direction
+	else
+		momentum_speed--
+		momentum_dir = direction
+	momentum_speed = CLAMP(momentum_speed, 0, 10)
+	update_momentum()
+
+/mob/living/carbon/human/proc/update_momentum()
+	if(momentum_speed)
+		momentum_reduction_timer = addtimer(CALLBACK(src, PROC_REF(calc_momentum)), 1 SECONDS, TIMER_STOPPABLE)
+	else
+		momentum_speed = 0
+		deltimer(momentum_reduction_timer)
+
+/mob/living/carbon/human/proc/calc_momentum()
+	momentum_speed--
+	update_momentum()

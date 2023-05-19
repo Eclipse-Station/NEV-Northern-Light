@@ -72,12 +72,10 @@
 
 /obj/item/paper/ecrashlog/Initialize()
 	. = ..()
-	var/shipname = "NEV [pick("Magellan", "Gagarin", "Drake", "Horizon", "Aurora")]"
-	if(prob(1))//I don't believe in time travel. Do you?
-		shipname = "NEV Northern Light"
+	var/shipname = "CEV [pick("Magellan", "Gagarin", "Drake", "Horizon", "Aurora")]"
 	var/datum/species/S = all_species[SPECIES_HUMAN]
 	var/new_info = {"
-	I am Lieutenant Hao Ru, captain of [shipname], of NanoTrasen Expeditionary Corps.<br>
+	I am Lieutenant Hao Ru, captain of [shipname], of the Hansa Trade Union.<br>
 	We are dying. The Ran Mission has failed.<br>
 	Our ship has suffered a catastrophic chain of failures whist crew was in cryotransit. It started with thruster controls going inoperable, and our auto-pilot was unable to adjust course away from an asteroid cluster. <br>
 	We've lost the navigational suite from impacts, and are flying blind. We have tried every option, and our engineers have ascertained that there is no way to repair it in the field.<br>
@@ -91,8 +89,8 @@
 	Senior Explorer [S.get_random_name(pick(MALE,FEMALE))]<br>
 	Senior Explorer [S.get_random_name(pick(MALE,FEMALE))]<br>
 	Explorer [S.get_random_name(pick(MALE,FEMALE))]<br>
-	I am Lieutenant Hao Ru, captain of [shipname] of the NanoTrasen Expeditionary Corps. I will be joining my crew in cryo now.<br>
-	<i>3rd December [game_year + 35]</i></tt>
+	I am Lieutenant Hao Ru, captain of [shipname] of the Hansa Trade Union. I will be joining my crew in cryo now.<br>
+	<i>3rd December [game_year - 142]</i></tt>
 	"}
 	set_content(new_info)
 

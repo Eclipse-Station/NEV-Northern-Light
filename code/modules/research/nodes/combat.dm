@@ -94,7 +94,8 @@
 
 	unlocks_designs = list(
 							/datum/design/research/item/weapon/large_grenade,
-							/datum/design/research/item/weapon/clarissa
+							/datum/design/research/item/weapon/clarissa,
+							/datum/design/research/item/weapon/clarrisa_ammo
 						)
 
 /datum/technology/exotic_weaponry
@@ -206,7 +207,7 @@
 
 /datum/technology/basic_armor
 	name = "Armor Solutions"
-	desc = "Standard issue armor of Lazarus trauma teams." //Eclipse Edit - Replaced paramedic with Trauma Team.
+	desc = "Standard issue armor of moebius paramedic teams."
 	tech_type = RESEARCH_COMBAT
 
 	x = 0.8

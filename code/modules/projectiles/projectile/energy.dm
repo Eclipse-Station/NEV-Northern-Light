@@ -5,7 +5,6 @@
 	check_armour = ARMOR_ENERGY
 	mob_hit_sound = list('sound/effects/gore/sear.ogg')
 	hitsound_wall = 'sound/weapons/guns/misc/laser_searwall.ogg'
-	ignition_source = TRUE		//Eclipse add.
 
 	heat = 100
 
@@ -14,13 +13,11 @@
 /obj/item/projectile/energy/flash
 	name = "chemical shell"
 	icon_state = "bullet"
-	damage_types = list(BURN = 5)
-	agony = 10
+	damage_types = list(BURN = 5, HALLOSS = 10)
 	kill_count = 15 //if the shell hasn't hit anything after travelling this far it just explodes.
 	var/flash_range = 0
 	var/brightness = 7
 	var/light_duration = 5
-	ignition_source = FALSE		//Eclipse add.
 
 /obj/item/projectile/energy/flash/on_impact(var/atom/A)
 	var/turf/T = flash_range? src.loc : get_turf(A)
@@ -29,8 +26,7 @@
 	//blind adjacent people
 	for (var/mob/living/carbon/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
-			if (M.HUDtech.Find("flash"))
-				flick("e_flash", M.HUDtech["flash"])
+			M.flash(0, FALSE, FALSE, FALSE)
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -46,7 +42,7 @@
 	flash_range = 1
 	brightness = 9 //similar to a flare
 	light_duration = 200
-	ignition_source = TRUE		//Eclipse add - did you really think shooting a welderfuel tank with a flare gun was a good idea?
+	recoil = 8 // Shot from shotguns
 
 /obj/item/projectile/energy/electrode
 	name = "electrode"
@@ -54,54 +50,50 @@
 	mob_hit_sound = list('sound/weapons/tase.ogg')
 	nodamage = 1
 	taser_effect = 1
-	agony = 40
-	damage_types = list(HALLOSS = 0)
+	damage_types = list(HALLOSS = 40)
 	//Damage will be handled on the MOB side, to prevent window shattering.
+	recoil = 2
 
 /obj/item/projectile/energy/electrode/stunshot
 	name = "stunshot"
-	damage_types = list(BURN = 5)
+	damage_types = list(BURN = 5, HALLOSS = 80)
 	taser_effect = 1
-	agony = 80
+	recoil = 5
 
 /obj/item/projectile/energy/declone
 	name = "demolecularisor"
 	icon_state = "declone"
-	nodamage = 1
-	damage_types = list(CLONE = 0)
-	irradiate = 150
-	ignition_source = FALSE		//Eclipse add.
+	damage_types = list(CLONE = 12)
+	irradiate = 10
 
 
 /obj/item/projectile/energy/dart
 	name = "dart"
 	icon_state = "toxin"
 	damage_types = list(TOX = 20)
-	ignition_source = FALSE		//Eclipse add.
-
+	recoil = 2
 
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"
-	damage_types = list(TOX = 20)
+	damage_types = list(TOX = 20, HALLOSS = 30)
 	nodamage = 0
-	agony = 30
 	stutter = 10
+	recoil = 3
 
 
 /obj/item/projectile/energy/bolt/large
 	name = "largebolt"
 	damage_types = list(BURN = 25)
+	recoil = 5
 
 /obj/item/projectile/energy/neurotoxin
 	name = "neuro"
 	icon_state = "neurotoxin"
 	damage_types = list(TOX = 5)
 	weaken = 5
-	ignition_source = FALSE		//Eclipse add.
 
-/obj/item/projectile/energy/phoron
-	name = "phoron bolt"
+/obj/item/projectile/energy/plasma // What?
+	name = "plasma bolt"
 	icon_state = "energy"
 	damage_types = list(TOX = 25)
-	ignition_source = FALSE		//Eclipse add.

@@ -22,9 +22,13 @@
 	name = "radio headset"
 	build_path = /obj/item/device/radio/headset
 
+/datum/design/autolathe/misc/earmuffs
+	name = "earmuffs"
+	build_path = /obj/item/clothing/ears/earmuffs
+
 /datum/design/autolathe/misc/radio_bounced
 	name = "ship bounced radio"
-	build_path = /obj/item/device/radio/color		//eclipse edit
+	build_path = /obj/item/device/radio/off
 
 /datum/design/autolathe/misc/taperecorder
 	name = "tape recorder"
@@ -39,9 +43,13 @@
 	build_path = /obj/item/light/bulb
 
 /datum/design/autolathe/misc/ashtray
-	name = "glass ashtray"
+	name = "ashtray"
 	build_path = /obj/item/material/ashtray
 
 /datum/design/autolathe/misc/cane
 	name = "cane"
 	build_path = /obj/item/tool/cane
+
+/datum/design/autolathe/misc/mirror
+	name = "handheld mirror"
+	build_path = /obj/item/mirror

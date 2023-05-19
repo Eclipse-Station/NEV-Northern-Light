@@ -1,5 +1,5 @@
 /datum/gear/bible
-	display_name = "Mekhane ritual book"
+	display_name = "NeoTheology ritual book"
 	path = /obj/item/book/ritual/cruciform
 	cost = 2
 
@@ -18,8 +18,7 @@
 /datum/gear/clown
 	display_name = "clown pack"
 	path = /obj/item/storage/box/clown
-	cost = 3
-	allowed_roles = list("Vagabond")
+	allowed_roles = list(ASSISTANT_TITLE)
 
 /datum/gear/dice
 	display_name = "dice pack"
@@ -33,9 +32,13 @@
 	display_name = "deck of tarot cards"
 	path = /obj/item/deck/tarot
 
+/datum/gear/yho
+	display_name = "deck of YHO cards"
+	path = /obj/item/storage/card_holder/yho
+
 /datum/gear/holder
 	display_name = "card holder"
-	path = /obj/item/deck/holder
+	path = /obj/item/storage/card_holder
 
 /datum/gear/cardemon_pack
 	display_name = "Cardemon booster pack"
@@ -147,10 +150,6 @@
 	display_name = "zippo"
 	path = /obj/item/flame/lighter/zippo
 
-/datum/gear/cigarettes
-	display_name = "pack of cigarettes"
-	path = /obj/item/storage/fancy/cigarettes
-
 /datum/gear/cigars
 	display_name = "fancy cigar case"
 	path = /obj/item/storage/fancy/cigar
@@ -163,10 +162,10 @@
 /datum/gear/cigarettes/New()
 	..()
 	var/cigarettes_type = list(
-		"Space Cigarettes"	=	/obj/item/storage/fancy/cigarettes,
+		"Space Cigarettes"			=	/obj/item/storage/fancy/cigarettes,
 		"DromedaryCo Cigarettes"	=	/obj/item/storage/fancy/cigarettes/dromedaryco,
-		"AcmeCo Cigarettes"	=	/obj/item/storage/fancy/cigarettes/killthroat,
-		//"Nomads Cigarettes"	=	/obj/item/storage/fancy/cigarettes/homeless
+		"AcmeCo Cigarettes"			=	/obj/item/storage/fancy/cigarettes/killthroat,
+		"Nomads Cigarettes"			=	/obj/item/storage/fancy/cigarettes/homeless
 	)
 	gear_tweaks += new/datum/gear_tweak/path(cigarettes_type)
 

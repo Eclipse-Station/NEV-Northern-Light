@@ -2,6 +2,7 @@
 	name = "Iriska"
 	desc = "The captain's own cat. Fat and lazy."
 	icon = 'icons/mob/iriska.dmi'
+	description_fluff = "Its said that the cat has bluespace powers, cursing anyone whom it has been angered by upon death."
 	icon_state = "iriska"
 	health = 80
 	maxHealth = 80
@@ -14,7 +15,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets"
 	response_disarm = "rubs"
-	response_harm = "makes terrible mistake kicking"
+	response_harm = "makes terrible mistake by kicking"
 	min_oxy = 16
 	minbodytemp = 223
 	maxbodytemp = 323
@@ -32,9 +33,6 @@
 	beg_for_food = FALSE
 	max_scan_interval = 10
 	eat_from_hand = FALSE
-
-	//Eclipse-added vars
-	simplemob_bonus_enabled = FALSE		//don't even think about it.
 
 var/atom/snack = null
 

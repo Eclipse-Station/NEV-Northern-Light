@@ -20,48 +20,60 @@
 	display_name = "beret, purple"
 	path = /obj/item/clothing/head/beret/purple
 
+/datum/gear/head/beret/moebius
+	display_name = "beret, Moebius"
+	path = /obj/item/clothing/head/beret/moebius
+	allowed_roles = list(JOBS_SCIENCE, JOBS_MEDICAL)
+
+/datum/gear/head/beret/oberth
+	display_name = "beret, Oberth" //Uberth
+	path = /obj/item/clothing/head/beret/german
+
+/datum/gear/head/beret/ntsec
+	display_name = "beret, old security"
+	path = /obj/item/clothing/head/beret/oldsec
+
 /datum/gear/head/beret/bsec
-	display_name = "beret, navy"
+	display_name = "beret, Operative"
 	path = /obj/item/clothing/head/beret/sec/navy/officer
-	allowed_roles = list("Aegis Operative","Aegis Commander","Aegis Gunnery Sergeant")
+	allowed_roles = list(JOBS_SECURITY)
 
 /datum/gear/head/beret/bsec_warden
-	display_name = "beret, navy (warden)"
+	display_name = "beret, Sergeant"
 	path = /obj/item/clothing/head/beret/sec/navy/warden
-	allowed_roles = list("Aegis Commander","Aegis Gunnery Sergeant")
+	allowed_roles = list("Ironhammer Commander","Gunnery Sergeant")
 
 /datum/gear/head/beret/bsec_hos
-	display_name = "beret, navy (hos)"
+	display_name = "beret, Lieutenant"
 	path = /obj/item/clothing/head/beret/sec/navy/hos
-	allowed_roles = list("Aegis Commander")
+	allowed_roles = list("Ironhammer Commander")
 
 /datum/gear/head/beret/eng
-	display_name = "beret, engie-orange"
+	display_name = "beret, yellow Technomancer"
 	path = /obj/item/clothing/head/beret/engineering
 	allowed_roles = list(JOBS_ENGINEERING)
 
-/datum/gear/head/beret/sec
-	display_name = "beret, red (security)"
-	path = /obj/item/clothing/head/beret/sec
-	allowed_roles = list(JOBS_SECURITY)
+/datum/gear/head/beret/eng/old
+	display_name = "beret, orange Technomancer"
+	path = /obj/item/clothing/head/beret/engineering/old
+	allowed_roles = list(JOBS_ENGINEERING)
 
 /datum/gear/head/cap/flat
 	display_name = "cap, brown-flat"
 	path = /obj/item/clothing/head/flatcap
 
 /datum/gear/head/cap/corp
-	display_name = "cap, corporate (Security)"
+	display_name = "cap, corporate security"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Aegis Operative","Aegis Commander","Aegis Gunnery Sergeant", "Inspector")
+
+/datum/gear/head/cap/sec
+	display_name = "cap, old security"
+	path = /obj/item/clothing/head/soft/sec
+	allowed_roles = list(ASSISTANT_TITLE)
 
 /datum/gear/head/cap/rainbow
 	display_name = "cap, rainbow"
 	path = /obj/item/clothing/head/soft/rainbow
-
-/datum/gear/head/cap/sec
-	display_name = "cap, security (Security)"
-	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list(JOBS_SECURITY)
 
 /datum/gear/head/cap/color_presets
 	display_name = "cap, color presets"
@@ -102,11 +114,6 @@
 	)
 	gear_tweaks += new /datum/gear_tweak/path(hardhat)
 
-/datum/gear/head/welding
-	display_name = "welding mask"
-	path = /obj/item/clothing/head/welding
-	cost = 2
-
 /datum/gear/head/boater
 	display_name = "hat, boatsman"
 	path = /obj/item/clothing/head/boaterhat
@@ -123,46 +130,53 @@
 	display_name = "hat, tophat"
 	path = /obj/item/clothing/head/that
 
-/datum/gear/head/fedora
-	display_name = "fedora"
-	path = /obj/item/clothing/head/fedora
-
-/datum/gear/head/trilby
-	display_name = "feather trilby"
-	path = /obj/item/clothing/head/feathertrilby
-
 /datum/gear/head/philosopher_wig
-	display_name = "natural philosopher wig"
+	display_name = "natural philosopher's wig"
 	path = /obj/item/clothing/head/philosopher_wig
 
-/datum/gear/head/ushanka
-	display_name = "ushanka"
+/datum/gear/head/cap/ushanka
+	display_name = "cap, ushanka"
 	path = /obj/item/clothing/head/ushanka
 
+/datum/gear/head/cap/ushanka/New()
+    ..()
+    var/ushanka = list(
+        "Tan"	= /obj/item/clothing/head/ushanka,
+        "Black" = /obj/item/clothing/head/ushanka/black
+    )
+    gear_tweaks += new /datum/gear_tweak/path(ushanka)
+
 /datum/gear/head/cap/secfield
-	display_name = "cap, Aegis field"
+	display_name = "cap, IH field"
 	path = /obj/item/clothing/head/soft/sec2soft
-	allowed_roles = list("Aegis Operative","Aegis Commander","Aegis Gunnery Sergeant", "Inspector")
+	allowed_roles = list(JOBS_SECURITY)
 
 /datum/gear/head/cap/sarge
-	display_name = "cap, Aegis sergeant"
+	display_name = "cap, IH sergeant"
 	path = /obj/item/clothing/head/soft/sarge2soft
-	allowed_roles = list("Aegis Commander","Aegis Gunnery Sergeant")
-
-/datum/gear/head/dermal
-	display_name = "dermal armour patch"
-	path = /obj/item/clothing/head/armor/helmet/dermal
-	allowed_roles = list("Aegis Commander","Aegis Gunnery Sergeant")
-	cost = 2
+	allowed_roles = list("Ironhammer Commander","Ironhammer Gunnery Sergeant")
 
 /datum/gear/head/cyberpunkgoggle
 	display_name = "Type-34C Semi-Enclosed Headwear"
 	path = /obj/item/clothing/head/armor/helmet/visor/cyberpunkgoggle
 	cost = 2
 
+/datum/gear/head/cap/military
+    display_name = "military cap, color presets"
+    path = /obj/item/clothing/head/soft/green2soft
+
+/datum/gear/head/cap/military/New()
+    ..()
+    var/battledress_serb = list(
+        "Green" = /obj/item/clothing/head/soft/green2soft,
+        "Tan" = /obj/item/clothing/head/soft/tan2soft
+    )
+    gear_tweaks += new /datum/gear_tweak/path(battledress_serb)
+
 /datum/gear/head/tanker_helmet/color_presets
 	display_name = "tanker helmet, color presets"
 	path = /obj/item/clothing/head/armor/helmet/tanker
+	allowed_roles = list("Moebius Roboticist", "Guild Technician", "Technomancer", "Technomancer Exultant", ASSISTANT_TITLE)
 	cost = 2
 
 /datum/gear/head/tanker_helmet/color_presets/New()
@@ -175,70 +189,20 @@
 	)
 	gear_tweaks += new /datum/gear_tweak/path(tanker_helmet)
 
-/datum/gear/head/festive
-	display_name = "festive paper hat"
-	path = /obj/item/clothing/head/festive
 
-/datum/gear/head/church/chaplain
-	display_name = "chaplain hood"
-	path = /obj/item/clothing/head/chaplain_hood
-	allowed_roles = list(JOBS_CHURCH)
 
-/datum/gear/head/church/nun
-	display_name = "nun hood"
-	path = /obj/item/clothing/head/nun_hood
+/datum/gear/head/cowboy
+    display_name = "cowboy hat, color and size presets"
+    path = /obj/item/clothing/head/cowboy
 
-/datum/gear/head/surgery/color_presets
-	display_name = "surgery cap, color presets"
-	path = /obj/item/clothing/head/surgery
-	allowed_roles = list(JOBS_LAZARUS)
-
-/datum/gear/head/surgery/color_presets/New()
-	..()
-	var/surgery = list(
-		"Dark Green"	=	/obj/item/clothing/head/surgery/green,
-		"Baby Blue"		=	/obj/item/clothing/head/surgery/blue,
-		"Deep Purple"	=	/obj/item/clothing/head/surgery/purple,
+/datum/gear/head/cowboy/New()
+    ..()
+    var/cowboy = list(
+		"Brown"			= /obj/item/clothing/head/cowboy,
+		"Black"			= /obj/item/clothing/head/cowboy/black,
+		"White"			= /obj/item/clothing/head/cowboy/white,
+		"Wide, brown"	= /obj/item/clothing/head/cowboy/wide,
+		"Wide, black"	= /obj/item/clothing/head/cowboy/wide/black,
+		"Wide, white"	= /obj/item/clothing/head/cowboy/wide/white
 	)
-	gear_tweaks += new /datum/gear_tweak/path(surgery)
-
-/datum/gear/head/nurse
-	display_name = "nurse hat"
-	path = /obj/item/clothing/head/nursehat
-	allowed_roles = list(JOBS_LAZARUS)
-
-/datum/gear/head/hastur
-	display_name = "hastur hood"
-	path = /obj/item/clothing/head/hasturhood
-
-/datum/gear/head/plague
-	display_name = "plague doctor hat"
-	path = /obj/item/clothing/head/plaguedoctorhat
-
-
-/datum/gear/head/beaverhat
-	display_name = "beaver hat"
-	path = /obj/item/clothing/head/beaverhat
-
-/datum/gear/head/piratehat
-	display_name = "pirate hat"
-	path = /obj/item/clothing/head/hgpiratecap
-
-/datum/gear/head/witch
-	display_name = "witch hat"
-	path = /obj/item/clothing/head/witchwig
-
-/datum/gear/head/bearpelt
-	display_name = "bear pelt hat"
-	path = /obj/item/clothing/head/bearpelt
-	cost = 2
-
-/datum/gear/head/kitty
-	display_name = "kitty ears"
-	path = /obj/item/clothing/head/kitty
-
-//Eclipse Edit Begins - Adding in new custom commissioned clothes.
-/datum/gear/head/hijab
-	display_name = "hijab"
-	path = /obj/item/clothing/head/hijab
-//Eclipse Edit Ends - Adding in new custom commissioned clothes.
+    gear_tweaks += new /datum/gear_tweak/path(cowboy)

@@ -21,8 +21,9 @@
 
 	var/blattedin_revives_left = 1 // how many times blattedin can get us back to life (as num for adminbus fun).
 
-	melee_damage_lower = 3
+	melee_damage_lower = 4
 	melee_damage_upper = 8
+	wound_mult = WOUNDING_WIDE
 
 	min_breath_required_type = 3
 	min_air_pressure = 15 //below this, brute damage is dealt
@@ -55,73 +56,21 @@
 		bio = 25,
 		rad = 50
 	)
-	var/obj/item/hat
-	var/hat_x_offset = 6
-	var/hat_y_offset = 8
 
-	var/list/hats4roaches = list(/obj/item/clothing/head/collectable/chef,
-			/obj/item/clothing/head/collectable/paper,
-			/obj/item/clothing/head/collectable/beret,
-			/obj/item/clothing/head/collectable/welding,
-			/obj/item/clothing/head/collectable/flatcap,
-			/obj/item/clothing/head/collectable/pirate,
-			/obj/item/clothing/head/collectable/thunderdome,
-			/obj/item/clothing/head/collectable/swat,
-			/obj/item/clothing/head/collectable/police,
-			/obj/item/clothing/head/collectable/xenom,
-			/obj/item/clothing/head/collectable/petehat,
-			/obj/item/clothing/head/collectable/wizard,
-			/obj/item/clothing/head/collectable/hardhat)
-
-
-
-/mob/living/carbon/superior_animal/roach/New()
-	. = ..()
-	if(prob(1))		//Eclipse edit: 1% chance to wear a hat. Hopefully the hat economy shall no longer be flooded.
-		var/newhat = pick(hats4roaches)
-		var/obj/item/hatobj = new newhat(loc)
-		wear_hat(hatobj)
-
+/mob/living/carbon/superior_animal/roach/Destroy()
+	clearEatTarget()
+	return ..()
 
 //When roaches die near a leader, the leader may call for reinforcements
 /mob/living/carbon/superior_animal/roach/death()
 	.=..()
 	if(.)
-		for (var/mob/living/carbon/superior_animal/roach/fuhrer/F in range(src,8))
-			F.distress_call()
-		if(hat)
-			hat.loc = get_turf(src)
-			hat.update_plane()		//Eclipse edit: update the hat's plane so it's not glowing.
-			hat = null
-			update_hat()
+		for(var/mob/living/carbon/superior_animal/roach/fuhrer/F in range(src,8))
+			if(!F.stat)
+				F.distress_call()
+
+		layer = BELOW_MOB_LAYER // Below stunned roaches
 
 		if(prob(3))
 			visible_message(SPAN_DANGER("\the [src] hacks up a tape!"))
 			new /obj/item/music_tape(get_turf(src))
-
-/mob/living/carbon/superior_animal/roach/proc/wear_hat(var/obj/item/new_hat)
-	if(hat)
-		return
-	hat = new_hat
-	new_hat.forceMove(src)
-	update_hat()
-
-/mob/living/carbon/superior_animal/roach/proc/update_hat()
-	overlays.Cut()
-	if(hat)
-		var/offset_x = hat_x_offset
-		var/offset_y = hat_y_offset
-		switch(dir)
-			if(EAST)
-				offset_y = -hat_y_offset
-				offset_x = hat_x_offset
-			if(WEST)
-				offset_y = -hat_y_offset
-				offset_x = -hat_x_offset
-			if(NORTH)
-				offset_y = -2
-				offset_x = 0
-			if(SOUTH)
-				offset_y = -16
-				offset_x = 0
-		overlays |= get_hat_icon(hat, offset_x, offset_y)

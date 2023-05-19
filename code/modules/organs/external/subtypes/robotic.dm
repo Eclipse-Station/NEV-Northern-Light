@@ -1,11 +1,10 @@
 /obj/item/organ/external/robotic
 	name = "robotic"
-	force_icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_alt1.dmi'
-	icon = 'icons/mob/human_races/cyberlimbs/unbranded/unbranded_alt1.dmi'
+	force_icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'
 	desc = "A skeletal limb wrapped in pseudomuscles, with a low-conductivity case."
-	dislocated = -1
+	nerve_struck = -1 // no nerves here
 	nature = MODIFICATION_SILICON
-	armor = list(melee = 20, bullet = 20, energy = 20, bomb = 20, bio = 100, rad = 100)
+	armor = list(melee = 2, bullet = 2, energy = 2, bomb = 10, bio = 100, rad = 100)
 	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTIC = 2) // Multiplied by w_class
 	spawn_tags = SPAWN_TAG_PROSTHETIC
 	bad_type = /obj/item/organ/external/robotic
@@ -15,17 +14,13 @@
 	return "Robotic[model]"
 
 /obj/item/organ/external/robotic/update_icon()
-    var/gender = "m"
-    if(owner)
-        gender = owner.gender == FEMALE ? "f" : "m"
-    if(gendered || force_icon == 'icons/mob/human_races/cyberlimbs/generic.dmi')
-
-        icon_state = "[organ_tag]_[gender]"
-    else
-        icon_state = "[organ_tag]"
-    mob_icon = icon(force_icon, icon_state)
-    icon = mob_icon
-    return mob_icon
+	var/gender = "m"
+	if(owner)
+		gender = owner.gender == FEMALE ? "f" : "m"
+	icon_state = "[organ_tag]_[gender]"
+	mob_icon = icon(force_icon, icon_state)
+	icon = mob_icon
+	return mob_icon
 
 /obj/item/organ/external/robotic/is_malfunctioning()
 	return prob(brute_dam + burn_dam - min_malfunction_damage)
@@ -43,10 +38,6 @@
 /obj/item/organ/external/robotic/removed()
 	deactivate(emergency=TRUE)
 	..()
-
-/obj/item/organ/external/robotic/update_germs()
-	germ_level = 0
-	return
 
 /obj/item/organ/external/robotic/setBleeding()
 	return FALSE
@@ -71,9 +62,6 @@
 	w_class = ITEM_SIZE_SMALL
 	bad_type = /obj/item/organ/external/robotic/tiny
 
-/obj/item/organ/external/robotic/New()
-	. = ..()
-
 
 /obj/item/organ/external/robotic/l_arm
 	default_description = /datum/organ_description/arm/left
@@ -89,21 +77,3 @@
 
 /obj/item/organ/external/robotic/groin
 	default_description = /datum/organ_description/groin
-
-/obj/item/organ/external/robotic/head
-	default_description = /datum/organ_description/head
-
-/obj/item/organ/external/robotic/chest
-	default_description = /datum/organ_description/chest
-
-/obj/item/organ/external/robotic/l_hand
-	default_description = /datum/organ_description/hand/left
-
-/obj/item/organ/external/robotic/r_hand
-	default_description = /datum/organ_description/hand/right
-
-/obj/item/organ/external/robotic/l_foot
-	default_description = /datum/organ_description/foot/left
-
-/obj/item/organ/external/robotic/r_foot
-	default_description = /datum/organ_description/foot/right

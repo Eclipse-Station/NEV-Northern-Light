@@ -7,6 +7,7 @@
 /obj/machinery/power/shield_generator
 	name = "advanced shield generator"
 	desc = "A heavy-duty shield generator and capacitor, capable of generating energy shields at large distances."
+	description_info = "Can be moved by retracting the power conduits with the appropiate right-click verb"
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "generator0"
 	density = TRUE
@@ -81,22 +82,6 @@
 	var/list/tendrils = list()
 	var/list/tendril_dirs = list(NORTH, EAST, WEST)
 	var/tendrils_deployed = FALSE				// Whether the dummy capacitors are currently extended
-	
-	// Eclipse added vars
-	var/itt = T0C + 20		//Temperature of the unit. "Internal Turbine Temperature", after the dial on aircraft.
-	var/egt = T0C + 20		//Exhaust gas temperature. Used only for metering, really.
-	var/temperature_multiplier = 1	//Temperature-based power usage multiplier.
-	var/coefficient_of_performance = 99.93		//90% means that 10% of power is wasted as heat.
-	
-	var/threshold_cold = T0C + 10		//Used only for NanoUI formatting.
-	var/threshold_normal = T0C + 90		//Used only for NanoUI formatting.
-	var/threshold_critical = T0C + 110	//Used for NanoUI formatting and radio warnings.
-	var/threshold_high_temperature_cutout = T0C + 125		//Automatic E-stop if the shield generator hits this point.
-	var/threshold_alarm = FALSE		//Have we played the overheat warning over the radio?
-	var/threshold_shutdown_alarm = FALSE		//Did we shut down due to overheating?
-	var/last_overheat		//When was the last time we were over the critical heat threshold?
-	
-	var/obj/item/device/radio/radio
 
 
 /obj/machinery/power/shield_generator/update_icon()
@@ -126,11 +111,6 @@
 	. = ..()
 	connect_to_network()
 	wires = new(src)
-	
-	// // // BEGIN ECLIPSE EDITS // // //
-	radio = new /obj/item/device/radio{channels=list("Engineering", "Command")}(src)
-	assign_uid()
-	// // // END ECLIPSE EDITS // // //
 
 	//Add all allowed modes to our mode list for users to select
 	mode_list = list()
@@ -145,12 +125,6 @@
 
 	// Link to Eris object on the overmap
 	linked_ship = (locate(/obj/effect/overmap/ship/eris) in GLOB.ships)
-	
-	// // // BEGIN ECLIPSE EDITS // // //
-	//Set our temperature to that of the environment, in case it isn't exactly 20 Celsius.
-	var/datum/gas_mixture/environment = loc.return_air()
-	itt = environment.temperature
-	// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/power/shield_generator/Destroy()
 	toggle_tendrils(FALSE)
@@ -269,60 +243,6 @@
 	upkeep_power_usage = 0
 	power_usage = 0
 
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Heat handling.
-	
-	//First, we need to see if we're on a valid turf.
-	var/turf/L = loc
-	var/datum/gas_mixture/environment
-	var/_safety = TRUE		//If this is false, we're not on a valid turf.
-	var/_working = TRUE
-	
-	if(offline_for || !(running == SHIELD_RUNNING) || emergency_shutdown)		//We aren't acively working
-		_working = FALSE
-	
-	//Some simple sanity checking.
-	if(isnull(L))		//If we're null, this isn't going to do anything anyway.
-		log_debug("Shield generator (process): Turf is null.")
-		_safety = FALSE
-	if(!istype(L))		//How are we in a box?
-		log_debug("Shield generator (process): Turf is invalid.")
-		_safety = FALSE
-	
-	if(_safety)
-		environment = L.return_air()
-		itt = environment.temperature
-		temperature_multiplier = clamp((T0C + 20)/(itt+10), 1, 4)		//If the room is super cold, the equipment is going to use more power because higher oil viscosity or whatever
-		//that also helps it warm up more quickly!
-		
-		//we'll put out heat later, after we calculate energy usage.
-		
-	//Overheat code.	
-	if((itt < threshold_critical) && threshold_alarm)	//Overheat alarm sounded, but we're cooled down.
-		if(last_overheat < (world.time - 15 SECONDS))		//Give us some hysterisis, just in case.
-			if(!threshold_shutdown_alarm)		//If we caught it before the system cut off, then we announce we're cool enough.
-				radio.autosay("Shield generator returning to safe operating temperatures.", "Shield monitor", "Engineering")
-				radio.autosay("Shield generator returning to safe operating temperatures.", "Shield monitor", "Command")
-			threshold_alarm = FALSE
-			threshold_shutdown_alarm = FALSE
-
-	if(itt > threshold_critical)	//we're overheating.
-		last_overheat = world.time
-		if(!threshold_alarm)		//alarm hasn't sounded.
-			radio.autosay("WARNING: Shield generator temperature very high. Recommend reducing load immediately to return shield generator to normal operating temperatures and avoid a possible automatic emergency stop. Any internal damages caused by overheating are NOT covered by your manufacturer's warranty.", "Shield monitor", "Engineering")
-			radio.autosay("WARNING: Shield generator temperature very high. Recommend reducing load immediately to return shield generator to normal operating temperatures and avoid a possible automatic emergency stop. Any internal damages caused by overheating are NOT covered by your manufacturer's warranty.", "Shield monitor", "Command")
-		threshold_alarm = TRUE		//We explicitly set it true here to reset the hysteresis cycles above.
-	if(itt > threshold_high_temperature_cutout)		//critical overheat, shut everything down.
-		if(!threshold_shutdown_alarm)		//Alarm has not sounded, so we'll assume everything is still on. Shut it all down.
-			radio.autosay("WARNING: Shield generator temperature critical. Shield generator shutting down immediately to prevent internal damage.", "Shield monitor", "Engineering")
-			radio.autosay("WARNING: Shield generator temperature critical. Shield generator shutting down immediately to prevent internal damage.", "Shield monitor", "Command")
-			threshold_shutdown_alarm = TRUE
-			emergency_shutdown = TRUE
-			offline_for = 300
-			shutdown_field()
-			input_cap = 1000		//Negligible input, to allow us to cool.
-	// // // END ECLIPSE EDITS // // //
-
 	if (!anchored)
 		return
 	if(offline_for)
@@ -343,7 +263,7 @@
 
 	update_upkeep_star_multiplier() // Update shield upkeep depending on proximity to the star at the center of the overmap
 
-	upkeep_power_usage = round((field_segments.len - damaged_segments.len) * ENERGY_UPKEEP_PER_TILE * upkeep_multiplier * upkeep_star_multiplier * temperature_multiplier)		//Eclipse edit: Add in shield energy temperature multiplier if the room is too cold.
+	upkeep_power_usage = round((field_segments.len - damaged_segments.len) * ENERGY_UPKEEP_PER_TILE * upkeep_multiplier * upkeep_star_multiplier)
 
 	if(powernet && !input_cut && (running == SHIELD_RUNNING || running == SHIELD_OFF))
 		var/energy_buffer = 0
@@ -364,35 +284,6 @@
 		current_energy += round(energy_buffer)
 	else
 		current_energy -= round(upkeep_power_usage)	// We are shutting down, or we lack external power connection. Use energy from internal source instead.
-
-	// // // BEGIN ECLIPSE EDITS // // //
-	// This is the part where we put out heat.
-	if(_safety)		//We still have our safety variable...
-		var/transfer_moles = 0.79 * MOLES_CELLSTANDARD * 2		//I imagine the generator's gotta be lorg.
-		//Also, process only happens every 2 seconds, hence the *2 at the end there.
-		var/datum/gas_mixture/intake = environment.remove(transfer_moles)		//Sucked up by the intake...
-		if(intake)
-			
-/*	Add thermal energy to the intake air. The energy we add is equivalent to the
- *	current energy usage, which is then converted to waste heat based on the
- *	coeffecient of performance (or, rather, a variation of the HVAC definition.
- *	A coefficient of performance of 90% in this case means that 10% of the work
- *	turns to heat.) We then multiply this by 0.75 if the shield generator is off,
- *	or 1 if it's active; after that we quarter it because we want it biased toward
- *	passive usage.
- *
- *	On the upkeep, we do the same thing, except we multiply the "0.75" bit by 4
- *	because it's passive usage. Then, we add it all together, and boom.
- */
-			var/normal_power_thermal_energy = (power_usage * (100-coefficient_of_performance) * (0.75 + (_working * 0.25)) * 0.25)
-			var/upkeep_power_thermal_energy = (upkeep_power_usage * (100-coefficient_of_performance) * 3)
-
-			intake.add_thermal_energy(normal_power_thermal_energy + upkeep_power_thermal_energy)
-			
-			egt = intake.temperature
-			//and now we exhaust the air back out.
-		environment.merge(intake)
-	// // // END ECLIPSE EDITS // // //
 
 	if(current_energy <= 0)
 		energy_failure()
@@ -441,7 +332,7 @@
 			S.fail(1)
 
 
-/obj/machinery/power/shield_generator/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/power/shield_generator/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/data[0]
 
 	data["running"] = running
@@ -463,22 +354,11 @@
 	data["power_usage"] = round(power_usage / 1000)
 	data["offline_for"] = offline_for * 2
 	data["shutdown"] = emergency_shutdown
-	
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Monitoring.
-	data["temp_internal"] = itt
-	data["temp_exhaust"] = egt
-	
-	//Thresholds, used in annunciator panel and bar colouring.
-	data["thr_cold"] = threshold_cold
-	data["thr_norm"] = threshold_normal
-	data["thr_crit"] = threshold_critical
-	data["thr_htco"] = threshold_high_temperature_cutout
-	// // // END ECLIPSE EDITS // // //
-	
+
+
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "shieldgen_eclipse.tmpl", src.name, 650, 800)		//Eclipse edit.
+		ui = new(user, src, ui_key, "shieldgen.tmpl", src.name, 650, 800)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
@@ -505,7 +385,7 @@
 
 
 /obj/machinery/power/shield_generator/attack_hand(var/mob/user)
-	ui_interact(user)
+	nano_ui_interact(user)
 	if(panel_open)
 		wires.Interact(user)
 
@@ -533,12 +413,6 @@
 		log_event(EVENT_DISABLED, src)
 
 	if(href_list["start_generator"])
-		// // // BEGIN ECLIPSE EDITS // // //
-		//this is how we reset the shutdown alarm. By turning it back on!
-		if(threshold_shutdown_alarm)
-			threshold_shutdown_alarm = FALSE
-			threshold_alarm = FALSE
-		// // // END ECLIPSE EDITS // // //
 		running = SHIELD_RUNNING
 		regenerate_field()
 		log_event(EVENT_ENABLED, src)
@@ -559,7 +433,6 @@
 		offline_for += 300 //5 minutes, given that procs happen every 2 seconds
 		shutdown_field()
 		emergency_shutdown = TRUE
-		input_cap = 1000		//Eclipse edit: Negligible input, because it's an E-stop!
 		log_event(EVENT_DISABLED, src)
 		if(prob(temp_integrity - 50) * 1.75)
 			spawn()
@@ -593,7 +466,7 @@
 		log_event(EVENT_RECONFIGURED, src)
 		. = 1
 
-	ui_interact(usr)
+	nano_ui_interact(usr)
 
 /obj/machinery/power/shield_generator/proc/field_integrity()
 	if(max_energy)

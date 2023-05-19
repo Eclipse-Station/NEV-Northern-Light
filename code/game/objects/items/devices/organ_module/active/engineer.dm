@@ -1,5 +1,5 @@
 /obj/item/organ_module/active/simple/engineer
-	name = "embedded engineer's multitool"
+	name = "embedded Technomancer multitool"
 	desc = "An all-in-one engineering tool implant. Convenient to use and more effective than the basics, but much less efficient than customized or more specialized tools."
 	verb_name = "Deploy engineering omnitool"
 	icon_state = "multitool"

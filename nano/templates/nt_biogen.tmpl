@@ -9,7 +9,7 @@
 {{else}}
 	<div class="itemContent">
 		<div class="bad">
-			INOPERABLE
+			NOT OPERATIONAL
 		</div>
 	</div>
 {{/if}}
@@ -82,18 +82,18 @@
 	<div class="itemContent"> {{:data.coil_condition}} % </div>
 {{else}}
 	<div class="bad">
-		<div class="itemContent"> DAMAGED SECTIONS DETECTED </div>
+		<div class="itemContent"> DAMAGED SECTORS DETECTED </div>
 	</div>
 {{/if}}
 
 <div class="itemLabel"> Powernet: </div>
 {{if data.powernet_detected}}
 	<div class="good">
-		<div class="itemContent"> CONNECTED </div>
+		<div class="itemContent"> DETECTED </div>
 	</div>
 {{else}}
 	<div class="bad">
-		<div class="itemContent"> NOT CONNECTED </div>
+		<div class="itemContent"> UNDETECTED </div>
 	</div>
 {{/if}}
 	
@@ -108,9 +108,6 @@
 	{{/if}}
 {{else}}
 	<div class="bad">
-		Reactor chamber requires service.
+		Air chamber is lack of wires
 	</div>
 {{/if}}
-
-<h2>CONTROLS</h2>
-<td>{{:helper.link('Activate Biogenerator', null, {'activate' : '1'})}}

@@ -136,7 +136,7 @@ var/list/holder_mob_icon_cache = list()
 		//Repeat this check
 		//If we're still on the turf a few frames later, then we have actually been dropped or thrown
 		//Release the mob accordingly
-		//addtimer(CALLBACK(src, .proc/post_drop), 3)
+		//addtimer(CALLBACK(src, PROC_REF(post_drop)), 3)
 		//TODO: Uncomment the above once addtimer is ported
 		spawn(3)
 			post_drop()
@@ -511,7 +511,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/cat/penny
 	name = "Penny"
-	desc = "An important cat, straight from Central Command."
+	desc = "An important cat, straight from Hansa."
 	icon_state = "penny"
 	icon_state_dead = "penny_dead"
 	slot_flags = SLOT_HEAD

@@ -72,7 +72,7 @@ var/list/mydirs = list(NORTH, SOUTH, EAST, WEST, SOUTHWEST, NORTHWEST, NORTHEAST
 	stop_automated_movement = 1
 	if(!target_mob || SA_attackable(target_mob))
 		stance = HOSTILE_STANCE_IDLE
-	if(target_mob in ListTargets(vision_range + 1))
+	if(target_mob in ListTargets(10))
 		if(ranged)
 			if(get_dist(src, target_mob) <= 6 && !istype(src, /mob/living/simple_animal/hostile/megafauna))
 				OpenFire(target_mob)
@@ -140,7 +140,7 @@ var/list/mydirs = list(NORTH, SOUTH, EAST, WEST, SOUTHWEST, NORTHWEST, NORTHEAST
 	if(!target_mob || SA_attackable(target_mob))
 		LoseTarget()
 		return 0
-	if(!(target_mob in ListTargets(vision_range + 1)))
+	if(!(target_mob in ListTargets(10)))
 		LostTarget()
 		return 0
 	if(get_dist(src, target_mob) <= 1)	//Attacking

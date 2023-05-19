@@ -1,4 +1,3 @@
-#define ASSIGN_LIST_TO_COLORS(L, R, G, B) if(L) { R = L[1]; G = L[2]; B = L[3]; }
 
 /datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
@@ -6,31 +5,19 @@
 		var/datum/species/current_species = all_species[species]
 		if(!current_species) current_species = all_species[SPECIES_HUMAN]
 		gender = pick(current_species.genders)
-
 		h_style = random_hair_style(gender, species)
 		f_style = random_facial_hair_style(gender, species)
 		if(current_species)
-			if(current_species.appearance_flags & HAS_A_SKIN_TONE)
-				s_tone = current_species.get_random_skin_tone() || s_tone
+			s_tone = random_skin_tone()
 			if(current_species.appearance_flags & HAS_EYE_COLOR)
-				ASSIGN_LIST_TO_COLORS(current_species.get_random_eye_color(), r_eyes, g_eyes, b_eyes)
+				randomize_eyes_color()
 			if(current_species.appearance_flags & HAS_SKIN_COLOR)
-				ASSIGN_LIST_TO_COLORS(current_species.get_random_skin_color(), r_skin, g_skin, b_skin)
+				randomize_skin_color()
 			if(current_species.appearance_flags & HAS_HAIR_COLOR)
-				var/hair_colors = current_species.get_random_hair_color()
-				if(hair_colors)
-					ASSIGN_LIST_TO_COLORS(hair_colors, r_hair, g_hair, b_hair)
-
-					if(prob(75))
-						r_facial = r_hair
-						g_facial = g_hair
-						b_facial = b_hair
-					else
-						ASSIGN_LIST_TO_COLORS(current_species.get_random_facial_hair_color(), r_facial, g_facial, b_facial)
-
+				randomize_hair_color("hair")
+				randomize_hair_color("facial")
 		if(current_species.appearance_flags & HAS_UNDERWEAR)
-			if(all_underwear)
-				all_underwear.Cut()
+			all_underwear.Cut()
 			for(var/datum/category_group/underwear/WRC in GLOB.underwear.categories)
 				var/datum/category_item/underwear/WRI = pick(WRC.items)
 				all_underwear[WRC.name] = WRI.name
@@ -41,8 +28,7 @@
 		if(H)
 			copy_to(H)
 
-#undef ASSIGN_LIST_TO_COLORS
-/*
+
 /datum/preferences/proc/randomize_hair_color(var/target = "hair")
 	if(prob (75) && target == "facial") // Chance to inherit hair color
 		facial_color = hair_color
@@ -188,7 +174,7 @@
 	blue = max(min(blue + rand (-25, 25), 255), 0)
 
 	skin_color = rgb(red, green, blue)
-*/
+
 /datum/preferences/proc/dress_preview_mob(var/mob/living/carbon/human/mannequin, naked = FALSE)
 	var/update_icon = FALSE
 	copy_to(mannequin, TRUE)
@@ -249,15 +235,15 @@
 	preview_icon.Scale(48+32, 16+32)
 
 	mannequin.dir = NORTH
-	var/icon/stamp = getFlatIcon(mannequin, NORTH, always_use_defdir = 1)
+	var/icon/stamp = getFlatIcon(mannequin, NORTH)
 	preview_icon.Blend(stamp, ICON_OVERLAY, 25, 17)
 
 	mannequin.dir = WEST
-	stamp = getFlatIcon(mannequin, WEST, always_use_defdir = 1)
+	stamp = getFlatIcon(mannequin, WEST)
 	preview_icon.Blend(stamp, ICON_OVERLAY, 1, 9)
 
 	mannequin.dir = SOUTH
-	stamp = getFlatIcon(mannequin, SOUTH, always_use_defdir = 1)
+	stamp = getFlatIcon(mannequin, SOUTH)
 	preview_icon.Blend(stamp, ICON_OVERLAY, 49, 1)
 
 	preview_icon.Scale(preview_icon.Width() * 2, preview_icon.Height() * 2) // Scaling here to prevent blurring in the browser.

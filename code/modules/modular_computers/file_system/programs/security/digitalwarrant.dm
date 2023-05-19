@@ -12,14 +12,14 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 	program_menu_icon = "star"
 	requires_ntnet = 1
 	available_on_ntnet = 1
-	required_access = access_sec_consoles
+	required_access = access_security
 	nanomodule_path = /datum/nano_module/digitalwarrant/
 
 /datum/nano_module/digitalwarrant/
 	name = "Warrant Assistant"
 	var/datum/computer_file/data/warrant/activewarrant
 
-/datum/nano_module/digitalwarrant/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/digitalwarrant/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/nano_topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 
 	if(activewarrant)
@@ -84,7 +84,7 @@ LEGACY_RECORD_STRUCTURE(all_warrants, warrant)
 		return
 	var/obj/item/card/id/I = user.GetIdCard()
 	if(!istype(I) || !I.registered_name || !(access_security in I.access))
-		to_chat(user, "Authentication error: Unable to locate ID with appropriate access to allow this operation.")
+		to_chat(user, "Authentication error: Unable to locate ID with apropriate access to allow this operation.")
 		return
 
 	if(href_list["sendtoarchive"])

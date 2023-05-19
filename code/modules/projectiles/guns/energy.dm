@@ -8,15 +8,11 @@
 	bad_type = /obj/item/gun/energy
 	spawn_tags = SPAWN_TAG_GUN_ENERGY
 
-	recoil_buildup = 0.5 //energy weapons have little to no recoil
-
 	var/charge_cost = 100 //How much energy is needed to fire.
 	var/obj/item/cell/cell
 	var/suitable_cell = /obj/item/cell/medium
 	var/cell_type = /obj/item/cell/medium/high
 	var/projectile_type = /obj/item/projectile/beam/practice
-	var/auto_eject = FALSE			//Eclipse Edit - if the cell should automatically eject itself when empty
-	var/auto_eject_sound			
 	var/modifystate
 	var/charge_meter = TRUE //if set, the icon state will be chosen based on the current charge
 	var/item_modifystate
@@ -38,14 +34,12 @@
 
 	wield_delay = 0 SECOND
 	wield_delay_factor = 0
-	
-	simplemob_bonus_damage_multiplier = -0.2		//Eclipse edit: -20% damage to simplemobs.
-	var/suppress_already_loaded_message = FALSE		//Eclipse edit: Suppress the "it's already loaded" message
 
 /obj/item/gun/energy/switch_firemodes()
 	. = ..()
 	if(.)
 		update_icon()
+		update_held_icon()
 
 /obj/item/gun/energy/emp_act(severity)
 	..()
@@ -122,13 +116,16 @@
 
 		if(modifystate)
 			icon_state = "[modifystate][ratio]"
+			wielded_item_state = "_doble" + "[modifystate][ratio]"
 		else
 			icon_state = "[initial(icon_state)][ratio]"
 
 		if(item_charge_meter)
 			set_item_state("-[item_modifystate][ratio]")
+			wielded_item_state = "_doble" + "-[item_modifystate][ratio]"
 	if(!item_charge_meter && item_modifystate)
 		set_item_state("-[item_modifystate]")
+		wielded_item_state = "_doble" + "-[item_modifystate]"
 	if(!ignore_inhands)
 		update_wear_icon()
 
@@ -164,18 +161,24 @@
 		to_chat(usr, SPAN_WARNING("[src] is a disposable gun, it doesn't need more batteries."))
 		return
 
-	if(cell)
-		if(!suppress_already_loaded_message)		//Eclipse edit: In case of multiple cells.
-			to_chat(usr, SPAN_WARNING("[src] is already loaded."))		//End Eclipse edit.
-		return
-
-	if(istype(C, suitable_cell) && insert_item(C, user))
-		cell = C
-		update_icon()
-
+	if(istype(C, suitable_cell))
+		if(cell)
+			if(replace_item(cell, C, user))
+				cell = C
+				update_icon()
+		else if(insert_item(C, user))
+			cell = C
+			update_icon()
 	..()
 
-/obj/item/gun/energy/ui_data(mob/user)
+/obj/item/gun/energy/attack_self(mob/user)
+	if(!self_recharge && cell && cell.charge < charge_cost && eject_item(cell, user))
+		cell = null
+		update_icon()
+		return
+	..()
+
+/obj/item/gun/energy/nano_ui_data(mob/user)
 	var/list/data = ..()
 	data["charge_cost"] = charge_cost
 	var/obj/item/cell/C = get_cell()
@@ -200,18 +203,3 @@
 	gun_tags |= GUN_ENERGY
 	if(istype(projectile_type, /obj/item/projectile/beam))
 		gun_tags |= GUN_LASER
-
-//Eclipse Edit - auto eject proc originally for Laser Musket. Ended up not needing it but I'm leaving it in case we want an auto eject function on other laser guns in the future.
-/obj/item/gun/energy/afterattack(atom/A, mob/living/user)
-	..()
-	if(auto_eject && cell && cell.charge <= 0 )
-		cell.forceMove(get_turf(src.loc))
-		user.visible_message(
-			"[cell] falls out and clatters on the floor!",
-			SPAN_NOTICE("[cell] falls out and clatters on the floor!")
-			)
-		if(auto_eject_sound)
-			playsound(user, auto_eject_sound, 30, 1)
-		cell.update_icon()
-		cell = null
-		update_icon() //make sure to do this after unsetting cell_type

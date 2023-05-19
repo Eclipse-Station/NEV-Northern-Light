@@ -60,10 +60,14 @@
 	. = ..()
 	update_name()
 
+/obj/item/reagent_containers/glass/rag/is_hot()
+    if(on_fire)
+        return 1000
+
 /obj/item/reagent_containers/glass/rag/proc/update_name()
 	if(on_fire)
 		name = "burning [initial(name)]"
-	else if(reagents?.total_volume) //Eclipse edit - runtime fix
+	else if(reagents.total_volume)
 		name = "damp [initial(name)]"
 	else
 		name = "dry [initial(name)]"

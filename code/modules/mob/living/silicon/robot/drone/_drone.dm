@@ -63,7 +63,6 @@ var/list/mob_hat_cache = list()
 	var/communication_channel = LANGUAGE_DRONE
 	var/station_drone = TRUE
 
-	var/obj/item/device/gps/satnav		//Eclipse edit: Drones (and blitzshells) now have a satnav.
 	holder_type = /obj/item/holder/drone
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/observer/ghost/possessor)
@@ -97,11 +96,6 @@ var/list/mob_hat_cache = list()
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
 		hat.loc = get_turf(src)
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Destroy our satnav if we die.
-	if(satnav)
-		satnav.Destroy()
-	// // // END ECLIPSE EDITS // // //
 	GLOB.drones.Remove(src)
 	. = ..()
 
@@ -151,16 +145,7 @@ var/list/mob_hat_cache = list()
 	name = real_name
 
 /mob/living/silicon/robot/drone/updatename()
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Satellite navigator ID
-	var/random_id = rand(100,999)
-	satnav = new /obj/item/device/gps(src)
-	satnav.gps.prefix = "DRNE"
-	if(satnav)		//null check
-		satnav.gps.change_serial("DRNE-[random_id]")
-		satnav.update_name()
-	real_name = "maintenance drone ([random_id])"
-	// // // END ECLIPSE EDITS // // //
+	real_name = "maintenance drone ([rand(100,999)])"
 	name = real_name
 
 /mob/living/silicon/robot/drone/updateicon()
@@ -207,7 +192,7 @@ var/list/mob_hat_cache = list()
 
 		if(stat == 2)
 
-			if(!config.allow_drone_spawn || emagged || health < -35) //It's dead, Dave.
+			if(!config.allow_drone_spawn || HasTrait(CYBORG_TRAIT_EMAGGED) || health < -35) //It's dead, Dave.
 				to_chat(user, SPAN_DANGER("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 				return
 
@@ -222,7 +207,7 @@ var/list/mob_hat_cache = list()
 		else
 			user.visible_message(SPAN_DANGER("\The [user] swipes \his ID card through \the [src], attempting to shut it down."), SPAN_DANGER("You swipe your ID card through \the [src], attempting to shut it down."))
 
-			if(emagged)
+			if(HasTrait(CYBORG_TRAIT_EMAGGED))
 				return
 
 			if(allowed(usr))
@@ -239,7 +224,7 @@ var/list/mob_hat_cache = list()
 		to_chat(user, SPAN_DANGER("There's not much point subverting this heap of junk."))
 		return
 
-	if(emagged)
+	if(HasTrait(CYBORG_TRAIT_EMAGGED))
 		to_chat(src, SPAN_DANGER("\The [user] attempts to load subversive software into you, but your hacked subroutines ignore the attempt."))
 		to_chat(user, SPAN_DANGER("You attempt to subvert [src], but the sequencer has no effect."))
 		return
@@ -252,7 +237,7 @@ var/list/mob_hat_cache = list()
 	var/time = time2text(world.realtime,"hh:mm:ss")
 	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
-	emagged = 1
+	AddTrait(CYBORG_TRAIT_EMAGGED)
 	lawupdate = 0
 	connected_ai = null
 	clear_supplied_laws()
@@ -295,7 +280,7 @@ var/list/mob_hat_cache = list()
 //CONSOLE PROCS
 /mob/living/silicon/robot/drone/proc/law_resync()
 	if(stat != 2)
-		if(emagged)
+		if(HasTrait(CYBORG_TRAIT_EMAGGED))
 			to_chat(src, SPAN_DANGER("You feel something attempting to modify your programming, but your hacked subroutines are unaffected."))
 		else
 			to_chat(src, SPAN_DANGER("A reset-to-factory directive packet filters through your data connection, and you obediently modify your programming to suit it."))
@@ -304,7 +289,7 @@ var/list/mob_hat_cache = list()
 
 /mob/living/silicon/robot/drone/proc/shut_down()
 	if(stat != 2)
-		if(emagged)
+		if(HasTrait(CYBORG_TRAIT_EMAGGED))
 			to_chat(src, SPAN_DANGER("You feel a system kill order percolate through your tiny brain, but it doesn't seem like a good idea to you."))
 		else
 			to_chat(src, SPAN_DANGER("You feel a system kill order percolate through your tiny brain, and you obediently destroy yourself."))
@@ -347,34 +332,6 @@ var/list/mob_hat_cache = list()
 
 /mob/living/silicon/robot/drone/remove_robot_verbs()
 	return
-
-/mob/living/silicon/robot/drone/construction/welcome_drone()
-	to_chat(src, "<b>You are a construction drone, an autonomous engineering and fabrication system.</b>.")
-	to_chat(src, "You are assigned to a Sol Central construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible.")
-	to_chat(src, "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows.")
-	to_chat(src, "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>.")
-
-/mob/living/silicon/robot/drone/construction/init()
-	..()
-	flavor_text = "It's a bulky construction drone stamped with a Sol Central glyph."
-
-/mob/living/silicon/robot/drone/construction/updatename()
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Satellite navigator ID
-	var/random_id = rand(100,999)
-	satnav = new /obj/item/device/gps(src)
-	satnav.gps.prefix = "DRNE"
-	if(satnav)		//null check
-		satnav.gps.change_serial("DRNE-[random_id]")
-		satnav.update_name()
-	real_name = "construction drone ([random_id])"
-	// // // END ECLIPSE EDITS // // //
-	name = real_name
-
-/mob/living/silicon/robot/drone/construction/updateicon()
-	cut_overlays()
-	if(stat == CONSCIOUS)
-		overlays += "eyes-[module_sprites[icontype]]"
 
 /proc/too_many_active_drones()
 	var/drones = 0

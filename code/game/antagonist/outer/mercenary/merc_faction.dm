@@ -1,18 +1,11 @@
-#define WELCOME_SERBS "You are one of the Serbians. A team of professional, highly trained, and well equipped soldiers of\
-fortune. You have been selected for a dangerous, potentially suicidal mission aboard the NEV Northern\
-Light.\n\n\
-You are currently aboard your base preparing for your mission. In the armoury you will find a wide\
-variety of weapons and tools to use to complete your mission. Take a pistol, a rifle, a knife, and a SCAF\
-suit as your basic loadout.\n\n\
-Once you have your basic gear, you may select a specialist weapon, like an RPG, or the Pulemyot\
-Kalashnikova. These are powerful, but bulky weapons, so choose wisely. Discuss your specialties with\
-your team, and develop a strategy to achieve your objectives.\n\n\
-Remember to take everything you think you may need on board your ship with you. You will not be able\
-to return to the base once you have departed for your mission. You do have an uplink on your ship to\
-supply any extra equipment you might need.\n\n\
-Once you are ready, use the console on the shuttle’s bridge to begin your mission. The Northern Light’s\
-sensors will detect your approach before you arrive, so stealth is not an option. Once you arrive, you will\
-have a strict limit to achieve your objective and return to base."
+#define WELCOME_SERBS "You are a serbian mercenary, part of a team of professional soldiers. You are currently aboard your base preparing for a mission targeting the CEV Eris.<br>\
+	<br>\
+	In your base you will find your armoury full of weapon crates and the EVA capable SCAF armour. It is advised that you take a pistol, a rifle, a knife and a SCAF suit for basic equipment.<br>\
+	Once you have your basic gear, you may also wish to take along a specialist weapon, like the RPG-7 or the Pulemyot Kalashnikova. Each of the specialist weapons is powerful but very bulky, you will need to wear it over your back.<br>\
+	<br>\
+	Discuss your specialties with your team, choose a broad range of weapons that will allow your group to overcome a variety of obstacles. Search the base and load up everything onto your ship which may be useful, you will not be able to easily return here once you depart.<br>\
+	When ready, use the console on your shuttle bridge to depart for Eris. Travelling will take several minutes, and you will be detected before you even arrive, stealth is not an option. Once you arrive, you have a time limit to complete your mission."
+
 /datum/faction/mercenary
 	id = FACTION_SERBS
 	name = "Serbians"

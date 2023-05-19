@@ -323,7 +323,7 @@
 
 	var/body_part = null
 	if(hands)
-		body_part = M.hand ? BP_L_HAND : BP_R_HAND
+		body_part = M.hand ? BP_L_ARM : BP_R_ARM
 	else
 		body_part = pick(BP_L_LEG, BP_R_LEG)
 

@@ -61,14 +61,14 @@ var/list/gear_datums = list()
 	for(var/gear_name in gear_datums)
 		var/datum/gear/G = gear_datums[gear_name]
 		var/okay = 1
-		//Eclipse add below:
-		if(preference_mob)
-			if(G.whitelisted)
-				okay = 0
-
-			if(G.ckey && G.ckey != lowertext(preference_mob.ckey))
-				okay = 0
-
+		if(G.whitelisted && preference_mob)
+			okay = 0
+			// TODO: enable after baymed
+			/*for(var/species in G.whitelisted)
+				if(is_species_whitelisted(preference_mob, species))
+					okay = 1
+					break
+					*/
 		if(!okay)
 			continue
 		if(max_cost && G.cost > max_cost)
@@ -309,7 +309,6 @@ var/list/gear_datums = list()
 	var/flags              //Special tweaks in new
 	var/category
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
-	var/ckey //Eclipse add - custom items
 
 /datum/gear/New()
 	if(FLAGS_EQUALS(flags, GEAR_HAS_TYPE_SELECTION|GEAR_HAS_SUBTYPE_SELECTION))
@@ -360,14 +359,6 @@ var/list/gear_datums = list()
 /datum/gear/proc/spawn_in_storage_or_drop(var/mob/living/carbon/human/H, var/metadata)
 	var/obj/item/item = spawn_item(H, metadata)
 	item.add_fingerprint(H)
-
-	if(istype(item, /obj/item/implant/core_implant/lesser_cruciform))
-		var/obj/item/implant/core_implant/lesser_cruciform/imp = item
-		imp.install(H)
-		imp.activate()
-		imp.add_module(new CRUCIFORM_COMMON)
-		to_chat(H, "<span class='notice'>Implanting you with \the [item]!</span>")
-		return
 
 	var/atom/placed_in = H.equip_to_storage(item)
 	if(placed_in)

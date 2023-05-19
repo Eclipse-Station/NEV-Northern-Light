@@ -1,6 +1,8 @@
 /turf/simulated/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate rooms."
+	description_info = "Can be deconstructed by welding"
+	description_antag = "Deconstructing these will leave fingerprints. C4 or Thermite leave none"
 	icon = 'icons/turf/wall_masks.dmi'
 	icon_state = "generic"
 	layer = CLOSED_TURF_LAYER
@@ -48,7 +50,7 @@
 /turf/simulated/wall/levelupdate()
 	for(var/obj/O in src)
 		O.hide(TRUE)
-		SEND_SIGNAL(O, COMSIG_TURF_LEVELUPDATE, TRUE)
+		SEND_SIGNAL_OLD(O, COMSIG_TURF_LEVELUPDATE, TRUE)
 
 /turf/simulated/wall/New(newloc, materialtype, rmaterialtype)
 	if (!damage_overlays)
@@ -211,9 +213,11 @@
 		src.ricochet_id = 0
 	var/proj_damage = Proj.get_structure_damage()
 	if(istype(Proj,/obj/item/projectile/beam))
-		burn(500)//TODO : fucking write these two procs not only for phoron (see phoron in materials.dm:283) ~
+		burn(500)//TODO : fucking write these two procs not only for plasma (see plasma in materials.dm:283) ~
 	else if(istype(Proj,/obj/item/projectile/ion))
 		burn(500)
+
+	Proj.on_hit(src)
 
 	if(Proj.can_ricochet && proj_damage != 0 && (src.x != Proj.starting.x) && (src.y != Proj.starting.y))
 		var/ricochetchance = 1
@@ -222,7 +226,7 @@
 			ricochetchance = min(ricochetchance * ricochetchance, 100)
 		// here it is multiplied by 1/2 temporally, changes will be required when new wall system gets implemented
 		ricochetchance = round(ricochetchance * projectile_reflection(Proj, TRUE) / 2)
-		
+
 		ricochetchance *= Proj.ricochet_ability
 		ricochetchance = min(max(ricochetchance, 0), 100)
 		if(prob(ricochetchance))
@@ -230,9 +234,10 @@
 			var/damagediff = round(proj_damage / 2 + proj_damage * ricochetchance / 200) // projectile loses up to 50% of its damage when it ricochets, depending on situation
 			Proj.damage_types[BRUTE] = round(Proj.damage_types[BRUTE] / 2 + Proj.damage_types[BRUTE] * ricochetchance / 200)
 			Proj.damage_types[BURN] = round(Proj.damage_types[BURN] / 2 + Proj.damage_types[BURN] * ricochetchance / 200)
-			take_damage(min(proj_damage - damagediff, 100))
+			Proj.def_zone = ran_zone()
+			projectile_reflection(Proj)		// Reflect before damage, runtimes occur in some cases if damage happens first.
 			visible_message("<span class='danger'>\The [Proj] ricochets off the surface of wall!</span>")
-			projectile_reflection(Proj)
+			take_damage(min(proj_damage - damagediff, 100))
 			new /obj/effect/sparks(get_turf(Proj))
 			return PROJECTILE_CONTINUE // complete projectile permutation
 
@@ -433,11 +438,11 @@
 	return total_radiation
 
 /turf/simulated/wall/proc/burn(temperature)
-	if(material.combustion_effect(src, temperature, 0.7))//it wont return something in any way, this proc is commented and it belongs to phoron material.(see materials.dm:283)
+	if(material.combustion_effect(src, temperature, 0.7))//it wont return something in any way, this proc is commented and it belongs to plasma material.(see materials.dm:283)
 		spawn(2)
 			new /obj/structure/girder(src)
 			src.ChangeTurf(/turf/simulated/floor)
 			for(var/turf/simulated/wall/W in RANGE_TURFS(3, src) - src)
 				W.burn((temperature/4))
-			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
+			for(var/obj/machinery/door/airlock/plasma/D in range(3,src))
 				D.ignite(temperature/4)

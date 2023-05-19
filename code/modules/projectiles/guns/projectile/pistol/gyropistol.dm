@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/gyropistol
-	name = "\improper NT GP \"Zeus\""
+	name = "NT GP \"Zeus\""
 	desc = "A bulky pistol designed to fire self-propelled rounds."
 	icon = 'icons/obj/guns/projectile/gyropistol.dmi'
 	icon_state = "gyropistol"
@@ -15,12 +15,13 @@
 	mag_well = MAG_WELL_PISTOL
 	magazine_type = /obj/item/ammo_magazine/a75
 	auto_eject = 1
-	recoil_buildup = 0.1 //self-propelled rounds, basically almost no recoil
+	init_recoil = HANDGUN_RECOIL(1) //recoil handled by bullettype
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	unload_sound = 'sound/weapons/guns/interact/hpistol_magout.ogg'
 	reload_sound = 'sound/weapons/guns/interact/hpistol_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/hpistol_cock.ogg'
 	rarity_value = 100
+	serial_type = "NT"
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/projectile/gyropistol/update_icon()

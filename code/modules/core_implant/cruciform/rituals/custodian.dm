@@ -6,14 +6,18 @@
 
 /datum/ritual/cruciform/custodian/purging
 	name = "Words of purging"
-	phrase = "Purificati a peccatis et in remissionem peccatorum"
-	desc = "Addictions are common afflictions among ship denizens. This littany helps those people by easing or removing their addictions."
+	phrase = "Purificati a peccatis et in remissionem peccatorum."
+	desc = "Addictions are common afflictions among ship denizens. This litany helps those people by easing or removing their addictions."
 	power = 5
 
 /datum/ritual/cruciform/custodian/purging/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
 	var/mob/living/carbon/human/T = get_front_human_in_range(user, 1)
 	if(!T)
 		fail("No target in front of you.", user, C)
+		return FALSE
+
+	if(get_active_mutation(T, MUTATION_ATHEIST))
+		fail("[T.name]\'s mutated flesh rejects your will.", user, C)
 		return FALSE
 
 	if(T.metabolism_effects.addiction_list.len)

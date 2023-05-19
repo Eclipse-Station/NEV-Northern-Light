@@ -3,7 +3,7 @@
 //
 /obj/machinery/holomap
 	name = "holomap"
-	desc = "A virtual map of the NEV \"Northern Light\"."
+	desc = "A virtual map of the CEV \"Eris\"."
 	icon = 'icons/obj/machines/stationmap.dmi'
 	icon_state = "station_map"
 	anchored = TRUE
@@ -132,7 +132,7 @@
 			if(bogus)
 				to_chat(user, SPAN_WARNING("The holomap has failed to initialize. This area of space cannot be mapped."))
 			else
-				to_chat(user, SPAN_NOTICE("A hologram of NEV \"Northern Light\" appears before your eyes."))
+				to_chat(user, SPAN_NOTICE("A hologram of CEV \"Eris\" appears before your eyes."))
 
 /obj/machinery/holomap/attack_ai(mob/living/silicon/robot/user)
 	return // TODO

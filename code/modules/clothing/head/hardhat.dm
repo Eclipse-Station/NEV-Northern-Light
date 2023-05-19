@@ -6,9 +6,9 @@
 	brightness_on = 4 //luminosity when on
 	light_overlay = "hardhat_light"
 	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 10,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 10,
 		bio = 10,
 		rad = 25
@@ -18,16 +18,6 @@
 	price_tag = 30
 	style = STYLE_NEG_LOW
 	style_coverage = COVERS_HAIR
-
-/obj/item/clothing/head/hardhat/visor
-	name = "visored hard hat"
-	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight and visor, which may protect eyes."
-	icon_state = "hardhat_yellow_visor"
-	body_parts_covered = HEAD|FACE|EYES
-	flags_inv = HIDEEYES
-
-/obj/item/clothing/head/hardhat/blue
-	icon_state = "hardhat_blue"
 
 /obj/item/clothing/head/hardhat/visor
 	name = "visored hard hat"

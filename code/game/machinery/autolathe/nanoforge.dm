@@ -1,6 +1,6 @@
 /obj/machinery/autolathe/nanoforge
 	name = "matter auto-nanoforge"
-	desc = "A very peculiar machine donated to the engineering team by Lazarus. Requires anomalous objects to function."
+	desc = "It consumes items and produces compressed matter."
 	icon_state = "nanoforge"
 	icon = 'icons/obj/machines/autolathe.dmi'
 	use_oddities = TRUE
@@ -42,9 +42,6 @@
 	return
 
 /obj/machinery/autolathe/nanoforge/proc/compress_matter(mob/user)
-	if(!inspiration || !inspiration.perk)
-		to_chat(user, SPAN_WARNING("Catalyst not found."))
-		return
 	var/compressed_amt
 	for(var/mat in stored_material)
 		compressed_amt += stored_material[mat] * matter_to_compressed[mat]
@@ -53,13 +50,12 @@
 	else
 		if(user)
 			var/list/options = list("yes", "no")
-			var/option = input(user, "Proceed?", "Compressing matter will use all of the stored materials", null) as null|anything in options
-			if(option == "no")
-				return
-		stored_material = list()
-		playsound(src.loc, 'sound/sanity/hydraulic.ogg', 50, 1)
-		spawn(7)
-			new /obj/item/stack/material/compressed(drop_location(), round(compressed_amt))
+			var/option = input(user, "Proceed?", "Compressing matter will use all of the stored materials", "no") as null|anything in options
+			if(option == "yes")
+				stored_material = list()
+				playsound(src.loc, 'sound/sanity/hydraulic.ogg', 50, 1)
+				spawn(7)
+					new /obj/item/stack/material/compressed(drop_location(), round(compressed_amt))
 
 /obj/machinery/autolathe/nanoforge/Topic(href, href_list)
 	if(..())
@@ -92,7 +88,7 @@
 
 /obj/machinery/autolathe/nanoforge/icon_off()
 	. = ..()
-	if(. || !inspiration)
+	if(.)
 		icon_state = initial(icon_state)
 		icon_state = "[icon_state]_off"
 		. = TRUE
@@ -100,5 +96,5 @@
 /obj/machinery/autolathe/nanoforge/check_user(mob/user)
 	if(user.stats?.getPerk(PERK_TECHNOMANCER) || user.stat_check(STAT_MEC, STAT_LEVEL_EXPERT))
 		return TRUE
-	to_chat(user, SPAN_NOTICE("You don't know how to operate this."))
+	to_chat(user, SPAN_NOTICE("You don't know how to make [src] work."))
 	return FALSE

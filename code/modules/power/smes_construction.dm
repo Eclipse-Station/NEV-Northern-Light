@@ -136,7 +136,7 @@
 	// SMESs store very large amount of power. If someone screws up (ie: Disables safeties and attempts to modify the SMES) very bad things happen.
 	// Bad things are based on charge percentage.
 	// Possible effects:
-	// Sparks - Lets out few sparks, mostly fire hazard if phoron present. Otherwise purely aesthetic.
+	// Sparks - Lets out few sparks, mostly fire hazard if plasma present. Otherwise purely aesthetic.
 	// Shock - Depending on intensity harms the user. Insultated Gloves protect against weaker shocks, but strong shock bypasses them.
 	// EMP Pulse - Lets out EMP pulse discharge which screws up nearby electronics.
 	// Light Overload - X% chance to overload each lighting circuit in connected powernet. APC based.
@@ -380,22 +380,3 @@
 	. = ..()
 	component_parts += new /obj/item/stock_parts/smes_coil(src)
 	RefreshParts()
-	
-// // // ECLIPSE ADDITIONS BEYOND THIS POINT // // //
-//Backup emergency SMES unit, to allow the ship to operate in minimum-power situations.
-/obj/machinery/power/smes/buildable/backup
-	capacity = 15e6		//To  power the station for a while.
-	charge = 8e6		//Same as engine.
-	
-	output_attempt = FALSE		//Manual activation...
-	input_attempt = TRUE		//Automatic charge.
-	
-	input_level = 25e3		//25 kW trickle charge.
-	
-	RCon_tag = "Backup Emergency SMES"
-	
-/obj/machinery/power/smes/buildable/backup/Initialize()
-	. = ..()
-	component_parts += new /obj/item/stock_parts/smes_coil(src)
-	RefreshParts()
-	output_attempt = FALSE		//in case it gets the bright idea to ignore the above again.

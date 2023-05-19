@@ -2,7 +2,8 @@
 	title = "AI"
 	flag = AI
 	department_flag = COMMAND
-	faction = "NEV Northern Light"
+	department = DEPARTMENT_COMMAND
+	faction = "CEV Eris"
 	total_positions = 1 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
 	spawn_positions = 1 // |-> above message is partly true, it is used by /AssignRole so we still need to set it to 1
 	selection_color = "#b5b7cb"
@@ -11,9 +12,6 @@
 	account_allowed = 0
 	wage = WAGE_NONE
 	outfit_type = /decl/hierarchy/outfit/job/silicon/ai
-	
-	wl_config_heads = TRUE		//Eclipse edit - AI is de-facto head over silicons.
-	wl_config_borgs = TRUE		//Eclipse edit.
 
 /datum/job/ai/equip(var/mob/living/carbon/human/H, var/alt_title)
 	return FALSE
@@ -36,7 +34,7 @@
 	title = "Robot"
 	flag = CYBORG
 	department_flag = MISC
-	faction = "NEV Northern Light"
+	faction = "CEV Eris"
 	total_positions = 2
 	spawn_positions = 2
 	alt_titles = list("Drone", "Cyborg")
@@ -44,8 +42,6 @@
 	selection_color = "#cdcfe0"
 	account_allowed = 0
 	wage = WAGE_NONE
-
-	wl_config_borgs = TRUE		//Eclipse edit.
 
 	outfit_type = /decl/hierarchy/outfit/job/silicon/cyborg
 

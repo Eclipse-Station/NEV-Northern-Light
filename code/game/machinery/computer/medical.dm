@@ -6,7 +6,7 @@
 	icon_keyboard = "med_key"
 	icon_screen = "medcomp"
 	light_color = COLOR_LIGHTING_GREEN_MACHINERY
-	req_one_access = list(access_moebius_consoles, access_forensics_lockers)
+	req_one_access = list(access_moebius, access_forensics_lockers)
 	circuit = /obj/item/electronics/circuitboard/med_data
 	var/obj/item/card/id/scan
 	var/authenticated
@@ -46,9 +46,9 @@
 /obj/machinery/computer/med_data/attack_hand(mob/user as mob)
 	if(..())
 		return
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/computer/med_data/ui_interact(mob/user)
+/obj/machinery/computer/med_data/nano_ui_interact(mob/user)
 	var/dat
 	if (src.temp)
 		dat = text("<TT>[src.temp]</TT><BR><BR><A href='?src=\ref[src];temp=1'>Clear Screen</A>")

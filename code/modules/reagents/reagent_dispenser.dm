@@ -81,8 +81,10 @@
 				explode()
 				return
 
-
-
+/obj/structure/reagent_dispensers/get_item_cost(export)
+	if(export)
+		return ..() + round(reagents.total_volume * 0.125)
+	return ..() + contents_cost
 
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
@@ -115,6 +117,7 @@
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
 	desc = "A tank full of industrial welding fuel. Do not consume."
+	description_antag = "Can have an assembly with a igniter attached for detonation upon a trigger. Can also use a screwdriver to leak fuel when dragged"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "weldtank"
 	amount_per_transfer_from_this = 10
@@ -146,7 +149,7 @@
 	if(!..(user, 2))
 		return
 	if(modded)
-		to_chat(user, SPAN_WARNING("It is leaking fuel!"))
+		to_chat(user, SPAN_WARNING("Fuel faucet is open, leaking the fuel!"))
 	if(rig)
 		to_chat(user, SPAN_NOTICE("There is some kind of device rigged to the tank."))
 
@@ -198,19 +201,15 @@
 
 	return ..()
 
-// // // BEGIN ECLIPSE EDITS // // //
-// Welderfuel tanks will not explode if shot with rubber bullets, etc.
+
 /obj/structure/reagent_dispensers/fueltank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
 		if(istype(Proj.firer))
-			message_admins("[key_name_admin(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]). Projectile was [Proj.ignition_source ? "" : "not"] an ignition source. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>).")
-			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]). Projectile was [Proj.ignition_source ? "" : "not"] an ignition source.")
-		if(Proj.ignition_source)
+			message_admins("[key_name_admin(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>).")
+			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
+
+		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
 			explode()
-		else
-			if(!istype(Proj, /obj/item/projectile/beam) )		//Beam weaponry won't cause a leak. You're SOL for coins, though, those things are HEAVY compared to a bullet.
-				modded = TRUE
-// // // END ECLIPSE EDITS // // //
 
 /obj/structure/reagent_dispensers/fueltank/ex_act()
 	explode()
@@ -283,10 +282,21 @@
 	contents_cost = 700
 	spawn_blacklisted = TRUE
 
+/obj/structure/reagent_dispensers/coolanttank
+	name = "coolant tank"
+	desc = "A tank of industrial coolant"
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "coolanttank"
+	amount_per_transfer_from_this = 10
+	volume = 1000
+	starting_reagent = "coolant"
+	price_tag = 50
+	contents_cost = 700
+
 
 /obj/structure/reagent_dispensers/cahorsbarrel
-	name = "Saint's Wing Cahors barrel"
-	desc = "A barrel of sweet church wine used in rituals. Mekhanites keep the recipe a secret, making it a rather coveted drink."
+	name = "NeoTheology Cahors barrel"
+	desc = "Barrel a day - keeps liver away."
 	icon_state = "barrel"
 	volume = 400
 	starting_reagent = "ntcahors"

@@ -1,6 +1,6 @@
 /obj/item/blueprints
 	name = "ship blueprints"
-	desc = "Blueprints of the ship. There is a \"Classified\" stamp and several coffee stains on it. For some reason, most sectors depicted don't seem to connect with each other in any way."
+	desc = "Blueprints of the CEV Eris. There is a \"Classified\" stamp and several coffee stains on it."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")

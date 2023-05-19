@@ -31,14 +31,20 @@
 	item_state = "lb_suit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
+/obj/item/clothing/under/rank/crewman
+	desc = "A utility jumpsuit for the working spaceman."
+	name = "crewman's jumpsuit"
+	icon_state = "crewman"
+	item_state = "crewman"
+
 /obj/item/clothing/under/rank/preacher
-	desc = "Ceremonial garb of Mekhane preachers."
+	desc = "Ceremonial garb of NeoTheology preachers."
 	name = "preacher vestments"
 	icon_state = "preacher"
 	item_state = "w_suit"
 
 /obj/item/clothing/under/rank/acolyte
-	desc = "Ceremonial garb of Mekhane disciples."
+	desc = "Ceremonial garb of NeoTheology disciples."
 	name = "acolyte vestments"
 	icon_state = "acolyte"
 	item_state = "acolyte"
@@ -56,7 +62,7 @@
 	item_state = "nt_sports"
 
 /obj/item/clothing/under/rank/chef
-	desc = "An apron, give only to the most <b>hardcore</b> chefs in space."
+	desc = "An apron which is given only to the most <b>hardcore</b> chefs in space."
 	name = "chef's uniform"
 	icon_state = "chef"
 	item_state = "w_suit"
@@ -76,8 +82,8 @@
 	style = STYLE_LOW
 
 /obj/item/clothing/under/rank/first_officer
-	desc = "It's a jumpsuit worn by a person with the title \"Head of Personnel\"."
-	name = "head of personnel's jumpsuit"
+	desc = "A jumpsuit worn by someone who works in the position of \"First Officer\"."
+	name = "First Officer's jumpsuit"
 	icon_state = "hop"
 	item_state = "b_suit"
 
@@ -119,6 +125,6 @@
 
 /obj/item/clothing/under/rank/miner
 	desc = "A snappy jumpsuit with a sturdy set of overalls. It is very dirty."
-	name = "Union miner's jumpsuit"
+	name = "guild miner's jumpsuit"
 	icon_state = "miner"
 	item_state = "lb_suit"

@@ -9,7 +9,7 @@
 
 // nt magik
 /obj/effect/overlay/nt_construction
-	name = "Mekhane construct"
+	name = "neotheology construct"
 	desc = "It shimmers and glows a little."
 	icon = 'icons/effects/nt_construction.dmi'
 	icon_state = "rcd_short"

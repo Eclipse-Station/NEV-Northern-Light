@@ -12,7 +12,7 @@
 #define listequal(A, B) (A.len == B.len && !length(A^B))
 
 #define LAZYINITLIST(L) if (!L) L = list()
-// Adds I to L, initalizing L if necessary, if I is not already in L
+
 #define LAZYLEN(L) length(L)
 #define UNSETEMPTY(L) if (L && !LAZYLEN(L)) L = null
 #define LAZYREMOVE(L, I) if(L) { L -= I; if(!LAZYLEN(L)) { L = null; } }
@@ -985,3 +985,21 @@ Checks if a list has the same entries and values as an element of big.
 	if(!matrix2d_x_sanitize(mathrix, x))
 		return
 	mathrix[x][y] = value
+
+///Converts a bitfield to a list of numbers (or words if a wordlist is provided)
+/proc/bitfield_to_list(bitfield = 0, list/wordlist)
+	var/list/return_list = list()
+	if(islist(wordlist))
+		var/max = min(wordlist.len, 24)
+		var/bit = 1
+		for(var/i in 1 to max)
+			if(bitfield & bit)
+				return_list += wordlist[i]
+			bit = bit << 1
+	else
+		for(var/bit_number = 0 to 23)
+			var/bit = 1 << bit_number
+			if(bitfield & bit)
+				return_list += bit
+
+	return return_list

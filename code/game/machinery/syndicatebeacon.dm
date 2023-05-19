@@ -60,10 +60,10 @@
 				return
 		if(ishuman(M))
 			var/mob/living/carbon/human/N = M
-			M << "<B>You have joined the ranks of the Syndicate and become a traitor to the ship!</B>"
-			traitors.add_antagonist(N.mind)
-			traitors.equip(N)
-			message_admins("[N]/([N.ckey]) has accepted a traitor objective from a syndicate beacon.")
+			M << "<B>You have joined the ranks of the Syndicate and become a contractor to the station!</B>"
+			contractors.add_antagonist(N.mind)
+			contractors.equip(N)
+			message_admins("[N]/([N.ckey]) has accepted a contractor objective from a syndicate beacon.")
 
 
 	src.updateUsrDialog()

@@ -1,19 +1,3 @@
-
-// Spread germs from surgeon to the organ
-/obj/item/organ/proc/spread_germs_from(mob/living/carbon/human/user, obj/item/tool)
-	if(!istype(user)) // Robots and such are considered sterile
-		return
-
-	var/new_germ_level = user.germ_level
-	if(user.gloves)
-		new_germ_level = user.gloves.germ_level
-
-	if(tool)
-		new_germ_level = max(new_germ_level, tool.germ_level)
-
-	germ_level = max(germ_level, new_germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
-
-
 // Get a name to be displayed in surgery messages
 /obj/item/organ/proc/get_surgery_name()
 	if(!owner)	// Loose organ shows its own name only
@@ -52,7 +36,7 @@
 	return src
 
 
-// flick_lights a pain message to the owner, if the body part can feel pain at all
+// flickers a pain message to the owner, if the body part can feel pain at all
 /obj/item/organ/proc/owner_custom_pain(message, flash_strength)
 	if(can_feel_pain())
 		owner.custom_pain(message, flash_strength)
@@ -88,17 +72,14 @@
 			"step" = (status & ORGAN_CUT_AWAY) ? /datum/surgery_step/attach_organ : /datum/surgery_step/detach_organ
 		)))
 
+
 	return actions_list
 
 /obj/item/organ/internal/proc/get_process_data()
-	var/list/processes = list()
+	var/processes = ""
 	for(var/efficiency in organ_efficiency)
-		processes += list(
-			list(
-				"title" = "[capitalize(efficiency)] efficiency",
-				"efficiency" = organ_efficiency[efficiency],
-				)
-			)
+		processes += "[capitalize(efficiency)] ([organ_efficiency[efficiency]]), "
+	processes = copytext(processes, 1, length(processes) - 1)
 	return processes
 
 // Is body part open for most surgerical operations?

@@ -14,7 +14,7 @@
 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
 		overlays += wet_overlay
 
-	addtimer(CALLBACK(src, .proc/unwet_floor, TRUE), rand(1 MINUTES, 1.5 MINUTES), TIMER_UNIQUE|TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(unwet_floor), TRUE), rand(1 MINUTES, 1.5 MINUTES), TIMER_UNIQUE|TIMER_OVERRIDE)
 
 /turf/simulated/proc/unwet_floor(var/check_very_wet)
 	wet = 0
@@ -30,7 +30,6 @@
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
 		B.clean_blood()
-	dirt = 0 //Eclipse Edit - anything that can clean blood can also clean the "dirt" off the floor
 	..()
 
 //expects an atom containing the reagents used to clean the turf
@@ -113,8 +112,8 @@
 		for(var/obj/effect/decal/cleanable/blood/B in contents)
 			if(!B.blood_DNA)
 				B.blood_DNA = list()
-			if(!B.blood_DNA[M.dna.unique_enzymes])
-				B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
+			if(!B.blood_DNA[M.dna_trace])
+				B.blood_DNA[M.dna_trace] = M.b_type
 				B.virus2 = virus_copylist(M.virus2)
 			return 1 //we bloodied the floor
 		blood_splatter(src,M.get_blood(),1)

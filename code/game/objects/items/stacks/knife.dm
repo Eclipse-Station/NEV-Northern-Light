@@ -21,7 +21,8 @@
 	w_class = ITEM_SIZE_SMALL
 	force = WEAPON_FORCE_NORMAL
 	throwforce = WEAPON_FORCE_WEAK
-	armor_penetration = ARMOR_PEN_SHALLOW
+	armor_divisor = ARMOR_PEN_SHALLOW
+	throw_speed = 3
 	slot_flags = SLOT_BELT
 	//spawn values
 	rarity_value = 8
@@ -65,19 +66,19 @@
 	flags = CONDUCT
 	sharp = TRUE
 	edge = TRUE
-	embed_mult = 40 //MADE for embedding
+	embed_mult = 80 //MADE for embedding
 	tool_qualities = list(QUALITY_WIRE_CUTTING = 5, QUALITY_CUTTING = 5)
 	max_upgrades = 0
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/melee/lightstab.ogg'
 	structure_damage_factor = STRUCTURE_DAMAGE_BLADE
-	matter = list(MATERIAL_PLASTEEL = 2)
-	amount = 1
+	matter = list(MATERIAL_PLASTEEL = 1)
+	amount = 3
 	max_amount = 3
 	w_class = ITEM_SIZE_SMALL
 	force = WEAPON_FORCE_NORMAL
 	throwforce = WEAPON_FORCE_NORMAL
-	armor_penetration = ARMOR_PEN_SHALLOW
+	armor_divisor = ARMOR_PEN_SHALLOW
 	slot_flags = SLOT_BELT
 	//spawn values
 	rarity_value = 8
@@ -86,3 +87,4 @@
 /obj/item/stack/thrown/throwing_knife/launchAt(atom/target, mob/living/carbon/C)
 	var/ROB_throwing_damage = max(C.stats.getStat(STAT_ROB), 1)
 	throwforce = 35 / (1 + 100 / ROB_throwing_damage) + throwforce //soft cap; This would result in knives doing 10 damage at 0 rob, 20 at 50 ROB, 25 at 100 etc.
+	..()

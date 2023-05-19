@@ -47,9 +47,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/list/forced_ambience
 	var/sound_env = STANDARD_STATION
 	var/turf/base_turf //The base turf type of the area, which can be used to override the z-level's base turf
-	var/vessel = "NEV Northern Light" //The ship or station this area is on. This is so far just for the benefit of shield generators
 	var/holomap_color // Color of this area on station holomap
-
+	var/vessel = "CEV Eris" //The ship or station this area is on. This is so far just for the benefit of shield generators
 	//Consoles can only control shields on the same vessel as them
 
 /*Adding a wizard area teleport list because motherfucking lag -- Urist*/
@@ -64,9 +63,9 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/space
 	name = "\improper Space"
 	icon_state = "space"
-	requires_power = 1
-	always_unpowered = 1
-	dynamic_lighting = 1
+	requires_power = TRUE
+	always_unpowered = TRUE
+	dynamic_lighting = TRUE
 	power_light = 0
 	power_equip = 0
 	power_environ = 0
@@ -380,6 +379,28 @@ area/space/atmosalert()
 
 //EXTRA
 
+/area/outpost/pulsar
+	name = "\improper Pulsar Satellite Core"
+	icon_state = "engineering"
+	area_light_color = COLOR_LIGHTING_SCI_BRIGHT
+	requires_power = 0
+	dynamic_lighting = TRUE
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+	ambience = list('sound/ambience/technoambient1.ogg','sound/ambience/technoambient2.ogg',
+	                'sound/ambience/technoambient3.ogg','sound/ambience/technoambient4.ogg',
+					'sound/ambience/technoambient5.ogg','sound/ambience/technoambient6.ogg')
+
+/area/outpost/pulsar/maintenance
+	name = "\improper Pulsar Satellite Maintenance"
+	icon_state = "engineering_storage"
+	area_light_color = COLOR_LIGHTING_SCI_DARK
+
+/area/outpost/pulsar/shuttle
+	name = "\improper Pulsar Satellite Shuttle"
+	icon_state = "engine_eva"
+	area_light_color = null
+	dynamic_lighting = FALSE
+
 /area/asteroid					// -- TLE
 	name = "\improper Moon"
 	icon_state = "asteroid"
@@ -446,8 +467,15 @@ area/space/atmosalert()
 /area/holodeck
 	name = "\improper Holodeck"
 	icon_state = "Holodeck"
-	dynamic_lighting = 0
 	sound_env = LARGE_ENCLOSED
+	requires_power = FALSE
+	var/obj/machinery/computer/HolodeckControl/linked_console
+
+/area/holodeck/powered(var/chan)		// return true if the area has power to given channel
+
+	if(linked_console && linked_console.active)
+		return TRUE // If the linked console is active, we are always powered
+	. = ..()
 
 //We'll assume holodecks have their own private gravity/antigrav generator, and are thus immune to any changes in gravity elsewhere
 //This proc checks and sets nothing. Gravity will be set directly on the area from a nearby holodeck console
@@ -457,10 +485,38 @@ area/space/atmosalert()
 
 /area/holodeck/alphadeck
 	name = "\improper Holodeck Alpha"
+	sound_env = LARGE_ENCLOSED
 
-/area/holodeck/source_plating
+/area/holodeck/source
+	name = "\improper Holodeck - Nonexistent"
+	atmos = FALSE // So open spaces don't lose air
+	no_air = TRUE // Make there be no air to lose either
+
+/area/holodeck/source/off
 	name = "\improper Holodeck - Off"
 
+/area/holodeck/source/spacebar
+	name = "\improper Holodeck - Spacebar"
+	sound_env = LARGE_SOFTFLOOR
+
+/area/holodeck/source/wireframe
+	name = "\improper Holodeck - Wireframe Bar"
+	sound_env = TUNNEL_ENCLOSED
+	has_gravity = FALSE
+
+/area/holodeck/source/texas
+	name = "\improper Holodeck - Texas Saloon"
+	sound_env = AUDITORIUM
+
+/area/holodeck/source/industrial
+	name = "\improper Holodeck - Industrial Bar"
+	sound_env = LARGE_ENCLOSED
+
+/area/holodeck/source/industrial_arena
+	name = "\improper Holodeck - Industrial arena"
+	sound_env = LARGE_ENCLOSED
+
+/*
 /area/holodeck/source_emptycourt
 	name = "\improper Holodeck - Empty Court"
 	sound_env = ARENA
@@ -491,14 +547,6 @@ area/space/atmosalert()
 /area/holodeck/source_wildlife
 	name = "\improper Holodeck - Wildlife Simulation"
 
-/area/holodeck/source_meetinghall
-	name = "\improper Holodeck - Meeting Hall"
-	sound_env = AUDITORIUM
-
-/area/holodeck/source_theatre
-	name = "\improper Holodeck - Theatre"
-	sound_env = CONCERT_HALL
-
 /area/holodeck/source_picnicarea
 	name = "\improper Holodeck - Picnic Area"
 	sound_env = PLAIN
@@ -515,6 +563,15 @@ area/space/atmosalert()
 	name = "\improper Holodeck - Space"
 	has_gravity = 0
 	sound_env = SPACE
+
+/area/holodeck/source_meetinghall
+	name = "\improper Holodeck - Meeting Hall"
+	sound_env = AUDITORIUM
+
+/area/holodeck/source_theatre
+	name = "\improper Holodeck - Theatre"
+	sound_env = CONCERT_HALL
+*/
 
 //DJSTATION
 

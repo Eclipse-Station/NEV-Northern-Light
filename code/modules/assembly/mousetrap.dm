@@ -1,6 +1,7 @@
 /obj/item/device/assembly/mousetrap
 	name = "mousetrap"
 	desc = "A handy little spring-loaded trap for catching pesty rodents."
+	description_antag = "Can be used with a signaller to create backpacks that explode upon being open"
 	icon_state = "mousetrap"
 	origin_tech = list(TECH_COMBAT = 1)
 	matter = list(MATERIAL_PLASTIC = 1, MATERIAL_STEEL = 1)
@@ -24,23 +25,9 @@
 /obj/item/device/assembly/mousetrap/proc/triggered(var/mob/living/target, var/type = "feet")
 	if(!armed || !istype(target))
 		return
-	var/obj/item/organ/external/affecting = null
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		switch(type)
-			if("feet")
-				if(!H.shoes)
-					affecting = H.get_organ(pick(BP_L_FOOT , BP_R_FOOT))
-					H.Weaken(3)
-			if(BP_L_HAND, BP_R_HAND)
-				if(!H.gloves)
-					affecting = H.get_organ(type)
-					H.Stun(3)
-		if(affecting)
-			if(affecting.take_damage(1, 0))
-				H.UpdateDamageIcon()
-			H.updatehealth()
-	else if(ismouse(target))
+
+	//var/types = target.get_classification()
+	if(ismouse(target))
 		var/mob/living/simple_animal/mouse/M = target
 		visible_message("<span class='danger'>SPLAT!</span>")
 		M.splat()
@@ -73,14 +60,15 @@
 	if(!armed)
 		to_chat(user, "<span class='notice'>You arm [src].</span>")
 	else
-		if((CLUMSY in user.mutations) && prob(50))
-			var/which_hand = BP_L_HAND
+/*		if((CLUMSY in user.mutations)&& prob(50))
+			var/which_hand = "l_hand"
 			if(!user.hand)
-				which_hand = BP_R_HAND
+				which_hand = "r_hand"
 			triggered(user, which_hand)
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
 			return
+*/
 		to_chat(user, "<span class='notice'>You disarm [src].</span>")
 	armed = !armed
 	update_icon()
@@ -88,15 +76,16 @@
 
 
 /obj/item/device/assembly/mousetrap/attack_hand(mob/living/user as mob)
-	if(armed)
+/*	if(armed)
 		if((CLUMSY in user.mutations) && prob(50))
-			var/which_hand = BP_L_HAND
+			var/which_hand = "l_hand"
 			if(!user.hand)
-				which_hand = BP_R_HAND
+				which_hand = "r_hand"
 			triggered(user, which_hand)
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
 			return
+*/
 	..()
 
 

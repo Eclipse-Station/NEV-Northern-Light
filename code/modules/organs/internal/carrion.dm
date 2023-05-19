@@ -30,7 +30,7 @@
 	return TRUE
 
 /obj/item/organ/internal/carrion
-	max_damage = 150 //resilient
+	max_damage = 15 //resilient
 	scanner_hidden = TRUE //sneaky
 
 /obj/item/organ/internal/carrion/chemvessel
@@ -72,6 +72,8 @@
 	owner = null //overrides removed() call
 	. = ..()
 
+/obj/item/organ/internal/carrion/core/take_damage(amount, damage_type = BRUTE, wounding_multiplier = 1, sharp = FALSE, edge = FALSE, silent = FALSE)
+	return
 
 /obj/item/organ/internal/carrion/core/proc/make_spider()
 	set category = "Carrion"
@@ -107,7 +109,7 @@
 
 		owner.put_in_active_hand(spider)
 
-/obj/item/organ/internal/carrion/core/ui_interact(mob/user, ui_key, datum/nanoui/ui, force_open, datum/nanoui/master_ui, datum/topic_state/state)
+/obj/item/organ/internal/carrion/core/nano_ui_interact(mob/user, ui_key, datum/nanoui/ui, force_open, datum/nanoui/master_ui, datum/nano_topic_state/state)
 	var/list/data = list()
 
 	var/list/spiders_in_list = list()
@@ -147,7 +149,7 @@
 		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["activate_spider"]) in active_spiders
 		if(activated_spider)
 			activated_spider.activate()
-	
+
 	if(href_list["pop_out_spider"])
 		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["pop_out_spider"]) in active_spiders
 		if(activated_spider)
@@ -230,7 +232,7 @@
 	set category = "Carrion"
 	set name = "Open spider menu"
 
-	ui_interact(owner)
+	nano_ui_interact(owner)
 
 /obj/item/organ/internal/carrion/core/removed(mob/living/user)
 	if(!associated_spider && owner)
@@ -243,14 +245,6 @@
 		..()
 		forceMove(associated_spider)
 
-/obj/item/organ/internal/carrion/core/proc/GetDNA(var/dna_owner)
-	var/datum/dna/chosen_dna
-	for(var/datum/dna/DNA in absorbed_dna)
-		if(dna_owner == DNA.real_name)
-			chosen_dna = DNA
-			break
-	return chosen_dna
-
 /obj/item/organ/internal/carrion/core/proc/carrion_transform()
 	set category = "Carrion"
 	set name = "Transform(5)"
@@ -258,37 +252,31 @@
 	if (owner.transforming)
 		return
 
-	var/list/names = list()
-
 	if (!owner)
 		return
 
-	for(var/datum/dna/DNA in absorbed_dna)
-		names += "[DNA.real_name]"
-
-	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in names
 	if(!absorbed_dna.len)
 		to_chat(owner, SPAN_WARNING("You have no DNA absorbed!"))
 		return
 
-	var/datum/dna/chosen_dna = GetDNA(S)
-	if(!chosen_dna)
+	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in absorbed_dna
+
+	if(!S)
 		return
 
 	if(!owner.check_ability(5))
 		return
 
-	if(HUSK in owner.mutations)
-		owner.mutations -= HUSK
-		if(istype(owner))
-			owner.update_body(0)
+//	if(HUSK in owner.mutations)
+//		owner.mutations -= HUSK
+//		if(istype(owner))
+//			owner.update_body(0)
 
 	owner.visible_message(SPAN_WARNING("[owner] transforms!"))
-	owner.dna = chosen_dna.Clone()
-	owner.real_name = chosen_dna.real_name
+	owner.real_name = S
+	owner.dna_trace = sha1(S)
+	owner.fingers_trace = md5(S)
 	owner.flavor_text = ""
-	owner.UpdateAppearance()
-	domutcheck(owner, null)
 
 	return 1
 
@@ -309,7 +297,7 @@
 	owner.emote("gasp")
 	owner.timeofdeath = world.time
 
-	addtimer(CALLBACK(src, .proc/carrion_revive), rand(1 MINUTES, 3 MINUTES))
+	addtimer(CALLBACK(src, PROC_REF(carrion_revive)), rand(1 MINUTES, 3 MINUTES))
 
 /obj/item/organ/internal/carrion/core/proc/carrion_revive()
 	if(!owner)
@@ -377,14 +365,14 @@
 			visible_message(SPAN_DANGER("[owner] bites into [H.name]'s [E.name] and starts tearing it apart!"))
 			if(do_after(owner, 5 SECONDS, H))
 				tearing = FALSE
-				E.take_damage(30)
+				E.take_damage(30, BRUTE)
 				var/blacklist = list()
 				for (var/obj/item/organ/internal/to_blacklist in E.internal_organs)
 					if (istype(to_blacklist, /obj/item/organ/internal/bone/))
 						blacklist += to_blacklist
 						continue
 					if (istype(to_blacklist, /obj/item/organ/internal/brain/))
-						blacklist += to_blacklist// removing bones from a valid_organs list based on			
+						blacklist += to_blacklist// removing bones from a valid_organs list based on
 				var/list/valid_organs = E.internal_organs - blacklist// E.internal_organs gibs the victim.
 				if (!valid_organs.len)
 					visible_message(SPAN_DANGER("[owner] tears up [H]'s [E.name]!"))
@@ -397,7 +385,7 @@
 			else
 				tearing = FALSE
 		else
-			to_chat(owner, SPAN_WARNING("You can only tear flesh out of humanoids!"))	
+			to_chat(owner, SPAN_WARNING("You can only tear flesh out of humanoids!"))
 			return
 
 	if(istype(food, /obj/item/organ) || istype(food, /obj/item/reagent_containers/food/snacks/meat))
@@ -561,10 +549,8 @@
 	set category = "Carrion"
 	set name = "Blood Purge (25)"
 
-
-	if (owner.check_ability(25))
+	if(owner.check_ability(25))
 		to_chat(owner, SPAN_NOTICE("You cleanse your blood of all chemicals and poisons."))
-		owner.adjustToxLoss(-100)
 		owner.radiation = 0
 		owner.reagents.update_total()
 		owner.reagents.trans_to_turf(owner.loc, owner.reagents.total_volume)
@@ -588,7 +574,7 @@
 /obj/structure/spider_nest/New()
 	. = ..()
 	spider_spawns = rand(3,8)
-	addtimer(CALLBACK(src, .proc/spawn_spider), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(spawn_spider)), 30 SECONDS)
 
 /obj/structure/spider_nest/attackby(obj/item/I, mob/living/user)
 	..()
@@ -614,7 +600,7 @@
 	visible_message(SPAN_WARNING("A spider spews out of \The [src]"))
 	spider_spawns--
 	if(spider_spawns)
-		addtimer(CALLBACK(src, .proc/spawn_spider), 1 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(spawn_spider)), 1 MINUTES)
 
 /mob/proc/make_carrion()
 	var/mob/living/carbon/human/user = src

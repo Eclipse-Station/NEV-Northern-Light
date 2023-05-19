@@ -66,10 +66,7 @@
 					if (!(C.species && (C.species.flags & NO_PAIN)))
 						to_chat(M, SPAN_DANGER("[painMes]"))
 
-			if(Victim.isMonkey()) //eclipse edit
-				gain_nutrition(rand(20,25)) //eclipse edit
-			else
-				gain_nutrition(rand(20,25) * 0.1) //eclipse edit
+			gain_nutrition(rand(20,25))
 
 			adjustOxyLoss(-8) //Heal yourself
 			adjustBruteLoss(-8)
@@ -90,9 +87,7 @@
 		if(!client)
 			if(Victim && !rabid && !attacked && Victim.LAssailant && Victim.LAssailant != Victim && prob(50))
 				if(!(Victim.LAssailant in Friends))
-					Friends.Add(Victim.LAssailant)
 					Friends[Victim.LAssailant] = 1
-
 				else
 					++Friends[Victim.LAssailant]
 
@@ -112,7 +107,7 @@
 			loc = M.loc // simple "attach to head" effect!
 
 /mob/living/carbon/slime/verb/Evolve()
-	set category = "Slime"
+	set category = SPECIES_SLIME
 	set desc = "This will let you evolve from baby to adult slime."
 
 	if(stat)
@@ -122,7 +117,7 @@
 	if(!is_adult)
 		if(amount_grown >= 10)
 			is_adult = 1
-			maxHealth = 80 //eclipse edit, used to be 150
+			maxHealth = 150
 			amount_grown = 0
 			regenerate_icons()
 			name = text("[colour] [is_adult ? "adult" : "baby"] slime ([number])")
@@ -132,7 +127,7 @@
 		to_chat(src, SPAN_NOTICE("I have already evolved..."))
 
 /mob/living/carbon/slime/verb/Reproduce()
-	set category = "Slime"
+	set category = SPECIES_SLIME
 	set desc = "This will make you split into four Slimes."
 
 	if(stat)

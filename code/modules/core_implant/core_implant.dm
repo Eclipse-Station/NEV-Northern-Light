@@ -16,8 +16,6 @@
 	var/list/known_rituals = list() //A list of names of rituals which are recorded in this cruciform
 	//These are used to retrieve the actual ritual datums from the global all_rituals list
 
-	var/type_override //Eclipse add - what the core implant PRETENDS to be
-
 	var/list/modules = list()
 	var/list/upgrades = list()
 
@@ -55,7 +53,7 @@
 /obj/item/implant/core_implant/proc/update_rituals()
 	known_rituals = list()
 	for(var/datum/core_module/rituals/M in modules)
-		if(istype(src,M.implant_type) || M.implant_type == type_override)
+		if(istype(src,M.implant_type))
 			for(var/R in M.module_rituals)
 				known_rituals |= R
 
@@ -121,7 +119,7 @@
 
 	if(wearer != H)
 		if(H.get_core_implant() && !group_ritual_leader)
-			addtimer(CALLBACK(src, .proc/hear_other, H, message), 0) // let H's own implant hear first
+			addtimer(CALLBACK(src, PROC_REF(hear_other), H, message), 0) // let H's own implant hear first
 	else
 		for(var/RT in known_rituals)
 			var/datum/ritual/R = GLOB.all_rituals[RT]
@@ -176,12 +174,11 @@
 	process_modules()
 
 /obj/item/implant/core_implant/proc/add_module(var/datum/core_module/CM)
-	if(!istype(src, CM.implant_type))
-		if(CM.implant_type != type_override)
-			return FALSE
+	if(!istype(src,CM.implant_type))
+		return FALSE
 
 	if(!CM.can_install(src))
-		return TRUE //Eclipse edit. Now you can actually implant yourself.
+		return FALSE
 
 	if(CM.unique)
 		for(var/datum/core_module/EM in modules)

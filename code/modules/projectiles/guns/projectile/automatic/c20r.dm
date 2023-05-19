@@ -1,12 +1,13 @@
 /obj/item/gun/projectile/automatic/c20r
-	name = "\improper S SMG .35 Auto \"C-20r\""  //Eclipse Edit - gun names standardized
+	name = "S SMG .35 \"C-20r\""
 	desc = "The C-20r is a lightweight and robust bullpup SMG of ancient design, for when you REALLY need someone dead. \
-			Famous as most popular SMG used by criminal organizations of various sorts. Was recently reverse-engineered by NanoTrasen \
-			almost completely from the scratch, introducing this gun to a broad mass of new customers. \
-			Has a '\"Scarborough Arms\" - Per falcis, per pravitas' buttstock stamp. Uses .35 Auto rounds." //Eclipse Edit - spelling/grammar
+			Famous as most used SMG by criminal organizations of various sorts. Was recently reverse-engineered by Moebius \
+			almost completely from the scratch, introducing gun to the broad masses of customers. This one however, is original. \
+			Has a '\"Scarborough Arms\" - Per falcis, per pravitas' buttstock stamp. Uses .35 Auto rounds."
 	icon = 'icons/obj/guns/projectile/cr20.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
+	var/itemstring = ""
 	w_class = ITEM_SIZE_NORMAL
 	force = WEAPON_FORCE_PAINFUL
 	caliber = CAL_PISTOL
@@ -22,33 +23,36 @@
 	unload_sound = 'sound/weapons/guns/interact/sfrifle_magout.ogg'
 	reload_sound = 'sound/weapons/guns/interact/sfrifle_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/sfrifle_cock.ogg'
-	damage_multiplier = 1.1
-	penetration_multiplier = 1.5 //15 with regular lethal ammo, 30 with HV
-	zoom_factor = 0.4
-	recoil_buildup = 1.2
-	one_hand_penalty = 5 //smg level
-	gun_parts = list(/obj/item/part/gun/frame/c20r = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/smg = 1, /obj/item/part/gun/barrel/pistol = 1)
+	damage_multiplier = 1
+	penetration_multiplier = 0
+	zoom_factors = list(0.4)
+	init_recoil = SMG_RECOIL(0.6)
+	gun_parts = list(/obj/item/part/gun/frame/c20r = 1, /obj/item/part/gun/modular/grip/black = 1, /obj/item/part/gun/modular/mechanism/smg = 1, /obj/item/part/gun/modular/barrel/pistol = 1)
 
 	gun_tags = list(GUN_SILENCABLE)
 
 	init_firemodes = list(
 		FULL_AUTO_400,
-		SEMI_AUTO_NODELAY,
+		SEMI_AUTO_300,
 		)
+
+	serial_type = "S"
 
 
 /obj/item/part/gun/frame/c20r
-	name = "\improper C20r frame"
+	name = "C20r frame"
 	desc = "A C20r SMG frame. The syndicate's bread and butter."
 	icon_state = "frame_syndi"
-	result = /obj/item/gun/projectile/automatic/c20r
-	grip = /obj/item/part/gun/grip/black
-	mechanism = /obj/item/part/gun/mechanism/smg
-	barrel = /obj/item/part/gun/barrel/pistol
+	resultvars = list(/obj/item/gun/projectile/automatic/c20r)
+	gripvars = list(/obj/item/part/gun/modular/grip/black)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/smg
+	barrelvars = list(/obj/item/part/gun/modular/barrel/pistol)
 
 /obj/item/gun/projectile/automatic/c20r/update_icon()
 	cut_overlays()
 	icon_state = "[initial(icon_state)][silenced ? "_s" : ""]"
+	itemstring = "[silenced ? "_s" : ""]"
+	set_item_state(itemstring)
 
 	if(ammo_magazine)
 		overlays += "mag[silenced ? "_s" : ""][ammo_magazine.ammo_label_string]"
@@ -57,26 +61,31 @@
 	else
 		overlays += "slide[silenced ? "_s" : ""]"
 
+	if (silenced)
+		wielded_item_state = "_s"
+	else
+		wielded_item_state = ""
+
+
 /obj/item/gun/projectile/automatic/c20r/Initialize()
 	. = ..()
 	update_icon()
 
 /obj/item/gun/projectile/automatic/c20r/moebius
-	name = "\improper LF SMG .35 Auto \"C-20m\""  //Eclipse Edit - gun names standardized
-	desc = "The C-20m is a Lazarus Foundation copy of the infamous C-20r, a lightweight and robust bullpup SMG of ancient design. \
-			Famous as the most popular SMG used by criminal organizations of various sorts. Uses .35 Auto rounds." //Eclipse Edit - spelling/grammar
+	name = "ML SMG .35 \"C-20M\""
+	desc = "The C-20M is a Moebius copy of the famous C-20r, a lightweight and robust bullpup SMG of ancient design. \
+			Famous as most used SMG by criminal organizations of various sorts. Uses .35 Auto rounds."
 	icon = 'icons/obj/guns/projectile/c20m.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
-	damage_multiplier = 1	//Not quite as good as real syndi
-	penetration_multiplier = 1.2 //12 with lethal, 24 with HV
-	gun_parts = list(/obj/item/part/gun/frame/c20r/moebius = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/smg = 1, /obj/item/part/gun/barrel/pistol = 1)
-	
-	simplemob_bonus_damage_multiplier = 0.15 //Eclipse edit: Balancing.
+	damage_multiplier = 1
+	penetration_multiplier = -0.2	//Not quite as good as real syndi
+	gun_parts = list(/obj/item/part/gun/frame/c20r/moebius = 1, /obj/item/part/gun/modular/grip/black = 1, /obj/item/part/gun/modular/mechanism/smg = 1, /obj/item/part/gun/modular/barrel/pistol = 1)
+	serial_type = "ML"
 
 /obj/item/part/gun/frame/c20r/moebius
-	name = "\improper C-20M frame"
+	name = "C-20M frame"
 	desc = "A C-20M SMG frame. The syndicate's bread and butter, reverse-engineered."
 	icon_state = "frame_moe"
-	result = /obj/item/gun/projectile/automatic/c20r/moebius
+	resultvars = list(/obj/item/gun/projectile/automatic/c20r/moebius)
 	spawn_blacklisted = TRUE

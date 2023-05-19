@@ -212,19 +212,24 @@ other types of metals and chemistry for reagents).
 	materials = list(MATERIAL_GLASS = 2, MATERIAL_PLASTIC = 15)
 
 /datum/design/research/item/science_voidsuit
-	name = "Lazarus combat voidsuit"
+	name = "Moebius combat voidsuit"
 	build_path = /obj/item/clothing/suit/space/void/science
 	sort_string = "VASAC"
-
+ 
 /datum/design/research/item/paramedic_armor
-	name = "Lazarus Trauma Team armor" //Eclipse Edit - Replaced paramedic with Trauma Team.
+	name = "Moebius paramedic armor"
 	build_path = /obj/item/clothing/suit/armor/paramedic
 	sort_string = "VASAD"
 
 /datum/design/research/item/paramedic_helmet
-	name = "Lazarus Trauma Team helmet" //Eclipse Edit - Replaced paramedic with Trauma Team.
+	name = "Moebius paramedic helmet"
 	build_path = /obj/item/clothing/head/armor/faceshield/paramedic
 	sort_string = "VASAE"
+
+/datum/design/research/item/dna_scanner
+	name = "Portable dna sequencer"
+	build_path = /obj/item/dna_scanner
+	sort_string = "VASAF"
 
 //Why is there a science design to craft a cardboard box full of things? That is not how this works
 /*
@@ -232,6 +237,6 @@ other types of metals and chemistry for reagents).
 	name = "Holographic equipment kit"
 	desc = "A kit of dangerous, high-tech equipment with changeable looks."
 	req_tech = list(TECH_COVERT = 2)
-	build_path = /obj/item/storage/box/syndie_kit/chameleon
+	build_path = /obj/item/storage/backpack/chameleon
 	sort_string = "VASBA"
 */

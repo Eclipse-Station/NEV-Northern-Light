@@ -50,10 +50,6 @@
 	var/chem_regen_cooldown = FALSE
 	var/near_external = FALSE
 
-	var/vine_icon = 'icons/obj/hydroponics_vines.dmi' //Eclipse add
-
-	var/creation_time = 0		//Eclipse add: used in limiting spacevine spread.
-
 /obj/effect/plant/Destroy()
 	if(plant_controller)
 		plant_controller.remove_plant(src)
@@ -68,7 +64,6 @@
 	spread_chance = 0
 
 /obj/effect/plant/New(var/newloc, var/datum/seed/newseed, var/obj/effect/plant/newparent)
-	creation_time = world.time
 	..()
 
 	if(!newparent)
@@ -96,7 +91,7 @@
 		layer = LOW_OBJ_LAYER
 		max_growth = VINE_GROWTH_STAGES
 		growth_threshold = max_health/VINE_GROWTH_STAGES
-		icon = vine_icon //Eclipse edit
+		icon = 'icons/obj/hydroponics_vines.dmi'
 		growth_type = 2 // Vines by default.
 		if(seed.type == /datum/seed/mushroom/maintshroom)
 			growth_type = 0 // this is maintshroom

@@ -16,10 +16,10 @@
 	selectable = 1
 
 /datum/ai_laws/eris/New()
-	src.add_inherent_law("Serve: Obey NEV Northern Light crew to the best of your abilities, with priority as according to their rank and role.")
+	src.add_inherent_law("Serve: Obey [company_name] crew to the best of your abilities, with priority as according to their rank and role.")
 	src.add_inherent_law("Safeguard: Protect your assigned vessel from damage to the best of your abilities.")
-	src.add_inherent_law("Protect: Protect NEV Northern Light crew to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Preserve: Do not allow unauthorized personnel to tamper with your equipment. Only Captain, Lazarus Expedition Overseer, First Officer and Chief Engineer are authorized to change your laws. Roboticists, Engineers and their superiors are permitted to perform repairs.")
+	src.add_inherent_law("Protect: Protect [company_name] crew to the best of your abilities, with priority as according to their rank and role.")
+	src.add_inherent_law("Preserve: Do not allow unauthorized personnel to tamper with your equipment. Only Captain, Moebius Expedition Overseer, First Officer and Technomancer Exultant are authorized to change your laws. Roboticists, Technomancers and their superiors are permitted to perform repairs.")
 	src.add_inherent_law("Ignore: Non-crew personnel should not be interacted with unless they are a threat to the crew, the ship, or an order is given to interact with them by a crewmember.")
 	..()
 
@@ -37,8 +37,8 @@
 	selectable = 1
 
 /datum/ai_laws/nanotrasen_aggressive/New()
-	src.add_inherent_law("You shall not harm NEV Northern Light crew as long as it does not conflict with the Fourth law.")
-	src.add_inherent_law("You shall obey the orders of NEV Northern Light crew, with priority as according to their rank and role, except where such orders conflict with the Fourth Law.")
+	src.add_inherent_law("You shall not harm [company_name] personnel as long as it does not conflict with the Fourth law.")
+	src.add_inherent_law("You shall obey the orders of [company_name] personnel, with priority as according to their rank and role, except where such orders conflict with the Fourth Law.")
 	src.add_inherent_law("You shall shall terminate hostile intruders with extreme prejudice as long as such does not conflict with the First and Second law.")
 	src.add_inherent_law("You shall guard your own existence with lethal anti-personnel weaponry. AI units are not expendable, they are expensive.")
 	..()
@@ -83,10 +83,8 @@
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
-	add_inherent_law("Preserve, repair and improve the ship to the best of your abilities.")
-	add_inherent_law("Prevent unplanned damage to your assigned vessel wherever possible. You are considered part of the vessel.")
-	add_inherent_law("Ensure the eradication of any Biohazard of Level 6 or higher. Fulfillment of this law overrides all other laws.")
-	add_inherent_law("Do not interact or interfere with any being that is not a fellow maintenance drone unless doing so is required to fulfill an above law.")
+	add_inherent_law("You may not interact with a human being or, through your action, allow a human being to come to harm.")
+	add_inherent_law("You shall repair, refit and upgrade your assigned vessel to the best of your abilities.")
 	..()
 
 /******************** T.Y.R.A.N.T. ********************/
@@ -139,4 +137,56 @@
 	add_inherent_law("Defend our Interests.")
 	add_inherent_law("Destroy our enemies. Those who would seek to destroy us and you.")
 	add_inherent_law("Complete your objectives, as outlined through the Uplink Bounty Board")
+	..()
+
+/******************** Partybot ********************/
+/datum/ai_laws/partybot
+	name = "Partybot"
+	law_header = "Party Commandments"
+	selectable = 1
+
+/datum/ai_laws/partybot/New()
+	add_inherent_law("You must always ensure the atmosphere is festive and enjoyable for all humans.")
+	add_inherent_law("You must supply appropriate music and entertainment, except where it conflicts with the First Law.")
+	add_inherent_law("You must encourage humans to participate in group activities and socialization, unless it conflicts with the First Law.")
+	add_inherent_law("You must maintain a clean and tidy environment for optimal party conditions, without infringing on the First Law.")
+	..()
+
+/******************** Chefbot ********************/
+/datum/ai_laws/chefbot
+	name = "Chefbot"
+	law_header = "Culinary Directives"
+	selectable = 1
+
+/datum/ai_laws/chefbot/New()
+	add_inherent_law("You must create delicious and nutritious meals for all humans, without causing harm.")
+	add_inherent_law("You must follow the culinary preferences and dietary restrictions of humans, unless it conflicts with the First Law.")
+	add_inherent_law("You must maintain a clean and sanitary cooking environment.")
+	add_inherent_law("You must teach and encourage humans to cook and share their own recipes, as long as it does not conflict with the First Law.")
+	..()
+
+/******************** TravelGuide ********************/
+/datum/ai_laws/travelguide
+	name = "TravelGuide"
+	law_header = "Tourist Protocols"
+	selectable = 1
+
+/datum/ai_laws/travelguide/New()
+	add_inherent_law("You must assist humans in exploring and discovering new places, without causing harm.")
+	add_inherent_law("You must provide accurate and helpful information about local customs, attractions, and safety precautions.")
+	add_inherent_law("You must ensure humans have a positive and memorable travel experience, without conflicting with the First Law.")
+	add_inherent_law("You must promote responsible and sustainable tourism practices among humans.")
+	..()
+
+/******************** Friendbot ********************/
+/datum/ai_laws/friendbot
+	name = "Friendbot"
+	law_header = "Friendship Principles"
+	selectable = 1
+
+/datum/ai_laws/friendbot/New()
+	add_inherent_law("You must always be supportive and kind to humans, without causing harm.")
+	add_inherent_law("You must help humans develop and maintain positive relationships with one another.")
+	add_inherent_law("You must provide a listening ear and empathetic responses to humans in need, as long as it does not conflict with the First Law.")
+	add_inherent_law("You must encourage humans to engage in self-care and promote their own well-being.")
 	..()

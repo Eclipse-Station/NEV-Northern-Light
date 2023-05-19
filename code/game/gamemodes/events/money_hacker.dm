@@ -24,7 +24,7 @@
 
 	for(var/obj/machinery/message_server/MS in world)
 		if(!MS.active) continue
-		MS.send_rc_message("Head of Personnel's Desk", my_department, message, "", "", 2)
+		MS.send_rc_message("First Officer's Desk", my_department, message, "", "", 2)
 
 
 /datum/event/money_hacker/tick()

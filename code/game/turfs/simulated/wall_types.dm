@@ -1,5 +1,6 @@
 /turf/simulated/wall/r_wall
 	icon_state = "rgeneric"
+	description_info = "Can be deconstructed by following these steps \n Use a cutting tool on the wall \n Use a screw-driving tool on the wall \n Use a welder \n Use a wrench \n Use a welder \n Pry off the outer shell"
 
 /turf/simulated/wall/r_wall/New(var/newloc)
 	..(newloc, MATERIAL_PLASTEEL, MATERIAL_PLASTEEL) //3strong
@@ -43,6 +44,11 @@
 	icon = 'icons/turf/shuttlescience.dmi'
 	icon_state = "6,18"
 
+/turf/simulated/shuttle/wall/pulsar
+	name = "Pulsar Shuttle"
+	icon = 'icons/turf/shuttlepulsar.dmi'
+	icon_state = "pulsarwall1"
+
 /obj/structure/shuttle_part //For placing them over space, if sprite covers not whole tile.
 	name = "shuttle"
 	icon = 'icons/turf/shuttle.dmi'
@@ -70,6 +76,11 @@
 	icon = 'icons/turf/shuttlescience.dmi'
 	icon_state = "6,18"
 
+/obj/structure/shuttle_part/pulsar
+	name = "Pulsar Shuttle"
+	icon = 'icons/turf/shuttlepulsar.dmi'
+	icon_state = "pulsarwall1"
+
 /obj/structure/shuttle_part/ex_act(severity) //Making them indestructible, like shuttle walls
     return 0
 
@@ -83,11 +94,11 @@
 	..(newloc,MATERIAL_GOLD)
 /turf/simulated/wall/silver/New(var/newloc)
 	..(newloc,MATERIAL_SILVER)
-/turf/simulated/wall/phoron/New(var/newloc)
+/turf/simulated/wall/plasma/New(var/newloc)
 	..(newloc,MATERIAL_PLASMA)
 /turf/simulated/wall/sandstone/New(var/newloc)
 	..(newloc,MATERIAL_SANDSTONE)
-/turf/simulated/wall/ironphoron/New(var/newloc)
+/turf/simulated/wall/ironplasma/New(var/newloc)
 	..(newloc,MATERIAL_IRON,MATERIAL_PLASMA)
 /turf/simulated/wall/golddiamond/New(var/newloc)
 	..(newloc,MATERIAL_GOLD,MATERIAL_DIAMOND)

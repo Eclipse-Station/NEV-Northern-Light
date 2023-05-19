@@ -94,18 +94,21 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 
 	var/default_spawn = "Aft Cryogenic Storage"
 
-	var/allowed_jobs = list(/datum/job/captain, /datum/job/boff, /datum/job/rd, /datum/job/hop, /datum/job/cmo, /datum/job/chief_engineer, /datum/job/ihc,
+	var/allowed_jobs = list(/datum/job/captain, /datum/job/rd, /datum/job/hop, /datum/job/cmo, /datum/job/chief_engineer, /datum/job/ihc,
 						/datum/job/gunserg, /datum/job/inspector, /datum/job/medspec, /datum/job/ihoper,
-						/datum/job/doctor, /datum/job/chemist, /datum/job/paramedic, /datum/job/psychiatrist,
+						/datum/job/doctor, /datum/job/chemist, /datum/job/paramedic, /datum/job/bioengineer,
 						/datum/job/technomancer,
 						/datum/job/cargo_tech, /datum/job/mining, /datum/job/merchant,
 						/datum/job/clubworker, /datum/job/clubmanager, /datum/job/artist,
 						/datum/job/chaplain, /datum/job/acolyte, /datum/job/janitor, /datum/job/hydro,
-						/datum/job/scientist, /datum/job/roboticist,
+						/datum/job/scientist, /datum/job/roboticist, /datum/job/psychiatrist,
 						/datum/job/ai, /datum/job/cyborg,
 						/datum/job/assistant
 
 						)
+	var/pulsar_z
+	var/pulsar_size = 20  //Should be an even number, to place the pulsar in the middle
+	var/obj/effect/pulsar/pulsar_star
 
 	var/overmap_z
 	var/overmap_size = 50 * 4
@@ -121,7 +124,7 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 	var/shuttle_called_message = "Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
 	var/shuttle_recall_message = "Jump sequence aborted, return to normal operating conditions."
 
-	var/list/usable_email_tlds = list("nev_northern_light.org","northern_light.scg","northern_light.net")
+	var/list/usable_email_tlds = list("cev_eris.org","eris.scg","eris.net")
 	var/path = "eris"
 
 	var/access_modify_region = list(
@@ -336,24 +339,6 @@ ADMIN_VERB_ADD(/client/proc/test_MD, R_DEBUG, null)
 	holomap_smoosh = list(list(1,2,3,4,5))
 
 /obj/map_data/eris/custom_z_name(z_level)
-	return "Deck [height - z_level + 1]"
-
-//Mini Eris
-/obj/map_data/erida
-	name = "Eris"
-	is_station_level = TRUE
-	is_player_level = TRUE
-	is_contact_level = TRUE
-	is_accessable_level = TRUE
-	custom_z_names = TRUE
-	height = 4
-	holomap_offset_x = -1	// Number of pixels to offset the map right (for centering) for this z
-	holomap_offset_y = -1	// Number of pixels to offset the map up (for centering) for this z
-	holomap_legend_x = 150	// x position of the holomap legend for this z
-	holomap_legend_y = 150	// y position of the holomap legend for this z
-	holomap_smoosh = list(list(1,2,3,4))
-
-/obj/map_data/erida/custom_z_name(z_level)
 	return "Deck [height - z_level + 1]"
 
 /obj/map_data/admin

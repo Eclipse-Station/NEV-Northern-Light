@@ -71,7 +71,7 @@ Just place it anywhere on the ship.
 ### WHAT IT DOES
 Lets your ship move on the map at all.
 ### HOW TO USE
-Put them on map, hook up to pipes with any gas. Heavier gas (CO2/phoron) + More pressure = more thrust.
+Put them on map, hook up to pipes with any gas. Heavier gas (CO2/plasma) + More pressure = more thrust.
 
 *************************************************************
 # Exploration shuttle terminal

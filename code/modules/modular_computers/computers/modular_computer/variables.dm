@@ -3,6 +3,8 @@
 /obj/item/modular_computer
 	name = "Modular Computer"
 	desc = "A modular computer. You shouldn't see this."
+	description_info = "Can have its component or battery switched with a screwdriver."
+	description_antag = "Can be emagged for acces to illegal applications."
 	spawn_blacklisted = TRUE
 	bad_type = /obj/item/modular_computer
 	var/enabled = 0											// Whether the computer is turned on.
@@ -32,7 +34,6 @@
 	var/icon_state_screensaver = "standby"
 	var/max_hardware_size = 0								// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
 	var/steel_sheet_cost = 5								// Amount of steel sheets refunded when disassembling an empty frame of this computer.
-	var/glass_sheet_cost = 5								// Amount of glass sheets refunded when dissassembling an empty frame
 	var/screen_light_strength = 0							// Intensity of light this computer emits. Comparable to numbers light fixtures use.
 	var/screen_light_range = 2								// Intensity of light this computer emits. Comparable to numbers light fixtures use.
 	var/list/all_threads = list()							// All running programs, including the ones running in background

@@ -8,8 +8,8 @@ SUBSYSTEM_DEF(economy)
 	init_order = INIT_ORDER_LATELOAD
 
 	wait = 300 //Ticks once per 30 seconds
-	var/payday_interval = 1 HOURS
-	var/next_payday = 1 HOURS
+	var/payday_interval = 30 MINUTES
+	var/next_payday = 30 MINUTES
 
 /datum/controller/subsystem/economy/Initialize()
 	.=..()
@@ -49,7 +49,7 @@ SUBSYSTEM_DEF(economy)
 		else
 			var/datum/money_account/EA = get_account(ED.account_number)
 			if(amount_to_pay <= EA.money)
-				transfer_funds(EA, A, "Payroll Funding", "NEV Northern Light payroll system", amount_to_pay)
+				transfer_funds(EA, A, "Payroll Funding", "CEV Eris payroll system", amount_to_pay)
 				paid_internal += amount_to_pay
 				ED.total_debt -= A.debt
 				A.debt = 0
@@ -71,7 +71,7 @@ SUBSYSTEM_DEF(economy)
 		var/datum/computer_file/report/crew_record/R = get_crewmember_record(A.owner_name)
 
 		if(amount_to_pay <= EA.money)
-			transfer_funds(EA, A, "Payroll Funding", "NEV Northern Light payroll system", amount_to_pay)
+			transfer_funds(EA, A, "Payroll Funding", "CEV Eris payroll system", amount_to_pay)
 			paid_internal += amount_to_pay
 			ED.total_debt -= A.debt
 			A.debt = 0
@@ -94,7 +94,7 @@ SUBSYSTEM_DEF(economy)
 					payroll_failure_mail(R, A, D.total_debt)
 
 	total_paid = paid_internal + paid_external
-	command_announcement.Announce("Hourly crew wages have been paid, please check your email for details. In total the crew of NEV Northern Light have earned [total_paid] credits, including [paid_external] credits from external sources.\n Please contact your Department Heads in case of errors or missing payments.", "Dispensation")
+	command_announcement.Announce("Half hourly crew wages have been paid, please check your email for details. In total the crew of CEV Eris have earned [total_paid] credits, including [paid_external] credits from external sources.\n Please contact your Department Heads in case of errors or missing payments.", "Dispensation")
 
 
 //Sent to a head of staff when their department account fails to pay out wages

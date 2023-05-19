@@ -29,11 +29,9 @@ GLOBAL_LIST_EMPTY(surgery_steps)					//list of all new organ-based surgery steps
 GLOBAL_LIST_EMPTY(mechas_list)				//list of all mechs. Used by hostile mobs target tracking. Not sure this is used anymore
 GLOBAL_LIST_EMPTY(all_burrows)				//list of all burrows
 GLOBAL_LIST_EMPTY(all_maintshrooms)			//list of all maintshrooms
-GLOBAL_LIST_EMPTY(all_hive_wires)			//list of all hivemind wires
-GLOBAL_LIST_EMPTY(all_hive_machinery)		//list of all hivemind machines
 
 //Machinery lists
-GLOBAL_LIST_EMPTY(alarm_list) //List of alarms
+GLOBAL_LIST_EMPTY(alarm_list) //List of fire alarms
 GLOBAL_LIST_EMPTY(ai_status_display_list) //List of AI status displays
 GLOBAL_LIST_EMPTY(apc_list) //List of Area Power Controllers
 GLOBAL_LIST_EMPTY(smes_list) //List of SMES
@@ -51,7 +49,6 @@ GLOBAL_LIST_EMPTY(joblist)					//list of all jobstypes, minus borg and AI
 GLOBAL_LIST_EMPTY(all_departments)			//List of all department datums
 var/global/list/department_IDs = list(DEPARTMENT_COMMAND, DEPARTMENT_MEDICAL, DEPARTMENT_ENGINEERING,
  DEPARTMENT_SCIENCE, DEPARTMENT_SECURITY, DEPARTMENT_GUILD, DEPARTMENT_CHURCH, DEPARTMENT_CIVILIAN, DEPARTMENT_OFFSHIP)
-GLOBAL_LIST_EMPTY(global_corporations)
 
 
 GLOBAL_LIST_EMPTY(HUDdatums)
@@ -71,6 +68,7 @@ var/global/list/playable_species = list(SPECIES_HUMAN)    // A list of ALL playa
 
 // Posters
 GLOBAL_LIST_EMPTY(poster_designs)
+GLOBAL_LIST_EMPTY(poster_designs_asters)
 
 // Uplinks
 var/list/obj/item/device/uplink/world_uplinks = list()
@@ -108,24 +106,18 @@ GLOBAL_DATUM_INIT(underwear, /datum/category_collection/underwear, new())
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
 var/global/list/organ_structure = list(
-	torso = list(name= "Torso", children=list(BP_GROIN, BP_HEAD, BP_R_ARM, BP_L_ARM, OP_HEART, OP_LUNGS, OP_STOMACH)),
-	groin = list(name= "Groin",     parent=BP_CHEST, children=list(BP_L_LEG, BP_R_LEG, OP_KIDNEY_LEFT, OP_KIDNEY_RIGHT, OP_LIVER)),
-	head  = list(name= "Head",      parent=BP_CHEST, children=list(BP_BRAIN, BP_EYES)),
-	r_arm = list(name= "Right arm", parent=BP_CHEST, children=list(BP_R_HAND)),
-	l_arm = list(name= "Left arm",  parent=BP_CHEST, children=list(BP_L_HAND)),
-	r_leg = list(name= "Right leg", parent=BP_GROIN, children=list(BP_R_FOOT)),
-	l_leg = list(name= "Left leg",  parent=BP_GROIN, children=list(BP_L_FOOT)),
-	l_foot = list(name= "Left Foot",  parent=BP_L_LEG, children=list()),
-	r_foot = list(name= "Right Foot",  parent=BP_R_LEG, children=list()),
-	r_hand = list(name= "Right Hand",  parent=BP_R_ARM, children=list()),
-	l_hand = list(name= "Left Hand",  parent=BP_L_ARM, children=list()),
+	BP_CHEST = list(name= "Chest", children=list(BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, OP_HEART, OP_LUNGS, OP_STOMACH)),
+	BP_GROIN = list(name= "Groin",     parent=BP_CHEST, children=list(BP_R_LEG, BP_L_LEG, OP_KIDNEY_LEFT, OP_KIDNEY_RIGHT, OP_LIVER)),
+	BP_HEAD  = list(name= "Head",      parent=BP_CHEST, children=list(BP_BRAIN, BP_EYES)),
+	BP_R_ARM = list(name= "Right arm", parent=BP_CHEST, children=list()),
+	BP_L_ARM = list(name= "Left arm",  parent=BP_CHEST, children=list()),
+	BP_R_LEG = list(name= "Right leg", parent=BP_GROIN, children=list()),
+	BP_L_LEG = list(name= "Left leg",  parent=BP_GROIN, children=list()),
 	)
-/*
+
 var/global/list/organ_tag_to_name = list(
 	head  = "head", r_arm = "right arm",
 	chest = "body", r_leg = "right leg",
-	l_foot = "left foot", r_foot = "right foot",
-	r_hand = "right hand", l_hand = "left hand",
 	eyes  = "eyes", l_arm = "left arm",
 	groin = "groin",l_leg = "left leg",
 	chest2= "back", heart = "heart",
@@ -133,52 +125,12 @@ var/global/list/organ_tag_to_name = list(
 	"left kidney" = "left kidney", "right kidney" = "right kidney",
 	stomach = "stomach", brain = "brain"
 	)
-*/
-var/global/list/organ_tag_to_name = list(
-	head  = "head", r_arm = "right arm",r_hand = "right hand",
-	torso = "torso", r_leg = "right Leg",r_foot = "right foot",
-	eyes  = "eyes", l_arm = "left arm", l_hand = "left hand",
-	groin = "groin",l_leg = "left leg", l_foot = "left foot",
-	chest2= "back", heart = "heart",    lungs  = "lungs",
-	liver = "liver", brain = "brain", "left kidney" = "left kidney", "right kidney" = "right kidney",
-	stomach = "stomach"
-	)
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
 var/datum/visualnet/camera/cameranet = new()
 
 var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, access_external_airlocks)
-
-// Strings which corraspond to bodypart covering flags, useful for outputting what something covers.
-var/global/list/string_part_flags = list(
-	"head" = HEAD,
-	"face" = FACE,
-	"eyes" = EYES,
-	"upper body" = UPPER_TORSO,
-	"lower body" = LOWER_TORSO,
-	"legs" = LEGS,
-	"arms" = ARMS,
-	"feet" = FEET,
-	"hands" = HANDS
-)
-
-// Strings which corraspond to slot flags, useful for outputting what slot something is.
-var/global/list/string_slot_flags = list(
-	"back" = SLOT_BACK,
-	"face" = SLOT_MASK,
-	"waist" = SLOT_BELT,
-	"ID slot" = SLOT_ID,
-	"ears" = SLOT_EARS,
-	"eyes" = SLOT_EYES,
-	"hands" = SLOT_GLOVES,
-	"head" = SLOT_HEAD,
-	"feet" = SLOT_FEET,
-	"exo slot" = SLOT_OCLOTHING,
-	"body" = SLOT_ICLOTHING,
-	"uniform" = SLOT_ACCESSORY_BUFFER,
-	"holster" = SLOT_HOLSTER
-)
 
 //A list of slots where an item doesn't count as "worn" if it's in one of them
 var/global/list/unworn_slots = list(slot_l_hand,slot_r_hand, slot_l_store, slot_r_store,slot_robot_equip_1,slot_robot_equip_2,slot_robot_equip_3)
@@ -205,13 +157,6 @@ GLOBAL_LIST_EMPTY(ignore_health_alerts_from)
 	for(var/path in paths)
 		var/datum/sprite_accessory/facial_hair/H = new path()
 		GLOB.facial_hair_styles_list[H.name] = H
-
-
-	//Body markings - Initialise all /datum/sprite_accessory/marking into an list indexed by marking name
-	paths = typesof(/datum/sprite_accessory/marking) - /datum/sprite_accessory/marking
-	for(var/path in paths)
-		var/datum/sprite_accessory/marking/M = new path()
-		body_marking_styles_list[M.name] = M
 
 
 	//Surgery Steps - Initialize all /datum/surgery_step into a list
@@ -293,16 +238,16 @@ GLOBAL_LIST_EMPTY(ignore_health_alerts_from)
 			whitelisted_species += S.name
 
 	//Posters
-	paths = subtypesof(/datum/poster) - /datum/poster/wanted
+	paths = subtypesof(/datum/poster) - /datum/poster/wanted - /datum/poster/asters
 	for(var/T in paths)
-		var/datum/poster/P = new T
-		GLOB.poster_designs += P
+		var/datum/poster/poster = new T
+		GLOB.poster_designs += poster
 
-	//Corporations
-	paths = subtypesof(/datum/corporation)
+	// Aster posters
+	paths = subtypesof(/datum/poster/asters) - /datum/poster/wanted
 	for(var/T in paths)
-		var/datum/corporation/C = new T
-		global.GLOB.global_corporations[C.name] = C
+		var/datum/poster/asters/poster = new T
+		GLOB.poster_designs_asters += poster
 
 	paths = subtypesof(/datum/hud)
 	for(var/T in paths)
@@ -370,84 +315,3 @@ var/global/list/paramslist_cache = list()
 	for(var/i in 1 to L.len)
 		L[i] = text2num(L[i])
 	return L
-
-
-/*
-	CUSTOMIZATION
-	  BULLSHIT
-	 			*/
-
-
-var/global/list/ear_styles_list = list()	// Stores /datum/sprite_accessory/ears indexed by type
-var/global/list/tail_styles_list = list()	// Stores /datum/sprite_accessory/tail indexed by type
-var/global/list/wing_styles_list = list()	// Stores /datum/sprite_accessory/wing indexed by type
-var/global/list/negative_traits = list()	// Negative custom species traits, indexed by path
-var/global/list/neutral_traits = list()		// Neutral custom species traits, indexed by path
-var/global/list/positive_traits = list()	// Positive custom species traits, indexed by path
-var/global/list/traits_costs = list()		// Just path = cost list, saves time in char setup
-var/global/list/all_traits = list()			// All of 'em at once (same instances)
-
-var/global/list/custom_species_bases = list() // Species that can be used for a Custom Species icon base
-
-//stores numeric player size options indexed by name  Eclipse edit - changed Macro to Giant
-var/global/list/player_sizes_list = list(
-		"Giant" 	= RESIZE_HUGE,
-		"Big" 		= RESIZE_BIG,
-		"Normal" 	= RESIZE_NORMAL,
-		"Small" 	= RESIZE_SMALL,
-		"Tiny" 		= RESIZE_TINY)
-
-
-
-/hook/startup/proc/init_vore_datum_ref_lists()
-	var/paths
-
-	// Custom Ears
-	paths = typesof(/datum/sprite_accessory/ears) - /datum/sprite_accessory/ears
-	for(var/path in paths)
-		var/obj/item/clothing/head/instance = new path()
-		ear_styles_list[path] = instance
-
-	// Custom Tails
-	paths = typesof(/datum/sprite_accessory/tail) - /datum/sprite_accessory/tail - /datum/sprite_accessory/tail/taur
-	for(var/path in paths)
-		var/datum/sprite_accessory/tail/instance = new path()
-		tail_styles_list[path] = instance
-
-	// Custom Wings
-	paths = typesof(/datum/sprite_accessory/wing) - /datum/sprite_accessory/wing
-	for(var/path in paths)
-		var/datum/sprite_accessory/wing/instance = new path()
-		wing_styles_list[path] = instance
-
-	// Custom species traits
-/*	paths = typesof(/datum/trait) - /datum/trait
-	for(var/path in paths)
-		var/datum/trait/instance = new path()
-		if(!instance.name)
-			continue //A prototype or something
-		var/cost = instance.cost
-		traits_costs[path] = cost
-		all_traits[path] = instance
-		switch(cost)
-			if(-INFINITY to -0.1)
-				negative_traits[path] = instance
-			if(0)
-				neutral_traits[path] = instance
-			if(0.1 to INFINITY)
-				positive_traits[path] = instance*/
-
-	// Custom species icon bases
-	var/list/blacklisted_icons = list(SPECIES_CUSTOM,SPECIES_PROMETHEAN) //Just ones that won't work well.
-	for(var/species_name in playable_species)
-		if(species_name in blacklisted_icons)
-			continue
-		var/datum/species/S = all_species[species_name]
-		if(S.spawn_flags & SPECIES_IS_WHITELISTED)
-			continue
-		custom_species_bases += species_name
-
-	return 1 // Hooks must return 1
-
-//Markings
-var/global/list/body_marking_styles_list = list()

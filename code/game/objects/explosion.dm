@@ -3,8 +3,7 @@
 proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, singe_impact_range)
 	spawn(0)
 		if(config.use_recursive_explosions)
-			var/power = devastation_range * 2 + heavy_impact_range + (light_impact_range* 0.75) //The ranges add up, ie light 14 includes both heavy 7 and devestation 3. So this calculation means devestation counts for 4, heavy for 2 and light for 1 power, giving us a cap of 27 power.
-			// Tweaked light impact damage by dropping it by 25% to make it less instantly-murderous on ship
+			var/power = devastation_range * 2 + heavy_impact_range + light_impact_range //The ranges add up, ie light 14 includes both heavy 7 and devestation 3. So this calculation means devestation counts for 4, heavy for 2 and light for 1 power, giving us a cap of 27 power.
 			explosion_rec(epicenter, power)
 			return
 		
@@ -154,6 +153,23 @@ proc/fragment_explosion_angled(atom/epicenter, turf/origin , projectile_type, pr
 		pew_thingie.firer = epicenter
 		pew_thingie.launch(pick(hittable_turfs))
 
+//Generic proc for spread of any projectile type.
+proc/projectile_explosion(turf/epicenter, range, p_type, p_amount = 10, list/p_damage = list())
+    if(!istype(epicenter))
+        epicenter = get_turf(epicenter)
 
+    if(!epicenter || !p_type)
+        return
 
+    var/list/target_turfs = getcircle(epicenter, range)
+    while(p_amount)
+        sleep(0)
+        var/obj/item/projectile/P = new p_type(epicenter)
 
+        if(length(p_damage))
+            P.damage_types = p_damage
+
+        P.shot_from = epicenter
+
+        P.launch(pick(target_turfs))
+        p_amount--

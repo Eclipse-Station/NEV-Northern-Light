@@ -9,11 +9,9 @@
 
 	var/max_damage = 0
 	var/min_broken_damage = 30
-	var/dislocated = 0
+	var/nerve_struck = 0 // can only activate on natural arms/legs
 	var/vital = FALSE
 	var/cannot_amputate = FALSE
-
-	var/gendered = FALSE
 
 	var/w_class = ITEM_SIZE_NORMAL
 	var/max_volume = 2.5	//Space used up by specific organ size and w_class of cavity implants (ITEM_SIZE_SMALL + 0.5)
@@ -38,11 +36,9 @@
 	default_type = /obj/item/organ/external/chest
 	default_bone_type = /obj/item/organ/internal/bone/chest
 
-	gendered = TRUE
-
 	max_damage = 100
 	min_broken_damage = 60
-	dislocated = -1
+	nerve_struck = -1
 	vital = TRUE
 	cannot_amputate = TRUE
 
@@ -63,11 +59,9 @@
 	default_type = /obj/item/organ/external/groin
 	default_bone_type = /obj/item/organ/internal/bone/groin
 
-	gendered = TRUE
-
 	max_damage = 100
 	min_broken_damage = 60
-	dislocated = -1
+	nerve_struck = -1
 
 	w_class = ITEM_SIZE_BULKY
 	max_volume = ITEM_SIZE_COLOSSAL
@@ -85,11 +79,9 @@
 	default_type = /obj/item/organ/external/head
 	default_bone_type = /obj/item/organ/internal/bone/head
 
-	gendered = TRUE
-
-	max_damage = 75
+	max_damage = 90
 	min_broken_damage = 60
-	vital = TRUE
+	//vital = TRUE
 
 	w_class = ITEM_SIZE_NORMAL
 	max_volume = ITEM_SIZE_GARGANTUAN
@@ -160,53 +152,6 @@
 	joint = "right knee"
 	amputation_point = "right hip"
 
-/datum/organ_description/hand
-	min_broken_damage = 40
-	w_class = ITEM_SIZE_SMALL
-	drop_on_remove = list(slot_gloves, slot_handcuffed)
-
-/datum/organ_description/hand/left
-	organ_tag = BP_L_HAND
-	name = "left hand"
-	body_part = HAND_LEFT
-	parent_organ_base = BP_L_ARM
-	joint = "left wrist"
-	amputation_point = "left wrist"
-	default_bone_type = /obj/item/organ/internal/bone/l_hand
-
-/datum/organ_description/hand/right
-	organ_tag = BP_R_HAND
-	name = "right hand"
-	body_part = HAND_RIGHT
-	parent_organ_base = BP_R_ARM
-	joint = "right wrist"
-	amputation_point = "right wrist"
-	default_bone_type = /obj/item/organ/internal/bone/r_hand
-
-/datum/organ_description/foot
-	min_broken_damage = 40
-	drop_on_remove = list(slot_shoes, slot_legcuffed)
-
-/datum/organ_description/foot/left
-	organ_tag = BP_L_FOOT
-	name = "left foot"
-	body_part = FOOT_LEFT
-	icon_position = LEFT
-	parent_organ_base = BP_L_LEG
-	joint = "left ankle"
-	amputation_point = "left ankle"
-	default_bone_type = /obj/item/organ/internal/bone/l_foot
-
-/datum/organ_description/foot/right
-	organ_tag = BP_R_FOOT
-	name = "right foot"
-	body_part = FOOT_RIGHT
-	icon_position = RIGHT
-	parent_organ_base = BP_R_LEG
-	joint = "right ankle"
-	amputation_point = "right ankle"
-	default_bone_type = /obj/item/organ/internal/bone/r_foot
-
 ////SLIME////
 /datum/organ_description/chest/slime
 	name = "upper body"
@@ -252,15 +197,47 @@
 	max_volume = 3
 	default_type = /obj/item/organ/external/unbreakable
 
+////SKELETON////
+/datum/organ_description/chest/skeletal
+	name = "ribcage"
+	max_damage = 20
+	min_broken_damage = 5
+	max_volume = 1
+	default_type = /obj/item/organ/external/skeletal/chest
 
-/datum/organ_description/hand/left/slime
-	default_type = /obj/item/organ/external/unbreakable
+/datum/organ_description/groin/skeletal
+	name = "pelvis"
+	max_damage = 20
+	min_broken_damage = 5
+	max_volume = 1
+	default_type = /obj/item/organ/external/skeletal/groin
 
-/datum/organ_description/hand/right/slime
-	default_type = /obj/item/organ/external/unbreakable
+/datum/organ_description/head/skeletal
+	max_damage = 20
+	min_broken_damage = 5
+	max_volume = 1
+	default_type = /obj/item/organ/external/skeletal/head
 
-/datum/organ_description/foot/left/slime
-	default_type = /obj/item/organ/external/unbreakable
+/datum/organ_description/arm/left/skeletal
+	max_damage = 20
+	min_broken_damage = 5
+	max_volume = 1
+	default_type = /obj/item/organ/external/skeletal
 
-/datum/organ_description/foot/right/slime
-	default_type = /obj/item/organ/external/unbreakable
+/datum/organ_description/arm/right/skeletal
+	max_damage = 20
+	min_broken_damage = 5
+	max_volume = 1
+	default_type = /obj/item/organ/external/skeletal
+
+/datum/organ_description/leg/left/skeletal
+	max_damage = 20
+	min_broken_damage = 5
+	max_volume = 1
+	default_type = /obj/item/organ/external/skeletal
+
+/datum/organ_description/leg/right/skeletal
+	max_damage = 20
+	min_broken_damage = 5
+	max_volume = 1
+	default_type = /obj/item/organ/external/skeletal

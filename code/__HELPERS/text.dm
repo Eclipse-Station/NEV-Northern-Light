@@ -18,13 +18,6 @@
 	var/sqltext = dbcon.Quote(t);
 	return copytext(sqltext, 2, length(sqltext));//Quote() adds quotes around input, we already do that
 
-/proc/generateRandomString(length)
-	. = list()
-	for(var/a in 1 to length)
-		var/letter = rand(33,126)
-		. += ascii2text(letter)
-	. = jointext(., null)
-
 /*
  * Text sanitization
  */
@@ -67,7 +60,7 @@
 //If you have a problem with sanitize() in chat, when quotes and >, < are displayed as html entites -
 //this is a problem of double-encode(when & becomes &amp;), use sanitize() with encode=0, but not the sanitizeSafe()!
 /proc/sanitizeSafe(var/input, var/max_length = MAX_MESSAGE_LEN, var/encode = 1, var/trim = 1, var/extra = 1)
-	return sanitize(replace_characters(input, list(">"=" ", "<"=" ", "\""="'","&lt;" = " ","&gt;" = " ", "@" = "")), max_length, encode, trim, extra)	//Eclipse edit: Sanitise @ character as well
+	return sanitize(replace_characters(input, list(">"=" ", "<"=" ", "\""="'","&lt;" = " ","&gt;" = " ")), max_length, encode, trim, extra)
 
 //Filters out undesirable characters from names
 /proc/sanitizeName(input, max_length = MAX_NAME_LEN, allow_numbers = 0)
@@ -163,6 +156,19 @@
 //Old variant. Haven't dared to replace in some places.
 /proc/sanitize_old(var/t, var/list/repl_chars = list("\n"="#", "\t"="#"))
 	return html_encode(replace_characters(t, repl_chars))
+
+//Removes a few problematic characters
+/proc/sanitize_simple(t,list/repl_chars = list("\n"="#","\t"="#"))
+	for(var/char in repl_chars)
+		var/index = findtext(t, char)
+		while(index)
+			t = copytext(t, 1, index) + repl_chars[char] + copytext(t, index + length(char))
+			index = findtext(t, char, index + length(char))
+	return t
+
+/proc/sanitize_filename(t)
+	return sanitize_simple(t, list("\n"="", "\t"="", "/"="", "\\"="", "?"="", "%"="", "*"="", ":"="", "|"="", "\""="", "<"="", ">"=""))
+
 
 /*
  * Text searches
@@ -365,7 +371,7 @@ proc/TextPreview(var/string, var/len=40)
 /proc/create_text_tag(var/tagname, var/tagdesc = tagname, var/client/C = null)
 	if(!(C && C.get_preference_value(/datum/client_preference/chat_tags) == GLOB.PREF_SHOW))
 		return tagdesc
-	return icon2html(icon(text_tag_icons, tagname), world, realsize=TRUE)
+	return icon2html(icon(text_tag_icons, tagname), world)
 
 /proc/contains_az09(var/input)
 	for(var/i=1, i<=length(input), i++)
@@ -450,12 +456,10 @@ proc/TextPreview(var/string, var/len=40)
 	t = replacetext(t, "\[/grid\]", "</td></tr></table>")
 	t = replacetext(t, "\[row\]", "</td><tr>")
 	t = replacetext(t, "\[cell\]", "<td>")
-	t = replacetext(t, "\[lazarus\]", "<img src = Ph_lazarus.png>")
-	t = replacetext(t, "\[aegis\]", "<img src = Ph_aegis.png>")
-	t = replacetext(t, "\[ftu\]", "<img src = Ph_trade.png>")
-	t = replacetext(t, "\[engineering\]", "<img src = Ph_engineering.png>")
+	t = replacetext(t, "\[moebius\]", "<img src = moebus_logo.png>")
+	t = replacetext(t, "\[ironhammer\]", "<img src = ironhammer.png>")
+	t = replacetext(t, "\[guild\]", "<img src = guild.png>")
 	t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
-	t = replacetext(t, "\[mekhane\]", "<img src = Ph_mekhane.png>")
 	t = replacetext(t, "\[editorbr\]", "")
 	return t
 

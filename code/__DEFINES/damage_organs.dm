@@ -70,30 +70,8 @@
 #define BP_B_HEAD   "skull"
 #define BP_B_L_ARM  "left humerus"
 #define BP_B_R_ARM  "right humerus"
-#define BP_B_R_HAND "right carpals"
-#define BP_B_L_HAND "left carpals"
 #define BP_B_L_LEG  "left femur"
 #define BP_B_R_LEG  "right femur"
-#define BP_B_L_FOOT "left tibia"
-#define BP_B_R_FOOT "right tibia"
-#define BP_LIVER    "liver"
-#define BP_KIDNEYS  "kidneys"
-#define BP_STOMACH  "stomach"
-#define BP_PHORON   "phoron vessel"
-#define BP_APPENDIX "appendix"
-#define BP_CELL     "cell"
-#define BP_HIVE     "hive node"
-#define BP_NUTRIENT "nutrient vessel"
-#define BP_ACID     "acid gland"
-#define BP_EGG      "egg sac"
-#define BP_RESIN    "resin spinner"
-#define BP_STRATA   "neural strata"
-#define BP_RESPONSE "response node"
-#define BP_GBLADDER "gas bladder"
-#define BP_POLYP    "polyp segment"
-#define BP_ANCHOR   "anchoring ligament"
-#define BP_PHORONF   "phoron filter"
-#define BP_ACETONE  "acetone reactor"
 
 // Unique carrion Organs.
 #define BP_SPCORE   "spider core"
@@ -115,20 +93,15 @@
 // Limbs.
 #define BP_L_LEG  "l_leg"
 #define BP_R_LEG  "r_leg"
-#define BP_L_FOOT "l_foot"
-#define BP_R_FOOT "r_foot"
 #define BP_L_ARM  "l_arm"
 #define BP_R_ARM  "r_arm"
-#define BP_L_HAND "l_hand"
-#define BP_R_HAND "r_hand"
 #define BP_HEAD   "head"
-#define BP_CHEST  "torso"
+#define BP_CHEST  "chest"
 #define BP_GROIN  "groin"
 #define BP_LEGS list(BP_R_LEG, BP_L_LEG)
 #define BP_ARMS list(BP_R_ARM, BP_L_ARM)
-#define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_R_HAND, BP_L_HAND)
+#define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
 #define BP_BY_DEPTH list(BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_GROIN, BP_CHEST)
-#define BP_BASE_PARTS list(BP_CHEST, BP_GROIN)
 
 // Organs helpers.
 #define BP_IS_ORGANIC(org)  (org.nature == MODIFICATION_ORGANIC)
@@ -140,13 +113,15 @@
 
 
 // Organ defines.
-#define ORGAN_CUT_AWAY   (1<<0)
-#define ORGAN_BLEEDING   (1<<1)
-#define ORGAN_BROKEN     (1<<2)
-#define ORGAN_DESTROYED  (1<<3)
-#define ORGAN_SPLINTED   (1<<4)
-#define ORGAN_DEAD       (1<<5)
-#define ORGAN_MUTATED    (1<<6)
+#define ORGAN_CUT_AWAY	(1<<0)
+#define ORGAN_BLEEDING	(1<<1)
+#define ORGAN_BROKEN	(1<<2)
+#define ORGAN_DESTROYED	(1<<3)
+#define ORGAN_SPLINTED	(1<<4)
+#define ORGAN_DEAD		(1<<5)
+#define ORGAN_MUTATED	(1<<6)
+#define ORGAN_INFECTED	(1<<7)
+#define ORGAN_WOUNDED	(1<<8)
 
 // Body part functions
 #define BODYPART_GRASP				(1<<0)
@@ -157,6 +132,7 @@
 #define DROPLIMB_EDGE 0
 #define DROPLIMB_BLUNT 1
 #define DROPLIMB_BURN 2
+#define DROPLIMB_EDGE_BURN 3
 
 #define MODIFICATION_ORGANIC 0	// Organic
 #define MODIFICATION_ASSISTED 1 // Like pacemakers, not robotic
@@ -167,12 +143,41 @@
 // Damage above this value must be repaired with surgery.
 #define ROBOLIMB_SELF_REPAIR_CAP 30
 
-//Germs and infections.
-#define GERM_LEVEL_AMBIENT  110 // Maximum germ level you can reach by standing still.
-#define GERM_LEVEL_MOVE_CAP 200 // Maximum germ level you can reach by running around.
-
-#define INFECTION_LEVEL_ONE   100
-#define INFECTION_LEVEL_TWO   500
-#define INFECTION_LEVEL_THREE 1000
-
 #define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
+
+// INTERNAL ORGANS
+#define IORGAN_STANDARD_HEALTH 12
+#define IORGAN_SMALL_HEALTH 8
+#define IORGAN_SKELETAL_HEALTH 14
+#define IORGAN_MAX_HEALTH 14
+
+#define IORGAN_KIDNEY_TOX_RATIO 0.25
+#define IORGAN_LIVER_TOX_RATIO 0.75
+
+// INTERNAL WOUNDS
+#define TREATMENT_ITEM 1
+#define TREATMENT_TOOL 2
+#define TREATMENT_CHEM 3
+
+#define IWOUND_CAN_DAMAGE		(1<<0)
+#define IWOUND_PROGRESS			(1<<1)
+#define IWOUND_PROGRESS_DEATH	(1<<2)
+#define IWOUND_SPREAD			(1<<3)
+#define IWOUND_HALLUCINATE		(1<<4)
+
+#define IWOUND_INSIGNIFICANT_DAMAGE 0.05
+#define IWOUND_LIGHT_DAMAGE 0.1
+#define IWOUND_MEDIUM_DAMAGE 0.25
+#define IWOUND_HEAVY_DAMAGE 0.5
+
+#define IWOUND_1_MINUTE	30
+#define IWOUND_2_MINUTES 60
+#define IWOUND_3_MINUTES 90
+#define IWOUND_4_MINUTES 120
+#define IWOUND_5_MINUTES 150
+
+// Organ generation
+#define ORGAN_HAS_BONES			(1<<0)
+#define ORGAN_HAS_BLOOD_VESSELS	(1<<1)
+#define ORGAN_HAS_NERVES		(1<<2)
+#define ORGAN_HAS_MUSCLES		(1<<3)

@@ -44,56 +44,6 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 			var/mob/living/carbon/human/H = body
 			icon = H.stand_icon
 			overlays = H.overlays_standing
-		// // // BEGIN ECLIPSE EDITS // // //
-		// Observer sprites are better.
-		else if(config.generate_ghost_icons)
-			var/mob/living/carbon/human/dummy/mannequin/standin = new(null)
-			standin.delete_inventory(TRUE)
-
-			spawn(1)
-				client.prefs.copy_to(standin)
-
-				var/unsafe = FALSE		//Flag to indicate sanity checks failed. If this is TRUE, it will throw an exception and abort loading the mob image, and instead use a generic.
-
-				//Create the job for the stand-in mob
-				var/preferred_job
-				if(client.prefs.job_high)		//They have their top pick for jobs set, so we'll use that.
-					preferred_job = client.prefs.job_high
-				else if(client.prefs.job_medium)	//No top pick set, but they do have a medium-priority job set.
-					preferred_job = pick(client.prefs.job_medium)
-				else if(client.prefs.job_low)		//No medium priority job set, but they do have a lower.
-					preferred_job = pick(client.prefs.job_low)
-				else				//No job set. We'll make em a vagabond.
-					preferred_job = ASSISTANT_TITLE
-
-
-				if(preferred_job)		//Sanity check.
-					SSjob.EquipRank(standin, preferred_job, FALSE)
-				else
-					throw EXCEPTION("Preferred job not set and sanity checks failed.")
-					to_chat(usr,"<span class='warning'>Failed to load your mob image - a sanity check has failed. Please report this to a developer.	\
-					\nPreferred job was not set or could not be assigned to a variable for character generation, and the fallback method failed to set the job to [ASSISTANT_TITLE].</span>")
-					unsafe = TRUE
-
-				if(!unsafe)		//If everything went through okay, finish generating the mob.
-					equip_custom_items(standin)
-
-					standin.update_body()
-					standin.update_icon()
-
-					icon = standin.stand_icon
-					overlays = standin.overlays_standing
-
-					for(var/i in standin.contents)
-						qdel(i)		//Should probably use Destroy() here, but qdel helps mitigate performance impact.
-					qdel(standin)
-				if(unsafe)		//If the unsafe flag is set, cancel and delete the mob, then go into the fallback method.
-					for(var/i in standin.contents)
-						qdel(i)
-					qdel(standin)
-					icon = body.icon
-					icon_state = body.icon_state
-			overlays = body.overlays
 		else
 			icon = body.icon
 			icon_state = body.icon_state
@@ -104,8 +54,6 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		gender = body.gender
 		if(body.mind && body.mind.name)
 			name = body.mind.name
-
-
 		else
 			if(body.real_name)
 				name = body.real_name
@@ -122,57 +70,6 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 		var/turf/T = pick_spawn_location("Observer")
 		if(istype(T))
 			src.forceMove(T)
-
-
-		if(config.generate_ghost_icons)
-			var/mob/living/carbon/human/dummy/mannequin/standin = new()
-			standin.delete_inventory(TRUE)
-
-			spawn(1)
-				client.prefs.copy_to(standin)
-
-				var/unsafe = FALSE		//Flag to indicate sanity checks failed. If this is TRUE, it will throw an exception and abort loading the mob image, and instead use a generic.
-
-				//Create the job for the stand-in mob
-				var/preferred_job
-				if(client.prefs.job_high)		//They have their top pick for jobs set, so we'll use that.
-					preferred_job = usr.client.prefs.job_high
-				else if(client.prefs.job_medium)	//No top pick set, but they do have a medium-priority job set.
-					preferred_job = pick(client.prefs.job_medium)
-				else if(client.prefs.job_low)		//No medium priority job set, but they do have a lower.
-					preferred_job = pick(usr.client.prefs.job_low)
-				else				//No job set. We'll make em a vagabond.
-					preferred_job = ASSISTANT_TITLE
-
-
-				if(preferred_job)		//Sanity check.
-					SSjob.EquipRank(standin, preferred_job, FALSE)
-				else
-					throw EXCEPTION("Preferred job not set and sanity checks failed.")
-					to_chat(usr,"<span class='warning'>Failed to load your mob image - a sanity check has failed. Please report this to a developer.	\
-					\nPreferred job was not set or could not be assigned to a variable for character generation, and the fallback method failed to set the job to [ASSISTANT_TITLE].</span>")
-					unsafe = TRUE
-
-				if(!unsafe)		//If everything went through okay, finish generating the mob.
-					equip_custom_items(standin)
-
-					standin.update_body()
-					standin.update_icon()
-
-					icon = standin.stand_icon
-					overlays = standin.overlays_standing
-
-					for(var/i in standin.contents)
-						qdel(i)
-					qdel(standin)
-				if(unsafe)		//If the unsafe flag is set, cancel and delete the mob, then go into the fallback method.
-					for(var/i in standin.contents)
-						qdel(i)
-					qdel(standin)
-					icon = body.icon
-					icon_state = body.icon_state
-					overlays = body.overlays
-	// // // END ECLIPSE EDITS // // //
 
 	if(!name)							//To prevent nameless ghosts
 		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
@@ -192,7 +89,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 /mob/observer/ghost/Topic(href, href_list)
 	if (href_list["track"])
 		if(ismob(href_list["track"]))
-			var/mob/target = locate(href_list["track"]) in SSmobs.mob_list
+			var/mob/target = locate(href_list["track"]) in SSmobs.mob_list | SShumans.mob_list
 			if(target)
 				ManualFollow(target)
 		else
@@ -241,7 +138,7 @@ Works together with spawning an observer, noted above.
 	return 1
 
 /mob/proc/ghostize(var/can_reenter_corpse = 1)
-	if(key && client)
+	if(key)
 		var/mob/observer/ghost/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
 		ghost.timeofdeath = src.stat == DEAD ? src.timeofdeath : world.time
@@ -258,11 +155,14 @@ Works together with spawning an observer, noted above.
 
 		//Set the respawn bonus from ghosting while in cryosleep.
 		//This is duplicated in the cryopod code for robustness. The message will not display twice
-		if (istype(loc, /obj/machinery/cryopod) && in_perfect_health())
-			if (!get_respawn_bonus("CRYOSLEEP"))
-				to_chat(src, SPAN_NOTICE("Because you ghosted from a cryopod in good health, your crew respawn time has been reduced by [CRYOPOD_SPAWN_BONUS_DESC]."))
-				src << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
-			set_respawn_bonus("CRYOSLEEP", CRYOPOD_SPAWN_BONUS)
+		if(istype(loc, /obj/machinery/cryopod) && !get_respawn_bonus("CRYOSLEEP"))
+			if(in_perfect_health())
+				to_chat(src, SPAN_NOTICE("Because you ghosted from a cryopod in good health, your crew respawn time has been reduced by [(CRYOPOD_HEALTHY_RESPAWN_BONUS)/600] minutes."))
+				set_respawn_bonus("CRYOSLEEP", CRYOPOD_HEALTHY_RESPAWN_BONUS)
+			else
+				to_chat(src, SPAN_NOTICE("Because you ghosted from a cryopod in poor health, your crew respawn time has been reduced by [(CRYOPOD_WOUNDED_RESPAWN_BONUS)/600] minutes."))
+				set_respawn_bonus("CRYOSLEEP", CRYOPOD_WOUNDED_RESPAWN_BONUS)
+			src << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
 
 		ghost.ckey = ckey
 		ghost.client = client
@@ -294,15 +194,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				src.client.admin_ghost()
 		else
 			response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another 30 minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", "Ghost", "Stay in body")
-		if(response != "Ghost")
-			return
-		resting = 1
-		var/turf/location = get_turf(src)
-		message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-		log_game("[key_name_admin(usr)] has ghosted.")
-		var/mob/observer/ghost/ghost = ghostize(0)	//0 parameter is so we can never re-enter our body, "Charlie, you can never come baaaack~" :3
-		ghost.timeofdeath = world.time // Because the living mob won't have a time of death and we want the respawn timer to work properly.
-		announce_ghost_joinleave(ghost)
+		if(response == "Ghost")
+			message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+			log_game("[key_name_admin(usr)] has ghosted.")
+			ghostize(0)
+			announce_ghost_joinleave(client)
 
 /mob/observer/ghost/can_use_hands()	return 0
 /mob/observer/ghost/is_active()		return 0
@@ -319,7 +215,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set category = "Ghost"
 	set name = "Re-enter Corpse"
 	if(!client)	return
-	client.destroy_UI()
 
 	if(!(mind && mind.current && can_reenter_corpse))
 		to_chat(src, "<span class='warning'>You have no body.</span>")
@@ -327,6 +222,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(mind.current.key && copytext(mind.current.key,1,2)!="@")	//makes sure we don't accidentally kick any clients
 		to_chat(usr, "<span class='warning'>Another consciousness is in your body... it is resisting you.</span>")
 		return
+	client.destroy_UI()
 	stop_following()
 	mind.current.ajourn=0
 	mind.current.key = key
@@ -413,11 +309,23 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/observer/ghost/verb/Follow(atom/A as mob|obj in view(usr.client)) ////// Follow verb in context menu
 	set category ="Ghost"
-	set name = "Follow"
+	set name = ".Follow"
 	if(following)
 		stop_following()
 	var/target = A
 	ManualFollow(target)
+
+/mob/observer/ghost/verb/follow_player()
+	set category = "Ghost"
+	set name = "Follow player"
+
+	var/list/player_controlled_mobs = list()
+
+	for(var/mob/M in sortNames(SSmobs.mob_list | SShumans.mob_list))
+		if(M.ckey && !isnewplayer(M))
+			player_controlled_mobs.Add(M)
+
+	ManualFollow(input("Follow and haunt a player", "Follow player") as anything in player_controlled_mobs)
 
 /mob/observer/ghost/verb/follow_mob(input in getmobs()) ////// Follow mobs on list
 	set category = "Ghost"
@@ -771,6 +679,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	updateghostsight()
 	to_chat(usr, "You [(ghostvision?"now":"no longer")] have ghost vision.")
 
+/mob/observer/ghost/verb/toggle_selfsee()
+	set name = "Toggle Self Vision"
+	set desc = "Toggles your visibility."
+	set category = "Ghost"
+	alpha = alpha ? 0 : 127
+	to_chat(usr, "You are [alpha ? "now" : "no longer"] visible.")
+
 /mob/observer/ghost/verb/toggle_darkness()
 	set name = "Toggle Darkness"
 	set category = "Ghost"
@@ -799,11 +714,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/observer/ghost/MayRespawn(var/feedback = 0, var/respawn_type = 0)
 	if(!client)
-		return 0
+		return FALSE
 	if(config.antag_hud_restricted && has_enabled_antagHUD == 1)
 		if(feedback)
 			to_chat(src, "<span class='warning'>antagHUD restrictions prevent you from respawning.</span>")
-		return 0
+		return FALSE
+
+	if(!config.respawn_delay)
+		return TRUE
 
 	var/timedifference = world.time- get_death_time(respawn_type)
 	var/respawn_time = 0
@@ -813,17 +731,18 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		//Here we factor in bonuses added from cryosleep and similar things
 		timedifference += get_respawn_bonus()
 	else if (respawn_type == ANIMAL)
-		respawn_time = ANIMAL_SPAWN_DELAY
+		respawn_time = min(ANIMAL_SPAWN_DELAY, config.respawn_delay)
 	else if (respawn_type == MINISYNTH)
-		respawn_time = DRONE_SPAWN_DELAY
+		respawn_time = min(DRONE_SPAWN_DELAY, config.respawn_delay)
 
+	timedifference = max(timedifference, 0)
 	if(respawn_time &&  timedifference > respawn_time)
 		return TRUE
 	else
 		if(feedback)
 			var/timedifference_text = time2text(respawn_time  - timedifference,"mm:ss")
 			to_chat(src, "<span class='warning'>You must have been dead for [respawn_time / 600] minute\s to respawn. You have [timedifference_text] left.</span>")
-		return 0
+
 
 /atom/proc/extra_ghost_link()
 	return

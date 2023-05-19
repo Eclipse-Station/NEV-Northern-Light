@@ -1,6 +1,6 @@
 /obj/item/gun/energy/sniperrifle
-	name = "\improper NT LDMR M \"Valkyrie\""  //Eclipse Edit - gun names standardized
-	desc = "The \"Valkyrie\" is an older NanoTrasen design not in production any longer. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon for killing from a distance." //Eclipse Edit - altered description
+	name = "NT MER \"Valkyrie\""
+	desc = "\"Valkyrie\" is an older design of Nanotrasen, \"Lightfall\" was based on it. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon for killing from a distance."
 	icon = 'icons/obj/guns/energy/sniper.dmi'
 	icon_state = "sniper"
 	item_state = "sniper"
@@ -16,7 +16,7 @@
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_PLASTIC = 8, MATERIAL_SILVER = 9, MATERIAL_URANIUM = 6)
 	price_tag = 5000
 	cell_type = /obj/item/cell/medium
-	zoom_factor = 2
+	zoom_factors = list(1,2)
 	scoped_offset_reduction = 8
 	init_firemodes = list(
 		WEAPON_NORMAL,
@@ -24,4 +24,7 @@
 	)
 	twohanded = TRUE
 	wield_delay = 0
-
+	init_recoil = RIFLE_RECOIL(1)
+	serial_type = "NT"
+	action_button_name = "Switch zoom level"
+	action_button_proc = "switch_zoom"

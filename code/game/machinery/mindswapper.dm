@@ -14,7 +14,7 @@
 	var/swap_time = 200  // Time from starting until minds are swapped
 	var/swap_range = 1
 	var/list/swap_blacklist = list(/mob/living/simple_animal/hostile/megafauna,
-	                               /mob/living/simple_animal/cat/dusty)
+	                               /mob/living/simple_animal/cat/runtime)
 
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
@@ -70,7 +70,7 @@
 	user.attack_log += "\[[time_stamp()]\] Triggered the mind swapper</b>"
 	msg_admin_attack("[user.name] ([user.ckey]) triggered the mind swapper (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
-	addtimer(CALLBACK(src, .proc/performswapping), swap_time, TIMER_STOPPABLE)
+	addtimer(CALLBACK(src, PROC_REF(performswapping)), swap_time, TIMER_STOPPABLE)
 
 /obj/machinery/mindswapper/proc/performswapping(mob/user as mob)
 	operating = FALSE

@@ -7,8 +7,8 @@
 	speak_emote = list("chirps")
 
 	layer = 5
-	maxHealth = 40 //eclipse edit, used to be 80
-	health = 40 //eclipse edit ditto
+	maxHealth = 80
+	health = 80
 	gender = NEUTER
 
 	update_icon = 0
@@ -52,7 +52,7 @@
 	var/AIproc = 0 // If it's 0, we need to launch an AI proc
 	var/Atkcool = 0 // attack cooldown
 	var/SStun = 0 // NPC stun variable. Used to calm them down when they are attacked while feeding, or they will immediately re-attach
-	var/Discipline = 0 // if a slime has been hit with a freeze gun, or wrestled/attacked off a human, they become disciplined and don't attack anymore for a while. The part about freeze gun is a lie // ALL OF THIS IS A FUCKING LIE
+	var/Discipline = 0 // if a slime has been hit with a freeze gun, or wrestled/attacked off a human, they become disciplined and don't attack anymore for a while. The part about freeze gun is a lie
 
 	var/hurt_temperature = T0C-50 // slime keeps taking damage when its bodytemperature is below this
 	var/die_temperature = 50 // slime dies instantly when its bodytemperature is below this
@@ -295,7 +295,7 @@
 
 			attacked += 10
 			if (prob(90))
-				if (HULK in M.mutations)
+/*				if (HULK in M.mutations)
 					damage += 5
 					if(Victim || Target)
 						Victim = null
@@ -307,7 +307,7 @@
 						step_away(src,M,15)
 						sleep(3)
 						step_away(src,M,15)
-
+*/
 				playsound(loc, "punch", 25, 1, -1)
 				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
 						SPAN_DANGER("[M] has punched [src]!"))

@@ -27,6 +27,6 @@
 	spacevines_spawned = 1
 
 /datum/event/spacevine/announce()
-	level_six_announcement()
+	level_seven_announcement()
 
 

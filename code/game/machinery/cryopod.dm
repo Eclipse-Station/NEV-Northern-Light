@@ -183,7 +183,18 @@
 		/obj/item/clothing/shoes/magboots,
 		/obj/item/blueprints,
 		/obj/item/clothing/head/space,
-		/obj/item/storage/internal
+		/obj/item/storage/internal,
+		/obj/item/device/von_krabin,
+		/obj/item/complicator,
+		/obj/item/biosyphon,
+		/obj/item/device/last_shelter,
+		/obj/item/device/techno_tribalism,
+		/obj/item/device/radio/random_radio,
+		/obj/item/maneki_neko,
+		/obj/item/tool/sword/nt_sword,
+		/obj/item/reagent_containers/atomic_distillery,
+		/obj/item/reagent_containers/bonsai,
+		/obj/item/reagent_containers/enricher
 	)
 
 /obj/machinery/cryopod/robot
@@ -195,7 +206,7 @@
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
-	disallow_occupant_types = list()
+	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
 	applies_stasis = 0
 
 /obj/machinery/cryopod/New()
@@ -346,33 +357,19 @@
 
 	//When the occupant is put into storage, their respawn time is reduced.
 	//This check exists for the benefit of people who get put into cryostorage while SSD and come back later
-	if (occupant.in_perfect_health())
-		if (occupant.mind && occupant.mind.key)
+	if(occupant.mind && occupant.mind.key)
+		//Whoever inhabited this body is long gone, we need some black magic to find where and who they are now
+		var/mob/M = key2mob(occupant.mind.key)
+		if(istype(M) && !M.get_respawn_bonus("CRYOSLEEP"))
+			if(M.in_perfect_health())
+				//We send a message to the occupant's current mob - probably a ghost, but who knows.
+				to_chat(M, SPAN_NOTICE("Because your body was put into cryostorage in good health, your crew respawn time has been reduced by [(CRYOPOD_HEALTHY_RESPAWN_BONUS)/600] minutes."))
+				M.set_respawn_bonus("CRYOSLEEP", CRYOPOD_HEALTHY_RESPAWN_BONUS)
+			else
+				to_chat(M, SPAN_NOTICE("Because your body was put into cryostorage in poor health, your crew respawn time has been reduced by [(CRYOPOD_WOUNDED_RESPAWN_BONUS)/600] minutes."))
+				M.set_respawn_bonus("CRYOSLEEP", CRYOPOD_WOUNDED_RESPAWN_BONUS)
+			M << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
 
-			//Whoever inhabited this body is long gone, we need some black magic to find where and who they are now
-			var/mob/M = key2mob(occupant.mind.key)
-			if (istype(M))
-				if (!(M.get_respawn_bonus("CRYOSLEEP")))
-					//We send a message to the occupant's current mob - probably a ghost, but who knows.
-					to_chat(M, SPAN_NOTICE("Because your body was put into cryostorage, your crew respawn time has been reduced by [CRYOPOD_SPAWN_BONUS_DESC]."))
-					M << 'sound/effects/magic/blind.ogg' //Play this sound to a player whenever their respawn time gets reduced
-
-				//Going safely to cryo will allow the patient to respawn more quickly
-				M.set_respawn_bonus("CRYOSLEEP", CRYOPOD_SPAWN_BONUS)
-
-	// This removes them from player tracking
-	SSdispatcher.remove_from_tracking(occupant)		//Eclipse edit
-	
-	// // // BEGIN ECLIPSE EDITS // // //
-	//Set their status to cryosleep in their records, so it doesn't drain their department's account.
-	var/datum/computer_file/report/crew_record/record = get_crewmember_record(H.name)
-	if(record)
-		record.set_status("Cryostasis")
-		log_debug("Set [H.name] to status \"Cryostasis\" in the crew records.")
-	else
-		log_debug("Unable to set [H.name] to Cryostasis in the records computer: Record does not exist.")
-	// // // END ECLIPSE EDITS // // //
-	
 	// This despawn is not a gib() in this sense, it is used to remove objectives tied on these despawned mobs in cryos
 	occupant.despawn()
 	set_occupant(null)
@@ -540,14 +537,15 @@
 
 		new_occupant.forceMove(src)
 
-		if (notifications)
+		if(notifications)
 			to_chat(occupant, SPAN_NOTICE("[on_enter_occupant_message]"))
 			to_chat(occupant, SPAN_NOTICE("<b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b>"))
-		if (occupant.in_perfect_health() && notifications)
-			to_chat(occupant, SPAN_NOTICE("<b>Your respawn time will be reduced by 20 minutes, allowing you to respawn as a crewmember much more quickly.</b>"))
-		else if (notifications)
-			to_chat(occupant, SPAN_DANGER("<b>Because you are not in perfect health, going into cryosleep will not reduce your crew respawn time. \
-			If you wish to respawn as a different crewmember, you should treat your injuries at medical first</b>"))
+			if(occupant.in_perfect_health())
+				to_chat(occupant, SPAN_NOTICE("<b>Your respawn time will be reduced by [(CRYOPOD_HEALTHY_RESPAWN_BONUS)/600] minutes, allowing you to respawn as a crewmember much more quickly.</b>"))
+			else
+				to_chat(occupant, SPAN_NOTICE("<b>Your respawn time will be reduced by [(CRYOPOD_WOUNDED_RESPAWN_BONUS)/600] minutes, allowing you to respawn as a crewmember much more quickly.</b>"))
+				to_chat(occupant, SPAN_DANGER("<b>Because you are not in perfect health, respawn time reduction is low. \
+				If you wish to respawn as a different crewmember sooner, you should treat your injuries first</b>"))
 
 	else
 		if(!QDELETED(occupant))

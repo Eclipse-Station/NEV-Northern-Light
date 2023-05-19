@@ -78,7 +78,7 @@
 	message = "of glass"
 	export_types = list(/obj/item/stack/material/glass)
 
-// Plasteel. Lightweight, strong and contains some phoron too.
+// Plasteel. Lightweight, strong and contains some plasma too.
 /datum/export/stack/plasteel
 	cost = 10
 	message = "of plasteel"
@@ -131,15 +131,15 @@
 	export_types = list(/obj/item/stack/material/diamond)
 	message = "of diamonds"
 
-// Phoron. The oil of 26 century.
-/datum/export/stack/phoron
+// Plasma. The oil of 26 century.
+/datum/export/stack/plasma
 	cost = 25
 	export_types = list(/obj/item/stack/material/plasma)
-	message = "of phoron"
+	message = "of plasma"
 
-/datum/export/stack/phoron/get_cost(obj/O, contr = 0, emag = 0)
+/datum/export/stack/plasma/get_cost(obj/O, contr = 0, emag = 0)
 	. = ..(O)
-	if(emag) // Syndicate pays you more for the phoron.
+	if(emag) // Syndicate pays you more for the plasma.
 		. = round(. * 1.5)
 
 // Uranium. Still useful for both power generation and nuclear annihilation.

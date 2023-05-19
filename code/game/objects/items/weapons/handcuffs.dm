@@ -1,6 +1,8 @@
 /obj/item/handcuffs
 	name = "handcuffs"
 	desc = "Use this to keep prisoners in line."
+	description_info = "Can be broken out fast with enough robustness"
+	description_antag = "A freedom implants can instantly remove these on command"
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
 	icon_state = "handcuff"
@@ -12,6 +14,7 @@
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(MATERIAL_STEEL = 2)
+	price_tag = 30
 	var/elastic
 	var/dispenser = 0
 	var/breakouttime = 1200 //Deciseconds = 120s = 2 minutes
@@ -23,11 +26,11 @@
 	if(!user.IsAdvancedToolUser())
 		return
 
-	if ((CLUMSY in user.mutations) && prob(50))
+/*	if ((CLUMSY in user.mutations) && prob(50))
 		to_chat(user, SPAN_WARNING("Uh ... how do those things work?!"))
 		place_handcuffs(user, user)
 		return
-
+*/
 	if(C.handcuffed)
 		to_chat(user,SPAN_WARNING("\The [C] is already handcuffed."))
 		return
@@ -67,7 +70,7 @@
 		to_chat(user, SPAN_DANGER("\The [src] won't fit around \the [H.gloves]!"))
 		return 0
 
-	user.visible_message(SPAN_DANGER("\The [user] is attempting to put [cuff_type] on \the [H]!")) //Eclipse Edit - uncommented this line so handcuffs show wisible messages.
+	//user.visible_message(SPAN_DANGER("\The [user] is attempting to put [cuff_type] on \the [H]!"))
 
 	if(!do_after(user, delay, target))
 		return 0
@@ -93,6 +96,10 @@
 	target.update_inv_handcuffed()
 	return 1
 
+/obj/item/handcuffs/get_item_cost(export)
+	. = ..()
+	. += breakouttime / 20
+
 var/last_chew = 0
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)
 	if (A != src) return ..()
@@ -105,7 +112,7 @@ var/last_chew = 0
 	if (H.wear_mask) return
 	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket)) return
 
-	var/obj/item/organ/external/O = H.organs_by_name[H.hand ? BP_L_HAND : BP_R_HAND]
+	var/obj/item/organ/external/O = H.organs_by_name[H.hand ? BP_L_ARM : BP_R_ARM]
 	if (!O) return
 
 	var/s = SPAN_WARNING("[H.name] chews on \his [O.name]!")

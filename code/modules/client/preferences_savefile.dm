@@ -83,29 +83,7 @@
 	S["version"] << SAVEFILE_VERSION_MAX
 	player_setup.save_character(S)
 	loaded_character = S
-
-	var/mob/new_player/np = client.mob
-	if (istype(np, /mob/new_player))
-		np.new_player_panel_proc()			//Eclipse edit. Automatic refresh for current character.
-
 	return S
-
-/datum/preferences/proc/overwrite_character(slot)			//Eclipse edit.
-	if(!path)				return 0
-	if(!fexists(path))		return 0
-	var/savefile/S = new /savefile(path)
-	if(!S)					return 0
-	if(!slot)	slot = default_slot
-	if(slot != SAVE_RESET)
-		slot = sanitize_integer(slot, 1, config.character_slots, initial(default_slot))
-		if(slot != default_slot)
-			default_slot = slot
-			S["default_slot"] << slot
-
-	else
-		S["default_slot"] << default_slot
-
-	return 1
 
 /datum/preferences/proc/sanitize_preferences()
 	player_setup.sanitize_setup()

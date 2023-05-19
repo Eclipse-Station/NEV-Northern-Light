@@ -137,9 +137,3 @@
 	icon = 'icons/mob/radial/menu.dmi'
 	icon_state = "x2"
 	invisibility = 101
-
-/obj/crawler/bossfight_arena
-	name = "bossfight"
-	icon = 'icons/mob/radial/menu.dmi'
-	icon_state = "x2"
-	invisibility = 101

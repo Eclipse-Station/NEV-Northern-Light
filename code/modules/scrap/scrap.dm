@@ -145,7 +145,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 				true_loot_tags -= junk_tags
 				true_loot_tags |= list(pickweight(rare_loot))
 			candidates = SSspawn_data.valid_candidates(true_loot_tags, restricted_tags - rare_loot, FALSE, 1, top_price, TRUE, list(/obj/item/stash_spawner))
-		var/loot_path = SSspawn_data.pick_spawn(candidates, caller = src)
+		var/loot_path = SSspawn_data.pick_spawn(candidates)
 		new loot_path(src)
 		var/list/aditional_objects = SSspawn_data.all_accompanying_obj_by_path[loot_path]
 		if(islist(aditional_objects) && aditional_objects.len)
@@ -281,9 +281,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 			return FALSE
 		if(victim.gloves && prob(90))
 			return FALSE
-		if(victim.wear_suit && istype(victim.wear_suit, /obj/item/clothing/suit/space)) //Eclipse edit: if getting cut through the spacesuit doesn't somehow depressurize it, then it should not cut you at all
-			return
-		var/obj/item/organ/external/BP = victim.get_organ(victim.hand ? BP_L_HAND : BP_R_HAND) //Eclipse edit: changed these to hands instead of arms because Eris doesn't have hands and we do
+		var/obj/item/organ/external/BP = victim.get_organ(victim.hand ? BP_L_ARM : BP_R_ARM)
 		if(!BP)
 			return FALSE
 		to_chat(user, SPAN_DANGER("Ouch! You cut yourself while picking through \the [src]."))
@@ -400,7 +398,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		SPAWN_MECH_QUIPMENT,
 		SPAWN_POWERCELL,
 		SPAWN_ASSEMBLY,SPAWN_STOCK_PARTS,SPAWN_DESIGN_COMMON,SPAWN_COMPUTER_HARDWERE,
-		SPAWN_TOOL, SPAWN_DIVICE, SPAWN_JETPACK, SPAWN_ITEM_UTILITY,SPAWN_TOOL_UPGRADE,SPAWN_TOOLBOX,SPAWN_VOID_SUIT,
+		SPAWN_TOOL, SPAWN_DEVICE, SPAWN_JETPACK, SPAWN_ITEM_UTILITY,SPAWN_TOOL_UPGRADE,SPAWN_TOOLBOX,SPAWN_VOID_SUIT,
 		SPAWN_GUN_UPGRADE,
 		SPAWN_POUCH,
 		SPAWN_MATERIAL_BUILDING = 2,
@@ -432,7 +430,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	loot_max = 10
 	rarity_value = 90
 	loot_tags = list(
-		SPAWN_GUN_HANDMADE = 0.3,
+		SPAWN_GUN = 0.3,
 		SPAWN_PART_GUN = 3,
 		SPAWN_AMMO_S,
 		SPAWN_KNIFE,
@@ -462,7 +460,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		SPAWN_ASSEMBLY,SPAWN_STOCK_PARTS,
 		SPAWN_DESIGN_COMMON,
 		SPAWN_COMPUTER_HARDWERE,
-		SPAWN_TOOL, SPAWN_DIVICE,
+		SPAWN_TOOL, SPAWN_DEVICE,
 		SPAWN_JETPACK,
 		SPAWN_ITEM_UTILITY = 0.5,
 		SPAWN_TOOL_UPGRADE,

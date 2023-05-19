@@ -382,7 +382,7 @@
 /turf/simulated/floor/reinforced/plasma
 	oxygen = 0
 	nitrogen = 0
-	phoron = ATMOSTANK_PHORON
+	plasma = ATMOSTANK_PLASMA
 
 /turf/simulated/floor/reinforced/carbon_dioxide
 	oxygen = 0
@@ -396,7 +396,7 @@
 /turf/simulated/floor/reinforced/engine
 	oxygen = 825
 	nitrogen = 0
-	phoron = 2500
+	plasma = 2500
 	temperature = 374
 
 /turf/simulated/floor/reinforced/n20/New()
@@ -405,32 +405,7 @@
 	if(!air) make_air()
 	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
 
-// // // BEGIN ECLIPSE EDITS // // //
-// Master airmix tanks for flooring
 
-/turf/simulated/floor/reinforced/trichloramine
-	oxygen = 0
-	nitrogen = 0
-
-/turf/simulated/floor/reinforced/trichloramine/New()
-	..()
-	sleep(-1)
-	if(!air)
-		make_air()
-	air.adjust_gas("trichloramine", ATMOSTANK_NITROUSOXIDE)		//We want some, but not much. Trichloramine is a very dangerous flammable.
-
-/turf/simulated/floor/reinforced/monochloramine
-	oxygen = 0
-	nitrogen = 0
-
-/turf/simulated/floor/reinforced/monochloramine/New()
-	..()
-	sleep(-1)
-	if(!air)
-		make_air()
-	air.adjust_gas("monochloramine", ATMOSTANK_NITROUSOXIDE / 2)		//Less useful to us than trichloramine.
-
-// // // END ECLIPSE EDITS // // //
 
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless

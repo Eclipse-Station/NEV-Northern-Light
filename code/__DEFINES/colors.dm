@@ -21,7 +21,6 @@
 #define COLOR_PINK             "#ff00ff"
 #define COLOR_ORANGE           "#ff9900"
 #define COLOR_YELLOW           "#ffff00"
-#define COLOR_FLOORTILE_GRAY   "#8D8B8B"
 #define COLOR_GRAY             "#808080"
 #define COLOR_RED_GRAY         "#aa5f61"
 #define COLOR_BROWN            "#b19664"
@@ -91,7 +90,7 @@
 #define	COMMS_COLOR_SYNDICATE  "#6d3f40"
 
 #define GLASS_COLOR            "#74b1ee"
-#define GLASS_COLOR_PHORON     "#7c3a9a"
+#define GLASS_COLOR_PLASMA     "#7c3a9a"
 #define GLASS_COLOR_TINTED     "#222222"
 #define GLASS_COLOR_FROSTED    "#ffffff"
 
@@ -140,7 +139,6 @@
 #define COLOR_LIGHTING_CYAN_MACHINERY					"#50edd9"
 #define COLOR_LIGHTING_CYAN_BRIGHT						"#67c1b6"
 #define COLOR_LIGHTING_CYAN_DARK						"#28766c"
-#define COLOR_LIGHTING_VIOLET_MACHINERY					"#cc8899"
 
 #define COLOR_LIGHTING_MAINT_DARK						"#55493f"
 #define COLOR_LIGHTING_NEOTHEOLOGY_BRIGHT				"#e2e0b6"

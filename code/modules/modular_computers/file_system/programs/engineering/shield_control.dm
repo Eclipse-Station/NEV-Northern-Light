@@ -11,10 +11,10 @@
 	nanomodule_path = /datum/nano_module/shield_control
 	program_icon_state = "engine"
 	extended_desc = "This program allows remote management of the hull shield generator. Cannot be run on tablet computers."
-	required_access = access_atmos_consoles
+	required_access = access_atmospherics
 	requires_ntnet = 1
 	network_destination = "shield control system"
-	required_access = access_engine_consoles //Restricted to engineering and the bridge
+	required_access = access_engine //Restricted to engineering and the bridge
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE
 	size = 24
@@ -67,7 +67,7 @@
 		playsound_host('sound/machines/buzz-two.ogg', 50)
 		genloc = ""
 
-/datum/nano_module/shield_control/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/shield_control/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/nano_topic_state/state = GLOB.default_state)
 	if(!host)
 		return
 	var/list/data = host.initial_data()
@@ -98,7 +98,7 @@
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "shieldgen_eclipse.tmpl", src.name, 600, 800, state = state) //Eclipse Edit
+		ui = new(user, src, ui_key, "shieldgen.tmpl", src.name, 600, 800, state = state)
 		if(nano_host().update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.
 			ui.auto_update_layout = 1
 		ui.set_initial_data(data)
@@ -192,7 +192,7 @@
 		gen.toggle_flag(text2num(href_list["toggle_mode"]))
 		. = 1
 
-	ui_interact(usr)
+	nano_ui_interact(usr)
 /*
 
 
@@ -200,7 +200,7 @@
 
 // If PC is not null header template is loaded. Use PC.get_header_data() to get relevant nanoui data from it. All data entries begin with "PC_...."
 // In future it may be expanded to other modular computer devices.
-/datum/nano_module/power_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/topic_state/state = default_state)
+/datum/nano_module/power_monitor/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/nano_topic_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	var/list/sensors = list()

@@ -26,11 +26,7 @@
 		report("Scan Complete: No antibodies detected.", user)
 		return
 
-	if (CLUMSY in user.mutations && prob(50))
-		// I was tempted to be really evil and rot13 the output.
-		report("Antibodies detected: [reverse_text(antigens2string(C.antibodies))]", user)
-	else
-		report("Antibodies detected: [antigens2string(C.antibodies)]", user)
+	report("Antibodies detected: [antigens2string(C.antibodies)]", user)
 
 /obj/item/device/antibody_scanner/proc/report(var/text, mob/user as mob)
 	to_chat(user, "\blue \icon[src] \The [src] beeps, \"[text]\"")
@@ -40,7 +36,8 @@
 /obj/item/virusdish
 	name = "virus dish"
 	icon = 'icons/obj/items.dmi'
-	icon_state = "petridish"
+	icon_state = "implantcase-b"
+	price_tag = 300
 	var/datum/disease2/disease/virus2
 	var/growth = 0
 	var/basic_info
@@ -84,7 +81,7 @@
 /obj/item/ruinedvirusdish
 	name = "ruined virus sample"
 	icon = 'icons/obj/items.dmi'
-	icon_state = "petridish"
+	icon_state = "implantcase-b"
 	desc = "The bacteria in the dish are completely dead."
 
 /obj/item/ruinedvirusdish/attackby(var/obj/item/W as obj,var/mob/living/carbon/user as mob)

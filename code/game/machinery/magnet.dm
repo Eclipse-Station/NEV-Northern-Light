@@ -4,14 +4,12 @@
 // tl;dr: it's magnets lol
 // This was created for firing ranges, but I suppose this could have other applications - Doohl
 
-//Eclipse Edit: Removed the entire file from the compiled server. Just removed it. Nothing else uses this set specifically in the map or in the server, and it's causing HORRIBLE server-side lag.
-
 /obj/machinery/magnetic_module
 
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "floor_magnet-f"
 	name = "Electromagnetic Generator"
-	desc = "A device that uses ship power to create points of magnetic energy."
+	desc = "A device that uses station power to create points of magnetic energy."
 	level = BELOW_PLATING_LEVEL		// underfloor
 	layer = LOW_OBJ_LAYER
 	anchored = TRUE

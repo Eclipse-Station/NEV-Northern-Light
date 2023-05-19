@@ -8,6 +8,8 @@
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
+	description_info = "Can be fast toggled with AltClick and CtrlClick"
+	description_antag = "Cutting the safety wire lets you insert SMES components when its charged, doing so will create a preety big blast"
 	icon_state = "smes"
 	density = TRUE
 	anchored = TRUE
@@ -49,8 +51,6 @@
 	var/building_terminal = 0 //Suggestions about how to avoid clickspam building several terminals accepted!
 	var/obj/machinery/power/terminal/terminal = null
 	var/should_be_mapped = 0 // If this is set to 0 it will send out warning on New()
-	
-	var/input_used = 0		//Eclipse var: Add input tracking for I/O status
 
 /obj/machinery/power/smes/AltClick(mob/user)
 	if(user.incapacitated(INCAPACITATION_ALL) || isghost(user) || !user.IsAdvancedToolUser())
@@ -160,19 +160,16 @@
 	return round(5.5*charge/(capacity ? capacity : 5e6))
 
 /obj/machinery/power/smes/proc/input_power(var/percentage)
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Change input power to a variable we can track for use in the NanoUI element
-	input_used = target_load * (percentage/100)
-	input_used = between(0, input_used, target_load)
+	var/inputted_power = target_load * (percentage/100)
+	inputted_power = between(0, inputted_power, target_load)
 	if(terminal && terminal.powernet)
-		input_used = terminal.powernet.draw_power(input_used)
-		charge += input_used * SMESRATE
+		inputted_power = terminal.powernet.draw_power(inputted_power)
+		charge += inputted_power * SMESRATE
 		if(percentage == 100)
 			inputting = 2
 		else if(percentage)
 			inputting = 1
 		// else inputting = 0, as set in process()
-	// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/power/smes/Process()
 	if(stat & BROKEN)	return
@@ -201,7 +198,7 @@
 
 	//outputting
 	if(output_attempt && (!output_pulsed && !output_cut) && powernet && charge)
-		output_used = min(charge/SMESRATE, output_level)		//limit output to that stored		//Eclipse edit - trim leading whitespace
+		output_used = min( charge/SMESRATE, output_level)		//limit output to that stored
 		charge -= output_used*SMESRATE		// reduce the storage (may be recovered in /restore() if excessive)
 		add_avail(output_used)				// add output to powernet (smes side)
 		outputting = 2
@@ -275,7 +272,7 @@
 
 /obj/machinery/power/smes/attack_hand(mob/user)
 	add_fingerprint(user)
-	ui_interact(user)
+	nano_ui_interact(user)
 
 
 /obj/machinery/power/smes/attackby(var/obj/item/I, var/mob/user)
@@ -337,7 +334,7 @@
 
 	return tool_type || 1
 
-/obj/machinery/power/smes/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/power/smes/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 
 	if(stat & BROKEN)
 		return
@@ -356,7 +353,6 @@
 	data["outputLoad"] = round(output_used)
 	data["failTime"] = failure_timer * 2
 	data["outputting"] = outputting
-	data["inputLoad"] = round(input_used)				//Eclipse Edit: Input load
 
 
 	// update the ui if it exists, returns null if no ui is passed/found
@@ -364,7 +360,7 @@
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "smes_eclipse.tmpl", "SMES Unit", 540, 430)		//Eclipse edit - different file altogether, increase height to fit the input load bar
+		ui = new(user, src, ui_key, "smes.tmpl", "SMES Unit", 540, 380)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
 		// open the new ui window

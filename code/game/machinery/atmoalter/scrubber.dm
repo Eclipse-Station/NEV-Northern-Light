@@ -2,6 +2,7 @@
 	name = "Portable Air Scrubber"
 
 	icon = 'icons/obj/atmos.dmi'
+	description_info = "Can be emptied by connecting onto a port and pumping the gasses out"
 	icon_state = "pscrubber:0"
 	density = TRUE
 	w_class = ITEM_SIZE_NORMAL
@@ -17,11 +18,11 @@
 	var/minrate = 0
 	var/maxrate = 10 * ONE_ATMOSPHERE
 
-	var/list/scrubbing_gas = list("phoron", "carbon_dioxide", "sleeping_agent")
+	var/list/scrubbing_gas = list("plasma", "carbon_dioxide", "sleeping_agent")
 
 /obj/machinery/portable_atmospherics/powered/scrubber/New()
 	..()
-	cell = new/obj/item/cell/medium/moebius/nuclear(src) //Eclipse Edit - dirty scrubber fix
+	cell = new/obj/item/cell/medium/high(src)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))
@@ -95,10 +96,10 @@
 	return src.attack_hand(user)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/attack_hand(var/mob/user)
-	ui_interact(user)
+	nano_ui_interact(user)
 	return
 
-/obj/machinery/portable_atmospherics/powered/scrubber/ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=NANOUI_FOCUS)
+/obj/machinery/portable_atmospherics/powered/scrubber/nano_ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=NANOUI_FOCUS)
 	var/list/data[0]
 	data["portConnected"] = connected_port ? 1 : 0
 	data["tankPressure"] = round(air_contents.return_pressure() > 0 ? air_contents.return_pressure() : 0)

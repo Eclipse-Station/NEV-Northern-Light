@@ -1,7 +1,7 @@
 /datum/antagonist/inquisitor
 	id = ROLE_INQUISITOR
-	role_text = "Mekhane Inquisitor"
-	role_text_plural = "Mekhane Inquisitors"
+	role_text = "NeoTheology Inquisitor"
+	role_text_plural = "NeoTheology Inquisitors"
 	bantype = ROLE_BANTYPE_INQUISITOR
 	welcome_text = ""
 	antaghud_indicator = "hudcyberchristian"
@@ -13,7 +13,7 @@
 		/datum/objective/baptize = 30,
 	)
 
-	survive_objective = /datum/objective/survive
+	survive_objective = /datum/objective/escape
 	var/was_priest = FALSE
 
 	stat_modifiers = list(
@@ -65,16 +65,21 @@
 	// Basic intro text.
 	to_chat(player, "<span class='danger'><font size=3>You are a [role_text]!</font></span>")
 
-	to_chat(player, "The Inquisitors are Mekhane’s chosen agents, selected from the ranks of the faithful by The Mekhanite Council to expand the church’s interests and protect its followers. <br> <br>\
-You are here to not only accomplish your assigned objectives, but also root out spies, saboteurs, and criminals within the church’s ranks. Interrogate Children of Mekhane followers, and deal with those who would tarnish the public image of the church, or betray its principles.  <br> <br> \
-Any local church staff are your subordinates, and should obey your commands. With other disciples, things are less clear. People may put their shipboard duties above their loyalty to the church. You should be discreet with the ship’s command staff, revealing your role may tarnish the church’s reputation. It is often best to deal with internal problems quietly.")
+	to_chat(player, "Inquisitor is a higher ranking officer in the Church of NeoTheology.<br>\
+	You are here to promote the Church's interests and protect disciples, but more importantly, you are also here to \
+	track down criminals, spies and saboteurs within the church's ranks. Interrogate NT followers, and deal with those \
+	who would tarnish the public image of the Church or betray its principles.<br>\
+	<br>\
+	Any local Church staff are your subordinates and should obey your commands. With other disciples, things are less clear, \
+	people may put their shipboard duties above loyalty to the church. You should be discreet in your interactions with the ship command staff \
+	Revealing your role may tarnish the Church's image, it's often best to deal with internal problems quietly")
 
 	if (was_priest)
 		to_chat(player, "If you were the ship's preacher before, you have the authority to promote someone to be your replacement.")
 	else
-		to_chat(player, "You have been working undercover here, until a signal from the Mekhanite Council command calls you to action. You may wish to make your presence known to the local preacher, if there is one.")
+		to_chat(player, "You have been working undercover here, until a signal from NT command calls you to action. You may wish to make your presence known to the local preacher, if there is one.")
 
-	to_chat(player, "You will need a ritual book to utilise your abilities. They can be found or purchased in the chapel. The Bounty ritual can be used to request items from central command. You may request a Priest upgrade to promote a new preacher.")
+	to_chat(player, "You will need a ritual book to utilise your abilities. They can be found or purchased in the chapel. The Bounty ritual can be used to request items from New Rome. You may request a Priest upgrade to promote a new preacher.")
 
 
 	show_objectives()
@@ -82,19 +87,3 @@ Any local church staff are your subordinates, and should obey your commands. Wit
 
 	return TRUE
 
-
-//Returns true if the mob in question is an NT preacher
-/proc/ispriest(var/mob/living/carbon/human/H)
-	if (!istype(H))
-		return FALSE
-
-	//We will get their cruciform implant, assuming they have one
-	var/obj/item/implant/core_implant/cruciform/C = H.get_core_implant(/obj/item/implant/core_implant/cruciform)
-	if (!C)
-		return FALSE
-
-	//Check them for a priest module
-	if(C.get_module(CRUCIFORM_PRIEST))
-		return TRUE
-
-	return FALSE

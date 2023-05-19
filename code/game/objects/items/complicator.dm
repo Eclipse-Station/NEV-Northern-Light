@@ -1,6 +1,6 @@
 /obj/item/complicator
 	name = "Reality Complicator"
-	desc = "Weird device of unknown origin. It can be activated and has a cooldown of 30 minutes."
+	desc = "A weird device of unknown origin. A note on the side says \'Do not press.\'"
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "complicator"
 	item_state = "complicator"
@@ -18,7 +18,7 @@
 
 /obj/item/complicator/Destroy()
 	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
-		SEND_SIGNAL(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
+		SEND_SIGNAL_OLD(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
 	GLOB.all_faction_items -= src
 	GLOB.technomancer_faction_item_loss++
 	..()

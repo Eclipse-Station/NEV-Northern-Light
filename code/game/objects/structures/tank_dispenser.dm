@@ -1,6 +1,6 @@
 /obj/structure/dispenser
 	name = "tank storage unit"
-	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten phoron tanks."
+	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten plasma tanks."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "dispenser"
 	density = TRUE
@@ -10,16 +10,16 @@
 	spawn_tags = SPAWN_TAG_STRUCTURE_COMMON
 	rarity_value = 50
 	var/oxygentanks = 10
-	var/phorontanks = 10
+	var/plasmatanks = 10
 	var/list/oxytanks = list()	//sorry for the similar var names
 	var/list/platanks = list()
 
 
 /obj/structure/dispenser/oxygen
-	phorontanks = 0
+	plasmatanks = 0
 	rarity_value = 10
 
-/obj/structure/dispenser/phoron
+/obj/structure/dispenser/plasma
 	oxygentanks = 0
 	rarity_value = 25
 
@@ -34,9 +34,9 @@
 	switch(oxygentanks)
 		if(1 to 3)	overlays += "oxygen-[oxygentanks]"
 		if(4 to INFINITY) overlays += "oxygen-4"
-	switch(phorontanks)
-		if(1 to 4)	overlays += "phoron-[phorontanks]"
-		if(5 to INFINITY) overlays += "phoron-5"
+	switch(plasmatanks)
+		if(1 to 4)	overlays += "plasma-[plasmatanks]"
+		if(5 to INFINITY) overlays += "plasma-5"
 
 /obj/structure/dispenser/attack_ai(mob/user)
 	if(user.Adjacent(src))
@@ -47,7 +47,7 @@
 	user.set_machine(src)
 	var/dat = "[src]<br><br>"
 	dat += "Oxygen tanks: [oxygentanks] - [oxygentanks ? "<A href='?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
-	dat += "Phoron tanks: [phorontanks] - [phorontanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
+	dat += "Plasma tanks: [plasmatanks] - [plasmatanks ? "<A href='?src=\ref[src];plasma=1'>Dispense</A>" : "empty"]"
 	user << browse(dat, "window=dispenser")
 	onclose(user, "dispenser")
 
@@ -67,13 +67,13 @@
 		updateUsrDialog()
 		return
 	if(istype(I, /obj/item/tank/plasma))
-		if(phorontanks < 10)
+		if(plasmatanks < 10)
 			user.drop_item()
 			I.forceMove(src)
 			platanks.Add(I)
-			phorontanks++
+			plasmatanks++
 			to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
-			if(phorontanks < 6)
+			if(plasmatanks < 6)
 				update_icon()
 		else
 			to_chat(user, SPAN_NOTICE("[src] is full."))
@@ -103,13 +103,13 @@
 		else
 			tank = new /obj/item/tank/oxygen(loc)
 		oxygentanks--
-	if(href_list["phoron"] && phorontanks > 0)
+	if(href_list["plasma"] && plasmatanks > 0)
 		if(platanks.len)
 			tank = platanks[platanks.len]
 			platanks.Remove(tank)
 		else
 			tank = new /obj/item/tank/plasma(loc)
-		phorontanks--
+		plasmatanks--
 
 	if(tank)
 		tank.forceMove(drop_location())

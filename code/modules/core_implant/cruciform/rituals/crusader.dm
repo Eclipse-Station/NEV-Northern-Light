@@ -23,7 +23,7 @@
 /datum/ritual/cruciform/crusader/battle_call
 	name = "Call to Battle"
 	phrase = "Si exieritis ad bellum de terra vestra contra hostes qui dimicant adversum vos clangetis ululantibus tubis et erit recordatio vestri coram Domino Deo vestro ut eruamini de manibus inimicorum vestrorum."
-	desc = "Inspires the prayer and gives them strength to protect the other disciples. True strength in unity."
+	desc = "Inspires the believer and gives him strength to protect the other disciples. True strength in unity."
 	cooldown = TRUE
 	cooldown_time = 10 MINUTES
 	cooldown_category = "battle call"
@@ -41,7 +41,7 @@
 	log_and_message_admins("performed a crusade litany")
 	to_chat(user, SPAN_NOTICE("You feel an extraordinary burst of energy."))
 	set_personal_cooldown(user)
-	addtimer(CALLBACK(src, .proc/discard_effect, user, count), src.cooldown_time)
+	addtimer(CALLBACK(src, PROC_REF(discard_effect), user, count), src.cooldown_time)
 	return TRUE
 
 /datum/ritual/cruciform/crusader/battle_call/proc/discard_effect(mob/living/carbon/human/user, amount)
@@ -52,7 +52,7 @@
 /datum/ritual/cruciform/crusader/flash
 	name = "Searing Revelation"
 	phrase = "Per fidem enim ambulamus et non per speciem."
-	desc = "Knocks over everybody without cruciform in the view range. Psy-wave is too powerful, speaker can be knocked too."
+	desc = "Knocks over everybody without a cruciform in the view range. Psy-wave is too powerful, speaker can be knocked down too."
 	cooldown = TRUE
 	cooldown_time = 2 MINUTES
 	cooldown_category = "flash"
@@ -60,15 +60,17 @@
 /datum/ritual/cruciform/crusader/flash/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
 	if(prob(100 - user.stats.getStat(STAT_VIG)))
 		user.Weaken(10)
-		to_chat(user, SPAN_WARNING("The flux of psy-energy knocks you over!"))
+		to_chat(user, SPAN_WARNING("The flux of psy-energy knocks over you!"))
 	else
 		to_chat(user, SPAN_NOTICE("The flux of psy-energy washed your mind, but you managed to keep focused!"))
 	playsound(user.loc, 'sound/effects/cascade.ogg', 65, 1)
 	log_and_message_admins("performed a searing revelation litany")
 	for(var/mob/living/carbon/human/victim in view(user))
 		if(!victim.get_core_implant(/obj/item/implant/core_implant/cruciform))
-			if(prob(100 - victim.stats.getStat(STAT_VIG)))
-				to_chat(victim, SPAN_WARNING("You feel that your knees bend!"))
+			if(get_active_mutation(victim, MUTATION_ATHEIST))
+				to_chat(victim, SPAN_NOTICE("You don't even flinch as the flux of psy-energy passes through you!"))
+			else if(prob(100 - victim.stats.getStat(STAT_VIG)))
+				to_chat(victim, SPAN_WARNING("You feel that your knees bends!"))
 				victim.Weaken(5)
 			else
 				to_chat(victim, SPAN_NOTICE("Your legs feel numb, but you managed to stay on your feet!"))

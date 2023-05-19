@@ -92,24 +92,6 @@ h1.alert, h2.alert		{color: #000000;}
 .russian				{color: #635d17}
 .serbian				{color: #Ad6f1d}
 .jive					{color: #666666}
-.alien					{color: #543354;}
-.tajaran				{color: #803B56;}
-.tajaran_signlang		{color: #941C1C;}
-.akhani					{color: #AC398C;}
-.skrell					{color: #00B0B3;}
-.skrellfar				{color: #70FCFF;}
-.soghun					{color: #228B22;}
-.solcom					{color: #22228B;}
-.changeling				{color: #800080;}
-.sergal					{color: #0077FF;}
-.birdsongc				{color: #CC9900;}
-.vulpkanin				{color: #B97A57;}
-.enochian				{color: #848A33; letter-spacing:-1pt; word-spacing:4pt; font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;}
-.daemon					{color: #5E339E; letter-spacing:-1pt; word-spacing:0pt; font-family: "Courier New", Courier, monospace;}
-.vox					{color: #AA00AA;}
-.rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
-.say_quote				{font-family: Georgia, Verdana, sans-serif;}
-.scraptalk				{color: #AAAFB7;}
 .german					{color: #001FFF}
 .neohongo               {color: #993399}
 .latin                  {color: #deb63d}

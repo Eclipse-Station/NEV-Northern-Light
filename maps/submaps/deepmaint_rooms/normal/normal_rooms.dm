@@ -82,4 +82,3 @@
 	name = "hive_nest"
 	desc = "When a hive dies the machine die with it, but what about the little guys?"
 	mappath = 'maps/submaps/deepmaint_rooms/normal/hive_nest.dmm'
-

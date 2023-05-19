@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/lmg
-	name = "\improper LMG .30 \"L6 SAW\""  //Eclipse Edit - gun names standardized
+	name = "L6 SAW"
 	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. This one is unmarked."
 	icon = 'icons/obj/guns/projectile/l6.dmi'
 	var/icon_base = "l6"
@@ -21,16 +21,14 @@
 	reload_sound = 'sound/weapons/guns/interact/lmg_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/lmg_cock.ogg'
 	fire_sound = 'sound/weapons/guns/fire/lmg_fire.ogg'
-	recoil_buildup = 1 // Large size allows better than average control
+	init_recoil = LMG_RECOIL(0.5)
 	damage_multiplier = 1.3
-	penetration_multiplier = 1.3
+	penetration_multiplier = -0.1
 	twohanded = TRUE
-	one_hand_penalty = 30 // You're not Stallone. LMG level.
 	spawn_blacklisted = TRUE
 	rarity_value = 80
 	slowdown_hold = 0.5
-	brace_penalty = 2 // Not easy to fire in hand
-	init_offset = 3 // Countered by bracing it
+	init_offset = 10 // Countered by bracing it
 	gun_parts = list(/obj/item/part/gun = 1 ,/obj/item/stack/material/plasteel = 4)
 
 	init_firemodes = list(
@@ -51,6 +49,7 @@
 	cover_open = !cover_open
 	to_chat(user, SPAN_NOTICE("You [cover_open ? "open" : "close"] [src]'s cover."))
 	update_icon()
+	update_held_icon()
 
 /obj/item/gun/projectile/automatic/lmg/attack_self(mob/user as mob)
 	if(cover_open)
@@ -72,8 +71,8 @@
 
 /obj/item/gun/projectile/automatic/lmg/update_icon()
 	icon_state = "[icon_base][cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 25) : "-empty"]"
-	set_item_state("-[cover_open ? "open" : null][ammo_magazine ?"mag":"nomag"]", hands = TRUE)
-	set_item_state("-[ammo_magazine ?"mag":"nomag"]", back = TRUE, onsuit = TRUE)
+	set_item_state("-[cover_open ? "open" : ""][ammo_magazine ? "mag":"nomag"]", hands = TRUE, back = TRUE, onsuit = TRUE)
+	wielded_item_state = "_doble_[cover_open ? "open" : ""][ammo_magazine ? "mag" : ""]"
 	update_wear_icon()
 
 /obj/item/gun/projectile/automatic/lmg/load_ammo(var/obj/item/A, mob/user)
@@ -90,23 +89,24 @@
 
 
 /obj/item/gun/projectile/automatic/lmg/pk
-	name = "\improper SA LMG .30 \"Pulemyot Kalashnikova\""  //Eclipse Edit - gun names standardized
+	name = "Pulemyot Kalashnikova"
 	desc = "\"Kalashnikov's Machinegun\", a well preserved and maintained antique weapon of war."
 	icon = 'icons/obj/guns/projectile/pk.dmi'
 	icon_base = "pk"
 	icon_state = "pkclosed-empty"
 	item_state = "pkclosedmag"
 	spawn_blacklisted = FALSE
-	gun_parts = list(/obj/item/part/gun/frame/pk = 1, /obj/item/part/gun/grip/serb = 1, /obj/item/part/gun/mechanism/machinegun = 1, /obj/item/part/gun/barrel/lrifle = 1)
+	gun_parts = list(/obj/item/part/gun/frame/pk = 1, /obj/item/part/gun/modular/grip/serb = 1, /obj/item/part/gun/modular/mechanism/machinegun = 1, /obj/item/part/gun/modular/barrel/lrifle = 1)
+	serial_type = "SA"
 
 /obj/item/part/gun/frame/pk
-	name = "\improper Pulemyot Kalashnikova frame"
+	name = "Pulemyot Kalashnikova frame"
 	desc = "A Pulemyot Kalashnikova LMG frame. A violent and beautiful spark of the past."
 	icon_state = "frame_pk"
-	result = /obj/item/gun/projectile/automatic/lmg/pk
-	grip = /obj/item/part/gun/grip/serb
-	mechanism = /obj/item/part/gun/mechanism/machinegun
-	barrel = /obj/item/part/gun/barrel/lrifle
+	resultvars = list(/obj/item/gun/projectile/automatic/lmg/pk)
+	gripvars = list(/obj/item/part/gun/modular/grip/serb)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/machinegun
+	barrelvars = list(/obj/item/part/gun/modular/barrel/lrifle)
 
 /obj/item/gun/projectile/automatic/lmg/pk/update_icon()
 	icon_state = "[icon_base][cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 25) : "-empty"]"
@@ -115,23 +115,27 @@
 
 
 /obj/item/gun/projectile/automatic/lmg/tk
-	name = "\improper FS LMG .30 \"Takeshi\""  //Eclipse Edit - gun names standardized
+	name = "FS LMG .25 CS Takeshi"
 	desc = "The \"Takeshi LMG\" is FS's answer to PMC's needs for mass supression and meat grinding, a fine oiled machine of war and death."
 	icon = 'icons/obj/guns/projectile/tk.dmi'
+	caliber = CAL_CLRIFLE
+	magazine_type = /obj/item/ammo_magazine/ihclmg
 	icon_base = "tk"
 	icon_state = "tkclosed-empty"
 	item_state = "tkclosedmag"
-	recoil_buildup = 0.8 // More tacticool than the other LMGs
-	damage_multiplier = 1.1
-	penetration_multiplier = 1.1 // Marginally punchier projectiles than from AKs
+	init_recoil = LMG_RECOIL(0.3)
+	damage_multiplier = 1.2
+	penetration_multiplier = 0.3
+
 	spawn_blacklisted = FALSE
-	gun_parts = list(/obj/item/part/gun/frame/tk = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/machinegun = 1, /obj/item/part/gun/barrel/lrifle = 1)
+	gun_parts = list(/obj/item/part/gun/frame/tk = 1, /obj/item/part/gun/modular/grip/rubber = 1, /obj/item/part/gun/modular/mechanism/machinegun = 1, /obj/item/part/gun/modular/barrel/clrifle = 1)
+	serial_type = "FS"
 
 /obj/item/part/gun/frame/tk
-	name = "\improper Takeshi frame"
+	name = "Takeshi frame"
 	desc = "A Takeshi LMG frame. A fine-oiled machine of war and death."
 	icon_state = "frame_mg"
-	result = /obj/item/gun/projectile/automatic/lmg/tk
-	grip = /obj/item/part/gun/grip/rubber
-	mechanism = /obj/item/part/gun/mechanism/machinegun
-	barrel = /obj/item/part/gun/barrel/lrifle
+	resultvars = list(/obj/item/gun/projectile/automatic/lmg/tk)
+	gripvars = list(/obj/item/part/gun/modular/grip/rubber)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/machinegun
+	barrelvars = list(/obj/item/part/gun/modular/barrel/clrifle)

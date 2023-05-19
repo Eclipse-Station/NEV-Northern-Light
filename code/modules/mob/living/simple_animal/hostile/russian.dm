@@ -32,8 +32,6 @@
 	faction = "russian"
 	status_flags = CANPUSH
 
-	//Eclipse-added vars
-	simplemob_bonus_enabled = FALSE		//Close enough to humans.
 
 /mob/living/simple_animal/hostile/russian/ranged
 	icon_state = "russianranged"

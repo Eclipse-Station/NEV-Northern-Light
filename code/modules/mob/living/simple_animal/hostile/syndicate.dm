@@ -34,10 +34,6 @@
 	faction = "syndicate"
 	status_flags = CANPUSH
 
-	//Eclipse-added vars
-	simplemob_bonus_enabled = FALSE		//Close enough to humans.
-
-
 /mob/living/simple_animal/hostile/syndicate/death()
 	..()
 	if(corpse)
@@ -157,9 +153,7 @@
 	minbodytemp = 0
 
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
-	LoseTarget()
-	apply_damage(50)
-
+	health -= 60*severity
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")
 	qdel(src)

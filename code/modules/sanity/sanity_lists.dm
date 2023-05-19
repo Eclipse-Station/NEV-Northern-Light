@@ -108,7 +108,7 @@
 			"It feels like you're breathing inside your own lungs.",
 			"You hunger for something rich and red rich and red rich and red rich and red rich and r-",
 			"Escaping from your purpose is impossible...",
-			"Seven times seven. Seven times seven. Seven times seven. Seven times seven. Seven times seven. Seven times seven. Seven times seven. ",
+			"Seven times seven. Seven times seven. Seven times seven. Seven times seven. Seven times seven. Seven times seven. Seven times seven. Seven times seven. Seven times seven. ",
 			"And so they laughed. They laughed. You know they laughed. You heard them laugh. They laughed. They laughed.",
 			"Whenever you see a mirror, you feel like you can just reach out� and step through it.",
 			"THEY ARE COMING THEY ARE COMING THEY ARE COMING",

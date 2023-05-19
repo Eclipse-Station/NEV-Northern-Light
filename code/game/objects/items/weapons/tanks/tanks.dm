@@ -29,6 +29,8 @@ var/list/global/tank_gauge_cache = list()
 	bad_type = /obj/item/tank
 	spawn_tags = SPAWN_TAG_TANK_GAS
 
+	price_tag = 50
+
 	var/datum/gas_mixture/air_contents
 	var/distribute_pressure = ONE_ATMOSPHERE
 	var/default_pressure = 3*ONE_ATMOSPHERE
@@ -103,9 +105,9 @@ var/list/global/tank_gauge_cache = list()
 	if (!(src.air_contents))
 		return
 
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/item/tank/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/item/tank/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/mob/living/carbon/location = null
 
 	if(istype(loc, /obj/item/rig))		// check for tanks in rigs
@@ -238,7 +240,7 @@ var/list/global/tank_gauge_cache = list()
 
 /obj/item/tank/Process()
 	//Allow for reactions
-	air_contents.react() //cooking up air tanks - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
+	air_contents.react() //cooking up air tanks - add plasma and oxygen, then heat above PLASMA_MINIMUM_BURN_TEMPERATURE
 	if(gauge_icon)
 		update_gauge()
 	check_status()

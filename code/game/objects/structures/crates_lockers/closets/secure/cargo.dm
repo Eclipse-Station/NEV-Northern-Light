@@ -1,11 +1,13 @@
 /obj/structure/closet/secure_closet/personal/cargotech
-	name = "union technician's locker"
+	name = "guild technician's locker"
 	req_access = list(access_merchant)
 	access_occupy = list(access_cargo)
 	icon_state = "cargo"
 
 /obj/structure/closet/secure_closet/personal/cargotech/populate_contents()
 	new /obj/item/clothing/under/rank/cargotech(src)
+	new /obj/item/clothing/suit/storage/cargo_jacket/old(src)
+	new /obj/item/clothing/suit/storage/cargo_jacket(src)
 	new /obj/item/clothing/shoes/color/black(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/gloves/thick(src)
@@ -13,7 +15,7 @@
 	new /obj/item/device/scanner/price(src)
 
 /obj/structure/closet/secure_closet/reinforced/quartermaster
-	name = "union merchant's locker"
+	name = "guild merchant's locker"
 	req_access = list(access_merchant)
 	icon_state = "qm"
 
@@ -35,8 +37,8 @@
 	new /obj/item/device/scanner/price(src)
 
 /obj/structure/closet/secure_closet/personal/artist
-	name = "union artist's locker"
-	req_access = list(access_merchant)
+	name = "club artist's locker"
+	req_access = list(access_change_club)
 	access_occupy = list(access_artist)
 	icon_state = "cargo"
 	spawn_frequency = 0
@@ -49,7 +51,7 @@
 	new/obj/item/clothing/head/beret/artist(src)
 	new/obj/item/clothing/glasses/artist(src)
 	new/obj/item/clothing/mask/gas/artist_hat(src)
-	new/obj/item/device/radio/headset/headset_cargo(src)
+	new/obj/item/device/radio/headset/headset_service(src)
 	new/obj/item/electronics/circuitboard/artist_bench(src)
 
 /obj/structure/closet/wardrobe/color/pink/artist
@@ -77,3 +79,6 @@
 	new/obj/item/clothing/under/gnome(src)
 	new/obj/item/clothing/mask/gnome(src)
 	new/obj/item/clothing/head/collectable/gnome(src)
+	new/obj/item/clothing/mask/gas/joker_19(src)
+	new/obj/item/clothing/under/joker(src)
+

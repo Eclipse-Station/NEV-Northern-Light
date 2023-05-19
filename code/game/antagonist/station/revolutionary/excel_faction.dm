@@ -3,23 +3,12 @@
 	name = "Excelsior"
 	antag = "infiltrator"
 	antag_plural = "infiltrators"
-	welcome_text = "YExcelsior, comrades!\n\n\
-You are part of the Techno-communist Commune known as Excelsior. You are here to further The\
-People’s goals aboard this vessel, with the final goal being to turn this vessel into our newest Commune.\
-Secure our position, liberate the oppressed, and produce arms, armour, and propaganda in preparation\
-for the final revolution. A slow, methodical approach is preferred, split into three phases:\
-<b>Phase One - Awakening:<b\> Seek out other members of the revolution, if present, by speaking to them\n\n\
-through your cybernetic implant. Retrieve the cache of manufacturing materials and circuit boards.\
-Without a means of production our revolution is in peril.\n\n\
-<b>Phase Two - Seize the Means:<b\> Create a fortified position in secret, The People will send additional\
-resources through the teleporter once it is established. This and our autolathe will need to be protected\
-with turrets, shield generators, and our loyal comrades.\n\n\
-<b>Phase Three - Liberate the Bourgeoisie:<b/> Complete mandates for power. Acquire implants, prosthetics, or\
-robot parts to convert into new implants, These can be injected into the oppressed to formally induct\
-them into the revolution. Use their labour to produce the weapons which will break the chains of their\
-servitude.\n\n\
-When the People are ready, break the chains of the Oppressor, and seize the ship.\n\n\
-<b>Ever upward, comrade!</b>"
+	welcome_text = "You are Excelsior, Ever Upward. You have infiltrated this vessel to further the Revolution.\n\
+	The People's strength lies in securing our position, gathering the oppressed, spreading propaganda and producing arms and armor for the final revolution. A methodical approach is recommended. \n\n\
+	Our first phase is to retrieve the cache of manufacturing materials and circuit boards. Without a means of production our revolution is in peril.\n\n\
+	Our second phase is to establish a fortified position in secret. The People will send additional resources through the teleporter once it is established. This and our autolathe can be protected further with turrets and shield generators, in addition to loyal comrades.\n\n\
+	Our third phase is expansion. Complete mandates for power and to delay detection by automated ship systems, which is sped up by the presence of additional brute-force implanted recruits. Aquire implants, prosthetics or robotic parts and convert them into new implants. These can be injected into the oppressed to formally induct them to the Revolution. Use their labor to produce the weapons of their liberation.\n\n\
+	When the People are ready, break the chains of the oppressor and seize control of the ship"
 
 	hud_indicator = "excelsior"
 

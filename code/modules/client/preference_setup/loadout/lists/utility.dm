@@ -65,8 +65,3 @@
 	display_name = "duct tape"
 	path = /obj/item/tool/tape_roll
 	cost = 3
-
-/datum/gear/utility/implant/lesser_cruciform
-	display_name = "Cruciform Luminare"
-	path = /obj/item/implant/core_implant/lesser_cruciform
-	cost = 3

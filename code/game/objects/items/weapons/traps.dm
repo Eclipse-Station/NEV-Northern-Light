@@ -276,7 +276,7 @@ Freeing yourself is much harder than freeing someone else. Calling for help is a
 	if(L.lying)
 		target_zone = ran_zone()
 	else
-		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG , BP_R_LEG)
+		target_zone = pick(BP_L_LEG, BP_R_LEG)
 
 	deployed = FALSE
 	can_buckle = initial(can_buckle)
@@ -341,10 +341,6 @@ Very rarely it might escape
 			else
 				true_prob_catch -= 30
 		if(!prob(true_prob_catch))
-			return ..()
-		prob_catch = initial(prob_catch)
-		prob_catch -= L.skill_to_evade_traps(prob_catch)
-		if(!prob(prob_catch))
 			return ..()
 		L.visible_message(
 			SPAN_DANGER("[L] steps on \the [src]."),

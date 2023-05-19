@@ -10,11 +10,11 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
 	density = TRUE
+	description_info = "Can be upgraded to unlock acces to more refined reagents."
 	anchored = TRUE
 	use_power = NO_POWER_USE // Handles power use in Process()
 	layer = BELOW_OBJ_LAYER
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser
-	req_access = list(access_chemistry) //Eclipse Edit - anti-powergaming measure, locking these machines so that only those who have been believably trained in their use can touch them.
 
 	var/ui_title = "Chem Dispenser 5000"
 	var/obj/item/cell/medium/cell
@@ -30,11 +30,41 @@
 		"radium","water","ethanol",
 		"sugar","sacid","tungsten"
 	)
+	var/list/tiered_reagents = list(
+		1 = list(),
+		2 = list("inaprovaline","anti_toxin","kelotane"), // basic upgrade
+		3 = list("tricordrazine","spaceacillin","dermaline"), // max moebius tech
+		4 = list("blattedin", "polystem"), // excel tech
+		5 = list("carpotoxin", "bicaridine"),// one-star
+		6 = list("meralyne", "nanites") // alien
+	)
+	var/list/tiered_reagents_cost = list(
+		"inaprovaline" = 8,
+		"anti_toxin" = 8,
+		"kelotane" = 8,
+		"tricordrazine" = 8,
+		"spaceacillin" = 8,
+		"dermaline" = 8,
+		"blattedin" = 8,
+		"polystem" = 8,
+		"carpotoxin" = 10,
+		"bicaridine" = 10,
+		"meralyne" = 12,
+		"nanites" = 20
+	)
+	var/maximum_reagent_tier = 0
+	var/has_tiered_reagents = TRUE
 	var/list/hacked_reagents = list()
 	var/obj/item/reagent_containers/beaker
 
 /obj/machinery/chemical_dispenser/RefreshParts()
 	cell = locate() in component_parts
+	var/sum = 0
+	for(var/obj/item/stock_parts/item in component_parts)
+		sum += item.rating
+	sum = round(sum / 4)
+	if(sum)
+		maximum_reagent_tier = sum
 
 /obj/machinery/chemical_dispenser/proc/recharge()
 	if(stat & (BROKEN|NOPOWER)) return
@@ -68,7 +98,7 @@
 				return
 
 
-/obj/machinery/chemical_dispenser/ui_data()
+/obj/machinery/chemical_dispenser/nano_ui_data()
 	var/list/data = list()
 	data["amount"] = amount
 	data["energy"] = round(cell.charge)
@@ -80,15 +110,23 @@
 		var/datum/reagent/temp = GLOB.chemical_reagents_list[re]
 		if(temp)
 			chemicals.Add(list(list("title" = temp.name, "id" = temp.id, "commands" = list("dispense" = temp.id)))) // list in a list because Byond merges the first list...
+	if(has_tiered_reagents)
+		for(var/index in 2 to tiered_reagents.len)
+			if(index <= maximum_reagent_tier)
+				for(var/re in tiered_reagents[index])
+					var/datum/reagent/temp = GLOB.chemical_reagents_list[re]
+					if(temp)
+						chemicals.Add(list(list("title" = temp.name, "id" = temp.id, "commands" = list("dispense" = temp.id)))) // list in a list because Byond merges the first list...
+
 	data["chemicals"] = chemicals
 
 	if(beaker)
-		data["beaker"] = beaker.reagents.ui_data()
+		data["beaker"] = beaker.reagents.nano_ui_data()
 
 	return data
 
-/obj/machinery/chemical_dispenser/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
-	var/list/data = ui_data()
+/obj/machinery/chemical_dispenser/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
+	var/list/data = nano_ui_data()
 
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -127,17 +165,25 @@
 		amount = CLAMP(amount, 0, 120)
 
 	if(href_list["dispense"])
-		if(!src.allowed(usr))
-			to_chat(usr, SPAN_WARNING("Access denied."))
-			return
-		if (dispensable_reagents.Find(href_list["dispense"]) && beaker && beaker.is_refillable())
+		if(beaker && beaker.is_refillable())
 			var/obj/item/reagent_containers/B = src.beaker
 			var/datum/reagents/R = B.reagents
 			var/space = R.maximum_volume - R.total_volume
-
-			var/added_amount = min(amount, cell.charge / chemical_dispenser_ENERGY_COST, space)
+			var/added_amount = 0
+			if (dispensable_reagents.Find(href_list["dispense"]))
+				added_amount = min(amount, cell.charge / chemical_dispenser_ENERGY_COST, space)
+				cell.use(added_amount * chemical_dispenser_ENERGY_COST)
+			// In a perfect world , we  would pass the cost through Topic() and not search lists , in reality , this is necesarry
+			// If the lists are not checked , topics can and will be exploited, becuase anyone competent can feed fake data to a HTML/JS webpage.
+			// to get any reagent that is
+			// also nanoUI is a bitch and only allows limited data feeding >:(
+			else if(tiered_reagents_cost.Find(href_list["dispense"]))
+				added_amount = min(amount, cell.charge / tiered_reagents_cost[href_list["dispense"]], space)
+				cell.use(added_amount * tiered_reagents_cost[href_list["dispense"]])
+			else
+				message_admins("[key_name(usr)] has tried to dispense a non-existant reagent [href_list["dispense"]], possible Topic() data manipulation")
+				return TRUE
 			R.add_reagent(href_list["dispense"], added_amount)
-			cell.use(added_amount * chemical_dispenser_ENERGY_COST)
 			investigate_log("dispensed [href_list["dispense"]] into [B], while being operated by [key_name(usr)]", "chemistry")
 
 	if(href_list["ejectBeaker"])
@@ -182,7 +228,7 @@
 /obj/machinery/chemical_dispenser/attack_hand(mob/living/user)
 	if(stat & BROKEN)
 		return
-	ui_interact(user)
+	nano_ui_interact(user)
 
 /obj/machinery/chemical_dispenser/soda
 	icon_state = "soda_dispenser"
@@ -190,15 +236,15 @@
 	desc = "A drink fabricating machine, capable of producing many sugary drinks with just one touch."
 	layer = OBJ_LAYER
 	ui_title = "Soda Dispens-o-matic"
-	req_access = list() //Eclipse Edit
 	var/icon_on = "soda_dispenser"
 
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser/soda
 
 	accept_beaker = FALSE
 	density = FALSE
-	dispensable_reagents = list("water","ice","coffee","cream","tea","greentea","icetea","icegreentea","cola","spacemountainwind","dr_gibb","space_up","tonic","sodawater","lemon_lime","sugar","orangejuice","limejuice","watermelonjuice")
+	dispensable_reagents = list("water","ice","coffee","cream","tea","greentea","icetea","icegreentea","cola","spacemountainwind","dr_gibb","space_up","tonic","sodawater","lemon_lime","sugar","orangejuice","limejuice","lemonjuice","watermelonjuice")
 	hacked_reagents = list("thirteenloko","grapesoda")
+	has_tiered_reagents = FALSE
 
 /obj/machinery/chemical_dispenser/soda/attackby(obj/item/I, mob/living/user)
 	..()
@@ -228,15 +274,15 @@ obj/machinery/chemical_dispenser/soda/update_icon()
 	name = "booze dispenser"
 	layer = OBJ_LAYER
 	ui_title = "Booze Portal 9001"
-	req_access = list() //Eclipse Edit
 
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser/beer
 
 	accept_beaker = FALSE
 	density = FALSE
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
-	dispensable_reagents = list("lemon_lime","sugar","orangejuice","limejuice","sodawater","tonic","beer","kahlua","whiskey","wine","vodka","gin","rum","tequilla","vermouth","cognac","ale","mead")
+	dispensable_reagents = list("lemon_lime","sugar","orangejuice","limejuice","lemonjuice","sodawater","tonic","beer","kahlua","whiskey","wine","vodka","gin","rum","tequilla","vermouth","cognac","ale","mead")
 	hacked_reagents = list("goldschlager","patron","watermelonjuice","berryjuice")
+	has_tiered_reagents = FALSE
 
 /obj/machinery/chemical_dispenser/beer/attackby(obj/item/I, mob/living/user)
 	..()
@@ -255,7 +301,6 @@ obj/machinery/chemical_dispenser/soda/update_icon()
 	name = "debug chem dispenser"
 	desc = "A mysterious chemical dispenser that can produce all sorts of highly advanced medicines at the press of a button."
 	ui_title = "Cheat Synthesizer 1337"
-	req_access = list() //Eclipse Edit
 	dispensable_reagents = list(
 		"inaprovaline","ryetalyn","paracetamol",
 		"tramadol","oxycodone","sterilizine",
@@ -271,13 +316,13 @@ obj/machinery/chemical_dispenser/soda/update_icon()
 		"vomitol","haloperidol","paroxetine","citalopram",
 		"methylphenidate"
 	)
+	has_tiered_reagents = FALSE
 
 /obj/machinery/chemical_dispenser/industrial
 	name = "industrial chem dispenser"
 	icon = 'icons/obj/machines/chemistry.dmi'
 	icon_state = "industrial_dispenser"
 	ui_title = "Industrial Dispenser 4835"
-	req_access = list(access_moebius) //Eclipse Edit - anti-powergaming measure, see note on parent object above
 
 	circuit = /obj/item/electronics/circuitboard/chemical_dispenser/industrial
 
@@ -287,3 +332,4 @@ obj/machinery/chemical_dispenser/soda/update_icon()
 		"iron","radium","sacid",
 		"hclacid","silicon","tungsten"
 	)
+	has_tiered_reagents = FALSE

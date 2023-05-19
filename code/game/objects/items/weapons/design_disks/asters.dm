@@ -1,6 +1,6 @@
 // Asters
 /obj/item/computer_hardware/hard_drive/portable/design/tools
-	disk_name = "Union Basic Tool Pack"
+	disk_name = "Asters Basic Tool Pack"
 	icon_state = "guild"
 	rarity_value = 5.5
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
@@ -20,6 +20,7 @@
 		/datum/design/autolathe/tool/saw,
 		/datum/design/autolathe/tool/multitool,
 		/datum/design/autolathe/tool/pickaxe,
+		/datum/design/autolathe/tool/sledgehammer,
 		/datum/design/autolathe/tool/shovel,
 		/datum/design/autolathe/tool/spade,
 		/datum/design/autolathe/device/t_scanner,
@@ -33,7 +34,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/misc
-	disk_name = "Union Miscellaneous Pack"
+	disk_name = "Asters Miscellaneous Pack"
 	icon_state = "guild"
 	rarity_value = 3.5
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
@@ -45,6 +46,8 @@
 		/datum/design/autolathe/misc/radio_headset,
 		/datum/design/autolathe/misc/radio_bounced,
 		/datum/design/autolathe/misc/ashtray,
+		/datum/design/autolathe/misc/mirror,
+		/datum/design/autolathe/misc/earmuffs,
 		/datum/design/autolathe/container/drinkingglass,
 		/datum/design/autolathe/container/carafe,
 		/datum/design/autolathe/container/insulated_pitcher,
@@ -69,7 +72,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/devices
-	disk_name = "Union Devices and Instruments"
+	disk_name = "Asters Devices and Instruments"
 	icon_state = "guild"
 	rarity_value = 3
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
@@ -96,7 +99,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/robustcells
-	disk_name = "Union Robustcells"
+	disk_name = "Asters Robustcells"
 	icon_state = "guild"
 	rarity_value = 3
 	spawn_tags = SPAWN_TAG_DESIGN_COMMON
@@ -111,14 +114,14 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/armor/asters
-	disk_name = "FTU Enforcement Armor Pack"
+	disk_name = "Asters Enforcement Armor Pack"
 	icon_state = "guild"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED_COMMON
 	rarity_value = 13 // between standard and bulletproof armor
 	license = 6
 	designs = list(
+		/datum/design/autolathe/clothing/generic_vest_webbing,
 		/datum/design/autolathe/clothing/generic_helmet_visored,
+		/datum/design/autolathe/clothing/generic_vest_security_full = 2,
 		/datum/design/autolathe/clothing/riot_helmet = 2,
-		/datum/design/autolathe/clothing/generic_vest_security,
-		/datum/design/autolathe/clothing/generic_vest_webbing = 2
 	)

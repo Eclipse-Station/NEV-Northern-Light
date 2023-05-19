@@ -7,7 +7,6 @@
 */
 
 /datum/sprite_accessory/hair
-	var/icon_add = 'icons/mob/human_face.dmi'
 	icon = 'icons/mob/human_races/species/human/hair.dmi'
 
 /datum/sprite_accessory/hair/bald
@@ -219,7 +218,7 @@
 	name = "Emo Fringe"
 	icon_state = "emofringe"
 
-/datum/sprite_accessory/hair/fag
+/datum/sprite_accessory/hair/flow
 	name = "Flow"
 	icon_state = "flowhair"
 
@@ -572,19 +571,19 @@
 	icon_state = "shavedpart"
 
 /datum/sprite_accessory/hair/short
-	name = "Short Hair"
+	name = "Short"
 	icon_state = "short"
 
 /datum/sprite_accessory/hair/short2
-	name = "Short Hair 2"
+	name = "Short 2"
 	icon_state = "short2"
 
 /datum/sprite_accessory/hair/short3
-	name = "Short Hair 3"
+	name = "Short 3"
 	icon_state = "short3"
 
 /datum/sprite_accessory/hair/shorthair3beta
-	name = "Short Hair 4"
+	name = "Short 4"
 	icon_state = "shorthair3beta"
 
 /datum/sprite_accessory/hair/shortbangs
@@ -711,9 +710,10 @@
 	name = "Zone Braid"
 	icon_state = "zone"
 
+/datum/sprite_accessory/hair/croft
+	name = "Croft"
+	icon_state = "croft"
 
-
-///Eclipse adds go here
-/datum/sprite_accessory/hair/bedhead_longest
-	name = "Bedhead Longest"
-	icon_state = "hair_longest_bedhead"
+/datum/sprite_accessory/hair/row_braid
+	name = "Row Braid"
+	icon_state = "row_braid"

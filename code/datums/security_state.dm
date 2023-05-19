@@ -169,7 +169,7 @@
 * The default security state and levels setup
 */
 /decl/security_state/default
-	all_security_levels = list(/decl/security_level/default/code_green, /decl/security_level/default/code_blue, /decl/security_level/default/code_red, /decl/security_level/default/code_violet,/decl/security_level/default/code_yellow, /decl/security_level/default/code_delta)
+	all_security_levels = list(/decl/security_level/default/code_green, /decl/security_level/default/code_blue, /decl/security_level/default/code_red, /decl/security_level/default/code_delta)
 
 /decl/security_level/default
 	icon = 'icons/misc/security_state.dmi'
@@ -179,7 +179,7 @@
 
 /decl/security_level/default/switching_up_to()
 	if(up_description)
-		security_announcement_up.Announce(up_description, "Attention! Alert level changed to [name]!")
+		security_announcement_up.Announce(up_description, "Attention! Alert level elevated to [name]!")
 	notify_station()
 
 /decl/security_level/default/switching_down_to()
@@ -208,7 +208,7 @@
 
 	overlay_status_display = "status_display_green"
 
-	down_description = "All threats to the vessel have passed. Privacy laws are once again fully enforced."
+	down_description = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
 
 /decl/security_level/default/code_blue
 	name = "code blue"
@@ -224,8 +224,8 @@
 
 	overlay_status_display = "status_display_blue"
 
-	up_description = "The vessel has received reliable information about possible hostile activity. Random searches are permitted."
-	down_description = "The vessel has received reliable information about possible hostile activity. Random searches are permitted."
+	up_description = "The ship has received reliable information about possible hostile activity on the ship. Security staff may have weapons visible, random searches are permitted."
+	down_description = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
 
 /decl/security_level/default/code_red
 	name = "code red"
@@ -241,40 +241,9 @@
 
 	overlay_status_display = "status_display_red"
 
-	up_description = "There is an immediate confirmed threat to the vessel. Everyone is required to follow Aegis Security's instructions. Random searches are allowed and advised."
-	down_description = "There is an immediate confirmed threat to the vessel. Everyone is required to follow Aegis Security's instructions. Random searches are allowed and advised."
-/decl/security_level/default/code_violet
-	name = "code violet"
+	up_description = "There is an immediate serious threat to the ship. Security may have weapons unholstered at all times. Random searches are allowed and advised."
+	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the ship. Security may have weapons unholstered at all times, random searches are allowed and advised."
 
-	light_max_bright = 0.5
-	light_inner_range = 0.1
-	light_outer_range = 2
-	light_color_alarm = COLOR_LIGHTING_VIOLET_MACHINERY
-	light_color_status_display = COLOR_LIGHTING_VIOLET_MACHINERY
-
-	overlay_alarm = "alarm_violet"
-	overlay_firealarm = "overlay_violet"
-
-	overlay_status_display = "status_display_violet"
-
-	up_description = "Confirmed medical emergency on vessel. All personnel required to follow Lazarus Medical's instructions."
-	down_description = "Confirmed medical emergency on vessel. All personnel required to follow Lazarus Medical's instructions."
-/decl/security_level/default/code_yellow
-	name = "code yellow"
-
-	light_max_bright = 0.5
-	light_inner_range = 0.1
-	light_outer_range = 2
-	light_color_alarm = COLOR_LIGHTING_ORANGE_MACHINERY
-	light_color_status_display = COLOR_LIGHTING_ORANGE_MACHINERY
-
-	overlay_alarm = "alarm_yellow"
-	overlay_firealarm = "overlay_yellow"
-
-	overlay_status_display = "status_display_yellow"
-
-	up_description = "Severe structural damage to vessel confirmed. All personnel are required to follow NanoTrasen Engineering's instructions."
-	down_description = "Severe structural damage to vessel confirmed. All personnel are required to follow NanoTrasen Engineering's instructions."
 /decl/security_level/default/code_delta
 	name = "code delta"
 
