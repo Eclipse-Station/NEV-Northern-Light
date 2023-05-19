@@ -81520,6 +81520,19 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/quartermaster/miningdock)
+"qHy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/spawner/mob/spiders/cluster/low_chance,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/turf/simulated/floor/plating/under,
+/area/eris/maintenance/section3deck4starboard)
 "qIf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -93839,7 +93852,7 @@ aob
 aob
 aob
 aob
-ajI
+qHy
 aob
 atd
 aaw
