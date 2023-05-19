@@ -171,7 +171,7 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 	for(var/datum/job/occupation in occupations)
 		file << "[occupation.title]=0"
 
-/datum/controller/subsystem/job/proc/SetupOccupations(faction = "CEV Eris")
+/datum/controller/subsystem/job/proc/SetupOccupations(faction = "NEV Northern Light")
 	occupations.Cut()
 	occupations_by_name.Cut()
 	for(var/J in subtypesof(/datum/job))
@@ -180,6 +180,30 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 			continue
 		occupations += job
 		occupations_by_name[job.title] = job
+		// // // BEGIN ECLIPSE EDITS // // //
+		//Rationale: Job whitelisting setup.
+		//I would have preferred to have this before var/J got filtered into job.* but it was causing compiler errors. Alas.
+		//wgatever it workys
+		if(job.manual_whitelist != WHITELIST_MANUAL_OFF)		//if we don't have the whitelist manually disabled for this job, we run through the checks.
+			if(job.manual_whitelist == WHITELIST_MANUAL_ON)			//Admin wants this whitelisted for whatever reason.
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			//Whitelist job based on configuration files.
+			if(job.wl_config_heads && config.wl_heads)		//Heads of Staff
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			if(job.wl_config_sec && config.wl_security)		//Security
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			if(job.wl_config_borgs && config.wl_silicons)		//Silicons
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			/*		//Uncomment in event of admin-only rank failure.
+			if(job.wl_admin_only)		//Admin-only jobs.
+				job.whitelist_only = TRUE
+				whitelisted_jobs |= job
+			*/
+		// // // END ECLIPSE EDITS // // //
 
 	if(!occupations.len)
 		to_chat(world, SPAN_WARNING("Error setting up jobs, no job datums found!"))
@@ -206,6 +230,10 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 			return FALSE
 		if(jobban_isbanned(player, rank))
 			return FALSE
+		// // // eclipse edit: job whitelisting // // //
+		if(!is_job_whitelisted(player, rank))
+			return FALSE
+		//v // //end eclipse edit // // //
 
 		var/position_limit = job.total_positions
 		if(!latejoin)
@@ -214,6 +242,8 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
 			player.mind.assigned_role = rank
 			player.mind.assigned_job = job
+			if(job.alt_titles)	// Eclipse add
+				player.mind.role_alt_title = player.client.prefs.GetPlayerAltTitle(job)// Eclipse add
 			unassigned -= player
 			job.current_positions++
 			return TRUE
@@ -231,6 +261,8 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 	Debug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
 	var/list/candidates = list()
 	for(var/mob/new_player/player in unassigned)
+		if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
+			Debug("FOC whitelist failed, Player: [player]")
 		if(!CanHaveJob(player.client.ckey, job.title))
 			Debug("FOC playtime failed, Player:[player]")
 			continue
@@ -268,6 +300,10 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 			continue
 
 		if(job.is_restricted(player.client.prefs))
+			continue
+
+		if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
+			Debug("GRJ whitelist failed, Player: [player], Job: [job.title]")
 			continue
 
 		if(jobban_isbanned(player, job.title))
@@ -350,6 +386,7 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 		var/mob/new_player/candidate = pick(candidates)
 		AssignRole(candidate, command_position)
 
+		//eclipse todo: add a whitelist sanity check in here somewhere
 
 /** Proc DivideOccupations
  *  fills var "assigned_role" for all ready players.
@@ -420,6 +457,10 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 				/*if(!job || SSticker.mode.disabled_jobs.Find(job.title) )
 					continue
 				*/
+				if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
+					Debug("DO whitelist failed, Player: [player], Job:[job.title]")
+					continue
+
 				if(jobban_isbanned(player, job.title))
 					Debug("DO isbanned failed, Player: [player], Job:[job.title]")
 					continue
@@ -458,8 +499,9 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 			unassigned -= player
 	return TRUE
 
-
-/datum/controller/subsystem/job/proc/EquipRank(mob/living/carbon/human/H, rank)
+// // // BEGIN ECLIPSE EDITS // // //
+// Fix an issue where mannequins can get emails.
+/datum/controller/subsystem/job/proc/EquipRank(mob/living/carbon/human/H, rank, generate_miscellany = TRUE)
 	if(!H)
 		return null
 
@@ -476,7 +518,8 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 		//var/list/custom_equip_leftovers = list()
 
 		//Equip job items and language stuff
-		job.setup_account(H)
+		if(generate_miscellany)
+			job.setup_account(H)
 
 		job.equip(H, flavor ? flavor.title : H.mind ? H.mind.role_alt_title : "")
 
@@ -485,8 +528,9 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 			for(var/datum/gear/G in spawn_in_storage)
 				G.spawn_in_storage_or_drop(H, H.client.prefs.Gear()[G.display_name])
 
-		job.add_stats(H, flavor)
-		job.add_additiional_language(H)
+		if(generate_miscellany)
+			job.add_stats(H, flavor)
+			job.add_additiional_language(H)
 
 		job.apply_fingerprints(H)
 
@@ -498,25 +542,28 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 				G.spawn_in_storage_or_drop(H, H.client.prefs.Gear()[G.display_name])
 
 		// EMAIL GENERATION
-		if(rank != "Robot" && rank != "AI")		//These guys get their emails later.
-			ntnet_global.create_email(H, H.real_name, pick(GLOB.maps_data.usable_email_tlds))
+		if(generate_miscellany)
+			if(rank != "Robot" && rank != "AI")		//These guys get their emails later.
+				ntnet_global.create_email(H, H.real_name, pick(GLOB.maps_data.usable_email_tlds))
 
 	else
 		to_chat(H, "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
 
 	// If they're head, give them the account info for their department
-	if(H.mind && (job.head_position || job.department_account_access))
-		var/remembered_info = ""
-		var/datum/money_account/department_account = department_accounts[job.department]
-		if(department_account)
-			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
-			remembered_info += "<b>Your department's account pin is:</b> [department_account.remote_access_pin]<br>"
-			remembered_info += "<b>Your department's account funds are:</b> [department_account.money][CREDS]<br>"
-		if(job.head_position)
-			remembered_info += "<b>Your part of nuke code:</b> [SSticker.get_next_nuke_code_part()]<br>"
-			department_account.owner_name = H.real_name //Register them as the point of contact for this account
+	if(generate_miscellany)
+		if(H.mind && (job.head_position || job.department_account_access))
+			var/remembered_info = ""
+			var/datum/money_account/department_account = department_accounts[job.department]
+			if(department_account)
+				remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
+				remembered_info += "<b>Your department's account pin is:</b> [department_account.remote_access_pin]<br>"
+				remembered_info += "<b>Your department's account funds are:</b> [department_account.money][CREDS]<br>"
+			if(job.head_position)
+				remembered_info += "<b>Your part of nuke code:</b> [SSticker.get_next_nuke_code_part()]<br>"
+				department_account.owner_name = H.real_name //Register them as the point of contact for this account
 
-		H.mind.store_memory(remembered_info)
+			H.mind.store_memory(remembered_info)
+	// // // END ECLIPSE EDITS // // //
 
 	var/alt_title = null
 	if(H.mind)
@@ -655,9 +702,13 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 		var/level4 = 0 //never
 		var/level5 = 0 //banned
 		var/level6 = 0 //account too young
+		var/level7 = 0 //not whitelisted <--eclipse add
 		for(var/mob/new_player/player in GLOB.player_list)
 			if(!(player.ready && player.mind && !player.mind.assigned_role))
 				continue //This player is not ready
+			if(jobban_isbanned(player, job.title))		//eclipse edit this iteration: whitelist
+				level7++
+				continue
 			if(jobban_isbanned(player, job.title))
 				level5++
 				continue
@@ -669,7 +720,7 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 				level3++
 			else level4++ //not selected
 
-		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|YOUNG=[level6]|-"
+		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|YOUNG=[level6]|WHITELIST=[level7]|-"		//eclipse edit: whitelist
 
 
 /**

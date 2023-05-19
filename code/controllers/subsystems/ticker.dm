@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(ticker)
 	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME
 
-	var/const/restart_timeout = 600
+	var/const/restart_timeout = 1200	// Eclipse Edit - Doubles the duration of the round-end phase
 	var/current_state = GAME_STATE_STARTUP
 	// If true, there is no lobby phase, the game starts immediately.
 	var/start_immediately = FALSE
@@ -56,6 +56,7 @@ SUBSYSTEM_DEF(ticker)
 		syndicate_code_response = generate_code_phrase()
 
 	setup_objects()
+	setup_genetics()
 	setup_huds()
 
 	return ..()
@@ -89,6 +90,7 @@ SUBSYSTEM_DEF(ticker)
 			if(!start_immediately)
 				to_chat(world, "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
 			current_state = GAME_STATE_PREGAME
+			send_assets()
 			fire()
 
 		if(GAME_STATE_PREGAME)
@@ -493,7 +495,7 @@ SUBSYSTEM_DEF(ticker)
 				else if(issilicon(Player))
 					to_chat(Player, "<font color='green'><b>You remain operational after the events on [station_name()] as [Player.real_name].</b></font>")
 				else
-					to_chat(Player, "<font color='blue'><b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b></font>")
+					to_chat(Player, "<font color='blue'><b>You survived the bluespace jump after the events on [station_name()] as [Player.real_name].</b></font>")
 			else
 				if(isghost(Player))
 					var/mob/observer/ghost/O = Player
@@ -532,6 +534,18 @@ SUBSYSTEM_DEF(ticker)
 		to_chat(world, "<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] at the end of this round.</b>")
 
 	GLOB.storyteller.declare_completion()//To declare normal completion.
+	
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Dispatcher can declare round end to Discord.
+	if(config.ntdad_enabled && config.ntdad_roundend_ping)
+		var/player_count = GLOB.player_list.len
+		if(player_count >= config.ntdad_minimum_roundend)
+			var/__playertext = "players"
+			if(player_count == 1)		//Take the S off if we've only got one player on.
+				__playertext = "player"
+			SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended aboard \the [station_name()] with [player_count] [__playertext]. A new round will start in a few minutes.")
+	// // // END ECLIPSE EDITS // // //
+	
 	scoreboard()//scores
 	//Ask the event manager to print round end information
 	SSevent.RoundEnd()

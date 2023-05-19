@@ -34,6 +34,7 @@ SUBSYSTEM_DEF(migration)
 	var/plantspread_burrows_num = 3 //How many other burrows will each one with plants send them to
 
 
+	var/last_fungus_growth = 0		//Eclipse edit: Putting this here for now. Deals with maint fungus spreading.
 
 /*************************************************
 	Burrow Creation
