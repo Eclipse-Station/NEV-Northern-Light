@@ -22,7 +22,6 @@
 	bad_type = /mob/living/simple_animal/hostile/hivemind
 	spawn_tags = SPAWN_TAG_MOB_HIVEMIND
 	rarity_value = 20
-
 	mob_classification = CLASSIFICATION_SYNTHETIC
 
 	var/malfunction_chance = 5
@@ -44,6 +43,10 @@
 // Balancing changes for lowpop hivemind.
 	adjust_health()		//Also, adjust our health while we're here so we aren't overpowered if we do sapwn in
 	
+	tts_seed = prob(75) ? "Robot_1" : "Female_9"
+	if(!(real_name in GLOB.hivemind_mobs))
+		GLOB.hivemind_mobs.Add(real_name)
+	GLOB.hivemind_mobs[real_name]++
 	//here we change name, so design them according to this
 	name = pick("Warped ", "Altered ", "Modified ", "Upgraded ", "Abnormal ") + name
 
@@ -106,7 +109,7 @@
 	anim_shake(src)
 	if(prob(30))
 		say(pick("Running diagnostics.", "Organ damaged. Aquire replacement.", "Seek new organic components.", "New muscles needed."))
-	addtimer(CALLBACK(src, .proc/malfunction_result), 60 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(malfunction_result)), 60 SECONDS)
 
 
 //It's second proc, result of our malfunction
@@ -168,6 +171,12 @@
 		if(B)
 			B.unbuckle_mob()
 
+	if(!hive_mind_ai)
+		if(prob(5))
+			death()
+			return FALSE
+		else if(prob(15))
+			mulfunction()
 
 
 /mob/living/simple_animal/hostile/hivemind/proc/speak()
@@ -192,6 +201,9 @@
 
 
 /mob/living/simple_animal/hostile/hivemind/death()
+	GLOB.hivemind_mobs[real_name]--
+	if(!GLOB.hivemind_mobs[real_name])
+		GLOB.hivemind_mobs.Remove(real_name)
 	if(master) //for spawnable mobs
 		master.spawned_creatures.Remove(src)
 	. = ..()
@@ -417,7 +429,9 @@
 
 
 /mob/living/simple_animal/hostile/hivemind/lobber/Life()
-	. = ..()
+	if(!..())
+		return
+
 //checks if cooldown is over and is targeting mob, if so, activates special ability
 	if(target_mob && world.time > special_ability_cooldown)
 		special_ability()
@@ -429,7 +443,7 @@
 	if(rapid == FALSE)
 		rapid = TRUE
 		visible_message(SPAN_DANGER("<b>[name]</b> begins to shake violenty, sparks spurting out from its chassis!"), 1)
-		addtimer(CALLBACK(src, .proc/overheat), 10 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(overheat)), 10 SECONDS)
 		return
 
 
@@ -584,7 +598,8 @@
 
 
 /mob/living/simple_animal/hostile/hivemind/himan/Life()
-	. = ..()
+	if(!..())
+		return
 
 	//shriek
 	if(target_mob && !fake_dead && world.time > special_ability_cooldown)
@@ -753,7 +768,9 @@
 
 
 /mob/living/simple_animal/hostile/hivemind/mechiver/Life()
-	. = ..()
+	if(!..())
+		return
+
 	update_icon()
 
 	//when we have passenger, we torture him
@@ -839,7 +856,7 @@
 	target.canmove = FALSE
 	to_chat(target, SPAN_DANGER("Wires snare your limbs and pull you inside the maneater! You feel yourself bound with a thousand steel tendrils!"))
 	playsound(src, 'sound/effects/blobattack.ogg', 70, 1)
-	addtimer(CALLBACK(src, .proc/release_passenger), 40 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(release_passenger)), 40 SECONDS)
 
 
 
@@ -953,7 +970,8 @@
 	set_light(2, 1, COLOR_BLUE_LIGHT)
 
 /mob/living/simple_animal/hostile/hivemind/treader/Life()
-	. = ..()
+	if(!..())
+		return
 
 	if(maxHealth > health && world.time > special_ability_cooldown)
 		special_ability()
@@ -1007,7 +1025,9 @@
 
 /mob/living/simple_animal/hostile/hivemind/phaser/Life()
 	stop_automated_movement = TRUE
-	. = ..()
+
+	if(!..())
+		return
 
 	//special ability using
 	if(world.time > special_ability_cooldown && can_use_special_ability)
@@ -1095,7 +1115,7 @@
 	animate(src, pixel_x=init_px + 16*pick(-1, 1), time=5)
 	animate(pixel_x=init_px, time=6, easing=SINE_EASING)
 	animate(filters[1], size = 5, time = 5, flags = ANIMATION_PARALLEL)
-	addtimer(CALLBACK(src, .proc/phase_jump, new_place), 0.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(phase_jump), new_place), 0.5 SECONDS)
 
 
 //second part - is jump to target
@@ -1130,7 +1150,7 @@
 		if(reflection.is_can_jump_on(new_position))
 			spawn(1) //ugh, i know, i know, it's bad. Animation
 				reflection.forceMove(new_position)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, reflection), 60 SECONDS)
+		addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(qdel), reflection), 60 SECONDS)
 	loc = get_step(spawn_point, possible_directions[1]) //there must left last direction
 	special_ability_cooldown = world.time + ability_cooldown
 	playsound(spawn_point, 'sound/effects/cascade.ogg', 100, 1)

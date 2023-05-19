@@ -20,16 +20,16 @@
 	reload_sound = 'sound/weapons/guns/interact/ltrifle_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ltrifle_cock.ogg'
 	damage_multiplier = 0.8
-	penetration_multiplier = 1.4 // this is not babies first gun. It's a Serb-level weapon.
-	recoil_buildup = 5 // at least somewhat controllable
-	one_hand_penalty = 20 //automatic shotgun level
+	penetration_multiplier = 0.5 // this is not babies first gun. It's a Serb-level weapon.
+	init_recoil = CARBINE_RECOIL(1.1)
 
 					//while also preserving ability to shoot as fast as you can click and maintain recoil good enough
 	init_firemodes = list(
 		FULL_AUTO_400,
-		SEMI_AUTO_NODELAY
+		SEMI_AUTO_300
 		)
-	gun_parts = list(/obj/item/part/gun/frame/bojevic = 1, /obj/item/part/gun/grip/serb = 1, /obj/item/part/gun/mechanism/shotgun = 1, /obj/item/part/gun/barrel/shotgun = 1)
+	gun_parts = list(/obj/item/part/gun/frame/bojevic = 1, /obj/item/part/gun/modular/grip/serb = 1, /obj/item/part/gun/modular/mechanism/autorifle = 1, /obj/item/part/gun/modular/barrel/shotgun = 1)
+	serial_type = "SA"
 	
 	simplemob_bonus_damage_multiplier = -0.1 //Eclipse edit: Balancing.
 
@@ -58,7 +58,7 @@
 	name = "\improper Bojevic frame"
 	desc = "A Bojevic shotgun frame. Specially designed to sweep streets and spaceship halls."
 	icon_state = "frame_bojevic"
-	result = /obj/item/gun/projectile/shotgun/bojevic
-	grip = /obj/item/part/gun/grip/serb
-	mechanism = /obj/item/part/gun/mechanism/shotgun
-	barrel = /obj/item/part/gun/barrel/shotgun
+	resultvars = list(/obj/item/gun/projectile/shotgun/bojevic)
+	gripvars = list(/obj/item/part/gun/modular/grip/serb)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/autorifle // listen, its semi and full auto, not pump. makes sense
+	barrelvars = list(/obj/item/part/gun/modular/barrel/shotgun)

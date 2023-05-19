@@ -26,10 +26,6 @@
 		report("Scan Complete: No antibodies detected.", user)
 		return
 
-	if (CLUMSY in user.mutations && prob(50))
-		// I was tempted to be really evil and rot13 the output.
-		report("Antibodies detected: [reverse_text(antigens2string(C.antibodies))]", user)
-	else
 		report("Antibodies detected: [antigens2string(C.antibodies)]", user)
 
 /obj/item/device/antibody_scanner/proc/report(var/text, mob/user as mob)
@@ -41,6 +37,7 @@
 	name = "virus dish"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "petridish"
+	price_tag = 300
 	var/datum/disease2/disease/virus2
 	var/growth = 0
 	var/basic_info

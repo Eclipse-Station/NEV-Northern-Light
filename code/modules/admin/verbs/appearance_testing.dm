@@ -8,14 +8,14 @@ var/datum/appearance_test/appearance_test = new
 	var/get_species_sprite = TRUE
 	var/colorize_organ = TRUE
 	var/cache_sprites = FALSE
-	var/log_sprite_gen = TRUE
+	var/log_sprite_gen = FALSE
 	var/log_sprite_gen_to_world = FALSE
 	var/special_update = TRUE
 	var/simple_setup = FALSE
 	var/cache_generation_log = ""
 
 /datum/appearance_test/proc/rebuild_humans()
-	for(var/mob/living/carbon/human/H in SSmobs.mob_list)
+	for(var/mob/living/carbon/human/H in SShumans.mob_list)
 		H.update_body()
 
 /datum/appearance_test/proc/interact(var/mob/user)

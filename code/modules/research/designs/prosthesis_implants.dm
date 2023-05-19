@@ -4,19 +4,25 @@
 	starts_unlocked = TRUE
 
 /datum/design/research/item/mechfab/prosthesis/r_arm
-	build_path = /obj/item/organ/external/robotic/r_arm
+	build_path = /obj/item/organ/external/robotic/moebius/r_arm
 
 /datum/design/research/item/mechfab/prosthesis/l_arm
-	build_path = /obj/item/organ/external/robotic/l_arm
+	build_path = /obj/item/organ/external/robotic/moebius/l_arm
 
 /datum/design/research/item/mechfab/prosthesis/r_leg
-	build_path = /obj/item/organ/external/robotic/r_leg
+	build_path = /obj/item/organ/external/robotic/moebius/r_leg
 
 /datum/design/research/item/mechfab/prosthesis/l_leg
-	build_path = /obj/item/organ/external/robotic/l_leg
+	build_path = /obj/item/organ/external/robotic/moebius/l_leg
 
 /datum/design/research/item/mechfab/prosthesis/groin
-	build_path = /obj/item/organ/external/robotic/groin
+	build_path = /obj/item/organ/external/robotic/moebius/groin
+
+/datum/design/research/item/mechfab/prosthesis/torso
+	build_path = /obj/item/organ/external/robotic/moebius/torso
+
+/datum/design/research/item/mechfab/prosthesis/head
+	build_path = /obj/item/organ/external/robotic/moebius/head
 
 
 /datum/design/research/item/mechfab/prosthesis/r_arm
@@ -61,6 +67,9 @@
 
 /datum/design/research/item/mechfab/prosthesis_moebius/groin
 	build_path = /obj/item/organ/external/robotic/moebius/reinforced/groin
+
+/datum/design/research/item/mechfab/prosthesis_moebius/torso
+	build_path = /obj/item/organ/external/robotic/moebius/reinforced/torso
 
 /datum/design/research/item/mechfab/prosthesis_moebius/head
 	build_path = /obj/item/organ/external/robotic/moebius/reinforced/head

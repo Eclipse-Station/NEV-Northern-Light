@@ -8,8 +8,8 @@ SUBSYSTEM_DEF(economy)
 	init_order = INIT_ORDER_LATELOAD
 
 	wait = 300 //Ticks once per 30 seconds
-	var/payday_interval = 1 HOURS
-	var/next_payday = 1 HOURS
+	var/payday_interval = 30 MINUTES
+	var/next_payday = 30 MINUTES
 
 /datum/controller/subsystem/economy/Initialize()
 	.=..()

@@ -59,3 +59,11 @@
 	belt = /obj/item/storage/belt/medical/emt
 	backpack_contents = list(/obj/item/gun/projectile/selfload/moebius = 1, /obj/item/ammo_magazine/pistol/rubber = 2, /obj/item/modular_computer/tablet/moebius/preset = 1, /obj/item/storage/firstaid/adv = 1) //Eclipse Edit - added an extra magazine
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
+
+/decl/hierarchy/outfit/job/medical/bioengineer
+	name = OUTFIT_JOB_NAME("Moebius Bio-Engineer")
+	uniform = /obj/item/clothing/under/rank/bioengineer
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/bioengineer
+	l_hand = /obj/item/storage/freezer/medical
+	r_pocket = /obj/item/device/lighting/toggleable/flashlight/pen
+	belt = /obj/item/storage/belt/medical/

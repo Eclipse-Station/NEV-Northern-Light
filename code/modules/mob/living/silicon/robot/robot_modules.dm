@@ -25,18 +25,13 @@ var/global/list/robot_modules = list(
 	var/channels = list()
 	var/networks = list()
 	var/languages = list(							//Any listed language will be understandable. Any set to 1 will be speakable
-					LANGUAGE_SOL_COMMON = 1,
-					LANGUAGE_TRADEBAND = 1,
-					LANGUAGE_UNATHI = 0,
-					LANGUAGE_SIIK_MAAS = 0,
-					LANGUAGE_SKRELLIAN = 0,
-					LANGUAGE_GUTTER = 1,
-					LANGUAGE_VAURCESE = 0,
-					LANGUAGE_ROOTSONG = 0,
-					LANGUAGE_SIGN = 0,
-					LANGUAGE_SIGN_TAJARA = 0,
-					LANGUAGE_SIIK_TAJR = 0,
-					LANGUAGE_AZAZIBA = 0
+					LANGUAGE_COMMON = 1,
+					LANGUAGE_GERMAN = 1,
+					LANGUAGE_CYRILLIC = 1,
+					LANGUAGE_SERBIAN = 1,
+					LANGUAGE_JIVE = 0,
+					LANGUAGE_NEOHONGO = 1,
+					LANGUAGE_LATIN = 0,
 					)
 	var/sprites = list()
 	var/can_be_pushed = 1
@@ -48,6 +43,8 @@ var/global/list/robot_modules = list(
 	var/obj/item/borg/upgrade/jetpack
 	var/list/subsystems = list()
 	var/list/obj/item/borg/upgrade/supported_upgrades = list()
+	// A list of robot traits , these can be found at cyborg_traits.dm
+	var/robot_traits = null
 
 	// Bookkeeping
 	var/list/original_languages = list()
@@ -75,6 +72,9 @@ var/global/list/robot_modules = list(
 
 	R.module = src
 
+	if(robot_traits)
+		R.AddTrait(robot_traits)
+
 	add_camera_networks(R)
 	add_languages(R)
 	add_subsystems(R)
@@ -97,14 +97,14 @@ var/global/list/robot_modules = list(
 
 	R.set_module_sprites(sprites)
 	R.icon_selected = 0
-	spawn()
+	spawn() // For future coders , this "corrupts" the USR reference, so for good practice ,don't make the proc use USR if its called with a spawn.
 		R.choose_icon() //Choose icon recurses and blocks new from completing, so spawn it off
 
 
 /obj/item/robot_module/Initialize()
 	. = ..()
 	for(var/obj/item/I in modules)
-		I.canremove = 0
+		I.canremove = FALSE
 		I.set_plane(ABOVE_HUD_PLANE)
 		I.layer = ABOVE_HUD_LAYER
 
@@ -121,6 +121,8 @@ var/global/list/robot_modules = list(
 	// I wanna make component cell holders soooo bad, but it's going to be a big refactor, and I don't have the time -- ACCount
 
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
+	if(robot_traits) // removes module-only traits
+		R.RemoveTrait(robot_traits)
 	remove_camera_networks(R)
 	remove_languages(R)
 	remove_subsystems(R)
@@ -165,7 +167,7 @@ var/global/list/robot_modules = list(
 	var/obj/item/device/flash/F = locate() in src.modules
 	if(F)
 		if(F.broken)
-			F.broken = 0
+			F.broken = FALSE
 			F.times_used = 0
 			F.icon_state = "flash"
 		else if(F.times_used)
@@ -742,6 +744,8 @@ var/global/list/robot_modules = list(
 		STAT_ROB = 20
 	)
 
+	robot_traits = CYBORG_TRAIT_CLEANING_WALK
+
 	desc = "A vast machine designed for cleaning up trash and scrubbing floors. A fairly specialised task, \
 	but requiring a large capacity. The huge chassis consequentially grants it a degree of toughness, \
 	though it is slow and cheaply made"
@@ -780,13 +784,14 @@ var/global/list/robot_modules = list(
 	name = "service robot module"
 	channels = list("Service" = 1)
 	languages = list(
-					LANGUAGE_SOL_COMMON = 1,
-					LANGUAGE_TRADEBAND = 1,
-					LANGUAGE_UNATHI = 1,
-					LANGUAGE_SIIK_MAAS = 1,
-					LANGUAGE_SKRELLIAN = 1,
-					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1
+					LANGUAGE_COMMON = 1,
+					LANGUAGE_GERMAN = 1,
+					LANGUAGE_CYRILLIC = 1,
+					LANGUAGE_SERBIAN = 1,
+					LANGUAGE_JIVE = 1,
+					LANGUAGE_NEOHONGO = 1,
+					LANGUAGE_LATIN = 1,
+					LANGUAGE_MONKEY = 1
 					)
 
 	sprites = list(	"Waitress" = "service",
@@ -832,7 +837,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/paperwork(src)
 	src.modules += new /obj/item/hand_labeler(src)
 	src.modules += new /obj/item/tool/tape_roll(src) //allows it to place flyers
-	src.modules += new /obj/item/stamp/denied(src) //why was this even a emagged item before smh
+	src.modules += new /obj/item/stamp/denied(src) //why was this even a emagged item before smh // a good cyborg folows crew orders of accepting everything
 	src.modules += new /obj/item/device/synthesized_instrument/synthesizer
 
 	var/obj/item/rsf/M = new /obj/item/rsf(src)
@@ -973,13 +978,13 @@ var/global/list/robot_modules = list(
 	name = "syndicate robot module"
 	hide_on_manifest = TRUE
 	languages = list(
-					LANGUAGE_SOL_COMMON = 1,
-					LANGUAGE_TRADEBAND = 1,
-					LANGUAGE_UNATHI = 1,
-					LANGUAGE_SIIK_MAAS = 1,
-					LANGUAGE_SKRELLIAN = 1,
-					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1
+					LANGUAGE_COMMON = 1,
+					LANGUAGE_GERMAN = 1,
+					LANGUAGE_CYRILLIC = 1,
+					LANGUAGE_SERBIAN = 1,
+					LANGUAGE_JIVE = 1,
+					LANGUAGE_NEOHONGO = 1,
+					LANGUAGE_LATIN = 1
 					)
 
 	sprites = list(
@@ -1124,14 +1129,13 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/hunter_seeker
 	name = "hunter seeker robot module"
 	languages = list(
-					LANGUAGE_SOL_COMMON = 1,
-					LANGUAGE_TRADEBAND = 1,
-					LANGUAGE_UNATHI = 1,
-					LANGUAGE_SIIK_MAAS = 1,
-					LANGUAGE_SKRELLIAN = 1,
-					LANGUAGE_GUTTER = 1,
-					LANGUAGE_ROOTSONG = 1,
-					LANGUAGE_TERMINATOR = 1
+					LANGUAGE_COMMON = 1,
+					LANGUAGE_GERMAN = 1,
+					LANGUAGE_CYRILLIC = 1,
+					LANGUAGE_SERBIAN = 1,
+					LANGUAGE_JIVE = 1,
+					LANGUAGE_NEOHONGO = 1,
+					LANGUAGE_LATIN = 1
 					)
 
 	sprites = list(

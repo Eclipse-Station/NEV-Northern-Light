@@ -1,7 +1,7 @@
-/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/location = src, var/mob/user = src, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/topic_state/state =GLOB.default_state)
+/mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/location = src, var/mob/user = src, var/check_species_whitelist = 1, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/datum/nano_topic_state/state =GLOB.default_state)
 	var/datum/nano_module/appearance_changer/AC = new(location, src, check_species_whitelist, species_whitelist, species_blacklist)
 	AC.flags = flags
-	AC.ui_interact(user, state = state)
+	AC.nano_ui_interact(user, state = state)
 
 /mob/living/carbon/human/proc/change_species(var/new_species)
 	if(!new_species)
@@ -35,7 +35,6 @@
 	regenerate_icons() //This is overkill, but we do need to update all of the clothing. Maybe there's a more precise call
 	//reset_hair()
 	//update_body()
-	//update_dna()
 	return 1
 
 /mob/living/carbon/human/proc/change_hair(var/hair_style)
@@ -142,10 +141,6 @@
 	force_update_limbs()
 	update_body()
 	return 1
-
-/mob/living/carbon/human/proc/update_dna()
-	check_dna()
-	dna.ready_dna(src)
 
 /mob/living/carbon/human/proc/generate_valid_species(var/check_whitelist = 1, var/list/whitelist = list(), var/list/blacklist = list())
 	var/list/valid_species = new()

@@ -6,31 +6,32 @@
 	item_state = "type_17"
 	w_class = ITEM_SIZE_HUGE
 	force = WEAPON_FORCE_PAINFUL
-	caliber = CAL_SRIFLE
+	caliber = CAL_LRIFLE
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_RIFLE
-	magazine_type = /obj/item/ammo_magazine/srifle
-	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_PLATINUM = 8, MATERIAL_PLASTIC = 10)
+	magazine_type = /obj/item/ammo_magazine/lrifle
+	matter = list(MATERIAL_PLASTEEL = 18, MATERIAL_PLATINUM = 8, MATERIAL_PLASTIC = 10)
 	price_tag = 3800
-	fire_sound = 'sound/weapons/guns/fire/cal/20.ogg'
+	fire_sound = 'sound/weapons/guns/fire/ltrifle_fire.ogg'
 	unload_sound = 'sound/weapons/guns/interact/ltrifle_magout.ogg'
 	reload_sound = 'sound/weapons/guns/interact/ltrifle_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ltrifle_cock.ogg'
-	zoom_factor = 0.6
-	recoil_buildup = 1.5
-	one_hand_penalty = 15 //automatic rifle level
-	damage_multiplier = 1.3
-	penetration_multiplier = 1.7
+	zoom_factors = list(0.6)
+	init_recoil = RIFLE_RECOIL(0.8)
+	damage_multiplier = 1.2
+	penetration_multiplier = 0.4
 	spawn_tags = SPAWN_TAG_GUN_OS
+	spawn_blacklisted = TRUE
 	init_firemodes = list(
+		SEMI_AUTO_300,
 		BURST_3_ROUND,
-		SEMI_AUTO_NODELAY
+		FULL_AUTO_400
 		)
-	spawn_blacklisted = TRUE //until loot rework
 
 	gun_tags = list(GUN_SILENCABLE)
+	serial_type = "OS"
 	
 	simplemob_bonus_damage_multiplier = 0.1 //Eclipse edit: Balancing.
 
@@ -43,6 +44,9 @@
 	if (ammo_magazine)
 		iconstring += "_mag"
 		itemstring += "_mag"
+		wielded_item_state = "_doble" + "_mag"
+	else
+		wielded_item_state = "_doble"
 
 	icon_state = iconstring
 	set_item_state(itemstring)

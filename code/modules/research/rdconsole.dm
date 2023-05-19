@@ -41,6 +41,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	name = "R&D control console"
 	icon_keyboard = "rd_key"
 	icon_screen = "rdcomp"
+	description_info = "You can also upload any unlocked designs onto a disk."
+	description_antag = "You can delete all research data, causing a massive headache for Moebius"
 	light_color = COLOR_LIGHTING_PURPLE_MACHINERY
 	circuit = /obj/item/electronics/circuitboard/rdconsole
 	var/datum/research/files								//Stores all the collected research data.
@@ -54,7 +56,6 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/id     = 0			//ID of the computer (for server restrictions).
 	var/sync   = 1		//If sync = 0, it doesn't show up on Server Control Console
 	var/can_research = TRUE   //Is this console capable of researching
-	var/hacked = 0 // If this console has had its access requirements hacked or not.
 
 	req_access = list(access_research_equipment) //Data and setting manipulation requires scientist access.
 
@@ -249,7 +250,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		else
 			screen = SCREEN_WORKING
 			griefProtection() //Putting this here because I dont trust the sync process
-			addtimer(CALLBACK(src, .proc/sync_tech), 3 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(sync_tech)), 3 SECONDS)
 	if(href_list["togglesync"]) //Prevents the console from being synced by other consoles. Can still send data.
 		sync = !sync
 	if(href_list["select_category"]) // User is selecting a design category while in the protolathe/imprinter screen
@@ -293,7 +294,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	if(href_list["find_device"]) // Connect with the local devices
 		screen = SCREEN_WORKING
-		addtimer(CALLBACK(src, .proc/find_devices), 2 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(find_devices)), 2 SECONDS)
 	if(href_list["disconnect"]) //The R&D console disconnects with a specific device.
 		switch(href_list["disconnect"])
 			if("destroy")
@@ -313,7 +314,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			screen = SCREEN_WORKING
 			qdel(files)
 			files = new /datum/research(src)
-			addtimer(CALLBACK(src, .proc/reset_screen), 2 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(reset_screen)), 2 SECONDS)
 	if(href_list["lock"]) //Lock the console from use by anyone without tox access.
 		if(allowed(usr) || emagged)
 			screen = SCREEN_LOCKED
@@ -371,7 +372,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					can_build = min(can_build, can_build_temp)
 
 				designs_list += list(list(
-					"data" = D.ui_data(),
+					"data" = D.nano_ui_data(),
 					"id" = "\ref[D]",
 					"can_create" = can_build,
 					"missing_materials" = missing_materials,
@@ -382,10 +383,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/attack_hand(mob/user)
 	if(..())
 		return
-	ui_interact(user)
+	nano_ui_interact(user)
 
 
-/obj/machinery/computer/rdconsole/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null) // Here we go again
+/obj/machinery/computer/rdconsole/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null) // Here we go again
 	if((screen == SCREEN_PROTO && !linked_lathe) || (screen == SCREEN_IMPRINTER && !linked_imprinter))
 		screen = SCREEN_MAIN // Kick us from protolathe or imprinter screen if they were destroyed
 

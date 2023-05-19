@@ -614,7 +614,7 @@ macro "hotkeymode"
 	elem 
 		name = "D+UP"
 		command = "MoveKey 4 0"
-	elem 
+	elem
 		name = "E"
 		command = "quick-equip"
 	elem 
@@ -622,13 +622,10 @@ macro "hotkeymode"
 		command = "quick-equip"
 	elem 
 		name = "F"
-		command = "a-intent left"
+		command = "blocking"
 	elem 
 		name = "CTRL+F"
 		command = "a-intent left"
-	elem 
-		name = "G"
-		command = "a-intent right"
 	elem 
 		name = "CTRL+G"
 		command = "a-intent right"
@@ -1208,12 +1205,20 @@ window "mainwindow"
 		text = "Chat"
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
 		button-type = pushbox
+	elem "asset_cache_browser"
+		type = BROWSER
+		pos = 0,0
+		size = 200x200
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = ""
 	elem "tooltip"
 		type = BROWSER
 		pos = 0,0
 		size = 999x999
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		is-visible = false
 		saved-params = ""
 

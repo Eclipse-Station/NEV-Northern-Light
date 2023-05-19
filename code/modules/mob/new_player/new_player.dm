@@ -449,14 +449,11 @@
 	new_character.dna.flavor_text = client.prefs.flavor_text
 	new_character.dna.age = client.prefs.age
 	new_character.dna.b_type = client.prefs.b_type
+	new_character.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
 	if(client.prefs.disabilities)
-		// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
-		new_character.dna.SetSEState(GLASSESBLOCK,1,0)
-		new_character.disabilities |= NEARSIGHTED
-
-	// And uncomment this, too.
-	//new_character.dna.UpdateSE()
+		if(client.prefs.disabilities & NEARSIGHTED)
+			new_character.add_mutation(MUTATION_NEARSIGHTED)
 
 	// Do the initial caching of the player's body icons.
 	new_character.force_update_limbs()

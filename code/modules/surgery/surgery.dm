@@ -10,7 +10,7 @@
 	var/required_stat = STAT_BIO
 	var/duration = 60
 
-	// Can the step transfer germs?
+	// Can the step cause infection?
 	var/can_infect = FALSE
 	// How much blood this step can get on surgeon. 1 - hands, 2 - full body.
 	var/blood_level = 0
@@ -61,7 +61,7 @@
 	return
 
 // Stuff that happens both when the step succeeds and when it fails
-// Germ transfer and bloodying are handled here.
+// Infections and bloodying are handled here.
 /datum/surgery_step/proc/after_attempted_step(mob/living/user, obj/item/organ/organ, obj/item/tool, target)
 	if(blood_level && !BP_IS_ROBOTIC(organ) && organ.owner && ishuman(user) && prob(60))
 		var/mob/living/carbon/human/H = user
@@ -69,8 +69,9 @@
 		if (blood_level > 1)
 			H.bloody_body(organ.owner, 0)
 
-	if(can_infect)
-		organ.spread_germs_from(user)
+	if(can_infect && prob(5) && istype(organ, /obj/item/organ/internal))
+		var/obj/item/organ/internal/I = organ
+		I.add_wound(pick(subtypesof(/datum/component/internal_wound/organic/infection)))
 
 	if(inflict_agony)
 		var/strength = inflict_agony
@@ -164,30 +165,16 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/surgery
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-
 		affected = H.get_organ(zone)
-		if(affected)
-			// Self-surgery sanity check: no operating on your right arm with a tool held in your right hand
-			if(M == user)
-				var/obj/item/held_item
-				if(affected.organ_tag == BP_L_ARM)
-					held_item = H.l_hand
 
-				else if(affected.organ_tag == BP_R_ARM)
-					held_item = H.r_hand
-
-				if(held_item)
-					to_chat(user, SPAN_WARNING("You cannot operate on your [affected.name] while holding [held_item] in it!"))
-					return TRUE
-
-			if(affected.do_surgery(user, tool, surgery_status))
-				return TRUE
+		if(affected && affected.do_surgery(user, tool, surgery_status))
+			return TRUE
 
 	// Invoke legacy surgery code
 	if(!do_old_surgery(M, user, tool))
 		if(affected && affected.open && tool && tool.tool_qualities)
 			// Open or update surgery UI
-			affected.ui_interact(user)
+			affected.nano_ui_interact(user)
 
 			to_chat(user, SPAN_WARNING("You can't see any useful way to use [tool] on [M]."))
 			return 1 //Prevents attacking the patient when trying to do surgery
@@ -200,7 +187,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/surgery
 /obj/item/organ/external/do_surgery(mob/living/user, obj/item/tool, var/surgery_status = CAN_OPERATE_ALL)
 	if(!tool)
 		if(is_open())
-			ui_interact(user)
+			nano_ui_interact(user)
 			return TRUE
 		return FALSE
 	var/list/possible_steps
@@ -226,8 +213,8 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/surgery
 				return TRUE
 
 			if(QUALITY_WELDING)
-				try_surgery_step(/datum/surgery_step/robotic/fix_brute, user, tool)
-				return TRUE
+				if(try_surgery_step(/datum/surgery_step/robotic/fix_brute, user, tool))
+					return TRUE
 
 			if(ABORT_CHECK)
 				return TRUE

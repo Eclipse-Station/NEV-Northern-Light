@@ -11,6 +11,8 @@
 	projectile_type = /obj/item/projectile/beam/stun
 	wield_delay = 0.3 SECOND
 	wield_delay_factor = 0.2 // 20 vig
+	init_recoil = HANDGUN_RECOIL(1)
+	serial_type = "NT"
 
 /obj/item/gun/energy/taser/mounted
 	name = "mounted taser gun"
@@ -18,11 +20,13 @@
 	use_external_power = TRUE
 	safety = FALSE
 	restrict_safety = TRUE
-	spawn_blacklisted = TRUE
+	spawn_tags = null
+	bad_type = /obj/item/gun/energy/taser/mounted
 
 /obj/item/gun/energy/taser/mounted/cyborg
 	name = "taser gun"
 	recharge_time = 10 //Time it takes for shots to recharge (in ticks)
+	bad_type = /obj/item/gun/energy/taser/mounted/cyborg
 
 /obj/item/gun/energy/stunrevolver
 	name = "\improper NT SREV S \"Zeus\""  //Eclipse Edit - gun names standardized
@@ -39,9 +43,12 @@
 	suitable_cell = /obj/item/cell/small
 	cell_type = /obj/item/cell/small
 	projectile_type = /obj/item/projectile/energy/electrode
+	init_recoil = HANDGUN_RECOIL(1)
+	serial_type = "NT"
 
 /obj/item/gun/energy/stunrevolver/moebius
 	name = "LF SREV S \"Thor\""	//Eclipse Edit - gun names standardized, and renamed
 	desc = "Also know as stunrevolver. A Lazarus copy of the older and less precise NanoTrasen solution for non-lethal takedowns. This gun has smaller capacity in exchange for S-cells use."
 	icon = 'icons/obj/guns/energy/stunrevolver_moebius.dmi'
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_STEEL = 6, MATERIAL_SILVER = 2, MATERIAL_PLASTIC = 5)
+	serial_type = "ML"

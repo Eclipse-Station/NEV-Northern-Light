@@ -57,7 +57,7 @@
 
 /datum/craft_recipe/bone_braces
 	name = "bone braces"
-	result = /obj/item/bone_brace
+	result = /obj/item/modification/organ/internal/electromechanical/bone_braces
 	steps = list(
 		list(CRAFT_MATERIAL, 3, MATERIAL_PLASTEEL),
 		list(QUALITY_WELDING, 20, 50),
@@ -111,6 +111,15 @@
 	flags = CRAFT_ON_FLOOR|CRAFT_ONE_PER_TURF
 	steps = list(
 		list(CRAFT_MATERIAL, 10, MATERIAL_STEEL)
+	)
+	related_stats = list(STAT_MEC)
+
+/datum/craft_recipe/pulsar_fuel_tank
+	name = "pulsar fuel tank"
+	result = /obj/structure/pulsar_fuel_tank
+	flags = CRAFT_ON_FLOOR|CRAFT_ONE_PER_TURF
+	steps = list(
+		list(CRAFT_MATERIAL, 30, MATERIAL_STEEL)
 	)
 	related_stats = list(STAT_MEC)
 
@@ -182,6 +191,14 @@
 	)
 	related_stats = list(STAT_COG)
 
+/datum/craft_recipe/bucket
+	name = "Bucket"
+	result = /obj/item/reagent_containers/glass/bucket
+	steps = list(
+		list(CRAFT_MATERIAL, 2, MATERIAL_PLASTIC, "time" = 10),
+		list(QUALITY_SEALING, 10, 60),
+	)
+	related_stats = list(STAT_MEC)
 
 //You build a frame from rods, add metal shelves, plastic wheels and handles
 /datum/craft_recipe/janicart
@@ -263,6 +280,15 @@
 		list(QUALITY_CUTTING, 10, 10)
 	)
 	related_stats = list(STAT_COG)
+
+/datum/craft_recipe/rolling_pin
+	name = "Rolling pin"
+	result = /obj/item/material/kitchen/rollingpin
+	steps = list(
+		list(CRAFT_MATERIAL, 2, MATERIAL_WOOD, "time" = 0), //get a nice piece of wood
+		list(QUALITY_CUTTING, 10, 10) // and cut it into a nice shape
+	)
+
 /datum/craft_recipe/makeshift_leg
 	name = "Makeshift prosthetic left leg"
 	result = /obj/item/organ/external/robotic/makeshift/l_leg
@@ -270,9 +296,8 @@
 		list(CRAFT_MATERIAL, 5, MATERIAL_STEEL, "time" = 0),
 		list(QUALITY_CUTTING, 10, 10),
 		list(QUALITY_WELDING, 10, 10),
-		list(/obj/item/stack/cable_coil, 5, "time" = 0),
+		list(/obj/item/stack/cable_coil, 10, "time" = 0),
 		list(QUALITY_WIRE_CUTTING, 10, 10),
-		list(/obj/item/stock_parts/manipulator, 1),
 		list(QUALITY_PULSING, 10, 10),
 		list(/obj/item/reagent_containers/glass/bucket, 1)
 	)
@@ -295,14 +320,12 @@
 	name = "Makeshift prosthetic left arm"
 	result = /obj/item/organ/external/robotic/makeshift/l_arm
 	steps = list(
-		list(CRAFT_MATERIAL, 5, MATERIAL_STEEL, "time" = 0),
+		list(CRAFT_MATERIAL, 8, MATERIAL_STEEL, "time" = 0),
 		list(QUALITY_CUTTING, 10, 10),
 		list(QUALITY_WELDING, 10, 10),
-		list(/obj/item/stack/cable_coil, 5, "time" = 0),
+		list(/obj/item/stack/cable_coil, 10, "time" = 0),
 		list(QUALITY_WIRE_CUTTING, 10, 10),
-		list(/obj/item/stock_parts/manipulator, 1),
 		list(QUALITY_PULSING, 10, 10),
-		list(/obj/item/tool/knife/hook, 1)
 	)
 	related_stats = list(STAT_MEC)
 
@@ -310,6 +333,22 @@
 	name = "Makeshift prosthetic right arm"
 	result = /obj/item/organ/external/robotic/makeshift/r_arm
 
+/datum/craft_recipe/trash_bag
+	name = "trash bag"
+	result = /obj/item/storage/bag/trash
+	steps = list(
+		list(CRAFT_MATERIAL,5, MATERIAL_PLASTIC), //Thick plastic bag
+		list(/obj/item/stack/cable_coil, 1, "time" = 20) //And the draw string
+	)
+
+/datum/craft_recipe/console_screen
+	name = "console screen"
+	result = /obj/item/stock_parts/console_screen
+	steps = list(
+		list(CRAFT_MATERIAL, 3, MATERIAL_GLASS),
+		list(CRAFT_MATERIAL, 3, MATERIAL_PLASTIC)
+	)
+	related_stats = list(STAT_MEC)
 /datum/craft_recipe/makeshift_arm/hand
 	name = "Makeshift prosthetic left hand"
 	result = /obj/item/organ/external/robotic/makeshift/l_hand

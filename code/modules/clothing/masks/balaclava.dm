@@ -3,6 +3,7 @@
 /obj/item/clothing/mask/balaclava
 	name = "balaclava"
 	desc = "Designed to both hide your face and keep it comfy and warm."
+	description_info = "Protects your sanity by a bit."
 	icon_state = "balaclava"
 	item_state = "balaclava"
 	action_button_name = "Adjust Balaclava"
@@ -57,6 +58,6 @@
 
 /obj/item/clothing/mask/balaclava/tactical
 	name = "tactical balaclava"
-	desc = "Designed to both hide identities and keep your face comfy and warm."
+	desc = "Designed to both hide identities and keep your face comfy and warm. This one is in Ironhammer colors."
 	icon_state = "swatclava"
 	item_state = "swatclava"

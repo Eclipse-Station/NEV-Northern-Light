@@ -89,14 +89,15 @@
 		load_and_update_character()
 
 	var/dat = "<html><body><center>"
-
 	if(path)
+		SSjob.UpdatePlayableJobs(user.client.ckey)
 		dat += "Slot - "
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
 		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
 		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a> - "		//Eclipse edit.
 		dat += "<a href='?src=\ref[src];copy=1'>Copy slot</a> "				//Eclipse edit.
+
 
 	else
 		dat += "Please create an account to save your preferences."
@@ -202,7 +203,7 @@
 	character.gender = gender
 	character.age = age
 	character.b_type = b_type
-
+	character.tts_seed = tts_seed
 	character.h_style = h_style
 	character.f_style = f_style
 

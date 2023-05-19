@@ -56,16 +56,44 @@
 
 
 /datum/core_module/cruciform/cloning
-	var/datum/dna/dna = null
 	var/age = 30
 	var/ckey = ""
-	var/datum/mind/mind = null
-	var/languages = list()
 	var/flavor = ""
+	var/datum/mind/mind = null
 	var/datum/stat_holder/stats
+	var/list/dormant_mutations
+	var/list/active_mutations
+	var/b_type
+	var/h_style
+	var/hair_color
+	var/f_style
+	var/facial_color
+	var/eyes_color
+	var/skin_color
+	var/s_tone
+	var/gender
+	var/tts_seed
+	var/real_name
+	var/dna_trace = null
+	var/fingers_trace = null
+	var/languages = list()
 
 /datum/core_module/cruciform/cloning/proc/write_wearer(var/mob/living/carbon/human/H)
-	dna = H.dna
+	fingers_trace = H.fingers_trace
+	dna_trace = H.dna_trace
+	real_name = H.real_name
+	b_type = H.b_type
+	h_style = H.h_style
+	hair_color = H.hair_color
+	f_style = H.f_style
+	facial_color = H.facial_color
+	eyes_color = H.eyes_color
+	skin_color = H.skin_color
+	s_tone = H.s_tone
+	gender = H.gender
+	tts_seed = H.tts_seed
+	dormant_mutations = H.dormant_mutations
+	active_mutations = H.active_mutations
 	if(H.ckey)
 		ckey = H.ckey
 	if(H.mind)

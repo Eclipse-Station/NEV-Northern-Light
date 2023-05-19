@@ -13,6 +13,7 @@
 	name = "disposal unit"
 	desc = "A pneumatic waste disposal unit."
 	icon = 'icons/obj/pipes/disposal.dmi'
+	description_antag = "Can be used to escape if bolted in a room, or to get rid of evidence"
 	icon_state = "disposal"
 	anchored = TRUE
 	density = TRUE
@@ -132,12 +133,9 @@
 		return
 
 	if(user.unEquip(I, src))
-		to_chat(user, "You place \the [I] into the [src].")
-		for(var/mob/M in viewers(src))
-			if(M == user)
-				continue
-			M.show_message("[user.name] places \the [I] into the [src].", 3)
-			playsound(src.loc, 'sound/machines/vending_drop.ogg', 100, 1)
+		user.visible_message("[user.name] places \the [I] into \the [src].", \
+			"You place \the [I] into the [src].")
+		playsound(loc, 'sound/machines/vending_drop.ogg', 100, 1)
 
 		update()
 
@@ -225,13 +223,9 @@
 
 		I.add_fingerprint(user)
 		I.forceMove(src)
-		to_chat(user, "You place \the [I] into the [src].")
-		for(var/mob/M in viewers(src))
-			if(M == user)
-				continue
-			M.show_message("[user.name] places \the [I] into the [src].", 3)
-			playsound(src.loc, 'sound/machines/vending_drop.ogg', 100, 1)
-
+		user.visible_message("[user.name] places \the [I] into \the [src].", \
+			"You place \the [I] into the [src].")
+		playsound(loc, 'sound/machines/vending_drop.ogg', 100, 1)
 		update()
 		return
 	. = ..()
@@ -509,8 +503,7 @@
 		var/mob/living/carbon/human/H = mover
 		if(H.stats.getPerk(PERK_SPACE_ASSHOLE))
 			H.forceMove(src)
-			for(var/mob/M in viewers(src))
-				M.show_message("[H] dives into \the [src]!", 3)
+			visible_message("[H] dives into \the [src]!")
 			flush = TRUE
 		return
 	else if (istype(mover,/obj/item) && mover.throwing)
@@ -520,11 +513,9 @@
 		else
 			if(prob(75))
 				I.forceMove(src)
-				for(var/mob/M in viewers(src))
-					M.visible_message("\The [I] lands in \the [src].", 3)
+				visible_message("\The [I] lands in \the [src].")
 			else
-				for(var/mob/M in viewers(src))
-					M.visible_message("\The [I] bounces off of \the [src]\'s rim!", 3)
+				visible_message("\The [I] bounces off of \the [src]\'s rim!")
 	else
 		return ..(mover, target, height, air_group)
 
@@ -1360,19 +1351,18 @@
 	icon_state = "pipe-t"
 	var/obj/linked 	// the linked obj/machinery/disposal or obj/disposaloutlet
 
-/obj/structure/disposalpipe/trunk/New()
-	..()
+/obj/structure/disposalpipe/trunk/Initialize()
+	. = ..()
 	pipe_dir = dir
-	spawn(1)
-		getlinked()
-
+	
+	INVOKE_ASYNC(src, PROC_REF(getlinked))
 	update()
-	return
 
 /obj/structure/disposalpipe/trunk/Destroy()
 	// Unlink trunk and disposal so that objets are not sent to nullspace
 	var/obj/machinery/disposal/D = linked
-	D.trunk = null
+	if (istype(D))
+		D.trunk = null
 	linked = null
 	return ..()
 

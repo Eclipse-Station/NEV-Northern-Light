@@ -5,74 +5,50 @@
 	organ_efficiency = list(OP_BONE = 100)
 	price_tag = 100
 	force = WEAPON_FORCE_NORMAL
-	max_damage = 100
-	var/broken_description = ""
-	var/reinforced = FALSE
+	max_damage = IORGAN_SKELETAL_HEALTH
+	min_bruised_damage = 4
+	min_broken_damage = 6
 
 /obj/item/organ/internal/bone/Initialize()
     . = ..()
     src.transform *= 0.5 // this little trick makes bone size small while keeping detail level of 32x32 bones.
 
-/obj/item/organ/internal/bone/proc/fracture()
-	if(owner)
-		owner.visible_message(
-			SPAN_DANGER("You hear a loud cracking sound coming from \the [owner]."),
-			SPAN_DANGER("Something feels like it shattered in your [name]"),
-			SPAN_DANGER("You hear a sickening crack.")
-		)
-		if(owner.species && !(owner.species.flags & NO_PAIN))
-			owner.emote("scream")
+/// Bones can be repaired after being destroyed. It's not ideal to have this here instead of in the parent (checking for bone efficiencies), but there are fewer corner cases this way.
+/obj/item/organ/internal/bone/die()
+	return
 
-	parent.status |= ORGAN_BROKEN	//Holding the status on the parent organ to make transition to erismed organ processes easier.
-	broken_description = pick("broken","fracture","hairline fracture")
-	parent.perma_injury = parent.brute_dam
-	take_damage(10, 0)
+/obj/item/organ/internal/bone/get_possible_wounds(damage_type, sharp, edge)
+	var/list/possible_wounds = list()
 
-	// Fractures have a chance of getting you out of restraints
-	if(prob(25))
-		parent.release_restraints()
+	// Determine possible wounds based on nature and damage type
+	var/is_robotic = BP_IS_ROBOTIC(src)
+	var/is_organic = BP_IS_ORGANIC(src) || BP_IS_ASSISTED(src)
 
-/obj/item/organ/internal/bone/get_actions()
-	var/list/actions_list = list()
-	if(BP_IS_ROBOTIC(src))
-		if(parent.status & ORGAN_BROKEN)
-			actions_list.Add(list(list(
-				"name" = "Mend break",
-				"organ" = "\ref[src]",
-				"step" = /datum/surgery_step/robotic/fix_bone
-			)))
+	switch(damage_type)
+		if(BRUTE)
+			if(!edge)
+				if(sharp)
+					if(is_organic)
+						LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/organic/bone_sharp))
+					if(is_robotic)
+						LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/robotic/sharp))
 	else
-		actions_list.Add(list(list(
-			"name" = (parent.status & ORGAN_BROKEN) ? "Mend" : "Break",
-			"organ" = "\ref[src]",
-			"step" = (parent.status & ORGAN_BROKEN) ? /datum/surgery_step/mend_bone : /datum/surgery_step/break_bone
-		)))
-		if(parent.status & ORGAN_BROKEN)
-			actions_list.Add(list(list(
-					"name" = "Reinforce",
-					"organ" = "\ref[src]",
-					"step" = /datum/surgery_step/reinforce_bone
-				)))
-		actions_list.Add(list(list(
-				"name" = "Replace",
-				"organ" = "\ref[src]",
-				"step" = /datum/surgery_step/replace_bone
-			)))
+					if(is_organic)
+						LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/organic/bone_blunt))
+					if(is_robotic)
+						LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/robotic/blunt))
+			else
+				if(is_organic)
+					LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/organic/bone_edge))
+				if(is_robotic)
+					LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/robotic/edge))
+		if(BURN)
+			if(is_organic)
+				LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/organic/burn))
+			if(is_robotic)
+				LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/robotic/emp_burn))
 
-	return actions_list
-
-/obj/item/organ/internal/bone/proc/mend()
-	parent.status &= ~ORGAN_BROKEN
-	parent.status &= ~ORGAN_SPLINTED
-	parent.perma_injury = 0
-
-
-/obj/item/organ/internal/bone/proc/reinforce()
-	if(!reinforced) //Just in case
-		organ_efficiency[OP_BONE] += 33
-		reinforced = TRUE
-		name = "reinforced [name]"
-		icon_state = "reinforced_[icon_state]"
+	return possible_wounds
 
 /obj/item/organ/internal/bone/chest
 	name = "ribcage"

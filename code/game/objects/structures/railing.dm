@@ -1,6 +1,8 @@
 /obj/structure/railing
 	name = "orange railing"
 	desc = "A standard steel railing painted in copper color. Prevents stupid people from falling to their doom."
+	description_info = "Can be deconstructed by screwing and wrenching."
+	description_antag = "Hopping above these leaves fingerprints. You can also grab a person and throw them over the ledge instantly."
 	icon = 'icons/obj/railing.dmi'
 	density = TRUE
 	throwpass = TRUE
@@ -9,7 +11,7 @@
 	anchored = TRUE
 	flags = ON_BORDER
 	icon_state = "railing0"
-	matter = list(MATERIAL_STEEL = 4)
+	matter = list(MATERIAL_STEEL = 2)
 	var/broken = 0
 	var/health=70
 	var/maxhealth=70
@@ -341,6 +343,16 @@
 			return
 		else
 	return
+
+/obj/structure/railing/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		playsound(loc, 'sound/effects/metalhit2.ogg', 50, 1)
+		take_damage(damage)
+	else
+		attack_hand(M)
 
 /obj/structure/railing/do_climb(var/mob/living/user)
 	if(!can_climb(user))

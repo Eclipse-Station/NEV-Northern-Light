@@ -56,7 +56,7 @@ var/global/list/limb_icon_cache = list()
 	if(!appearance_test.colorize_organ)
 		part_key += "no_color"
 
-	part_key += "[dna.GetUIState(DNA_UI_GENDER)]"
+	part_key += "[owner && owner.gender == FEMALE]"
 	part_key += "[skin_tone]"
 	part_key += rgb(s_col[1], s_col[2], s_col[3])
 	part_key += model
@@ -85,7 +85,10 @@ var/global/list/limb_icon_cache = list()
 	if(!owner || !owner.species)
 		return
 
-	if(owner.species.has_process[OP_EYES])
+	if(!species)
+		species = owner.species
+
+	if(owner.species.has_process[OP_EYES] && species.appearance_flags & HAS_EYE_COLOR)
 		for(var/obj/item/organ/internal/eyes/eyes in owner.organ_list_by_process(OP_EYES))
 			mob_icon.Blend(eyes.get_icon(), ICON_OVERLAY)
 
@@ -114,9 +117,9 @@ var/global/list/limb_icon_cache = list()
 
 /obj/item/organ/external/update_icon(regenerate = 0)
 	var/gender = "_m"
+	gender = owner.gender == FEMALE ? "_f" : "_m"
 
 	if(appearance_test.simple_setup)
-		gender = owner.gender == FEMALE ? "_f" : "_m"
 		if(gendered)
 			icon_state = "[organ_tag][gender]"
 		else
@@ -132,12 +135,15 @@ var/global/list/limb_icon_cache = list()
 		else
 			icon_state = "[organ_tag][is_stump()?"_s":""]"
 
+	if(!species && iscarbon(owner))
+		species = owner.species
+
 	if(!appearance_test.get_species_sprite)
 		icon = 'icons/mob/human_races/r_human.dmi'
 	else
 		if(src.force_icon)
 			icon = src.force_icon
-		else if(!dna)
+		else if(!species)
 			icon = 'icons/mob/human_races/r_human.dmi'
 		else if(BP_IS_ROBOTIC(src))
 			icon = 'icons/mob/human_races/cyberlimbs/generic.dmi'

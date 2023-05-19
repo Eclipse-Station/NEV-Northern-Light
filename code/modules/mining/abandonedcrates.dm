@@ -94,7 +94,7 @@
 		if(91)
 			new/obj/item/tool/sword/katana(src)
 		if(92)
-			new/obj/item/dnainjector/xraymut(src) // Probably the least OP
+			new/obj/item/tool/sword/katana(src)
 		if(93) // Why the hell not
 			new/obj/item/storage/backpack/clown(src)
 			new/obj/item/clothing/under/rank/clown(src)
@@ -112,11 +112,7 @@
 			new/obj/item/clothing/head/beret(src)
 			new/obj/item/pen/crayon/mime(src)
 			new/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing(src)
-		if(95)
-			new/obj/item/vampiric(src)
-		if(96)
-			new/obj/item/archaeological_find(src)
-		if(97)
+		if(95 to 97)
 			new/obj/item/melee/energy/sword(src)
 		if(98)
 			new/obj/item/storage/belt/champion(src)

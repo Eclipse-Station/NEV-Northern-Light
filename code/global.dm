@@ -28,9 +28,9 @@ var/world_qdel_log
 var/href_logfile
 var/station_name        = "NEV Northern Light"
 var/station_short       = "Northern Light"
-var/const/dock_name     = "N.A.S. Crescent"
-var/const/boss_name     = "Central Command"
-var/const/boss_short    = "Centcom"
+var/const/dock_name     = "NTV Faith"
+var/const/boss_name     = "Hansa Trade Union"
+var/const/boss_short    = "Hansa"
 var/const/company_name  = "NanoTrasen"
 var/const/company_short = "NanoTrasen"
 var/game_version        = "Discordia"
@@ -46,7 +46,6 @@ var/list/bombers       = list()
 var/list/admin_log     = list()
 var/list/lastsignalers = list() // Keeps last 100 signals here in format: "[src] used \ref[src] @ location [src.loc]: [freq]/[code]"
 var/list/lawchanges    = list() // Stores who uploaded laws to which silicon-based lifeform, and what the law was.
-var/list/reg_dna       = list()
 
 var/list/cardinal    = list(NORTH, SOUTH, EAST, WEST)
 var/list/cornerdirs  = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
@@ -118,5 +117,7 @@ var/max_explosion_range = 14
 
 // Announcer intercom, because too much stuff creates an intercom for one message then hard del()s it.
 var/global/obj/item/device/radio/intercom/global_announcer = new(null)
+
+var/global/list/mob/living/carbon/human/krabin_linked = list()
 
 

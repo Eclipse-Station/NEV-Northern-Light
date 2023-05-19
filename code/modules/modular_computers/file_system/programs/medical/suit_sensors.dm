@@ -49,7 +49,7 @@
 	if(href_list["track"])
 		if(isAI(usr))
 			var/mob/living/silicon/ai/AI = usr
-			var/mob/living/carbon/human/H = locate(href_list["track"]) in SSmobs.mob_list
+			var/mob/living/carbon/human/H = locate(href_list["track"]) in SShumans.mob_list
 			if(hassensorlevel(H, SUIT_SENSOR_TRACKING))
 				AI.ai_actual_track(H)
 		else
@@ -57,7 +57,7 @@
 			if(istype(host_program))
 				var/obj/item/modular_computer/tablet/moebius/T = host_program.computer
 				if(istype(T))
-					var/mob/living/carbon/human/H = locate(href_list["track"]) in SSmobs.mob_list
+					var/mob/living/carbon/human/H = locate(href_list["track"]) in SShumans.mob_list
 					T.target_mob = H
 					if(!T.is_tracking)
 						T.pinpoint()
@@ -72,7 +72,7 @@
 		return TOPIC_HANDLED
 
 	if(href_list["mute"])
-		var/mob/living/carbon/human/H = locate(href_list["mute"]) in SSmobs.mob_list
+		var/mob/living/carbon/human/H = locate(href_list["mute"]) in SShumans.mob_list
 		if(H)
 			GLOB.ignore_health_alerts_from.Add(H.name)
 			// Run that so UI updates right after button is pressed, without 5 second delay
@@ -82,14 +82,14 @@
 		return TOPIC_HANDLED
 
 	if(href_list["unmute"])
-		var/mob/living/carbon/human/H = locate(href_list["unmute"]) in SSmobs.mob_list
+		var/mob/living/carbon/human/H = locate(href_list["unmute"]) in SShumans.mob_list
 		if(H)
 			GLOB.ignore_health_alerts_from.Remove(H.name)
 			for(var/z_level in GLOB.maps_data.station_levels)
 				crew_repository.health_data(z_level, TRUE)
 		return TOPIC_HANDLED
 
-/datum/nano_module/crew_monitor/ui_data(mob/user)
+/datum/nano_module/crew_monitor/nano_ui_data(mob/user)
 	var/list/data = host.initial_data()
 	var/datum/computer_file/program/host_program = host
 	var/tracking_tablet_used = (istype(host_program) && istype(host_program.computer, /obj/item/modular_computer/tablet/moebius))
@@ -120,8 +120,8 @@
 	data["search"] = search ? search : "Search"
 	return data
 
-/datum/nano_module/crew_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/topic_state/state = GLOB.default_state)
-	var/list/data = ui_data(user)
+/datum/nano_module/crew_monitor/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/nano_topic_state/state = GLOB.default_state)
+	var/list/data = nano_ui_data(user)
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
