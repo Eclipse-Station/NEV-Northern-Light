@@ -70,8 +70,30 @@
 #define BP_B_HEAD   "skull"
 #define BP_B_L_ARM  "left humerus"
 #define BP_B_R_ARM  "right humerus"
+#define BP_B_R_HAND "right carpals"
+#define BP_B_L_HAND "left carpals"
 #define BP_B_L_LEG  "left femur"
 #define BP_B_R_LEG  "right femur"
+#define BP_B_L_FOOT "left tibia"
+#define BP_B_R_FOOT "right tibia"
+#define BP_LIVER    "liver"
+#define BP_KIDNEYS  "kidneys"
+#define BP_STOMACH  "stomach"
+#define BP_PHORON   "phoron vessel"
+#define BP_APPENDIX "appendix"
+#define BP_CELL     "cell"
+#define BP_HIVE     "hive node"
+#define BP_NUTRIENT "nutrient vessel"
+#define BP_ACID     "acid gland"
+#define BP_EGG      "egg sac"
+#define BP_RESIN    "resin spinner"
+#define BP_STRATA   "neural strata"
+#define BP_RESPONSE "response node"
+#define BP_GBLADDER "gas bladder"
+#define BP_POLYP    "polyp segment"
+#define BP_ANCHOR   "anchoring ligament"
+#define BP_PHORONF   "phoron filter"
+#define BP_ACETONE  "acetone reactor"
 
 // Unique carrion Organs.
 #define BP_SPCORE   "spider core"
@@ -93,15 +115,20 @@
 // Limbs.
 #define BP_L_LEG  "l_leg"
 #define BP_R_LEG  "r_leg"
+#define BP_L_FOOT "l_foot"
+#define BP_R_FOOT "r_foot"
 #define BP_L_ARM  "l_arm"
 #define BP_R_ARM  "r_arm"
+#define BP_L_HAND "l_hand"
+#define BP_R_HAND "r_hand"
 #define BP_HEAD   "head"
 #define BP_CHEST  "chest"
 #define BP_GROIN  "groin"
 #define BP_LEGS list(BP_R_LEG, BP_L_LEG)
 #define BP_ARMS list(BP_R_ARM, BP_L_ARM)
-#define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
+#define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_R_HAND, BP_L_HAND)
 #define BP_BY_DEPTH list(BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_GROIN, BP_CHEST)
+#define BP_BASE_PARTS list(BP_CHEST, BP_GROIN)
 
 // Organs helpers.
 #define BP_IS_ORGANIC(org)  (org.nature == MODIFICATION_ORGANIC)
@@ -144,6 +171,10 @@
 #define ROBOLIMB_SELF_REPAIR_CAP 30
 
 #define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
+
+//Germs and infections.
+#define GERM_LEVEL_AMBIENT  110 // Maximum germ level you can reach by standing still.
+#define GERM_LEVEL_MOVE_CAP 200 // Maximum germ level you can reach by running around.
 
 // INTERNAL ORGANS
 #define IORGAN_STANDARD_HEALTH 12

@@ -60,7 +60,7 @@
 #define WAIT_FINISH  4
 
 // Setting this much higher than 1024 could allow spammers to DOS the server easily.
-#define MAX_MESSAGE_LEN       1024
+#define MAX_MESSAGE_LEN       2048 //Eclipse Edit
 #define MAX_PAPER_MESSAGE_LEN 3072
 #define MAX_BOOK_MESSAGE_LEN  9216
 #define MAX_LNAME_LEN         64
@@ -107,7 +107,7 @@
 #define COIN_SILVER "Silver coin"
 #define COIN_DIAMOND "Diamond coin"
 #define COIN_IRON "Iron coin"
-#define COIN_PLASMA "Solid plasma coin"
+#define COIN_PHORON "Solid phoron coin"
 #define COIN_URANIUM "Uranium coin"
 #define COIN_PLATINUM "Platunum coin"
 
@@ -174,7 +174,7 @@
 #define TOGGLE_BOTTOM_FLAG 4 //0100
 
 // Default name for announcement system
-#define ANNOUNCER_NAME "CEV Eris System Announcer"
+#define ANNOUNCER_NAME "NEV Northern Light System Announcer"
 
 
 #define LIST_OF_CONSONANT list("b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "á", "â", "ã", "ä", "æ", "ç", "é", "ê", "ë", "ì", "í", "ï", "ð", "ñ", "ò", "ô", "õ", "ö", "÷", "ø", "ù")
@@ -242,6 +242,8 @@
 #define SPAN_WARNING(text) "<span class='warning'>[text]</span>"
 #define SPAN_DANGER(text)  "<span class='danger'>[text]</span>"
 #define span(class, text) ("<span class='[class]'>[text]</span>")
+// the thing below allow using SPANning in datum definition, the above can't.
+#define SPAN(class, X) "<span class='" + ##class + "'>" + ##X + "</span>"
 
 #define FONT_COLORED(color, text) "<font color='[color]'>[text]</font>"
 

@@ -30,16 +30,16 @@
 #define LOOT_LEVEL_VERY_HIG 20000
 
 // FACTION KEYWORDS
-#define SPAWN_ASTERS "asters"
+#define SPAWN_ASTERS "free trade union"
 #define SPAWN_EXCELSIOR "excelsior"
 #define SPAWN_FROZEN_STAR "frozen_star"
-#define SPAWN_IRONHAMMER "ironhammer"
+#define SPAWN_IRONHAMMER "aegis"
 #define SPAWN_NANOTRASEN "nanotrasen"
-#define SPAWN_NEOTHEOLOGY "neotheology"
-#define SPAWN_MOEBIUS "moebius"
+#define SPAWN_NEOTHEOLOGY "mekhane"
+#define SPAWN_MOEBIUS "lazarus"
 #define SPAWN_SERBIAN "serbian"
 #define SPAWN_ONESTAR "onestar"
-#define SPAWN_TECHNOMANCER "technomancer"
+#define SPAWN_TECHNOMANCER "engineering"
 
 #define SPAWN_CLOWN "clown"
 

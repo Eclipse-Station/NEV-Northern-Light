@@ -7,7 +7,7 @@
 #define MATERIAL_RPLASMAGLASS "reinforced borosilicate glass"
 #define MATERIAL_SILVER "silver"
 #define MATERIAL_GOLD "gold"
-#define MATERIAL_PLASMA "plasma"
+#define MATERIAL_PLASMA "phoron"
 #define MATERIAL_URANIUM "uranium"
 #define MATERIAL_DIAMOND "diamond"
 #define MATERIAL_PLASTIC "plastic"
@@ -68,7 +68,7 @@
 
 #define ORE_CARBON "o_carbon"
 #define ORE_IRON "o_hematite"
-#define ORE_PLASMA "o_plasma"
+#define ORE_PHORON "o_phoron"
 #define ORE_SAND "o_sand"
 #define ORE_URANIUM "o_pitchblende"
 #define ORE_DIAMOND "o_diamond"
@@ -80,7 +80,7 @@
 #define ORE_LIST list(\
 	ORE_CARBON,\
 	ORE_IRON,\
-	ORE_PLASMA,\
+	ORE_PHORON,\
 	ORE_SAND,\
 	ORE_URANIUM,\
 	ORE_DIAMOND,\

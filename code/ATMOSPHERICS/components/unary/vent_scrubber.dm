@@ -26,7 +26,7 @@
 	var/last_zas_update = null
 
 	var/scrubbing = SCRUBBING
-	var/list/scrubbing_gas = list("carbon_dioxide","sleeping_agent","plasma")
+	var/list/scrubbing_gas = list("carbon_dioxide","sleeping_agent","phoron")
 	var/expanded_range = FALSE
 
 	var/panic = FALSE //is this scrubber panicked?
@@ -107,10 +107,12 @@
 		"filter_o2" = ("oxygen" in scrubbing_gas),
 		"filter_n2" = ("nitrogen" in scrubbing_gas),
 		"filter_co2" = ("carbon_dioxide" in scrubbing_gas),
-		"filter_plasma" = ("plasma" in scrubbing_gas),
+		"filter_phoron" = ("phoron" in scrubbing_gas),
 		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
+		"filter_ncl3" = ("trichloramine" in scrubbing_gas),
+		"filter_nh2cl" = ("monochloramine" in scrubbing_gas),
 		"sigtype" = "status"
-	)
+	)		//Eclipse edit: add chloramines
 	if(!initial_loc.air_scrub_names[id_tag])
 		var/new_name = "[initial_loc.name] Air Scrubber #[initial_loc.air_scrub_names.len+1]"
 		initial_loc.air_scrub_names[id_tag] = new_name
@@ -234,15 +236,30 @@
 	else if(signal.data["toggle_co2_scrub"])
 		toggle += "carbon_dioxide"
 
-	if(!isnull(signal.data["tox_scrub"]) && text2num(signal.data["tox_scrub"]) != ("plasma" in scrubbing_gas))
-		toggle += "plasma"
+	if(!isnull(signal.data["tox_scrub"]) && text2num(signal.data["tox_scrub"]) != ("phoron" in scrubbing_gas))
+		toggle += "phoron"
 	else if(signal.data["toggle_tox_scrub"])
-		toggle += "plasma"
+		toggle += "phoron"
 
 	if(!isnull(signal.data["n2o_scrub"]) && text2num(signal.data["n2o_scrub"]) != ("sleeping_agent" in scrubbing_gas))
 		toggle += "sleeping_agent"
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += "sleeping_agent"
+
+	// // // BEGIN ECLIPSE EDITS // // //
+	// Adds chloramines
+
+	if(!isnull(signal.data["ncl3_scrub"]) && text2num(signal.data["ncl3_scrub"]) != ("trichloramine" in scrubbing_gas))
+		toggle += "trichloramine"
+	else if(signal.data["toggle_ncl3_scrub"])
+		toggle += "trichloramine"
+
+	if(!isnull(signal.data["nh2cl_scrub"]) && text2num(signal.data["nh2cl1_scrub"]) != ("monochloramine" in scrubbing_gas))
+		toggle += "monochloramine"
+	else if(signal.data["toggle_nh2cl_scrub"])
+		toggle += "monochloramine"
+
+	// // // END ECLIPSE EDITS // // //
 
 	scrubbing_gas ^= toggle
 

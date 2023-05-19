@@ -47,8 +47,6 @@ atom/proc/c_airblock(turf/other)
 	return (AIR_BLOCKED*!CanPass(null, other, 0, 0))|(ZONE_BLOCKED*!CanPass(null, other, 1.5, 1))
 
 
-
-
 turf/c_airblock(turf/other)
 	#ifdef ZASDBG
 	ASSERT(isturf(other))

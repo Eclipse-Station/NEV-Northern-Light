@@ -224,6 +224,9 @@ proc/n_ceil(var/num)
 	if(isnum(num))
 		return round(num)+1
 
+/proc/IsInRange(val, min, max)
+	return (val >= min) && (val <= max)
+
 // Find leftmost bit using bitshifting
 proc/leftmost_bit(num)
 	var/pos = 0

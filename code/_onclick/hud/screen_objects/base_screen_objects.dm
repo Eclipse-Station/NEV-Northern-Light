@@ -194,7 +194,15 @@
 	var/selecting
 
 	switch(icon_y)
-		if(1 to 9) //Legs
+		if(1 to 3) //Feet
+			switch(icon_x)
+				if(10 to 15)
+					selecting = BP_R_FOOT
+				if(17 to 22)
+					selecting = BP_L_FOOT
+				else
+					return TRUE
+		if(4 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
 					selecting = BP_R_LEG
@@ -202,14 +210,14 @@
 					selecting = BP_L_LEG
 				else
 					return TRUE
-		if(10 to 13) //Arms and groin
+		if(10 to 13) //Hands and groin
 			switch(icon_x)
 				if(8 to 11)
-					selecting = BP_R_ARM
+					selecting = BP_R_HAND
 				if(12 to 20)
 					selecting = BP_GROIN
 				if(21 to 24)
-					selecting = BP_L_ARM
+					selecting = BP_L_HAND
 				else
 					return TRUE
 		if(14 to 22) //Chest and arms to shoulders
@@ -229,8 +237,11 @@
 					if(23 to 24)
 						if(icon_x in 15 to 17)
 							selecting = BP_MOUTH
-					if(25 to 27)
+					if(26) //Eyeline, eyes are on 15 and 17
 						if(icon_x in 14 to 18)
+							selecting = BP_EYES
+					if(25 to 27)
+						if(icon_x in 15 to 17)
 							selecting = BP_EYES
 
 	set_selected_zone(selecting)
@@ -676,7 +687,7 @@
 /obj/screen/toxin/update_icon()
 	var/mob/living/carbon/human/H = parentmob
 	cut_overlays()
-	if(H.plasma_alert)
+	if(H.phoron_alert)
 		overlays += ovrls["tox1"]
 //		icon_state = "tox1"
 //	else
@@ -825,7 +836,7 @@ obj/screen/fire/DEADelize()
 										contents.Add(0)
 
 								if ("oxygen")
-									if(t.air_contents.gas["oxygen"] && !t.air_contents.gas["plasma"])
+									if(t.air_contents.gas["oxygen"] && !t.air_contents.gas["phoron"])
 										contents.Add(t.air_contents.gas["oxygen"])
 									else if(istype(t, /obj/item/tank/onestar_regenerator))
 										contents.Add(BREATH_MOLES*2)
@@ -834,7 +845,7 @@ obj/screen/fire/DEADelize()
 
 								// No races breath this, but never know about downstream servers.
 								if ("carbon dioxide")
-									if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["plasma"])
+									if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["phoron"])
 										contents.Add(t.air_contents.gas["carbon_dioxide"])
 									else
 										contents.Add(0)
@@ -1359,12 +1370,12 @@ obj/screen/fire/DEADelize()
 	var/mob/living/carbon/human/H = parentmob
 	if(istype(H.glasses, /obj/item/clothing/glasses))
 		var/obj/item/clothing/glasses/G = H.glasses
-		if(G.active && G.overlay)//check here need if someone want call this func directly
+		if (G.active && G.overlay)//check here need if someone want call this func directly
 			overlays |= G.overlay
 
 	if(istype(H.wearing_rig,/obj/item/rig))
 		var/obj/item/clothing/glasses/G = H.wearing_rig.getCurrentGlasses()
-		if(G && H.wearing_rig.visor.active)
+		if (G && H.wearing_rig.visor.active)
 			overlays |= G.overlay
 
 	if(get_active_mutation(H, MUTATION_NIGHT_VISION))

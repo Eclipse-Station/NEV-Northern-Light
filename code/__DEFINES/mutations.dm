@@ -28,7 +28,7 @@
 #define MUTATION_MORPH				/datum/mutation/t4/morph
 #define MUTATION_REMOTESEE			/datum/mutation/t4/remoteobserve
 
-// Sdisabilities. // TODO: To be replaced with status effects -- KIROV
+// Disabilities. // TODO: To be replaced with status effects -- KIROV
 #define BLIND 0x1
 #define MUTE  0x2
 #define DEAF  0x4

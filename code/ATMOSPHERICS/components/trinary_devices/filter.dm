@@ -17,11 +17,13 @@
 	/*
 	Filter types:
 	-1: Nothing
-	 0: Plasma: Plasma, Oxygen Agent B
+	 0: Phoron: Phoron, Oxygen Agent B
 	 1: Oxygen: Oxygen ONLY
 	 2: Nitrogen: Nitrogen ONLY
 	 3: Carbon Dioxide: Carbon Dioxide ONLY
 	 4: Sleeping Agent (N2O)
+	 5: Trichloramine			//Eclipse addition
+	 6: Monochloramine			//Eclipse addition
 	*/
 	var/filter_type = -1
 	var/list/filtered_out = list()
@@ -40,7 +42,7 @@
 	..()
 	switch(filter_type)
 		if(0) //removing hydrocarbons
-			filtered_out = list("plasma")
+			filtered_out = list("phoron")
 		if(1) //removing O2
 			filtered_out = list("oxygen")
 		if(2) //removing N2
@@ -49,6 +51,10 @@
 			filtered_out = list("carbon_dioxide")
 		if(4)//removing N2O
 			filtered_out = list("sleeping_agent")
+		if(5)	//Eclipse edit: Removing trichloramine
+			filtered_out = list("trichloramine")
+		if(6)	//Eclipse edit: Removing monochloramine
+			filtered_out = list("monochloramine")
 
 	air1.volume = ATMOS_DEFAULT_VOLUME_FILTER
 	air2.volume = ATMOS_DEFAULT_VOLUME_FILTER
@@ -159,7 +165,7 @@
 	var/current_filter_type
 	switch(filter_type)
 		if(0)
-			current_filter_type = "Plasma"
+			current_filter_type = "Phoron"
 		if(1)
 			current_filter_type = "Oxygen"
 		if(2)
@@ -168,6 +174,10 @@
 			current_filter_type = "Carbon Dioxide"
 		if(4)
 			current_filter_type = "Nitrous Oxide"
+		if(5)		//Eclipse add
+			current_filter_type = "Trichloramine"
+		if(6)		//Eclipse add
+			current_filter_type = "Monochloramine"
 		if(-1)
 			current_filter_type = "Nothing"
 		else
@@ -177,17 +187,20 @@
 			<b>Power: </b><a href='?src=\ref[src];power=1'>[use_power?"On":"Off"]</a><br>
 			<b>Filtering: </b>[current_filter_type]<br><HR>
 			<h4>Set Filter Type:</h4>
-			<A href='?src=\ref[src];filterset=0'>Plasma</A><BR>
+			<A href='?src=\ref[src];filterset=0'>Phoron</A><BR>
 			<A href='?src=\ref[src];filterset=1'>Oxygen</A><BR>
 			<A href='?src=\ref[src];filterset=2'>Nitrogen</A><BR>
 			<A href='?src=\ref[src];filterset=3'>Carbon Dioxide</A><BR>
 			<A href='?src=\ref[src];filterset=4'>Nitrous Oxide</A><BR>
+			<A href='?src=\ref[src];filterset=5'>Trichloramine</A><BR>
+			<A href='?src=\ref[src];filterset=6'>Monochloramine</A><BR>
 			<A href='?src=\ref[src];filterset=-1'>Nothing</A><BR>
 			<HR>
 			<B>Set Flow Rate Limit:</B>
 			[src.set_flow_rate]L/s | <a href='?src=\ref[src];set_flow_rate=1'>Change</a><BR>
 			<B>Flow rate: </B>[round(last_flow_rate, 0.1)]L/s
-			"}
+			"}		
+		//Eclipse edit: Add chloramines
 
 	user << browse("<HEAD><TITLE>[src.name] control</TITLE></HEAD><TT>[dat]</TT>", "window=atmo_filter")
 	onclose(user, "atmo_filter")
@@ -204,7 +217,7 @@
 		filtered_out.Cut()	//no need to create new lists unnecessarily
 		switch(filter_type)
 			if(0) //removing hydrocarbons
-				filtered_out += "plasma"
+				filtered_out += "phoron"
 			if(1) //removing O2
 				filtered_out += "oxygen"
 			if(2) //removing N2
@@ -213,6 +226,10 @@
 				filtered_out += "carbon_dioxide"
 			if(4)//removing N2O
 				filtered_out += "sleeping_agent"
+			if(5)		//Eclipse edit: Removing trichloramine
+				filtered_out += "trichloramine"
+			if(6)		//Eclipse edit: Removing monochloramine.
+				filtered_out += "monochloramine"
 
 	if (href_list["temp"])
 		src.temp = null
