@@ -894,21 +894,6 @@
 
 	usr.client.cmd_admin_robotize(H)
 
-
-/datum/admin_topic/togmutate
-	keyword = "togmutate"
-	require_perms = list(R_FUN)
-
-/datum/admin_topic/togmutate/Run(list/input)
-	var/mob/living/carbon/human/H = locate(input["togmutate"])
-	if(!istype(H))
-		to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
-		return
-	var/block=text2num(input["block"])
-	usr.client.cmd_admin_toggle_block(H,block)
-	source.show_player_panel(H)
-
-
 /datum/admin_topic/adminplayeropts
 	keyword = "adminplayeropts"
 
@@ -1154,7 +1139,7 @@
 		P.stamped = new
 	P.stamped += /obj/item/stamp
 	P.overlays += stampoverlay
-	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
+	P.stamps += "<HR><i>This paper has been stamped by the [boss_name] Quantum Relay.</i>"
 
 	if(fax.recievefax(P))
 		to_chat(source.owner, "\blue Message reply to transmitted successfully.")
@@ -1555,7 +1540,7 @@
 						WANTED.backup_author = source.admincaster_signature                  //Submitted by
 						WANTED.is_admin_message = 1
 						news_network.wanted_issue = WANTED
-						for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+						for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 							NEWSCASTER.newsAlert()
 							NEWSCASTER.update_icon()
 						source.admincaster_screen = 15
@@ -1564,14 +1549,14 @@
 						news_network.wanted_issue.body = source.admincaster_feed_message.body
 						news_network.wanted_issue.backup_author = source.admincaster_feed_message.backup_author
 						source.admincaster_screen = 19
-					log_admin("[key_name_admin(usr)] issued a Ship-wide Wanted Notification for [source.admincaster_feed_message.author]!")
+					log_admin("[key_name_admin(usr)] issued a Station-wide Wanted Notification for [source.admincaster_feed_message.author]!")
 			source.access_news_network()
 
 		if("cancel_wanted")
 			var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 			if(choice=="Confirm")
 				news_network.wanted_issue = null
-				for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
+				for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 					NEWSCASTER.update_icon()
 				source.admincaster_screen=17
 			source.access_news_network()
@@ -1656,4 +1641,3 @@
 			notes_remove(ckey, text2num(input["from"]), text2num(input["to"]))
 
 	source.notes_show(ckey)
-

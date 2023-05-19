@@ -1,5 +1,5 @@
 /obj/item/gun/energy/nuclear
-	name = "\improper Prototype: advanced energy gun"
+	name = "Prototype: advanced energy gun"
 	desc = "An energy handgun with an experimental miniaturized reactor. Able to fire in two shot bursts."
 	icon = 'icons/obj/guns/energy/nucgun.dmi'
 	icon_state = "nucgun"
@@ -19,8 +19,11 @@
 		WEAPON_NORMAL,
 		BURST_2_BEAM
 		)
+	init_recoil = HANDGUN_RECOIL(1)
 
+	serial_type = "ML"
 	var/lightfail = 0
+
 
 //override for failcheck behaviour
 /obj/item/gun/energy/nuclear/Process()

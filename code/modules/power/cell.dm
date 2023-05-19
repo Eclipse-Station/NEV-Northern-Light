@@ -5,6 +5,7 @@
 /obj/item/cell //Basic type of the cells, should't be used by itself
 	name = "power cell"
 	desc = "A rechargable electrochemical power cell."
+	description_antag = "Can be inserted with plasma to make it blow whenever power is being pulled."
 	icon = 'icons/obj/power_cells.dmi'
 	icon_state = "b_st"
 	item_state = "cell"
@@ -163,8 +164,8 @@
 
 			rigged = TRUE
 
-			log_admin("LOG: [user.name] ([user.ckey]) injected a power cell with phoron, rigging it to explode.")
-			message_admins("LOG: [user.name] ([user.ckey]) injected a power cell with phoron, rigging it to explode.")
+			log_admin("LOG: [user.name] ([user.ckey]) injected a power cell with plasma, rigging it to explode.")
+			message_admins("LOG: [user.name] ([user.ckey]) injected a power cell with plasma, rigging it to explode.")
 
 		S.reagents.clear_reagents()
 

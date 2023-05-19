@@ -7,7 +7,7 @@
 	program_menu_icon = "notice"
 	extended_desc = "This program connects to specially calibrated supermatter sensors to provide information on the status of supermatter-based engines."
 	ui_header = "smmon_0.gif"
-	required_access = access_engine_consoles
+	required_access = access_engine
 	requires_ntnet = 1
 	network_destination = "supermatter monitoring system"
 	size = 5
@@ -59,7 +59,7 @@
 	for(var/obj/machinery/power/supermatter/S in supermatters)
 		. = max(., S.get_status())
 
-/datum/nano_module/supermatter_monitor/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/supermatter_monitor/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/nano_topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 	if(istype(active))
 		var/turf/T = get_turf(active)
@@ -81,7 +81,7 @@
 			data["SM_gas_O2"] = round(100*air.gas["oxygen"]/air.total_moles,0.01)
 			data["SM_gas_CO2"] = round(100*air.gas["carbon_dioxide"]/air.total_moles,0.01)
 			data["SM_gas_N2"] = round(100*air.gas["nitrogen"]/air.total_moles,0.01)
-			data["SM_gas_PZ"] = round(100*air.gas["phoron"]/air.total_moles,0.01)
+			data["SM_gas_PZ"] = round(100*air.gas["plasma"]/air.total_moles,0.01)
 			data["SM_gas_N2O"] = round(100*air.gas["sleeping_agent"]/air.total_moles,0.01)
 		else
 			data["SM_gas_O2"] = 0

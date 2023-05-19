@@ -113,7 +113,7 @@
 
 /datum/game_mode/malfunction/verb/emergency_forcefield()
 	set name = "Emergency Forcefield"
-	set desc = "275 CPU - Uses ship's emergency shielding system to create temporary barrier which lasts for few minutes, but won't resist gunfire."
+	set desc = "275 CPU - Uses ship's emergency shielding system to create temporary barrier which lasts indefinetely, but won't resist EMP pulses."
 	set category = "Software"
 	var/price = 275
 	var/mob/living/silicon/ai/user = usr

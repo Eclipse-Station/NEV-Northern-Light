@@ -5,22 +5,11 @@
 	restricted_jobs = list("AI", "Robot")
 	protected_jobs = list(JOBS_SECURITY, JOBS_COMMAND)
 	bantype = ROLE_BANTYPE_CARRION
-	welcome_text = "Every culture has a bogeyman, a terrifying, supernatural creature spoken about in hushed tones and\
-used to scare children into misbehaving. The difference is that you actually exist.\n \n \
-You are a Carrion, first created by Lazarus scientists trying to gain an edge in the Corporate Wars. The\
-first of your kind broke free, and spread to the stars, now known space and beyond are full of terrifying\
-stories of colonies that disappeared overnight, of ships whose crews died screaming. Fortunately for the\
-Northern Light, you aren’t here to slaughter them all, not unless they push you to it. Your true masters\
-have a plan, and you are the unstoppable instrument of their will.\n\n\
-Your body is ever changing, you should start by evolving a chemical vessel to use your powers. A carrion\
-maw can be a good way to earn evolution points.\n\n\
-You can complete contracts to grow stronger until the entire ship is your plaything. Be patient, a slow,\
-methodical approach is recommended.\n\
-Your enemies are many, and your disguise will not hold up to an in-depth scan. Beware of the Children\
-of Mekhane in particular, who are protected from your infection spiders, and may be able to identify\
-and out you before you are ready.\n\n\
-You won’t find many friends here, but spiders are one of them. If you feel alone, you can always give\
-birth to your own children, or search the ship for your brothers and sisters."
+	welcome_text = "You are Carrion, a leftover from corporate war. You have come onto this vessel to carry out your master plan, and no one can stop you.<br>\
+	Your body is ever changing. You should start out by evolving a chemical vessel to use your powers. A carrion maw can be a good way to earn evolution points. <br>\
+	You can do contracts to grow stronger until the ship becomes your stage and your master plan is ready. A slow and methodical approach is recommended. <br>\
+	You won't find many friends here, but spiders are one of them. If you ever feel alone, you can always give birth to your own children, or search ship in attempt to find your brothers and sisters. <br>\
+	Your enemies are many. You should be wary of other carrions too, as your organs are sought-after for their taste and genetic material."
 
 	antaghud_indicator = "hudchangeling"
 
@@ -52,5 +41,5 @@ birth to your own children, or search the ship for your brothers and sisters."
 
 	for(var/name in stat_modifiers)
 		L.stats.changeStat(name, stat_modifiers[name])
-
+		
 	spawn_uplink(L, 5)

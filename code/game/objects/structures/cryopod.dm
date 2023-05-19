@@ -66,14 +66,6 @@
 		STAT_BIO = 25,
 	)
 
-/*
- * Eclipse removal: Cryopod used in random encounters. Due to our lore bringing
- * engineering in-house, it doesn't make sense to spawn technomancers. Plus, due
- * to the spawning code above (see line 38 in particular) I can't rework it into
- * something that we CAN use.		^Spitzer
- */
-
-/*
 /obj/structure/cryopod_spawner/technomancer
 	outfit_type = /decl/hierarchy/outfit/job/engineering/exultant
 	spawn_faction = "Technomancer"
@@ -85,7 +77,6 @@
 		STAT_TGH = 15,
 		STAT_VIG = 10,
 	)
-*/
 
 /obj/structure/cryopod_spawner/serbian
 	outfit_type = /decl/hierarchy/outfit/antagonist/mercenary/equipped

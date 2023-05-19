@@ -1,6 +1,6 @@
 /obj/item/gun/energy/gun
-	name = "\improper FS LHG M \"Spider Rose\""  //Eclipse Edit - gun names standardized
-	desc = "The Spider Rose is a versatile energy based sidearm, capable of switching between low and high capacity projectile settings. In other words: Stun or Kill."
+	name = "FS PDW E \"Spider Rose\""
+	desc = "Spider Rose is a versatile energy based sidearm, capable of switching between low and high capacity projectile settings. In other words: Stun or Kill."
 	icon = 'icons/obj/guns/energy/egun.dmi'
 	icon_state = "energystun100"
 	item_state = null	//so the human update icon uses the icon_state instead.
@@ -15,12 +15,20 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	modifystate = "energystun"
 	item_modifystate = "stun"
+	init_recoil = SMG_RECOIL(1)
 
 	init_firemodes = list(
 		STUNBOLT,
 		LETHAL,
 		WEAPON_CHARGE,
 		)
+	serial_type = "FS"
+
+/obj/item/gun/energy/gun/update_icon()
+	..()
+	if(wielded)
+		set_item_state(item_state)
+
 
 /obj/item/gun/energy/gun/mounted
 	name = "mounted energy gun"
@@ -31,8 +39,8 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/energy/gun/martin
-	name = "\improper FS LHG S \"Martin\""  //Eclipse Edit - gun names standardized
-	desc = "The Martin is essentialy a downscaled Spider Rose, made for Aegis employees and civilians to use as a personal self defence weapon."
+	name = "FS PDW E \"Martin\""
+	desc = "Martin is essentialy downscaled Spider Rose, made for IH employees and civilians to use it as personal self defence weapon."
 	icon = 'icons/obj/guns/energy/pdw.dmi'
 	icon_state = "PDW"
 	item_state = "gun"
@@ -46,10 +54,11 @@
 	modifystate = null
 	suitable_cell = /obj/item/cell/small
 	cell_type = /obj/item/cell/small
+	init_recoil = HANDGUN_RECOIL(1)
+
+	serial_type = "FS"
 
 	spawn_tags = SPAWN_TAG_FS_ENERGY
-
-	simplemob_bonus_damage_multiplier = 0.15	//Eclipse edit: slight boost to simplemob damage.
 
 /obj/item/gun/energy/gun/martin/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
@@ -57,8 +66,10 @@
 		overlays += "taser_pdw"
 	else
 		overlays += "lazer_pdw"
+	update_held_icon()
 
 /obj/item/gun/energy/gun/martin/update_icon()
 	cut_overlays()
+	wielded_item_state = null
 	if(cell && cell.charge >= charge_cost) //no overlay if we dont have any power
 		update_mode()

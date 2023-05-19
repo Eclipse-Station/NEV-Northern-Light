@@ -14,7 +14,7 @@
 
 	verbs |= /obj/item/modular_computer/verb/emergency_shutdown
 
-/obj/item/modular_computer/proc/can_interact(var/mob/user)
+/obj/item/modular_computer/can_interact(mob/user)
 	if(usr.incapacitated())
 		to_chat(user, "<span class='warning'>You can't do that.</span>")
 		return FALSE
@@ -143,7 +143,7 @@
 
 /obj/item/modular_computer/attack_ghost(var/mob/observer/ghost/user)
 	if(enabled)
-		ui_interact(user)
+		nano_ui_interact(user)
 	else if(check_rights(R_ADMIN, 0, user))
 		var/response = alert(user, "This computer is turned off. Would you like to turn it on?", "Admin Override", "Yes", "No")
 		if(response == "Yes")
@@ -160,7 +160,7 @@
 // On-click handling. Turns on the computer if it's off and opens the GUI.
 /obj/item/modular_computer/attack_self(var/mob/user)
 	if(enabled && screen_on)
-		ui_interact(user)
+		nano_ui_interact(user)
 	else if(!enabled && screen_on)
 		turn_on(user)
 
@@ -230,7 +230,6 @@
 					return
 				if(tool.use_tool(user, src, WORKTIME_SLOW, QUALITY_BOLT_TURNING, FAILCHANCE_VERY_EASY, required_stat = STAT_COG))
 					new /obj/item/stack/material/steel( get_turf(src.loc), steel_sheet_cost )
-					new /obj/item/stack/material/glass( get_turf(src.loc), glass_sheet_cost )
 					src.visible_message("\The [src] has been disassembled by [user].")
 					qdel(src)
 					return

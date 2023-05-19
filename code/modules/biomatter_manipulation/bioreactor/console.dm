@@ -14,11 +14,11 @@
 
 
 /obj/machinery/multistructure/bioreactor_part/console/attack_hand(mob/user as mob)
-	if(check_MS())
-		ui_interact(user)
+	if(MS)
+		nano_ui_interact(user)
 
 
-/obj/machinery/multistructure/bioreactor_part/console/ui_data()
+/obj/machinery/multistructure/bioreactor_part/console/nano_ui_data()
 	var/list/data = list()
 	if(MS_bioreactor.is_operational())
 		if(MS_bioreactor.chamber_solution)
@@ -56,8 +56,8 @@
 	return data
 
 
-/obj/machinery/multistructure/bioreactor_part/console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/topic_state/state = GLOB.default_state)
-	var/list/data = ui_data()
+/obj/machinery/multistructure/bioreactor_part/console/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/nano_topic_state/state = GLOB.default_state)
+	var/list/data = nano_ui_data()
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
@@ -65,39 +65,3 @@
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
-
-/obj/machinery/multistructure/bioreactor_part/console/CanUseTopic(var/mob/user)
-	if(issilicon(user) && !Adjacent(user))
-		return STATUS_UPDATE
-	return ..()
-
-/obj/machinery/multistructure/bioreactor_part/console/Topic(href, href_list)
-	if(..())
-		return 1
-
-	if(href_list["pump_solution"])
-
-
-		if(!MS_bioreactor.chamber_closed)
-			visible_message(SPAN_DANGER("[src] states, 'Unable to engage solution pumps - chamber doors open.'"))
-			playsound(src, 'sound/machines/buzz-two.ogg', 100, 1)
-			return 1
-
-		MS_bioreactor.pump_solution()
-		visible_message(SPAN_NOTICE("[src] states, 'Solution pumps engaged. Solution pumping [MS_bioreactor.chamber_solution ? "in" : "out"].'"))
-		playsound(src, 'sound/machines/synth_yes.ogg', 100, 1)
-		. = 1
-
-	if(href_list["toggle_chamber_doors"])
-
-		if(MS_bioreactor.chamber_solution)
-			visible_message(SPAN_DANGER("[src] states, 'Unable to open doors - solution detected in chamber.'"))
-			playsound(src, 'sound/machines/buzz-two.ogg', 100, 1)
-			return 1
-
-		MS_bioreactor.toggle_platform_door()
-		visible_message(SPAN_NOTICE("[src] states, 'Chamber doors now [MS_bioreactor.chamber_closed ? "closed" : "opened"].'"))
-		playsound(src, 'sound/machines/synth_yes.ogg', 100, 1)
-		. = 1
-
-	ui_interact(usr)

@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/reinforced/engineering_chief
-	name = "chief engineer's locker"
+	name = "technomancer exultant's locker"
 	req_access = list(access_ce)
 	icon_state = "ce"
 
@@ -65,7 +65,7 @@
 	new /obj/item/tool_upgrade/augment/fuel_tank(src)
 
 /obj/structure/closet/secure_closet/personal/engineering_personal
-	name = "engineer's locker"
+	name = "technomancer's locker"
 	req_access = list(access_ce)
 	access_occupy = list(access_engine_equip)
 	icon_state = "eng"
@@ -89,3 +89,5 @@
 	new /obj/item/clothing/head/armor/helmet/technomancer(src)
 	new /obj/item/clothing/suit/storage/vest/insulated(src)
 	new /obj/item/clothing/head/armor/helmet/technomancer_old(src)
+	new /obj/item/clothing/suit/storage/vest/technomancer_old(src)
+	new /obj/item/storage/pouch/engineering_tools (src)

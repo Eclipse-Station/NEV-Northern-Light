@@ -495,12 +495,12 @@
 
 /obj/item/toy/figure/serbian
 	name = "mercenary figurine"
-	desc = "A curiously unbranded figurine, the olive drab a popular pick for many independent mercenary outfits. Rocket launcher not included."
+	desc = "A curiously unbranded figurine, the olive drab a popular pick for many independent Serbian mercenary outfits. Rocket launcher not included."
 	icon_state = "serbian"
 
 /obj/item/toy/figure/acolyte
 	name = "acolyte figurine"
-	desc = "Church of Mekhane \"New Faith Life\" brand figurine of an acolyte, hooded both physically and spiritually from that which would lead them astray."
+	desc = "Church of NeoTheology \"New Faith Life\" brand figurine of an acolyte, hooded both physically and spiritually from that which would lead them astray."
 	icon_state = "acolyte"
 
 /obj/item/toy/figure/carrion
@@ -517,8 +517,8 @@
 
 /obj/item/toy/figure/vagabond
 	name = "vagabond figurine"
-	desc = "A \"Space Life\" brand figurine showcasing the form of a random deplorable, wearing one of the ship's uniforms, and an orange bandana. \
-	Must have been custom-made to commemorate the Northern Light's doomed voyage."
+	desc = "An Aster's \"Space Life\" brand figurine showcasing the form of a random deplorable, wearing one of the ship's uniforms, and an orange bandana. \
+	Must of been custom-made to commemorate the Eris' doomed voyage."
 	icon_state = "vagabond"
 
 /obj/item/toy/figure/rooster
@@ -545,7 +545,7 @@
 
 /obj/item/toy/figure/shitcurity
 	name = "shitcurity officer figurine"
-	desc = "A \"Space Life\" brand figurine of a classic redshirt of \"Nanotrasen's finest\". Their belly distends out into an obvious beer gut, revealing no form of manufacturer bias what-so-ever. \
+	desc = "An Aster's \"Space Life\" brand figurine of a classic redshirt of \"Nanotrasen's finest\". Their belly distends out into an obvious beer gut, revealing no form of manufacturer bias what-so-ever. \
 	\"I joined just to kill people.\""
 	icon_state = "shitcurity"
 
@@ -574,14 +574,6 @@
 /obj/structure/plushie/attack_hand(mob/user)
 	if(user.a_intent == I_HELP)
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> hugs [src]!"),SPAN_NOTICE("You hug [src]!"))
-		// // // BEGIN ECLIPSE EDITS // // //
-		//Hugging large plushies regenerates sanity. Somewhat.
-		if(istype(user, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = user
-			if(H.sanity)
-				if(H.sanity.level < config.maximum_hug_sanity_restoration_plushie)
-					H.sanity.changeLevel(1.5)		//On par with the player hugging someone else
-		// // // END ECLIPSE EDITS // // //
 	else if (user.a_intent == I_HURT)
 		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"),SPAN_WARNING("You punch [src]!"))
 	else if (user.a_intent == I_GRAB)
@@ -598,7 +590,7 @@
 
 /obj/structure/plushie/drone
 	name = "plush drone"
-	desc = "A plushie of a happy drone! It appears to be smiling, and has a small tag which reads \"N.D.V. Icarus Gift Shop\"."
+	desc = "A plushie of a happy drone! It appears to be smiling, and has a small tag which reads \"I.H.S. Atomos Gift Shop\"."
 	icon_state = "droneplushie"
 	phrase = "Beep boop!"
 
@@ -614,12 +606,6 @@
 	icon_state = "beepskyplushie"
 	phrase = "Ping!"
 
-/obj/structure/plushie/fumo
-	name = "Fumo"
-	desc = "A plushie of a....?."
-	icon_state = "fumoplushie"
-	phrase = "I just don't think about losing."
-
 //Small plushies.
 /obj/item/toy/plushie
 	name = "generic small plush"
@@ -632,14 +618,6 @@
 /obj/item/toy/plushie/attack_self(mob/user)
 	if(user.a_intent == I_HELP)
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> hugs [src]!"),SPAN_NOTICE("You hug [src]!"))
-		// // // BEGIN ECLIPSE EDITS // // //
-		//Hugging plushies regenerates sanity... barely.
-		if(istype(user, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = user
-			if(H.sanity)
-				if(H.sanity.level < config.maximum_hug_sanity_restoration_plushie)
-					H.sanity.changeLevel(1)		//Not much.
-		// // // END ECLIPSE EDITS // // //
 	else if (user.a_intent == I_HURT)
 		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"),SPAN_WARNING("You punch [src]!"))
 	else if (user.a_intent == I_GRAB)
@@ -659,13 +637,25 @@
 
 /obj/item/toy/plushie/lizard
 	name = "lizard plush"
-	desc = "A plushie of a scaly lizard! Very controversial, after being accused as \"racist\" by some Unathi."
+	desc = "A plushie of a scaly lizard!"
 	icon_state = "lizardplushie"
 
 /obj/item/toy/plushie/spider
 	name = "spider plush"
 	desc = "A plushie of a fuzzy spider! It has eight legs - all the better to hug you with."
 	icon_state = "spiderplushie"
+
+/obj/item/toy/plushie/fumo
+	name = "fumo"
+	desc = "A plushie of a....?."
+	icon_state = "fumoplushie_marisa"
+	spawn_blacklisted = TRUE
+
+/obj/item/toy/plushie/fumo/astolfo
+	icon_state = "fumoplushie_astolfo"
+
+/obj/item/toy/plushie/fumo/cirno
+	icon_state = "fumoplushie_cirno"
 
 //Toy cult sword
 /obj/item/toy/cultsword
@@ -685,3 +675,147 @@
 	item_state = "inflatable"
 	icon = 'icons/inventory/belt/icon.dmi'
 	slot_flags = SLOT_BELT
+
+// That one funny oinking pig.
+/obj/item/toy/rubber_pig
+	name = "rubber pig"
+	desc = "Rubber pig that oinks when squeezed."
+	icon = 'icons/obj/rubber_pig.dmi'
+	icon_state = "icon"
+	item_state = "rubber_pig"
+
+	var/cooldown = 0.5 SECONDS
+	var/last_used = 0
+	// Oinking pig sounds
+	var/oinks = list(
+		'sound/items/oink1.ogg',
+		'sound/items/oink2.ogg',
+		'sound/items/oink3.ogg',
+		'sound/items/oink4.ogg',
+		'sound/items/oink5.ogg',
+		'sound/items/oink6.ogg'
+	)
+
+// Oink code
+/obj/item/toy/rubber_pig/proc/oink()
+	if((last_used + cooldown) < world.time)
+		last_used = world.time
+		playsound(src, pick(oinks), 50, 1)
+		return TRUE
+
+/obj/item/toy/rubber_pig/proc/user_oink(mob/user)
+	if(oink())
+		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> squeezes a pig. It makes a loud funny oink!"), SPAN_NOTICE("You squeeze a pig. It makes a loud funny oink!"))
+
+// All the oink situtions
+/obj/item/toy/rubber_pig/attack_self(mob/user)
+	user_oink(user)
+
+/obj/item/toy/rubber_pig/attack_hand(mob/user)
+	user_oink(user)
+
+/obj/item/toy/rubber_pig/throw_impact(atom/impact_atom)
+	visible_message(SPAN_NOTICE("Rubber pig oinks, as it impacts with surface."))
+	oink()
+
+// Oinker pick up
+/obj/item/toy/rubber_pig/MouseDrop(over_object, src_location, over_location)
+	..()
+	var/mob/living/carbon/human/user = usr
+	if(istype(user) && over_object == user && in_range(src, user))
+		user.put_in_active_hand(src)
+
+/obj/item/toy/card
+	name = "collectible card"
+	desc = "A high-tech collectible trading card. Squeeze it in your hand to switch between the viewing and transport modes."
+	icon = 'icons/obj/nft.dmi'
+	icon_state = "card"
+	w_class = ITEM_SIZE_TINY
+	price_tag = 5
+	rarity_value = 10
+	spawn_tags = SPAWN_TAG_TRADING_CARD
+	spawn_blacklisted = TRUE
+	bad_type = /obj/item/toy/card
+	var/is_small = TRUE
+
+/obj/item/toy/card/Initialize()
+	. = ..()
+	transform *= 0.5
+	pixel_x = rand(-8,8)
+	pixel_y = rand(-8,8)
+
+/obj/item/toy/card/attack_self(mob/user)
+	if(is_small)
+		transform *= 2
+	else
+		transform *= 0.5
+	is_small = !is_small
+
+/obj/item/toy/card/monkey
+	name = "monkey card"
+
+/obj/item/toy/card/monkey/Initialize()
+	var/card = max(rand(1,18) - 10, 1)
+	var/monkey = max(rand(1,14) - 10, 1)
+	var/suit = max(rand(1,30) - 20, 0)
+	var/helmet = max(rand(1,50) - 40, 0)
+	var/hat = max(rand(1,30) - 20, 0)
+	var/glasses = max(rand(1,30) - 20, 0)
+
+	icon_state = "card-[card]"
+
+	overlays += "monkey-[monkey]"
+
+	price_tag *= ((card / 2) * monkey)
+
+	if(suit)
+		overlays += "suit-[suit]"
+		price_tag *= 1 + (0.25 * suit)
+
+	if(!helmet)
+		if(glasses)
+			overlays += "glasses-[glasses]"
+			price_tag *= 1 + (0.25 * glasses)
+		if(hat)
+			overlays += "hat-[hat]"
+			price_tag *= 2 + (0.25 * hat)
+	else
+		hat = 0
+		glasses = 0
+		overlays += "helmet-[helmet]"
+		price_tag *= 4 + (0.5 * helmet)
+
+	price_tag = round(price_tag)
+	name = initial(name) + " #[card][monkey][suit][glasses][hat][helmet]"
+
+	. = ..()
+
+/obj/item/toy/card/iriska
+	name = "iriska card"
+	price_tag = 100
+	rarity_value = 69
+
+/obj/item/toy/card/iriska/Initialize()
+	var/card = max(rand(1,38) - 30, 1)
+	var/hat = max(rand(1,30) - 20, 0)
+	var/glasses = max(rand(1,30) - 20, 0)
+
+	icon_state = "card-[card]"
+
+	overlays += "iriska"
+
+	price_tag *= card
+
+	if(glasses)
+		overlays += "glasses-[glasses]"
+		price_tag *= 2 + (0.25 * glasses)
+
+	if(hat)
+		if(hat == 2 || hat == 4)	// Iriska doesn't look good with 2 and 4
+			hat--
+		overlays += "hat-[hat]"
+		price_tag *= 2 + (0.25 * hat)
+
+	name = initial(name) + " #[card][hat][glasses]"
+
+	. = ..()

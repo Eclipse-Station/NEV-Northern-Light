@@ -1,6 +1,6 @@
 /obj/item/device/assembly/timer
 	name = "timer"
-	desc = "Used to time things. Works well with contraptions which need a countdown. Tick tock."
+	desc = "Used to time things. Works well with contraptions which has to count down. Tick tock."
 	icon_state = "timer"
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(MATERIAL_PLASTIC = 1)

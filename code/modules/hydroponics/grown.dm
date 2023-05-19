@@ -291,10 +291,11 @@
 		return
 
 	if(seed.get_trait(TRAIT_SPREAD) > 0)
-		to_chat(user, SPAN_NOTICE("You plant the [src.name]."))
-		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(user),src.seed)
-		qdel(src)
-		return
+		var/turf/current_turf = get_turf(user)
+		if(!locate(/obj/machinery/portable_atmospherics/hydroponics/soil/invisible) in current_turf.contents)	// Prevents infinite plant stacking
+			to_chat(user, SPAN_NOTICE("You plant the [src]."))
+			new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(current_turf, seed)
+			qdel(src)
 
 /obj/item/reagent_containers/food/snacks/grown/pre_pickup(mob/user)
 	if(!seed)
@@ -307,7 +308,7 @@
 			return TRUE //Out of reagents
 		reagents.remove_any(rand(1,3)) //Todo, make it actually remove the reagents the seed uses.
 		seed.do_thorns(H,src)
-		seed.do_sting(H,src,pick(BP_R_HAND, BP_L_HAND))
+		seed.do_sting(H,src,pick(BP_R_ARM, BP_L_ARM))
 	return ..()
 
 // Predefined types for placing on the map.

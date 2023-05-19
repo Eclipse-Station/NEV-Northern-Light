@@ -13,15 +13,15 @@
 		)
 	permeability_coefficient = 0.01
 	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 10,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 0,
 		bio = 100,
 		rad = 50
 	)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES|EARS
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HEAD
@@ -83,9 +83,9 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	matter = list(MATERIAL_PLASTIC = 30, MATERIAL_STEEL = 10)
 	armor = list(
-		melee = 10,
-		bullet = 10,
-		energy = 10,
+		melee = 2,
+		bullet = 2,
+		energy = 2,
 		bomb = 0,
 		bio = 100,
 		rad = 50
@@ -101,7 +101,6 @@
 	style_coverage = COVERS_WHOLE_TORSO_AND_LIMBS
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
 	slowdown = HEAVY_SLOWDOWN * 0.5
-	stiffness = HEAVY_STIFFNESS
 
 /obj/item/clothing/suit/space/equipped(mob/M)
 	check_limb_support()

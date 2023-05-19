@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/avasarala
-	name = "\improper NT HG .40 Magnum \"Avasarala\""
+	name = "NT HG .40 Magnum \"Avasarala\""
 	desc = "An obvious replica of an old Earth \"Desert Eagle\". Robust and straight, this is a gun for a leader, not just an officer."
 
 	icon = 'icons/obj/guns/projectile/avasarala.dmi'
@@ -15,9 +15,9 @@
 
 	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_PLASTIC = 8)
 	can_dual = TRUE
-	damage_multiplier = 1.45
-	penetration_multiplier = 1.35
-	recoil_buildup = 5
+	damage_multiplier = 1.3
+	penetration_multiplier = 0
+	init_recoil = HANDGUN_RECOIL(0.8)
 
 	fire_sound = 'sound/weapons/guns/fire/hpistol_fire.ogg'
 	unload_sound = 'sound/weapons/guns/interact/hpistol_magout.ogg'
@@ -27,7 +27,8 @@
 	price_tag = 1600
 	gun_tags = list(GUN_GILDABLE)
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
-	gun_parts = list(/obj/item/part/gun/frame/avasarala = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/magnum = 1)
+	gun_parts = list(/obj/item/part/gun/frame/avasarala = 1, /obj/item/part/gun/modular/grip/black = 1, /obj/item/part/gun/modular/mechanism/pistol = 1, /obj/item/part/gun/modular/barrel/magnum = 1)
+	serial_type = "NT"
 
 /obj/item/gun/projectile/avasarala/update_icon()
 	..()
@@ -38,6 +39,9 @@
 	if(gilded)
 		iconstring += "_gold"
 		itemstring += "_gold"
+		wielded_item_state = "_doble" + "_gold"
+	else
+		wielded_item_state = "_doble"
 
 	if (!ammo_magazine || !length(ammo_magazine.stored_ammo))
 		iconstring += "_slide"
@@ -50,10 +54,10 @@
 	update_icon()
 
 /obj/item/part/gun/frame/avasarala
-	name = "\improper Avasarala frame"
+	name = "Avasarala frame"
 	desc = "An Avasarala pistol frame. Something to command respect."
 	icon_state = "frame_deagle"
-	result = /obj/item/gun/projectile/avasarala
-	grip = /obj/item/part/gun/grip/black
-	mechanism = /obj/item/part/gun/mechanism/pistol
-	barrel = /obj/item/part/gun/barrel/magnum
+	resultvars = list(/obj/item/gun/projectile/avasarala)
+	gripvars = list(/obj/item/part/gun/modular/grip/black)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/pistol
+	barrelvars = list(/obj/item/part/gun/modular/barrel/magnum)

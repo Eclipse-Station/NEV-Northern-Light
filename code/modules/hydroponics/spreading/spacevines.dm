@@ -5,7 +5,8 @@
 	//Vines will spawn at a burrow
 	var/obj/structure/burrow/origin
 	var/list/burrows = GLOB.all_burrows.Copy()
-	for(var/obj/structure/burrow/B in burrows) //Eclipse edit, for loop works much better than while loop
+	while (burrows.len)
+		var/obj/structure/burrow/B = pick_n_take(burrows)
 
 		//Needs to not already have plants
 		if (B.plant)
@@ -36,22 +37,6 @@
 	seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
 	seed.force_layer = LOW_OBJ_LAYER //Vines will grow in the background underneath and around objects
 
-// // // BEGIN ECLIPSE EDITS // // //
-// Spacevines are now far more terrifying.
-	seed.consume_gasses = list("nitrogen")
-	
-	seed.exude_gasses = list()
-	var/gas
-	if(prob(80))
-		gas = pick("trichloramine","phoron","monochloramine")
-	else
-		gas = pick("sleeping_agent","carbon_dioxide")
-	seed.exude_gasses[gas] = rand(3,9)
-	
-//Spread timers, so we don't overwhelm the station.
-	seed.spread_timer = 60 SECONDS		//Twice as fast as maint shrooms.
-
-// // // END ECLIPSE EDITS // // //
 
 
 	//make vine zero start off fully matured
@@ -68,7 +53,7 @@
 
 	for (var/a in origin.plantspread_burrows)
 		var/obj/structure/burrow/B = locate(a)
-		if (istype(B) && !B.maintenance) //Eclipse Edit
+		if (istype(B))
 			spawn(RAND_DECIMAL(5, 30))
 				B.break_open() //Break the floor at each of the burrows it spreads to
 				log_and_message_admins("Spacevines spread to burrow [jumplink(B)]")

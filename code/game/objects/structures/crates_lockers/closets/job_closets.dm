@@ -1,8 +1,9 @@
 /* Closets for specific jobs
  * Contains:
- *		Bartender
+ *		Club Manager
+ *      Club Worker
  *		Janitor
- *		Lawyer
+ *		Custodian
  *		Acolyte
  */
 
@@ -54,7 +55,7 @@
  * Janitor
  */
 /obj/structure/closet/jcloset
-	name = "janitorial closet"
+	name = "janitorial closet" //legacy janitor
 	desc = "A storage unit for janitorial clothes and gear."
 	icon_door = "mixed"
 
@@ -99,8 +100,8 @@
 	new /obj/item/clothing/gloves/thick(src)
 	new /obj/item/clothing/suit/armor/custodian(src)
 	new /obj/item/clothing/head/armor/custodian(src)
-	new /obj/item/clothing/head/soft/purple(src)
-	new /obj/item/clothing/head/beret/purple(src)
+	//new /obj/item/clothing/head/soft/purple(src)
+	//new /obj/item/clothing/head/beret/purple(src)
 	new /obj/item/device/lighting/toggleable/flashlight(src)
 	new /obj/item/gun/matter/launcher/nt_sprayer(src)
 	new /obj/item/caution(src)
@@ -115,7 +116,6 @@
 	new /obj/item/clothing/suit/storage/neotheosports(src)
 	new /obj/item/soap/nanotrasen(src)
 	new /obj/item/storage/pouch/small_generic(src) // Because I feel like poor janitor gets it bad.
-	new /obj/item/gun/energy/nt_svalinn(src)
 	new /obj/item/cell/small/neotheology(src)
 	new /obj/item/cell/small/neotheology(src)
 	new /obj/item/tool/knife/dagger/nt(src)
@@ -123,7 +123,7 @@
 	new /obj/item/clothing/shoes/jackboots/neotheology(src)
 /obj/structure/closet/acolyte
 	name = "acolyte closet"
-	desc = "A closet for those that work with the machines of Mekhane." //Eclipse Edit.
+	desc = "A closet for those that work with the machines of god."
 	icon_state = "acolyte"
 
 /obj/structure/closet/acolyte/populate_contents()
@@ -143,7 +143,8 @@
 	new /obj/item/clothing/suit/storage/neotheosports(src)
 	new /obj/item/clothing/head/armor/acolyte(src)
 	new /obj/item/clothing/suit/armor/acolyte(src)
-	new /obj/item/storage/belt/sheath(src)
+	new /obj/item/cell/small/neotheology(src)
+	new /obj/item/storage/pouch/holster/belt/sheath(src)
 	new /obj/item/tool/sword/nt/shortsword(src)
 	new /obj/item/tool/knife/dagger/nt(src)
 	new /obj/item/clothing/shoes/reinforced(src)

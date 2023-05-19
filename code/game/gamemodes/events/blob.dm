@@ -6,10 +6,8 @@
 	onto victims, allowing acidproof gear to provide some good protection
 
 	Blobs are very vulnerable to fire and lasers. Flamethrower is the recommended weapon, and
-	In an emergency, a phoron canister and a lighter will bring a quick end to a blob
+	In an emergency, a plasma canister and a lighter will bring a quick end to a blob
 */
-
-#define BLOB_HEATING_POWER 1100
 
 /datum/storyevent/blob
 	id = "blob"
@@ -61,7 +59,7 @@
 	name = "blob"
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob"
-	icon_scale = 1
+	var/icon_scale = 1
 	light_range = 3
 	desc = "Some blob creature thingy"
 	density = FALSE //Normal blobs can be walked over, but it's not a good idea
@@ -70,7 +68,7 @@
 	anchored = TRUE
 	mouse_opacity = 2
 
-	var/maxHealth = 40		//Eclipse edit: buff blobs a bit.
+	var/maxHealth = 20
 	var/health = 1
 	var/health_regen = 1.7
 	var/brute_resist = 1.25
@@ -85,14 +83,12 @@
 
 	var/obj/effect/blob/parent
 	var/active = FALSE
-	
-	var/effect_temperature = 233.15		//Eclipse addition: Blobs should gradually cool down a room.
 
 	//World time when we're allowed to expand next.
 	//Expansion gets slower as the blob gets farther away from the origin core
 	var/next_expansion = 0
 	var/coredist = 1
-	var/dist_time_scaling = 1.4875		//Eclipse edit: Speeds up blob growth marginally.
+	var/dist_time_scaling = 1.5
 
 /obj/effect/blob/New(loc, var/obj/effect/blob/_parent)
 	if (_parent)
@@ -186,35 +182,6 @@
 			return PROCESS_KILL
 
 		set_expand_time()
-
-// // // BEGIN ECLIPSE EDITS // // //
-// Blob room cooling.
-
-		handle_temperature_changing(effect_temperature)		//Modularised, in the event we later add types that heat a room.
-
-//I'm not gonna lie, this is pretty much ripped straight from the air alarm.
-/obj/effect/blob/proc/handle_temperature_changing(var/desired_temperature)
-	var/turf/simulated/floor/T = get_turf(src)
-	if(!T)
-		return
-	
-	var/datum/gas_mixture/ambient = T.return_air()
-	if(ambient.total_moles)		//Do we even have an atmosphere?
-		var/thermalChange = ambient.get_thermal_energy_change(desired_temperature)
-		var/heat_transfer = 0
-		if(thermalChange > 0)		//heating an area
-			heat_transfer = min(thermalChange , BLOB_HEATING_POWER)
-
-			ambient.add_thermal_energy(heat_transfer)
-		else		//cooling an area
-			thermalChange = abs(thermalChange)
-
-			var/cop = ambient.temperature/T20C
-			heat_transfer = min(thermalChange, cop * BLOB_HEATING_POWER)	//limit the rate the blob cools a room
-
-			ambient.add_thermal_energy(-heat_transfer)
-// // // END ECLIPSE EDITS // // //
-
 
 /obj/effect/blob/proc/regen()
 	if (!(QDELETED(core)))
@@ -535,6 +502,15 @@
 		take_damage(damage)
 		return 1
 	return ..()
+
+/obj/effect/blob/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		take_damage(damage/brute_resist)
+	else
+		attack_hand(M)
 
 /obj/effect/blob/core
 	name = "blob core"

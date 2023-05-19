@@ -23,11 +23,11 @@
 		</div>
 	{{else data.status == 6}}
 		<div class="bad">
-			<div class="itemContent"> PIPE BLOCKAGE DETECTED </div>
+			<div class="itemContent"> MAJOR PIPES ISSUE DETECTED </div>
 		</div>
 	{{else}}
 		<div class="bad">
-			<div class="itemContent"> NON-OPERATIONAL </div>
+			<div class="itemContent"> NON OPERATIONAL </div>
 		</div>
 	{{/if}}
 
@@ -92,12 +92,4 @@ Biomatter tank:
 			</div>
 		{{/if}}
 	</div>
-    
-<h2>CONTROLS</h2>
-	<table>
-		<tr>
-			<td>{{:helper.link('Engage Solution Pumps', null, {'pump_solution' : '1'})}}
-            <td>{{:helper.link('Toggle Chamber Doors', null, {'toggle_chamber_doors' : '1'})}}
-		<tr>
-	</table>
 

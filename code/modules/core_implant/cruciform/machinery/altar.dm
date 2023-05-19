@@ -1,5 +1,5 @@
 /obj/machinery/optable/altar
-	name = "Mekhane altar"
+	name = "NeoTheology's altar"
 	desc = "The altar."
 	icon = 'icons/obj/neotheology_machinery.dmi'
 	icon_state = "optable-idle"
@@ -15,7 +15,7 @@
 	available_slots += list(list("offset" = list("x" = 8 , "y" = -3), "item" = null))
 	..()
 /obj/machinery/optable/altar/attackby(obj/item/I, mob/user)
-	if(!istype(I) || !(I.type in acceptable_items))
+	if(!istype(I) || !is_type_in_list(I, acceptable_items))
 		return
 
 	item_cleanup()

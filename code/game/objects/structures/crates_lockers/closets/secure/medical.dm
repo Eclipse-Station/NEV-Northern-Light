@@ -32,7 +32,7 @@
 	new /obj/item/tool/wrench(src)
 
 /obj/structure/closet/secure_closet/personal/doctor
-	name = "doctor's locker"
+	name = "moebius doctor's locker"
 	req_access = list(access_cmo)
 	access_occupy = list(access_medical_equip)
 	icon_state = "med"
@@ -59,7 +59,7 @@
 	new /obj/item/clothing/suit/storage/surgical_apron(src)
 
 /obj/structure/closet/secure_closet/personal/paramedic
-	name = "paramedic's locker"
+	name = "moebius paramedic's locker"
 	req_access = list(access_cmo)
 	access_occupy = list(access_paramedic)
 	icon_state = "med"
@@ -75,20 +75,20 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/lighting/toggleable/flashlight(src)
-	new /obj/item/device/radio/color/lightblue(src)		//eclipse edit
+	new /obj/item/device/radio(src)
 	new /obj/item/tool/crowbar(src)
 	new /obj/item/clothing/shoes/reinforced/medical(src)
-	new /obj/item/clothing/head/armor/faceshield/paramedic(src) //Eclipse edit - added trauma armour to lockers
+	new /obj/item/clothing/head/soft/medical(src)
 	new /obj/item/extinguisher/mini(src)
 	new /obj/item/clothing/shoes/reinforced(src)
 	new /obj/item/device/radio/headset/headset_med(src)
 	new /obj/item/taperoll/medical(src)
 	new /obj/item/storage/belt/medical/emt(src)
-	new /obj/item/clothing/suit/armor/paramedic(src) //Eclipse edit - added trauma armour to lockers
+	new /obj/item/clothing/suit/storage/hazardvest/black(src)
 	new /obj/item/storage/pouch/medical_supply(src)
 
 /obj/structure/closet/secure_closet/reinforced/CMO
-	name = "chief medical officer's locker"
+	name = "moebius biolab officer's locker"
 	req_access = list(access_cmo)
 	icon_state = "cmo"
 
@@ -136,4 +136,3 @@
 	new /obj/item/storage/box/pillbottles(src)
 	new /obj/item/storage/box/pillbottles(src)
 	new /obj/item/storage/pouch/tubular/vial(src)
-

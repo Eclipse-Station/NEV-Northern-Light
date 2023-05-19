@@ -50,7 +50,7 @@ ADMIN_VERB_ADD(/client/proc/Debug2, R_DEBUG, FALSE)
 	else
 		alert("Invalid mob")
 
-/client/proc/cmd_admin_animalize(var/mob/M in SSmobs.mob_list)
+/client/proc/cmd_admin_animalize(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 	set category = "Fun"
 	set name = "Make Simple Animal"
 
@@ -108,56 +108,6 @@ ADMIN_VERB_ADD(/client/proc/Debug2, R_DEBUG, FALSE)
 	else
 		alert("Invalid mob")
 
-/*
-/client/proc/cmd_admin_monkeyize(var/mob/M in SSmobs.mob_list)
-	set category = "Fun"
-	set name = "Make Monkey"
-
-	if(!ticker)
-		alert("Wait until the game starts")
-		return
-	if(ishuman(M))
-		var/mob/living/carbon/human/target = M
-		log_admin("[key_name(src)] is attempting to monkeyize [M.key].")
-		spawn(10)
-			target.monkeyize()
-	else
-		alert("Invalid mob")
-
-/client/proc/cmd_admin_changelinginize(var/mob/M in SSmobs.mob_list)
-	set category = "Fun"
-	set name = "Make Changeling"
-
-	if(!ticker)
-		alert("Wait until the game starts")
-		return
-	if(ishuman(M))
-		log_admin("[key_name(src)] has made [M.key] a changeling.")
-		spawn(10)
-			M.absorbed_dna[M.real_name] = M.dna.Clone()
-			M.make_changeling()
-			if(M.mind)
-				M.mind.special_role = "Changeling"
-	else
-		alert("Invalid mob")
-*/
-/*
-/client/proc/cmd_admin_abominize(var/mob/M in SSmobs.mob_list)
-	set category = null
-	set name = "Make Abomination"
-
-	to_chat(usr, "Ruby Mode disabled. Command aborted.")
-	return
-	if(!ticker)
-		alert("Wait until the game starts.")
-		return
-	if(ishuman(M))
-		log_admin("[key_name(src)] has made [M.key] an abomination.")
-
-	//	spawn(10)
-	//		M.make_abomination()
-
-*/
 /*
 /client/proc/make_cultist(var/mob/M in SSmobs.mob_list) // -- TLE, modified by Urist
 	set category = "Fun"
@@ -254,7 +204,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_debug_make_powernets, R_DEBUG, FALSE)
 	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.")
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.", 0)
 
-/client/proc/cmd_admin_grantfullaccess(var/mob/M in SSmobs.mob_list)
+/client/proc/cmd_admin_grantfullaccess(var/mob/M in SShumans.mob_list)
 	set category = "Admin"
 	set name = "Grant Full Access"
 
@@ -279,7 +229,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_debug_make_powernets, R_DEBUG, FALSE)
 	log_admin("[key_name(src)] has granted [M.key] full access.")
 	message_admins("\blue [key_name_admin(usr)] has granted [M.key] full access.", 1)
 
-/client/proc/cmd_assume_direct_control(var/mob/M in SSmobs.mob_list)
+/client/proc/cmd_assume_direct_control(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 	set category = "Admin"
 	set name = "Assume direct control"
 	set desc = "Direct intervention"
@@ -445,11 +395,11 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_dress, R_FUN, FALSE)
 	for(var/obj/machinery/power/rad_collector/Rad in world)
 		if(Rad.anchored)
 			if(!Rad.P)
-				var/obj/item/tank/plasma/Phoron = new/obj/item/tank/plasma(Rad)
-				Phoron.air_contents.gas["phoron"] = 70
+				var/obj/item/tank/plasma/Plasma = new/obj/item/tank/plasma(Rad)
+				Plasma.air_contents.gas["plasma"] = 70
 				Rad.drainratio = 0
-				Rad.P = Phoron
-				Phoron.loc = Rad
+				Rad.P = Plasma
+				Plasma.loc = Rad
 
 			if(!Rad.active)
 				Rad.toggle_power()
@@ -471,26 +421,13 @@ ADMIN_VERB_ADD(/client/proc/cmd_debug_mob_lists, R_DEBUG, FALSE)
 		if("Admins")
 			to_chat(usr, jointext(admins,","))
 		if("Mobs")
-			to_chat(usr, jointext(SSmobs.mob_list,","))
+			to_chat(usr, jointext(SSmobs.mob_list | SShumans.mob_list,","))
 		if("Living Mobs")
 			to_chat(usr, jointext(GLOB.living_mob_list,","))
 		if("Dead Mobs")
 			to_chat(usr, jointext(GLOB.dead_mob_list,","))
 		if("Clients")
 			to_chat(usr, jointext(clients,","))
-
-// DNA2 - Admin Hax
-/client/proc/cmd_admin_toggle_block(mob/M,var/block)
-	if(iscarbon(M))
-		M.dna.SetSEState(block,!M.dna.GetSEState(block))
-		domutcheck(M,null,MUTCHK_FORCED)
-		M.update_mutations()
-		var/state="[M.dna.GetSEState(block)?"on":"off"]"
-		var/blockname=assigned_blocks[block]
-		message_admins("[key_name_admin(src)] has toggled [M.key]'s [blockname] block [state]!")
-		log_admin("[key_name(src)] has toggled [M.key]'s [blockname] block [state]!")
-	else
-		alert("Invalid mob")
 
 ADMIN_VERB_ADD(/client/proc/view_runtimes, R_DEBUG, FALSE)
 /client/proc/view_runtimes()

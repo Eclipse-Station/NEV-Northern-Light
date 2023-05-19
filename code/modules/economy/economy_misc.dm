@@ -48,15 +48,6 @@
 
 /var/list/economic_species_modifier = list(/datum/species/human	= 10)
 
-//---- The following corporations are friendly with NanoTrasen and loosely enable trade and travel:
-//Corporation NanoTrasen - Generalised / high tech research and phoron exploitation.
-//Corporation Vessel Contracting - Ship and station construction, materials research.
-//Corporation Osiris Atmospherics - Atmospherics machinery construction and chemical research.
-//Corporation Second Red Cross Society - 26th century Red Cross reborn as a dominating economic force in biomedical science (research and materials).
-//Corporation Blue Industries - High tech and high energy research, in particular into the mysteries of bluespace manipulation and power generation.
-//Corporation Kusanagi Robotics - Founded by robotics legend Kaito Kusanagi in the 2070s, they have been on the forefront of mechanical augmentation and robotics development ever since.
-//Corporation Free traders - Not so much a corporation as a loose coalition of spacers, Free Traders are a roving band of smugglers, traders and fringe elements following a rigid (if informal) code of loyalty and honour. Mistrusted by most corporations, they are tolerated because of their uncanny ability to smell out a profit.
-
 //---- Descriptions of destination types
 //Space stations can be purpose built for a number of different things, but generally require regular shipments of essential supplies.
 //Corvettes are small, fast warships generally assigned to border patrol or chasing down smugglers.
@@ -101,11 +92,10 @@ var/global/datum/computer_file/data/email_account/service/payroll/payroll_mailer
 		create_department_account(GLOB.all_departments[d])
 
 	station_account = department_accounts[DEPARTMENT_COMMAND]
-	vendor_account = department_accounts[DEPARTMENT_GUILD] //Vendors are operated by the guild and purchases pay into their stock
 
 	for(var/obj/machinery/vending/V in GLOB.machines)
-		if(!V.custom_vendor)
-			V.earnings_account = V.vendor_department ? department_accounts[V.vendor_department] : vendor_account
+		if(V.vendor_department)
+			V.earnings_account = department_accounts[V.vendor_department]
 
 	current_date_string = "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], [game_year]"
 
@@ -130,8 +120,8 @@ var/global/datum/computer_file/data/email_account/service/payroll/payroll_mailer
 		department_account.can_make_accounts = TRUE
 
 	//create an entry in the account transaction log for when it was created
-	var/datum/transaction/T = new(department.account_initial_balance, department_account.owner_name, "Account creation", "Free Trade Union Terminal #277")
-	T.date = "2 April, 2321"
+	var/datum/transaction/T = new(department.account_initial_balance, department_account.owner_name, "Account creation", "Asters Guild Terminal #277")
+	T.date = "2 April, 2339"
 	T.time = "11:24"
 
 	//add the account

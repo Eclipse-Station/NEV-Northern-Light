@@ -32,6 +32,9 @@
 		src.icon_state = _icon_state
 	..()
 
+/obj/screen/examine(mob/user)
+	if(desc)
+		to_chat(user, SPAN_NOTICE(desc))
 
 /obj/screen/Process()
 	return
@@ -41,6 +44,7 @@
 
 /obj/screen/Destroy()
 	master = null
+	parentmob = null
 	return ..()
 
 /obj/screen/update_plane()
@@ -51,11 +55,13 @@
 
 
 /obj/screen/Click(location, control, params)
-	if(!usr)
-		return TRUE
+	// Object Click() processed before and separately from mob's ClickOn(), thus every shift click doubles as just click
+	// This is a band aid to prevent such behavior
+	var/list/modifiers = params2list(params)
+	if(desc && modifiers["shift"])
+		return
 
 	switch(name)
-
 		if("equip")
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
@@ -63,8 +69,7 @@
 
 		if("Reset Machine")
 			usr.unset_machine()
-		else
-			return FALSE
+
 	return TRUE
 //--------------------------------------------------close---------------------------------------------------------
 
@@ -85,6 +90,7 @@
 
 //--------------------------------------------------GRAB---------------------------------------------------------
 /obj/screen/grab
+	icon = 'icons/mob/grab_icons.dmi'
 	name = "grab"
 
 /obj/screen/grab/Click()
@@ -185,60 +191,49 @@
 	var/list/PL = params2list(params)
 	var/icon_x = text2num(PL["icon-x"])
 	var/icon_y = text2num(PL["icon-y"])
-	var/new_selecting
+	var/selecting
 
 	switch(icon_y)
-		if(1 to 3) //Feet
+		if(1 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
-					new_selecting = BP_R_FOOT
+					selecting = BP_R_LEG
 				if(17 to 22)
-					new_selecting = BP_L_FOOT
+					selecting = BP_L_LEG
 				else
-					return 1
-		if(4 to 9) //Legs
-			switch(icon_x)
-				if(10 to 15)
-					new_selecting = BP_R_LEG
-				if(17 to 22)
-					new_selecting = BP_L_LEG
-				else
-					return 1
-		if(10 to 13) //Hands and groin
+					return TRUE
+		if(10 to 13) //Arms and groin
 			switch(icon_x)
 				if(8 to 11)
-					new_selecting = BP_R_HAND
+					selecting = BP_R_ARM
 				if(12 to 20)
-					new_selecting = BP_GROIN
+					selecting = BP_GROIN
 				if(21 to 24)
-					new_selecting = BP_L_HAND
+					selecting = BP_L_ARM
 				else
-					return 1
+					return TRUE
 		if(14 to 22) //Chest and arms to shoulders
 			switch(icon_x)
 				if(8 to 11)
-					new_selecting = BP_R_ARM
+					selecting = BP_R_ARM
 				if(12 to 20)
-					new_selecting = BP_CHEST
+					selecting = BP_CHEST
 				if(21 to 24)
-					new_selecting = BP_L_ARM
+					selecting = BP_L_ARM
 				else
-					return 1
+					return TRUE
 		if(23 to 30) //Head, but we need to check for eye or mouth
 			if(icon_x in 12 to 20)
-				new_selecting = BP_HEAD
+				selecting = BP_HEAD
 				switch(icon_y)
 					if(23 to 24)
 						if(icon_x in 15 to 17)
-							new_selecting = BP_MOUTH
-					if(26) //Eyeline, eyes are on 15 and 17
-						if(icon_x in 14 to 18)
-							new_selecting = BP_EYES
+							selecting = BP_MOUTH
 					if(25 to 27)
-						if(icon_x in 15 to 17)
-							new_selecting = BP_EYES
+						if(icon_x in 14 to 18)
+							selecting = BP_EYES
 
-	set_selected_zone(new_selecting)
+	set_selected_zone(selecting)
 	return TRUE
 
 /obj/screen/zone_sel/New()
@@ -251,8 +246,6 @@
 
 /obj/screen/zone_sel/proc/set_selected_zone(bodypart)
 	var/old_selecting = parentmob.targeted_organ
-	testing("[bodypart] - - [old_selecting]")
-
 	if(old_selecting != bodypart)
 		parentmob.targeted_organ = bodypart
 		update_icon()
@@ -334,6 +327,9 @@
 //--------------------------------------------------health---------------------------------------------------------
 /obj/screen/health
 	name = "health"
+	desc = "Not your actual health, but an estimate of how much pain you feel.\
+	<br>Experience too much of it, and you will lose consciousness.\
+	<br>Pain tolerance scales with your Toughness."
 	icon = 'icons/mob/screen/ErisStyle.dmi'
 	icon_state = "health0"
 	screen_loc = "15,7"
@@ -376,6 +372,8 @@
 	overlays += ovrls["health7"]
 
 /obj/screen/health/Click()
+	if(!..())
+		return
 	if(ishuman(parentmob))
 		var/mob/living/carbon/human/H = parentmob
 		H.check_self_for_injuries()
@@ -384,6 +382,10 @@
 //--------------------------------------------------sanity---------------------------------------------------------
 /obj/screen/sanity
 	name = "sanity"
+	desc = "Soundness of your mind. Not keeping it in check may result in a breakdown.\
+	<br>Damaged by feeling pain, as well as seeing grime and gore; \
+	soothed by taking drugs, drinking, eating decent food and talking, preferably in a clean place with fellow humans around.\
+	<br>Sanity damage scales with your Vigilance. Left-click eye icon to see your current sanity, insight and style."
 	icon_state = "blank"
 
 /obj/screen/sanity/New()
@@ -445,16 +447,21 @@
 	overlays += ovrls["sanity0"]
 
 /obj/screen/sanity/Click()
+	if(!..())
+		return
 	if(!ishuman(parentmob))
 		return FALSE
 	var/mob/living/carbon/human/H = parentmob
-	H.ui_interact(H)
+	H.nano_ui_interact(H)
 	return	TRUE
 
 //--------------------------------------------------sanity end---------------------------------------------------------
 //--------------------------------------------------nsa---------------------------------------------------------
 /obj/screen/nsa
 	name = "nsa"
+	desc = "Neural System Accumulation depicts strain your body is experiencing.\
+	<br>It is increased by chemicals and mutations.\
+	<br>Going beyond your body's limits has negative consequences. NSA limit scales with your Cognition."
 	icon_state = "blank"
 
 /obj/screen/nsa/New()
@@ -509,6 +516,7 @@
 //--------------------------------------------------nutrition---------------------------------------------------------
 /obj/screen/nutrition
 	name = "nutrition"
+	desc = "This shows how much hunger you feel. Being malnourished significantly slows you down. Not updated immediately after eating."
 	icon = 'icons/mob/screen/ErisStyle.dmi'
 	icon_state = "blank"
 	screen_loc = "15,6"
@@ -546,6 +554,9 @@
 //--------------------------------------------------bodytemp---------------------------------------------------------
 /obj/screen/bodytemp
 	name = "bodytemp"
+	desc = "Temperature of your body. Affected by environment, health and ingested chemicals.\
+	<br>Fever might be a sign of untreated infection.\
+	<br>You are slowed down if your body temperature is low enough."
 	icon = 'icons/mob/screen/ErisStyle.dmi'
 	icon_state = "blank"
 	screen_loc = "15,8"
@@ -615,6 +626,8 @@
 //--------------------------------------------------pressure---------------------------------------------------------
 /obj/screen/pressure
 	name = "pressure"
+	desc = "Barometric pressure experienced by your body.\
+	<br>Being in an environment with extreme pressure without a voidsuit is fatal."
 	icon = 'icons/mob/screen/ErisStyle.dmi'
 	icon_state = "blank"
 	screen_loc = "15,13"
@@ -663,7 +676,7 @@
 /obj/screen/toxin/update_icon()
 	var/mob/living/carbon/human/H = parentmob
 	cut_overlays()
-	if(H.phoron_alert)
+	if(H.plasma_alert)
 		overlays += ovrls["tox1"]
 //		icon_state = "tox1"
 //	else
@@ -812,7 +825,7 @@ obj/screen/fire/DEADelize()
 										contents.Add(0)
 
 								if ("oxygen")
-									if(t.air_contents.gas["oxygen"] && !t.air_contents.gas["phoron"])
+									if(t.air_contents.gas["oxygen"] && !t.air_contents.gas["plasma"])
 										contents.Add(t.air_contents.gas["oxygen"])
 									else if(istype(t, /obj/item/tank/onestar_regenerator))
 										contents.Add(BREATH_MOLES*2)
@@ -821,7 +834,7 @@ obj/screen/fire/DEADelize()
 
 								// No races breath this, but never know about downstream servers.
 								if ("carbon dioxide")
-									if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["phoron"])
+									if(t.air_contents.gas["carbon_dioxide"] && !t.air_contents.gas["plasma"])
 										contents.Add(t.air_contents.gas["carbon_dioxide"])
 									else
 										contents.Add(0)
@@ -948,6 +961,32 @@ obj/screen/fire/DEADelize()
 		icon_state = "act_throw_off"
 //-----------------------throw END------------------------------
 
+//-----------------------block------------------------------
+/obj/screen/block
+	name = "block"
+	icon_state = "block_off"
+	screen_loc = "15:-16,3"
+	layer = HUD_LAYER
+	plane = HUD_PLANE
+
+/obj/screen/block/New()
+	..()
+	update_icon()
+
+/obj/screen/block/Click()
+	if(usr.client)
+		usr.client.blocking()
+		update_icon()
+
+/obj/screen/block/update_icon()
+	if(ishuman(parentmob))//always true, but just in case
+		var/mob/living/carbon/human/H = parentmob
+		if(H.blocking)
+			icon_state = "block_on"
+		else
+			icon_state = "block_off"
+//-----------------------block END------------------------------
+
 //-----------------------drop------------------------------
 /obj/screen/drop
 	name = "drop"
@@ -1001,7 +1040,7 @@ obj/screen/fire/DEADelize()
 	var/decl/move_intent/newintent = decls_repository.get_decl(move_intent_type)
 	if (newintent.can_enter(parentmob, TRUE))
 		parentmob.move_intent = newintent
-		SEND_SIGNAL(parentmob, COMSIG_HUMAN_WALKINTENT_CHANGE, parentmob, newintent)
+		SEND_SIGNAL_OLD(parentmob, COMSIG_HUMAN_WALKINTENT_CHANGE, parentmob, newintent)
 		update_icon()
 
 	update_icon()
@@ -1114,7 +1153,7 @@ obj/screen/fire/DEADelize()
 		parentmob.a_intent_change(I_GRAB)
 	if(_x>=17 && _y>=17)
 		parentmob.a_intent_change(I_DISARM)
-	SEND_SIGNAL(parentmob, COMSIG_HUMAN_ACTIONINTENT_CHANGE, parentmob)
+	SEND_SIGNAL_OLD(parentmob, COMSIG_HUMAN_ACTIONINTENT_CHANGE, parentmob)
 
 /obj/screen/intent/update_icon()
 	src.cut_overlays()
@@ -1175,14 +1214,14 @@ obj/screen/fire/DEADelize()
 
 /obj/screen/drugoverlay/update_icon()
 	underlays.Cut()
-	if (parentmob.disabilities & NEARSIGHTED)
-		var/obj/item/clothing/glasses/G = parentmob.get_equipped_item(slot_glasses)
-		if(!G || !G.prescription)
-			underlays += global_hud.vimpaired
+//	if (parentmob.disabilities & NEARSIGHTED)
+//		var/obj/item/clothing/glasses/G = parentmob.get_equipped_item(slot_glasses)
+//		if(!G || !G.prescription)
+//			underlays += global_hud.vimpaired
 	if (parentmob.eye_blurry)
-		underlays += global_hud.blurry
+		underlays |= global_hud.blurry
 	if (parentmob.druggy)
-		underlays += global_hud.druggy
+		underlays |= global_hud.druggy
 
 
 /obj/screen/full_1_tile_overlay
@@ -1320,13 +1359,17 @@ obj/screen/fire/DEADelize()
 	var/mob/living/carbon/human/H = parentmob
 	if(istype(H.glasses, /obj/item/clothing/glasses))
 		var/obj/item/clothing/glasses/G = H.glasses
-		if (G.active && G.overlay)//check here need if someone want call this func directly
+		if(G.active && G.overlay)//check here need if someone want call this func directly
 			overlays |= G.overlay
 
 	if(istype(H.wearing_rig,/obj/item/rig))
 		var/obj/item/clothing/glasses/G = H.wearing_rig.getCurrentGlasses()
-		if (G && H.wearing_rig.visor.active)
+		if(G && H.wearing_rig.visor.active)
 			overlays |= G.overlay
+
+	if(get_active_mutation(H, MUTATION_NIGHT_VISION))
+		overlays |= global_hud.nvg
+
 
 //-----------------------toggle_invetory------------------------------
 /obj/screen/toggle_invetory

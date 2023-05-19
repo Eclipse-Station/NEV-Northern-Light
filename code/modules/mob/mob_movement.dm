@@ -111,6 +111,14 @@
 	else
 		return
 
+/client/verb/blocking()
+	set hidden = 1
+	if(!istype(mob, /mob/living/carbon/human))
+		return
+	if(!mob.stat && isturf(mob.loc) && !mob.restrained())
+		mob:blocking()
+	else
+		return
 
 /client/verb/drop_item()
 	set hidden = 1
@@ -185,8 +193,6 @@
 	for(var/obj/O in orange(1, src))
 		if(O.density && O.anchored)
 			return TRUE
-		if(istype(O, /obj/structure/closet) && O.density)
-			return TRUE
 
 	return FALSE
 
@@ -245,3 +251,6 @@
 		delay /= speed_factor
 
 	return delay
+
+/mob/proc/add_momentum()
+	return FALSE

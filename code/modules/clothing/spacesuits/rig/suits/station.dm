@@ -28,16 +28,20 @@
 /obj/item/rig/industrial
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
-	desc = "A heavy, powerful rig used by construction crews and mining corporations."
+	desc = "A heavy, powerful rig used by construction crews and mining corporations. The soft plating can protect the wearer from unexpected hazards, but is not reliable in prolonged combat."
 	icon_state = "engineering_rig"
+	price_tag = 350
 	armor = list(
-		melee = 50,
-		bullet = 50,
-		energy = 20,
+		melee = 10,
+		bullet = 10,
+		energy = 0,
 		bomb = 25,
 		bio = 100,
 		rad = 90
 	)
+	ablative_max = 8
+	ablation = ABLATION_SOFT
+
 	drain = 3
 	offline_slowdown = HEAVY_SLOWDOWN * 5
 	offline_vision_restriction = 2
@@ -61,7 +65,8 @@
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/orescanner,
 		/obj/item/rig_module/device/rcd,
-		/obj/item/rig_module/vision/meson
+		/obj/item/rig_module/vision/meson,
+		/obj/item/rig_module/storage
 		)
 
 
@@ -74,9 +79,9 @@
 	desc = "A light rig for repairs and maintenance to the outside of habitats and vessels."
 	icon_state = "eva_rig"
 	armor = list(
-		melee = 20,
-		bullet = 10,
-		energy = 10,
+		melee = 9,
+		bullet = 3,
+		energy = 3,
 		bomb = 10,
 		bio = 100,
 		rad = 100
@@ -102,13 +107,14 @@
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/rcd,
-		/obj/item/rig_module/vision/meson
+		/obj/item/rig_module/vision/meson,
+		/obj/item/rig_module/storage
 		)
 
 
-/*********************************
-Advanced Voidsuit: Chief Engineer
-**********************************/
+/***************************************
+Advanced Voidsuit: Technomancer Exultant
+****************************************/
 /obj/item/rig/ce
 	name = "advanced voidsuit control module"
 	suit_type = "advanced voidsuit"
@@ -116,13 +122,15 @@ Advanced Voidsuit: Chief Engineer
 	icon_state = "ce_rig"
 	rarity_value = 20
 	armor = list(
-		melee = 40,
-		bullet = 40,
-		energy = 40,
+		melee = 8,
+		bullet = 8,
+		energy = 8,
 		bomb = 50,
 		bio = 100,
 		rad = 100
 	)
+	ablative_max = 10
+	ablation = ABLATION_RESILIENT
 	drain = 2
 	offline_slowdown = 0
 	offline_vision_restriction = 0
@@ -143,9 +151,8 @@ Advanced Voidsuit: Chief Engineer
 	req_access = list(access_ce)
 	req_one_access = list()
 	spawn_blacklisted = TRUE//antag_item_targets
-	slowdown = LIGHT_SLOWDOWN
-	stiffness = 0
-	obscuration = 0
+	slowdown = LIGHT_SLOWDOWN * 1.1
+
 
 /obj/item/rig/ce/equipped
 	rarity_value = 40
@@ -171,19 +178,21 @@ Advanced Voidsuit: Chief Engineer
 Technomancer RIG
 ***************************************/
 /obj/item/rig/techno
-	name = "engineering suit control module"
-	suit_type = "engineering RIG suit"
+	name = "technomancer suit control module"
+	suit_type = "technomancer RIG suit"
 	desc = "An advanced RIG suit that protects against hazardous, low pressure and high temperature environments."
 	icon_state = "techno_rig"
 	rarity_value = 20
 	armor = list(
-		melee = 30,
-		bullet = 30,
-		energy = 30,
+		melee = 8,
+		bullet = 8,
+		energy = 8,
 		bomb = 50,
 		bio = 100,
 		rad = 100
 	)
+	ablative_max = 10
+	ablation = ABLATION_DURABLE
 	drain = 3
 	offline_vision_restriction = 0
 
@@ -201,11 +210,12 @@ Technomancer RIG
 	)
 
 	spawn_blacklisted = TRUE
+	slowdown = LIGHT_SLOWDOWN
 
 /obj/item/rig/techno/equipped
 	initial_modules = list(
-		/obj/item/rig_module/storage,
 		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/storage
 		)
 
 /obj/item/clothing/gloves/rig/techno
@@ -230,14 +240,17 @@ Technomancer RIG
 	icon_state = "science_rig"
 	spawn_tags = SPAWN_TAG_RIG_HAZMAT
 	rarity_value = 25
+	price_tag = 350
 	armor = list(
-		melee = 30,
-		bullet = 20,
-		energy = 50,
+		melee = 0,
+		bullet = 0,
+		energy = 8,
 		bomb = 90,
 		bio = 100,
 		rad = 100
 	)
+	ablative_max = 12
+	ablation = ABLATION_EVERLASTING
 	drain = 3
 	offline_vision_restriction = 1
 
@@ -248,18 +261,13 @@ Technomancer RIG
 		/obj/item/tool,
 		/obj/item/device/scanner/health,
 		/obj/item/device/measuring_tape,
-		/obj/item/device/ano_scanner,
-		/obj/item/device/depth_scanner,
-		/obj/item/device/core_sampler,
 		/obj/item/device/gps,
-		/obj/item/device/beacon_locator,
 		/obj/item/device/radio/beacon,
-		/obj/item/storage/bag/fossils
 	)
 
 	req_access = list()
 	req_one_access = list()
-	slowdown = HEAVY_SLOWDOWN * 0.7
+	slowdown = MEDIUM_SLOWDOWN
 
 /obj/item/rig/hazmat/equipped
 	req_access = list(access_rd)
@@ -268,7 +276,7 @@ Technomancer RIG
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/device/anomaly_scanner
+		/obj/item/rig_module/storage
 		)
 
 
@@ -279,16 +287,18 @@ Technomancer RIG
 /obj/item/rig/medical
 	name = "rescue suit control module"
 	suit_type = "rescue hardsuit"
-	desc = "A relatively lightweight and durable RIG suit designed for medical rescue in hazardous locations."
+	desc = "A relatively lightweight ceramic RIG suit designed for medical rescue in hazardous locations."
 	icon_state = "medical_rig"
 	armor = list(
-		melee = 20,
-		bullet = 10,
-		energy = 10,
+		melee = 4,
+		bullet = 4,
+		energy = 0,
 		bomb = 50,
 		bio = 100,
 		rad = 100
 	)
+	ablative_max = 10
+	ablation = ABLATION_CERAMIC
 	offline_vision_restriction = 1
 
 	helm_type = /obj/item/clothing/head/space/rig/medical
@@ -299,17 +309,16 @@ Technomancer RIG
 		/obj/item/stack/medical,
 		/obj/item/roller
 	)
-	slowdown = HEAVY_SLOWDOWN * 0.5
-	stiffness = MEDIUM_STIFFNESS
+	slowdown = LIGHT_SLOWDOWN * 1.1
 
 /obj/item/rig/medical/equipped
 	req_access = list()
 	req_one_access = list()
 	rarity_value = 20
 	initial_modules = list(
-		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/modular_injector/medical,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/healthscanner,
-		/obj/item/rig_module/storage,
-		/obj/item/rig_module/vision/medhud
+		/obj/item/rig_module/vision/medhud,
+		/obj/item/rig_module/storage
 		)

@@ -171,19 +171,17 @@
 	new /obj/item/clothing/head/space/bomb(src)
 
 /obj/structure/closet/self_pacification
-	name = "\improper NanoTrasen Anti-Depressive Utility closet"
-	desc = "Motivate yourself!"
+	name = "\improper Anti-Depressive Self-Pacification Treatment Utility closet"
+	desc = "The last things you will ever need!"
 	icon_state = "syndicate"
 	icon_door = "syndicate_skull"
 	anchored = TRUE
 
 /obj/structure/closet/self_pacification/populate_contents()
-	new /obj/spawner/toy/plushie(src)
-	new /obj/spawner/toy/figure(src)
-	new /obj/spawner/toy/plushie(src)
-	new /obj/spawner/toy/figure(src)
-	new /obj/spawner/toy/plushie(src)
-	new /obj/spawner/toy/plushie(src)
-	new /obj/spawner/toy/plushie(src)
-	new /obj/spawner/toy/figure(src)
-
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/clothing/mask/breath(src)
+	new /obj/item/tank/emergency_oxygen/nitrogen(src)
+	new /obj/item/tank/emergency_oxygen/nitrogen(src)
+	new /obj/item/paper/self_pacification(src)
+	new /obj/item/paper(src)
+	new /obj/item/pen(src)

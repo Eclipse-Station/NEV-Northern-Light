@@ -33,9 +33,9 @@ GLOBAL_LIST_INIT(art_types, file2list("strings/artist_strings/descriptors/art_ty
 		if(H.mind && player_is_antag(H.mind))
 			continue
 		if(only_first_name)
-			names.Add(H.real_name && H.real_name)
-		else if(only_last_name && H.family_name)
-			names.Add(H.family_name)
+			names.Add(H.first_name && H.first_name)
+		else if(only_last_name && H.last_name)
+			names.Add(H.last_name)
 		else
 			names.Add(H.real_name)
 	if(names.len)

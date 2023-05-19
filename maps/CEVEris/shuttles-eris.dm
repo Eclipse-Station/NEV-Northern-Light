@@ -119,45 +119,42 @@
 //Skipjack
 //antag Shuttles disabled by nanako, 2018-09-15
 //These shuttles are created with a subtypesof loop at runtime. Starting points for the skipjack and merc shuttle are not currentl mapped in
-//Eclipse Edit - Valanthe500 re-enabled Skipjack 2022-06-28
-
+/*
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
 	warmup_time = 0
-	move_time = 180
-	cloaked = 0
 	destination_tags = list(
 		"nav_skipjack_northwest",
 		"nav_skipjack_southeast",
-		"nav_skipjack_dock", 
+//		"nav_skipjack_dock",
 		"nav_skipjack_start",
 		)
 	shuttle_area =  /area/skipjack_station/start
 	dock_target = "skipjack_shuttle"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_transition"
-	announcer = "NEV Northern Light Sensor Array"
+	announcer = "CEV Eris Sensor Array"
 	home_waypoint = "nav_skipjack_start"
-	arrival_message = "Attention, unidentified vessel detected on long range sensors. \nVessel is approaching on an intercept course. \nHailing frequencies open."
-	departure_message = "Attention, unknown vessel has departed"
-
+	arrival_message = "Attention, vessel detected entering vessel proximity."
+	departure_message = "Attention, vessel detected leaving vessel proximity."
+*/
 /obj/effect/shuttle_landmark/skipjack/start
-	name = "Skipjack Deep Space" //Eclipse Edit - Rename
+	name = "Raider Outpost"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_skipjack_start"
-	docking_controller = "skipjack_shuttle"
+	docking_controller = "skipjack_base"
 
 /obj/effect/shuttle_landmark/skipjack/internim
 	name = "In transit"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_skipjack_transition"
-
+/*
 /obj/effect/shuttle_landmark/skipjack/dock
-	name = "Docking Port Deck 4" //Eclipse Edit - Renamed landmark
+	name = "Docking Port"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_skipjack_dock"
-	dock_target = "second_sec_1_access_console"
-
+	docking_controller = "skipjack_shuttle_dock_airlock"
+*/
 /obj/effect/shuttle_landmark/skipjack/northwest
 	name = "Northwest of the Vessel"
 	icon_state = "shuttle-red"
@@ -197,7 +194,7 @@
 	default_docking_controller = "merc_shuttle"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_transition"
-	announcer = "NEV Northern Light Sensor Array"
+	announcer = "CEV Eris Sensor Array"
 	home_waypoint = "nav_merc_start"
 	arrival_message = "Attention, unidentified vessel detected on long range sensors. \nVessel is approaching on an intercept course. \nHailing frequencies open."
 	departure_message = "Attention, unknown vessel has departed"
@@ -235,13 +232,13 @@
 	landmark_tag = "nav_merc_transition"
 
 /obj/effect/shuttle_landmark/merc/dock
-	name = "Docking Port Deck 4" //Eclipse Edit - Renamed landmark for Erida
+	name = "Docking Port Deck 5"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_merc_dock"
 	dock_target = "second_sec_1_access_console"
 
 /obj/effect/shuttle_landmark/merc/northeast
-	name = "Northeast of the Vessel Deck 4" //Eclipse Edit - Renamed landmark for Erida
+	name = "Northeast of the Vessel Deck 5"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_merc_northeast"
 
@@ -251,7 +248,7 @@
 	landmark_tag = "nav_merc_southwest"
 
 /obj/effect/shuttle_landmark/merc/atmos
-	name = "Atmospherics Deck 2" //Eclipse Edit - Renamed landmark for Erida
+	name = "Atmospherics Deck 1"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_merc_atmos"
 
@@ -266,12 +263,12 @@
 	landmark_tag = "nav_merc_sec2east"
 
 /obj/effect/shuttle_landmark/merc/junk
-	name = "Junk Beacon Deck 4" //Eclipse Edit - Renamed landmark for Erida
+	name = "Junk Beacon Deck 1"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_merc_junk"
 
 /obj/effect/shuttle_landmark/merc/armory
-	name = "Armory Deck 2" //Eclipse Edit - Renamed landmark for Erida
+	name = "Armory Deck 1"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_merc_armory"
 
@@ -286,12 +283,12 @@
 	landmark_tag = "nav_merc_mining"
 
 /obj/effect/shuttle_landmark/merc/medbay
-	name = "Medbay Deck 2" //Eclipse Edit - Renamed landmark for Erida
+	name = "Medbay Deck 4"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_merc_medbay"
 
 /obj/effect/shuttle_landmark/merc/engine
-	name = "Engine Deck 3" //Eclipse Edit - Renamed landmark for Erida
+	name = "Engine Deck 4"
 	icon_state = "shuttle-red"
 	landmark_tag = "nav_merc_engine"
 

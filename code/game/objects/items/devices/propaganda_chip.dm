@@ -13,7 +13,7 @@
 	set src in oview(1)
 	if(usr.incapacitated() || !Adjacent(usr) || !isturf(loc))
 		return
-
+	
 	for(var/obj/item/device/propaganda_chip/C in get_area(src))
 		if (C.active)
 			to_chat(usr, SPAN_WARNING("Another chip in the area prevents activation."))
@@ -29,7 +29,7 @@
 obj/item/device/propaganda_chip/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	return ..()
-
+	
 /obj/item/device/propaganda_chip/attack_hand(mob/user)
 	if (active)
 		switch(alert("Do I want to disturb the chip, it looks delicate","You think...","Yes","No"))
@@ -65,7 +65,7 @@ obj/item/device/propaganda_chip/Destroy()
 		if(candidate_mind.assigned_role in list(JOBS_SECURITY))
 			continue
 
-		else
+		else 
 			crew_target_mind = candidate_mind
 
 		if (crew_target_mind)
@@ -77,24 +77,16 @@ obj/item/device/propaganda_chip/Destroy()
 		crew_name = crew_target_mind.current.real_name
 
 	var/list/messages = list( // Idealy should be extremely long with lots of lines
-		"Aegis just searched me and took all my stuff.",
-		"NanoTrasen hires only the most unhinged of security officers.",
+		"Fucking IH just searched me and took all my shit",
+		"Haha, IH just killed a vag for breaking a window",
 		"With my paycheck I can't even afford 3 bread tubes...",
-		"You know what we should do? Unionize.",
-		"I hate Aegis so much.",
-		"This blasted ship is a deathtrap and NanoTrasen knows it.",
-		"Aegis personnel are a bunch of wimps, I bet they won't be able to handle a mutiny.",
-		"Command cares more about the depth of their own pockets than our lives.",
-		"Iriska has more liberty than any of us.",
-		"Aegis gets more money than anyone and all they do is sit around.",
-		"Command put us all here to clean up their own mess.",
-		"Monopolies choke the progress. There is a whole universe to explore, and yet we sit here working 9 to 5.",
-		"We work to earn the right to live. Disgusting.",
-		"Half of the crew accepted the job out of desperation. NanoTrasen doesn't care.",
-		"We don't even get proper quarters. They store us in a glorified fridge, as if we were just cargo.",
-		"The Command might push their righteous lies, but we all know there's nothing by greed behind their malevolent masks.",
-		"No one feels safe around Aegis. Except Heads.",
-		"The Captain is weak-willed and would break down the moment mutiny starts."
+		"You know what we should do... unionize",
+		"I hate IH so much",
+		"Cheers ye IH just broke my fucking leg in personal",
+		"A clown could beat IH, lets get them",
+		"Command cares more about roaches than us",
+		"Ian has more liberty than any of us",
+		"IH gets more money than anyone and all they do is sit around"
 	)
 	var/message_text = pick(messages)
 	var/message = " <b>[crew_name]</b> says,<FONT SIZE =-2>  \"[message_text]\"</FONT>"
@@ -102,4 +94,4 @@ obj/item/device/propaganda_chip/Destroy()
 	for (var/mob/living/M in viewers(src))
 		to_chat(M, "[message]")
 	last_talk_time = world.time
-
+		

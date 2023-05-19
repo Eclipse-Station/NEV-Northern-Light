@@ -161,13 +161,9 @@
 	filling_states = "100"
 	preloaded_reagents = list("coffee" = 30)
 
-/obj/item/reagent_containers/food/drinks/ice
+/obj/item/reagent_containers/food/drinks/mug/teacup/ice
 	name = "Ice Cup"
 	desc = "Careful, cold ice, do not chew."
-	icon_state = "cup"
-	center_of_mass = list("x"=15, "y"=10)
-	base_icon = "cup"
-	filling_states = "100"
 	preloaded_reagents = list("ice" = 30)
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
@@ -196,6 +192,39 @@
 			icon_state = "ramen_open"
 		else
 			icon_state = "ramenempty"
+
+/obj/item/reagent_containers/food/drinks/energy
+	name = "energy drink"
+	desc = "A heart attack that fits in your pocket."
+	icon_state = "energy_drink"
+	center_of_mass = list("x"=15, "y"=13)
+	preloaded_reagents = list("sugar" = 10, "nuka_cola" = 20)
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+	rarity_value = 15
+
+/obj/item/reagent_containers/food/drinks/energy/update_icon()
+	if(reagent_flags == OPENCONTAINER)
+		if(reagents && reagents.total_volume)
+			icon_state = "energy_drink_open"
+		else
+			icon_state = "energy_drink_whacked"
+
+/obj/item/reagent_containers/food/drinks/protein_shake
+	name = "protein shake"
+	//desc = "Smells like prion disease..."
+	desc = "The best thing to drink after a workout, tastes like apples! At least, the description on this plastic bottle says so. Smells odd..."
+	icon_state = "protein_shake_bottle"
+	center_of_mass = list("x"=16, "y"=8)
+	preloaded_reagents = list("protein_shake_commercial" = 40)
+	rarity_value = 10
+	spawn_tags = SPAWN_TAG_JUNKFOOD
+
+/obj/item/reagent_containers/food/drinks/protein_shake/update_icon()
+	if(reagent_flags == OPENCONTAINER)
+		if(reagents && reagents.total_volume)
+			icon_state = "protein_shake_bottle"
+		else
+			icon_state = "protein_shake_bottle_whacked"
 
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
@@ -323,7 +352,7 @@
 	icon_state = "mug_old_nt"
 
 /obj/item/reagent_containers/food/drinks/mug/new_nt
-	name = "Mekhane mug"
+	name = "NeoTheology mug"
 	desc = "A brown mug, it prominently features a tau-cross."
 	icon_state = "mug_new_nt"
 
@@ -338,28 +367,28 @@
 	icon_state = "mug_serb"
 
 /obj/item/reagent_containers/food/drinks/mug/ironhammer
-	name = "Aegis mug"
-	desc = "A mug with an Aegis Security Solutions logo on it."
+	name = "Ironhammer mug"
+	desc = "A mug with an Ironhammer PMC logo on it."
 	icon_state = "mug_hammer"
 
 /obj/item/reagent_containers/food/drinks/mug/league
-	name = "Engineering mug"
-	desc = "A mug with a NT Engineering logo on it."
+	name = "Technomancer mug"
+	desc = "A mug with a Technomancer League logo on it."
 	icon_state = "mug_league"
 
 /obj/item/reagent_containers/food/drinks/mug/moe
-	name = "Lazarus mug"
-	desc = "A white mug with Lazarus Foundation logo on it."
+	name = "Moebius mug"
+	desc = "A white mug with Moebius Laboratories logo on it."
 	icon_state = "mug_moe"
 
 /obj/item/reagent_containers/food/drinks/mug/aster
-	name = "FTU mug"
-	desc = "A fancy gold mug with an FTU logo on it."
+	name = "Aster mug"
+	desc = "A fancy gold mug with a Aster Guild logo on it."
 	icon_state = "mug_aster"
 
 /obj/item/reagent_containers/food/drinks/mug/guild
-	name = "FTU mug"
-	desc = "A plain mug with an FTU logo on it."
+	name = "Guild mug"
+	desc = "A plain mug with a Aster Guild logo on it."
 	icon_state = "mug_guild"
 
 /obj/item/reagent_containers/food/drinks/mug/white
@@ -373,7 +402,6 @@
 	icon_state = "_cup"
 	base_name = "cup"
 	base_icon = "_cup"
-	filling_states = "100"
 
 
 //tea and tea accessories

@@ -11,10 +11,17 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if(!I)
 		to_chat(src, SPAN_NOTICE("You are not holding anything to equip."))
 		return
+	var/target_slot = get_quick_slot(I)
+	if(I.pre_equip(usr, target_slot))
+		return
+	if(!I.try_transfer(target_slot, usr))
+		quick_equip_storage(I)
+	/*
 	if(!equip_to_appropriate_slot(I))
 		to_chat(src, SPAN_WARNING("You are unable to equip that to your person."))
 		if(quick_equip_storage(I))
 			return
+	*/
 
 /mob/living/carbon/human/verb/belt_equip()
 	set name = "belt-equip"
@@ -42,27 +49,33 @@ This saves us from having to call add_fingerprint() any time something is put in
 	else
 		to_chat(src, SPAN_NOTICE("You are not holding anything to equip or draw."))
 	return
+
+/mob/living/carbon/human/proc/get_quick_slot(obj/item/I)
+	for(var/slot in slot_equipment_priority)
+		if(can_equip(I, slot, TRUE, FALSE, FALSE))
+			return slot
+
+
 /mob/living/carbon/human/verb/bag_equip()
 	set name = "bag-equip"
-	set hidden = 1
+	set hidden = TRUE
 
-	var/obj/item/I = get_active_hand()
-	var/potential = src.get_inactive_hand()
-	if(!I && !src.back)
-		to_chat(src, SPAN_NOTICE("You have no storage on your back or item in hand."))
-		return
-	if(istype(src.back,/obj/item/storage))
-		var/obj/item/storage/backpack = src.back
-		if(I)
-			equip_to_from_bag(I, backpack)
-		else
-			equip_to_from_bag(null, backpack)
-	else if(istype(potential, /obj/item/storage))
-		var/obj/item/storage/pack = potential
-		if(I)
-			equip_to_from_bag(I, pack)
-		else
-			equip_to_from_bag(null, pack)
+	var/obj/item/storage/S
+
+	for(var/i in list(get_inactive_hand(), back, get_active_hand()))
+		if(istype(i, /obj/item/storage))
+			S = i
+			break
+
+		else if(istype(i, /obj/item/rig))
+			var/obj/item/rig/R = i
+			if(R.storage)
+				S = R.storage.container
+				break
+
+	if(S && (!istype(S, /obj/item/storage/backpack) || S:worn_check()))
+		equip_to_from_bag(get_active_hand(), S)
+
 
 //Puts the item into our active hand if possible. returns 1 on success.
 /mob/living/carbon/human/put_in_active_hand(var/obj/item/W)
@@ -99,7 +112,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if (HUDinv.slot_id == slot_id)
 			return (HUDinv.invisibility == 101) ? null : HUDinv.screen_loc
 	log_admin("[src] try find_inv_position a [slot_id], but not have that slot!")
-	to_chat(src, "A problem has occured, change UI style to default. Call admins if the issue persists.")
+	to_chat(src, "Some problem hase accure, change UI style pls or call admins.")
 	return "7,7"
 
 //Mannequins have no hud, this was causing a lot of spam in the logs
@@ -126,42 +139,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 	W.plane = initial(W.plane)
 	W.screen_loc = null
 
-/mob/living/carbon/human/proc/has_organ_for_slot(slot)
-	switch(slot)
-		if(slot_back)
-			return has_organ(BP_CHEST)
-		if(slot_wear_mask)
-			return has_organ(BP_HEAD)
-		if(slot_handcuffed)
-			return has_organ(BP_L_HAND) && has_organ(BP_R_HAND)
-		if(slot_legcuffed)
-			return has_organ(BP_L_LEG ) && has_organ(BP_R_LEG)
-		if(slot_l_hand)
-			return has_organ(BP_L_HAND)
-		if(slot_r_hand)
-			return has_organ(BP_R_HAND)
-		if(slot_belt)
-			return has_organ(BP_CHEST)
-		if(slot_wear_id)
-			// the only relevant check for this is the uniform check
-			return 1
-		if(slot_l_ear, slot_r_ear, slot_glasses)
-			return has_organ(BP_HEAD)
-		if(slot_gloves)
-			return has_organ(BP_L_HAND) || has_organ(BP_R_HAND)
-		if(slot_head)
-			return has_organ(BP_HEAD)
-		if(slot_shoes)
-			return has_organ(BP_R_FOOT) || has_organ(BP_L_FOOT)
-		if(slot_wear_suit, slot_w_uniform, slot_l_store, slot_r_store, slot_s_store)
-			return has_organ(BP_CHEST)
-		if(slot_in_backpack)
-			return 1
-		if(slot_accessory_buffer)
-			return 1
 
-/mob/living/carbon/human/u_equip(obj/W as obj)
-	if(!W)	return 0
 	if (W == wear_suit)
 		if(s_store)
 			drop_from_inventory(s_store)
@@ -250,27 +228,27 @@ This saves us from having to call add_fingerprint() any time something is put in
 		update_inv_l_hand()
 	else
 		return 0
-/*
+
 	W.update_wear_icon(TRUE)
 	if(W.action_button_name)
-		update_action_buttons()*/
+		update_action_buttons()
 	return 1
 
 /mob/living/carbon/human/proc/get_active_hand_organ()
 	if(hand)
-		return get_organ(BP_L_HAND)
+		return get_organ(BP_L_ARM)
 	else
-		return get_organ(BP_R_HAND)
+		return get_organ(BP_R_ARM)
 
 /mob/living/carbon/human/proc/get_holding_hand(var/obj/item/W)
 	switch(get_inventory_slot(W))
 		if(slot_l_hand)
-			return BP_L_HAND
+			return BP_L_ARM
 		if(slot_r_hand)
-			return BP_R_HAND
+			return BP_R_ARM
 
-/mob/living/carbon/human/equip_to_slot(obj/item/W, slot, redraw_mob = 1)
-	SEND_SIGNAL(src, COMSING_HUMAN_EQUITP, W)
+/mob/living/carbon/human/equip_to_slot(obj/item/W, slot, redraw_mob = 1, domove = TRUE)
+	SEND_SIGNAL_OLD(src, COMSING_HUMAN_EQUITP, W)
 	switch(slot)
 		if(slot_in_backpack)
 			if(src.get_active_hand() == W)
@@ -284,7 +262,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 		else
 			legacy_equip_to_slot(W, slot, redraw_mob)
 
-			W.forceMove(src)
+			if(domove)
+				W.forceMove(src)
 			W.equipped(src, slot)
 			W.update_wear_icon(redraw_mob)
 			W.screen_loc = find_inv_position(slot)
@@ -371,11 +350,15 @@ This saves us from having to call add_fingerprint() any time something is put in
 			src.r_store = W
 		if(slot_s_store)
 			src.s_store = W
+		if(slot_accessory_buffer)
+			if(src.wear_suit)
+				src.wear_suit.attackby(W, src)
+			return FALSE
 		else
 			to_chat(src, SPAN_DANGER("You are trying to eqip this item to an unsupported inventory slot. If possible, please write a ticket with steps to reproduce. Slot was: [slot]"))
 			return
 
-	return 1
+	return TRUE
 
 //Checks if a given slot can be accessed at this time, either to equip or unequip I
 /mob/living/carbon/human/slot_is_accessible(var/slot, var/obj/item/I, mob/user)
@@ -469,6 +452,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 		var/obj/item/clothing/suit/worn_hat = head
 		head_coverage = worn_hat.style_coverage
 		style_factor += worn_hat.get_style()
+	else if(!head)
+		style_factor++ // if we're not wearing anything on our head we look stylish, bald people rise up
 	if (!(head_coverage & COVERS_WHOLE_FACE) && istype(wear_mask, /obj/item/clothing)) // is it hidden, and if not is it a mask?
 		var/obj/item/clothing/mask/worn_mask = wear_mask
 		head_coverage |= worn_mask.style_coverage
@@ -480,14 +465,22 @@ This saves us from having to call add_fingerprint() any time something is put in
 			style_factor += r_ear.get_style()
 	if (glasses && !(head_coverage & COVERS_EYES))
 		style_factor += glasses.get_style()
+	else if(!glasses)
+		style_factor++ // if we're not wearing any glasses we look stylish
 	if (gloves && !(suit_coverage & COVERS_FOREARMS))
 		style_factor += gloves.get_style()
+	else if(!gloves)
+		style_factor-- // if we're not hiding fingerprints we're definitely stylish
 	if (w_uniform && !((gloves || suit_coverage & COVERS_FOREARMS) && (shoes || suit_coverage & COVERS_FORELEGS) && (suit_coverage & (COVERS_TORSO|COVERS_UPPER_ARMS|COVERS_UPPER_LEGS)) == (COVERS_TORSO|COVERS_UPPER_ARMS|COVERS_UPPER_LEGS))) // if suit_coverage AND three flags equals those three flags, then it means it has those three flags.
 		style_factor += w_uniform.get_style()
 	if (shoes && !(suit_coverage & COVERS_FORELEGS))
 		style_factor += shoes.get_style()
+	else if(!shoes)
+		style_factor-- // if we're not wearing shoes we're definitely not stylish
 	if (back)
 		style_factor += back.get_style() // back and belt can't be covered
+	else if(!back)
+		style_factor++ // if we don't have anything on our back we look stylish by since literally no backpacks give or take style bonus isn't big
 	if (belt)
 		style_factor += belt.get_style()
 

@@ -5,7 +5,7 @@
 	var/instant = TRUE
 	var/min_light_limit = 0.5
 	mouse_opacity = 0
-	rarity_value = 25 //Eclipse edit - got those things are ANNOYING
+	rarity_value = 10
 	spawn_tags = SPAWN_TAG_FLORA
 	bad_type = /obj/effect/spawner/maintshroom
 
@@ -40,7 +40,7 @@
 	//Lets decide how long to wait
 	var/delay = RAND_DECIMAL(1, delaymax)
 
-	addtimer(CALLBACK(src, .proc/spawn_shroom), delay)
+	addtimer(CALLBACK(src, PROC_REF(spawn_shroom)), delay)
 	alpha = 0 //Make it invisible
 
 

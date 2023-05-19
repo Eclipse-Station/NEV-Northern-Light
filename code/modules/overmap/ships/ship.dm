@@ -187,7 +187,7 @@
 			Move(newloc)
 			handle_wraparound()
 		update_icon()
-	SEND_SIGNAL(src, COMSIG_SHIP_STILL, x, y, is_still())
+	SEND_SIGNAL_OLD(src, COMSIG_SHIP_STILL, x, y, is_still())
 
 /obj/effect/overmap/ship/update_icon()
 	cut_overlays()
@@ -222,25 +222,24 @@
 	. = max(.,0)
 
 /obj/effect/overmap/ship/proc/handle_wraparound()
-	var/nx = x
-	var/ny = y
-	var/low_edge = 1
-	var/high_edge = GLOB.maps_data.overmap_size - 1
+    var/nx = x
+    var/ny = y
+    var/low_edge = 1
+    var/high_edge = GLOB.maps_data.overmap_size
 
-	if(dir == WEST && x == low_edge)
-		nx = high_edge
-	else if(dir == EAST && x == high_edge)
-		nx = low_edge
-	else if(dir == SOUTH  && y == low_edge)
-		ny = high_edge
-	else if(dir == NORTH && y == high_edge)
-		ny = low_edge
-	else
-		return //we're not flying off anywhere
+    if(x <= low_edge)
+        nx = high_edge
+    if(x >= high_edge)
+        nx = low_edge
 
-	var/turf/T = locate(nx,ny,z)
-	if(T)
-		forceMove(T)
+    if(y <= low_edge)
+        ny =high_edge
+    if(y >= high_edge)
+        ny = low_edge
+
+    var/turf/T = locate(nx,ny,z)
+    if(T)
+        forceMove(T)
 
 /obj/effect/overmap/ship/Bump(var/atom/A)
 	if(istype(A,/turf/unsimulated/map/edge))

@@ -9,20 +9,20 @@
 		"a jetpack" = /obj/item/tank/jetpack,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/device/aicard,
-		"the Chief Engineer's advanced voidsuit control module" = /obj/item/rig/ce,
+		"the Technomancer Exultant's advanced voidsuit control module" = /obj/item/rig/ce,
 		"the ship blueprints" = /obj/item/blueprints,
-		"28 moles of phoron (full tank)" = /obj/item/tank,
+		"28 moles of plasma (full tank)" = /obj/item/tank,
 		"a sample of slime extract" = /obj/item/slime_extract,
 		"a piece of corgi meat" = /obj/item/reagent_containers/food/snacks/meat/corgi,
-		"a Chief Science Officer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
-		"a Chief Engineer's jumpsuit" = /obj/item/clothing/under/rank/exultant,
-		"a Chief Medical Officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
-		"an Aegis commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
+		"a Moebius expedition overseer's jumpsuit" = /obj/item/clothing/under/rank/expedition_overseer,
+		"a exultant's jumpsuit" = /obj/item/clothing/under/rank/exultant,
+		"a Moebius biolab officer's jumpsuit" = /obj/item/clothing/under/rank/moebius_biolab_officer,
+		"a Ironhammer commander's jumpsuit" = /obj/item/clothing/under/rank/ih_commander,
 		"a First Officer's jumpsuit" = /obj/item/clothing/under/rank/first_officer,
 		"the hypospray" = /obj/item/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/pinpointer,
 		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"an Aegis hardsuit control module" = /obj/item/rig/combat/ironhammer,
+		"an Ironhammer hardsuit control module" = /obj/item/rig/combat/ironhammer,
 		"a Bluespace Biosyphon" = /obj/item/biosyphon,
 		"a S REV .35 Auto \"Sky Driver\"" = /obj/item/gun/projectile/revolver/sky_driver,
 		"Von-Krabin Stimulator" = /obj/item/device/von_krabin,
@@ -79,13 +79,13 @@
 		return FALSE
 	var/list/all_items = get_owner_inventory()
 	switch(target_name)
-		if("28 moles of phoron (full tank)", "10 diamonds", "50 gold bars", "25 refined uranium bars")
+		if("28 moles of plasma (full tank)", "10 diamonds", "50 gold bars", "25 refined uranium bars")
 			var/target_amount = text2num(target_name)//Non-numbers are ignored.
 			var/found_amount = 0//Always starts as zero.
 
 			for(var/obj/item/I in all_items) //Check for plasma tanks
 				if(istype(I, steal_target))
-					found_amount += (target_name == "28 moles of phoron (full tank)" ? (I:air_contents:gas["phoron"]) : (I:amount))
+					found_amount += (target_name == "28 moles of plasma (full tank)" ? (I:air_contents:gas["plasma"]) : (I:amount))
 			return found_amount >= target_amount
 
 		if("50 coins (in bag)")

@@ -35,8 +35,9 @@
 					continue
 				//if our target has hazard protection, apply damage based on the protection percentage.
 				var/hazard_protection = victim.getarmor(null, ARMOR_BIO)
-				var/damage = CLONE_DAMAGE_PER_TICK - (CLONE_DAMAGE_PER_TICK * (hazard_protection/100))
-				victim.apply_damage(damage, CLONE, used_weapon = "Biological")
+				var/damage = BIOREACTOR_DAMAGE_PER_TICK - (BIOREACTOR_DAMAGE_PER_TICK * (hazard_protection/100))
+				victim.apply_damage(damage, BRUTE, used_weapon = "Biological")
+				victim.adjustOxyLoss(BIOREACTOR_DAMAGE_PER_TICK / 2)	// Snowflake shit, but we need the mob to die within a reasonable time frame
 
 				if(prob(10))
 					playsound(loc, 'sound/effects/bubbles.ogg', 45, 1)
@@ -53,7 +54,7 @@
 				var/obj/item/target = M
 				//if we found biomatter, let's start processing
 				//it will slowly disappear. Time based at size of object and we manipulate with its alpha (we also check for it)
-				if(MATERIAL_BIOMATTER in target.matter)
+				if((MATERIAL_BIOMATTER in target.matter) && !target.unacidable)
 					target.alpha -= round(100 / target.w_class)
 					var/icon/I = new(target.icon, icon_state = target.icon_state)
 					//we turn this things to degenerate sprite a bit
@@ -110,9 +111,9 @@
 				continue
 		if(H && H.mind && H.mind.key && H.stat == DEAD)
 			var/mob/M = key2mob(H.mind.key)
-			to_chat(M, SPAN_NOTICE("Your remains have been dissolved and reused. Your crew respawn time is reduced by 10 minutes."))
+			to_chat(M, SPAN_NOTICE("Your remains have been dissolved and reused. Your crew respawn time is reduced by [(BIOREACTOR_RESPAWN_BONUS)/600] minutes."))
 			M << 'sound/effects/magic/blind.ogg'  //Play this sound to a player whenever their respawn time gets reduced
-			M.set_respawn_bonus("CORPSE_DISSOLVING", 10 MINUTES)
+			M.set_respawn_bonus("CORPSE_DISSOLVING", BIOREACTOR_RESPAWN_BONUS)
 
 	qdel(object)
 	//now let's add some dirt to the glass
@@ -193,17 +194,17 @@
 	..()
 	switch(contamination_level)
 		if(1)
-			to_chat(user, SPAN_NOTICE("There are a few stains on it. Otherwise, [src] looks pretty clean."))
+			to_chat(user, SPAN_NOTICE("There are a few stains on it. Except this, [src] looks pretty clean."))
 		if(2)
-			to_chat(user, SPAN_NOTICE("You can see some biomatter on [src]. It should probably be cleaned soon."))
+			to_chat(user, SPAN_NOTICE("You see a sign of biomatter on this [src]. Better to clean it up."))
 		if(3)
-			to_chat(user, SPAN_WARNING("The [src] is pretty dirty, with many signs of biomass and a number of stains."))
+			to_chat(user, SPAN_WARNING("This [src] has clear signs and stains of biomatter."))
 		if(4)
-			to_chat(user, SPAN_WARNING("You see a large amount of biomatter clinging on \the [src]. It's dirty as hell."))
+			to_chat(user, SPAN_WARNING("You see a high amount of biomatter on \the [src]. It's dirty as hell."))
 		if(5)
-			to_chat(user, SPAN_WARNING("There's enough biomass clinging on to block your view of the inside of [src]."))
+			to_chat(user, SPAN_WARNING("Now it's hard to see what's inside. Better to clean this [src]."))
 		else
-			to_chat(user, SPAN_NOTICE("This [src] is so clean, that you can see your reflection. Is that something green in your teeth?"))
+			to_chat(user, SPAN_NOTICE("This [src] is so clean, that you can see your reflection. Is that something green at your teeth?"))
 
 
 /obj/structure/window/reinforced/bioreactor/update_icon()
@@ -223,10 +224,10 @@
 	contamination_level += amount
 	if(contamination_level >= max_contamination_lvl)
 		contamination_level = max_contamination_lvl
-		opacity = TRUE
+		opacity = FALSE
 	if(contamination_level <= 0)
 		contamination_level = 0
-		opacity = FALSE
+		opacity = TRUE
 	update_icon()
 
 

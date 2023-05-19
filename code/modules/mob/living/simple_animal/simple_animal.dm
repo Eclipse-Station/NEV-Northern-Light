@@ -50,7 +50,7 @@
 	var/cold_damage_per_tick = 2	//same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
 	var/fire_alert = 0
 
-	//Atmos effect - Yes, you can make creatures that require phoron or co2 to survive. N2O is a trace gas and handled separately, hence why it isn't here. It'd be hard to add it. Hard and me don't mix (Yes, yes make all the dick jokes you want with that.) - Errorage
+	//Atmos effect - Yes, you can make creatures that require plasma or co2 to survive. N2O is a trace gas and handled separately, hence why it isn't here. It'd be hard to add it. Hard and me don't mix (Yes, yes make all the dick jokes you want with that.) - Errorage
 	var/min_oxy = 5
 	var/max_oxy = 0					//Leaving something at 0 means it's off - has no maximum
 	var/min_tox = 0
@@ -103,10 +103,6 @@
 	sanity_damage = -0.01
 
 	mob_classification = CLASSIFICATION_ORGANIC
-
-	//Eclipse-added vars
-	var/simplemob_bonus_enabled = TRUE		//Do we even check to see if we take more damage?
-	var/simplemob_bonus_multiplier = 0		//Do we take more or less damage? This is in addition to the bullet itself. Putting this less than -1 may have undesirable consequences (e.g. being healed by being shot)
 
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]")
@@ -164,12 +160,10 @@
 	if(hunger_enabled)
 		if (!nutrition)
 			to_chat(user, SPAN_DANGER("It looks starving!"))
-		else if (nutrition < max_nutrition *0.49)
+		else if (nutrition < max_nutrition *0.5)
 			to_chat(user, SPAN_NOTICE("It looks hungry."))
-		else if (nutrition > max_nutrition *0.5)
-			to_chat(user, "It looks satisfied.")
-		else if (nutrition > max_nutrition *0.8)
-			to_chat(user, "It looks full!")
+		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
+			to_chat(user, "It looks full and contented.")
 	if (health < maxHealth * 0.25)
 		to_chat(user, SPAN_DANGER("It's grievously wounded!"))
 	else if (health < maxHealth * 0.50)
@@ -224,10 +218,10 @@
 					if(Environment.gas["oxygen"] > max_oxy)
 						atmos_suitable = 0
 				if(min_tox)
-					if(Environment.gas["phoron"] < min_tox)
+					if(Environment.gas["plasma"] < min_tox)
 						atmos_suitable = 0
 				if(max_tox)
-					if(Environment.gas["phoron"] > max_tox)
+					if(Environment.gas["plasma"] > max_tox)
 						atmos_suitable = 0
 				if(min_n2)
 					if(Environment.gas["nitrogen"] < min_n2)
@@ -341,23 +335,8 @@
 		if(istype(Proj, /obj/item/projectile/ion))
 			Proj.on_hit(loc)
 		return
-	// // // BEGIN ECLIPSE EDITS // // //
-	//Simplemob bonus damage.
-	var/damage_to_deal = Proj.get_total_damage()
-	if(simplemob_bonus_enabled && damage_to_deal)		//No sense in multiplying a zero value.
-		if(simplemob_bonus_multiplier || Proj.simplemob_bonus_mult)		//If either of them are nonzero, the damage a bullet will do is changed.
-			damage_to_deal += (damage_to_deal * simplemob_bonus_multiplier) + (damage_to_deal * Proj.simplemob_bonus_mult)
-/*
- * To verify the maths: 
- * Bullet base damage 10; from-mob-code bonus +0.25 (25%), from bullet-code bonus +0.2 (20%)
- * 10 += (10 * 0.25) + (10 * 0.2)
- * equals 10 += 2.5 + 2
- * equals 10 += 4.5 (which equals 14.5)
- * Maths verify as intended.
- */
-		damage_to_deal = max(0, damage_to_deal)		//So we don't end up accidentally healing them.
-	// // // END ECLIPSE EDITS // // //
-	adjustBruteLoss(damage_to_deal)
+
+	adjustBruteLoss(Proj.get_total_damage())
 	return 0
 
 /mob/living/simple_animal/rejuvenate()
@@ -456,9 +435,7 @@
 	return ..(gibbed,deathmessage)
 
 /mob/living/simple_animal/ex_act(severity)
-	if(!blinded)
-		if (HUDtech.Find("flash"))
-			flick("flash", HUDtech["flash"])
+	flash(0, FALSE,FALSE,FALSE)
 	switch (severity)
 		if (1)
 			adjustBruteLoss(500)

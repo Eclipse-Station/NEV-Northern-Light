@@ -36,46 +36,34 @@
 
 #define CHEM_SYNTH_ENERGY 3000 // How much energy does it take to synthesize 1 unit of chemical, in Joules.
 
-#define CE_STABLE "stable" // Inaprovaline
-#define CE_ANTIBIOTIC "antibiotic" // Spaceacilin
-#define CE_BLOODRESTORE "bloodrestore" // Iron/nutriment
-#define CE_PAINKILLER "painkiller"
-#define CE_ALCOHOL "alcohol" // Liver filtering
-#define CE_ALCOHOL_TOXIC "alcotoxic" // Liver damage
-#define CE_SPEEDBOOST "gofast" // Hyperzine
-#define CE_PULSE      "xcardic" // increases or decreases heart rate
-#define CE_NOPULSE    "heartstop" // stops heartbeat
-#define CE_MIND    		 "mindbending"  // Stabilizes or wrecks mind. Used for hallucinations
-#define CE_ANTITOX       "antitox"      // Dylovene
-#define CE_TOXIN         "toxins"       // Generic toxins, stops autoheal.
-#define CE_SPEECH_VOLUME     "speach_volume"    // speech volume multiplier , default volume is integer and equals 2
-#define CE_BLOODCLOT 	"bloodclot"	// Promote healing but thickens blood, slows and stops bleeding (range 0 - 1)
-#define CE_OXYGENATED    "oxygen"       // Dexalin.
-#define CE_PURGER "purger"	//Purger
-#define CE_NOWITHDRAW "no_withdrawal" 
-#define CE_VOICEMIMIC "voice_mimic"
-#define CE_DYNAMICFINGERS "dynfingers"
+#define CE_STABLE			"stabilization"		// Inaprovaline
+#define CE_ANTIBIOTIC		"antibiotic"		// Spaceacilin
+#define CE_BLOODRESTORE		"blood restoration" // Iron/nutriment
+#define CE_PAINKILLER		"painkiller"
+#define CE_ALCOHOL			"alcohol" 			// Liver filtering
+#define CE_ALCOHOL_TOXIC	"alcohol poisoning" // Liver damage
+#define CE_SPEEDBOOST		"agility augment" 	// Hyperzine
+#define CE_PULSE			"heart stimulant"	// increases or decreases heart rate
+#define CE_NOPULSE			"arresting agent" 	// stops heartbeat
+#define CE_MIND				"mind stabilization"// Stabilizes or wrecks mind. Used for hallucinations
+#define CE_ANTITOX			"antitoxin"    		// Dylovene
+#define CE_TOXIN			"toxin"       		// Generic toxins, stops autoheal.
+#define CE_SPEECH_VOLUME	"speech volume"    	// speech volume multiplier , default volume is integer and equals 2
+#define CE_BLOODCLOT		"blood clotting"	// Promote healing but thickens blood, slows and stops bleeding (range 0 - 1)
+#define CE_OXYGENATED		"oxygenation"       // Dexalin
+#define CE_PURGER			"purger"			// Purger
+#define CE_NOWITHDRAW 		"withdrawal suppressant"
+#define CE_VOICEMIMIC		"voice mimic"
+#define CE_DYNAMICFINGERS	"dynamic fingers"
+#define CE_BONE_MEND		"bone mending"   	// Ossisine
+#define CE_ONCOCIDAL        "anticancer"
+
+// Chem effects for robotic/assisted organs
+#define CE_MECH_STABLE 		"cooling"
+#define CE_MECH_ACID 		"acid"
+#define CE_MECH_LUBE		"lubrication"       // Unused
+#define CE_MECH_REPAIR 		"nanite repair"     // Repair damage
+#define CE_MECH_REPLENISH 	"nanite replenish"  // Replenish fluid, unused
 
 // Reagent specific heat is not yet implemented, this is here for compatibility reasons
 #define SPECIFIC_HEAT_DEFAULT			200
-
-// // // ECLIPSE-ADDED DEFINES BEYOND THIS POINT // // //
-
-// Ported from ES13
-// Some on_mob_life() procs check for alien races.
-// Used mostly to allow chems to react differently for different species.
-#define IS_DIONA		1
-#define IS_VOX			2	//Race not implemented.
-#define IS_SKRELL		3
-#define IS_UNATHI		4
-#define IS_TAJARA		5
-#define IS_XENOS		6	//Race not implemented.
-#define IS_TESHARI		7
-#define IS_SLIME		8
-#define IS_VULP			9
-#define IS_ZORREN		10
-#define IS_SERGAL		11
-#define IS_NEVREAN		12
-#define IS_AKULA		13
-#define IS_GOLEM		14
-#define IS_MOTH			15

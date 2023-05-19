@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(ticker)
 	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME
 
-	var/const/restart_timeout = 1200	// Eclipse Edit - Doubles the duration of the round-end phase
+	var/const/restart_timeout = 600
 	var/current_state = GAME_STATE_STARTUP
 	// If true, there is no lobby phase, the game starts immediately.
 	var/start_immediately = FALSE
@@ -56,7 +56,6 @@ SUBSYSTEM_DEF(ticker)
 		syndicate_code_response = generate_code_phrase()
 
 	setup_objects()
-	setup_genetics()
 	setup_huds()
 
 	return ..()
@@ -90,7 +89,6 @@ SUBSYSTEM_DEF(ticker)
 			if(!start_immediately)
 				to_chat(world, "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
 			current_state = GAME_STATE_PREGAME
-			send_assets()
 			fire()
 
 		if(GAME_STATE_PREGAME)
@@ -137,6 +135,8 @@ SUBSYSTEM_DEF(ticker)
 			if(!nuke_in_progress && game_finished)
 				current_state = GAME_STATE_FINISHED
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
+				for(var/client/t in clients)
+					SSjob.SavePlaytimes(t)
 				declare_completion()
 
 				spawn(50)
@@ -265,11 +265,11 @@ SUBSYSTEM_DEF(ticker)
 		N.new_player_panel_proc()
 
 	CHECK_TICK
-
+	setup_codespeak()
 	generate_contracts(min(6 + round(minds.len / 5), 12))
 	generate_excel_contracts(min(6 + round(minds.len / 5), 12))
 	excel_check()
-	addtimer(CALLBACK(src, .proc/contract_tick), 15 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(contract_tick)), 15 MINUTES)
 	//start_events() //handles random events and space dust.
 	//new random event system is handled from the MC.
 
@@ -307,7 +307,7 @@ SUBSYSTEM_DEF(ticker)
 	cinematic.mouse_opacity = 0
 	cinematic.screen_loc = "1,0"
 
-	for(var/mob/M in SSmobs.mob_list)
+	for(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 		if(isOnStationLevel(M))
 			if(M.client)
 				M.client.screen += cinematic
@@ -449,12 +449,12 @@ SUBSYSTEM_DEF(ticker)
 				marked_areas += 1
 		if (marked_areas >= 3)
 			M.complete()
-	addtimer(CALLBACK(src, .proc/excel_check), 3 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(excel_check)), 3 MINUTES)
 
 /datum/controller/subsystem/ticker/proc/contract_tick()
 	generate_contracts(1)
 	generate_excel_contracts(1)
-	addtimer(CALLBACK(src, .proc/contract_tick), 15 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(contract_tick)), 15 MINUTES)
 
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
@@ -493,7 +493,7 @@ SUBSYSTEM_DEF(ticker)
 				else if(issilicon(Player))
 					to_chat(Player, "<font color='green'><b>You remain operational after the events on [station_name()] as [Player.real_name].</b></font>")
 				else
-					to_chat(Player, "<font color='blue'><b>You survived the bluespace jump after the events on [station_name()] as [Player.real_name].</b></font>")
+					to_chat(Player, "<font color='blue'><b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b></font>")
 			else
 				if(isghost(Player))
 					var/mob/observer/ghost/O = Player
@@ -532,18 +532,6 @@ SUBSYSTEM_DEF(ticker)
 		to_chat(world, "<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] at the end of this round.</b>")
 
 	GLOB.storyteller.declare_completion()//To declare normal completion.
-	
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Dispatcher can declare round end to Discord.
-	if(config.ntdad_enabled && config.ntdad_roundend_ping)
-		var/player_count = GLOB.player_list.len
-		if(player_count >= config.ntdad_minimum_roundend)
-			var/__playertext = "players"
-			if(player_count == 1)		//Take the S off if we've only got one player on.
-				__playertext = "player"
-			SSdispatcher.push_to_discord("[config.ntdad_role_restarts] A round has ended aboard \the [station_name()] with [player_count] [__playertext]. A new round will start in a few minutes.")
-	// // // END ECLIPSE EDITS // // //
-	
 	scoreboard()//scores
 	//Ask the event manager to print round end information
 	SSevent.RoundEnd()

@@ -6,7 +6,7 @@
 	program_key_state = "rd_key"
 	program_menu_icon = "power"
 	extended_desc = "This program allows remote control of power distribution systems. Cannot be run on tablet computers."
-	required_access = access_engine_consoles
+	required_access = access_engine
 	requires_ntnet = 1
 	network_destination = "RCON remote control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
@@ -22,7 +22,7 @@
 	var/hide_SMES_details = 0
 	var/hide_breakers = 0
 
-/datum/nano_module/rcon/ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=NANOUI_FOCUS, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/rcon/nano_ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=NANOUI_FOCUS, var/datum/nano_topic_state/state = GLOB.default_state)
 	FindDevices() // Update our devices list
 	var/list/data = host.initial_data()
 

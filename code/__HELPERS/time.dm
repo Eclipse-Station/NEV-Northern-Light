@@ -35,7 +35,7 @@ var/next_station_date_change = 1 DAYS
 	if(!station_date || update_time)
 		var/extra_days = round(station_time_in_ticks / (1 DAYS)) DAYS
 		var/timeofday = world.timeofday + extra_days
-		station_date = num2text(game_year) + "-" + time2text(timeofday, "MM-DD")
+		station_date = num2text((text2num(time2text(timeofday, "YYYY")) + 544)) + "-" + time2text(timeofday, "MM-DD")
 	return station_date
 
 /proc/time_stamp()
@@ -107,6 +107,7 @@ var/global/rollovercheck_last_timeofday = 0
 //Increases delay as the server gets more overloaded,
 //as sleeps aren't cheap and sleeping only to wake up and sleep again is wasteful
 #define DELTA_CALC max(((max(world.tick_usage, world.cpu) / 100) * max(Master.sleep_delta,1)), 1)
+#define UNTIL(X) while(!X) stoplag()
 
 /proc/stoplag()
 	if (!Master || !(Master.current_runlevel & RUNLEVELS_DEFAULT))

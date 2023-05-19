@@ -30,21 +30,12 @@
 	var/obj/assimilated_machinery
 	var/obj/item/electronics/circuitboard/saved_circuit
 
-	//Eclipse-added vars
-	var/regen_speed = REGENERATION_SPEED		//Used in health scaling.
-	var/process_ticks = 0						//Used in determining when to adjust health for players on
-
 /obj/machinery/hivemind_machine/Initialize()
 	. = ..()
-	GLOB.all_hive_machinery += src
 	name_pick()
-	adjust_health()		//Eclipse edit: Adjust maximum health.
 	health = max_health
 	set_light(2, 3, illumination_color)
 
-/obj/machinery/hivemind_machine/Destroy()
-	. = ..()
-	GLOB.all_hive_machinery -= src
 
 /obj/machinery/hivemind_machine/update_icon()
 	overlays.Cut()
@@ -53,40 +44,6 @@
 	else
 		icon_state = initial(icon_state)
 
-// // // BEGIN ECLIPSE EDITS // // //
-// Scale machine health based on number of players.
-/obj/machinery/hivemind_machine/proc/player_check()
-	var/crew = 0		//start it at zero
-
-	for(var/mob/M in GLOB.player_list)
-		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
-			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
-			if(job)
-				crew++
-
-	return crew
-
-/obj/machinery/hivemind_machine/proc/adjust_health()
-	if(max_health < 5)		//Don't adjust health if we're that weak
-		return
-	var/health_percent = health/max_health		//Get a proportion of maximum health prior to adjusting for player count
-	var/players = player_check()
-
-	switch(players)
-		if(0 to 2)		//Fixed 50% regen speed, 75% health
-			max_health = initial(max_health) * 0.75
-			regen_speed = REGENERATION_SPEED * 0.5
-		if(3 to 10)		//Regeneration speed and health on linear scale based on player count
-			var/healthcalc = 0.75 + ((0.25/8) * (players - 3))
-			max_health = initial(max_health) * healthcalc
-			var/regen_calc = 0.5 + ((0.5/8) * (players - 3))
-			regen_speed = REGENERATION_SPEED * regen_calc
-		if(11 to INFINITY)	//Fixed 100% regen speed and health
-			max_health = initial(max_health)
-			regen_speed = REGENERATION_SPEED
-		else
-			throw EXCEPTION("Invalid switch statement case, expected positive integer and got [players]")		//Always add some form of error handling, kids.
-	health = health_percent * max_health		//Set the health proportional to our new maximum health
 
 /obj/machinery/hivemind_machine/examine(mob/user)
 	..()
@@ -103,21 +60,16 @@
 
 
 /obj/machinery/hivemind_machine/Process()
-	process_ticks++		//increment our tick counter
-	if(wireweeds_required && !locate(/obj/effect/plant/hivemind) in loc)
+	if(!hive_mind_ai || (wireweeds_required && !locate(/obj/effect/plant/hivemind) in loc))
 		take_damage(5, on_damage_react = FALSE)
 
 	if(SDP)
 		SDP.check_conditions()
 
-	if(!(process_ticks % 10))		//Every ten ticks, check for players and adjust our health accordingly.
-		adjust_health()
-
-	if(hive_mind_ai && !(stat & EMPED) && !is_on_cooldown() && (player_check() > 3))		//we want more than 3 players online before we regenetate.
-	// // // END ECLIPSE EDITS // // //
+	if(hive_mind_ai && !(stat & EMPED) && !is_on_cooldown())
 		//slow health regeneration
 		if(can_regenerate && (health != max_health) && (world.time > time_until_regen))
-			health += regen_speed		//Eclipse edit: use adjusted regen speed rather than define
+			health += REGENERATION_SPEED
 			if(health > max_health)
 				health = max_health
 
@@ -204,8 +156,8 @@
 	rebuild_anim.icon_state = "rebuild"
 	rebuild_anim.anchored = TRUE
 	rebuild_anim.density = FALSE
-	addtimer(CALLBACK(src, .proc/finish_rebuild, new_machine_path), time_in_seconds SECONDS)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, rebuild_anim), time_in_seconds SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finish_rebuild), new_machine_path), time_in_seconds SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(qdel), rebuild_anim), time_in_seconds SECONDS)
 
 
 /obj/machinery/hivemind_machine/proc/finish_rebuild(var/new_machine_path)
@@ -290,7 +242,7 @@
 	can_regenerate = FALSE
 	update_icon()
 	if(amount)
-		addtimer(CALLBACK(src, .proc/unstun), amount SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(unstun)), amount SECONDS)
 
 
 /obj/machinery/hivemind_machine/proc/unstun()
@@ -306,6 +258,15 @@
 		Proj.on_hit(loc)
 	. = ..()
 
+/obj/machinery/hivemind_machine/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		take_damage(damage)
+	else
+		attack_hand(M)
 
 /obj/machinery/hivemind_machine/attackby(obj/item/I, mob/user)
 	if(!(I.flags & NOBLUDGEON) && I.force)
@@ -381,22 +342,21 @@
 	var/list/reward_item = list(
 		/obj/item/tool/weldingtool/hivemind,
 		/obj/item/tool/crowbar/pneumatic/hivemind,
-		/obj/item/reagent_containers/glass/beaker/hivemind,
+		/obj/item/reagent_containers/glass/beaker/hivemind)
+	var/list/reward_oddity = list(
 		/obj/item/oddity/hivemind/old_radio,
-		/obj/item/oddity/hivemind/old_pda
-		)
+		/obj/item/oddity/hivemind/old_pda)
 
 
-/obj/machinery/hivemind_machine/node/Initialize()
+/obj/machinery/hivemind_machine/node/New(loc, _name, _surname)
 	if(!hive_mind_ai)
-		hive_mind_ai = new /datum/hivemind
+		hive_mind_ai = new /datum/hivemind(_name, _surname)
 	..()
 
 	hive_mind_ai.hives.Add(src)
 	hive_mind_ai.level_up()
 
 	update_icon()
-
 
 	var/obj/effect/plant/hivemind/founded_wire = locate() in loc
 	if(!founded_wire)
@@ -418,19 +378,17 @@
 	SDP.set_master(src)
 
 /obj/machinery/hivemind_machine/node/proc/gift()
-	if(prob(10))
-		state("leaves behind an item!")
-		var/gift = pick(reward_item)
-		new gift(get_turf(loc))
+	var/gift = prob(GLOB.hive_data_float["core_oddity_drop_chance"]) ? pick(reward_oddity) : pick(reward_item)
+	new gift(get_turf(loc))
+	state("leaves behind an item!")
 
 /obj/machinery/hivemind_machine/node/proc/core()
 	state("leaves behind a weird looking datapad!")
-	var/core = /obj/item/oddity/hivemind/hive_core
-	new core(get_turf(loc))
+	new /obj/item/oddity/hivemind/hive_core(get_turf(loc))
 
 /obj/machinery/hivemind_machine/node/Destroy()
 	gift()
-	hive_mind_ai.hives.Remove(src)
+	hive_mind_ai?.hives.Remove(src)
 	check_for_other()
 	if(hive_mind_ai == null)
 		core()
@@ -491,12 +449,8 @@
 //There we check for other nodes
 //If no any other hives will be found, it's game over
 /obj/machinery/hivemind_machine/node/proc/check_for_other()
-	if(hive_mind_ai)
-		if(!hive_mind_ai.hives.len)
-			hive_mind_ai.die()
-
-
-
+	if(hive_mind_ai && !hive_mind_ai.hives.len)
+		hive_mind_ai.die()
 
 //TURRET
 //shooting the target with toxic goo
@@ -567,26 +521,23 @@
 
 	var/mob/living/target = locate() in targets_in_range(world.view, in_hear_range = TRUE)
 	if(target && target.stat != DEAD && target.faction != HIVE_FACTION)
-// // // BEGIN ECLIPSE EDITS // // //
-		if(use_ability())		//If we didn't successfully spawn a mob, don't set a cooldown so we can try again
-			set_cooldown()
+		use_ability()
+		set_cooldown()
 
 
 /obj/machinery/hivemind_machine/mob_spawner/use_ability()
-	var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
-	var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
+	var/total_mobs = 0
+	for(var/i in GLOB.hivemind_mobs)
+		total_mobs += GLOB.hivemind_mobs[i]
+	if(!GLOB.hive_data_bool["maximum_existing_mobs"] || GLOB.hive_data_float["maximum_existing_mobs"] > total_mobs)
+		var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
+		var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
+		spawned_mob.loc = loc
+		spawned_creatures.Add(spawned_mob)
+		spawned_mob.master = src
+		flick("[icon_state]-anim", src)
+		qdel(CATCH)
 
-//If we have less than so many players on, don't spawn certain mobs.
-	if(spawned_mob.maxHealth > 75 * player_check())
-		qdel(spawned_mob)
-		return FALSE		//We didn't successfully spawn a mob.
-	spawned_mob.loc = loc
-	spawned_creatures.Add(spawned_mob)
-	spawned_mob.master = src
-	flick("[icon_state]-anim", src)
-	qdel(CATCH)
-	return TRUE		//We did successfuly spawn a mob, so the cooldown (above) will be set.
-// // // END ECLIPSE EDITS // // //
 
 
 //MACHINE PREACHER

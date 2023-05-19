@@ -1,12 +1,12 @@
 /obj/effect/overmap/ship/eris
-	name = "NEV Northern Light"
+	name = "CEV Eris"
 	fore_dir = NORTH
 	vessel_mass = 300
 	default_delay = 20 SECONDS
 	speed_mod = 5 SECONDS
 	base = 1
 
-	name_stages = list("NEV Northern Light", "unknown vessel", "unknown spatial phenomenon")
+	name_stages = list("CEV Eris", "unknown vessel", "unknown spatial phenomenon")
 	icon_stages = list("eris", "ship", "poi")
 
 	start_x = 9

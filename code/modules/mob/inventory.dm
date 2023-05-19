@@ -39,14 +39,12 @@
 //Puts the item our active hand if possible. Failing that it tries our inactive hand. Returns 1 on success.
 //If both fail it drops it on the floor and returns 0.
 //This is probably the main one you need to know :)
-/mob/proc/put_in_hands(var/obj/item/W)
-	if(!W)
-		return FALSE
-	W.forceMove(get_turf(src))
-	W.layer = initial(W.layer)
-	W.set_plane(initial(W.plane))
-	W.dropped(usr)
-	return FALSE
+/mob/proc/put_in_hands(obj/item/W)
+	if(istype(W))
+		W.forceMove(get_turf(src))
+		W.layer = initial(W.layer)
+		W.set_plane(initial(W.plane))
+		W.dropped(usr)
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
@@ -79,6 +77,10 @@
 //Drops the item in our active hand. TODO: rename this to drop_active_hand or something
 /mob/proc/drop_item(var/atom/Target)
 	var/obj/item/I = get_active_hand()
+	unEquip(I, Target, MOVED_DROP)
+
+/mob/proc/drop_offhand(var/atom/Target)
+	var/obj/item/I = get_inactive_hand()
 	unEquip(I, Target, MOVED_DROP)
 
 /*
@@ -128,24 +130,26 @@
 /mob/proc/unEquip(obj/item/I, var/atom/Target = null, force = 0) //Force overrides NODROP for things like wizarditis and admin undress.
 	if(!canUnEquip(I))
 		return
-	SEND_SIGNAL(src, COMSIG_CLOTH_DROPPED, I)
+	SEND_SIGNAL_OLD(src, COMSIG_CLOTH_DROPPED, I)
 	if(I)
-		SEND_SIGNAL(I, COMSIG_CLOTH_DROPPED, src)
+		SEND_SIGNAL_OLD(I, COMSIG_CLOTH_DROPPED, src)
 	return drop_from_inventory(I,Target)
 
 //Attemps to remove an object on a mob.
-/mob/proc/remove_from_mob(var/obj/O)
+/mob/proc/remove_from_mob(obj/O, drop = TRUE)
 	u_equip(O)
 	if (client)
 		client.screen -= O
 	O.layer = initial(O.layer)
 	O.set_plane(initial(O.plane))
 	O.screen_loc = null
-	if(istype(O, /obj/item))
+	if(isitem(O))
 		var/obj/item/I = O
-		I.forceMove(get_turf(src), MOVED_DROP)
+		if(drop && !QDELING(O))
+			I.forceMove(get_turf(src), MOVED_DROP)
 		I.dropped(src)
 	return TRUE
+
 
 //This function is an unsafe proc used to prepare an item for being moved to a slot, or from a mob to a container
 //It should be equipped to a new slot or forcemoved somewhere immediately after this is called
@@ -209,23 +213,3 @@
 		var/obj/item/I = entry
 		if(I.body_parts_covered & body_parts)
 			. += I
-
-
-/mob/proc/is_holding(var/obj/item/W)
-	return is_holding_in_active_hand(W) || is_holding_in_inactive_hand(W)
-
-/mob/proc/is_holding_in_active_hand(var/obj/item/W)
-	return get_active_hand() == W
-
-/mob/proc/is_holding_in_inactive_hand(var/obj/item/W)
-	return get_inactive_hand() == W
-
-//You should never need to use these unless the item calling requires proper alignment with a structure.
-/mob/proc/is_holding_in_l_hand(var/obj/item/W)
-	return l_hand == W
-
-/mob/proc/is_holding_in_r_hand(var/obj/item/W)
-	return r_hand == W
-
-/mob/proc/hands_are_full()
-	return l_hand && r_hand

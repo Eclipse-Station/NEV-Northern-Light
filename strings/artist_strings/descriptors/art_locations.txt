@@ -14,15 +14,15 @@ snowy trench
 prison cell
 engine compartment
 escape pod
-Lazarus Medical Division
-Lazarus Research Division
-Free Trade Union
-NanoTrasen Engineering
-Aegis Security
-Church of Mekhane
+Moebius Medical Division
+Moebius Research Division
+Asters Guild
+Technomancer League
+Ironhammer Security
+NeoTheology Church
 Vasily Dokuchaev
 Mining hulk
-NEV Northern Light
+CEV Eris
 Bar
 Brig of a ship
 Engineering Department

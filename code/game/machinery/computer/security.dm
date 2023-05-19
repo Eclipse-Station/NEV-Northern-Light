@@ -51,11 +51,11 @@
 /obj/machinery/computer/secure_data/attack_hand(mob/user)
 	if(..())
 		return
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/computer/secure_data/ui_interact(user)
+/obj/machinery/computer/secure_data/nano_ui_interact(user)
 	if (src.z > 6)
-		to_chat(user, "<span class='warning'>Unable to establish a connection:</span> You're too far away from the ship!")
+		to_chat(user, "<span class='warning'>Unable to establish a connection:</span> You're too far away from the station!")
 		return
 
 	var/dat
@@ -538,7 +538,7 @@ What a mess.*/
 							temp += "<li><a href='?src=\ref[src];choice=Change Criminal Status;criminal2=released'>Released</a></li>"
 							temp += "</ul>"
 					if("rank")
-						var/list/L = list( "Head of Personnel", "Captain", "AI" )
+						var/list/L = list( "First Officer", "Captain", "AI" )
 						//This was so silly before the change. Now it actually works without beating your head against the keyboard. /N
 						if ((istype(active1, /datum/data/record) && L.Find(rank)))
 							temp = "<h5>Rank:</h5>"

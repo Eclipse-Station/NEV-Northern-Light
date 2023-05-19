@@ -86,7 +86,7 @@ Notes:
 
 /datum/tooltip/proc/hide()
 	if (queueHide)
-		addtimer(CALLBACK(src, .proc/do_hide), 1)
+		addtimer(CALLBACK(src, PROC_REF(do_hide)), 1)
 	else
 		do_hide()
 
@@ -101,7 +101,7 @@ Notes:
 
 
 //Open a tooltip for user, at a location based on params
-//Theme is a CSS class in tooltip.html, by default this wrapper chooses a CSS class based on the user's UI_style (Midnight, Phoronfire, Retro, etc)
+//Theme is a CSS class in tooltip.html, by default this wrapper chooses a CSS class based on the user's UI_style (Midnight, Plasmafire, Retro, etc)
 //Includes sanity.checks
 /proc/openToolTip(mob/user = null, atom/movable/tip_src = null, params = null,title = "",content = "",theme = "")
 	if(istype(user))

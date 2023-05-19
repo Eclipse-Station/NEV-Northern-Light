@@ -62,6 +62,12 @@
 	build_path = /obj/item/gun/projectile/selfload/moebius
 	sort_string = "TACAB"
 
+/datum/design/research/item/weapon/clarrisa_ammo
+	name = "Anne 35 Pistol Magazine"
+	desc = "A normal capacity pistol magazine chambered in .35 for the Anne auto pistol."
+	build_path = /obj/item/ammo_magazine/pistol
+	sort_string = "TACBB"
+
 /datum/design/research/item/weapon/flora_gun
 	build_path = /obj/item/gun/energy/floragun
 	sort_string = "TBAAA"
@@ -71,7 +77,7 @@
 	sort_string = "TBAAB"
 
 /datum/design/research/item/weapon/hatton
-	name = "Lazarus BT \"Q-del\""
+	name = "Moebius BT \"Q-del\""
 	desc = "This breaching tool was reverse engineered from the \"Hatton\" design.\
 			Despite the Excelsior \"Hatton\" being traded on the free market through Technomancer League channels,\
 			this device suffers from a wide number of reliability issues stemming from it being lathe printed."
@@ -79,12 +85,12 @@
 	sort_string = "TBAAD"
 
 /datum/design/research/item/weapon/katana
-	name = "Lazarus \"Muramasa\" Katana"
+	name = "Moebius \"Muramasa\" Katana"
 	build_path = /obj/item/tool/sword/katana/nano
 
 
 /datum/design/research/item/weapon/bluespace_dagger
-	name = "Lazarus \"Displacement Dagger\""
+	name = "Moebius \"Displacement Dagger\""
 	build_path = /obj/item/tool/knife/dagger/bluespace
 
 // Ammo
@@ -93,7 +99,7 @@
 	category = CAT_WEAPON
 
 /datum/design/research/item/ammo/hatton
-	name = "Lazarus BT \"Q-del\" gas tube"
+	name = "Moebius BT \"Q-del\" gas tube"
 	build_path = /obj/item/hatton_magazine/moebius
 	sort_string = "TAACC"
 

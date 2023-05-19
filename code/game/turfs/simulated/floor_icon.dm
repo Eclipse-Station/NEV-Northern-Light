@@ -170,36 +170,36 @@ var/list/flooring_cache = list()
 					they smooth with us. Ill call this counterchecking for simplicity.
 					This is needed to make both turfs have the correct borders
 
-						To prevent infinite loops we have a countercheck var, which we'll set true
-					*/
+					To prevent infinite loops we have a countercheck var, which we'll set true
+				*/
 
-				if(smooth_movable_atom != SMOOTH_NONE)
+				if (smooth_movable_atom != SMOOTH_NONE)
 					//We do the countercheck, passing countercheck as true
 					is_linked = test_link(T, origin, countercheck = TRUE)
 
 
 
-				else if (floor_smooth == SMOOTH_ALL)
-					is_linked = TRUE
+			else if (floor_smooth == SMOOTH_ALL)
+				is_linked = TRUE
 
-				else if (floor_smooth != SMOOTH_NONE)
+			else if (floor_smooth != SMOOTH_NONE)
 
 
 
-					//If we get here it must be using a whitelist or blacklist
-					if (floor_smooth == SMOOTH_WHITELIST)
-						for (var/v in flooring_whitelist)
-							if (istype(t.flooring, v))
-								//Found a match on the list
-								is_linked = TRUE
-								break
-					else if(floor_smooth == SMOOTH_BLACKLIST)
-						is_linked = TRUE //Default to true for the blacklist, then make it false if a match comes up
-						for (var/v in flooring_whitelist)
-							if (istype(t.flooring, v))
-								//Found a match on the list
-								is_linked = FALSE
-								break
+				//If we get here it must be using a whitelist or blacklist
+				if (floor_smooth == SMOOTH_WHITELIST)
+					for (var/v in flooring_whitelist)
+						if (istype(t.flooring, v))
+							//Found a match on the list
+							is_linked = TRUE
+							break
+				else if(floor_smooth == SMOOTH_BLACKLIST)
+					is_linked = TRUE //Default to true for the blacklist, then make it false if a match comes up
+					for (var/v in flooring_whitelist)
+						if (istype(t.flooring, v))
+							//Found a match on the list
+							is_linked = FALSE
+							break
 
 
 

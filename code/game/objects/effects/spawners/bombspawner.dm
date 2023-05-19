@@ -115,7 +115,7 @@
 
 	var/obj/effect/spawner/newbomb/proto = /obj/effect/spawner/newbomb/radio/custom
 
-	var/p = input("Enter phoron amount (mol):","Phoron", initial(proto.phoron_amt)) as num|null
+	var/p = input("Enter plasma amount (mol):","Plasma", initial(proto.plasma_amt)) as num|null
 	if(p == null) return
 
 	var/o = input("Enter oxygen amount (mol):","Oxygen", initial(proto.oxygen_amt)) as num|null
@@ -134,7 +134,7 @@
 	var/assembly_type = /obj/item/device/assembly/signaler
 
 	//Note that the maximum amount of gas you can put in a 70L air tank at 1013.25 kPa and 519K is 16.44 mol.
-	var/phoron_amt = 10.96
+	var/plasma_amt = 10.96
 	var/oxygen_amt = 16.44
 	var/carbon_amt = 0
 
@@ -145,7 +145,7 @@
 /obj/effect/spawner/newbomb/timer/syndicate
 	name = "TTV bomb - merc"
 	//High yield bombs. Yes, it is possible to make these with toxins
-	phoron_amt = 15.66
+	plasma_amt = 15.66
 	oxygen_amt = 24.66
 
 /obj/effect/spawner/newbomb/proximity
@@ -153,7 +153,7 @@
 	assembly_type = /obj/item/device/assembly/prox_sensor
 
 /obj/effect/spawner/newbomb/radio/custom/Initialize(mapload, ph, ox, co)
-	if(ph != null) phoron_amt = ph
+	if(ph != null) plasma_amt = ph
 	if(ox != null) oxygen_amt = ox
 	if(co != null) carbon_amt = co
 	. = ..()
@@ -171,12 +171,12 @@
 	PT.master = V
 	OT.master = V
 
-	PT.air_contents.temperature = PHORON_FLASHPOINT
-	PT.air_contents.gas["phoron"] = phoron_amt
+	PT.air_contents.temperature = PLASMA_FLASHPOINT
+	PT.air_contents.gas["plasma"] = plasma_amt
 	PT.air_contents.gas["carbon_dioxide"] = carbon_amt
 	PT.air_contents.update_values()
 
-	OT.air_contents.temperature = PHORON_FLASHPOINT
+	OT.air_contents.temperature = PLASMA_FLASHPOINT
 	OT.air_contents.gas["oxygen"] = oxygen_amt
 	OT.air_contents.update_values()
 

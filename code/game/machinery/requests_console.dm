@@ -24,7 +24,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 /obj/machinery/requests_console
 	name = "Requests Console"
-	desc = "A console intended to send requests to different departments on the ship."
+	desc = "A console intended to send requests to different departments on the station."
 	anchored = TRUE
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp0"
@@ -52,11 +52,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/priority = -1 ; //Priority of the message being sent
 	light_range = 0
 	var/datum/announcement/announcement = new
-	
-	// // // ECLIPSE ADDED VARS // // //
-	var/verifyName = ""
-	var/verifyRank = ""
-	var/stampName = ""
 
 /obj/machinery/requests_console/power_change()
 	..()
@@ -72,26 +67,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 /obj/machinery/requests_console/New()
 	..()
-	
-	// // // BEGIN ECLIPSE EDITS // // //
-	/* If no department name is set, the Request Console should use the area 
-	 * name. This allows for emergency responders to figure out where the person
-	 * is, and for RC spammers to be caught by security. This also saves map
-	 * filesize by not requiring a department for every civilian RC on the ship.
-	 */
-	if(department == "Unknown")
-		var/area/console_area = get_area(src)
-		/*
-		//This implementation technically works, but is rather dangerous.
-		try
-			ASSERT(console_area:name)			//don't try shit like this at home without a try-catch block, kids
-			department = "[console_area:name]"
-		catch
-			department = "FAILURE_TO_GET_AREA_NAME"
-		*/
-		department = "[console_area.name]"
-		departmentType = 0		//Reply only, prevent it from showing up
-	// // // END ECLIPSE EDITS // // //
 
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
@@ -126,9 +101,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console/attack_hand(user as mob)
 	if(..(user))
 		return
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/requests_console/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/requests_console/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/data[0]
 
 	data["department"] = department
@@ -192,7 +167,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		screen = RCS_SENTFAIL
 		for (var/obj/machinery/message_server/MS in world)
 			if(!MS.active) continue
-			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority,verifyName,verifyRank,stampName)		//Eclipse edit: Added last 3 params for NTDAD
+			MS.send_rc_message(ckey(href_list["department"]),department,log_msg,msgStamped,msgVerified,priority)
 			pass = 1
 		if(pass)
 			screen = RCS_SENTPASS
@@ -229,12 +204,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if (istype(O, /obj/item/card/id))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
-			// // // BEGIN ECLIPSE EDITS // // //
-			// NT Department Alarm Dispatcher
 			var/obj/item/card/id/T = O
-			verifyName = T.registered_name
-			verifyRank = T.assignment
-			// // // END ECLIPSE EDITS // // //
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>")
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
@@ -250,7 +220,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = O
-			stampName = T.name		//Eclipse Edit
 			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
 			updateUsrDialog()
 	return
@@ -265,8 +234,3 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	announcement.announcer = ""
 	if(mainmenu)
 		screen = RCS_MAINMENU
-	
-	//Eclipse edits below - reset everything
-	verifyName = ""
-	verifyRank = ""
-	stampName = ""

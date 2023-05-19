@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver
-	name = "\improper FS REV .40 Magnum \"Miller\""
+	name = "FS REV .40 Magnum \"Miller\""
 	desc = "The \"Frozen Star\" \"Miller\" is a revolver of choice when you absolutely, positively need to make a hole in someone. Uses .40 Magnum ammo."
 	icon = 'icons/obj/guns/projectile/revolver.dmi'
 	icon_state = "revolver"
@@ -19,20 +19,21 @@
 	matter = list(MATERIAL_PLASTEEL = 15, MATERIAL_PLASTIC = 8)
 	price_tag = 2000 //avasarala of revolver world
 	fire_delay = 3 //all revolvers can fire faster, but have huge recoil
-	damage_multiplier = 1.75
-	penetration_multiplier = 0.65 // Insanely powerful handcannon, but worthless against heavy armor
-	recoil_buildup = 8
+	damage_multiplier = 1.6
+	penetration_multiplier = -0.3 // Insanely powerful handcannon, but worthless against heavy armor
+	init_recoil = HANDGUN_RECOIL(1.2)
 	var/drawChargeMeter = TRUE
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
-	gun_parts = list(/obj/item/part/gun/frame/miller = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/revolver = 1, /obj/item/part/gun/barrel/magnum = 1)
+	gun_parts = list(/obj/item/part/gun/frame/miller = 1, /obj/item/part/gun/modular/grip/rubber = 1, /obj/item/part/gun/modular/mechanism/revolver = 1, /obj/item/part/gun/modular/barrel/magnum = 1)
+	serial_type = "FS"
 
 
 /obj/item/gun/projectile/revolver/pickup(mob/user)
 	. = ..()
-	if (ishuman(user))
+	if(ishuman(user))
 		var/mob/living/carbon/human/stylish = user
 		if(stylish.style > 4)
-			style_damage_multiplier = stylish.style/4 // this is so two stylish users that both shoot each other once at full slickness
+			style_damage_multiplier = stylish.style / 4 // this is so two stylish users that both shoot each other once at full slickness
 			to_chat(user, SPAN_NOTICE("You feel more confident with a revolver in your hand.")) // ends with the more stylish being the winner, commonly known as High Noon
 		else
 			style_damage_multiplier = 1
@@ -86,10 +87,10 @@
 	gun_tags |= GUN_REVOLVER
 
 /obj/item/part/gun/frame/miller
-	name = "\improper Miller frame"
+	name = "Miller frame"
 	desc = "A Miller revolver frame. I hope you're feeling lucky, punk."
 	icon_state = "frame_revolver"
-	result = /obj/item/gun/projectile/revolver/mateba
-	grip = /obj/item/part/gun/grip/rubber
-	mechanism = /obj/item/part/gun/mechanism/revolver
-	barrel = /obj/item/part/gun/barrel/magnum
+	resultvars = list(/obj/item/gun/projectile/revolver)
+	gripvars = list(/obj/item/part/gun/modular/grip/rubber)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/revolver
+	barrelvars = list(/obj/item/part/gun/modular/barrel/magnum)

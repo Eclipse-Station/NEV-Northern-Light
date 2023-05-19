@@ -5,7 +5,7 @@
 	ask_verb = list("sings")
 	exclaim_verb = list("sings")
 	colour = "alien"
-	key = "c"
+	key = "x"
 	flags = RESTRICTED | HIVEMIND
 	shorthand = "N/A"
 
@@ -15,7 +15,7 @@
 
 	if(iscarbon(speaker))
 		var/mob/living/carbon/M = speaker
-		B = M.has_brain_worms()
+		B = M.get_brain_worms()
 	else if(istype(speaker,/mob/living/simple_animal/borer))
 		B = speaker
 

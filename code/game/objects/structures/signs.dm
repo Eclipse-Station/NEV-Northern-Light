@@ -63,8 +63,8 @@
 	else ..()
 
 /obj/structure/sign/double/map
-	name = "ship map"
-	desc = "A framed picture of the ship."
+	name = "station map"
+	desc = "A framed picture of the station."
 
 /obj/structure/sign/double/map/left
 	icon_state = "map-left"
@@ -139,7 +139,7 @@
 
 /obj/structure/sign/kiddieplaque
 	name = "\improper AI developers plaque"
-	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. The child appears to be wearing a helmet. Beneath the image, someone has scratched the word \"PACKETS\""
+	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. The child appears to be retarded. Beneath the image, someone has scratched the word \"PACKETS\""
 	icon_state = "kiddieplaque"
 
 /obj/structure/sign/atmosplaque
@@ -214,9 +214,9 @@
 	desc = "WARNING! N2O flow tube. Ensure the flow is disengaged before working."
 	icon_state = "atmos_n2o"
 
-/obj/structure/sign/atmos_phoron
-	name = "Phoron warning sign"
-	desc = "WARNING! Phoron flow tube. Ensure the flow is disengaged before working."
+/obj/structure/sign/atmos_plasma
+	name = "Plasma warning sign"
+	desc = "WARNING! Plasma flow tube. Ensure the flow is disengaged before working."
 	icon_state = "atmos_plasma"
 
 /obj/structure/sign/atmos_n2
@@ -506,7 +506,7 @@
 	icon_state = "interrogation"
 
 /obj/structure/sign/department/commander
-	name = "AEGIS COMMANDER"
+	name = "IHS COMMANDER"
 	icon_state = "commander"
 
 /obj/structure/sign/department/armory
@@ -524,67 +524,82 @@
 	desc = "Faction sign of some sort."
 
 /obj/structure/sign/faction/ironhammer
-	name = "Aegis Security"
-	desc = "This sign depicts the symbol of Aegis Security, the largest security provider within SolGov Space."
+	name = "Ironhammer Security"
+	desc = "This sign depicts the symbol of Ironhammer Security, the largest security provider within the Hansa Trade Union."
 	icon_state = "ironhammer"
 
 /obj/structure/sign/faction/one_star
-	name = "One Star"
+	name = "One Star Banner"
 	desc = "One Star's all-seeing eye, a banner of a now fallen empire. They once controlled this sector from their capital Earth. Now it's all just dust, forgotten derelicts, and automated ships."
 	icon_state = "one_star"
 
 /obj/structure/sign/faction/one_star_old
-	name = "One Star"
+	name = "Tattered One Star Banner"
 	desc = "One Star's all-seeing eye, a banner of a now fallen empire. They once controlled this sector from their capital Earth. Now it's all just dust, forgotten derelicts, and automated ships."
 	icon_state = "one_star_old"
 
+/obj/structure/sign/faction/one_star_sign
+	name = "One Star Sign"
+	desc = "One Star's all-seeing eye, an emblem of a now fallen empire. They once controlled this sector from their capital Earth. Now it's all just dust, forgotten derelicts, and automated ships."
+	icon_state = "one_star_sign"
+
 /obj/structure/sign/faction/frozenstar
 	name = "Frozen Star"
-	desc = "A popular weapon manufacturer in the Hansa Trade Union."
+	desc = "The most popular weapon manufacturer in the Hansa Trade Union."
 	icon_state = "frozenstar"
 
 /obj/structure/sign/faction/moebius
-	name = "Lazarus Laboratories"
-	desc = "A shady megacorporation that has a stake in the Northern Light's expedition. "
+	name = "Moebius Laboratories"
+	desc = "Shady pharmaceutical and prosthetic manufacturer. Few outsiders know what happens behind the doors of their labs, and whoever knows does not live a long life."
 	icon_state = "moebius"
 
+/obj/structure/sign/faction/moebius_alt
+	name = "Moebius Laboratories Sign"
+	desc = "Shady pharmaceutical and prosthetic manufacturer. Few outsiders know what happens behind the doors of their labs, and whoever knows does not live a long life. The sign is emblazoned with the slogan, new minds new horizons"
+	icon_state = "moebius_alt"
+
 /obj/structure/sign/faction/neotheology
-	name = "Mekhane"
-	desc = "the Tau Cross - symbol of the Children of Mekhane."
+	name = "NeoTheology"
+	desc = "the Tau Cross - symbol of NeoTheology."
 	icon_state = "neotheology"
 
 /obj/structure/sign/faction/neotheology_old
-	name = "Mekhane"
-	desc = "the Tau Cross - symbol of the Children of Mekhane."
+	name = "NeoTheology"
+	desc = "the Tau Cross - symbol of NeoTheology."
 	icon_state = "neotheology-old"
 
 /obj/structure/sign/faction/neotheology_cross
-	name = "Mekhane Tau cross"
-	desc = "Religious symbol of the Children of Mekhane - the Tau cross. It looks like a decoration.."
+	name = "NeoTheology Tau cross"
+	desc = "Religious symbol of NeoTheology - the Tau cross. It looks like a decoration, not a real cruciform."
 	icon_state = "wall_cross_steel"
 
 /obj/structure/sign/faction/neotheology_cross/gold
 	icon_state = "wall_cross_gold"
 
 /obj/structure/sign/faction/astersguild
-	name = "Free Trade Union"
-	desc = "The Free Trade Union - monopolists of far space transportation."
+	name = "Asters Guild"
+	desc = "Asters Guild - monopolists of far space transportation."
 	icon_state = "astersguild"
 
 /obj/structure/sign/faction/technomancers
-	name = "Engineering Department"
-	desc = "Oh, dear, Atmosia isn't declaring independence <i>again</i>, are they...?"
+	name = "Technomancer League"
+	desc = "Technomancer League - anarchistic community ruled by powerful clans."
 	icon_state = "technomancers"
 
 /obj/structure/sign/faction/excelsior
-	name = "EXCELSIOR"
-	desc = "EXCELSIOR is a union of communist mining communities with no respect to any private property."
+	name = "Excelsior"
+	desc = "Excelsior is a union of communist mining communities with no respect to any private property."
 	icon_state = "excelsior"
 
 /obj/structure/sign/faction/excelsior_old
-	name = "EXCELSIOR"
+	name = "Excelsior"
 	desc = "EXCELSIOR is a union of communist mining communities with no respect to any private property."
 	icon_state = "excelsior-old"
+
+/obj/structure/sign/faction/serbian
+	name = "Serbian Arms"
+	desc = "Serbian Arms are a major supplier of cheap firearms and killer mercenaries in the sector. Their centre of operations is located in Predstraza."
+	icon_state = "serbian"
 
 /obj/structure/sign/derelict1
 	name = "Old sign"
@@ -593,7 +608,7 @@
 
 /obj/structure/sign/derelict2
 	name = "Old sign"
-	desc = "Looks like a planet crashing by some ship above it. Its kinda scary."
+	desc = "Looks like a planet crashing by some station above it. Its kinda scary."
 	icon_state = "something-old2"
 
 /obj/structure/sign/derelict3

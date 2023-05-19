@@ -12,16 +12,7 @@
 	ai_access = FALSE
 
 /mob/living/silicon/robot/drone/blitzshell/updatename()
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Satellite navigator ID
-	var/random_id = rand(100,999)
-	satnav = new /obj/item/device/gps(src)
-	satnav.gps.prefix = "DRNE"
-	if(satnav)		//null check
-		satnav.gps.change_serial("DRNE-[random_id]")
-		satnav.update_name()
-	real_name = "\"Blitzshell\" assault drone ([random_id])"
-	// // // END ECLIPSE EDITS // // //
+	real_name = "\"Blitzshell\" assault drone ([rand(100,999)])"
 	name = real_name
 
 /mob/living/silicon/robot/drone/blitzshell/is_allowed_vent_crawl_item()

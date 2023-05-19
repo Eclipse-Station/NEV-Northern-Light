@@ -27,7 +27,7 @@
 /obj/item/mech_equipment/sleeper/attack_self(var/mob/user)
 	. = ..()
 	if(.)
-		sleeper.ui_interact(user)
+		sleeper.nano_ui_interact(user)
 
 /obj/item/mech_equipment/sleeper/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/reagent_containers/glass))
@@ -57,7 +57,7 @@
 	use_power = NO_POWER_USE
 	spawn_blacklisted = TRUE
 
-/obj/machinery/sleeper/mounted/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/topic_state/state = GLOB.mech_state)
+/obj/machinery/sleeper/mounted/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, datum/nano_topic_state/state = GLOB.mech_state)
 	. = ..()
 
 /obj/machinery/sleeper/mounted/nano_host()
@@ -77,4 +77,3 @@
 			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
 		beaker = I
 		user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
-

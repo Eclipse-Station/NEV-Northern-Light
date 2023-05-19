@@ -20,7 +20,7 @@ var/const/CHURCH           	=(1<<9)
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
-var/const/CC				=(1<<1)
+var/const/IHC				=(1<<1)
 var/const/GUNSERG			=(1<<2)
 var/const/INSPECTOR			=(1<<3)
 var/const/IHOPER			=(1<<4)
@@ -33,14 +33,15 @@ var/const/CYBORG			=(1<<9)
 
 var/const/MEDSCI			=(1<<1)
 
-var/const/CSO				=(1<<0)
+var/const/MEO				=(1<<0)
 var/const/SCIENTIST			=(1<<1)
 var/const/CHEMIST			=(1<<2)
-var/const/CMO				=(1<<3)
+var/const/MBO				=(1<<3)
 var/const/DOCTOR			=(1<<4)
 var/const/PSYCHIATRIST		=(1<<5)
 var/const/ROBOTICIST		=(1<<6)
 var/const/PARAMEDIC			=(1<<7)
+var/const/BIOENGINEER		=(1<<8)
 
 
 var/const/FIRSTOFFICER		=(1<<0)
@@ -51,7 +52,7 @@ var/const/GUILDTECH			=(1<<4)
 var/const/MINER				=(1<<5)
 var/const/ARTIST			=(1<<6)
 var/const/ASSISTANT			=(1<<7)
-var/const/BRIDGEOFFICER  	=(1<<8)
+
 
 var/const/CHAPLAIN			=(1<<0)
 var/const/ACOLYTE			=(1<<1)
@@ -74,7 +75,7 @@ var/list/medical_positions = list(JOBS_MEDICAL)
 var/list/science_positions = list(JOBS_SCIENCE)
 
 
-var/list/moebius_positions = list(JOBS_LAZARUS)
+var/list/moebius_positions = list(JOBS_MOEBIUS)
 
 //BS12 EDIT
 var/list/cargo_positions = list(JOBS_CARGO)

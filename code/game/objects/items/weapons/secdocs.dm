@@ -20,17 +20,16 @@
 				"Evidence of an outside-context problem",
 				"On the use of self-learning AI for public administration",
 				"Evidence of time travel related changes in history",
-				"Geography of non existent cities",
+				"Geography of nonexistent cities",
 				"Production of Alliance nanomachines",
 				"Known SAU equipment specifications",
 				"Known access points to Discordia",
 				"The Door phenomenon",
-				"Parallel world related mutations",
-				"Mass hallucinations or a breach from another world?",
-				"Aegis Security budget: evidence of S.A.U. overfund",
-				"Real reason of One Star fall",
-				"Connection between One Star and dead alien civilizations, are we next?",
-				"Xavier Trasen - Personal File",
+				"Parallel world-related mutations",
+				"Mass hallucinations or breach from another world?",
+				"Ironhammer budget: evidence of SAU overfund",
+				"The truth behind the fall of One Star",
+				"Are we next? The connection between One Star and dead alien civilizations",
 				"Unknown device blueprints")
 	. = ..()
 	var/mob/living/carbon/human/owner = loc

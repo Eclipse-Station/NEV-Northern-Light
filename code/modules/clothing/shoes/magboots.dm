@@ -62,4 +62,3 @@
 	mag_slow = 0
 	icon_base = null
 	can_hold_knife = TRUE
-

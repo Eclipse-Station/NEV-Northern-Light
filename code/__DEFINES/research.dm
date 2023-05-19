@@ -1,8 +1,6 @@
-#define SHEET_MATERIAL_AMOUNT 2000
-
 #define TECH_MATERIAL "materials"
 #define TECH_ENGINEERING "engineering"
-#define TECH_PHORON "phorontech"
+#define TECH_PLASMA "plasmatech"
 #define TECH_POWER "powerstorage"
 #define TECH_BLUESPACE "bluespace"
 #define TECH_BIO "biotech"
@@ -30,6 +28,7 @@
 #define RESEARCH_BLUESPACE     /datum/tech/bluespace
 #define RESEARCH_ROBOTICS      /datum/tech/robotics
 #define RESEARCH_COVERT        /datum/tech/covert
+
 
 // Design categories
 #define CAT_MISC        "Misc"

@@ -75,14 +75,14 @@
 
 /datum/uplink_item/item/ammo/sl_srifle/highvelocity
 	name = ".20 Rifle HV ammo strip"
-	desc = "Standard .25 magazine with lethal ammunition. Used mostly in Aegis carbines. Can fit 5 bullets."
+	desc = "Contains 2 standard .20 ammo strips, loaded with high velocity ammunition. Can fit 5 bullets."
 	item_cost = 1
 	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syndie_kit/slsrifle/hv
-
+	
 /datum/uplink_item/item/ammo/ihclrifle/highvelocity
 	name = ".25 caseless HV magazine"
-	desc = "Standard .25 magazine with high velocity ammunition. Used mostly in Aegis carbines. Can fit 30 bullets."
+	desc = "Standard .25 magazine with high velocity ammunition. Used mostly in IHS carbines. Can fit 30 bullets."
 	item_cost = 3
 	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/ammo_magazine/ihclrifle/hv
@@ -119,8 +119,8 @@
 
 /datum/uplink_item/item/ammo/magnum_hv
 	name = ".40 Magnum HV ammo packet"
-	desc = ".40 ammo packet with high velocity ammunition. Contains 30 bullets. Cheaper than buying in magazines."
-	item_cost = 4
+	desc = ".40 ammo packet with high velocity ammunition. Contains 50 bullets. Cheaper than buying in magazines."
+	item_cost = 6
 	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/ammo_magazine/ammobox/magnum/hv
 

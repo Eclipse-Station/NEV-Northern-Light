@@ -1,5 +1,5 @@
 /obj/item/gun/energy/floragun
-	name = "\improper Prototype: floral somatoray"
+	name = "Prototype: floral somatoray"
 	desc = "A tool that discharges controlled radiation which induces mutation in plant cells."
 	icon = 'icons/obj/guns/energy/flora.dmi'
 	icon_state = "floramut100"
@@ -17,6 +17,9 @@
 		list(mode_name="induce mutations", mode_desc="Make your crops weird and wonderful", projectile_type=/obj/item/projectile/energy/floramut, modifystate="floramut", item_modifystate="mut", icon="kill"),
 		list(mode_name="increase yield", mode_desc="More fruit for your labour", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield", item_modifystate="yield", icon="stun"),
 		)
+
+	serial_type = "ML"
+
 
 /obj/item/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
 	//allow shooting into adjacent hydrotrays regardless of intent

@@ -10,7 +10,6 @@
 	cooldown_category = "group"
 	var/list/phrases = list()
 	var/effect_type
-	var/override_type
 
 /datum/ritual/group/pre_check(mob/living/carbon/human/H, obj/item/implant/core_implant/C, targets)
 	if(is_on_cooldown(H))
@@ -64,7 +63,6 @@
 
 	var/datum/ritual/group/ritual
 	var/datum/group_ritual_effect/effect = null
-	var/override_type
 
 /datum/core_module/group_ritual/set_up()
 	first = TRUE
@@ -130,12 +128,12 @@
 
 	to_chat(starter, starter_succ_message)
 	success(starter, participants.len)
-	SEND_SIGNAL(starter, COMSIG_GROUP_RITUAL)
+	SEND_SIGNAL_OLD(starter, COMSIG_GROUP_RITUAL)
 
 	for(var/mob/affected in participants)
 		to_chat(affected, succ_message)
 		success(affected, participants.len)
-		SEND_SIGNAL(affected, COMSIG_GROUP_RITUAL)
+		SEND_SIGNAL_OLD(affected, COMSIG_GROUP_RITUAL)
 	GLOB.grup_ritual_performed++
 
 /datum/group_ritual_effect/proc/success(var/mob/affected, var/part_len)

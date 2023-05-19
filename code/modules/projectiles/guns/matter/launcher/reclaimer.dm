@@ -1,5 +1,5 @@
 /obj/item/gun/matter/launcher/reclaimer
-	name = "\improper Excelsior \"Reclaimer\""
+	name = "Excelsior \"Reclaimer\""
 	desc = "The weapon of choice for swiftly appropriating matter for communal use. Uses a cellulose based solution to dissolve matter into its original components, not 100% effective."
 	icon_state = "reclaimer"
 	icon = 'icons/obj/guns/matter/reclaimer.dmi'

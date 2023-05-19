@@ -27,43 +27,10 @@
 	set src = usr
 	new_player_panel_proc()
 
-	/////BEGIN ECLIPSE EDIT/////
+
 /mob/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><B><u>Current Character</B></u>"
-	output += "<br>"
-	output += "<div align='center'>[client.prefs.real_name]<br>"
-
-	var/department_color
-	if(ASSISTANT_TITLE in client.prefs.job_low)		//Vagabond is a special snowflake that gets checked first, hence job_low.
-		department_color = "#ffcb9e"
-	else if(client.prefs.job_high in engineering_positions)
-		department_color = "#e0ca22"
-	else if(client.prefs.job_high in medical_positions)
-		department_color = "#19ccd6"
-	else if(client.prefs.job_high in science_positions)
-		department_color = "#b344b3"
-	else if(client.prefs.job_high in cargo_positions)
-		department_color = "#ffaa00"
-	else if(client.prefs.job_high in civilian_positions)
-		department_color = "#77c932"
-	else if(client.prefs.job_high in security_positions)
-		department_color = "#dd3e40"
-	else if(client.prefs.job_high in nonhuman_positions)
-		department_color = "#fbadff"
-	else if(client.prefs.job_high in church_positions)
-		department_color = "#854500"
-	else if(client.prefs.job_high in command_positions)
-		department_color = "#0b60e8"
-	else
-		department_color = "#990014"
-
-	if(ASSISTANT_TITLE in client.prefs.job_low)		//If vagabond toggle is yes
-		output += "<font color=[department_color]>[ASSISTANT_TITLE]</font><br>"
-	else
-		output += "<font color=[department_color]>[client.prefs.job_high ? "[client.prefs.job_high]" : null]</font><br>"
-	/////END ECLIPSE EDIT/////
-
-	output += "<hr>"
+	var/output = "<div align='center'><B>New Player Options</B>"
+	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
@@ -130,9 +97,6 @@
 		return 1
 
 	if(href_list["ready"])
-		if(!is_player_whitelisted(src))
-			discord_redirect(usr)//AEIOU addition
-			return 0
 		if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 			ready = text2num(href_list["ready"])
 			if(ready)
@@ -176,7 +140,7 @@
 				to_chat(src, SPAN_NOTICE("You are now observing."))
 				observer.forceMove(T)
 			else
-				to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the ship map.</span>")
+				to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 			announce_ghost_joinleave(src)
@@ -227,14 +191,13 @@
 				return 0
 
 			if(!(S.spawn_flags & CAN_JOIN))
-				src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
+				src << alert("Your current species, [client.prefs.species], is not available for play on the station.")
 				return 0
 
 		LateChoices()
 
 	if(href_list["manifest"])
 		show_manifest(src, nano_state = GLOB.interactive_state)
-		return //Eclipse Edit - fixed menu appearing over manifest
 
 	if(href_list["SelectedJob"])
 
@@ -242,7 +205,7 @@
 			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 			return
 		else if(SSticker.nuke_in_progress)
-			to_chat(usr, "<span class='danger'>The ship is currently exploding. Joining would go poorly.</span>")
+			to_chat(usr, "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>")
 			return
 
 		var/datum/species/S = all_species[client.prefs.species]
@@ -251,7 +214,7 @@
 			return 0
 
 		if(!(S.spawn_flags & CAN_JOIN))
-			src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
+			src << alert("Your current species, [client.prefs.species], is not available for play on the station.")
 			return 0
 
 		AttemptLateSpawn(href_list["SelectedJob"], client.prefs.spawnpoint)
@@ -299,9 +262,6 @@
 		return 0
 	if(SSticker.current_state != GAME_STATE_PLAYING)
 		to_chat(usr, "\red The round is either not ready, or has already finished...")
-		return 0
-	if(!is_player_whitelisted(src))
-		discord_redirect(src)//Aeiou addition
 		return 0
 	if(!config.enter_allowed)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
@@ -376,13 +336,6 @@
 		if(job && IsJobAvailable(job.title))
 			if(job.is_restricted(client.prefs))
 				continue
-			// // // BEGIN ECLIPSE EDITS // // //
-			//Jobban/job whitelist fixes
-			if(job.whitelist_only && !is_job_whitelisted(client, job.title))	//do they not pass whitelist?
-				continue
-			if(jobban_isbanned(client, job.title))			//are they banned?
-				continue
-			// // // END ECLIPSE EDITS // // //
 			var/active = 0
 			// Only players with the job assigned and AFK for less than 10 minutes count as active
 			for(var/mob/M in GLOB.player_list) if(M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)
@@ -436,8 +389,9 @@
 
 	if(SSticker.random_players)
 		new_character.gender = pick(MALE, FEMALE)
-		client.prefs.family_name = random_last_name(gender)		//Eclipse edit: refactor full name into family name.
-		client.prefs.real_name = random_first_name(gender) + " " + client.prefs.family_name
+		client.prefs.real_first_name = random_first_name(new_character.gender)
+		client.prefs.real_last_name = random_last_name(new_character.gender)
+		client.prefs.real_name = client.prefs.real_first_name + " " + client.prefs.real_last_name
 		client.prefs.randomize_appearance_and_body_for(new_character)
 	else
 		client.prefs.copy_to(new_character)
@@ -445,27 +399,18 @@
 	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = GLOB.lobby_sound_channel))
 
 	new_character.name = real_name
-	new_character.dna.ready_dna(new_character)
-	new_character.dna.flavor_text = client.prefs.flavor_text
-	new_character.dna.age = client.prefs.age
-	new_character.dna.b_type = client.prefs.b_type
+	new_character.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
 	if(client.prefs.disabilities)
-		// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
-		new_character.dna.SetSEState(GLASSESBLOCK,1,0)
-		new_character.disabilities |= NEARSIGHTED
-
-	// And uncomment this, too.
-	//new_character.dna.UpdateSE()
+		if(client.prefs.disabilities & NEARSIGHTED)
+			new_character.add_mutation(MUTATION_NEARSIGHTED)
 
 	// Do the initial caching of the player's body icons.
 	new_character.force_update_limbs()
 	new_character.update_eyes()
 	new_character.regenerate_icons()
 	new_character.key = key//Manually transfer the key to log them in
-/*	if(new_character.client && new_character.client.prefs.has_soulcrypt)
-		new_character.create_soulcrypt()
-*/
+
 	return new_character
 
 /mob/new_player/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, var/glide_size_override = 0)

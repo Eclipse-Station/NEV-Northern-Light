@@ -82,17 +82,17 @@
 		return
 
 /obj/effect/window_lwall_spawn/plasma
-	name = "phoron window low-wall spawner"
+	name = "plasma window low-wall spawner"
 	icon_state = "sp_full_window_plasma"
 	win_path = /obj/structure/window/plasmabasic/full
 
 /obj/effect/window_lwall_spawn/plasma/reinforced
-	name = "reinforced phoron window low-wall spawner"
-	icon_state = "sp_full_window_phoron_reinforced"
+	name = "reinforced plasma window low-wall spawner"
+	icon_state = "sp_full_window_plasma_reinforced"
 	win_path = /obj/structure/window/reinforced/plasma/full
 
 /obj/effect/window_lwall_spawn/smartspawnplasma
-	name = "reinforced phoron window low-wall smart spawner"
+	name = "reinforced plasma window low-wall smart spawner"
 	icon_state = "sp_smart_full_window_plasma"
 
 /obj/effect/window_lwall_spawn/smartspawnplasma/handle_window_spawn(var/obj/structure/window/W)

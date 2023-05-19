@@ -26,7 +26,7 @@
 	var/last_zas_update = null
 
 	var/scrubbing = SCRUBBING
-	var/list/scrubbing_gas = list("carbon_dioxide","sleeping_agent","phoron")
+	var/list/scrubbing_gas = list("carbon_dioxide","sleeping_agent","plasma")
 	var/expanded_range = FALSE
 
 	var/panic = FALSE //is this scrubber panicked?
@@ -51,49 +51,9 @@
 		assign_uid()
 		id_tag = num2text(uid)
 
-/obj/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
-	if(mapload)
-		addtimer(CALLBACK(src, .proc/link_to_zas), 20 SECONDS)
-	else
-		link_to_zas()
-	..()
-
 /obj/machinery/atmospherics/unary/vent_scrubber/Destroy()
 	unregister_radio(src, frequency)
-	if(current_linked_zone)
-		UnregisterSignal(current_linked_zone, COMSIG_ZAS_TICK)
-		UnregisterSignal(current_linked_zone, COMSIG_ZAS_DELETE)
-		current_linked_zone = null
 	. = ..()
-
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/link_to_zas()
-	SHOULD_NOT_SLEEP(TRUE)
-	if(current_linked_zone)
-		UnregisterSignal(current_linked_zone, COMSIG_ZAS_TICK)
-		UnregisterSignal(current_linked_zone, COMSIG_ZAS_DELETE)
-		current_linked_zone = null
-	var/turf/simulated/where_the_fuck_are_we = get_turf(src)
-	if(!istype(where_the_fuck_are_we))
-		crash_with("[src] scrubber located in [loc] on a non-simulated turf.Delete this or make the turf it is on simulated.")
-		return FALSE
-	current_linked_zone = where_the_fuck_are_we.zone
-	RegisterSignal(current_linked_zone , COMSIG_ZAS_TICK, .proc/begin_processing)
-	RegisterSignal(current_linked_zone, COMSIG_ZAS_DELETE, .proc/relink_zas)
-
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/relink_zas()
-	SHOULD_NOT_SLEEP(TRUE)
-	INVOKE_ASYNC(src , .proc/zas_relink_wrapper)
-
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/zas_relink_wrapper()
-	addtimer(CALLBACK(src, .proc/link_to_zas), 2 SECONDS)
-
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/begin_processing()
-	SHOULD_NOT_SLEEP(TRUE)
-	last_zas_update = world.time
-	if(!currently_processing)
-		START_PROCESSING(SSmachines, src)
-		return TRUE
-	return FALSE
 
 /obj/machinery/atmospherics/unary/vent_scrubber/update_icon(safety = 0)
 	if(!node1)
@@ -147,12 +107,10 @@
 		"filter_o2" = ("oxygen" in scrubbing_gas),
 		"filter_n2" = ("nitrogen" in scrubbing_gas),
 		"filter_co2" = ("carbon_dioxide" in scrubbing_gas),
-		"filter_phoron" = ("phoron" in scrubbing_gas),
+		"filter_plasma" = ("plasma" in scrubbing_gas),
 		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
-		"filter_ncl3" = ("trichloramine" in scrubbing_gas),
-		"filter_nh2cl" = ("monochloramine" in scrubbing_gas),
 		"sigtype" = "status"
-	)		//Eclipse edit: add chloramines
+	)
 	if(!initial_loc.air_scrub_names[id_tag])
 		var/new_name = "[initial_loc.name] Air Scrubber #[initial_loc.air_scrub_names.len+1]"
 		initial_loc.air_scrub_names[id_tag] = new_name
@@ -171,10 +129,6 @@
 		src.broadcast_status()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/Process()
-	if(last_zas_update + SLEEPOUT_TIME < world.time)
-		currently_processing = FALSE
-		return PROCESS_KILL
-
 	..()
 
 	if (!node1)
@@ -280,30 +234,15 @@
 	else if(signal.data["toggle_co2_scrub"])
 		toggle += "carbon_dioxide"
 
-	if(!isnull(signal.data["tox_scrub"]) && text2num(signal.data["tox_scrub"]) != ("phoron" in scrubbing_gas))
-		toggle += "phoron"
+	if(!isnull(signal.data["tox_scrub"]) && text2num(signal.data["tox_scrub"]) != ("plasma" in scrubbing_gas))
+		toggle += "plasma"
 	else if(signal.data["toggle_tox_scrub"])
-		toggle += "phoron"
+		toggle += "plasma"
 
 	if(!isnull(signal.data["n2o_scrub"]) && text2num(signal.data["n2o_scrub"]) != ("sleeping_agent" in scrubbing_gas))
 		toggle += "sleeping_agent"
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += "sleeping_agent"
-
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Adds chloramines
-
-	if(!isnull(signal.data["ncl3_scrub"]) && text2num(signal.data["ncl3_scrub"]) != ("trichloramine" in scrubbing_gas))
-		toggle += "trichloramine"
-	else if(signal.data["toggle_ncl3_scrub"])
-		toggle += "trichloramine"
-
-	if(!isnull(signal.data["nh2cl_scrub"]) && text2num(signal.data["nh2cl1_scrub"]) != ("monochloramine" in scrubbing_gas))
-		toggle += "monochloramine"
-	else if(signal.data["toggle_nh2cl_scrub"])
-		toggle += "monochloramine"
-
-	// // // END ECLIPSE EDITS // // //
 
 	scrubbing_gas ^= toggle
 

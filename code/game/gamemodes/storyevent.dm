@@ -38,8 +38,8 @@
 	var/max_stage_diff_lower = 0
 	var/max_stage_diff_higher = 10
 
-	var/ocurrences = 0 //How many times this round, this storyevent has happened
-	var/ocurrences_max = -1
+	var/occurrences = 0 //How many times this round, this storyevent has happened
+	var/occurrences_max = -1
 	var/last_trigger_time = 0
 
 	var/has_priest = -1
@@ -62,18 +62,16 @@
 	//Tags that describe what the event does. See __defines/storyteller.dm for a list
 	var/list/tags = list()
 
-// // // BEGIN ECLIPSE EDITS // // //
-//Event force spawning.
+
 
 //Check if we can trigger
-/datum/storyevent/proc/can_trigger(var/severity, var/mob/report, var/forced = FALSE)
+/datum/storyevent/proc/can_trigger(var/severity, var/mob/report)
 	.=TRUE
 	if (!enabled)
-		if (report)
-			to_chat(report, SPAN_NOTICE("Failure: The event is disabled"))
+		if (report) to_chat(report, SPAN_NOTICE("Failure: The event is disabled"))
 		return FALSE
 
-	if (ocurrences_max > 0 && ocurrences >= ocurrences_max && !forced)
+	if (occurrences_max > 0 && occurrences >= occurrences_max)
 		if (report) to_chat(report, SPAN_NOTICE("Failure: The event has already triggered the maximum number of times for a single round"))
 		return FALSE
 
@@ -92,14 +90,13 @@
 		qdel(E)
 	return
 
-
 /datum/storyevent/proc/get_special_weight(var/weight)
 	return weight
 
 
-/datum/storyevent/proc/create(var/severity, var/forced = FALSE)
-	if(trigger_event(severity, forced))		// // // END ECLIPSE EDITS // // //
-		ocurrences++
+/datum/storyevent/proc/create(var/severity)
+	if(trigger_event(severity))
+		occurrences++
 		last_trigger_time = world.time
 		if(processing)
 			start_processing(TRUE)
@@ -112,17 +109,12 @@
 	if (GLOB.storyteller)
 		GLOB.storyteller.modify_points(get_cost(type)*(1 - completion), type)
 
-
-// // // BEGIN ECLIPSE EDITS // // //
-// Allows for force-spawning of events.
-/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE, var/_forced = FALSE)
+/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE)
 	if (event_type)
 		var/datum/event/E = new event_type(src, severity)
-		if (!E.can_trigger(forced = _forced))
+		if (!E.can_trigger())
 			return FALSE
 		//If we get here, the event is fine to fire!
-
-// // // END ECLIPSE EDITS // // //
 
 		//And away it goes.
 		E.Initialize()

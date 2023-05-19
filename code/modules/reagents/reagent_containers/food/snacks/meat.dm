@@ -11,6 +11,7 @@
 	taste_tag = list(MEAT_FOOD)
 	slice_path = /obj/item/reagent_containers/food/snacks/rawcutlet
 	slices_num = 3
+	price_tag = 100
 
 /obj/item/reagent_containers/food/snacks/meat/syntiflesh
 	name = "synthetic meat"
@@ -26,6 +27,7 @@
 /obj/item/reagent_containers/food/snacks/meat/corgi
 	name = "Corgi meat"
 	desc = "Tastes like... well, you know."
+	price_tag = 25
 
 /obj/item/reagent_containers/food/snacks/meat/roachmeat
 	name = "Kampfer meat"
@@ -35,6 +37,8 @@
 
 	bitesize = 6
 	preloaded_reagents = list("protein" = 4, "blattedin" = 8, "diplopterum" = 7)
+
+	price_tag = 200
 
 /obj/item/reagent_containers/food/snacks/meat/roachmeat/seuche
 	name = "Seuche meat"
@@ -50,25 +54,28 @@
 	name = "Fuhrer meat"
 	desc = "A glorious slab of sickly-green bubbling meat cut from a fuhrer roach. it emanates an aura of dominance. Delicious!"
 	preloaded_reagents = list("protein" = 6, "seligitillin" = 6, "fuhrerole" = 12, "diplopterum" = 6)
+	price_tag = 300
 
 /obj/item/reagent_containers/food/snacks/meat/roachmeat/kaiser
 	name = "Kaiser meat"
 	desc = "A slab of sickly-green meat of a kaiser roach, bubbling with unimaginable power. Delicious!"
 	preloaded_reagents = list("protein" = 6, "blattedin" = 12, "seligitillin" = 6, "starkellin" = 15, "fuhrerole" = 4, "diplopterum" = 6, "kaiseraurum" = 16)
+	price_tag = 1000
 
 /obj/item/reagent_containers/food/snacks/meat/roachmeat/jager
 	name = "Jager meat"
 	desc = "A slab of sickly-green bubbling meat cut from a jager roach. You swear you can see it still twitching. Delicious!"
 	preloaded_reagents = list("protein" = 6, "blattedin" = 6, "gewaltine" = 8, "diplopterum" = 2)
 
-/obj/item/reagent_containers/food/snacks/meat/roachmeat/kraftwerk
+/obj/item/reagent_containers/food/snacks/meat/roachmeat/kraftwerk 
 	name = "Kraftwerk meat"
 	desc = "A slab of sickly-green meat cut from a kraftwerk roach, bursting with nanite activity. Delicious!"
 	preloaded_reagents = list("protein" = 6, "blattedin" = 6, "gewaltine" = 6, "uncap nanites" = 2, "nanites" = 3)
-/obj/item/reagent_containers/food/snacks/meat/roachmeat/nitro
-	preloaded_reagents = list("protein" = 6, "fuel" = 4)
+
+/obj/item/reagent_containers/food/snacks/meat/roachmeat/benzin
 	name = "Benzin meat"
-	desc = "A slab of sickly-green meat cut from a benzin roach, reeking of welding fuel. Delicious!"
+	desc = "A slab of sickly-green meat cut from a benzin roach. Stinks of welding fuel. Delicious!"
+	preloaded_reagents = list("protein" = 4, "blattedin" = 6, "fuel" = 30)
 
 /obj/item/reagent_containers/food/snacks/meat/spider
 	name = "Senshi meat"
@@ -78,6 +85,8 @@
 
 	bitesize = 6
 	preloaded_reagents = list("protein" = 9, "pararein" = 8)
+
+	price_tag = 200
 
 /obj/item/reagent_containers/food/snacks/meat/spider/hunter
 	name = "Sokuryou meat"
@@ -93,29 +102,9 @@
 	desc = "A bloated slab of sickly-green meat cut from a nurse spider. The venom just gives it more flavor. Delicious!"
 	icon_state = "xenomeat"
 	filling_color = "#E2FFDE"
-
+	
 	bitesize = 6
 	preloaded_reagents = list("protein" = 6, "aranecolmin" = 8,"pararein" = 8)
-//Beginning of Eclipse Edit: adding in Sojourn Mobs for maintenance diversity.
-/obj/item/reagent_containers/food/snacks/meat/spider/spiceder
-	name = "Tsurai meat"
-	desc = "A bloated slab of brilliant-red meat cut from a firey spider. The sting from this one isn't venom, surprisingly!"
-	icon_state = "xenomeat"
-	filling_color = "#BF2916"
-
-	bitesize = 6
-	preloaded_reagents = list("protein" = 9, "condensedcapsaicin" = 8)
-
-/obj/item/reagent_containers/food/snacks/meat/spider/taser
-	name = "Shibireru meat"
-	desc = "A bloated slab of sickly-green meat cut from a shocking spider. It still tingles to the touch!"
-	icon_state = "xenomeat"
-	filling_color = "#E2FFDE"
-
-	bitesize = 6
-	preloaded_reagents = list("protein" = 4, "lithium" = 2)
-//end of eclipse edit
-
 
 /obj/item/reagent_containers/food/snacks/meat/carp
 	name = "carp fillet"
@@ -126,6 +115,8 @@
 	bitesize = 6
 	preloaded_reagents = list("protein" = 8, "carpotoxin" = 8)
 
+	price_tag = 200
+
 /obj/item/reagent_containers/food/snacks/meat/bearmeat
 	name = "bear meat"
 	desc = "A slab of meat so manly you can almost smell the concentrated testosterone in it."
@@ -135,6 +126,8 @@
 	center_of_mass = list("x"=16, "y"=10)
 	preloaded_reagents = list("protein" = 12, "hyperzine" = 5)
 
+	price_tag = 200
+
 /obj/item/reagent_containers/food/snacks/meat/xenomeat
 	name = "meat"
 	desc = "A fatty cut of bright-green meat. The overwhelmingly powerful smell of the acid within burns your sinuses and makes your eyes water."
@@ -143,3 +136,5 @@
 	bitesize = 6
 	center_of_mass = list("x"=16, "y"=10)
 	preloaded_reagents = list("protein" = 6, "pacid" = 6)
+
+	price_tag = 200

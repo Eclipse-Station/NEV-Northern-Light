@@ -1,6 +1,6 @@
 GLOBAL_LIST_EMPTY(all_crew_records)
 GLOBAL_LIST_INIT(blood_types, list("A-", "A+", "B-", "B+", "AB-", "AB+", "O-", "O+"))
-GLOBAL_LIST_INIT(physical_statuses, list("Active", "Cryostasis", "SSD", "Deceased", "MIA", "Off Duty"))
+GLOBAL_LIST_INIT(physical_statuses, list("Active", "Disabled", "SSD", "Deceased", "MIA"))
 GLOBAL_VAR_INIT(default_physical_status, "Active")
 GLOBAL_LIST_INIT(security_statuses, list("None", "Released", "Parolled", "Incarcerated", "*Arrest*"))
 GLOBAL_VAR_INIT(default_security_status, "None")
@@ -24,30 +24,17 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 
 /datum/computer_file/report/crew_record/proc/load_from_mob(var/mob/living/carbon/human/H)
 	if(istype(H))
-		photo_front = getFlatIcon(H, defdir=SOUTH)
-		photo_side = getFlatIcon(H, defdir=WEST)
-		if(H.mind.role_alt_title == "Vagabond")  // As stowaways, Vagabond do not show up on the crew manifest. ECLIPSE EDIT
+		if(H.job == ASSISTANT_TITLE) // As stowaways, Vagabond do not show up on the crew manifest.
 			GLOB.all_crew_records.Remove(src)
 			return
+		photo_front = getFlatIcon(H, SOUTH)
+		photo_side = getFlatIcon(H, WEST)
 	else
 		var/mob/living/carbon/human/dummy/mannequin/dummy = new()
-		photo_front = getFlatIcon(dummy, defdir=SOUTH)
-		photo_side = getFlatIcon(dummy, defdir=WEST)
+		photo_front = getFlatIcon(dummy, SOUTH)
+		photo_side = getFlatIcon(dummy, WEST)
 		qdel(dummy)
 
-	// Add education, honorifics, etc.
-	/*
-	var/formal_name = "Unset"
-	if(H)
-		formal_name = H.real_name
-		if(H.client && H.client.prefs)
-			for(var/culturetag in H.client.prefs.cultural_info)
-				var/decl/cultural_info/culture = SSculture.get_culture(H.client.prefs.cultural_info[culturetag])
-				if(H.char_rank && H.char_rank.name_short)
-					formal_name = "[formal_name][culture.get_formal_name_suffix()]"
-				else
-					formal_name = "[culture.get_formal_name_prefix()][formal_name][culture.get_formal_name_suffix()]"
-	*/
 	// Generic record
 	set_name(H ? H.real_name : "")
 	set_department(H ? GetDepartment(H) : "Unset")
@@ -59,10 +46,8 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	set_email((H && H.mind) ? H.mind.initial_email_login["login"] : "none")
 	set_account((H && H.mind) ? H.mind.initial_account.account_number : "000000")
 
-	// TODO: enable after baymed - Eclipse Edit enabled
-	set_species(H ? H.get_species() : SPECIES_HUMAN)
 
-	//set_species(SPECIES_HUMAN) - //Eclipse edit - disabled
+	set_species(SPECIES_HUMAN)
 	//set_branch(H ? (H.char_branch && H.char_branch.name) : "None")
 	//set_rank(H ? (H.char_rank && H.char_rank.name) : "None")
 
@@ -72,8 +57,8 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 
 	// Security record
 	set_criminalStatus(GLOB.default_security_status)
-	set_dna(H ? H.dna.unique_enzymes : "")
-	set_fingerprint(H ? md5(H.dna.uni_identity) : "")
+	set_dna(H ? H.dna_trace : "")
+	set_fingerprint(H ? H.fingers_trace : "")
 	set_secRecord(H && H.sec_record && !jobban_isbanned(H, "Records") ? html_decode(H.sec_record) : "No record supplied")
 
 	// Employment record
@@ -83,18 +68,10 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 			employment_record = html_decode(H.gen_record)
 		if(H.client && H.client.prefs)
 			var/list/qualifications
-	/*		for(var/culturetag in H.client.prefs.cultural_info)
-				var/decl/cultural_info/culture = SSculture.get_culture(H.client.prefs.cultural_info[culturetag])
-				var/extra_note = culture.get_qualifications()
-				if(extra_note)
-					LAZYADD(qualifications, extra_note)*/
 			if(LAZYLEN(qualifications))
 				employment_record = "[employment_record ? "[employment_record]\[br\]" : ""][jointext(qualifications, "\[br\]>")]"
 	set_emplRecord(employment_record)
 
-	// Misc cultural info.
-	//set_homeSystem(H ? html_decode(H.get_cultural_value(TAG_HOMEWORLD)) : "Unset")
-	//set_faction(H ? html_decode(H.get_cultural_value(TAG_FACTION)) : "Unset")
 
 	if(H)
 		var/stats = list()
@@ -204,26 +181,24 @@ FIELD_SHORT("Department", department, null, access_change_ids)
 FIELD_SHORT("Job", job, null, access_change_ids)
 FIELD_LIST("Sex", sex, record_genders(), null, access_change_ids)
 FIELD_NUM("Age", age, null, access_change_ids)
-FIELD_LIST_EDIT("Status", status, GLOB.physical_statuses, null, access_heads)
+FIELD_LIST_EDIT("Status", status, GLOB.physical_statuses, null, access_moebius)
 
 FIELD_SHORT("Species",species, null, access_change_ids)
 FIELD_SHORT("Email",email, null, access_change_ids)
 FIELD_NUM("Account",account, null, access_change_ids)
 
 // MEDICAL RECORDS
-FIELD_LIST("Blood Type", bloodtype, GLOB.blood_types, access_moebius_consoles, access_moebius_consoles)
-FIELD_LONG("Medical Record", medRecord, access_moebius_consoles, access_moebius_consoles)
+FIELD_LIST("Blood Type", bloodtype, GLOB.blood_types, access_moebius, access_moebius)
+FIELD_LONG("Medical Record", medRecord, access_moebius, access_moebius)
 
 // SECURITY RECORDS
-FIELD_LIST("Criminal Status", criminalStatus, GLOB.security_statuses, access_sec_consoles, access_sec_consoles)
-FIELD_LONG("Security Record", secRecord, access_sec_consoles, access_sec_consoles)
-FIELD_SHORT("DNA", dna, access_sec_consoles, access_sec_consoles)
-FIELD_SHORT("Fingerprint", fingerprint, access_sec_consoles, access_sec_consoles)
+FIELD_LIST("Criminal Status", criminalStatus, GLOB.security_statuses, access_security, access_security)
+FIELD_LONG("Security Record", secRecord, access_security, access_security)
+FIELD_SHORT("DNA", dna, access_security, access_security)
+FIELD_SHORT("Fingerprint", fingerprint, access_security, access_security)
 
 // EMPLOYMENT RECORDS
 FIELD_LONG("Employment Record", emplRecord, access_heads, access_heads)
-FIELD_SHORT("Home System", homeSystem, access_heads, access_change_ids)
-FIELD_SHORT("Faction", faction, access_heads, access_heads)
 FIELD_LONG("Qualifications", skillset, access_heads, access_heads)
 
 // ANTAG RECORDS

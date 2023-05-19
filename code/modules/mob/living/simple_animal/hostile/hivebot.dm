@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/hivebot
-	name = "hivedrone"
-	desc = "A weird-looking drone of unknown design. Looks hostile."
+	name = "One Star Autonomous Drone"
+	desc = "Old machine of long time fallen empire. Looks like its just attack everything on sight."
 	icon = 'icons/mob/hivebot.dmi'
 	icon_state = "melee"
 	icon_dead = "melee_broken"
@@ -11,7 +11,7 @@
 	attacktext = "clawed"
 	projectilesound = 'sound/weapons/Laser.ogg'
 	projectiletype = /obj/item/projectile/beam/drone
-	faction = "hivebot"
+	faction = "onestar"
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -26,9 +26,6 @@
 	light_color = COLOR_LIGHTING_BLUE_BRIGHT
 	mob_classification = CLASSIFICATION_SYNTHETIC
 	move_to_delay = 9
-
-	//Eclipse-added vars
-	simplemob_bonus_multiplier = -0.5		//You'll just be plinking off the metal here.
 
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "One Star Autonomous Sentinel"

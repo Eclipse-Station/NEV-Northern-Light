@@ -34,10 +34,10 @@
 
 /obj/structure/attack_hand(mob/user)
 	if(breakable)
-		if(HULK in user.mutations)
-			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
-			attack_generic(user,1,"smashes")
-		else if(ishuman(user))
+//		if(HULK in user.mutations)
+//			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
+//			attack_generic(user,1,"smashes")
+		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.species.can_shred(user))
 				attack_generic(user,1,"slices")
@@ -174,13 +174,9 @@
 
 			var/obj/item/organ/external/affecting
 
-			switch(pick(list("ankle","wrist","head","knee","elbow")))
-				if("ankle")
-					affecting = H.get_organ(pick(BP_L_FOOT, BP_R_FOOT))
+			switch(pick(list("head","knee","elbow")))
 				if("knee")
 					affecting = H.get_organ(pick(BP_L_LEG , BP_R_LEG))
-				if("wrist")
-					affecting = H.get_organ(pick(BP_L_HAND, BP_R_HAND))
 				if("elbow")
 					affecting = H.get_organ(pick(BP_L_ARM, BP_R_ARM))
 				if("head")

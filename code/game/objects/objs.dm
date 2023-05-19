@@ -10,7 +10,7 @@
 	var/edge = FALSE		// whether this object is more likely to dismember
 	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
 	var/damtype = "brute"
-	var/armor_penetration = 0
+	var/armor_divisor = 1
 	var/style_damage = 30 // used for dealing damage to slickness
 	var/corporation
 	var/heat = 0
@@ -22,25 +22,13 @@
 /obj/get_fall_damage()
 	return w_class * 2
 
-/obj/examine(mob/user, distance=-1, infix, suffix)
-	..(user, distance, infix, suffix)
-	if(get_dist(user, src) <= 2)
-		if (corporation)
-			if (corporation in global.GLOB.global_corporations)
-				var/datum/corporation/C = GLOB.global_corporations[corporation]
-				to_chat(user, "<font color='[C.textcolor]'>You think this [src.name] create a \
-				<IMG CLASS=icon SRC=\ref[C.icon] ICONSTATE='[C.icon_state]'>\
-				[C.name]. [C.about]</font>")
-			else
-				to_chat(user, "You think this [src.name] create a [corporation].")
-	return distance == -1 || (get_dist(src, user) <= distance)
-
-
 /obj/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	return ..()
+	if(!ismachinery(src))
+		STOP_PROCESSING(SSobj, src) // TODO: Have a processing bitflag to reduce on unnecessary loops through the processing lists
+	SSnano.close_uis(src)
+	. = ..()
 
-/obj/Topic(href, href_list, var/datum/topic_state/state = GLOB.default_state)
+/obj/Topic(href, href_list, var/datum/nano_topic_state/state = GLOB.default_state)
 	if(..())
 		return 1
 
@@ -53,10 +41,10 @@
 	CouldNotUseTopic(usr)
 	return 1
 
-/obj/proc/OnTopic(mob/user, href_list, datum/topic_state/state)
+/obj/proc/OnTopic(mob/user, href_list, datum/nano_topic_state/state)
 	return TOPIC_NOACTION
 
-/obj/CanUseTopic(mob/user, datum/topic_state/state)
+/obj/CanUseTopic(mob/user, datum/nano_topic_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
 	return STATUS_CLOSE
@@ -87,10 +75,6 @@
 	// Nada
 
 /obj/item/proc/is_used_on(obj/O, mob/user)
-
-/obj/Process()
-	STOP_PROCESSING(SSobj, src)
-	return 0
 
 /obj/assume_air(datum/gas_mixture/giver)
 	if(loc)
@@ -149,11 +133,8 @@
 			in_use = 0
 
 /obj/attack_ghost(mob/user)
-	ui_interact(user)
+	nano_ui_interact(user)
 	..()
-
-/obj/proc/interact(mob/user)
-	return
 
 /mob/proc/unset_machine()
 	src.machine = null
@@ -172,7 +153,7 @@
 
 /obj/proc/hide(hide)
 	invisibility = hide ? INVISIBILITY_MAXIMUM : initial(invisibility)
-	SEND_SIGNAL(src, COMSIG_OBJ_HIDE, hide)
+	SEND_SIGNAL_OLD(src, COMSIG_OBJ_HIDE, hide)
 
 /obj/proc/hides_under_flooring()
 	return level == BELOW_PLATING_LEVEL
@@ -201,7 +182,7 @@
 	GLOB.hearing_objects.Remove(src)
 
 /obj/proc/eject_item(obj/item/I, mob/living/user)
-	if(!I || !user.IsAdvancedToolUser())
+	if(!I || !user.IsAdvancedToolUser() || user.stat || !user.Adjacent(I))
 		return FALSE
 	user.put_in_hands(I)
 	playsound(src.loc, 'sound/weapons/guns/interact/pistol_magin.ogg', 75, 1)
@@ -212,13 +193,25 @@
 	return TRUE
 
 /obj/proc/insert_item(obj/item/I, mob/living/user)
-	if(!I || !user.unEquip(I))
+	if(!I || !istype(user) || user.stat || !user.unEquip(I))
 		return FALSE
 	I.forceMove(src)
 	playsound(src.loc, 'sound/weapons/guns/interact/pistol_magout.ogg', 75, 1)
 	to_chat(user, SPAN_NOTICE("You insert [I] into [src]."))
 	return TRUE
 
+/obj/proc/replace_item(obj/item/I_old, obj/item/I_new, mob/living/user)
+	if(!I_old || !I_new || !istype(user) || user.stat || !user.Adjacent(I_new) || !user.Adjacent(I_old) || !user.unEquip(I_new))
+		return FALSE
+	I_new.forceMove(src)
+	user.put_in_hands(I_old)
+	playsound(src.loc, 'sound/weapons/guns/interact/pistol_magout.ogg', 75, 1)
+	spawn(2)
+		playsound(src.loc, 'sound/weapons/guns/interact/pistol_magin.ogg', 75, 1)
+	user.visible_message(
+		"[user] replaces [I_old] with [I_new] in [src].",
+		SPAN_NOTICE("You replace [I_old] with [I_new] in [src]."))
+	return TRUE
 
 //Returns the list of matter in this object
 //You can override it to customise exactly what is returned.
@@ -255,8 +248,8 @@
 	throwforce = initial(throwforce) * newmult
 
 //Same for AP
-/obj/proc/multiply_projectile_penetration(newmult)
-	armor_penetration = initial(armor_penetration) * newmult
+/obj/proc/add_projectile_penetration(newmult)
+	armor_divisor = initial(armor_divisor) + newmult
 
 /obj/proc/multiply_projectile_style_damage(newmult)
 	style_damage = initial(style_damage) * newmult
@@ -268,5 +261,3 @@
 /obj/proc/multiply_projectile_step_delay(newmult)
 
 /obj/proc/multiply_projectile_agony(newmult)
-
-/obj/proc/multiply_projectile_simplemob_damage(newmult)		//Eclipse addition: Projectile simplemob bonus damage.

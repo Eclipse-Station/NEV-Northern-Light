@@ -57,16 +57,6 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 		INFESTATION_SLIMES = 5
 	)
 
-// // // BEGIN ECLIPSE EDITS // // //
-// Don't overload us with mobs, here...
-//If we're at capacity, forcing this event will do nothing.
-/datum/event/infestation/can_trigger(forced)
-	if(SSmobs.mob_list.len >= GLOBAL_MOB_WARNING_LIMIT)
-		return FALSE
-
-	return TRUE
-// // // END ECLIPSE EDITS // // //
-
 /datum/event/infestation/setup()
 	announceWhen = rand(20,80) //Very large random window for announcement,
 	num_areas = 2
@@ -218,6 +208,6 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 				if (EVENT_LEVEL_MUNDANE)
 					command_announcement.Announce("Bioscans indicate that [chosen_mob] [chosen_verb] [english_list(areanames)]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg')
 				if (EVENT_LEVEL_MODERATE)
-					command_announcement.Announce("Bioscans indicate that [chosen_mob] [chosen_verb] [english_list(areanames)]. Aegis are advised to approach with caution.", event_name, new_sound = 'sound/AI/vermin.ogg')
+					command_announcement.Announce("Bioscans indicate that [chosen_mob] [chosen_verb] [english_list(areanames)]. Ironhammer are advised to approach with caution.", event_name, new_sound = 'sound/AI/vermin.ogg')
 				if (EVENT_LEVEL_MAJOR)
 					command_announcement.Announce("Shipwide Alert: Bioscans indicate that [chosen_mob] [chosen_verb] [english_list(areanames)]. Crew are advised to evacuate those areas immediately.", event_name, new_sound = 'sound/AI/vermin.ogg')

@@ -298,7 +298,7 @@
 
 	if(!MOVING_DELIBERATELY(mob))
 		mob.handle_movement_recoil()
-
+	mob.add_momentum(direction)
 	// Something with pulling things
 	var/extra_delay = HandleGrabs(direction, old_turf)
 	mob.add_move_cooldown(extra_delay)
@@ -311,12 +311,6 @@
 	for (var/obj/item/grab/G in mob.grabbed_by)
 		G.adjust_position()
 	*/
-
-	//Eclipse edit start
-	mob.pixel_x = mob.default_pixel_x //Reset pixel shifting x
-	mob.pixel_y = mob.default_pixel_y //REset pixel shifting y
-	//Eclipse edit end
-
 	mob.moving = 0
 
 /datum/movement_handler/mob/movement/MayMove(var/mob/mover)

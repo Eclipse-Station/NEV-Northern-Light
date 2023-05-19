@@ -17,7 +17,7 @@
 		rad = 25
 	)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
+	body_parts_covered = HEAD|FACE|EYES|EARS
 	item_flags = COVER_PREVENT_MANIPULATION
 	siemens_coefficient = 0.9
 	price_tag = 50

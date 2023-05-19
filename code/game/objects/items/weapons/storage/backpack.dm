@@ -87,7 +87,8 @@
 
 /obj/item/storage/backpack/holding/New()
 	..()
-	bluespace_entropy(6, get_turf(src))
+	if(!istype(src, /obj/item/storage/backpack/holding/bst)) //so admins don't cause unnecessary chaos...
+		bluespace_entropy(6, get_turf(src))
 
 /obj/item/storage/backpack/holding/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/storage/backpack/holding))
@@ -180,7 +181,7 @@
 //Faction-specific backpacks
 /obj/item/storage/backpack/ironhammer
 	name = "operator's backpack"
-	desc = "Done in a complementing shade for Aegis Security forces, a staple for security contractors everywhere."
+	desc = "Done in a complementing shade for IronHammer Security forces, a staple for military contractors everywhere."
 	icon_state = "backpack_ironhammer"
 	rarity_value = 25
 
@@ -235,7 +236,7 @@
 //Faction-specific backsports
 /obj/item/storage/backpack/sport/ironhammer
 	name = "operator's sport backpack"
-	desc = "Done in a complementing shade for Aegis Security forces. It looks as if it belongs on a kindergartener rather than a operative, which is why in actuality this style makes perfect sense."
+	desc = "Done in a complementing shade for IronHammer Security forces. It looks as if it belongs on a kindergartener rather than a operative, which is why in actuality this style makes perfect sense."
 	icon_state = "backsport_ironhammer"
 	rarity_value = 25
 
@@ -323,8 +324,10 @@
 
 /obj/item/storage/backpack/satchel/leather
 	name = "leather satchel"
-	desc = "A fancy satchel made with fine leather."
+	desc = "A fancy satchel made with fine leather. While fancy, it has less storage space than most other satchels."
 	icon_state = "satchel_leather"
+	max_storage_space = DEFAULT_HUGE_STORAGE * 0.5 // 20 instead of 28
+	style = STYLE_LOW // Sacrificing storage space is stylish
 
 /obj/item/storage/backpack/satchel/leather/withwallet
 	rarity_value = 4.16
@@ -335,7 +338,7 @@
 //Faction-specific satchels
 /obj/item/storage/backpack/satchel/ironhammer
 	name = "operator's satchel"
-	desc = "Done in a complementing shade for Aegis Security forces, for the itinerant security contractor."
+	desc = "Done in a complementing shade for IronHammer Security forces, for the itinerant military contractor."
 	icon_state = "satchel_ironhammer"
 	rarity_value = 12.5
 

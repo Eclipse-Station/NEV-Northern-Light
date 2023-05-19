@@ -19,16 +19,17 @@
 			return A
 	return 0
 
+// get the area's name
+/proc/get_area_name_litteral(atom/X, format_text = FALSE)
+	var/area/A = isarea(X) ? X : get_area(X)
+	if(!A)
+		return null
+	return format_text ? format_text(A.name) : A.name
+
 /proc/get_area_master(const/O)
 	var/area/A = get_area(O)
 	if (isarea(A))
 		return A
-
-/proc/in_range(source, user)
-	if(get_dist(source, user) <= 1)
-		return TRUE
-
-	return FALSE //not in range and not telekinetic
 
 // Like view but bypasses luminosity check
 
@@ -268,13 +269,13 @@
 			return get_step(start, EAST)
 
 /proc/get_mob_by_key(key)
-	for(var/mob/M in SSmobs.mob_list)
+	for(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 		if(M.ckey == lowertext(key))
 			return M
 	return null
 
 /proc/get_client_by_ckey(key)
-	for(var/mob/M in SSmobs.mob_list)
+	for(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 		if(M.ckey == lowertext(key))
 			return M.client
 	return null
@@ -540,14 +541,6 @@
 
 	if (L.len)
 		return pick(L)
-
-/proc/flick_overlay_view(image/I, atom/target, duration, gc_after) //wrapper for the above, flicks to everyone who can see the target atom
-	var/list/viewing = list()
-	for(var/m in viewers(target))
-		var/mob/M = m
-		if(M.client)
-			viewing += M.client
-	flick_overlay(I, viewing, duration, gc_after)
 
 /proc/activate_mobs_in_range(atom/caller , distance)
 	var/turf/starting_point = get_turf(caller)

@@ -31,9 +31,9 @@
 		return
 
 	user.set_machine(src)
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/keycard_auth/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/keycard_auth/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/data[0]
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.maps_data.security_state)
 
@@ -64,7 +64,7 @@
 		if(ongoing_countdowns[event])
 			return
 		kcad_announcement.Announce("[usr] has initiated [event_names[event]] countdown.")
-		ongoing_countdowns[event] = addtimer(CALLBACK(src, .proc/countdown_finished, event), countdown, TIMER_UNIQUE | TIMER_STOPPABLE)
+		ongoing_countdowns[event] = addtimer(CALLBACK(src, PROC_REF(countdown_finished), event), countdown, TIMER_UNIQUE | TIMER_STOPPABLE)
 		next_countdown = world.time + cooldown
 		var/obj/item/card/id/id = usr.GetIdCard()
 		initiator_card[event] = id

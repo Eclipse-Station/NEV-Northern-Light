@@ -1,4 +1,4 @@
-/mob/living/carbon/New()
+/mob/living/carbon/Initialize()
 	//setup reagent holders
 	bloodstr = new /datum/reagents/metabolism(1000, src, CHEM_BLOOD)
 	ingested = new /datum/reagents/metabolism(1000, src, CHEM_INGEST)
@@ -10,14 +10,14 @@
 /mob/living/carbon/Life()
 	. = ..()
 	handle_viruses()
-	// Increase germ_level regularly
-	if(germ_level < GERM_LEVEL_AMBIENT && prob(30))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
-		germ_level++
 
 /mob/living/carbon/Destroy()
-	qdel(ingested)
-	qdel(touching)
-	// We don't qdel(bloodstr) because it's the same as qdel(reagents)
+	QDEL_NULL(metabolism_effects)
+	reagents = null
+	QDEL_NULL(ingested)
+	QDEL_NULL(touching)
+	QDEL_NULL(bloodstr)
+	QDEL_NULL(vessel)
 	QDEL_LIST(internal_organs)
 	QDEL_LIST(stomach_contents)
 	QDEL_LIST(hallucinations)
@@ -43,9 +43,6 @@
 		if(is_watching == TRUE)
 			reset_view(null)
 			is_watching = FALSE
-		// Moving around increases germ_level faster
-		if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
-			germ_level++
 
 /mob/living/carbon/relaymove(var/mob/living/user, direction)
 	if((user in src.stomach_contents) && istype(user))
@@ -59,7 +56,7 @@
 					var/mob/living/carbon/human/H = src
 					var/obj/item/organ/external/organ = H.get_organ(BP_CHEST)
 					if (istype(organ))
-						if(organ.take_damage(d, 0))
+						if(organ.take_damage(d, BRUTE))
 							H.UpdateDamageIcon()
 					H.updatehealth()
 				else
@@ -86,9 +83,9 @@
 /mob/living/carbon/attack_hand(mob/M as mob)
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_ARM]
 		if (H.hand)
-			temp = H.organs_by_name[BP_L_HAND]
+			temp = H.organs_by_name[BP_L_ARM]
 		if(temp && !temp.is_usable())
 			to_chat(H, "\red You can't use your [temp.name]")
 			return
@@ -108,9 +105,8 @@
 			"\red <B>You feel a powerful shock course through your body!</B>", \
 			"\red You hear a heavy electrical crack." \
 		)
-		SEND_SIGNAL(src, COMSIG_CARBON_ELECTROCTE)
-		Stun(10)//This should work for now, more is really silly and makes you lay there forever
-		Weaken(10)
+		SEND_SIGNAL_OLD(src, COMSIG_CARBON_ELECTROCTE)
+		Weaken(max(min(10,round(shock_damage / 10 )), 2) SECONDS)
 	else
 		src.visible_message(
 			"\red [src] was mildly shocked by the [source].", \
@@ -129,6 +125,10 @@
 	//We cache the held items before and after swapping using get active hand.
 	//This approach is future proof and will support people who possibly have >2 hands
 	var/obj/item/prev_held = get_active_hand()
+
+	if(prev_held)
+		if(prev_held.wielded)
+			prev_held.unwield(src)
 
 	//Now we do the hand swapping
 	src.hand = !( src.hand )
@@ -165,9 +165,6 @@
 		if(src == M && ishuman(src))
 			var/mob/living/carbon/human/H = src
 			H.check_self_for_injuries()
-
-			if((SKELETON in H.mutations) && (!H.w_uniform) && (!H.wear_suit))
-				H.play_xylophone()
 		else if (on_fire)
 			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			if (M.on_fire)
@@ -220,7 +217,7 @@
 			else if((M.targeted_organ == BP_HEAD) && target_organ_exists)
 				M.visible_message(SPAN_NOTICE("[M] pats [src]'s head."), \
 									SPAN_NOTICE("You pat [src]'s head."))
-			else if(M.targeted_organ == BP_R_HAND || M.targeted_organ == BP_L_HAND) //Syz Edit
+			else if(M.targeted_organ == BP_R_ARM || M.targeted_organ == BP_L_ARM)
 				if(target_organ_exists)
 					M.visible_message(SPAN_NOTICE("[M] shakes hands with [src]."), \
 										SPAN_NOTICE("You shake hands with [src]."))
@@ -234,21 +231,6 @@
 				else
 					M.visible_message(SPAN_NOTICE("[M] hugs [src] to make [t_him] feel better!"), \
 								SPAN_NOTICE("You hug [src] to make [t_him] feel better!"))
-					// // // BEGIN ECLIPSE EDITS // // //
-					//Hugging now restores sanity if it's critically low.
-					if(istype(M, /mob/living/carbon/human))
-						var/mob/living/carbon/human/R = M
-						if(R.sanity)		//We do the person giving the hug...
-							if(R.sanity.level < config.maximum_hug_sanity_restoration)
-								R.sanity.changeLevel(1.5)	//but not as much as...
-					if(istype(src, /mob/living/carbon/human))
-						var/mob/living/carbon/human/Q = src
-						if(Q.sanity)		//the person receiving the hug...
-							if(Q.sanity.level < config.maximum_hug_sanity_restoration)
-								Q.sanity.changeLevel(3)		//who's getting more.
-					
-					// // // END ECLIPSE EDITS // // //
-					
 				if(M.fire_stacks >= (src.fire_stacks + 3))
 					src.fire_stacks += 1
 					M.fire_stacks -= 1
@@ -263,17 +245,13 @@
 /mob/living/carbon/proc/eyecheck()
 	return 0
 
-// ++++ROCKDTBEN++++ MOB PROCS -- Ask me before touching.
-// Stop! ... Hammertime! ~Carn
-
-/mob/living/carbon/proc/getDNA()
-	return dna
-
-/mob/living/carbon/proc/setDNA(var/datum/dna/newDNA)
-	dna = newDNA
-
-// ++++ROCKDTBEN++++ MOB PROCS //END
-
+/mob/living/carbon/flash(duration = 0, drop_items = FALSE, doblind = FALSE, doblurry = FALSE)
+	if(blinded)
+		return
+	if(species)
+		..(duration * species.flash_mod, drop_items, doblind, doblurry)
+	else
+		..(duration, drop_items, doblind, doblurry)
 //Throwing stuff
 /mob/proc/throw_item(atom/target)
 	return
@@ -433,9 +411,10 @@
 	<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>
 	<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>
 	<BR>"}
-	user << browse(dat, text("window=mob[];size=325x500", name))
-	onclose(user, "mob[name]")
-	return
+
+	var/datum/browser/panel = new(user, "mob[name]", "Mob", 325, 400)
+	panel.set_content(dat)
+	panel.open()
 
 /mob/living/carbon/proc/should_have_process(var/organ_check)
 	return 0

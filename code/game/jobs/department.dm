@@ -34,7 +34,7 @@
 	Command
 **************/
 /datum/department/command
-	name = "NEV Northern Light Command"
+	name = "CEV Eris Command"
 	id = DEPARTMENT_COMMAND
 	/*
 	The command account is the ship account. It is the master account that retainer departments are paid from,
@@ -44,30 +44,27 @@
 	In future, we will implement largescale missions and research contracts to earn money, and then set it
 	to a much lower starting value
 	*/
-	account_initial_balance = 100000
+	account_initial_balance = 2000000
 
 
 /*************
 	Retainers
 **************/
 //These departments are paid out of ship funding
+/datum/department/ironhammer
+	name = "Ironhammer Mercenary Company"
+	id = DEPARTMENT_SECURITY
 	funding_source = DEPARTMENT_COMMAND
 
-//Eclipse Edit: Engineering - moved in-house
 /datum/department/technomancers
-	name = "NEV Northern Light Engineering"
+	name = "Technomancer League"
 	id = DEPARTMENT_ENGINEERING
 	funding_source = DEPARTMENT_COMMAND
 
-/datum/department/ironhammer
-	name = "Aegis Security Solutions"
-	id = DEPARTMENT_SECURITY
-
 /datum/department/civilian
-	name = "NEV Northern Light Civic"
+	name = "CEV Eris Civilian"
 	id = DEPARTMENT_CIVILIAN
-	account_initial_balance = 2000
-	//Now for the club
+	funding_source = DEPARTMENT_COMMAND
 
 
 /******************
@@ -75,28 +72,27 @@
 *******************/
 //Departments subsidised by an external organisation. These pay their own employees
 /datum/department/moebius_medical
-	name = "Lazarus Foundation: Medical Division"
+	name = "Moebius Corp: Medical Division"
 	id = DEPARTMENT_MEDICAL
-	account_initial_balance = 5000
-	funding_source = "DEPARTMENT_SCIENCE"
+	funding_source = "Moebius Corp."
 
 /datum/department/moebius_research
-	name = "Lazarus Foundation: Research Division"
+	name = "Moebius Corp: Research Division"
 	id = DEPARTMENT_SCIENCE
-	account_initial_balance = 10000 //For buying materials and components and things of scientific value
+	funding_source = "Moebius Corp."
 
 /datum/department/church
-	name = "Children of Mekhane"
+	name = "Church of NeoTheology"
 	id = DEPARTMENT_CHURCH
-	account_initial_balance = 4500 //each Neotheo has a wage of 900, this is enough to pay 5 paychecks before needing more cash
+	funding_source = "Church of NeoTheology"
 
 
 /******************
-	Independent
+	Independant
 *******************/
 //Self funds and pays wages out of its earnings
 /datum/department/guild
-	name = "Free Trade Union"
+	name = "Asters Merchant Guild"
 	id = DEPARTMENT_GUILD
 
 	/*

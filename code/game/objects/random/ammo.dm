@@ -24,12 +24,12 @@
 	spawn_nothing_percentage = 60
 
 /obj/spawner/ammo/ihs
-	name = "random aegis ammunition"
+	name = "random ironhammer ammunition"
 	icon_state = "ammo-blue"
 	tags_to_spawn = list(SPAWN_AMMO_IH)
 
 /obj/spawner/ammo/ihs/low_chance
-	name = "low chance random random aegis ammunition"
+	name = "low chance random random ironhammer ammunition"
 	icon_state = "ammo-blue-low"
 	spawn_nothing_percentage = 60
 

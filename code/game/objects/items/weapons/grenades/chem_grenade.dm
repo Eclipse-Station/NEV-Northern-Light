@@ -233,12 +233,12 @@
 	..()
 
 /obj/item/grenade/chem_grenade/large/moebius
-	name = "large Lazarus chem grenade"
-	desc = "An oversized grenade that affects a larger area. Has Lazarus markings"
+	name = "large moebius chem grenade"
+	desc = "An oversized grenade that affects a larger area. Has Moebius markings"
 	icon_state = "moebius_grenade"
 
 /obj/item/grenade/chem_grenade/metalfoam
-	name = "\"Stop-Space\""
+	name = "Asters \"Stop-Space\""
 	icon_state = "foam"
 	desc = "Used for emergency sealing of air breaches."
 	can_be_modified = FALSE
@@ -284,7 +284,7 @@
 	beakers += B2
 
 /obj/item/grenade/chem_grenade/antiweed
-	name = "\"Flora Armageddon\""
+	name = "Asters \"Flora Armageddon\""
 	desc = "Used for purging large areas of invasive plant species. Contents under pressure. Do not directly inhale contents."
 	icon_state = "foam"
 	can_be_modified = FALSE
@@ -307,16 +307,14 @@
 	icon_state = "grenade"
 
 /obj/item/grenade/chem_grenade/antiweed/nt_antiweed
-
-	name = "Mekhane \"Kudzu Killer\""
-	desc = "MA brand weedkiller grenades. Designed to deal with Kudzu infestations back in New Rome. Mixes toxic biomatter with plasticides for great results"
-
+	name = "NeoTheology \"Kudzu Killer\""
+	desc = "NT brand weedkiller grenades. Designed to deal with Kudzu infestations back in New Rome. Mixes toxic biomatter with plasticides for great results"
 	icon_state = "foam"
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_BIOMATTER = 5)
 	matter_reagents = list("water" = 30)
 
 /obj/item/grenade/chem_grenade/cleaner
-	name = "\"Shit-Be-Gone\""
+	name = "Asters \"Shit-Be-Gone\""
 	icon_state = "foam"
 	desc = "Dirt? Grime? Blood and criminal evidence? Say good-fucking-bye to all of those things with one simple throw!"
 	can_be_modified = FALSE
@@ -340,10 +338,8 @@
 	beakers += B2
 
 /obj/item/grenade/chem_grenade/cleaner/nt_cleaner
-
-	name = "Mekhane \"Cleanse Capsule\""
-	desc = "MA brand cleaner grenades. Designed to deal with Biogenerator accidents and the aftermaths of gang wars inside the New Rome slums."
-
+	name = "NeoTheology \"Cleanse Capsule\""
+	desc = "NT brand cleaner grenades. Designed to deal with Biogenerator accidents and the aftermaths of gang wars inside the New Rome slums."
 	icon_state = "foam"
 	matter = list(MATERIAL_STEEL = 3, MATERIAL_BIOMATTER = 5)
 	matter_reagents = list("water" = 30)
@@ -351,6 +347,7 @@
 /obj/item/grenade/chem_grenade/teargas
 	name = "FS TGG \"Simon\""
 	desc = "Concentrated Capsaicin. Contents under pressure. Use with caution."
+	description_info = "Uneffective if the target has internals and face protection."
 	can_be_modified = FALSE
 	icon_state = "teargas"
 	item_state = "teargas"

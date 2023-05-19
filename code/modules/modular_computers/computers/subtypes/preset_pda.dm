@@ -22,6 +22,7 @@
 	hard_drive.store_file(new /datum/computer_file/program/wordprocessor())
 	hard_drive.store_file(new /datum/computer_file/program/records())
 	hard_drive.store_file(new /datum/computer_file/program/bounty_board_app())
+	hard_drive.store_file(new/datum/computer_file/program/trade/order())
 	if(prob(60)) // Tax software
 		hard_drive.store_file(new /datum/computer_file/program/tax())
 	else if(prob(50)) // "Tax software"
@@ -82,10 +83,6 @@
 	icon_state = "pda-hop"
 	scanner_type = /obj/item/computer_hardware/scanner/paper
 
-/obj/item/modular_computer/pda/heads/boff
-	icon_state = "pda-h"
-	scanner_type = /obj/item/computer_hardware/scanner/paper
-
 /obj/item/modular_computer/pda/heads/hos
 	icon_state = "pda-hos"
 	scanner_type = /obj/item/computer_hardware/scanner/paper
@@ -139,17 +136,10 @@
 	..()
 	hard_drive.store_file(new /datum/computer_file/program/drink_catalog())
 
-
-// PDA box
 /obj/item/storage/box/PDAs
 	name = "box of spare PDAs"
 	desc = "A box of spare PDA microcomputers."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pdabox"
-
-/obj/item/storage/box/PDAs/populate_contents()
-	new /obj/item/modular_computer/pda(src)
-	new /obj/item/modular_computer/pda(src)
-	new /obj/item/modular_computer/pda(src)
-	new /obj/item/modular_computer/pda(src)
-	new /obj/item/modular_computer/pda(src)
+	prespawned_content_amount = 5
+	prespawned_content_type = /obj/item/modular_computer/pda

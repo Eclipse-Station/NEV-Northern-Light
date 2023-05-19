@@ -141,16 +141,7 @@
 			usr.client.cmd_assume_direct_control(M)
 
 	else if(href_list["make_skeleton"])
-		if(!check_rights(R_FUN))
-			return
-
-		var/mob/living/carbon/human/H = locate(href_list["make_skeleton"])
-		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
-			return
-
-		H.ChangeToSkeleton()
-		href_list["datumrefresh"] = href_list["make_skeleton"]
+		return
 
 	else if(href_list["delall"])
 		if(!check_rights(R_DEBUG|R_SERVER))
@@ -321,44 +312,6 @@
 			to_chat(usr, "Set species of [H] to [H.species].")
 		else
 			to_chat(usr, "Failed! Something went wrong.")
-		
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Marking fix procs for post-cloning.
-	else if(href_list["regenmarkings"])
-		if(!check_rights(R_DEBUG|R_ADMIN|R_MOD))
-			return
-		
-		//check the mob exists in the first place
-		var/mob/living/carbon/human/H = locate(href_list["regenmarkings"])
-		if(!H)
-			to_chat(usr, "Unable to regenerate markings: Mob does not exist or is non-human.")
-			return
-		
-		//check that the mob has markings
-		if(!H.dna.body_markings)
-			//If we don't have any markings, we only soft-fail - there may be an edge case where we want to regenerate them anyway.
-			if(alert("This mob has no markings to generate. Regenerate markings anyway?",,"Confirm","Abort") != "Confirm")
-				to_chat(usr, "Unable to generate markings: No markings to regenerate; override prompt aborted by user.")
-				return
-		
-		//Outside of the sanity checks, everything else is fairly simple. We just gotta
-		H.body_markings = H.dna.body_markings.Copy()		// and then we just call
-		H.update_icons()		//and that should be it.
-	
-	//Fully regenerate icons via calling the UpdateAppearance proc.
-	else if(href_list["regenerateiconsfully"])
-		if(!check_rights(R_DEBUG|R_ADMIN|R_MOD))
-			return
-		
-		//Once again, we start by seeing if the mob exists in the first place...
-		var/mob/living/carbon/human/H = locate(href_list["regenerateiconsfully"])
-		if(!H)
-			to_chat(usr, "Unable to regenerate icons: Mob does not exist or is non-human.")
-			return
-			
-		//And we call a proc that literally does it all for us.
-		H.UpdateAppearance()
-	// // // END ECLIPSE EDITS // // //
 
 	else if(href_list["addlanguage"])
 		if(!check_rights(R_FUN))
@@ -505,23 +458,7 @@
 		qdel(rem_organ)
 
 	else if(href_list["fix_nano"])
-		if(!check_rights(R_DEBUG)) return
-
-		var/mob/H = locate(href_list["fix_nano"])
-
-		if(!istype(H) || !H.client)
-			to_chat(usr, "This can only be done on mobs with clients")
-			return
-
-		SSnano.close_uis(H)
-		H.client.cache.Cut()
-		var/datum/asset/assets = get_asset_datum(/datum/asset/directories/nanoui)
-		assets.send(H)
-
-		to_chat(usr, "Resource files sent")
-		to_chat(H, "Your NanoUI Resource files have been refreshed")
-
-		log_admin("[key_name(usr)] resent the NanoUI resource files to [key_name(H)] ")
+		to_chat(usr, "This is depricated with the new asset cache system. Do not use")
 
 	else if(href_list["regenerateicons"])
 		if(!check_rights(0))	return

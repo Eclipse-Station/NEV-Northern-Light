@@ -82,46 +82,15 @@
 
 
 
-
+/*
 /datum/storyevent/roleset/malf
 	id = "malf"
 	name = "malfunctioning AI"
 	role_id = ROLE_MALFUNCTION
-	req_crew = 15
-
-
-// // // BEGIN ECLIPSE EDITS // // //
-//Copypaste from Hivemind code.
-/datum/storyevent/roleset/malf/can_trigger()
-	var/crew = 0
-	var/engis = 0
-	var/sec = 0
-	var/command = 0
-
-	//Let's get a list of active players first, and run through that.
-	for(var/mob/M in GLOB.player_list)
-		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
-			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
-			if(job)
-				crew++
-				if(job in list(JOBS_ENGINEERING))		//Engi?
-					engis++
-				if(job in list(JOBS_SECURITY))		//Sec?
-					sec++
-				if(job in list(JOBS_COMMAND))		//Head of staff?
-					command++
-	if(crew < 15)			//Because one's not enough, and two's too few.
-		return FALSE
-	else if(crew >= 15 && crew < 21)		//Debatable...
-		if(!sec || !command || !engis)
-			return FALSE		//Without someone who can actually deal with the threat, it's too difficult for the crew.
-
-	//We have enough to be able to start, so we'll call the other stuff.
-	return ..()
-
-// // // END ECLIPSE EDITS // // //
-
-
+	req_crew = 20
+	occurrences_max = 1
+	tags = list(TAG_DESTRUCTIVE, TAG_NEGATIVE)
+*/
 /datum/storyevent/roleset/marshal
 	id = "marshal"
 	name = "marshal"

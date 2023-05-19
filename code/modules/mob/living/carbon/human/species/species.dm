@@ -14,14 +14,6 @@
 	var/deform = 'icons/mob/human_races/r_def_human.dmi' // Mutated icon set.
 	var/faceicobase = 'icons/mob/human_face.dmi'
 
-	//This is for overriding tail rendering with a specific icon in icobase, for static
-	//tails only, since tails would wag when dead if you used this
-	var/icobase_tail = 0
-
-	//This is used in character setup preview generation (prefences_setup.dm) and human mob
-	//rendering (update_icons.dm)
-	var/color_mult = 0
-
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
@@ -35,8 +27,6 @@
 	var/base_color                                       // Used by carrions. Should also be used for icon previes..
 	var/tail                                             // Name of tail state in species effects icon file.
 	var/tail_animation                                   // If set, the icon to obtain tail animation states from.
-	var/tail_blend = ICON_ADD
-	var/tail_hair
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
@@ -48,8 +38,8 @@
 
 	var/min_age = 17
 	var/max_age = 70
-	var/preview_icon = null
-	// Language/culture vars.
+
+	// Language vars.
 	var/default_language = LANGUAGE_COMMON   // Default language is used when 'say' is used without modifiers.
 	var/language = LANGUAGE_COMMON           // Default racial language, if any.
 	var/list/secondary_langs = list()        // The names of secondary languages that are available to this species.
@@ -91,7 +81,7 @@
 	var/reagent_tag                                   //Used for metabolizing reagents.
 	var/breath_pressure = 16                          // Minimum partial pressure safe for breathing, kPa
 	var/breath_type = "oxygen"                        // Non-oxygen gas breathed, if any.
-	var/poison_type = "phoron"                        // Poisonous air.
+	var/poison_type = "plasma"                        // Poisonous air.
 	var/exhale_type = "carbon_dioxide"                // Exhaled gas type.
 	var/cold_level_1 = 260                            // Cold damage level 1 below this point.
 	var/cold_level_2 = 200                            // Cold damage level 2 below this point.
@@ -133,8 +123,6 @@
 	var/flags = 0                 // Various specific features.
 	var/appearance_flags = 0      // Appearance/display related features.
 	var/spawn_flags = 0           // Flags that specify who can spawn as this species
-	var/species_flags = 0
-	var/species_preview = 0
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
 	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
 	var/greater_form              // Greater form, if any, ie. human for monkeys.
@@ -164,15 +152,11 @@
 		BP_L_ARM =  new /datum/organ_description/arm/left,
 		BP_R_ARM =  new /datum/organ_description/arm/right,
 		BP_L_LEG =  new /datum/organ_description/leg/left,
-		BP_R_LEG =  new /datum/organ_description/leg/right,
-		BP_L_HAND = new /datum/organ_description/hand/left,
-		BP_R_HAND = new /datum/organ_description/hand/right,
-		BP_L_FOOT = new /datum/organ_description/foot/left,
-		BP_R_FOOT = new /datum/organ_description/foot/right
+		BP_R_LEG =  new /datum/organ_description/leg/right
 		)
 
 	// Misc
-	var/list/genders = list(MALE, FEMALE, PLURAL)
+	var/list/genders = list(MALE, FEMALE)
 
 	// Bump vars
 	var/bump_flag = HUMAN	// What are we considered to be when bumped?
@@ -181,18 +165,10 @@
 
 	var/pass_flags = 0
 
-	//Eclipse additions
-	var/humaniform = TRUE //Does the species use default human spritesheet?
-	var/alt_icons_tag
-	var/list/alt_icons = list()
-
-/datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
+/datum/species/proc/get_eyes(mob/living/carbon/human/H)
 	return
 
 /datum/species/New()
-
-	species_flags = spawn_flags       // Flags that specify who can spawn as this species
-
 	if(hud_type)
 		hud = new hud_type()
 	else
@@ -213,7 +189,7 @@
 	return name
 
 
-/datum/species/proc/get_environment_discomfort(var/mob/living/carbon/human/H, var/msg_type)
+/datum/species/proc/get_environment_discomfort(mob/living/carbon/human/H, msg_type)
 
 	if(!prob(5))
 		return
@@ -280,7 +256,7 @@
 /datum/species/proc/organs_spawned(mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/hug(mob/living/carbon/human/H,var/mob/living/target)
+/datum/species/proc/hug(mob/living/carbon/human/H, mob/living/target)
 
 	var/t_him = "them"
 	switch(target.gender)
@@ -292,19 +268,19 @@
 	H.visible_message(SPAN_NOTICE("[H] hugs [target] to make [t_him] feel better!"), \
 					SPAN_NOTICE("You hug [target] to make [t_him] feel better!"))
 
-/datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
+/datum/species/proc/remove_inherent_verbs(mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs -= verb_path
 	return
 
-/datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
+/datum/species/proc/add_inherent_verbs(mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs |= verb_path
 	return
 
-/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H) //Handles anything not already covered by basic species assignment.
+/datum/species/proc/handle_post_spawn(mob/living/carbon/human/H) //Handles anything not already covered by basic species assignment.
 	add_inherent_verbs(H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
@@ -312,31 +288,31 @@
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
 
-/datum/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
+/datum/species/proc/handle_death(mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
 
-// Only used for alien phoron weeds atm, but could be used for Dionaea later.
-/datum/species/proc/handle_environment_special(var/mob/living/carbon/human/H)
+// Only used for alien plasma weeds atm, but could be used for Dionaea later.
+/datum/species/proc/handle_environment_special(mob/living/carbon/human/H)
 	return
 
 // Used to update alien icons for aliens.
-/datum/species/proc/handle_login_special(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_login_special(mob/living/carbon/human/H)
 	return
 
 // As above.
-/datum/species/proc/handle_logout_special(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_logout_special(mob/living/carbon/human/H)
 	return
 
 // Builds the HUD using species-specific icons and usable slots.
-/datum/species/proc/build_hud(var/mob/living/carbon/human/H)
+/datum/species/proc/build_hud(mob/living/carbon/human/H)
 	return
 
 //Used by xenos understanding larvae and dionaea understanding nymphs.
-/datum/species/proc/can_understand(var/mob/other)
+/datum/species/proc/can_understand(mob/other)
 	return
 
 // Called when using the shredding behavior.
-/datum/species/proc/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
+/datum/species/proc/can_shred(mob/living/carbon/human/H, ignore_intent)
 
 	if(!ignore_intent && H.a_intent != I_HURT)
 		return 0
@@ -350,19 +326,19 @@
 	return 0
 
 // Called in life() when the mob has no client.
-/datum/species/proc/handle_npc(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_npc(mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/get_vision_flags(var/mob/living/carbon/human/H)
+/datum/species/proc/get_vision_flags(mob/living/carbon/human/H)
 	return vision_flags
 
-/datum/species/proc/handle_vision(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_vision(mob/living/carbon/human/H)
+	if(!H.client || H.stat == DEAD) // No client - no screen to update
+		return
+
 	H.update_sight()
 	H.sight |= get_vision_flags(H)
 	H.sight |= H.equipment_vision_flags
-
-	if(H.stat == DEAD)
-		return 1
 
 	if(!H.druggy)
 		H.see_in_dark = (H.sight == SEE_TURFS|SEE_MOBS|SEE_OBJS) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
@@ -373,29 +349,19 @@
 	if(H.equipment_tint_total >= TINT_BLIND)
 		H.eye_blind = max(H.eye_blind, 1)
 
-/*	if(H.blind)
-		H.blind.alpha = (H.eye_blind ? 255 : 0)*/
-
-	if(!H.client)//no client, no screen to update
-		return 1
-
 	if(config.welder_vision)
 		if(H.equipment_tint_total == TINT_HEAVY)
-			H.client.screen += global_hud.darkMask
-		else if((!H.equipment_prescription && (H.disabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
-			H.client.screen += global_hud.vimpaired
+			H.client.screen |= global_hud.darkMask
+		else if((!H.equipment_prescription && (H.sdisabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
+			H.client.screen |= global_hud.vimpaired
 		else if(H.equipment_tint_total == TINT_LOW)
-			H.client.screen += global_hud.lightMask
-
-//	if(H.eye_blurry)	H.client.screen += global_hud.blurry
-//	if(H.druggy)		H.client.screen += global_hud.druggy
+			H.client.screen |= global_hud.lightMask
 
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
 
-	return 1
 
-/datum/species/proc/get_facial_hair_styles(var/gender)
+/datum/species/proc/get_facial_hair_styles(gender)
 	var/list/facial_hair_styles_by_species = LAZYACCESS(facial_hair_styles, type)
 	if(!facial_hair_styles_by_species)
 		facial_hair_styles_by_species = list()
@@ -448,74 +414,3 @@
 		if(!(slot in hud.equip_slots))
 			return FALSE
 	return TRUE
-
-/datum/species/proc/get_description(var/header, var/append, var/verbose = TRUE, var/skip_detail, var/skip_photo)
-	var/list/damage_types = list(
-		"physical trauma" = brute_mod,
-		"burns" = burn_mod,
-		"lack of air" = oxy_mod,
-		"poison" = toxins_mod
-	)
-	if(!header)
-		header = "<center><h2>[name]</h2></center><hr/>"
-	var/dat = list()
-	dat += "[header]"
-	dat += "<table padding='8px'>"
-	dat += "<tr>"
-	dat += "<td width = 400>"
-	if(verbose || length(blurb) <= MAX_DESC_LEN)
-		dat += "[blurb]"
-	else
-		dat += "[copytext(blurb, 1, MAX_DESC_LEN)] \[...\]"
-	if(append)
-		dat += "<br>[append]"
-	dat += "</td>"
-	if((!skip_photo && preview_icon) || !skip_detail)
-		dat += "<td width = 200 align='center'>"
-		if(!skip_photo && preview_icon)
-			usr << browse_rsc(icon(icon = preview_icon, icon_state = ""), "species_preview_[name].png")
-			dat += "<img src='species_preview_[name].png' width='64px' height='64px'><br/><br/>"
-		if(!skip_detail)
-			dat += "<small>"
-			if(spawn_flags & SPECIES_CAN_JOIN)
-				dat += "</br><b>Often present among humans.</b>"
-			if(spawn_flags & SPECIES_IS_WHITELISTED)
-				dat += "</br><b>Whitelist restricted.</b>"
-			if(!has_process[OP_HEART])
-				dat += "</br><b>Does not have blood.</b>"
-		/*	if(!has_organ[breathing_organ])
-				dat += "</br><b>Does not breathe.</b>"*/
-			if(species_flags & SPECIES_FLAG_NO_SCAN)
-				dat += "</br><b>Does not have DNA.</b>"
-			if(species_flags & SPECIES_FLAG_NO_PAIN)
-				dat += "</br><b>Does not feel pain.</b>"
-			if(species_flags & SPECIES_FLAG_NO_MINOR_CUT)
-				dat += "</br><b>Has thick skin/scales.</b>"
-			if(species_flags & SPECIES_FLAG_NO_SLIP)
-				dat += "</br><b>Has excellent traction.</b>"
-			if(species_flags & SPECIES_FLAG_NO_POISON)
-				dat += "</br><b>Immune to most poisons.</b>"
-			if(appearance_flags & HAS_A_SKIN_TONE)
-				dat += "</br><b>Has a variety of skin tones.</b>"
-			if(appearance_flags & HAS_SKIN_COLOR)
-				dat += "</br><b>Has a variety of skin colours.</b>"
-			if(appearance_flags & HAS_EYE_COLOR)
-				dat += "</br><b>Has a variety of eye colours.</b>"
-			if(species_flags & SPECIES_FLAG_IS_PLANT)
-				dat += "</br><b>Has a plantlike physiology.</b>"
-			if(slowdown)
-				dat += "</br><b>Moves [slowdown > 0 ? "slower" : "faster"] than most.</b>"
-			for(var/kind in damage_types)
-				if(damage_types[kind] > 1)
-					dat += "</br><b>Vulnerable to [kind].</b>"
-				else if(damage_types[kind] < 1)
-					dat += "</br><b>Resistant to [kind].</b>"
-			dat += "</br><b>They breathe [gas_data.name[breath_type]].</b>"
-			dat += "</br><b>They exhale [gas_data.name[exhale_type]].</b>"
-		/*	if(LAZYLEN(poison_types))
-				dat += "</br><b>[capitalize(english_list(poison_types))] [LAZYLEN(poison_types) == 1 ? "is" : "are"] poisonous to them.</b>"*/
-			dat += "</small>"
-		dat += "</td>"
-	dat += "</tr>"
-	dat += "</table><hr/>"
-	return jointext(dat, null)

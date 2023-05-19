@@ -38,11 +38,6 @@
 		CRASH("Gender datum was null; key was '[(skipjumpsuit && skipface) ? PLURAL : gender]'")
 
 	msg += "<EM>[src.name]</EM>"
-	if(species.name != SPECIES_HUMAN)
-		if(custom_species)
-			msg += ", a <b><font color='[species.flesh_color]'>[custom_species]</font></b>"
-		else
-			msg += ", a <b><font color='[species.flesh_color]'>[species.name]</font></b>"
 	msg += "!\n"
 
 	//uniform
@@ -187,8 +182,8 @@
 		if(locate(/obj/item/implant/carrion_spider) in src)
 			msg += SPAN_DANGER("[T.He] [T.has] a strange growth on [T.his] chest!") + "\n"
 
-	if(mSmallsize in mutations)
-		msg += "[T.He] [T.is] small halfling!\n"
+//	if(mSmallsize in mutations)
+//		msg += "[T.He] [T.is] small halfling!\n"
 
 	var/distance = get_dist(usr,src)
 	if(isghost(usr) || usr?.stat == DEAD) // ghosts can see anything
@@ -237,10 +232,10 @@
 	for(var/obj/item/organ/external/temp in organs)
 		if(BP_IS_SILICON(temp))
 			var/part_display_name
-			if(copytext(temp.name, 1, 6) == "robotic")
+			if(copytext(temp.name, 1, 6) == "robot")
 				part_display_name = "\a [temp]"
 			else
-				part_display_name = "a robotic [temp.name]"
+				part_display_name = "a robot [temp.name]"
 
 			if(!(temp.brute_dam + temp.burn_dam))
 				wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [part_display_name]!</span>\n"
@@ -256,8 +251,8 @@
 				is_bleeding["[temp.name]"] = "<span class='danger'>[T.His] [temp.name] is bleeding!</span><br>"
 		else
 			wound_flavor_text["[temp.name]"] = ""
-		if(temp.dislocated == 2)
-			wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.joint] is dislocated!</span><br>"
+		if(temp.nerve_struck == 2)
+			wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.joint] is dangling uselessly!</span><br>"
 		if(((temp.status & ORGAN_BROKEN) && temp.brute_dam > temp.min_broken_damage) || (temp.status & ORGAN_MUTATED))
 			wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] is dented and swollen!</span><br>"
 
@@ -313,18 +308,10 @@
 	else if(is_bleeding["left leg"])
 		display_chest = 1
 
-	if(wound_flavor_text["left foot"]&& (is_destroyed["left foot"] || (!shoes && !skipshoes)))
-		msg += wound_flavor_text["left foot"]
-	else if(is_bleeding["left foot"])
-		display_shoes = 1
 	if(wound_flavor_text["right leg"] && (is_destroyed["right leg"] || (!w_uniform && !skipjumpsuit)))
 		msg += wound_flavor_text["right leg"]
 	else if(is_bleeding["right leg"])
 		display_chest = 1
-	if(wound_flavor_text["right foot"]&& (is_destroyed["right foot"] || (!shoes  && !skipshoes)))
-		msg += wound_flavor_text["right foot"]
-	else if(is_bleeding["right foot"])
-		display_shoes = 1
 
 	if(display_chest)
 		msg += "<span class='danger'>[src] [T.has] blood soaking through from under [T.his] clothing!</span>\n"

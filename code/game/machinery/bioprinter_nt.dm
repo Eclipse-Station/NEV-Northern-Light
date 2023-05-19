@@ -1,6 +1,6 @@
 /obj/machinery/autolathe/bioprinter
-	name = "NanoTrasen Bioprinter"
-	desc = "NanoTrasen machine for printing things using biomass."
+	name = "NeoTheology Bioprinter"
+	desc = "NeoTheology machine for printing things using biomass."
 	icon_state = "bioprinter"
 	unsuitable_materials = list()
 	speed = 3 

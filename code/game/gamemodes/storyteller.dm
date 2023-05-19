@@ -37,7 +37,7 @@ GLOBAL_VAR_INIT(chaos_level, 1) //Works as global multiplier for all storyteller
 	EVENT_LEVEL_MUNDANE = 0, //Mundane
 	EVENT_LEVEL_MODERATE = 0, //Moderate
 	EVENT_LEVEL_MAJOR = 0, //Major
-	EVENT_LEVEL_ROLESET = 0 //Roleset
+	EVENT_LEVEL_ROLESET = 110 //Roleset
 	)
 
 	//Lists of events. These are built dynamically at runtime
@@ -57,7 +57,7 @@ GLOBAL_VAR_INIT(chaos_level, 1) //Works as global multiplier for all storyteller
 	var/list/tag_cost_mults = list()
 
 	var/variance = 0.15 //15% How much point gains are allowed to vary up or down per tick. This helps to keep event triggering times unpredictable
-	var/repetition_multiplier = 0.95 //Weights of events are multiplied by this value after they happen, to reduce the chance of multiple instances in short time	//Eclipse edit: 1.85 multiplier gives exponential storyteller point accumulation. Let's not. ^Spitzer
+	var/repetition_multiplier = 1.85 //Weights of events are multiplied by this value after they happen, to reduce the chance of multiple instances in short time
 
 	var/event_schedule_delay = 5 MINUTES
 	//Once selected, events are not fired immediately, but are scheduled for some random time in the near future
@@ -89,19 +89,19 @@ GLOBAL_VAR_INIT(chaos_level, 1) //Works as global multiplier for all storyteller
 				return TRUE
 
 	var/tcol = "red"
-	if(GLOB.player_list.len <= config.sr_lowpop_threshold)		//Eclipse edit: Config-based lowpop thresholds
+	if(GLOB.player_list.len <= 10)
 		tcol = "black"
 
 	if(announce)
-		if(!engineer && (!command && !config.sr_bypass_command_requirement))		//Eclipse edit: config-based command requirement
-			to_chat(world, "<b><font color='[tcol]'>A command officer and engineer are required to start round.</font></b>")
+		if(!engineer && !command)
+			to_chat(world, "<b><font color='[tcol]'>A command officer and technomancer are required to start round.</font></b>")
 		else if(!engineer)
-			to_chat(world, "<b><font color='[tcol]'>An engineer is required to start round.</font></b>")
-		else if(!command && !config.sr_bypass_command_requirement)		//Eclipse edit: Config-based command requirement
+			to_chat(world, "<b><font color='[tcol]'>Technomancer is required to start round.</font></b>")
+		else if(!command)
 			to_chat(world, "<b><font color='[tcol]'>A command officer is required to start round.</font></b>")
 
-	if(GLOB.player_list.len <= config.sr_lowpop_threshold)		//Eclipse edit: Config-based lowpop thresholds.
-		to_chat(world, "<i>But there's less than [config.sr_lowpop_threshold] players, so this requirement will be ignored.</i>")
+	if(GLOB.player_list.len <= 10)
+		to_chat(world, "<i>But there's less than 10 players, so this requirement will be ignored.</i>")
 		return TRUE
 
 	return FALSE
@@ -311,7 +311,7 @@ The actual fire event proc is located in storyteller_meta*/
 		delay = 1 //Basically no delay on these to reduce bugginess
 	else
 		delay = rand(1, event_schedule_delay)
-	var/handle = addtimer(CALLBACK(GLOBAL_PROC, .proc/fire_event, C, event_type), delay, TIMER_STOPPABLE)
+	var/handle = addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(fire_event), C, event_type), delay, TIMER_STOPPABLE)
 	scheduled_events.Add(list(C), type, handle)
 
 
@@ -334,10 +334,10 @@ The actual fire event proc is located in storyteller_meta*/
 			new_weight = 0
 		else
 			new_weight = calculate_event_weight(a)
-			//Reduce the weight based on number of ocurrences.
+			//Reduce the weight based on number of occurrences.
 			//This is mostly for the sake of midround handovers
-			if (a.ocurrences >= 1)
-				new_weight *= repetition_multiplier ** a.ocurrences
+			if (a.occurrences >= 1)
+				new_weight *= repetition_multiplier ** a.occurrences
 
 		//We setup the event pools as an associative list in preparation for a pickweight call
 		if (EVENT_LEVEL_MUNDANE in a.event_pools)
@@ -359,8 +359,8 @@ The actual fire event proc is located in storyteller_meta*/
 /datum/storyteller/proc/update_pool_weights(var/list/pool)
 	for(var/datum/storyevent/a in pool)
 		var/new_weight = calculate_event_weight(a)
-		if (a.ocurrences >= 1)
-			new_weight *= repetition_multiplier ** a.ocurrences
+		if (a.occurrences >= 1)
+			new_weight *= repetition_multiplier ** a.occurrences
 
 		pool[a] = new_weight
 	return pool

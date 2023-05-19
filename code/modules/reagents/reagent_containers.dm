@@ -5,6 +5,7 @@
 	icon_state = null
 	w_class = ITEM_SIZE_SMALL
 	bad_type = /obj/item/reagent_containers
+	price_tag = 20
 	var/amount_per_transfer_from_this = 5
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
@@ -36,20 +37,19 @@
 	update_icon()
 
 /obj/item/reagent_containers/proc/get_filling_state()
-	if(reagents)
-		var/percent = round((reagents.total_volume / volume) * 100)
-		var/list/increments = cached_number_list_decode(filling_states)
-		if(!length(increments))
-			return
+	var/percent = round((reagents.total_volume / volume) * 100)
+	var/list/increments = cached_number_list_decode(filling_states)
+	if(!length(increments))
+		return
 
-		var/last_increment = increments[1]
-		for(var/increment in increments)
-			if(percent < increment)
-				break
+	var/last_increment = increments[1]
+	for(var/increment in increments)
+		if(percent < increment)
+			break
 
-			last_increment = increment
+		last_increment = increment
 
-		return last_increment
+	return last_increment
 
 /obj/item/reagent_containers/proc/standard_dispenser_refill(mob/user, atom/target) // This goes into afterattack
 	if(!target.is_drainable())
@@ -234,3 +234,6 @@
 				amount_to_transfer = max(0,amount_to_transfer - amount)
 	return TRUE
 
+/obj/item/reagent_containers/get_item_cost(export)
+	. = ..()
+	. += reagents?.get_price()

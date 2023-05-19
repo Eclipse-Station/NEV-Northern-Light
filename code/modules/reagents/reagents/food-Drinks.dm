@@ -38,7 +38,7 @@
 
 /datum/reagent/organic/nutriment/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(!injectable)
-		M.adjustToxLoss(0.1 * effect_multiplier)
+		M.add_chemical_effect(CE_TOXIN, 5 * effect_multiplier)
 		return
 	affect_ingest(M, alien, effect_multiplier * 1.2)
 
@@ -290,7 +290,7 @@
 	taste_tag = list(TASTE_SPICY)
 
 /datum/reagent/organic/capsaicin/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.adjustToxLoss(0.05 * effect_multiplier)
+	M.add_chemical_effect(CE_TOXIN, 0.25 * effect_multiplier)
 
 /datum/reagent/organic/capsaicin/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	M.adjustNutrition(0.8 * effect_multiplier)
@@ -403,12 +403,14 @@
 	var/adj_sleepy = 0
 	var/adj_temp = 0
 	reagent_type = "Drink"
+	price_per_unit = 0.25
 
 /datum/reagent/drink/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.adjustToxLoss(0.2) // Probably not a good idea; not very deadly though
+	M.add_chemical_effect(CE_TOXIN, 0.25) // Probably not a good idea; not very deadly though
 	return
 
 /datum/reagent/drink/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
+	apply_sanity_effect(M, effect_multiplier)
 	M.adjustNutrition(nutrition * effect_multiplier)
 	M.dizziness = max(0, M.dizziness + adj_dizzy)
 	M.drowsyness = max(0, M.drowsyness + adj_drowsy)
@@ -505,7 +507,7 @@
 
 /datum/reagent/drink/limejuice/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	..()
-	M.adjustToxLoss(-0.05 * effect_multiplier)
+	M.add_chemical_effect(CE_TOXIN, -0.25 * effect_multiplier)
 
 /datum/reagent/drink/orangejuice
 	name = "Orange juice"
@@ -647,7 +649,7 @@
 
 /datum/reagent/drink/tea/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	..()
-	M.adjustToxLoss(-0.05 * effect_multiplier)
+	M.add_chemical_effect(CE_TOXIN, -0.25 * effect_multiplier)
 
 /datum/reagent/drink/tea/icetea
 	name = "Iced Tea"
@@ -711,9 +713,9 @@
 		var/obj/item/organ/internal/kidney/K = H.random_organ_by_process(OP_KIDNEYS)
 		if(istype(K))
 			if(K.is_bruised())
-				M.adjustToxLoss(0.1)
+				M.add_chemical_effect(CE_TOXIN, 0.5)
 			else if(K.is_broken())
-				M.adjustToxLoss(0.3)
+				M.add_chemical_effect(CE_TOXIN, 1)
 	M.add_chemical_effect(CE_PULSE, 1)
 
 /datum/reagent/drink/coffee/overdose(mob/living/carbon/M, alien)
@@ -966,7 +968,7 @@
 	taste_tag = list(TASTE_SWEET,TASTE_BUBBLY)
 
 	glass_unique_appearance = TRUE
-	glass_icon_state  = "glass_brown"
+	glass_icon_state = "glass_brown"
 	glass_name = "Space Cola"
 	glass_desc = "Ah, refreshing Space Cola!"
 
@@ -994,7 +996,7 @@
 	color = "#200000"
 	adj_drowsy = -6
 	adj_temp = -5
-	taste_tag = list(TASTE_SOUR,TASTE_BITTER,TASTE_SWEET,TASTE_STRONG, TASTE_LIGHT, TASTE_BUBBLY, TASTE_SPICY, TASTE_SALTY)
+	taste_tag = list(TASTE_SPICY, TASTE_BUBBLY)
 
 	glass_unique_appearance = TRUE
 	glass_icon_state = "dr_gibb_glass"
@@ -1050,7 +1052,7 @@
 	..()
 	M.adjustOxyLoss(-0.4 * effect_multiplier)
 	M.heal_organ_damage(0.2 * effect_multiplier, 0.2 * effect_multiplier)
-	M.adjustToxLoss(-0.2 * effect_multiplier)
+	M.add_chemical_effect(CE_TOXIN, -effect_multiplier)
 	if(M.dizziness)
 		M.dizziness = max(0, M.dizziness - 15 * effect_multiplier)
 	if(M.confused)
@@ -1123,6 +1125,31 @@
 	glass_name = "nothing"
 	glass_desc = "Absolutely nothing."
 
+/datum/reagent/drink/protein_shake
+	name = "protein shake"
+	id = "protein_shake"
+	description = "Pure protein. Typically consumed after a workout in order to aid in muscle recovery."
+	taste_description = "strength"
+	sanity_gain_ingest = 0 //Your muscles recover, but not your mind
+
+	glass_unique_appearance = TRUE
+	glass_icon_state = "protein_shake"
+	glass_name = "protein shake"
+	glass_desc = "Pure protein. Typically consumed after a workout in order to aid in muscle recovery."
+
+/datum/reagent/drink/protein_shake/commercial
+	name = "commercial protein shake"
+	id = "protein_shake_commercial"
+	description = "An \"apple-flavored\" protein shake. Typically consumed after a workout in order to aid in muscle recovery... You aren't sure if this will be effective."
+	taste_description = "viscous slurry with bits of jelly"
+
+	glass_unique_appearance = TRUE
+	glass_icon_state = "protein_shake_commercial"
+	glass_name = "commercial protein shake"
+	glass_desc = "An \"apple-flavored\" protein shake. Typically consumed after a workout in order to aid in muscle recovery... You aren't sure if this will be effective."
+
+//there is no affect_ingest since the 'muscle recovery' is handled in the perk itself
+
 /* Alcohol */
 
 // Debug
@@ -1153,20 +1180,22 @@
 	glass_desc = "A well-known alcohol with a variety of applications."
 	reagent_type = "Alcohol"
 
+	price_per_unit = 0.5
+
 /datum/reagent/alcohol/touch_mob(mob/living/L, amount)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 15)
 
 /datum/reagent/alcohol/on_mob_add(mob/living/L)
 	..()
-	SEND_SIGNAL(L, COMSIG_CARBON_HAPPY, src, MOB_ADD_DRUG)
+	SEND_SIGNAL_OLD(L, COMSIG_CARBON_HAPPY, src, MOB_ADD_DRUG)
 
 /datum/reagent/alcohol/on_mob_delete(mob/living/L)
 	..()
-	SEND_SIGNAL(L, COMSIG_CARBON_HAPPY, src, MOB_DELETE_DRUG)
+	SEND_SIGNAL_OLD(L, COMSIG_CARBON_HAPPY, src, MOB_DELETE_DRUG)
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
-	M.adjustToxLoss(0.2 * toxicity * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
+	M.add_chemical_effect(CE_TOXIN, toxicity * (issmall(M) ? effect_multiplier * 2 : effect_multiplier))
 	M.add_chemical_effect(CE_PAINKILLER, max(35 - (strength / 2), 1))	//Vodka 32.5 painkiller, beer 15
 
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
@@ -1187,7 +1216,7 @@
 		M.adjust_hallucination(halluci, halluci)
 
 	apply_sanity_effect(M, effect_multiplier/strength*20)
-	SEND_SIGNAL(M, COMSIG_CARBON_HAPPY, src, ON_MOB_DRUG)
+	SEND_SIGNAL_OLD(M, COMSIG_CARBON_HAPPY, src, ON_MOB_DRUG)
 
 /datum/reagent/alcohol/touch_obj(obj/O)
 	if(istype(O, /obj/item/paper))
@@ -1212,7 +1241,7 @@
 	taste_description = "death and licorice"
 	taste_mult = 1.5
 	color = "#33EE00"
-	strength = 10
+	strength = 12
 
 	glass_unique_appearance = TRUE
 	glass_icon_state = "absintheglass"
@@ -1461,7 +1490,7 @@
 	description = "Clear distilled alcoholic beverage that originates from Poland and Russia."
 	taste_description = "grain alcohol"
 	color = "#358adf" // rgb: 0, 100, 200
-	strength = 12
+	strength = 5
 
 	glass_unique_appearance = TRUE
 	glass_icon_state = "ginvodkaglass"
@@ -1495,7 +1524,7 @@
 	description = "An premium alcoholic beverage made from distilled grape juice."
 	taste_description = "bitter sweetness"
 	color = "#7E4043" // rgb: 126, 64, 67
-	strength = 20
+	strength = 18
 
 	glass_unique_appearance = TRUE
 	glass_icon_state = "wineglassdrink"
@@ -1505,9 +1534,9 @@
 	taste_tag = list(TASTE_SWEET, TASTE_BITTER)
 
 /datum/reagent/alcohol/ntcahors
-	name = "Saint's Wing Cahors"
+	name = "NeoTheology Cahors Wine"
 	id = "ntcahors"
-	description = "Fortified dessert wine made from a variety of natural ingredients. Or so Children of the Mekhane claim."
+	description = "Fortified dessert wine made from cabernet sauvignon, saperavi and other grapes."
 	taste_description = "sweet charcoal"
 	color = "#7E4043" // rgb: 126, 64, 67
 	strength = 25
@@ -1522,25 +1551,7 @@
 /datum/reagent/alcohol/ntcahors/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	..()
 	M.adjust_hallucination(-0.9 * effect_multiplier)
-	M.adjustToxLoss(-0.5 * effect_multiplier)
-
-/datum/reagent/alcohol/ntcahors/activated
-	name = "Saint's Wing Cahors"
-	id = "ntcahors_active"
-	description = "Sweet church wine, that seems to bubble and move around by itself, as if alive."
-	taste_description = "sweet activated charcoal"
-	color = "#4d292a" // rgb: 77, 41, 42
-	strength = 45 //Oh no
-
-	glass_desc = "It looks like wine, but more dark. The liquid seems to move around by itself."
-
-/datum/reagent/ethanol/ntcahors/activated/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
-	..()
-	M.adjust_hallucination(-0.9 * effect_multiplier)
-	M.adjustToxLoss(-0.5 * effect_multiplier)
-	M.adjustFireLoss(-0.3 * effect_multiplier)
-	M.adjustOxyLoss(- 2 * effect_multiplier)
-	M.adjustBruteLoss(- 1 * effect_multiplier)
+	M.add_chemical_effect(CE_TOXIN, -2.5 * effect_multiplier)
 
 // Cocktails
 /datum/reagent/alcohol/acid_spit
@@ -1964,7 +1975,7 @@
 	description = "The surprise is, it's green!"
 	taste_description = "tartness and bananas"
 	color = "#2E6671"
-	strength = 15
+	strength = 10
 	sanity_gain_ingest = 0.8
 
 	glass_unique_appearance = TRUE
@@ -2009,7 +2020,7 @@
 	glass_name = "Pan-Galactic Gargle Blaster"
 	glass_desc = "Does... does this mean that Arthur and Ford are on the ship? Oh joy."
 	glass_center_of_mass = list("x"=17, "y"=6)
-	taste_tag = list(TASTE_SOUR, TASTE_SPICY,TASTE_STRONG)
+	taste_tag = list(TASTE_SOUR, TASTE_SPICY, TASTE_STRONG)
 
 /datum/reagent/alcohol/gargle_blaster/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	M.adjustBrainLoss(effect_multiplier)
@@ -2091,7 +2102,7 @@
 	description = "A beer which is so cold the air around it freezes."
 	taste_description = "refreshingly cold"
 	color = "#664300"
-	strength = 40
+	strength = 20
 	adj_temp = -20
 	targ_temp = 270
 	sanity_gain_ingest = 0.55
@@ -2109,7 +2120,7 @@
 	description = "Mmm, tastes like chocolate cake..."
 	taste_description = "delicious anger"
 	color = "#2E6671"
-	strength = 17
+	strength = 15
 	sanity_gain_ingest = 0.65
 
 	glass_unique_appearance = TRUE
@@ -2325,15 +2336,13 @@
 /datum/reagent/alcohol/pwine/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	..()
 	if(dose > 30)
-		M.adjustToxLoss(0.2 * effect_multiplier)
+		M.add_chemical_effect(CE_TOXIN, effect_multiplier)
 	if(dose > 60 && ishuman(M) && prob(5))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/heart/L = H.random_organ_by_process(OP_HEART)
 		if(L && istype(L))
-			if(dose < 120)
-				L.take_damage(1 * effect_multiplier, 0)
-			else
-				L.take_damage(10 * effect_multiplier, 0)
+			if(dose > 120)
+				L.take_damage(dose/6, FALSE, TOX)
 
 /datum/reagent/alcohol/red_mead
 	name = "Red Mead"
@@ -2357,7 +2366,7 @@
 	description = "A spicy Vodka! Might be a little hot for the little guys!"
 	taste_description = "hot and spice"
 	color = "#004166"
-	strength = 10
+	strength = 5
 	adj_temp = 50
 	targ_temp = 360
 	sanity_gain_ingest = 0.6
@@ -2636,21 +2645,6 @@
 	if(!M.stats.getTempStat(STAT_TGH, "atomvodka") && M.stats.getPerk(/datum/perk/sommelier))
 		M.stats.addTempStat(STAT_TGH, STAT_LEVEL_ADEPT, 10 MINUTES, "atomvodka")
 
-/datum/reagent/alcohol/rockswhiskey
-	name = "Whiskey On The Rocks"
-	id = "rockswhiskey"
-	description = "An old fashioned, just the way a bar patron likes it."
-	taste_description = "smokey whiskey with a hint of cold."
-	color = "#664300"
-	strength = 20
-
-/datum/reagent/alcohol/roachbeer
-	glass_icon_state = "whiskeyglass"
-	glass_name = "whiskey on the rocks"
-	glass_desc = "When all you need is a classic whiskey over ice. Bottoms up."
-	glass_center_of_mass = list("x"=16, "y"=12)
-	taste_tag = list(TASTE_STRONG)
-
 
 /datum/reagent/alcohol/roachbeer
 	name = "Kakerlakenbier"
@@ -2681,7 +2675,7 @@
 	M.slurring = max(M.slurring, 30)
 	if(prob(5))
 		M.vomit()
-	M.adjustToxLoss(2)
+	M.add_chemical_effect(CE_TOXIN, 4)
 
 /datum/reagent/alcohol/roachbeer/withdrawal_act(mob/living/carbon/M) ////// lose sanity on withdrawal, notify user about this
 	var/mob/living/carbon/human/addicte = M
@@ -2724,7 +2718,7 @@
 	M.add_side_effect("Headache", 11)
 	if(prob(5))
 		M.vomit()
-	M.adjustToxLoss(6)
+	M.add_chemical_effect(CE_TOXIN, 10)
 
 /datum/reagent/alcohol/kaiserbeer/withdrawal_act(mob/living/carbon/M, effect_multiplier) ////// lose sanity on withdrawal, notify user about this
 	var/mob/living/carbon/human/addicte = M

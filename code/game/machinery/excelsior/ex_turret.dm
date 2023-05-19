@@ -16,7 +16,7 @@
 	var/ammo_max = 96
 	var/working_range = 30 // how far this turret operates from excelsior teleporter
 	var/burst_lenght = 8
-	health = 60
+	health = 300
 	shot_delay = 0
 
 /obj/machinery/porta_turret/excelsior/proc/has_power_source_nearby()
@@ -48,7 +48,7 @@
 		return 0
 	return 1
 
-/obj/machinery/porta_turret/excelsior/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/porta_turret/excelsior/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	var/data[0]
 	data["access"] = !isLocked(user)
 	data["locked"] = locked

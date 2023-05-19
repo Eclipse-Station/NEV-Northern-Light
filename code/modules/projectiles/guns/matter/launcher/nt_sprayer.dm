@@ -1,6 +1,6 @@
 /obj/item/gun/matter/launcher/nt_sprayer
-	name = "\improper NT BCR BM \"Street Sprayer\""  //Eclipse Edit - gun names standardized
-	desc = "A \"NanoTrasen\" brand cleansing carbine. Uses solid biomass as ammo and dispense cleansing liquid on hit."
+	name = "NT BCR \"Righteous One\""
+	desc = "\"NeoTheology\" brand cleansing carbine. Uses solid biomass as ammo and dispense cleansing liquid on hit."
 	icon_state = "nt_sprayer"
 	icon = 'icons/obj/guns/matter/nt_sprayer.dmi'
 	slot_flags = SLOT_BACK | SLOT_BELT
@@ -15,6 +15,8 @@
 	projectile_type = /obj/item/arrow/neotheo/cleansing
 	spawn_blacklisted = TRUE
 
+/obj/item/arrow
+	var/recoil = 2  // Light recoil, it's just some cleaning stuff
 
 /obj/item/arrow/neotheo
 	icon = 'icons/obj/projectiles.dmi'

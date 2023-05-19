@@ -23,11 +23,7 @@
 	var/list/attack_action_types = list()
 	var/megafauna_min_cooldown = 10
 	var/megafauna_max_cooldown = 20
-	vision_range = 15
 	sanity_damage = 0.5
-
-	//Eclipse-added vars
-	simplemob_bonus_enabled = TRUE		//Intentional here. You want to kill a boss with a BB gun? Go right on ahead.
 
 /mob/living/simple_animal/hostile/megafauna/Initialize(mapload)
 	. = ..()
@@ -112,8 +108,8 @@
 	return spiral_shoot()
 
 /mob/living/simple_animal/hostile/megafauna/proc/double_spiral()
-	INVOKE_ASYNC(src, .proc/spiral_shoot, FALSE)
-	INVOKE_ASYNC(src, .proc/spiral_shoot, TRUE)
+	INVOKE_ASYNC(src, PROC_REF(spiral_shoot), FALSE)
+	INVOKE_ASYNC(src, PROC_REF(spiral_shoot), TRUE)
 
 /mob/living/simple_animal/hostile/megafauna/proc/telegraph()
 	for(var/mob/M in range(10,src))

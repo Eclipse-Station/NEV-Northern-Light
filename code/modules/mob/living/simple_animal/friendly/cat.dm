@@ -23,6 +23,7 @@
 
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
+	sanity_damage = -1
 	var/mob/living/simple_animal/mouse/mousetarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
@@ -30,7 +31,7 @@
 /mob/living/simple_animal/cat/Life()
 	..()
 
-	if(!stasis && stat != DEAD) //Eclipse Edit - can't flee if you're dead
+	if(!stasis)
 		if (turns_since_move > 5 || (flee_target || mousetarget))
 			walk_to(src,0)
 			turns_since_move = 0
@@ -234,7 +235,8 @@
 	desc = "Her fur has the look and feel of velvet, and her tail quivers occasionally."
 	gender = FEMALE
 	icon_state = "cat"
-	befriend_job = "Chief Medical Officer"
+	item_state =  "cat"
+	befriend_job = "Moebius Biolab Officer"
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
@@ -259,20 +261,21 @@
 	item_state = "cat3"
 	holder_type = /obj/item/holder/cat/fluff/bones
 	befriend_job = "Moebius Biolab Officer"
+	sanity_damage = -2
 	var/friend_name = "Erstatz Vryroxes"
 
 /mob/living/simple_animal/cat/kitten/New()
 	gender = pick(MALE, FEMALE)
 	..()
 
-// Runtime cat, but not like named "Runtime", it's a cat that spawns when runtimes happen, his name is Dusty, actually.
+// Runtime cat
 
 var/cat_cooldown = 20 SECONDS
 var/cat_max_number = 10
 var/cat_teleport = 0.0
 var/cat_number = 0
 
-/mob/living/simple_animal/cat/dusty
+/mob/living/simple_animal/cat/runtime
 	name = "Dusty"
 	desc = "A bluespace denizen that purrs its way into our dimension when the very fabric of reality is teared apart."
 	icon_state = "runtimecat"
@@ -296,7 +299,7 @@ var/cat_number = 0
 
 	var/cat_life_duration = 1 MINUTES
 
-/mob/living/simple_animal/cat/dusty/New(loc)
+/mob/living/simple_animal/cat/runtime/New(loc)
 	..(loc)
 	stats.addPerk(PERK_TERRIBLE_FATE)
 	cat_number += 1
@@ -304,17 +307,17 @@ var/cat_number = 0
 	spawn(cat_life_duration)
 		qdel(src)
 
-/mob/living/simple_animal/cat/dusty/Destroy()
+/mob/living/simple_animal/cat/runtime/Destroy()
 	// We teleport Dusty in the corner of one of the ship zlevel for stylish disparition
 	do_teleport(src, get_turf(locate(1, 1, pick(GLOB.maps_data.station_levels))), 2, 0, null, null, 'sound/effects/teleport.ogg', 'sound/effects/teleport.ogg')
 	cat_number -= 1
 	return ..()
 
-/mob/living/simple_animal/cat/dusty/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/cat/runtime/attackby(var/obj/item/O, var/mob/user)
 	visible_message(SPAN_DANGER("[user]'s [O.name] harmlessly passes through \the [src]."))
 	strike_back(user)
 
-/mob/living/simple_animal/cat/dusty/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/cat/runtime/attack_hand(mob/living/carbon/human/M as mob)
 
 	switch(M.a_intent)
 
@@ -343,7 +346,7 @@ var/cat_number = 0
 
 	return
 
-/mob/living/simple_animal/cat/dusty/proc/strike_back(var/mob/target_mob)
+/mob/living/simple_animal/cat/runtime/proc/strike_back(var/mob/target_mob)
 	if(!Adjacent(target_mob))
 		return
 	if(isliving(target_mob))
@@ -359,17 +362,17 @@ var/cat_number = 0
 		B.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 		return B
 
-/mob/living/simple_animal/cat/dusty/set_flee_target(atom/A)
+/mob/living/simple_animal/cat/runtime/set_flee_target(atom/A)
 	return
 
-/mob/living/simple_animal/cat/dusty/bullet_act(var/obj/item/projectile/proj)
+/mob/living/simple_animal/cat/runtime/bullet_act(var/obj/item/projectile/proj)
 	return PROJECTILE_FORCE_MISS
 
-/mob/living/simple_animal/cat/dusty/ex_act(severity)
+/mob/living/simple_animal/cat/runtime/ex_act(severity)
 	return
 
-/mob/living/simple_animal/cat/dusty/singularity_act()
+/mob/living/simple_animal/cat/runtime/singularity_act()
 	return
 
-/mob/living/simple_animal/cat/dusty/MouseDrop(atom/over_object)
+/mob/living/simple_animal/cat/runtime/MouseDrop(atom/over_object)
 	return

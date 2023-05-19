@@ -24,9 +24,9 @@
 	return istype(species, /datum/species/monkey)
 
 proc/isdeaf(A)
-	if(isliving(A))
-		var/mob/living/M = A
-		return (M.sdisabilities & DEAF) || M.ear_deaf
+//	if(isliving(A))
+//		var/mob/living/M = A
+//		return (M.sdisabilities & DEAF) || M.ear_deaf
 	return 0
 
 /proc/hasorgans(A) // Fucking really??
@@ -69,18 +69,14 @@ proc/isdeaf(A)
 
 //The base miss chance for the different defence zones
 var/list/global/base_miss_chance = list(
-	BP_HEAD = 45,
-	BP_CHEST = 10,
-	BP_GROIN = 20,
-	BP_L_LEG  = 20,
-	BP_R_LEG = 20,
-	BP_L_ARM = 20,
-	BP_R_ARM = 20,
-	BP_L_HAND = 50,
-	BP_R_HAND = 50,
-	BP_L_FOOT = 50,
-	BP_R_FOOT = 50,
-)
+	BP_HEAD = 5,
+	BP_CHEST = 2,
+	BP_GROIN = 2,
+	BP_L_LEG  = 3,
+	BP_R_LEG = 3,
+	BP_L_ARM = 3,
+	BP_R_ARM = 3
+	)
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
 //Also used to weight the protection value that armour provides for covering that body part when calculating protection from full-body effects.
@@ -91,11 +87,7 @@ var/list/global/organ_rel_size = list(
 	BP_L_LEG  = 25,
 	BP_R_LEG = 25,
 	BP_L_ARM = 25,
-	BP_R_ARM = 25,
-	BP_L_HAND = 10,
-	BP_R_HAND = 10,
-	BP_L_FOOT = 10,
-	BP_R_FOOT = 10,
+	BP_R_ARM = 25
 )
 
 /proc/check_zone(zone)
@@ -125,10 +117,6 @@ var/list/global/organ_rel_size = list(
 			organ_rel_size[BP_R_ARM]; BP_R_ARM,
 			organ_rel_size[BP_L_LEG ]; BP_L_LEG ,
 			organ_rel_size[BP_R_LEG]; BP_R_LEG,
-			organ_rel_size[BP_L_HAND]; BP_L_HAND,
-			organ_rel_size[BP_R_HAND]; BP_R_HAND,
-			organ_rel_size[BP_L_FOOT]; BP_L_FOOT,
-			organ_rel_size[BP_R_FOOT]; BP_R_FOOT,
 		)
 
 	return ran_zone
@@ -186,9 +174,9 @@ var/list/global/organ_rel_size = list(
 			if(lowertext(newletter)=="s")	newletter="ch"
 			if(lowertext(newletter)=="a")	newletter="ah"
 			if(lowertext(newletter)=="c")	newletter="k"
-		switch(rand(1,15))
+		switch(rand(1,9))
 			if(1,3,5,8)	newletter="[lowertext(newletter)]"
-			if(2,4,6,15)	newletter="[uppertext(newletter)]"
+			if(2,4,6,9)	newletter="[uppertext(newletter)]"
 			if(7)	newletter+="'"
 			//if(9,10)	newletter="<b>[newletter]</b>"
 			//if(11,12)	newletter="<big>[newletter]</big>"
@@ -203,7 +191,7 @@ var/list/global/organ_rel_size = list(
 	var/p = 1//1 is the start of any word
 	while(p <= n)//while P, which starts at 1 is less or equal to N which is the length.
 		var/n_letter = copytext_char(te, p, p + 1)//copies text from a certain distance. In this case, only one letter at a time.
-		if (prob(80) && (lowertext(n_letter) in LIST_OF_CONSONANT))
+		if (prob(80) && (lowertext(n_letter) in LIST_OF_CONSONANT|LIST_OF_CONSONANT_RU))
 			if (prob(10))
 				n_letter = text("[n_letter]-[n_letter]-[n_letter]-[n_letter]")//replaces the current letter with this instead.
 			else
@@ -269,7 +257,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 
 /proc/findname(msg)
-	for(var/mob/M in SSmobs.mob_list)
+	for(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 		if (M.real_name == text("[msg]"))
 			return 1
 	return 0
@@ -356,7 +344,7 @@ proc/is_blind(A)
 
 /proc/mobs_in_area(var/area/A)
 	var/list/mobs = new
-	for(var/mob/living/M in SSmobs.mob_list)
+	for(var/mob/living/M in SSmobs.mob_list | SShumans.mob_list)
 		if(get_area(M) == A)
 			mobs += M
 	return mobs
@@ -643,3 +631,6 @@ proc/is_blind(A)
 	result[2] = ainvis
 
 	return result
+
+/mob/proc/set_faction(target_faction)
+	faction = target_faction ? target_faction : initial(faction)

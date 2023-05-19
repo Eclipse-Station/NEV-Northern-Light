@@ -158,14 +158,14 @@
 
 			to_chat(M, SPAN_DANGER("You step on \the [src]!"))
 
-			var/list/check = list(BP_L_FOOT, BP_R_FOOT)
+			var/list/check = list(BP_L_LEG, BP_R_LEG)
 			while(check.len)
 				var/picked = pick(check)
 				var/obj/item/organ/external/affecting = H.get_organ(picked)
 				if(affecting)
 					if(BP_IS_ROBOTIC(affecting))
 						return
-					if(affecting.take_damage(5, 0))
+					if(affecting.take_damage(5, BRUTE))
 						H.UpdateDamageIcon()
 					H.updatehealth()
 					if(!(H.species.flags & NO_PAIN))

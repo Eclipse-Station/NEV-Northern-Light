@@ -52,6 +52,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
 	preloaded_reagents = list("sulfur" = 3, "potassium" = 3, "hydrazine" = 3, "carbon" = 5)
+
+	price_tag = 5
+
 	var/burnt = 0
 	var/smoketime = 5
 
@@ -98,6 +101,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "You're not sure what this is. You should probably ahelp it."
 	body_parts_covered = 0
 	bad_type = /obj/item/clothing/mask/smokable
+	price_tag = 5
 	var/lit = 0
 	var/icon_on
 	var/icon_off
@@ -122,6 +126,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/turf/location = get_turf(src)
 	smoketime--
 	if(smoketime < 0)
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			if(!H.stat)
+				for(var/obj/item/material/ashtray/A in view(1, loc))
+					if(A.contents.len < A.max_butts)
+						A.attackby(src, loc)
+						return
 		die()
 		return
 	if(location)
@@ -142,7 +153,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!src.lit)
 		src.lit = 1
 		damtype = "fire"
-		if(reagents.get_reagent_amount("plasma")) // the phoron explodes when exposed to fire
+		if(reagents.get_reagent_amount("plasma")) // the plasma explodes when exposed to fire
 			var/datum/effect/effect/system/reagents_explosion/e = new()
 			e.set_up(round(reagents.get_reagent_amount("plasma") / 2.5, 1), get_turf(src), 0, 0)
 			e.start()
@@ -227,6 +238,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette
 	name = "cigarette"
 	desc = "A roll of tobacco and nicotine."
+	description_info = "A cheap and easy source for a constant income of Sanity. Nicotine withdrawal reduces biology knowledge however."
+	description_antag = "Can be injected with plasma or other reagents to either poison or blow when smoked."
 	icon_state = "cigoff"
 	throw_speed = 0.5
 	item_state = "cigoff"
@@ -467,6 +480,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	attack_verb = list("burnt", "singed")
+	price_tag = 20
 	var/base_state
 
 /obj/item/flame/lighter/zippo
@@ -474,6 +488,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "The zippo."
 	icon_state = "zippo"
 	item_state = "zippo"
+	price_tag = 50
 
 /obj/item/flame/lighter/random
 
@@ -501,9 +516,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				else
 					to_chat(user, SPAN_WARNING("You burn yourself while lighting the lighter."))
 					if (user.l_hand == src)
-						user.apply_damage(2, BURN, BP_L_HAND,  used_weapon = src)
+						user.apply_damage(2, BURN, BP_L_ARM, used_weapon = src)
 					else
-						user.apply_damage(2, BURN, BP_R_HAND,  used_weapon = src)
+						user.apply_damage(2, BURN, BP_R_ARM, used_weapon = src)
 					user.visible_message(SPAN_NOTICE("After a few attempts, [user] manages to light the [src], they however burn their finger in the process."))
 			tool_qualities = list(QUALITY_CAUTERIZING = 10)
 			set_light(2)

@@ -13,7 +13,6 @@
 	var/last_bumped = 0
 	var/pass_flags = 0
 	var/throwpass = 0
-	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
 	var/simulated = TRUE //filter for actions - used by lighting overlays
 	var/fluorescent // Shows up under a UV light.
 	var/allow_spin = TRUE // prevents thrown atoms from spinning when disabled on thrown or target
@@ -44,10 +43,23 @@
 /atom/proc/update_icon()
 	return
 
+/**
+ * Called when an atom is created in byond (built in engine proc)
+ *
+ * Not a lot happens here in SS13 code, as we offload most of the work to the
+ * [Intialization][/atom/proc/Initialize] proc, mostly we run the preloader
+ * if the preloader is being used and then call [InitAtom][/datum/controller/subsystem/atoms/proc/InitAtom] of which the ultimate
+ * result is that the Intialize proc is called.
+ *
+ * We also generate a tag here if the DF_USE_TAG flag is set on the atom
+ */
 /atom/New(loc, ...)
 	init_plane()
 	update_plane()
 	init_light()
+
+	if(datum_flags & DF_USE_TAG)
+		GenerateTag()
 
 	var/do_initialize = SSatoms.initialized
 	if(do_initialize != INITIALIZATION_INSSATOMS)
@@ -92,7 +104,7 @@
  */
 /atom/proc/Initialize(mapload, ...)
 	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+		CRASH("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
 
 	if(light_power && light_range)
@@ -132,6 +144,7 @@
  * Cleans up the following:
  * * Removes alternate apperances from huds that see them
  * * qdels the reagent holder from atoms if it exists
+ * * Clears itself from any targeting-related vars that hold a reference to it
  * * clears the orbiters list
  * * clears overlays and priority overlays
  * * clears the light object
@@ -140,9 +153,15 @@
 	if(reagents)
 		QDEL_NULL(reagents)
 
-	spawn()
-		update_openspace()
+	SEND_SIGNAL(src, COMSIG_NULL_TARGET)
+	SEND_SIGNAL(src, COMSIG_NULL_SECONDARY_TARGET)
+
+	update_openspace()
 	return ..()
+
+///Generate a tag for this atom
+/atom/proc/GenerateTag()
+	return
 
 /atom/proc/reveal_blood()
 	return
@@ -339,6 +358,10 @@ its easier to just keep the beam vertical.
 
 	if(desc)
 		to_chat(user, desc)
+		var/pref = user.get_preference_value("SWITCHEXAMINE")
+		if(pref == GLOB.PREF_YES)
+			user.client.statpanel = "Examine"
+
 
 	if(reagents)
 		if(reagent_flags & TRANSPARENT)
@@ -368,7 +391,7 @@ its easier to just keep the beam vertical.
 		var/datum/perk/greenthumb/P = user.stats.getPerk(/datum/perk/greenthumb)
 		P.virtual_scanner.afterattack(src, user, get_dist(src, user) <= 1)
 
-	SEND_SIGNAL(src, COMSIG_EXAMINE, user, distance)
+	SEND_SIGNAL_OLD(src, COMSIG_EXAMINE, user, distance)
 
 	return distance == -1 || (get_dist(src, user) <= distance) || isobserver(user)
 
@@ -417,8 +440,6 @@ its easier to just keep the beam vertical.
 	if(isnull(M.key)) return
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if (!istype(H.dna, /datum/dna))
-			return FALSE
 		if (H.gloves)
 			if(src.fingerprintslast != H.key)
 				src.fingerprintshidden += text("\[[time_stamp()]\] (Wearing gloves). Real name: [], Key: []", H.real_name, H.key)
@@ -436,10 +457,10 @@ its easier to just keep the beam vertical.
 	return
 
 /atom/proc/add_fingerprint(mob/living/M, ignoregloves = FALSE)
-	if(isnull(M)) return
-	if(isAI(M)) return
-	if(isnull(M.key)) return
-	if (ishuman(M))
+	if(isnull(M) || isnull(M.key) || isAI(M))
+		return
+
+	if(ishuman(M))
 		//Add the list if it does not exist.
 		if(!fingerprintshidden)
 			fingerprintshidden = list()
@@ -448,18 +469,15 @@ its easier to just keep the beam vertical.
 		add_fibers(M)
 
 		//He has no prints!
-		if (mFingerprints in M.mutations)
+		if(get_active_mutation(M, MUTATION_NOPRINTS))
 			if(fingerprintslast != M.key)
 				fingerprintshidden += "(Has no fingerprints) Real name: [M.real_name], Key: [M.key]"
 				fingerprintslast = M.key
 			return FALSE		//Now, lets get to the dirty work.
 		//First, make sure their DNA makes sense.
 		var/mob/living/carbon/human/H = M
-		if (!istype(H.dna, /datum/dna) || !H.dna.uni_identity || (length(H.dna.uni_identity) != 32))
-			if(!istype(H.dna, /datum/dna))
-				H.dna = new /datum/dna(null)
-				H.dna.real_name = H.real_name
-		H.check_dna()
+		if(!H.fingers_trace)
+			H.fingers_trace = md5(H.real_name)
 
 		//Now, deal with gloves.
 		if (H.gloves && H.gloves != src)
@@ -562,7 +580,6 @@ its easier to just keep the beam vertical.
 
 //returns 1 if made bloody, returns 0 otherwise
 /atom/proc/add_blood(mob/living/carbon/human/M)
-
 	if(flags & NOBLOODY)
 		return FALSE
 
@@ -572,13 +589,12 @@ its easier to just keep the beam vertical.
 	was_bloodied = TRUE
 	blood_color = "#A10808"
 	if(istype(M))
-		if (!istype(M.dna, /datum/dna))
-			M.dna = new /datum/dna(null)
-			M.dna.real_name = M.real_name
-		M.check_dna()
+		if(!M.fingers_trace)
+			M.fingers_trace = md5(M.real_name)
 		if (M.species)
 			blood_color = M.species.blood_color
-	. = TRUE
+			if(!blood_color)
+				return FALSE
 	return TRUE
 
 /atom/proc/add_vomit_floor(mob/living/carbon/M, var/toxvomit = FALSE)
@@ -593,7 +609,6 @@ its easier to just keep the beam vertical.
 	if(!simulated)
 		return
 	fluorescent = 0
-	src.germ_level = 0
 	if(istype(blood_DNA, /list))
 		blood_DNA = null
 		return TRUE
@@ -678,6 +693,21 @@ its easier to just keep the beam vertical.
 	for(var/o in objs)
 		var/obj/O = o
 		O.show_message(message,2,deaf_message,1)
+
+/atom/movable/proc/dropInto(var/atom/destination)
+	while(istype(destination))
+		var/atom/drop_destination = destination.onDropInto(src)
+		if(!istype(drop_destination) || drop_destination == destination)
+			return forceMove(destination)
+		destination = drop_destination
+	return forceMove(null)
+
+/atom/proc/onDropInto(var/atom/movable/AM)
+	return // If onDropInto returns null, then dropInto will forceMove AM into us.
+
+/atom/movable/onDropInto(var/atom/movable/AM)
+	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
+
 
 /atom/Entered(var/atom/movable/AM, var/atom/old_loc, var/special_event)
 	if(loc)

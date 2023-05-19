@@ -28,6 +28,7 @@
 /obj/machinery/portable_atmospherics/canister/sleeping_agent
 	name = "Canister: \[N2O]"
 	icon_state = "redws"
+	description_antag = "Causes people to sleep temporarily. Needs high concentrations for a permanent sleep"
 	canister_color = "redws"
 	can_label = 0
 
@@ -50,7 +51,7 @@
 	name = "Canister: \[O2 (Cryo)]"
 
 /obj/machinery/portable_atmospherics/canister/plasma
-	name = "Canister \[Phoron\]"
+	name = "Canister \[Plasma]"
 	icon_state = "orange"
 	canister_color = "orange"
 	can_label = 0
@@ -78,8 +79,8 @@
 	name = "Canister: \[O2]"
 	icon_state = "blue"
 	canister_color = "blue"
-/obj/machinery/portable_atmospherics/canister/empty/phoron
-	name = "Canister \[Phoron\]"
+/obj/machinery/portable_atmospherics/canister/empty/plasma
+	name = "Canister \[Plasma]"
 	icon_state = "orange"
 	canister_color = "orange"
 /obj/machinery/portable_atmospherics/canister/empty/nitrogen
@@ -214,7 +215,7 @@ update_flag
 	else
 		can_label = 0
 
-	air_contents.react() //cooking up air cans - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
+	air_contents.react() //cooking up air cans - add plasma and oxygen, then heat above PLASMA_MINIMUM_BURN_TEMPERATURE
 
 /obj/machinery/portable_atmospherics/canister/return_air()
 	return air_contents
@@ -283,9 +284,9 @@ update_flag
 	return src.attack_hand(user)
 
 /obj/machinery/portable_atmospherics/canister/attack_hand(var/mob/user as mob)
-	return src.ui_interact(user)
+	return src.nano_ui_interact(user)
 
-/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/portable_atmospherics/canister/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	if (src.destroyed)
 		return
 
@@ -371,7 +372,7 @@ update_flag
 				"\[N2O\]" = "redws", \
 				"\[N2\]" = "red", \
 				"\[O2\]" = "blue", \
-				"\[Phoron\]" = "orange", \
+				"\[Plasma\]" = "orange", \
 				"\[CO2\]" = "black", \
 				"\[Air\]" = "grey", \
 				"\[CAUTION\]" = "yellow", \
@@ -391,7 +392,7 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/plasma/New()
 	..()
 
-	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.air_contents.adjust_gas("plasma", MolesForPressure())
 	src.update_icon()
 	return 1
 
@@ -472,6 +473,6 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/plasma/engine_setup/New()
 	..()
-	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.air_contents.adjust_gas("plasma", MolesForPressure())
 	src.update_icon()
 	return 1

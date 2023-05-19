@@ -187,8 +187,6 @@
 	var/firealarmed = 0
 	var/atmosalarmed = 0
 
-	var/overload = 0		//Eclipse edit: Variable to trigger an overload. If set, next process() tick will cause an overload to occur.
-
 // the smaller bulb light fixture
 
 /obj/machinery/light/floor
@@ -202,7 +200,7 @@
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 3
-	brightness_power = 2
+	brightness_power = 1
 	desc = "A small lighting fixture."
 	light_type = /obj/item/light/bulb
 
@@ -379,7 +377,7 @@
 		if(LIGHT_BURNED)
 			to_chat(user, "The [fitting] is burnt out.")
 		if(LIGHT_BROKEN)
-			to_chat(user, "The [fitting] is shattered.")		//Eclipse edit: Shattered, since overload breaks it as well
+			to_chat(user, "The [fitting] has been smashed.")
 
 
 
@@ -553,9 +551,9 @@
 		else
 			prot = TRUE
 
-		if(prot || (COLD_RESISTANCE in user.mutations))
+		if(prot) // || (COLD_RESISTANCE in user.mutations)
 			to_chat(user, SPAN_NOTICE("You remove the light [fitting]"))
-		else if(TK in user.mutations)
+		else if(get_active_mutation(user, MUTATION_TELEKINESIS))
 			to_chat(user, SPAN_NOTICE("You telekinetically remove the light [fitting]."))
 		else
 			to_chat(user, "You try to remove the light [fitting], but it's too hot and you don't want to burn your hand.")
@@ -615,43 +613,6 @@
 	status = LIGHT_BROKEN
 	update()
 
-// // // BEGIN ECLIPSE EDITS // // //
-//Overload proc
-//Returns true if it overloaded successfully.
-/obj/machinery/light/proc/overload()
-	if(status != LIGHT_OK)
-		return FALSE		//If the light is broken, burned out, or removed, we can't really do much realistically.
-
-	overload = FALSE		//Set this to FALSE so process() doesn't call overload() recursively
-
-	//Right, first let's start playing the sound.
-	playsound(src.loc, 'sound/effects/transformer_overload.ogg', 60, 0)		//This sound lasts just over five seconds as I've mixed it.
-
-	//Next, we make our light slowly brighten and glow a bit red due to the ballast overheating.
-	set_light(brightness_range, brightness_power, "#ffdabc")		//Start the brightness effect subtle.
-	sleep(15)		//T+1.5 s
-	set_light(brightness_range + 1, brightness_power + 1, "#ffdabc")		//Getting there...
-	sleep(15)		//T+3.0 s
-	set_light(brightness_range + 2, brightness_power + 2, "#ffdabc")		//Maxed out.
-
-	spawn(20)		//T+5.0s
-		src.reset_color()		//reset the colour for if a new tube goes in
-		src.broken()		//aaaaaaaaand pop goes the lightbulb.
-	return TRUE
-
-// Chance to overload on EMPs
-/obj/machinery/light/emp_act(severity)
-	if(!on)
-		return		//Don't EMP the light if it's off.
-	if(!severity)		//Error handling to prevent division by zero. Just in case.
-		throw EXCEPTION("Attempted to EMP [src] with severity zero. Setting 'severity' to 1 to prevent division by zero.")
-		severity = 1
-	if(prob(50/severity))		//50% chance maximum, divided by the severity of the EMP (lower numbers more severe)
-		overload()
-	else						//Just flicker it a few times.
-		flick_light(5 - severity)
-// // // END ECLIPSE EDITS // // //
-
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)
 		return
@@ -674,23 +635,6 @@
 			if (prob(50))
 				broken()
 	return
-
-//blob effect
-
-
-// timed process
-// use power
-
-#define LIGHTING_POWER_FACTOR 20		//20W per unit luminosity
-
-
-/obj/machinery/light/Process()
-	if(on)
-		use_power(light_range * LIGHTING_POWER_FACTOR, STATIC_LIGHT)
-
-	if(overload)		//Eclipse edit
-		overload()		//if we're set to overload, well, overload.
-
 
 // called when area power state changes
 /obj/machinery/light/power_change()
@@ -799,7 +743,7 @@
 
 
 // attack bulb/tube with object
-// if a syringe, can inject phoron to make it explode
+// if a syringe, can inject plasma to make it explode
 /obj/item/light/attackby(var/obj/item/I, var/mob/user)
 	..()
 	if(istype(I, /obj/item/reagent_containers/syringe))
@@ -809,8 +753,8 @@
 
 		if(S.reagents.has_reagent("plasma", 5))
 
-			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
-			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
+			log_admin("LOG: [user.name] ([user.ckey]) injected a light with plasma, rigging it to explode.")
+			message_admins("LOG: [user.name] ([user.ckey]) injected a light with plasma, rigging it to explode.")
 
 			rigged = 1
 

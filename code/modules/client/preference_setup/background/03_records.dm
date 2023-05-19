@@ -37,10 +37,6 @@
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/background/records/OnTopic(var/href,var/list/href_list, var/mob/user)
-	if(!pref.check_cooldown())
-		if(isnewplayer(user))
-			to_chat(user, SPAN_WARNING("You're attempting to load your preferences a little too fast. Wait half a second, then try again."))
-		return FALSE
 	if(href_list["set_medical_records"])
 		var/new_medical = sanitize(input(user,"Enter medical information here.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.med_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 		if(!isnull(new_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))

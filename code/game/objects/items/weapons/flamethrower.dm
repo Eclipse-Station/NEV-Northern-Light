@@ -10,7 +10,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_NORMAL
-	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 1)
+	origin_tech = list(TECH_COMBAT = 2, TECH_PLASMA = 1)
 	slot_flags = SLOT_BELT
 	matter = list(MATERIAL_STEEL = 5)
 	var/throw_amount = 50
@@ -31,7 +31,7 @@
 
 
 /obj/item/flamethrower/Process()
-	if(ptank.air_contents.gas["phoron"] < 1)
+	if(ptank.air_contents.gas["plasma"] < 1)
 		lit = FALSE
 		STOP_PROCESSING(SSobj, src)
 		var/turf/T = get_turf(src)
@@ -73,7 +73,7 @@
 
 	if(istype(W,/obj/item/tank/plasma))
 		if(ptank)
-			to_chat(user, SPAN_NOTICE("There appears to already be a phoron tank loaded in [src]!"))
+			to_chat(user, SPAN_NOTICE("There appears to already be a plasma tank loaded in [src]!"))
 			return
 		user.drop_item()
 		ptank = W
@@ -87,7 +87,7 @@
 /obj/item/flamethrower/attack_self(mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
 	user.set_machine(src)
-	var/dat = text("<TT><B>Flamethrower (<A HREF='?src=\ref[src];light=1'>[!lit ? "<font color='red'>Ignite</font>" : "Extinguish"]</a>)</B><BR>\n [ptank ? "Tank Pressure: [ptank.air_contents.return_pressure()]" : "No tank installed"]<BR>\nAmount to throw: <A HREF='?src=\ref[src];amount=-100'>-</A> <A HREF='?src=\ref[src];amount=-10'>-</A> <A HREF='?src=\ref[src];amount=-1'>-</A> [throw_amount] <A HREF='?src=\ref[src];amount=1'>+</A> <A HREF='?src=\ref[src];amount=10'>+</A> <A HREF='?src=\ref[src];amount=100'>+</A><BR>\n[ptank ? "<A HREF='?src=\ref[src];remove=1'>Remove phorontank</A> - " : ""]<A HREF='?src=\ref[src];close=1'>Close</A></TT>")
+	var/dat = text("<TT><B>Flamethrower (<A HREF='?src=\ref[src];light=1'>[!lit ? "<font color='red'>Ignite</font>" : "Extinguish"]</a>)</B><BR>\n [ptank ? "Tank Pressure: [ptank.air_contents.return_pressure()]" : "No tank installed"]<BR>\nAmount to throw: <A HREF='?src=\ref[src];amount=-100'>-</A> <A HREF='?src=\ref[src];amount=-10'>-</A> <A HREF='?src=\ref[src];amount=-1'>-</A> [throw_amount] <A HREF='?src=\ref[src];amount=1'>+</A> <A HREF='?src=\ref[src];amount=10'>+</A> <A HREF='?src=\ref[src];amount=100'>+</A><BR>\n[ptank ? "<A HREF='?src=\ref[src];remove=1'>Remove plasmatank</A> - " : ""]<A HREF='?src=\ref[src];close=1'>Close</A></TT>")
 	user << browse(dat, "window=flamethrower;size=340x160")
 	onclose(user, "flamethrower")
 	return
@@ -101,7 +101,7 @@
 	if(usr.stat || usr.restrained() || usr.lying)	return
 	usr.set_machine(src)
 	if(href_list["light"])
-		if(!ptank || ptank.air_contents.gas["phoron"] < 1)
+		if(!ptank || ptank.air_contents.gas["plasma"] < 1)
 			to_chat(usr, SPAN_WARNING("You press the ignite button but nothing happens."))
 			return
 		lit = !lit
@@ -158,7 +158,7 @@
 	//Transfer 5% of current tank air contents to turf
 	var/datum/gas_mixture/air_transfer = ptank.air_contents.remove_ratio(0.02*(throw_amount/100))
 
-	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas["phoron"]*gas_mult,get_dir(loc,target), get_turf(src))
+	new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target,air_transfer.gas["plasma"]*gas_mult,get_dir(loc,target), get_turf(src))
 	qdel(air_transfer)
 	//Burn it based on transfered gas
 	target.hotspot_expose((ptank.air_contents.temperature*2) + 380,500) // -- More of my "how do I shot fire?" dickery. -- TLE

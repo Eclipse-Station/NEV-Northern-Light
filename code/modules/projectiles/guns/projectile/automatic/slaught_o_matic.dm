@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/slaught_o_matic
-	name = "\improper FS HG .35 Auto \"Slaught-o-Matic\""
+	name = "FS HG .35 Auto \"Slaught-o-Matic\""
 	desc = "This disposable plastic handgun is mass-produced by Frozen Star for civilian use. It often is used by street urchin, thugs, or terrorists on a budget. For what it's worth, it's not an awful handgun - but you only get one magazine before the gun locks up and becomes useless."
 	icon = 'icons/obj/guns/projectile/slaught_o_matic.dmi'
 	icon_state = "slaught"
@@ -14,13 +14,12 @@
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_SMG
 	auto_eject = FALSE
+	serial_type = "FS"
 	magazine_type = /obj/item/ammo_magazine/smg
 	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 9)
 	price_tag = 100
 	rarity_value = 40
 	gun_parts = list(/obj/item/stack/material/plastic = 2)
-	
-	simplemob_bonus_damage_multiplier = 0.35 //Eclipse edit: Balancing.
 
 	safety = FALSE
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
@@ -28,9 +27,8 @@
 	var/choosen_color = ""
 
 	damage_multiplier = 0.8
-	penetration_multiplier = 0.2
-	recoil_buildup = 3
-	one_hand_penalty = 5 //despite it being handgun, it's better to hold in two hands while shooting. SMG level.
+	penetration_multiplier = -0.2
+	init_recoil = HANDGUN_RECOIL(1.6)
 
 	gun_tags = list(GUN_SILENCABLE)
 
@@ -39,6 +37,7 @@
 		FULL_AUTO_800
 		)
 	wield_delay = 0
+
 
 /obj/item/gun/projectile/automatic/slaught_o_matic/Initialize()
 	. = ..()
@@ -54,6 +53,8 @@
 
 	var/iconstring = initial(icon_state)
 	var/itemstring = "_" + choosen_color
+
+	wielded_item_state = "_doble_" + choosen_color
 
 	icon_state = iconstring + itemstring
 	set_item_state(itemstring)

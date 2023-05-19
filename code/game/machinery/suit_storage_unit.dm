@@ -473,12 +473,7 @@
 /obj/machinery/suit_storage_unit/security
 	overlay_color = "#50649A"
 	SUIT_TYPE = /obj/item/clothing/suit/space/void/security
-	var/active = 0          // PLEASE HOLD.
-	var/irradiating = 0     // If this is > 0, the cycler is decontaminating whatever is inside it.
-	var/radiation_level = 2 // 1 is removing germs, 2 is removing blood, 3 is removing phoron.
-	var/model_text = ""     // Some flavour text for the topic box.
-	var/can_repair          // If set, the cycler can repair voidsuits.
-	var/electrified = 0
+
 
 /obj/machinery/suit_storage_unit/engineering
 	SUIT_TYPE = /obj/item/clothing/suit/space/void/engineering

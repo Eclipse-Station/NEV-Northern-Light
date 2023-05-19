@@ -9,9 +9,9 @@
 #define ANIM_CLOSE -1
 
 /obj/machinery/neotheology/cloner
-	name = "SLT-73 Clonepod Prototype"
-	desc = "One of the more fruitful results of NT's investment in Lazarus, this baby puts a person back together from organic slurry just in a few minutes. Now with clear biomass fluids for all your gross anatomy viewing needs."
-	icon = 'zzz_modular_eclipse/icons/obj/neotheology_machinery.dmi'
+	name = "NeoTheology's clonepod"
+	desc = "The newest design and God's gift from NeoTheology, this automatic machine will return the flesh to the spirit in no time."
+	icon = 'icons/obj/neotheology_pod.dmi'
 	icon_state = "preview"
 	density = TRUE
 	anchored = TRUE
@@ -42,7 +42,7 @@
 
 /obj/machinery/neotheology/cloner/New()
 	..()
-	icon = 'zzz_modular_eclipse/icons/obj/neotheology_machinery.dmi'
+	icon = 'icons/obj/neotheology_machinery.dmi'
 	update_icon()
 
 /obj/machinery/neotheology/cloner/Destroy()
@@ -164,20 +164,6 @@
 	occupant.updatehealth()
 	stop()
 
-/obj/machinery/neotheology/cloner/attack_hand(mob/user)
-	src.add_fingerprint(user)
-	reader = find_reader()
-	if(!reader)
-		visible_message("[src]'s control panel flashes \"NO READER\" light.")
-		return
-	if(!reader.implant)
-		visible_message("[src]'s control panel flashes \"NO IMPLANT\" light.")
-		return
-	if(cloning)
-		visible_message("[src]'s control panel flashes \"OCCUPIED\" light.")
-		return
-	start()
-
 ///////////////
 
 /obj/machinery/neotheology/cloner/Process()
@@ -200,18 +186,8 @@
 			else
 				stop()
 
-		if(occupant && ishuman(occupant))
-			occupant.setCloneLoss(max(CLONING_DONE-progress, clone_damage))
-			occupant.setBrainLoss(CLONING_DONE-progress)
-
-			occupant.adjustOxyLoss(-4)
-			occupant.Paralyse(4)
-
-			occupant.updatehealth()
-
-
 		if(progress >= CLONING_MEAT && !occupant)
-			var/obj/item/implant/core_implant/soulcrypt/R = reader.implant
+			var/datum/core_module/cruciform/cloning/R = reader.implant.get_module(CRUCIFORM_CLONING)
 			if(!R)
 				open_anim()
 				stop()
@@ -219,14 +195,26 @@
 				return
 
 			occupant = new/mob/living/carbon/human(src)
-			occupant.dna = R.host_dna.Clone()
+			occupant.fingers_trace = R.fingers_trace
+			occupant.dna_trace = R.dna_trace
+			occupant.dormant_mutations = R.dormant_mutations
+			occupant.active_mutations = R.active_mutations
 			occupant.set_species()
-			occupant.real_name = R.host_dna.real_name
-			occupant.age = R.host_age
-			occupant.UpdateAppearance()
+			occupant.real_name = R.real_name
+			occupant.b_type = R.b_type
+			occupant.age = R.age
+			occupant.h_style = R.h_style
+			occupant.hair_color = R.hair_color
+			occupant.f_style = R.f_style
+			occupant.facial_color = R.facial_color
+			occupant.eyes_color = R.eyes_color
+			occupant.skin_color = R.skin_color
+			occupant.change_skin_tone(R.s_tone)
+			occupant.gender = R.gender
+			occupant.tts_seed = R.tts_seed
 			occupant.sync_organ_dna()
-			occupant.flavor_text = R.host_flavor_text
-			R.host_stats.copyTo(occupant.stats)
+			occupant.flavor_text = R.flavor
+			R.stats.copyTo(occupant.stats)
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
 			var/datum/effect/effect/system/spark_spread/s = new
@@ -345,8 +333,8 @@
 /////////////////////
 
 /obj/machinery/neotheology/biomass_container
-	name = "Lazarus' biomass container"
-	desc = "A barrel that makes strange noises, filled with a substance which at any time may become someone else's body."
+	name = "NeoTheology's biomass container"
+	desc = "A barrel making strange noises, filled with a substance which at any time may become someone else's body."
 	icon_state = "biocan"
 	density = TRUE
 	anchored = TRUE
@@ -390,7 +378,7 @@
 	if (istype(I, /obj/item/stack/material/biomatter))
 		var/obj/item/stack/material/biomatter/B = I
 		if (B.biomatter_in_sheet && B.amount)
-			var/sheets_amount_to_transfer = input(user, "How many sheets you want to load?", "Biomatter melting", 1) as num
+			var/sheets_amount_to_transfer = input(user, "How many sheets do you want to load?", "Biomatter melting", 1) as num
 			if(sheets_amount_to_transfer > 0)
 				if(sheets_amount_to_transfer > B.amount)
 					sheets_amount_to_transfer = B.amount
@@ -426,24 +414,22 @@
 /////////////////////
 
 /obj/machinery/neotheology/reader
-	name = "SLT-73-B Core Implant Reader"
-	icon = 'zzz_modular_eclipse/icons/obj/neotheology_machinery.dmi'
-	desc = "A neat-looking device capable of extracting DNA and conciousness imprints from a core implant."
+	name = "NeoTheology's cruciform reader"
+	desc = "The altar for scanning genetic information from medium of soul - the cruciform."
 	icon_state = "reader_off"
 	density = TRUE
 	anchored = TRUE
 
-	var/obj/item/implant/core_implant/soulcrypt/implant
+	var/obj/item/implant/core_implant/cruciform/implant
 	var/reading = FALSE
 
 
 /obj/machinery/neotheology/reader/attackby(obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/implant/core_implant/soulcrypt))
-		var/obj/item/implant/core_implant/soulcrypt/C = I
+	if(istype(I, /obj/item/implant/core_implant/cruciform))
+		var/obj/item/implant/core_implant/cruciform/C = I
 		user.drop_item()
 		C.forceMove(src)
 		implant = C
-		visible_message("[I] slides smoothly into the slot.")
 
 	src.add_fingerprint(user)
 	update_icon()
@@ -479,11 +465,12 @@
 	icon_state = "reader_off"
 
 	if(reading)
-		var/image/S = image(icon, "screen")
-		overlays.Add(S)
+		icon_state = "reader_on"
 
 	if(implant)
 		var/image/I = image(icon, "reader_c_green")
+		if(implant.get_module(CRUCIFORM_PRIEST))
+			I = image(icon, "reader_c_red")
 		overlays.Add(I)
 
 

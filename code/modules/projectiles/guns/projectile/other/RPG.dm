@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/rpg
-	name = "\improper SA RPG \"RPG-17\"" //Eclipse Edit - gun names standardized
+	name = "RPG-17"
 	desc = "A modified ancient rocket-propelled grenade launcher, this design is centuries old, but well preserved. \
 			Modification altered gun mechanism to take much more compact, but sligtly less devastating in close quaters rockets and remove backfire. \
 			Their priming and proplusion was altered too for more robust speed, so it has strong recoil."
@@ -19,14 +19,14 @@
 	load_method = SINGLE_CASING
 	handle_casings = EJECT_CASINGS
 	max_shells = 1
-	one_hand_penalty = 1
-	recoil_buildup = 0.2 //with new system it gives slight chance to miss but not really
+	init_recoil = HMG_RECOIL(1) // RPGs tend to be very large
 	fire_sound = 'sound/effects/bang.ogg'
 	bulletinsert_sound = 'sound/weapons/guns/interact/batrifle_magin.ogg' //placeholder, needs new sound
 	twohanded = TRUE
 	spawn_blacklisted = TRUE
 	wield_delay = 1 SECOND
 	wield_delay_factor = 0.8 // 80 vig
+	serial_type = "SA"
 
 /obj/item/gun/projectile/rpg/update_icon()
 	. = ..()

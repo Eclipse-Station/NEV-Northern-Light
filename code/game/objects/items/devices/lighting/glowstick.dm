@@ -5,6 +5,8 @@
 	icon_state = "glowstick"
 	action_button_name = null
 	brightness_on = 2.5
+	matter = list(MATERIAL_PLASTIC = 1)
+	matter_reagents = list("radium" = 1)
 	var/fuel = 0
 	var/max_fuel = 2000
 
@@ -26,9 +28,12 @@
 	update_icon()
 	if(ismob(loc))
 		var/mob/M = loc
-		M.visible_message("[src] slowly burns out.") //Eclipse Edit - fixed grammar, removed extra message to make the message more universal.
+		M.visible_message(
+			"[src] slowly burn out.",
+			"[src] slowly burn out in your hand."
+		)
 	else
-		visible_message("[src] slowly burns out")
+		visible_message("[src] slowly burn out")
 
 /obj/item/device/lighting/glowstick/update_icon()
 	overlays.Cut()

@@ -5,18 +5,17 @@
 	nodamage = 0
 	check_armour = ARMOR_BULLET
 	embed = TRUE
-	sharp = FALSE
+	sharp = TRUE // Also used for checking whether this penetrates
 	hitsound_wall = "ric_sound"
 	var/mob_passthrough_check = 0
-	ignition_source = TRUE		//Eclipse add
+	recoil = 5
 
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 
 /obj/item/projectile/bullet/on_hit(atom/target)
 	if (..(target))
 		var/mob/living/L = target
-		if(!noshake)
-			shake_camera(L, 1, 1, 0.5)
+		shake_camera(L, 1, 1, 0.5)
 
 /obj/item/projectile/bullet/attack_mob(var/mob/living/target_mob, distance, miss_modifier)
 	if(damage_types[BRUTE] > 20 && prob(damage_types[BRUTE]*penetrating/2))
@@ -40,43 +39,36 @@
 
 	if(istype(A, /mob/living/exosuit))
 		return 1 //exosuits have their own penetration handling
-	var/damage = damage_types[BRUTE]
-	if(ismob(A))
-		if(!mob_passthrough_check)
-			return 0
-		if(iscarbon(A))
-			damage *= 0.7
-		return 1
 
-	var/chance = 0
+	var/blocked_damage = 0
 	if(istype(A, /turf/simulated/wall)) // TODO: refactor this from functional into OOP
 		var/turf/simulated/wall/W = A
-		chance = round(penetrating/2 * armor_penetration * 2 / W.material.integrity * 180)
+		blocked_damage = round(W.material.integrity / 8)
 	else if(istype(A, /obj/item/shield))
 		var/obj/item/shield/S = A
-		chance = round(armor_penetration * 2 / S.shield_integrity * 180)
+		blocked_damage = round(S.shield_integrity / 8)
 	else if(istype(A, /obj/machinery/door))
 		var/obj/machinery/door/D = A
-		chance = round(penetrating/2 * armor_penetration * 2 / D.maxhealth * 180)
-		if(D.glass) chance *= 2
+		blocked_damage = round(D.maxhealth / 8)
+		if(D.glass) blocked_damage /= 2
 	else if(istype(A, /obj/structure/girder))
-		chance = 100
+		return TRUE
 	else if(istype(A, /obj/structure/low_wall))
-		chance = round(penetrating/2 * armor_penetration * 2 / 150 * 180) // hardcoded, value is same as steel wall, will have to be changed once low walls have integrity
+		blocked_damage = 20 // hardcoded, value is same as steel wall, will have to be changed once low walls have integrity
 	else if(istype(A, /obj/structure/table))
 		var/obj/structure/table/T = A
-		chance = round(penetrating/2 * armor_penetration * 2 / T.maxhealth * 180)
+		blocked_damage = round(T.maxhealth / 8)
 	else if(istype(A, /obj/structure/barricade))
 		var/obj/structure/barricade/B = A
-		chance = round(penetrating/2 * armor_penetration * 2 / B.material.integrity * 180)
+		blocked_damage = round(B.material.integrity / 8)
 	else if(istype(A, /obj/machinery) || istype(A, /obj/structure))
-		chance = armor_penetration * penetrating/2
+		blocked_damage = 20
 
-	if(prob(chance))
-		var/maintainedVelocity = min(max(20, chance), 90) / 100 //the chance to penetrate is used to calculate leftover velocity, capped at 90%
-		for(var/i in damage_types)
-			damage_types[i] *= maintainedVelocity
-		step_delay = min(step_delay / maintainedVelocity, step_delay / 2)
+	var/percentile_blocked = block_damage(blocked_damage, A)
+	if(percentile_blocked > 0.5)
+		percentile_blocked = CLAMP(percentile_blocked, 50, 90) / 100 // calculate leftover velocity, capped between 50% and 90%
+
+		step_delay = min(step_delay / percentile_blocked, step_delay / 2)
 
 		if(A.opacity || istype(A, /obj/item/shield))
 			//display a message so that people on the other side aren't so confused
@@ -96,6 +88,7 @@
 	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
 	var/spread_step = 10	//higher means the pellets spread more across body parts with distance
 	var/pellet_to_knockback_ratio = 0
+	wounding_mult = WOUNDING_SMALL
 
 /obj/item/projectile/bullet/pellet/Bumped()
 	. = ..()
@@ -129,15 +122,7 @@
 		//pellet hits spread out across different zones, but 'aim at' the targeted zone with higher probability
 		var/old_zone = def_zone
 		def_zone = ran_zone(def_zone, spread)
-		//eclipse edit START - this is what makes shotgun buckshot target mobs randomly on the target tile. It adds all mobs on the target mob tile to a list, checks if they're dead or alive, and then hits them randomly.
-		var/list/collateraltargets = list()
-		for (var/mob/living/M in get_turf(target_mob))
-			if (M.stat != DEAD)
-				collateraltargets += M
-		if (collateraltargets.len > 1)
-			if (..(collateraltargets[rand(1,collateraltargets.len)])) hits++
-		//eclipse edit END
-		else if (..()) hits++
+		if (..()) hits++
 		def_zone = old_zone //restore the original zone the projectile was aimed at
 
 	pellets -= hits //each hit reduces the number of pellets left
@@ -164,3 +149,13 @@
 			if(M.lying || !M.CanPass(src, loc)) //Bump if lying or if we would normally Bump.
 				if(Bump(M)) //Bump will make sure we don't hit a mob multiple times
 					return
+
+/obj/item/projectile/bullet/pellet/adjust_damages(var/list/newdamages)
+	if(!newdamages.len)
+		return
+	for(var/damage_type in newdamages)
+		var/bonus = pellets > 2 ? newdamages[damage_type] / pellets * 2 : newdamages[damage_type]
+		if(damage_type == IRRADIATE)
+			irradiate += bonus
+			continue
+		damage_types[damage_type] += bonus

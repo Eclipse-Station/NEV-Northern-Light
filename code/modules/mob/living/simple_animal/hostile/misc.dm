@@ -107,6 +107,3 @@
 	melee_damage_upper = 50
 	attacktext = "pickled"
 	resistance = 30
-
-	//Eclipse-added vars
-	simplemob_bonus_multiplier = -0.1		//Funniest shit I've ever seen.

@@ -9,12 +9,11 @@
 	var/oxygen = 0
 	var/carbon_dioxide = 0
 	var/nitrogen = 0
-	var/phoron = 0
+	var/plasma = 0
 
 	var/list/initial_gas
 
 	var/footstep_type
-
 
 	//Properties for airtight tiles (/wall)
 	var/thermal_conductivity = 0.05
@@ -214,7 +213,7 @@ var/const/enterloopsanity = 100
 /turf/proc/levelupdate()
 	for(var/obj/O in src)
 		O.hide(O.hides_under_flooring() && !is_plating())
-		SEND_SIGNAL(O, COMSIG_TURF_LEVELUPDATE, !is_plating())
+		SEND_SIGNAL_OLD(O, COMSIG_TURF_LEVELUPDATE, !is_plating())
 
 /turf/proc/AdjacentTurfs()
 	var/L[] = new()
@@ -280,13 +279,6 @@ var/const/enterloopsanity = 100
 	else if(initial_flooring)
 		var/decl/flooring/floor = decls_repository.get_decl(initial_flooring)
 		sound = footstep_sound(floor.footstep_sound)
-
-	else if(flooring)
-		sound = footstep_sound(flooring.footstep_sound)
-	else if(initial_flooring)
-		var/decl/flooring/floor = initial_flooring
-		sound = footstep_sound(floor.footstep_sound)
-
 
 	return sound
 

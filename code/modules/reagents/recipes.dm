@@ -2,7 +2,7 @@
 //Chemical Reactions - Initialises all /datum/chemical_reaction into a list
 // It is filtered into multiple lists within a list.
 // For example:
-// chemical_reaction_list["plasma"] is a list of all reactions relating to phoron
+// chemical_reaction_list["plasma"] is a list of all reactions relating to plasma
 // Note that entries in the list are NOT duplicated. So if a reaction pertains to
 // more than one chemical it will still only appear in only one of the sublists.
 /proc/initialize_chemical_reactions()
@@ -116,6 +116,8 @@
 			var/datum/gas_mixture/GM = location.return_air()
 			if(GM.return_pressure() > maximum_pressure)
 				return FALSE
+		else
+			return FALSE
 
 
 	return TRUE
@@ -219,7 +221,7 @@
 	return null
 
 // UI data used by chemical catalog
-/datum/chemical_reaction/ui_data()
+/datum/chemical_reaction/nano_ui_data()
 	var/list/dat = list()
 	if(required_reagents)
 		dat["reagents"] = list()
@@ -404,6 +406,12 @@
 	result = "ryetalyn"
 	required_reagents = list("arithrazine" = 1, "carbon" = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/kognim
+	result = "kognim"
+	required_reagents = list("radium" = 1, "ryetalyn" = 2, "synaptizine" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/negative_ling
 	result = "negativeling"
 	required_reagents = list("ryetalyn" = 1, "carbon" = 1)
@@ -545,7 +553,11 @@
 	result = "coolant"
 	required_reagents = list("tungsten" = 1, "acetone" = 1, "water" = 1)
 	result_amount = 3
-	log_is_important = 1
+
+/datum/chemical_reaction/refrigerant
+	result = "refrigerant"
+	required_reagents = list("carbon" = 1, "acetone" = 1, "water" = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/rezadone
 	result = "rezadone"
@@ -589,12 +601,12 @@
 
 /* Solidification */
 
-/datum/chemical_reaction/phoronsolidification
+/datum/chemical_reaction/plasmasolidification
 	result = null
 	required_reagents = list("iron" = 5, "frostoil" = 5, "plasma" = 20)
 	result_amount = 1
 
-/datum/chemical_reaction/phoronsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
+/datum/chemical_reaction/plasmasolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/stack/material/plasma(get_turf(holder.my_atom), created_volume)
 	return
 
@@ -609,7 +621,7 @@
 
 /datum/chemical_reaction/uraniumsolidification
 	result = null
-	required_reagents = list("iron" = 5, "frostoil" = 5, "uranium" = 20)
+	required_reagents = list("aluminum" = 5, "frostoil" = 10, "uranium" = 20)
 	result_amount = 1
 
 /datum/chemical_reaction/uraniumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -669,22 +681,12 @@
 	for(var/mob/living/carbon/M in viewers(world.view, location))
 		switch(get_dist(M, location))
 			if(0 to 3)
-				if(hasvar(M, "glasses"))
-					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
-						continue
-
-				if (M.HUDtech.Find("flash"))
-					flick("e_flash", M.HUDtech["flash"])
-				M.Weaken(15)
+				if(M.eyecheck() <= FLASH_PROTECTION_MAJOR)
+					M.flash(15, FALSE , FALSE , FALSE)
 
 			if(4 to 5)
-				if(hasvar(M, "glasses"))
-					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
-						continue
-
-				if (M.HUDtech.Find("flash"))
-					flick("e_flash", M.HUDtech["flash"])
-				M.Stun(5)
+				if(M.eyecheck() <= FLASH_PROTECTION_MAJOR)
+					M.flash(0, FALSE , FALSE , FALSE)
 
 /datum/chemical_reaction/emp_pulse
 	result = null
@@ -991,7 +993,7 @@
 /datum/chemical_reaction/slime
 	var/required = null
 
-/datum/chemical_reaction/slime/ui_data()
+/datum/chemical_reaction/slime/nano_ui_data()
 	var/list/dat = ..()
 	dat["required_object"] = required
 	return dat
@@ -1019,7 +1021,7 @@
 	required = /obj/item/slime_extract/grey
 
 /datum/chemical_reaction/slime/spawn/on_reaction(var/datum/reagents/holder)
-	holder.my_atom.visible_message(SPAN_WARNING("Infused with phoron, the core begins to quiver and grow, and soon a new baby slime emerges from it!"))
+	holder.my_atom.visible_message(SPAN_WARNING("Infused with plasma, the core begins to quiver and grow, and soon a new baby slime emerges from it!"))
 	var/mob/living/carbon/slime/S = new /mob/living/carbon/slime
 	S.loc = get_turf(holder.my_atom)
 	..()
@@ -1085,8 +1087,7 @@
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
-			if (M.HUDtech.Find("flash"))
-				flick("e_flash", M.HUDtech["flash"])
+			M.flash(0, FALSE , FALSE , FALSE, 0) // flashed by the gods or something idk
 
 	for(var/i = 1, i <= 4 + rand(1,2), i++)
 		var/chosen = pick(borks)
@@ -1196,13 +1197,13 @@
 	required = /obj/item/slime_extract/purple
 
 //Dark Purple
-/datum/chemical_reaction/slime/phoron
+/datum/chemical_reaction/slime/plasma
 	result = null
 	required_reagents = list("plasma" = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/darkpurple
 
-/datum/chemical_reaction/slime/phoron/on_reaction(var/datum/reagents/holder)
+/datum/chemical_reaction/slime/plasma/on_reaction(var/datum/reagents/holder)
 	..()
 	var/obj/item/stack/material/plasma/P = new /obj/item/stack/material/plasma
 	P.amount = 10
@@ -1532,11 +1533,6 @@
 	required_reagents = list("vodka" = 2, "gin" = 1, "whiskey" = 1, "cognac" = 1, "limejuice" = 1)
 	result_amount = 6
 
-/datum/chemical_reaction/rockswhiskey
-	result = "rockswhiskey"
-	required_reagents = list("whiskey" = 2, "ice" = 1)
-	result_amount = 3
-
 /datum/chemical_reaction/gargle_blaster
 	result = "gargleblaster"
 	required_reagents = list("sbiten" = 1, "carpotoxin" = 1, "singulo" = 1, "pwine" = 1, "fuhrerole" = 1, "limejuice" = 1)
@@ -1553,8 +1549,8 @@
 	required_reagents = list("tequilla" = 2, "orangejuice" = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/phoron_special
-	result = "phoronspecial"
+/datum/chemical_reaction/plasma_special
+	result = "plasmaspecial"
 	required_reagents = list("rum" = 2, "vermouth" = 2, "plasma" = 2)
 	result_amount = 6
 
@@ -2153,8 +2149,7 @@
 
 /datum/chemical_reaction/rejuvenating_agent
 	result = "rejuvenating_agent"
-//	required_reagents = list("cleaner" = 2, "pacid" = 1, "sulfur" = 1)
-	required_reagents = list("cleaner" = 2, "pacid" = 1, "sulfur" = 1, "ausgiftrol" = 3)		//Eclipse edit: it's now much more annoying to make.
+	required_reagents = list("cleaner" = 2, "pacid" = 1, "sulfur" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/roachbeer
@@ -2166,3 +2161,31 @@
 	result = "kaiserbeer"
 	required_reagents = list("fuhrerole" = 1, "kaiseraurum" = 1, "roachbeer" = 2)
 	result_amount = 2
+
+/* Other */
+
+/datum/chemical_reaction/protein_shake
+	result = "protein_shake"
+	required_reagents = list("milk" = 1, "protein" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/suppressital
+	result = "suppressital"
+	required_reagents = list("blood" = 1, "citalopram" = 1)
+	result_amount = 2
+	maximum_temperature = 12.7
+	minimum_temperature = 7.7
+
+/* FBP "medicine" */
+
+/datum/chemical_reaction/fbp_repair
+	result = "fbp_repair"
+	required_reagents = list("nanites" = 1, "silicon" = 1)
+	result_amount = 2
+
+/* Uncomment when CE_MECH_REPLENISH has a use
+/datum/chemical_reaction/fbp_replenish
+	result = "fbp_replenish"
+	required_reagents = list("nanites" = 1, "oil" = 1)
+	result_amount = 2
+*/

@@ -8,6 +8,8 @@
 	throwforce = 1
 	w_class = ITEM_SIZE_TINY
 
+	price_tag = 0.2
+
 	var/leaves_residue = 1
 	var/is_caseless = FALSE
 	var/caliber = ""					//Which kind of guns it can be loaded into
@@ -40,6 +42,11 @@
 	pixel_y = rand(-10, 10)
 	if(amount > 1)
 		update_icon()
+
+/obj/item/ammo_casing/Destroy()
+	make_young()
+	QDEL_NULL(BB)
+	return ..()
 
 //removes the projectile from the ammo casing
 /obj/item/ammo_casing/proc/expend()
@@ -179,15 +186,15 @@
 	if (!BB)
 		to_chat(user, "[(amount == 1)? "This one is" : "These ones are"] spent.")
 
-/obj/item/ammo_casing/Destroy() //Eclipse add - QDEL Fix
-	BB = null
-	..()
+/obj/item/ammo_casing/get_item_cost(export)
+	. = round(..() * amount)
 
 //An item that holds casings and can be used to put them inside guns
 /obj/item/ammo_magazine
 	name = "magazine"
 	desc = "A magazine for some kind of gun."
 	icon_state = "place-holder-box"
+	description_info = "Can be reloaded quickly by clicking on a ammo-box of the corresponding caliber"
 	icon = 'icons/obj/ammo_mags.dmi'
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -201,6 +208,7 @@
 	spawn_tags = SPAWN_TAG_AMMO
 	rarity_value = 10
 	bad_type = /obj/item/ammo_magazine
+	price_tag = 60
 
 	var/modular_sprites = TRUE // If icons with colored stripes is present. False for some legacy sprites
 	var/ammo_label // Label on the magazine. Must be a key from ammo_names or null. Received on item spawn and could be changed via hand labeler
@@ -235,6 +243,12 @@
 			stored_ammo += new ammo_type(src)
 	get_label()
 	update_icon()
+
+/obj/item/ammo_magazine/Destroy()
+	make_young()
+	QDEL_LIST(contents)		// Normally, we don't want to do this, but this is an exception
+	QDEL_LIST(stored_ammo)
+	return ..()
 
 /obj/item/ammo_magazine/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/ammo_casing))
@@ -454,3 +468,8 @@
 /obj/item/ammo_magazine/examine(mob/user)
 	..()
 	to_chat(user, "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!")
+
+/obj/item/ammo_magazine/get_item_cost(export)
+	. = ..()
+	for(var/obj/item/ammo_casing/i in stored_ammo)
+		. += i.get_item_cost(export)

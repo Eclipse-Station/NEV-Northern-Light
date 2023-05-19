@@ -7,8 +7,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 	var/nudge_script_path = "nudge.py"  // where the nudge.py script is located
 
-	var/usealienwhitelist = 1 //Eclipse addition
-
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
@@ -42,7 +40,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/tick_limit_mc_init = TICK_LIMIT_MC_INIT_DEFAULT	//SSinitialization throttling
-	var/fps = 25
+	var/fps = 40
 	var/socket_talk	= 0					// use socket_talk to communicate with other processes
 	var/list/resource_urls
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
@@ -117,7 +115,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/forbid_singulo_possession = 0
 
 	var/organs_decay
-	var/default_brain_health = 400
 
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
 	//so that it's similar to HALLOSS. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
@@ -135,6 +132,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/welder_vision = 1
 	var/generate_asteroid = 0
 	var/no_click_cooldown = 0
+	var/z_level_shooting = TRUE
 
 	var/admin_legacy_system = 0	//Defines whether the server uses the legacy admin system with admins.txt or the SQL system. Config option in config.txt
 	var/ban_legacy_system = 0	//Defines whether the server uses the legacy banning system with the files in /data or the SQL system. Config option in config.txt
@@ -225,13 +223,15 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/webhook_url
 	var/webhook_key
 
+	var/tts_key // Login and password that we use to generate tts_bearer
+	var/tts_enabled // Global switch
+	var/tts_cache // Store generated tts files and reuse them, instead of always requesting new
+
 	var/static/regex/ic_filter_regex //For the cringe filter.
 
 	var/generate_loot_data = FALSE //for loot rework
 
 	var/profiler_permission = R_DEBUG | R_SERVER
-
-	var/allow_ic_printing = TRUE
 
 /datum/configuration/New()
 	fill_storyevents_list()
@@ -371,9 +371,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 				if ("vote_delay")
 					config.vote_delay = text2num(value)
-
-				if ("disable_ic_printing")
-					config.allow_ic_printing = FALSE
 
 				if ("vote_period")
 					config.vote_period = text2num(value)
@@ -724,6 +721,14 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 				if("webhook_url")
 					config.webhook_url = value
 
+				if("tts_key")
+					config.tts_key = value
+
+				if("tts_enabled")
+					config.tts_enabled = config.tts_key ? value : FALSE
+
+				if("tts_cache")
+					config.tts_cache = value
 
 				if("random_start")
 					var/list/startlist = list(
@@ -767,10 +772,6 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 					config.organ_damage_spillover_multiplier = value / 100
 				if("organs_can_decay")
 					config.organs_decay = 1
-				if("default_brain_health")
-					config.default_brain_health = text2num(value)
-					if(!config.default_brain_health || config.default_brain_health < 1)
-						config.default_brain_health = initial(config.default_brain_health)
 				if("bones_can_break")
 					config.bones_can_break = value
 				if("limbs_can_break")

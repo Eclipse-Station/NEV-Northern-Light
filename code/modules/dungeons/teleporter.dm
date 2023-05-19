@@ -8,7 +8,7 @@
 	var/charging = FALSE
 	var/charge = 0
 	var/charge_max = 50
-	var/flickering = 0
+	var/flick_lighting = 0
 	var/ticks_before_next_summon = 2
 	var/mobgenlist = list(
 		/mob/living/simple_animal/hostile/bear,
@@ -21,6 +21,8 @@
 	var/turfs_around = list()
 	var/victims_to_teleport = list()
 	var/obj/crawler/spawnpoint/target
+	var/obj/crawler/map_maker/dungeon_generator
+	var/dungeon_is_generated = FALSE
 	anchored = TRUE
 	unacidable = 1
 	density = TRUE
@@ -31,17 +33,26 @@
 
 /obj/rogue/teleporter/attack_hand(mob/user)
 	if(!charge)
-		target = locate(/obj/crawler/spawnpoint)
-		if(target)
+		dungeon_generator = locate(/obj/crawler/map_maker)
+		if(dungeon_generator)
 			to_chat(user, "You activate the teleporter. A strange rumbling fills the area around you.")
+			// Listen to signal for when the generation will be finished
+			RegisterSignal(src, COMSIG_DUNGEON_GENERATED, PROC_REF(dungeon_generated))
+			// Generate the dungeon while mobs are spawning to attack the teleporter
+			SEND_SIGNAL_OLD(dungeon_generator, COMSIG_GENERATE_DUNGEON, src)
 			start_teleporter_event()
 		else
 			to_chat(user, "Nothing seems to happen.")
 	else if(charging)
-		if(flickering)
+		if(flick_lighting)
 			to_chat(user, "The portal looks too unstable to pass through!")
 		else
 			to_chat(user, "The teleporter needs time to charge.")
+
+/obj/rogue/teleporter/proc/dungeon_generated()
+	SIGNAL_HANDLER
+	dungeon_is_generated = TRUE
+	UnregisterSignal(src, COMSIG_DUNGEON_GENERATED)
 
 /obj/rogue/teleporter/proc/start_teleporter_event()
 	charging = TRUE
@@ -58,7 +69,18 @@
 			summon_mobs()
 		sleep(5)
 
-	end_teleporter_event()
+	var/start_waiting = world.time
+	while(!dungeon_is_generated && (world.time - start_waiting < 3 MINUTES))
+		sleep(10 SECONDS)
+
+	target = locate(/obj/crawler/spawnpoint)
+	if(!dungeon_is_generated || !target)
+		// Something wrong happened and dungeon was not properly generated
+		admin_notice("Failed to generate the OneStar dungeon - Warn coders.")
+		visible_message(SPAN_WARNING("The teleporter malfunctions and explodes in a shower of sparks!"))
+		destroy_teleporter()
+	else
+		end_teleporter_event()
 
 /obj/rogue/teleporter/proc/summon_mobs()
 	var/max_mobs = 3
@@ -118,6 +140,9 @@
 	for(var/mob/living/M in victims_to_teleport)
 		go_to_bluespace(get_turf(src), 3, FALSE, M, get_turf(target))
 
+	destroy_teleporter()
+
+/obj/rogue/teleporter/proc/destroy_teleporter()
 	new /obj/structure/scrap_spawner/science/large(src.loc)
 
 	sleep(2)
@@ -162,7 +187,7 @@
 
 	overlays.Add(image(icon, icon_state = "portal_failing"))
 	visible_message("The portal starts flickering!")
-	flickering = 1
+	flick_lighting = 1
 	sleep(100)
 	update_icon()
 
@@ -175,26 +200,15 @@
 		if (get_dist(src, O) > 8)
 			continue
 
-		var/flash_time = 8
 		if (ishuman(O))
 			var/mob/living/carbon/human/H = O
-			if(!H.eyecheck() <= 0)
-				continue
-			flash_time *= H.species.flash_mod
-			var/eye_efficiency = H.get_organ_efficiency(OP_EYES)
-			if(eye_efficiency < 2)
-				return
-			if(eye_efficiency < 50 && prob(100 - eye_efficiency  + 20))
-				if (O.HUDtech.Find("flash"))
-					flick("e_flash", O.HUDtech["flash"])
+			H.flash(8, FALSE , FALSE , FALSE, 8)
 
 		else
 			if(!O.blinded)
 				if (istype(O,/mob/living/silicon/ai))
 					return
-				if (O.HUDtech.Find("flash"))
-					flick("flash", O.HUDtech["flash"])
-		O.Weaken(flash_time)
+				O.flash(8, FALSE, FALSE ,FALSE)
 
 		sleep(1)
 
@@ -206,7 +220,6 @@
 	icon_state = "beacon_off"
 	var/victims_to_teleport = list()
 	var/turf/target = null
-	var/target_type = /obj/crawler/teleport_marker
 	var/active = FALSE
 	w_class = ITEM_SIZE_GARGANTUAN
 	anchored = TRUE
@@ -221,7 +234,7 @@
 
 /obj/rogue/telebeacon/attack_hand(mob/user)
 	if(!target)
-		target = locate(target_type)
+		target = locate(/obj/crawler/teleport_marker)
 	if(!active)
 		if(target)
 			to_chat(user, "You activate the beacon. It starts glowing softly.")
@@ -251,12 +264,11 @@
 /obj/rogue/telebeacon/return_beacon
 	name = "ancient return beacon"
 	desc = "A metallic pylon, covered in rust. It seems still operational. Barely."
-	target_type = (/obj/crawler/teleport_marker)
 
 
 /obj/rogue/telebeacon/return_beacon/attack_hand(mob/user)
 	if(!target)
-		target = locate(target_type)
+		target = locate(/obj/crawler/teleport_marker)
 	if(!active)
 		if(target)
 			to_chat(user, "You activate the beacon. It starts glowing softly.")
@@ -271,10 +283,3 @@
 		var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
 		sparks.set_up(3, 0, get_turf(user))
 		sparks.start()
-
-
-/obj/rogue/telebeacon/return_beacon/bossfight
-	name = "OneStar Heavy Weaponry Testing Range Access Pylon"
-	target_type = /obj/crawler/bossfight_arena
-	desc = "A metallic pylon, covered in rust. It seems still operational. Barely. You have a very bad feeling about this. \
-	OOC NOTE: AFTER THIS IS A BOSSFIGHT WITHOUT ANY CONVENTIONAL MEANS OF ESCAPE. THIS IS YOUR ONLY WARNING."

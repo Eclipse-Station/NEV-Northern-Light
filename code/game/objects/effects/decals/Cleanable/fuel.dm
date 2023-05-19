@@ -1,5 +1,5 @@
 /obj/effect/decal/cleanable/liquid_fuel
-	//Liquid fuel is used for things that used to rely on volatile fuels or phoron being contained to a couple tiles.
+	//Liquid fuel is used for things that used to rely on volatile fuels or plasma being contained to a couple tiles.
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "fuel"
 	layer = TURF_LAYER+0.2
@@ -36,27 +36,10 @@
 		var/turf/simulated/target = get_step(src,d)
 		var/turf/simulated/origin = get_turf(src)
 		if(origin.CanPass(null, target, 0, 0) && target.CanPass(null, origin, 0, 0))
-			// // // BEGIN ECLIPSE EDITS // // //
-			//Liquid falling code.
-			if(istype(target, /turf/simulated/open))		//Begin this with an if-check for the redundancy.
-				if(amount < 10)
-					continue		//Not enough to leak over an edge.
-				var/iterations = 0
-				while(istype(target, /turf/simulated/open))
-					if(!GetBelow(target))		//No turf underneath this one. We'll enter nullspace if we continue - abort the proc
-						break
-					iterations++
-					target = GetBelow(target)
-					if(iterations >= 10)
-						break		//Can't find a turf below after ten retries.
-				if(istype(target, /turf/simulated/open))		//More redundancy.
-					continue		//We didn't find a suitable turf to spread to, so go to the next direction.
 			var/obj/effect/decal/cleanable/liquid_fuel/other_fuel = locate() in target
 			if(other_fuel)
 				other_fuel.amount += amount*0.25
 				if(!(other_fuel in exclude))
-					exclude += other_fuel		//Add the other fuel to the excluded spread turfs, so we don't stack the fuel.
-			// // // END ECLIPSE EDITS // // //
 					exclude += src
 					other_fuel.Spread(exclude)
 			else

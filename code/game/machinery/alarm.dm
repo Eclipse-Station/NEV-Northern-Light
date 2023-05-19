@@ -43,21 +43,17 @@
 	var/datum/radio_frequency/radio_connection
 
 	var/list/TLV = list()
-	var/list/trace_gas = list("sleeping_agent", "trichloramine", "monochloramine") //list of other gases that this air alarm is able to detect		//Eclipse edit: added chloramines
+	var/list/trace_gas = list("sleeping_agent") //list of other gases that this air alarm is able to detect
 
 	var/danger_level = 0
 	var/pressure_dangerlevel = 0
 	var/oxygen_dangerlevel = 0
 	var/co2_dangerlevel = 0
-	var/phoron_dangerlevel = 0
+	var/plasma_dangerlevel = 0
 	var/temperature_dangerlevel = 0
 	var/other_dangerlevel = 0
 
 	var/report_danger_level = 1
-
-	// Eclipse added vars
-	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
-	var/last_sound_time = 0			//When did the audible last fire?
 
 /obj/machinery/alarm/nobreach
 	breach_detection = 0
@@ -71,7 +67,7 @@
 	req_access = list(access_rd, access_atmospherics, access_engine_equip)
 	TLV["oxygen"] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
 	TLV["carbon dioxide"] = list(-1.0, -1.0,   5,  10) // Partial pressure, kpa
-	TLV["phoron"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
+	TLV["plasma"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
 	TLV["other"] =			list(-1.0, -1.0, 0.5, 1.0) // Partial pressure, kpa
 	TLV["pressure"] =		list(0, ONE_ATMOSPHERE * 0.10, ONE_ATMOSPHERE * 1.40, ONE_ATMOSPHERE * 1.60) /* kpa */
 	TLV["temperature"] =	list(20, 40, 140, 160) // K
@@ -116,7 +112,7 @@
 	// breathable air according to human/Life()
 	TLV["oxygen"] =			list(16, 19, 135, 140) // Partial pressure, kpa
 	TLV["carbon dioxide"] = list(-1.0, -1.0, 5, 10) // Partial pressure, kpa
-	TLV["phoron"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
+	TLV["plasma"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
 	TLV["other"] =			list(-1.0, -1.0, 0.5, 1.0) // Partial pressure, kpa
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
@@ -134,9 +130,6 @@
 /obj/machinery/alarm/Process()
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
-
-	if ((alarm_area.atmosalm >= 2) && world.time > last_sound_time + alarm_audible_cooldown)		//eclipse addition
-		play_audible()
 
 	var/turf/simulated/location = loc
 	if(!istype(location))
@@ -226,7 +219,7 @@
 	pressure_dangerlevel = get_danger_level(environment_pressure, TLV["pressure"])
 	oxygen_dangerlevel = get_danger_level(environment.gas["oxygen"]*partial_pressure, TLV["oxygen"])
 	co2_dangerlevel = get_danger_level(environment.gas["carbon_dioxide"]*partial_pressure, TLV["carbon dioxide"])
-	phoron_dangerlevel = get_danger_level(environment.gas["phoron"]*partial_pressure, TLV["phoron"])
+	plasma_dangerlevel = get_danger_level(environment.gas["plasma"]*partial_pressure, TLV["plasma"])
 	temperature_dangerlevel = get_danger_level(environment.temperature, TLV["temperature"])
 	other_dangerlevel = get_danger_level(other_moles*partial_pressure, TLV["other"])
 
@@ -234,7 +227,7 @@
 		pressure_dangerlevel,
 		oxygen_dangerlevel,
 		co2_dangerlevel,
-		phoron_dangerlevel,
+		plasma_dangerlevel,
 		other_dangerlevel,
 		temperature_dangerlevel
 		)
@@ -279,7 +272,6 @@
 	return 0
 
 /obj/machinery/alarm/update_icon()
-	cut_overlays()		//Eclipse edit: Add it up here too for redundancy.
 	if(wiresexposed)
 		switch(buildstage)
 			if(2)
@@ -322,39 +314,6 @@
 			new_color = COLOR_LIGHTING_RED_MACHINERY
 
 	set_light(l_range = 1.5, l_power = 0.2, l_color = new_color)
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Lighting overlays, so the screen actually glows.
-	//Warning: BYOND spaghetti ahead.
-
-	update_lighting_overlay_sprite(src, icon_level, dir)
-
-/obj/machinery/alarm/proc/update_lighting_overlay_sprite(var/obj/__source, var/alarm_state, direction)		//Updates the above-lighting-plane sprite.
-	cut_overlays()	//clear out overlays we may have (which we shouldn't have any because this is the air alarm, not the fire alarm)
-
-	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)		//If we're broken, don't add the overlay.
-		return
-
-//The overlay sprites didn't have dirs, so I had to copy them to modular and fix that up
-	var/overlay_icon = 'zzz_modular_eclipse/air_alarm_overlays/overlays.dmi'
-
-//send the source to the glow plane so we can get the plane number...
-	__source.set_plane(ABOVE_LIGHTING_PLANE)
-
-//assign the plane number to a var...
-	var/glowplane = __source.plane
-
-//and put it back to the whole bloody thing isn't glowing.
-	__source.set_plane(initial(plane))
-
-	var/image/screen_overlay = image(overlay_icon, "alarm[alarm_state]_overlay")
-	screen_overlay.plane = glowplane
-	screen_overlay.layer = ABOVE_LIGHTING_LAYER
-	screen_overlay.dir = direction
-	screen_overlay.alpha = 128		//50% opacity
-
-	overlays += screen_overlay		//add in the screen overlay.
-
-	// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/alarm/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
@@ -504,7 +463,7 @@
 	frequency.post_signal(src, alert_signal)
 
 /obj/machinery/alarm/attack_ai(mob/user)
-	ui_interact(user)
+	nano_ui_interact(user)
 
 /obj/machinery/alarm/attack_hand(mob/user)
 	. = ..()
@@ -513,10 +472,10 @@
 	return interact(user)
 
 /obj/machinery/alarm/interact(mob/user)
-	ui_interact(user)
+	nano_ui_interact(user)
 	wires.Interact(user)
 
-/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, var/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/alarm/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS, var/master_ui = null, var/datum/nano_topic_state/state = GLOB.default_state)
 	var/data[0]
 	var/remote_connection = 0
 	var/remote_access = 0
@@ -555,13 +514,12 @@
 		environment_data[++environment_data.len] = list("name" = "Pressure", "value" = pressure, "unit" = "kPa", "danger_level" = pressure_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Oxygen", "value" = environment.gas["oxygen"] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Carbon dioxide", "value" = environment.gas["carbon_dioxide"] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Toxins", "value" = environment.gas["phoron"] / total * 100, "unit" = "%", "danger_level" = phoron_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Other", "value" = (environment.gas["sleeping_agent"] + environment.gas["monochloramine"] + environment.gas["trichloramine"]) / total * 100, "unit" = "%", "danger_level" = other_dangerlevel)		//Eclipse edit: Air alarms show chloramines and nitrous oxide.
-		environment_data[++environment_data.len] = list("name" = "Temperature", "value" = environment.temperature, "unit" = "K ([round(environment.temperature - T0C, 0.1)]C)", "danger_level" = temperature_dangerlevel)		//Eclipse edit
+		environment_data[++environment_data.len] = list("name" = "Toxins", "value" = environment.gas["plasma"] / total * 100, "unit" = "%", "danger_level" = plasma_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Temperature", "value" = environment.temperature, "unit" = "K ([round(environment.temperature - T0C, 0.1)]C)", "danger_level" = temperature_dangerlevel)
 	data["total_danger"] = danger_level
 	data["environment"] = environment_data
 	data["atmos_alarm"] = alarm_area.atmosalm
-	data["fire_alarm"] = alarm_area.fire		//Eclipse edit: Fixes an issue where an air alarm would get stuck in fire-call mode
+	data["fire_alarm"] = alarm_area.fire != null
 	data["target_temperature"] = "[target_temperature - T0C]C"
 
 /obj/machinery/alarm/proc/populate_controls(var/list/data)
@@ -604,10 +562,8 @@
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Oxygen",			"command" = "o2_scrub",	"val" = info["filter_o2"]))
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrogen",		"command" = "n2_scrub",	"val" = info["filter_n2"]))
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub","val" = info["filter_co2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Toxin"	, 		"command" = "tox_scrub","val" = info["filter_phoron"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Toxin"	, 		"command" = "tox_scrub","val" = info["filter_plasma"]))
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",	"command" = "n2o_scrub","val" = info["filter_n2o"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Trichloramine",	"command" = "ncl3_scrub", "val" = info["filter_ncl3"]))		//Eclipse addition
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Monochloramine",	"command" = "nh2cl_scrub", "val" = info["filter_nh2cl"]))		//Eclipse addition
 			data["scrubbers"] = scrubbers
 		if(AALARM_SCREEN_MODE)
 			var/modes[0]
@@ -626,7 +582,7 @@
 			var/list/gas_names = list(
 				"oxygen"         = "O<sub>2</sub>",
 				"carbon dioxide" = "CO<sub>2</sub>",
-				"phoron"         = "Toxin",
+				"plasma"         = "Toxin",
 				"other"          = "Other")
 			for (var/g in gas_names)
 				thresholds[++thresholds.len] = list("name" = gas_names[g], "settings" = list())
@@ -647,7 +603,7 @@
 
 			data["thresholds"] = thresholds
 
-/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/topic_state/state, var/href_list = list())
+/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/nano_topic_state/state, var/href_list = list())
 	if(buildstage != 2)
 		return STATUS_CLOSE
 
@@ -671,7 +627,7 @@
 			AA.apply_danger_level(0)
 	update_icon()
 
-/obj/machinery/alarm/Topic(href, href_list, var/datum/topic_state/state)
+/obj/machinery/alarm/Topic(href, href_list, var/datum/nano_topic_state/state)
 	if(..(href, href_list, state))
 		return 1
 
@@ -735,10 +691,8 @@
 					"co2_scrub",
 					"tox_scrub",
 					"n2o_scrub",
-					"ncl3_scrub",
-					"nh2cl_scrub",
 					"panic_siphon",
-					"scrubbing")		//Eclipse addition: chloramines
+					"scrubbing")
 					playsound(loc, 'sound/machines/machine_switch.ogg', 100, 1)
 					send_signal(device_id, list(href_list["command"] = text2num(href_list["val"]) ) )
 					investigate_log("had it's settings changed by [key_name(usr)]", "atmos")
@@ -929,18 +883,6 @@
 	if (buildstage < 1)
 		to_chat(user, "The circuit is missing.")
 
-// Eclipse proc - added to reduce impact to Process() call
-/obj/machinery/alarm/proc/play_audible()
-	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)		//Don't play audibles if we can't play audibles (no power, broken, et cetera)
-		return
-	last_sound_time = world.time
-	for(var/i in 1 to 3)		//plays 3 times always.
-		if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)		//Check again here in case the power was cut while the audibles were going off.
-			return
-		playsound(src.loc, 'sound/misc/airalarm.ogg', 40, 0, 5)
-		sleep(4 SECONDS)
-
-
 /obj/machinery/alarm/proc/toggle_lock(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "It does nothing")
@@ -993,13 +935,8 @@ FIRE ALARM
 	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 
-	//eclipse added vars
-	var/alarm_audible_cooldown = 1000		//Audible cooldown time, in ticks (1/10sec)
-	var/last_sound_time = 0			//When did the audible last fire?
-	var/last_hive_check = 0
-
 /obj/machinery/firealarm/update_icon()
-	cut_overlays()
+	overlays.Cut()
 
 	if(wiresexposed)
 		switch(buildstage)
@@ -1041,7 +978,7 @@ FIRE ALARM
 	. = ..()
 	if (.)
 		return
-	return ui_interact(user)
+	return nano_ui_interact(user)
 
 /obj/machinery/firealarm/bullet_act()
 	return src.alarm()
@@ -1102,7 +1039,7 @@ FIRE ALARM
 			if(buildstage == 1)
 				if(I.use_tool(user, src, WORKTIME_NORMAL, tool_type, FAILCHANCE_VERY_EASY, required_stat = STAT_MEC))
 					to_chat(user, "You pry out the circuit!")
-					var/obj/item/electronics/airalarm/circuit = new /obj/item/electronics/firealarm()
+					var/obj/item/electronics/airalarm/circuit = new /obj/item/electronics/airalarm()
 					circuit.loc = user.loc
 					buildstage = 0
 					update_icon()
@@ -1163,54 +1100,14 @@ FIRE ALARM
 	if(locate(/obj/fire) in loc)
 		alarm()
 
-	if(world.time - last_hive_check > 150) //Checks every 15 seconds
-		var/hivemind = check_for_hivemind()		//Eclipse edit: Hivemind stuff interferes with the equipment. That's the handwave I'm using for this balancing change. ^Spitzer
-		last_hive_check = world.time
-		if(hivemind)
-			alarm()
-
-	//Eclipse Edit: alarm loops now.
-	var/area/coverage_area = get_area(src)
-	if (coverage_area.fire && (world.time > (last_sound_time + alarm_audible_cooldown)))
-		play_audible()
 	return
-
-// // // BEGIN ECLIPSE EDITS // // //
-/obj/machinery/firealarm/proc/check_for_hivemind()
-	//First get the number of active players, since that determines range it can see.
-	var/crew = 0		//start it at zero
-
-	for(var/mob/M in GLOB.player_list)
-		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
-			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
-			if(job)
-				crew++
-
-	var/calculated_range = max((9 - crew), 1)
-
-	if(crew > 9)	//Crew is larger than 9, so we won't see anything anyway.
-		return FALSE
-
-
-	for(var/obj/machinery/hivemind_machine/M in GLOB.all_hive_machinery) 	//We saw a hivemind machine. Yes, this performs better than clusterfuck that is view()
-		if (M.z == src.z && get_dist(src, M) <= calculated_range)
-			return TRUE
-
-	for(var/obj/effect/plant/hivemind/H in GLOB.all_hive_wires) //We see floor wires
-		if (H.z == src.z && get_dist(src, H) <= calculated_range)
-			return TRUE
-
-	//We don't detect anything, so return false so we don't pop an alarm.
-	return FALSE
-
-// // // END ECLIPSE EDITS // // //
 
 /obj/machinery/firealarm/power_change()
 	..()
 	spawn(rand(0,15))
 		update_icon()
 
-/obj/machinery/firealarm/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/topic_state/state = GLOB.outside_state)
+/obj/machinery/firealarm/nano_ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/nano_topic_state/state = GLOB.outside_state)
 	var/data[0]
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.maps_data.security_state)
 
@@ -1267,7 +1164,6 @@ FIRE ALARM
 		visible_message("[usr] resets \the [src].", "You have reset \the [src].")
 	else
 		to_chat(usr, "Fire Alarm is reset.")
-	last_sound_time = 0		//Eclipse edit: Allow us to make a sound immediately as it triggers next time it's triggered.
 	update_icon()
 	return
 
@@ -1282,13 +1178,7 @@ FIRE ALARM
 	else
 		to_chat(usr, "Fire Alarm activated.")
 	update_icon()
-
-	// // // BEGIN ECLIPSE EDITS // // //
-	//Fix fire alarms going batshit insane if automatically triggered
-	if (area.fire && (world.time > (last_sound_time + alarm_audible_cooldown)))
-		play_audible()
-	// // // END ECLIPSE EDITS // // //
-
+	//playsound(src.loc, 'sound/ambience/signal.ogg', 75, 0)
 	return
 
 
@@ -1307,21 +1197,6 @@ FIRE ALARM
 		wiresexposed = 1
 		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
 		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
-
-
-//Eclipse proc - added to reduce overhead on Process()
-/obj/machinery/firealarm/proc/play_audible()
-	if(stat & (NOPOWER|BROKEN))		//Don't play audibles if we can't play audibles (no power or broken)
-		return
-	last_sound_time = world.time		//at the start to reduce overlap
-	var/area/coverage_area = get_area(src)
-	for(var/i in 1 to rand(4,6))		//plays 4 to 6 times.
-		if (!coverage_area.fire)
-			return
-		if(stat & (NOPOWER|BROKEN))		//Check again in case the power was cut while the audible loop was running
-			return
-		playsound(src.loc, 'sound/misc/firealarm.ogg', 40, 0, 5)
-		sleep(4 SECONDS)
 
 	GLOB.firealarm_list += src
 

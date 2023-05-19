@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/onestar_custodian
-	name = "custodial hivedrone"
-	desc = "Old and weathered drone of unknown desgin. It seems to be malfunctioning and hostile."
+	name = "One Star Custodial Drone"
+	desc = "Old and weathered One Star drone. It seems to be malfunctioning and hostile."
 	icon = 'icons/mob/build_a_drone.dmi'
 	icon_state = "drone_os"
 	faction = "onestar"
@@ -30,9 +30,6 @@
 	var/screen_type = "os" //if someone decides to make the drones for something aside from OS and have different desgins
 	var/tool = "laser"
 	var/tooltype = "os"
-	
-	//Eclipse-added vars
-	simplemob_bonus_multiplier = -0.5		//You'll just be plinking off the metal here.
 
 /mob/living/simple_animal/hostile/onestar_custodian/New()
 	. = ..()
@@ -64,14 +61,23 @@
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
+	if(prob(20))
+		var/os_components_reward = pick(list(
+			/obj/item/stock_parts/capacitor/one_star,
+			/obj/item/stock_parts/scanning_module/one_star,
+			/obj/item/stock_parts/manipulator/one_star,
+			/obj/item/stock_parts/micro_laser/one_star,
+			/obj/item/stock_parts/matter_bin/one_star
+		))
+		new os_components_reward(get_turf(src))
 	qdel(src)
 	return
 
 
 
 /mob/living/simple_animal/hostile/onestar_custodian/chef
-	name = "service hivedrone"
-	desc = "Old and weathered drone of unknown desgin. This one looks like it used to cook. It seems to be malfunctioning and hostile."
+	name = "One Star Service Drone"
+	desc = "Old and weathered One Star drone. This one looks like it used to cook. It seems to be malfunctioning and hostile."
 	tool = "flamer"
 	fire_verb = "lobs flame"
 	screen_type = "os_red"
@@ -88,7 +94,7 @@
 
 /mob/living/simple_animal/hostile/onestar_custodian/engineer
 	name = "One Star Engineering Drone"
-	desc = "Old and weathered drone of unknown desgin. This one has a laser welder. It seems to be malfunctioning and hostile."
+	desc = "Old and weathered One Star drone. This one has a laser welder. It seems to be malfunctioning and hostile."
 	tool = "laser"
 	tooltype = "os_red"
 	screen_type = "yellow"

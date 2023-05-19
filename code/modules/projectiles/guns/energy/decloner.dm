@@ -1,5 +1,5 @@
 /obj/item/gun/energy/decloner
-	name = "\improper Prototype: biological demolecularisor"
+	name = "Prototype: biological demolecularisor"
 	desc = "A gun that discharges high amounts of controlled radiation to slowly break a target into component elements."
 	icon = 'icons/obj/guns/energy/decloner.dmi'
 	icon_state = "decloner"
@@ -11,4 +11,5 @@
 	charge_cost = 100
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASTIC = 10, MATERIAL_URANIUM = 8, MATERIAL_SILVER = 2)
 	price_tag = 1500
+	serial_type = "ML" // Moebius
 

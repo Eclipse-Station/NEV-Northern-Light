@@ -4,14 +4,14 @@
 ///////////////////////////////
 /obj/machinery/power/port_gen/pacman
 	name = "\improper P.A.C.M.A.N.-type Portable Generator"
-	desc = "A power generator that runs on solid phoron sheets. Rated for 80 kW max safe output."
+	desc = "A power generator that runs on solid plasma sheets. Rated for 80 kW max safe output."
 
 	var/fuel_type = "fuel"
 	circuit = /obj/item/electronics/circuitboard/diesel
 
 	/*
 		These values were chosen so that the generator can run safely up to 80 kW
-		A full 50 phoron sheet stack should last 20 minutes at power_output = 4
+		A full 50 plasma sheet stack should last 20 minutes at power_output = 4
 		temperature_gain and max_temperature are set so that the max safe power level is 4.
 		Setting to 5 or higher can only be done temporarily before the generator overheats.
 	*/
@@ -142,13 +142,13 @@
 		explode()
 
 /obj/machinery/power/port_gen/pacman/explode()
-	//Vapourize all the phoron
-	//When ground up in a grinder, 1 sheet produces 20 u of phoron -- Chemistry-Machinery.dm
+	//Vapourize all the plasma
+	//When ground up in a grinder, 1 sheet produces 20 u of plasma -- Chemistry-Machinery.dm
 	//1 mol = 10 u? I dunno. 1 mol of carbon is definitely bigger than a pill
-	var/phoron = (sheets+sheet_left)*20
+	var/plasma = (sheets+sheet_left)*20
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
-		environment.adjust_gas_temp("phoron", phoron/10, temperature + T0C)
+		environment.adjust_gas_temp("plasma", plasma/10, temperature + T0C)
 
 	sheets = 0
 	sheet_left = 0
@@ -230,12 +230,12 @@
 	..()
 	if (!anchored)
 		return
-	ui_interact(user)
+	nano_ui_interact(user)
 
 /obj/machinery/power/port_gen/pacman/attack_ai(mob/user as mob)
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/power/port_gen/pacman/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/power/port_gen/pacman/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	if(IsBroken())
 		return
 

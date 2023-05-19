@@ -5,7 +5,7 @@
 	category = /datum/uplink_category/stealth_items
 
 /datum/uplink_item/item/stealth_items/syndigaloshes
-	name = "No-Slip Sole"
+	name = "No-Slip sole"
 	item_cost = 1
 	path = /obj/item/noslipmodule
 
@@ -22,8 +22,9 @@
 
 /datum/uplink_item/item/stealth_items/chameleon_kit
 	name = "Chameleon Kit"
+	desc = "Comes with all the clothes you need to impersonate most people. Acting lessons sold separately. Wearing the uniform will allow for quick switching between appearances."
 	item_cost = 5
-	path = /obj/item/storage/box/syndie_kit/chameleon
+	path = /obj/item/storage/backpack/chameleon
 	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 
 /datum/uplink_item/item/stealth_items/cleanup

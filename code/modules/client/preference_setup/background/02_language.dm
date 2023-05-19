@@ -32,10 +32,6 @@
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/background/languages/OnTopic(var/href,var/list/href_list, var/mob/user)
-	if(!pref.check_cooldown())
-		if(isnewplayer(user))
-			to_chat(user, SPAN_WARNING("You're attempting to load your preferences a little too fast. Wait half a second, then try again."))
-		return FALSE
 
 	if(href_list["remove_language"])
 		var/index = text2num(href_list["remove_language"])
@@ -67,22 +63,8 @@
 	if(!user)
 		return
 
-	//A quick hack. Todo: Draw this from species or culture or something
 	free_languages[LANGUAGE_COMMON] = TRUE
 
-	/*
-	for(var/thing in pref.cultural_info)
-		var/decl/cultural_info/culture = SSculture.get_culture(pref.cultural_info[thing])
-		if(istype(culture))
-			var/list/langs = culture.get_spoken_languages()
-			if(LAZYLEN(langs))
-				for(var/checklang in langs)
-					free_languages[checklang] =    TRUE
-					allowed_languages[checklang] = TRUE
-			if(LAZYLEN(culture.secondary_langs))
-				for(var/checklang in culture.secondary_langs)
-					allowed_languages[checklang] = TRUE
-	*/
 	for(var/thing in all_languages)
 		var/datum/language/lang = all_languages[thing]
 		if(!(lang.flags & RESTRICTED))

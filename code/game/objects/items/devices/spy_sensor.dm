@@ -3,6 +3,7 @@
 	icon_state = "motion0" //placeholder
 	origin_tech = list(TECH_MAGNET = 5, TECH_COVERT = 2)
 	matter = list(MATERIAL_STEEL = 4, MATERIAL_PLATINUM = 2)
+	description_antag = "Carefull when placing spying sensors. Upon self-destruction they emp around themselves. If left near any machinery, they could trigger alarms for IH detectives to investigate."
 	var/active = FALSE
 	var/datum/mind/owner
 	var/list/obj/item/device/spy_sensor/group
@@ -63,7 +64,7 @@
 /obj/item/device/spy_sensor/proc/start()
 	var/list/local_sensors = get_local_sensors()
 	if(local_sensors.len >= 3)
-		timer = addtimer(CALLBACK(src, .proc/finish), 10 MINUTES, TIMER_STOPPABLE)
+		timer = addtimer(CALLBACK(src, PROC_REF(finish)), 10 MINUTES, TIMER_STOPPABLE)
 		for(var/obj/item/device/spy_sensor/S in local_sensors)
 			S.timer = timer
 			S.group = local_sensors

@@ -144,8 +144,8 @@
 
 	if (src.sdisabilities & BLIND)
 		src.blinded = TRUE
-	if (src.sdisabilities & DEAF)
-		src.ear_deaf = 1
+//	if (src.sdisabilities & DEAF)
+//		src.ear_deaf = 1
 
 	if (src.eye_blurry > 0)
 		src.eye_blurry = 0
@@ -228,7 +228,7 @@
 
 				if(ishuman(L)) //Ignore slime(wo)men
 					var/mob/living/carbon/human/H = L
-					if(H.species.name == "Slime")
+					if(H.species.name == SPECIES_SLIME)
 						continue
 
 				if(!L.canmove) // Only one slime can latch on at a time.

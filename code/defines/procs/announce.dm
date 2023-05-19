@@ -30,7 +30,7 @@
 	title = "Security Announcement"
 	announcement_type = "Security Announcement"
 
-/datum/announcement/proc/Announce(var/message as text, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/zlevels = GLOB.maps_data.contact_levels)
+/datum/announcement/proc/Announce(message, new_title = "", new_sound, do_newscast = newscast, msg_sanitized, zlevels = GLOB.maps_data.contact_levels, use_text_to_speech)
 	if(!message)
 		return
 	var/message_title = new_title ? new_title : title
@@ -40,7 +40,7 @@
 		message = sanitize(message, extra = 0)
 	message_title = html_encode(message_title)
 
-	Message(message, message_title)
+	Message(message, message_title, use_text_to_speech)
 	if(do_newscast)
 		NewsCast(message, message_title)
 
@@ -49,20 +49,20 @@
 			sound_to(M, message_sound)
 	Log(message, message_title)
 
-datum/announcement/proc/Message(message as text, message_title as text)
-	global_announcer.autosay("<span class='warning'>[title]:</span> [message]", announcer ? announcer : ANNOUNCER_NAME)
+datum/announcement/proc/Message(message as text, message_title as text, use_text_to_speech)
+	global_announcer.autosay("<span class='warning'>[title]:</span> [message]", announcer ? announcer : ANNOUNCER_NAME, use_text_to_speech = use_text_to_speech)
 
-datum/announcement/minor/Message(message as text, message_title as text)
-	global_announcer.autosay(message, ANNOUNCER_NAME)
+datum/announcement/minor/Message(message as text, message_title as text, use_text_to_speech)
+	global_announcer.autosay(message, ANNOUNCER_NAME, use_text_to_speech = use_text_to_speech)
 
-datum/announcement/priority/Message(message as text, message_title as text)
-	global_announcer.autosay("<span class='alert'>[message_title]:</span> [message]", announcer ? announcer : ANNOUNCER_NAME)
+datum/announcement/priority/Message(message as text, message_title as text, use_text_to_speech)
+	global_announcer.autosay("<span class='alert'>[message_title]:</span> [message]", announcer ? announcer : ANNOUNCER_NAME, use_text_to_speech = use_text_to_speech)
 
-datum/announcement/priority/command/Message(message as text, message_title as text)
-	global_announcer.autosay("<span class='warning'>[message_title]:</span> [message]", ANNOUNCER_NAME)
+datum/announcement/priority/command/Message(message as text, message_title as text, use_text_to_speech)
+	global_announcer.autosay("<span class='warning'>[message_title]:</span> [message]", ANNOUNCER_NAME, use_text_to_speech = use_text_to_speech)
 
-datum/announcement/priority/security/Message(message as text, message_title as text)
-	global_announcer.autosay("<font color='red'>[message_title]:</span> [message]", ANNOUNCER_NAME)
+datum/announcement/priority/security/Message(message as text, message_title as text, use_text_to_speech)
+	global_announcer.autosay("<font color='red'>[message_title]:</span> [message]", ANNOUNCER_NAME, use_text_to_speech = use_text_to_speech)
 
 datum/announcement/proc/NewsCast(message as text, message_title as text)
 	if(!newscast)
@@ -102,22 +102,14 @@ datum/announcement/proc/Log(message as text, message_title as text)
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
 	return I.assignment ? "[I.registered_name] ([I.assignment])" : I.registered_name
 
-/proc/level_six_announcement()
-	command_announcement.Announce("Confirmed outbreak of level 6 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/outbreak7.ogg')
-
 /proc/level_seven_announcement()
 	command_announcement.Announce("Confirmed outbreak of level 7 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/outbreak7.ogg')
 
 /proc/level_eight_announcement() //new announcment so the crew doesn't have to fuck around trying to figure out if its a blob, hivemind, or a literal fungus
-	command_announcement.Announce("Confirmed outbreak of level 8 Bio-mechanical infestation aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/outbreak7.ogg')
+	command_announcement.Announce("Confirmed outbreak of level 8 Bio-mechanical infestation aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert")
 
 /proc/level_eight_beta_announcement() //announcment which tells the crew that the hivemind has been killed, job well done crew.
 	command_announcement.Announce("Diagnostic Systems report level 8 Bio-mechanical infestation aboard [station_name()] has been contained.")
-	// // // BEGIN ECLIPSE EDITS // // //
-	//If we pushed a warning to discord, push an all-clear to let the players know all's good in the neighbourhood.
-	if(config.ntdad_level8_ping_sec || config.ntdad_level8_ping_all)
-		SSdispatcher.push_to_discord("Diagnostic Systems report level 8 Bio-mechanical infestation aboard [station_name()] has been contained.")
-	// // // END ECLIPSE EDITS // // //
 
 /proc/level_nine_announcement()
 	command_announcement.Announce("Confirmed outbreak of level 9 Excelsior communist infestation aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert")
@@ -128,6 +120,6 @@ datum/announcement/proc/Log(message as text, message_title as text)
 /proc/AnnounceArrival(var/mob/living/character, var/rank, var/join_message)
 	if (join_message && SSticker.current_state == GAME_STATE_PLAYING && SSjob.ShouldCreateRecords(rank))
 		if(issilicon(character))
-			global_announcer.autosay("A new [rank] [join_message].", ANNOUNCER_NAME)
+			global_announcer.autosay("A new [rank] [join_message].", ANNOUNCER_NAME, use_text_to_speech = TRUE)
 		else
-			global_announcer.autosay("[character.real_name], [rank], [join_message].", ANNOUNCER_NAME)
+			global_announcer.autosay("[character.real_name], [rank], [join_message].", ANNOUNCER_NAME, use_text_to_speech = TRUE)

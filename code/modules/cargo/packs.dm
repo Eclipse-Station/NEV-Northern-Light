@@ -185,9 +185,9 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/fsassault
 	name = "FS Assault Pack"
-	contains = list(/obj/item/gun/projectile/automatic/ak47/fs,
-			/obj/item/gun/projectile/automatic/ak47/fs,
-			/obj/item/gun/projectile/automatic/ak47/fs)
+	contains = list(/obj/item/gun/projectile/automatic/modular/ak/frozen_star,
+			/obj/item/gun/projectile/automatic/modular/ak/frozen_star,
+			/obj/item/gun/projectile/automatic/modular/ak/frozen_star)
 	cost = 3600
 	containertype = /obj/structure/closet/crate/secure/weapon
 	crate_name = "FS Assault Pack"
@@ -222,7 +222,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	group = "Security"
 
 /datum/supply_pack/armor
-	name = "AC Surplus Armor"
+	name = "IH Surplus Armor"
 	contains = list(/obj/item/clothing/suit/armor/vest,
 					/obj/item/clothing/suit/armor/vest/security,
 					/obj/item/clothing/suit/armor/vest/detective,
@@ -231,11 +231,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/head/armor/helmet)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "AC Surplus Amor"
+	crate_name = "IH Surplus Amor"
 	group = "Security"
 
 /datum/supply_pack/riot
-	name = "AC Riot gear crate"
+	name = "IH Riot gear crate"
 	contains = list(/obj/item/melee/baton,
 					/obj/item/melee/baton,
 					/obj/item/melee/baton,
@@ -256,35 +256,35 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/clothing/suit/armor/heavy/riot)
 	cost = 4500
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "AC Riot gear crate"
+	crate_name = "IH Riot gear crate"
 	group = "Security"
 /*
 /datum/supply_pack/loyalty
-	name = "Lazarus Loyalty implant crate"
+	name = "Moebius Loyalty implant crate"
 	contains = list (/obj/item/storage/lockbox/loyalty)
 	cost = 6000
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "Lazarus Loyalty implant crate"
+	crate_name = "Moebius Loyalty implant crate"
 	group = "Security"
 */
 /datum/supply_pack/ballisticarmor
-	name = "AC Ballistic Armor"
+	name = "IH Ballistic Armor"
 	contains = list(/obj/item/clothing/suit/armor/bulletproof/ironhammer,
 					/obj/item/clothing/suit/armor/bulletproof/ironhammer,
 					/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg,
 					/obj/item/clothing/head/armor/bulletproof/ironhammer_nvg)
 	cost = 3000
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "Aegis Ballistic Armor Pack"
+	crate_name = "IH Ballistic Armor Pack"
 	group = "Security"
 
 /datum/supply_pack/shotgunammo_beanbag
 	name = "FS Shotgun shells (Beanbag)"
-	contains = list(/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
-					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
-					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
-					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
-					/obj/item/ammo_magazine/ammobox/shotgun/beanbags)
+	contains = list(/obj/item/ammo_magazine/ammobox/shotgun/beanbag,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbag,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbag,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbag,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbag)
 	cost = 1000
 	crate_name = "FS Shotgun shells (Beanbag)"
 	group = "Security"
@@ -315,25 +315,25 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 
 /datum/supply_pack/energyarmor
-	name = "AC Ablative Armor"
+	name = "IH Ablative Armor"
 	contains = list(/obj/item/clothing/suit/armor/laserproof/full,
 					/obj/item/clothing/suit/armor/laserproof/full,
 					/obj/item/clothing/head/armor/laserproof,
 					/obj/item/clothing/head/armor/laserproof)
 	cost = 3000
 	containertype = /obj/structure/closet/crate/secure
-	crate_name = "AC Ablative Armor crate"
+	crate_name = "IH Ablative Armor crate"
 	group = "Security"
 
 /datum/supply_pack/securitybarriers
-	name = "AC Security Barrier crate"
+	name = "IH Security Barrier crate"
 	contains = list(/obj/machinery/deployable/barrier,
 					/obj/machinery/deployable/barrier,
 					/obj/machinery/deployable/barrier,
 					/obj/machinery/deployable/barrier)
 	cost = 2000
 	containertype = /obj/structure/closet/crate/secure/gear
-	crate_name = "AC Security Barrier crate"
+	crate_name = "IH Security Barrier crate"
 	group = "Security"
 
 /datum/supply_pack/securitywallshield
@@ -734,6 +734,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_pack/mech_ripley
 	name = "exosuit assembly crate"
 	contains = list(
+		/obj/structure/heavy_vehicle_frame,
 		/obj/item/mech_equipment/drill,
 		/obj/item/mech_equipment/clamp,
 		/obj/item/mech_equipment/light,
@@ -741,8 +742,15 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 		/obj/item/mech_component/chassis/cheap,
 		/obj/item/mech_component/manipulators/cheap,
 		/obj/item/mech_component/propulsion/cheap,
+		/obj/item/electronics/circuitboard/exosystem/utility,
+		/obj/item/robot_parts/robot_component/actuator,
+		/obj/item/robot_parts/robot_component/actuator,
+		/obj/item/robot_parts/robot_component/camera,
+		/obj/item/robot_parts/robot_component/radio,
 		/obj/item/robot_parts/robot_component/exosuit_control,
-		/obj/item/robot_parts/robot_component/armour/exosuit/plain
+		/obj/item/robot_parts/robot_component/armour/exosuit/plain,
+		/obj/item/robot_parts/robot_component/diagnosis_unit,
+		/obj/item/cell/large
 	)
 	cost = 2000
 	containertype = /obj/structure/closet/crate/secure/scisecurecrate
@@ -926,7 +934,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/device/assembly/timer)
 	cost = 1500
 	containertype = /obj/structure/closet/crate/secure/scisecurecrate
-	crate_name = "Phoron assembly crate"
+	crate_name = "Plasma assembly crate"
 	access = access_tox_storage
 	group = "Medical / Science"
 
@@ -993,13 +1001,6 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	crate_name = "body bags crate"
 	group = "Medical / Science"
 
-/datum/supply_pack/suspension_gen
-	name = "Suspension Field Generetor Crate"
-	cost = 2500
-	contains = list(/obj/machinery/suspension_gen)
-	containertype = /obj/structure/closet/crate/secure/scisecurecrate
-	crate_name = "Suspension Field Generetor Crate"
-	group = "Medical / Science"
 
 /datum/supply_pack/floodlight
 	name = "Emergency Floodlight Crate"

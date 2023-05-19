@@ -16,17 +16,12 @@
 	var/list/story_ineligible =	list()	// Denies the job from getting the antag status by story teller itself but allows become antag via different means.
 
 	// Strings.
-	var/welcome_text = "The Syndicate has been a thorn in the collected sides of every megacorp in the Galaxy, a band of highly \
-						organized criminals who cause havoc and chaos across the stars. <br><br> \
-						That’s what they want you to believe anyway.<br><br>\
-						The Syndicate makes most of its money from the corporations themselves, who pay them to steal from their rivals. You are one of their operatives, contracted through a dizzying array of middle-men and backroom deals to further the Syndicate’s goals aboard the NEV Northern Light.\
-						Use your code phrases and responses to find other operatives, and work to complete as many contracts as you can. Your uplink can be used to teleport a number of useful and dangerous items to help you. But be careful, the more overtly you act, the more quickly the crew will move against you.<br><br>\
-						Remember, if the enemy never even knows you were there, then you’ve done everything right."
+	var/welcome_text = "Cry havoc and let slip the dogs of war!"
 
 	// Role data.
 	var/id = null                      		// Unique type identifier.
-	var/role_text = "Syndicate Operative"               // special_role text.
-	var/role_text_plural = "Syndicate Operatives"       // As above but plural.
+	var/role_text = "Contractor"               // special_role text.
+	var/role_text_plural = "Contractors"       // As above but plural.
 	var/selectable = TRUE
 
 	// Faction data.

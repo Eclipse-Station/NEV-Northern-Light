@@ -27,7 +27,7 @@
 
 	attackby(obj/item/O as obj, mob/user as mob)
 		if (user.z > 6)
-			to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the ship!")
+			to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!")
 			return
 		if(istype(O, /obj/item/electronics/ai_module))
 			var/obj/item/electronics/ai_module/M = O

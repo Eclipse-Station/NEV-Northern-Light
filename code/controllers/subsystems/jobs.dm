@@ -12,15 +12,165 @@ SUBSYSTEM_DEF(job)
 	var/list/unassigned = list()			//Players who need jobs
 	var/list/job_debug = list()				//Debug info
 	var/list/job_mannequins = list()				//Cache of icons for job info window
-	var/list/whitelisted_jobs = list()		//eclipse addition - whitelisted jobs
+	var/list/ckey_to_job_to_playtime = list()
+	var/list/ckey_to_job_to_can_play = list()
+	var/list/job_to_playtime_requirement = list()
 
 /datum/controller/subsystem/job/Initialize(start_timeofday)
 	if(!occupations.len)
 		SetupOccupations()
 		LoadJobs("config/jobs.txt")
+		LoadPlaytimeRequirements("config/job_playtime_requirements.txt")
 	return ..()
 
-/datum/controller/subsystem/job/proc/SetupOccupations(faction = "NEV Northern Light")
+
+/datum/controller/subsystem/job/proc/UpdatePlayableJobs(ckey)
+	if(!length(ckey_to_job_to_can_play[ckey]))
+		ckey_to_job_to_can_play[ckey] = list()
+	if(!length(ckey_to_job_to_playtime[ckey]))
+		LoadPlaytimes(ckey)
+	var/savefile/save_data = new("data/player_saves/[copytext(ckey, 1, 2)]/[ckey]/playtimes.sav")
+	var/whitelisted = FALSE
+	from_file(save_data["whitelisted"], whitelisted)
+	for(var/occupation in occupations_by_name)
+		if(is_admin(get_client_by_ckey(ckey)) || whitelisted)
+			ckey_to_job_to_can_play[ckey][occupation] = TRUE
+		else
+			ckey_to_job_to_can_play[ckey][occupation] = CanHaveJob(ckey, occupation)
+
+ADMIN_VERB_ADD(/client/verb/whitelistPlayerForJobs, null, FALSE)
+/client/verb/whitelistPlayerForJobs()
+	set category = "Admin"
+	set name = "Allow client to bypass all job requirement playtimes"
+
+	if(!holder)	return
+
+	var/client/the_chosen_one = input(usr, "Select player to whitelist for jobs", "THE CHOSEN ONE!", null) in clients
+	if(!the_chosen_one)
+		to_chat(usr, SPAN_DANGER("No client selected to whitelist"))
+		return
+	SSjob.WhitelistPlayer(the_chosen_one.ckey)
+
+ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
+/client/verb/unwhitelistPlayerForJobs()
+	set category = "Admin"
+	set name = "Unwhitelist a client from all job requirement playtimes"
+
+	if(!holder)	return
+
+	var/client/the_disavowed_one = input(usr, "Select player to unwhitelist from jobs", "THE DISAVOWED ONE!", null) in clients
+	if(!the_disavowed_one)
+		to_chat(usr, SPAN_DANGER("No client selected to unwhitelist"))
+		return
+	SSjob.UnwhitelistPlayer(the_disavowed_one.ckey)
+
+/datum/controller/subsystem/job/proc/WhitelistPlayer(ckey)
+	var/savefile/save_data = new("data/player_saves/[copytext(ckey, 1, 2)]/[ckey]/playtimes.sav")
+	to_file(save_data["whitelisted"], TRUE)
+
+/datum/controller/subsystem/job/proc/UnwhitelistPlayer(ckey)
+	var/savefile/save_data = new("data/player_saves/[copytext(ckey, 1, 2)]/[ckey]/playtimes.sav")
+	to_file(save_data["whitelisted"], FALSE)
+
+/datum/controller/subsystem/job/proc/CanHaveJob(ckey, job_title)
+	if(!occupations_by_name[job_title])
+		return FALSE
+	if(!ckey)
+		return FALSE
+	if(job_to_playtime_requirement[job_title] == 0)
+		return TRUE
+	var/datum/job/wanted_job = occupations_by_name[job_title]
+	var/datum/job/checking_job
+	if(!wanted_job)
+		return FALSE
+	var/total_playtime
+	if(ckey_to_job_to_playtime[ckey])
+		if(ckey_to_job_to_playtime[ckey][job_title])
+			total_playtime += ckey_to_job_to_playtime[ckey][job_title]
+	for(var/job_name in ckey_to_job_to_playtime[ckey])
+		checking_job = occupations_by_name[job_name]
+		if(!checking_job)
+			continue
+		if(checking_job.department_flag & wanted_job.department_flag)
+			total_playtime += ckey_to_job_to_playtime[ckey][job_name]
+	if(length(SSinactivity_and_job_tracking))
+		if(length(SSinactivity_and_job_tracking[ckey]))
+			/// Blame linters!!!!
+			var/iter_ref = SSinactivity_and_job_tracking[ckey]
+			for(var/played_job in iter_ref)
+				checking_job = occupations_by_name[played_job]
+				if(!checking_job)
+					continue
+				if(checking_job.department_flag & wanted_job.department_flag)
+					total_playtime += round(SSinactivity_and_job_tracking[ckey][played_job])
+	if(total_playtime >= job_to_playtime_requirement[job_title])
+		return TRUE
+	else
+		return FALSE
+
+/datum/controller/subsystem/job/proc/LoadPlaytimeRequirements(folderPath)
+	var/list/le_playtimes = file2list(folderPath)
+	for(var/playtime in le_playtimes)
+		if(!playtime)
+			continue
+		playtime = trim(playtime)
+		if (!length(playtime))
+			continue
+		var/pos = findtext(playtime, "=")
+		var/name = null
+		var/value = null
+		if(pos)
+			name = copytext(playtime, 1, pos)
+			value = copytext(playtime, pos + 1)
+		else
+			continue
+		if(name && value)
+			job_to_playtime_requirement[name] = text2num(value)
+		else if(name)
+			job_to_playtime_requirement[name] = 0
+	return TRUE
+
+/datum/controller/subsystem/job/proc/LoadPlaytimes(ckey)
+	if(!ckey)
+		return
+	var/savefile/save_data = new("data/player_saves/[copytext(ckey, 1, 2)]/[ckey]/playtimes.sav")
+	for(var/occupation in occupations_by_name)
+		save_data.cd = occupation
+		if(!length(ckey_to_job_to_playtime[ckey]))
+			ckey_to_job_to_playtime[ckey] = list()
+		from_file(save_data["playtime"], ckey_to_job_to_playtime[ckey][occupation])
+		// return to last directory
+		save_data.cd = ".."
+
+/datum/controller/subsystem/job/proc/SavePlaytimes(ckey)
+	if(!ckey)
+		return FALSE
+	var/savefile/save_data = new("data/player_saves/[copytext(ckey, 1, 2)]/[ckey]/playtimes.sav")
+	/// No playtimes registered
+	if(!length(SSinactivity_and_job_tracking.current_playtimes[ckey]))
+		return FALSE
+	for(var/occupation in SSinactivity_and_job_tracking.current_playtimes[ckey])
+		var/playtime = SSinactivity_and_job_tracking.current_playtimes[ckey][occupation]
+		var/playtime_from_file
+		save_data.cd = occupation
+		from_file(save_data["playtime"], playtime_from_file)
+		playtime = round(playtime) + playtime_from_file
+		if(!isnum(playtime))
+			message_admins("Malformatted input into job save playtimes for [ckey] [occupation], not saving the new playtime : [playtime]")
+			continue
+		to_file(save_data["playtime"], playtime)
+		/// return to last dir
+		save_data.cd = ".."
+
+/datum/controller/subsystem/job/proc/CreateConfigFile()
+	// This is a file used for generating a template of all the current jobs..
+	// Create it in the config and then just call this proc, it will add in a pre-set config for all jobs with
+	// the required playtime at 0
+	var/file = file("config/job_playtimes_template.txt")
+	for(var/datum/job/occupation in occupations)
+		file << "[occupation.title]=0"
+
+/datum/controller/subsystem/job/proc/SetupOccupations(faction = "CEV Eris")
 	occupations.Cut()
 	occupations_by_name.Cut()
 	for(var/J in subtypesof(/datum/job))
@@ -29,30 +179,6 @@ SUBSYSTEM_DEF(job)
 			continue
 		occupations += job
 		occupations_by_name[job.title] = job
-		// // // BEGIN ECLIPSE EDITS // // //
-		//Rationale: Job whitelisting setup.
-		//I would have preferred to have this before var/J got filtered into job.* but it was causing compiler errors. Alas.
-		//wgatever it workys
-		if(job.manual_whitelist != WHITELIST_MANUAL_OFF)		//if we don't have the whitelist manually disabled for this job, we run through the checks.
-			if(job.manual_whitelist == WHITELIST_MANUAL_ON)			//Admin wants this whitelisted for whatever reason.
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			//Whitelist job based on configuration files.
-			if(job.wl_config_heads && config.wl_heads)		//Heads of Staff
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			if(job.wl_config_sec && config.wl_security)		//Security
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			if(job.wl_config_borgs && config.wl_silicons)		//Silicons
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			/*		//Uncomment in event of admin-only rank failure.
-			if(job.wl_admin_only)		//Admin-only jobs.
-				job.whitelist_only = TRUE
-				whitelisted_jobs |= job
-			*/
-		// // // END ECLIPSE EDITS // // //
 
 	if(!occupations.len)
 		to_chat(world, SPAN_WARNING("Error setting up jobs, no job datums found!"))
@@ -79,10 +205,6 @@ SUBSYSTEM_DEF(job)
 			return FALSE
 		if(jobban_isbanned(player, rank))
 			return FALSE
-		// // // eclipse edit: job whitelisting // // //
-		if(!is_job_whitelisted(player, rank))
-			return FALSE
-		//v // //end eclipse edit // // //
 
 		var/position_limit = job.total_positions
 		if(!latejoin)
@@ -91,8 +213,6 @@ SUBSYSTEM_DEF(job)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
 			player.mind.assigned_role = rank
 			player.mind.assigned_job = job
-			if(job.alt_titles)	// Eclipse add
-				player.mind.role_alt_title = player.client.prefs.GetPlayerAltTitle(job)// Eclipse add
 			unassigned -= player
 			job.current_positions++
 			return TRUE
@@ -110,8 +230,8 @@ SUBSYSTEM_DEF(job)
 	Debug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
 	var/list/candidates = list()
 	for(var/mob/new_player/player in unassigned)
-		if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
-			Debug("FOC whitelist failed, Player: [player]")
+		if(!CanHaveJob(player.client.ckey, job.title))
+			Debug("FOC playtime failed, Player:[player]")
 			continue
 		if(jobban_isbanned(player, job.title))
 			Debug("FOC isbanned failed, Player: [player]")
@@ -133,7 +253,11 @@ SUBSYSTEM_DEF(job)
 		if(!job)
 			continue
 
+
 		if(job.minimum_character_age && (player.client.prefs.age < job.minimum_character_age))
+			continue
+
+		if(!CanHaveJob(player.client.ckey, job.title))
 			continue
 
 		if(istype(job, GetJob(ASSISTANT_TITLE))) // We don't want to give him assistant, that's boring!
@@ -143,10 +267,6 @@ SUBSYSTEM_DEF(job)
 			continue
 
 		if(job.is_restricted(player.client.prefs))
-			continue
-
-		if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
-			Debug("GRJ whitelist failed, Player: [player], Job: [job.title]")
 			continue
 
 		if(jobban_isbanned(player, job.title))
@@ -229,8 +349,6 @@ SUBSYSTEM_DEF(job)
 		var/mob/new_player/candidate = pick(candidates)
 		AssignRole(candidate, command_position)
 
-		//eclipse todo: add a whitelist sanity check in here somewhere
-
 
 /** Proc DivideOccupations
  *  fills var "assigned_role" for all ready players.
@@ -301,10 +419,6 @@ SUBSYSTEM_DEF(job)
 				/*if(!job || SSticker.mode.disabled_jobs.Find(job.title) )
 					continue
 				*/
-				if(!is_job_whitelisted(player, job.title))		//eclipse edit this iteration: whitelist
-					Debug("DO whitelist failed, Player: [player], Job:[job.title]")
-					continue
-
 				if(jobban_isbanned(player, job.title))
 					Debug("DO isbanned failed, Player: [player], Job:[job.title]")
 					continue
@@ -343,9 +457,8 @@ SUBSYSTEM_DEF(job)
 			unassigned -= player
 	return TRUE
 
-// // // BEGIN ECLIPSE EDITS // // //
-// Fix an issue where mannequins can get emails.
-/datum/controller/subsystem/job/proc/EquipRank(mob/living/carbon/human/H, rank, generate_miscellany = TRUE)
+
+/datum/controller/subsystem/job/proc/EquipRank(mob/living/carbon/human/H, rank)
 	if(!H)
 		return null
 
@@ -362,8 +475,7 @@ SUBSYSTEM_DEF(job)
 		//var/list/custom_equip_leftovers = list()
 
 		//Equip job items and language stuff
-		if(generate_miscellany)
-			job.setup_account(H)
+		job.setup_account(H)
 
 		job.equip(H, flavor ? flavor.title : H.mind ? H.mind.role_alt_title : "")
 
@@ -372,9 +484,8 @@ SUBSYSTEM_DEF(job)
 			for(var/datum/gear/G in spawn_in_storage)
 				G.spawn_in_storage_or_drop(H, H.client.prefs.Gear()[G.display_name])
 
-		if(generate_miscellany)
-			job.add_stats(H, flavor)
-			job.add_additiional_language(H)
+		job.add_stats(H, flavor)
+		job.add_additiional_language(H)
 
 		job.apply_fingerprints(H)
 
@@ -386,32 +497,30 @@ SUBSYSTEM_DEF(job)
 				G.spawn_in_storage_or_drop(H, H.client.prefs.Gear()[G.display_name])
 
 		// EMAIL GENERATION
-		if(generate_miscellany)
-			if(rank != "Robot" && rank != "AI")		//These guys get their emails later.
-				ntnet_global.create_email(H, H.real_name, pick(GLOB.maps_data.usable_email_tlds))
+		if(rank != "Robot" && rank != "AI")		//These guys get their emails later.
+			ntnet_global.create_email(H, H.real_name, pick(GLOB.maps_data.usable_email_tlds))
 
 	else
 		to_chat(H, "Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
 
 	// If they're head, give them the account info for their department
-	if(generate_miscellany)
-		if(H.mind && (job.head_position || job.department_account_access))
-			var/remembered_info = ""
-			var/datum/money_account/department_account = department_accounts[job.department]
-			if(department_account)
-				remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
-				remembered_info += "<b>Your department's account pin is:</b> [department_account.remote_access_pin]<br>"
-				remembered_info += "<b>Your department's account funds are:</b> [department_account.money][CREDS]<br>"
-			if(job.head_position)
-				remembered_info += "<b>Your part of nuke code:</b> [SSticker.get_next_nuke_code_part()]<br>"
-				department_account.owner_name = H.real_name //Register them as the point of contact for this account
+	if(H.mind && (job.head_position || job.department_account_access))
+		var/remembered_info = ""
+		var/datum/money_account/department_account = department_accounts[job.department]
+		if(department_account)
+			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
+			remembered_info += "<b>Your department's account pin is:</b> [department_account.remote_access_pin]<br>"
+			remembered_info += "<b>Your department's account funds are:</b> [department_account.money][CREDS]<br>"
+		if(job.head_position)
+			remembered_info += "<b>Your part of nuke code:</b> [SSticker.get_next_nuke_code_part()]<br>"
+			department_account.owner_name = H.real_name //Register them as the point of contact for this account
 
-			H.mind.store_memory(remembered_info)
-	// // // END ECLIPSE EDITS // // //
+		H.mind.store_memory(remembered_info)
 
 	var/alt_title = null
 	if(H.mind)
 		H.mind.assigned_role = rank
+		SSinactivity_and_job_tracking.on_job_spawn(H, H.client.ckey)
 	//	alt_title = H.mind.role_alt_title
 
 		switch(rank)
@@ -443,7 +552,7 @@ SUBSYSTEM_DEF(job)
 		to_chat(H, "<b>You are playing a job that is important for Game Progression. If you have to disconnect, please notify the admins via adminhelp.</b>")
 
 	//Gives glasses to the vision impaired
-	if(H.disabilities & NEARSIGHTED)
+	if(get_active_mutation(H, MUTATION_NEARSIGHTED))
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
@@ -463,6 +572,7 @@ SUBSYSTEM_DEF(job)
 
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
+
 	return H
 
 /proc/EquipCustomLoadout(var/mob/living/carbon/human/H, var/datum/job/job)
@@ -544,13 +654,9 @@ SUBSYSTEM_DEF(job)
 		var/level4 = 0 //never
 		var/level5 = 0 //banned
 		var/level6 = 0 //account too young
-		var/level7 = 0 //not whitelisted <--eclipse add
 		for(var/mob/new_player/player in GLOB.player_list)
 			if(!(player.ready && player.mind && !player.mind.assigned_role))
 				continue //This player is not ready
-			if(jobban_isbanned(player, job.title))		//eclipse edit this iteration: whitelist
-				level7++
-				continue
 			if(jobban_isbanned(player, job.title))
 				level5++
 				continue
@@ -562,7 +668,7 @@ SUBSYSTEM_DEF(job)
 				level3++
 			else level4++ //not selected
 
-		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|YOUNG=[level6]|WHITELIST=[level7]|-"		//eclipse edit: whitelist
+		tmp_str += "HIGH=[level1]|MEDIUM=[level2]|LOW=[level3]|NEVER=[level4]|BANNED=[level5]|YOUNG=[level6]|-"
 
 
 /**
@@ -636,5 +742,6 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/proc/ShouldCreateRecords(var/title)
 	if(!title) return 0
 	var/datum/job/job = GetJob(title)
-	if(!job || job == "Vagabond") return 0
+	if(!job || job == ASSISTANT_TITLE)
+		return FALSE
 	return job.create_record

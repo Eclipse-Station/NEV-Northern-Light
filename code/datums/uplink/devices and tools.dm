@@ -42,21 +42,6 @@
 	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/plastique
 
-/datum/uplink_item/item/tools/heavy_vest
-	name = "Heavy Armor Vest"
-	item_cost = 6
-	path = /obj/item/clothing/suit/storage/vest/merc
-
-/datum/uplink_item/item/tools/full_heavy_vest
-	name = "Fullbody Heavy Armor Vest"
-	item_cost = 12
-	path = /obj/item/clothing/suit/storage/vest/merc/full
-
-/datum/uplink_item/item/tools/heavy_helmet
-	name = "Heavy Armor Helmet"
-	item_cost = 4
-	path = /obj/item/clothing/head/armor/helmet/merchelm
-
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
 	item_cost = 4
@@ -85,8 +70,18 @@
 
 /datum/uplink_item/item/tools/space_suit
 	name = "Mercenary Voidsuit"
-	item_cost = 6
+	item_cost = 12
 	path = /obj/item/storage/box/syndie_kit/space
+
+/datum/uplink_item/item/tools/mercarmor
+	name = "Mercenary Combat Armor"
+	item_cost = 6
+	path = /obj/item/storage/box/syndie_kit/mercarmor
+
+/datum/uplink_item/item/tools/heavy_vest
+	name = "Mercenary Vest"
+	item_cost = 3
+	path = /obj/item/clothing/suit/storage/vest/merc
 
 /datum/uplink_item/item/tools/softsuit
 	name = "Armoured Softsuit"
@@ -123,6 +118,31 @@
 	item_cost = 7
 	antag_roles = list(ROLE_CONTRACTOR,ROLE_MARSHAL,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/electronics/ai_module/syndicate
+
+/datum/uplink_item/item/tools/handheld_ai_jammer
+	name = "Handheld AI Jammer"
+	desc = "A handheld AI jammer , will stop AI signals from being executed within a 8 tile range"
+	item_cost = 3
+	antag_roles = list(ROLE_CONTRACTOR, ROLE_MARSHAL, ROLE_INQUISITOR, ROLE_MERCENARY)
+	path = /obj/item/device/jammer
+
+// Enough for a whole deck almost
+/datum/uplink_item/item/tools/portable_ai_jammer
+	name = "Portable area AI jammer"
+	desc = "A massive jammer put on a rolling cart, will stop AI signals from being executed within a 32 tile range and also affects the levels below and above. Warning! Cannot be stored in bags or held"
+	item_cost = 15
+	antag_roles = list(ROLE_CONTRACTOR, ROLE_MARSHAL, ROLE_INQUISITOR, ROLE_MERCENARY)
+	path = /obj/machinery/jammer
+
+/datum/uplink_item/item/tools/portable_ai_jammer/buy(obj/item/device/uplink/U, mob/user)
+	if(!can_buy(U))
+		return
+	new path(get_turf(user))
+	bluespace_entropy(2, get_turf(user), TRUE)
+	purchase_log(U)
+	U.uses -= item_cost
+	U.used_TC += item_cost
+
 
 /datum/uplink_item/item/tools/supply_beacon
 	name = "Hacked Supply Beacon (DANGER!)"
@@ -169,7 +189,7 @@
 	name = "Blue Space Direct Mail Unit"
 	item_cost = 1
 	path = /obj/item/storage/bsdm
-	antag_roles = ROLES_CONTRACT
+	antag_roles = ROLES_CONTRACT_COMPLETE
 
 /datum/uplink_item/item/tools/bsdm/can_view(obj/item/device/uplink/U)
 	return ..() && (U.bsdm_time > world.time)
@@ -184,7 +204,7 @@
 	name = "Blue Space Direct Mail Unit"
 	item_cost = 0
 	path = /obj/item/storage/bsdm
-	antag_roles = ROLES_CONTRACT
+	antag_roles = ROLES_CONTRACT_COMPLETE
 
 /datum/uplink_item/item/tools/bsdm_free/can_view(obj/item/device/uplink/U)
 	return ..() && (U.bsdm_time <= world.time)
@@ -246,7 +266,7 @@
 
 /datum/uplink_item/item/tools/blitz_speed_upgrade
 	name = "Blitzshell Speed Upgrade"
-	desc = "Download additional RAM, allowing you to move faster."
+	desc = "Remove limiting factors on your motors, allowing you to move faster."
 	item_cost = 20
 	antag_roles = list(ROLE_BLITZ)
 

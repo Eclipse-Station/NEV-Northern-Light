@@ -1,5 +1,5 @@
 /obj/item/book/ritual/cruciform
-	name = "Mekhane ritual book"
+	name = "NeoTheology ritual book"
 	desc = "Contains holy litany and religious prayers."
 	icon_state = "bible"
 	price_tag = 300

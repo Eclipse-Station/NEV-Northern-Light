@@ -18,6 +18,10 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_bst, R_ADMIN|R_DEBUG, TRUE)
 	if(!check_rights(R_ADMIN|R_DEBUG))
 		return
 
+	if(istype(usr, /mob/living/carbon/human/bst))
+		to_chat(usr, SPAN_NOTICE("You need to despawn your BST first before spawning another.")) //so if we accidentally double-click the button it won't spawn us twice
+		return
+
 	var/T = get_turf(usr)
 	var/mob/living/carbon/human/bst/bst = new(T)
 	bst.anchored = TRUE
@@ -310,7 +314,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_dev_bst, R_ADMIN|R_DEBUG, TRUE)
 
 /obj/item/card/id/bst
 	icon_state = "centcom"
-	desc = "An ID straight from Central Command. Curiously, judging by the stamp date, it hasn't been issued yet."
+	desc = "An ID straight from Hansa. This one looks as though its very existence is a trade secret."
 	spawn_frequency = 0
 
 /obj/item/card/id/bst/Initialize(mapload)

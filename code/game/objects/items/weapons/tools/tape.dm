@@ -1,7 +1,9 @@
 /obj/item/tool/tape_roll
 	name = "duct tape"
-	desc = "The engineer's eternal friend. Fixes just about anything, for a while at least."
+	desc = "The technomancer's eternal friend. Fixes just about anything, for a while at least."
 	icon = 'icons/obj/tools.dmi'
+	description_info = "Can be used for crafting or to repair tools"
+	description_antag = "Can be used to make makeshift mouthwraps and to tape cameras silently"
 	icon_state = "taperoll"
 	w_class = ITEM_SIZE_SMALL
 	tool_qualities = list(QUALITY_ADHESIVE = 30, QUALITY_SEALING = 30)
@@ -35,6 +37,12 @@
 	spawn_frequency = 8
 	rarity_value = 24
 	spawn_tags = SPAWN_TAG_TOOL_ADVANCED
+
+/obj/item/tool/tape_roll/fiber/medical
+	name = "osseous tape"
+	desc = "A roll of flexible adhesive bioadaptive tape. Used for sealing minor damage to bones."
+	tool_qualities = list(QUALITY_ADHESIVE = 30, QUALITY_SEALING = 30)
+	spawn_blacklisted = TRUE	// Don't want these spawning
 
 /obj/item/tool/tape_roll/glue
 	name = "superglue"

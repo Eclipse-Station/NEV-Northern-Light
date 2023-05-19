@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/olivaw
-	name = "\improper FS MP .35 Auto \"Olivaw\""
+	name = "FS MP .35 Auto \"Olivaw\""
 	desc = "A popular \"Frozen Star\" machine pistol. This one has a two-round burst-fire mode and is chambered for .35 auto. It can use normal and high capacity magazines."
 	icon = 'icons/obj/guns/projectile/olivawcivil.dmi'
 	icon_state = "olivawcivil"
@@ -14,15 +14,16 @@
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_WOOD = 6)
 	price_tag = 600
 	damage_multiplier = 1.2
-	penetration_multiplier = 1.2
-	recoil_buildup = 2
+	penetration_multiplier = 0
+	init_recoil = HANDGUN_RECOIL(0.9)
 	init_firemodes = list(
 		list(mode_name="semiauto", mode_desc="Fire almost as fast as you can pull the trigger", burst=1, fire_delay=1.2, move_delay=null, 				icon="semi"),
 		list(mode_name="2-round bursts", mode_desc="Not quite the Mozambique method", burst=2, fire_delay=0.2, move_delay=4,    	icon="burst"),
 		)
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
-	gun_parts = list(/obj/item/part/gun/frame/olivaw = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/mechanism/pistol = 1, /obj/item/part/gun/barrel/pistol = 1)
+	gun_parts = list(/obj/item/part/gun/frame/olivaw = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/pistol = 1, /obj/item/part/gun/modular/barrel/pistol = 1)
+	serial_type = "FS"
 
 /obj/item/gun/projectile/olivaw/update_icon()
 	..()
@@ -32,10 +33,10 @@
 		icon_state = "olivawcivil_empty"
 
 /obj/item/part/gun/frame/olivaw
-	name = "\improper Olivaw frame"
+	name = "Olivaw frame"
 	desc = "An Olivaw pistol frame. Why shoot one bullet when you can shoot two?"
 	icon_state = "frame_olivaw"
-	result = /obj/item/gun/projectile/olivaw
-	grip = /obj/item/part/gun/grip/wood
-	mechanism = /obj/item/part/gun/mechanism/pistol
-	barrel = /obj/item/part/gun/barrel/pistol
+	resultvars = list(/obj/item/gun/projectile/olivaw)
+	gripvars = list(/obj/item/part/gun/modular/grip/wood)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/pistol
+	barrelvars = list(/obj/item/part/gun/modular/barrel/pistol)

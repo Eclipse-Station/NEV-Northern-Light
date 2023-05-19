@@ -2,7 +2,7 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 
 /obj/machinery/power/rad_collector
 	name = "radiation collector array"
-	desc = "A device which uses Hawking Radiation and phoron to produce power."
+	desc = "A device which uses Hawking Radiation and plasma to produce power."
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "ca"
 	anchored = FALSE
@@ -32,11 +32,11 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 
 
 	if(P)
-		if(P.air_contents.gas["phoron"] == 0)
+		if(P.air_contents.gas["plasma"] == 0)
 			investigate_log("<font color='red'>out of fuel</font>.","singulo")
 			eject()
 		else
-			P.air_contents.adjust_gas("phoron", -0.001*drainratio)
+			P.air_contents.adjust_gas("plasma", -0.001*drainratio)
 	return
 
 
@@ -48,7 +48,7 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 				SPAN_NOTICE("[user] turns [src] [active? "on" : "off"]."),
 				SPAN_NOTICE("You turn [src] [active ? "on" : "off"].")
 				)
-			investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [user.key]. [P?"Fuel: [round(P.air_contents.gas["phoron"]/0.29)]%":"<font color='red'>It is empty</font>"].","singulo")
+			investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [user.key]. [P?"Fuel: [round(P.air_contents.gas["plasma"]/0.29)]%":"<font color='red'>It is empty</font>"].","singulo")
 		else
 			to_chat(user, SPAN_WARNING("The controls are locked!"))
 		return
@@ -93,7 +93,7 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 			to_chat(user, SPAN_WARNING("[src] needs to be secured to the floor first."))
 			return
 		if(P)
-			to_chat(user, "\red The [src] already has a phoron tank loaded.")
+			to_chat(user, SPAN_WARNING("[src] already has a plasma tank loaded."))
 			return
 		user.drop_item()
 		P = I
@@ -138,7 +138,7 @@ GLOBAL_LIST_EMPTY(rad_collectors)
 
 /obj/machinery/power/rad_collector/proc/receive_pulse(pulse_strength)
 	if(P && active)
-		var/power_produced = P.air_contents.gas["phoron"]*pulse_strength*20
+		var/power_produced = P.air_contents.gas["plasma"]*pulse_strength*20
 		add_avail(power_produced)
 		last_power_new = power_produced
 

@@ -24,12 +24,10 @@
 	mob_classification = CLASSIFICATION_SYNTHETIC
 
 	wander = FALSE //No more sleepwalking
-	vision_range = 25
 
 	projectiletype = /obj/item/projectile/bullet/srifle/nomuzzle
 
 /mob/living/simple_animal/hostile/megafauna/one_star/death()
-	new /obj/rogue/telebeacon/return_beacon(loc)
 	..()
 	walk(src, 0)
 
@@ -82,38 +80,13 @@
 		P.original = target
 	P.launch( get_step(marker, pick(SOUTH, NORTH, WEST, EAST, SOUTHEAST, SOUTHWEST, NORTHEAST, NORTHWEST)) )
 
-/mob/living/simple_animal/hostile/megafauna/one_star/proc/call_reinforcements()
-	var/reinforcements = rand(3, 7)
-	var/list/available_mobs = list(/mob/living/simple_animal/hostile/onestar_custodian,
-	/mob/living/simple_animal/hostile/onestar_custodian/chef,
-	/mob/living/simple_animal/hostile/onestar_custodian/engineer,
-	/mob/living/simple_animal/hostile/roomba,
-	/mob/living/simple_animal/hostile/roomba/boomba,
-	/mob/living/simple_animal/hostile/roomba/gun_ba,
-	/mob/living/simple_animal/hostile/roomba/slayer
-	)
-	var/list/reinforcement_area = list()
-	for (var/turf/T in oview(7))
-		reinforcement_area += T
-	while(reinforcements)
-		if(reinforcement_area.len)
-			var/turf/P = pick(reinforcement_area)
-			reinforcement_area -= P
-			new /obj/effect/falling_effect(P, pick(available_mobs))
-			reinforcements--
-		else
-			break 
-
 
 /mob/living/simple_animal/hostile/megafauna/one_star/OpenFire()
 	anger_modifier = CLAMP(((maxHealth - health)/50),0,20)
-	ranged_cooldown = world.time + 35
+	ranged_cooldown = world.time + 120
 	walk(src, 0)
 	telegraph()
 	icon_state = "onestar_boss"
-	if(prob(10))
-		call_reinforcements()
-		return
 	if(prob(35))
 		shoot_rocket(target_mob.loc, rand(0,90))
 		move_to_delay = initial(move_to_delay)

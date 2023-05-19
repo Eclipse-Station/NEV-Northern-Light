@@ -16,7 +16,7 @@
 	var/sticker = null
 	var/closed = TRUE
 
-/obj/item/storage/hcases/proc/can_interact(mob/user)
+/obj/item/storage/hcases/can_interact(mob/user)
 	if((!ishuman(user) && (loc != user)) || user.stat || user.restrained())
 		return 1
 	if(istype(loc, /obj/item/storage))
@@ -39,7 +39,7 @@
 	options["Red"] = "[sticker_name]_sticker_r"
 	options["Green"] = "[sticker_name]_sticker_g"
 	options["Purple"] = "[sticker_name]_sticker_p"
-	options["Aegis Blue"] = "[sticker_name]_sticker_ih"
+	options["IH Blue"] = "[sticker_name]_sticker_ih"
 
 
 	var/choice = input(user,"Which color do you want?") as null|anything in options
@@ -118,7 +118,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 	desc = "A generic ammo can. Can hold ammo magazines, boxes, and bullets. Alt+click to open and close."
 	icon_state = "ammo_case"
 	sticker_name = "ammo"
-	matter = list(MATERIAL_STEEL = 20)
+	matter = list(MATERIAL_STEEL = 15)
 	spawn_blacklisted = FALSE
 	rarity_value = 60
 
@@ -130,7 +130,7 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 
 /obj/item/storage/hcases/ammo/ih
 	icon_state = "ammo_case_ih"
-	desc = "An ammo can for Aegis. Can hold ammo magazines, boxes, and bullets. Alt+click to open and close."
+	desc = "An ammo can for Ironhammer. Can hold ammo magazines, boxes, and bullets. Alt+click to open and close."
 
 /obj/item/storage/hcases/ammo/serb
 	icon_state = "ammo_case_serb"
@@ -188,7 +188,6 @@ obj/item/storage/hcases/attackby(obj/item/W, mob/user)
 
 	can_hold = list(
 		/obj/item/device/scanner/health,
-		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
 		/obj/item/reagent_containers/glass/bottle,

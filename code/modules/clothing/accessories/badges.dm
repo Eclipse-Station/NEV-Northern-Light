@@ -5,19 +5,19 @@
 */
 
 /obj/item/clothing/accessory/badge
-	name = "Inspector's badge"
-	desc = "A Aegis Security badge, made from gold and set on false leather."
+	name = "faded Inspector's badge"
+	desc = "A NanoTrasen badge, made from gold and set on false leather."
 	icon_state = "badge"
 	item_state = "marshalbadge"
 	slot_flags = SLOT_BELT | SLOT_ACCESSORY_BUFFER
 	price_tag = 200
 
 	var/stored_name
-	var/badge_string = "Aegis Security"
+	var/badge_string = "Ironhammer Security"
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
-	desc = "A faded badge, backed with leather. It bears the emblem of the Forensic division."
+	desc = "A faded badge, backed with leather. It bears the emblem of the NanoTrasen Security division."
 	icon_state = "badge_round"
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
@@ -44,7 +44,7 @@
 //.Holobadges.
 /obj/item/clothing/accessory/badge/holo
 	name = "holobadge"
-	desc = "This glowing blue badge marks the holder as a member of Aegis Security."
+	desc = "This glowing blue badge marks the holder as a member of Ironhammer Security."
 	icon_state = "holobadge"
 	item_state = "holobadge"
 	var/emagged //Emagging removes Sec check.
@@ -94,24 +94,42 @@
 		return
 
 
-/obj/item/clothing/accessory/badge/warden
-	name = "Gunnery Sergeant badge"
-	desc = "A silver Aegis Security badge. Stamped with the words 'Sergeant.'"
-	icon_state = "silverbadge"
+/obj/item/clothing/accessory/badge/holo/specialist
+	name = "Specialist's Holo Badge"
+	desc = "This medical teal badge marks the holder as an honorable Ironhammer Medical Specialist."
+	icon_state = "specbadge"
+	item_state = "specbadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
 	spawn_blacklisted = TRUE
 
-
-/obj/item/clothing/accessory/badge/hos
-	name = "Commander's badge"
-	desc = "An immaculately polished gold Aegis Security badge. Labeled 'Commander.'"
-	icon_state = "goldbadge"
+/obj/item/clothing/accessory/badge/holo/sergeant
+	name = "Sergeant Holo badge"
+	desc = "This glowing red badge marks the holder as a distinguished Ironhammer Sergeant"
+	icon_state = "sargebadge"
+	item_state = "sargebadge"
 	slot_flags = SLOT_ACCESSORY_BUFFER
+	spawn_blacklisted = TRUE
+
+/obj/item/clothing/accessory/badge/commander
+	name = "Commander's badge"
+	desc = "An immaculately polished gold Ironhammer Security badge. Labeled 'Commander.'"
+	icon_state = "goldbadge"
+	item_state = "goldbadge"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+	spawn_blacklisted = TRUE
+
+/obj/item/clothing/accessory/badge/inspector
+	name = "Inspector's badge"
+	desc = "A leather-backed silver badge displaying the crest of the Ironhammer Inspectors."
+	icon_state = "inspectorbadge"
+	item_state = "inspectorbadge"
+	badge_string = "Ironhammer Investigation Agency"
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/accessory/badge/marshal
 	name = "Marshal's badge"
-	desc = "A leather-backed gold badge displaying the crest of the Aegis Marshals."
+	desc = "A leather-backed gold badge displaying the crest of the Ironhammer Marshals."
 	icon_state = "marshalbadge"
-	badge_string = "Aegis Bounty Bureau"
+	item_state = "marshalbadge"
+	badge_string = "Ironhammer Marshal Bureau"
 	spawn_blacklisted = TRUE
