@@ -139,7 +139,6 @@
 		"green"			=	/obj/item/clothing/under/rank/medical/green,
 		"purple"		=	/obj/item/clothing/under/rank/medical/purple,
 		"blue"			=	/obj/item/clothing/under/rank/medical/blue
-		"Blue"			= 	/obj/item/clothing/under/rank/medical/blue,
 	)
 	gear_tweaks += new /datum/gear_tweak/path(jumpsuit)
 

@@ -161,7 +161,7 @@
 			if(stat in acquired_buffs)
 				affected.stats.addTempStat(stat, round(buff_power / 2), INFINITY, "von-crabbin")
 	else
-				affected.stats.addTempStat(stat, buff_power, INFINITY, "von-crabbin")
+		affected.stats.addTempStat(stat, buff_power, INFINITY, "von-crabbin")
 		if(lost_follower)
 			to_chat(affected, SPAN_NOTICE("You feel the knowledge from the [src] lessen as a linked mind is lost!"))
 		else
@@ -175,12 +175,12 @@
 			affected.stats.removeTempStat(stat, "von-crabbin")
 		return FALSE
 	if(near_crystal)
-			for(var/stat in stats_buff)
-			affected.stats.removeTempStat(stat, "von-crabbin")
-			if(stat in acquired_buffs)
-				affected.stats.addTempStat(stat, round(buff_power / 4), INFINITY, "von-crabbin")
-			else
-				affected.stats.addTempStat(stat, round(buff_power / 2), INFINITY, "von-crabbin")
+		for(var/stat in stats_buff)
+		affected.stats.removeTempStat(stat, "von-crabbin")
+		if(stat in acquired_buffs)
+			affected.stats.addTempStat(stat, round(buff_power / 4), INFINITY, "von-crabbin")
+		else
+			affected.stats.addTempStat(stat, round(buff_power / 2), INFINITY, "von-crabbin")
 	else
 		for(var/stat in stats_buff)
 			affected.stats.removeTempStat(stat, "von-crabbin")

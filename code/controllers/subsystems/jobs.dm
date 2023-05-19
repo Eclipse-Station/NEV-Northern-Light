@@ -171,7 +171,8 @@ ADMIN_VERB_ADD(/client/verb/unwhitelistPlayerForJobs, null, FALSE)
 	for(var/datum/job/occupation in occupations)
 		file << "[occupation.title]=0"
 
-/datum/controller/subsystem/job/proc/SetupOccupations(faction = "NEV Northern Light")	occupations.Cut()
+/datum/controller/subsystem/job/proc/SetupOccupations(faction = "NEV Northern Light")
+	occupations.Cut()
 	occupations_by_name.Cut()
 	for(var/J in subtypesof(/datum/job))
 		var/datum/job/job = new J()

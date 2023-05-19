@@ -649,13 +649,13 @@ The _flatIcons list is a cache for generated icon files.
 
 /// always_use_defdir IS DEPRICATED
 /proc/getFlatTypeIcon(path, defdir, deficon, defstate, defblend, always_use_defdir = 0)
-		if(GLOB.initialTypeIcon[path])
-			return GLOB.initialTypeIcon[path]
-		else
-			var/atom/A = new path()
-			GLOB.initialTypeIcon[path] = getFlatIcon(A, defdir, deficon, defstate, defblend)
-			qdel(A)
-			return GLOB.initialTypeIcon[path]
+	if(GLOB.initialTypeIcon[path])
+		return GLOB.initialTypeIcon[path]
+	else
+		var/atom/A = new path()
+		GLOB.initialTypeIcon[path] = getFlatIcon(A, defdir, deficon, defstate, defblend)
+		qdel(A)
+		return GLOB.initialTypeIcon[path]
 
 	// Creates a single icon from a given /atom or /image.  Only the first argument is required.
 /*	getFlatIcon(image/A, defdir=2, deficon=null, defstate="", defblend=BLEND_DEFAULT, always_use_defdir = 0)
@@ -666,7 +666,7 @@ The _flatIcons list is a cache for generated icon files.
 		if(A.alpha <= 0)
 			return flat
 		var/noIcon = FALSE
-
+*/
 /// Create a single [/icon] from a given [/atom] or [/image].
 ///
 /// Very low-performance. Should usually only be used for HTML, where BYOND's
@@ -849,7 +849,7 @@ The _flatIcons list is a cache for generated icon files.
 
 
 /proc/getIconMask(atom/A)//By yours truly. Creates a dynamic mask for a mob/whatever. /N
-		var/icon/alpha_mask = new(A.icon, A.icon_state)//So we want the default icon and icon state of A.
+	var/icon/alpha_mask = new(A.icon, A.icon_state)//So we want the default icon and icon state of A.
 	for(var/V in A.overlays)//For every image in overlays. var/image/I will not work, don't try it.
 		var/image/I = V
 		if(I.layer>A.layer)

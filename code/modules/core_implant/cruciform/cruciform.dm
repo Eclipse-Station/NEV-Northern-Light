@@ -144,17 +144,17 @@ var/list/disciples = list()
 	..()
 //	if(active && round(world.time) % 5 == 0)
 //		remove_cyber()   -- Eclipse Edit
-		if(wearer.mutation_index)
-			var/datum/mutation/M = pick(wearer.active_mutations)
-			M.cleanse(wearer)
-			wearer.adjustFireLoss(rand(5,25))
+	if(wearer.mutation_index)
+		var/datum/mutation/M = pick(wearer.active_mutations)
+		M.cleanse(wearer)
+		wearer.adjustFireLoss(rand(5,25))
 
-		if(wearer.stat == DEAD)
-			deactivate()
-		else if(ishuman(wearer)) //Eclipse add
-			var/mob/living/carbon/human/H = wearer
-			if(H.genetic_corruption > 49) //SEVEN BY SEVEN
-				H.genetic_corruption -= 1
+	if(wearer.stat == DEAD)
+		deactivate()
+	else if(ishuman(wearer)) //Eclipse add
+		var/mob/living/carbon/human/H = wearer
+		if(H.genetic_corruption > 49) //SEVEN BY SEVEN
+			H.genetic_corruption -= 1
 
 /obj/item/implant/core_implant/cruciform/proc/transfer_soul()
 	if(!wearer || !activated)
@@ -166,14 +166,14 @@ var/list/disciples = list()
 			if(M.stat != DEAD)
 				return FALSE  */
 	var/datum/mind/MN = data.mind
-		if(!istype(MN))
+	if(!istype(MN))
 		return
 	MN.transfer_to(wearer)
 	wearer.ckey = data.ckey
 	for(var/datum/language/L in data.languages)
 		wearer.add_language(L.name)
 	update_data()
-		if(activate())
+	if(activate())
 		return TRUE
 
 /obj/item/implant/core_implant/cruciform/proc/remove_cyber()

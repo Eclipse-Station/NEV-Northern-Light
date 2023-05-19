@@ -97,7 +97,7 @@
 			text_to_say += SPAN_DANGER("LOW TEMPERATURE ")
 			dangerous = TRUE
 		if(dangerous)
-		to_chat(user, text_to_say)
+			to_chat(user, text_to_say)
 			continue
 		text_to_say += span_green("SAFE")
 		to_chat(user, text_to_say)
