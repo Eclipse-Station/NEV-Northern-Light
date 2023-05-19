@@ -2,14 +2,14 @@
 	if(ishuman(src))
 		STOP_PROCESSING(SShumans, src)
 	else
-	STOP_PROCESSING(SSmobs, src)
-	GLOB.dead_mob_list -= src
-	GLOB.living_mob_list -= src
-	GLOB.mob_list -= src
-	unset_machine()
-	QDEL_NULL(hud_used)
-	QDEL_NULL(parallax)
-	QDEL_NULL(shadow)
+		STOP_PROCESSING(SSmobs, src)
+		GLOB.dead_mob_list -= src
+		GLOB.living_mob_list -= src
+		GLOB.mob_list -= src
+		unset_machine()
+		QDEL_NULL(hud_used)
+		QDEL_NULL(parallax)
+		QDEL_NULL(shadow)
 	if(client)
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
@@ -34,7 +34,7 @@
 	if(ishuman(src))
 		START_PROCESSING(SShumans, src)
 	else
-	START_PROCESSING(SSmobs, src)
+		START_PROCESSING(SSmobs, src)
 	if(stat == DEAD)
 		GLOB.dead_mob_list += src
 	else

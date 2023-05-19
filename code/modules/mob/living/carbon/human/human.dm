@@ -124,12 +124,12 @@
 
 	switch (severity)
 		if (1)
-				b_loss += 500
+			b_loss += 500
 			if(!prob(bomb_defense))
 				gib()
 				return
 		if (2)
-				b_loss = 120
+			b_loss = 120
 			if(!istype(l_ear, /obj/item/clothing/ears/earmuffs) && !istype(r_ear, /obj/item/clothing/ears/earmuffs))
 				adjustEarDamage(30, 120)
 
@@ -700,24 +700,23 @@ var/list/rank_prefix = list(\
 	if(!lastpuke)
 		lastpuke = 1
 		if(!forced)
-		to_chat(src, SPAN_WARNING("You feel nauseous..."))
+			to_chat(src, SPAN_WARNING("You feel nauseous..."))
 			sleep(150)	//15 seconds until second warning
 			to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
 			sleep(100)	//and you have 10 more for mad dash to the bucket
+			src.visible_message(SPAN_WARNING("[src] throws up!"),SPAN_WARNING("You throw up!"))
+			playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 
-				src.visible_message(SPAN_WARNING("[src] throws up!"),SPAN_WARNING("You throw up!"))
-				playsound(loc, 'sound/effects/splat.ogg', 50, 1)
+			var/turf/location = loc
+			if (istype(location, /turf/simulated))
+				location.add_vomit_floor(src, 1)
 
-				var/turf/location = loc
-				if (istype(location, /turf/simulated))
-					location.add_vomit_floor(src, 1)
-
-				adjustNutrition(-40)
-				regen_slickness(-3)
-				dodge_time = get_game_time()
-				confidence = FALSE
-				spawn(350)	//wait 35 seconds before next volley
-					lastpuke = 0
+			adjustNutrition(-40)
+			regen_slickness(-3)
+			dodge_time = get_game_time()
+			confidence = FALSE
+			spawn(350)	//wait 35 seconds before next volley
+				lastpuke = 0
 
 /mob/living/carbon/human/proc/morph()
 	set name = "Morph"
@@ -1113,7 +1112,7 @@ var/list/rank_prefix = list(\
 						SPAN_WARNING("Your hasty movement jostles [O] in your [organ.name] painfully."))
 					to_chat(src, msg)
 				organ.take_damage(3, BRUTE, organ.max_damage, 6.7, TRUE, TRUE)	// When the limb is at 60% of max health, internal organs start taking damage.
-					if(organ.setBleeding())
+				if(organ.setBleeding())
 					organ.take_damage(3, TOX)
 
 /mob/living/carbon/human/verb/browse_sanity()

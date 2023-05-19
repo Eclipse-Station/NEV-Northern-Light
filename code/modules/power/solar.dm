@@ -260,13 +260,13 @@
 			glass_type = S.type
 			playsound(loc, 'sound/machines/click.ogg', 50, TRUE)
 			user.visible_message(SPAN_NOTICE("[user] places the glass on the solar assembly."), SPAN_NOTICE("You place the glass on the solar assembly."))
-				if(tracker)
-					new /obj/machinery/power/tracker(get_turf(src), src)
-				else
-					new /obj/machinery/power/solar(get_turf(src), src)
+			if(tracker)
+				new /obj/machinery/power/tracker(get_turf(src), src)
 			else
+				new /obj/machinery/power/solar(get_turf(src), src)
+		else
 			to_chat(user, SPAN_WARNING("You need two sheets of glass to put them into a solar panel!"))
-				return
+			return
 		return TRUE
 
 	if(!tracker)
@@ -366,7 +366,7 @@
 	set_panels(cdir)
 
 /obj/machinery/power/solar_control/update_icon()
-		overlays.Cut()
+	overlays.Cut()
 	if(stat & NOPOWER)
 		set_light(0)
 		if(icon_keyboard)

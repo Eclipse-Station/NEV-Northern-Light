@@ -670,10 +670,10 @@
 	else if(adjusted_pressure >= species.hazard_low_pressure)
 		pressure_alert = -1
 	else
-			take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
-			if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
-				adjustOxyLoss(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, roughly twenty seconds
-			pressure_alert = -2
+		take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
+		if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
+			adjustOxyLoss(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, roughly twenty seconds
+		pressure_alert = -2
 
 	return
 
@@ -813,8 +813,9 @@
 		for(var/obj/item/I in src)
 			if(I.contaminated)
 				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
-		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
-			bloodstr.add_reagent("phoron", total_plasmaloss)
+		if(!(status_flags & GODMODE))
+			adjustToxLoss(total_phoronloss)
+			bloodstr.add_reagent("phoron", total_phoronloss)
 
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
@@ -1199,7 +1200,7 @@
 					upper_body_nature = E.nature
 			else
 				qdel(E)		// Will regrow
-		
+
 		var/datum/preferences/user_pref = client ? client.prefs : null
 
 		for(var/tag in tags_to_grow)

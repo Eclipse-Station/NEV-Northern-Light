@@ -80,7 +80,7 @@
 		visible_message(SPAN_WARNING("The teleporter malfunctions and explodes in a shower of sparks!"))
 		destroy_teleporter()
 	else
-	end_teleporter_event()
+		end_teleporter_event()
 
 /obj/rogue/teleporter/proc/summon_mobs()
 	var/max_mobs = 3

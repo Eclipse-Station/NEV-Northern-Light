@@ -498,7 +498,7 @@
 //If no any other hives will be found, it's game over
 /obj/machinery/hivemind_machine/node/proc/check_for_other()
 	if(hive_mind_ai && !hive_mind_ai.hives.len)
-			hive_mind_ai.die()
+		hive_mind_ai.die()
 
 //TURRET
 //shooting the target with toxic goo

@@ -100,7 +100,7 @@
 	starting = null
 	LAZYCLEARLIST(permutated)
 	return ..()
-	
+
 	//Eclipse added vars
 	var/simplemob_bonus_mult = 0		//0% extra; used in mob code to determine whether a mob gets more damage.
 
@@ -224,8 +224,8 @@
 	var/distance = get_dist(curloc, original)
 	check_hit_zone(distance, user_recoil)
 
-		setup_trajectory(curloc, targloc, x_offset, y_offset, angle_offset) //plot the initial trajectory
-		Process()
+	setup_trajectory(curloc, targloc, x_offset, y_offset, angle_offset) //plot the initial trajectory
+	Process()
 
 	return FALSE
 
@@ -249,7 +249,7 @@
 			if(H.can_multiz_pb && (!isturf(target)))
 				loc = get_turf(H.client.eye)
 			if(!(loc.Adjacent(target)))
-					loc = get_turf(H)
+				loc = get_turf(H)
 			if(config.z_level_shooting && H.client.eye == H.shadow && !height) // Player is watching a higher zlevel
 				var/newTurf = get_turf(H.shadow)
 				if(!(locate(/obj/structure/catwalk) in newTurf)) // Can't shoot through catwalks

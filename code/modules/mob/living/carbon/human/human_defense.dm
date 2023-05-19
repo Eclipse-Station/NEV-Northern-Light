@@ -366,20 +366,20 @@ meteor_act
 					H.bloody_body(src)
 					H.bloody_hands(src)
 
-							if(prob(40))
+				if(prob(40))
 					if(wear_mask)
 						wear_mask.add_blood(src)
 						update_inv_wear_mask(0)
 					if(head)
 						head.add_blood(src)
 						update_inv_head(0)
-								if(glasses)
+					if(glasses)
 						glasses.add_blood(src)
 						update_inv_glasses(0)
-							else
+				else
 					bloody_body(src)
-						visible_message(SPAN_WARNING("Blood stains [src]'s clothes!"), SPAN_DANGER("Blood seeps through your clothes and your heart skips a beat!"))
-						sanity.changeLevel(-5)
+					visible_message(SPAN_WARNING("Blood stains [src]'s clothes!"), SPAN_DANGER("Blood seeps through your clothes and your heart skips a beat!"))
+					sanity.changeLevel(-5)
 
 				if("out of breath")
 					if(!stat)
@@ -396,7 +396,7 @@ meteor_act
 						if(istype(item_in_active_hand, /obj/item/grab))
 							break_all_grabs(user) //See about breaking grips or pulls
 							playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-	return TRUE
+							return TRUE
 						if(item_in_active_hand.wielded && recoil < 80)
 							playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 							return TRUE

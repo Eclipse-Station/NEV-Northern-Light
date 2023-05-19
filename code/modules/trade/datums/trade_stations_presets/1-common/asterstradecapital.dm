@@ -20,12 +20,12 @@
 	stations_recommended = list("casino")
 	inventory = list(
 		"Disk Designs" = list(
-			/obj/item/computer_hardware/hard_drive/portable/design/tools = good_data("FTU Basic Tool Pack", list(1, 10)),
-			/obj/item/computer_hardware/hard_drive/portable/design/misc = good_data("FTU Miscellaneous Pack", list(1, 10)),
-			/obj/item/computer_hardware/hard_drive/portable/design/robustcells = good_data("FTU Robustcells", list(1, 10)),
-			/obj/item/computer_hardware/hard_drive/portable/design/devices = good_data("FTU Devices and Instruments", list(1, 10)),
-			/obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo = good_data("Frozen Star Nonlethal Magazines Pack", list(1, 10)),
-			/obj/item/computer_hardware/hard_drive/portable/design/lethal_ammo = good_data("Frozen Star Lethal Magazines Pack", list(1, 10))
+			/obj/item/computer_hardware/hard_drive/portable/design/tools = good_data("FTU Basic Tool Pack", list(1, 10), null),
+			/obj/item/computer_hardware/hard_drive/portable/design/misc = good_data("FTU Miscellaneous Pack", list(1, 10), null),
+			/obj/item/computer_hardware/hard_drive/portable/design/robustcells = good_data("FTU Robustcells", list(1, 10), null),
+			/obj/item/computer_hardware/hard_drive/portable/design/devices = good_data("FTU Devices and Instruments", list(1, 10), null),
+			/obj/item/computer_hardware/hard_drive/portable/design/nonlethal_ammo = good_data("Frozen Star Nonlethal Magazines Pack", list(1, 10), null),
+			/obj/item/computer_hardware/hard_drive/portable/design/lethal_ammo = good_data("Frozen Star Lethal Magazines Pack", list(1, 10), null)
 		),
 		"Tools and Equipment" = list(
 			/obj/item/clothing/suit/storage/hazardvest,
@@ -36,7 +36,7 @@
 			/obj/item/storage/hcases/parts,
 			/obj/item/device/lighting/toggleable/flashlight,
 			/obj/item/device/lighting/toggleable/flashlight/heavy,
-			/obj/item/tool/omnitool = good_data("FTU \"Munchkin 5000\"", list(1, 3)),
+			/obj/item/tool/omnitool = good_data("FTU \"Munchkin 5000\"", list(1, 3), null),
 			/obj/item/tool/crowbar,
 			/obj/item/tool/screwdriver,
 			/obj/item/tool/shovel,

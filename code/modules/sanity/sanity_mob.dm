@@ -192,9 +192,9 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 		if(!rest_timer_active)//Prevent any exploits(timer is only active for one minute tops)
 		give_resting(1)
 		if(owner.stats.getPerk(PERK_ARTIST))
-				to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to make art. You cannot gain more insight before you do." : null]"))
+			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to make art. You cannot gain more insight before you do." : null]"))
 		else
-				to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
+			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
 			pick_desires()
 		owner.playsound_local(get_turf(owner), 'sound/sanity/psychochimes.ogg', 100)
 
@@ -287,19 +287,19 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 
 	if(rest == "Focus on an oddity")
 	if(owner.stats.getPerk(PERK_ARTIST))
-			to_chat(owner, SPAN_NOTICE("Your artistic mind prevents you from using an oddity."))
-			rest = "Internalize your recent experiences"
+		to_chat(owner, SPAN_NOTICE("Your artistic mind prevents you from using an oddity."))
+		rest = "Internalize your recent experiences"
 	else
-			var/oddity_in_posession = FALSE
+		var/oddity_in_posession = FALSE
 
 	for(var/obj/item/I in owner.get_contents())
 		if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
-					oddity_in_posession = TRUE
-					break
+			oddity_in_posession = TRUE
+			break
 
-			if(!oddity_in_posession)
-				to_chat(owner, SPAN_NOTICE("You do not have any oddities to use."))
-				rest = "Internalize your recent experiences"
+	if(!oddity_in_posession)
+		to_chat(owner, SPAN_NOTICE("You do not have any oddities to use."))
+		rest = "Internalize your recent experiences"
 
 	switch(rest)
 
@@ -318,7 +318,7 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 		GET_COMPONENT_FROM(I, /datum/component/inspiration, O) // If it's a valid inspiration, it should have this component. If not, runtime
 		var/list/L = I.calculate_statistics()
 		for(var/stat in L)
-					var/stat_up = L[stat] * 2
+			var/stat_up = L[stat] * 2
 			to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_up]"))
 			owner.stats.changeStat(stat, stat_up)
 
@@ -328,9 +328,9 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 
 				SEND_SIGNAL_OLD(O, COMSIG_ODDITY_USED)
 		for(var/mob/living/carbon/human/H in viewers(owner))
-					SEND_SIGNAL_OLD(H, COMSIG_HUMAN_ODDITY_LEVEL_UP, owner, O)
+			SEND_SIGNAL_OLD(H, COMSIG_HUMAN_ODDITY_LEVEL_UP, owner, O)
 
-			else to_chat(owner, SPAN_NOTICE("Something really buggy just happened with your brain."))
+		else to_chat(owner, SPAN_NOTICE("Something really buggy just happened with your brain."))
 
 		if("Convert your fulfilled insight for later use")
 			owner.rest_points += 1 //yeah... that's it

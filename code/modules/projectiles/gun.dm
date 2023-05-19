@@ -103,7 +103,7 @@
 	var/wield_delay = 0 // Gun wielding delay , generally in seconds.
 	var/wield_delay_factor = 0 // A factor that characterizes weapon size , this makes it require more vig to insta-wield this weapon or less , values below 0 reduce the vig needed and above 1 increase it
 	var/serial_type = "" // If there is a serial type, the gun will add a number that will show on examine
-	
+
 	//Eclipse added vars
 	var/simplemob_bonus_damage_multiplier = 0		//Simplemob bonus damage.
 
@@ -145,12 +145,12 @@
 		for(var/target_item in gun_parts)
 			var/amount = gun_parts[target_item]
 			while(amount)
-						if(ispath(target_item, /obj/item/part/gun/frame))
-							var/obj/item/part/gun/frame/F = new target_item(get_turf(src))
-							F.serial_type = serial_type
-						else
-				new target_item(get_turf(src))
-				amount--
+				if(ispath(target_item, /obj/item/part/gun/frame))
+					var/obj/item/part/gun/frame/F = new target_item(get_turf(src))
+					F.serial_type = serial_type
+				else
+					new target_item(get_turf(src))
+					amount--
 		qdel(src)
 
 
@@ -614,7 +614,7 @@
 	offset = roll(2, offset) - (offset + 1)
 
 	return !P.launch_from_gun(target, user, src, target_zone, angle_offset = offset)
-	
+
 //Support proc for calculate_offset
 /obj/item/gun/proc/init_offset_with_brace()
 	var/offset = init_offset
@@ -938,7 +938,7 @@
 					))
 				total_recoil += recoilList[i]
 		data["recoil_info"] = recoil_vals
-	
+
 	data["sa_bonus"] = simplemob_bonus_damage_multiplier * 100
 
 	data["total_recoil"] = total_recoil

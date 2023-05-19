@@ -141,9 +141,9 @@
 				drop_from_inventory(E)
 
 			if(E.limb_efficiency <= 50)
-					emote("me", 1, "drops what they were holding in their [E.name], [pick("unable to grasp it", "unable to feel it", "too weak to hold it")]!")
+				emote("me", 1, "drops what they were holding in their [E.name], [pick("unable to grasp it", "unable to feel it", "too weak to hold it")]!")
 			else
-					emote("me", 1, "[(species.flags & NO_PAIN) ? "" : pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")]drops what they were holding in their [E.name]!")
+				emote("me", 1, "[(species.flags & NO_PAIN) ? "" : pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")]drops what they were holding in their [E.name]!")
 
 		else if(E.is_malfunctioning())
 			switch(E.body_part)
@@ -162,7 +162,7 @@
 			spark_system.set_up(5, 0, src)
 			spark_system.attach(src)
 			spark_system.start()
-				QDEL_IN(spark_system, 1 SECOND)
+			QDEL_IN(spark_system, 1 SECOND)
 
 //Handles chem traces
 /mob/living/carbon/human/proc/handle_trace_chems()

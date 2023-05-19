@@ -32,7 +32,7 @@
 						LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/organic/bone_sharp))
 					if(is_robotic)
 						LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/robotic/sharp))
-	else
+				else
 					if(is_organic)
 						LAZYADD(possible_wounds, subtypesof(/datum/component/internal_wound/organic/bone_blunt))
 					if(is_robotic)
