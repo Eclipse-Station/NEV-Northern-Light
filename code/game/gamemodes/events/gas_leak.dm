@@ -19,7 +19,9 @@
 
 
 // We need to ensure an engineer is present to deal with it. That's about it, really.
-/datum/event/gas_leak/can_trigger()
+/datum/event/gas_leak/can_trigger(forced = FALSE)
+	if(forced)		//If it's forced, then we assume the admin knows what they're doing...
+		return TRUE
 	for(var/mob/M in GLOB.player_list)
 		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
 			var/datum/job/job = M.mind.assigned_role

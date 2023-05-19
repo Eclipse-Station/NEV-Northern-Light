@@ -26,7 +26,7 @@
 	return
 */
 
-/datum/event/fire_alarm/can_trigger()
+/datum/event/fire_alarm/can_trigger(forced = FALSE)		//Forcing it won't do anything.
 	var/valid_ga		//Valid gas alarm
 	var/valid_fa		//Valid fire alarm
 	for(var/obj/machinery/firealarm/fa in world)

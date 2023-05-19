@@ -1,7 +1,7 @@
 # Eclipse-specific configurations, for downstream servers and dev environments.
 
 ## Configuration file version.
-CONFIG_FILE_VERSION 8
+CONFIG_FILE_VERSION 9
 
 #########
 # JOB WHITELISTING
@@ -194,3 +194,11 @@ EXOPLANETS_TO_GENERATE 2
 ## What is the name of the ship? This is used in announcements.
 ## Parses as a string.
 SHIP_NAME Erida-class Vessel
+
+## VERMIN LIMIT
+## Maximum number of Vermin mobs that can exist before they lose the ability to
+## create more on their own. The actual number of Vermin may be limited lower 
+## (but never higher!) than this value, depending on the player count. Be warned
+## that setting this to ludicrous values may have performance impacts.
+## Default: 750.
+VERMIN_LIMITER 750

@@ -35,7 +35,7 @@ It will also bring a hoard of roaches with it.
 	var/obj/structure/burrow/enter_burrow
 	var/obj/structure/burrow/exit_burrow
 
-/datum/event/kaiser/can_trigger()
+/datum/event/kaiser/can_trigger(forced)		//Eclipse edit: Forcing it won't do much here.
 	if(!GLOB.all_burrows.len)
 		log_and_message_admins("Kaiser spawn failed: no burrows detected.")
 		return FALSE

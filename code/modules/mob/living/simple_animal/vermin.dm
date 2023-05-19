@@ -1,3 +1,7 @@
+//Defines, so rebalancing is easier.
+#define POWER_TO_SPREAD 200
+#define MAX_POWER_RESERVE 350
+
 /mob/living/simple_animal/vermin
 	name = "pile of viscera"
 	desc = "A non-descript amalgamation of guts"
@@ -84,6 +88,8 @@
 		assume_appearance(origin)
 	else
 		gib()
+	
+	SSmobs.all_vermin += src
 
 
 
@@ -96,13 +102,14 @@
 			A.use_power(1000, STATIC_ENVIRON)
 			power_nutrition++
 
-	if (power_nutrition > 90 && children_left > 0)
+	if (power_nutrition > POWER_TO_SPREAD && children_left > 0)
 		spawn_vermin(src)
 
 
 
 
 /mob/living/simple_animal/vermin/death()
+	SSmobs.all_vermin -= src
 	overlays.Cut()
 	visible_message("<b>[src]</b> splatters!")
 	playsound(loc, pick(death_sounds), 100, 0)
@@ -136,7 +143,33 @@
 
 	return TRUE
 
+
+/* Proc to check if we can safely spawn more vermin in. Called in the reproduction 
+ * code. This is NOT called in New() in case an admin wants to manually plop some 
+ * more down through the mob-spawn panel.
+ *
+ * Returns 0 or FALSE if you can't spawn one with the current number of players.
+ * Returns how many more we can safely spawn in (for debugging purposes) otherwise.
+ */
+/mob/living/simple_animal/vermin/proc/can_reproduce()
+	var/_crew = 0
+	for(var/mob/M in GLOB.player_list)		//I wish there was a cheaper way to do this...
+		if(M.client && M.mind && M.stat != DEAD && (ishuman(M) || isrobot(M) || isAI(M)))
+			var/datum/job/job = SSjob.GetJob(M.mind.assigned_role)
+			if(job)
+				_crew++
+	var/_count = SSmobs.all_vermin.len
+	var/_limit = clamp(100 + (50 * (_crew - 3)), 5, config.maximum_vermin)		//No fewer than 5 (for testing purposes), no more than 750 (at 13 players).
+	
+	if(_count >= _limit)
+		return FALSE
+	
+	return (_limit - _count)
+
 /mob/living/simple_animal/vermin/proc/spawn_vermin(mob/parent)
+	if(!can_reproduce())
+		return		//We don't want to overwhelm the crew.
+
 	var/list/turfs = oview(src, 5)
 	var/list/potential_candidates = list()		//Reduces north/south bias.
 	for (var/turf/t in turfs)
@@ -200,11 +233,14 @@
 		smoke.attach(child)
 		smoke.start()
 
-		power_nutrition = power_nutrition - 90
+		power_nutrition = power_nutrition - POWER_TO_SPREAD
 	else
-		power_nutrition = min(power_nutrition, 100)		//Cap the nutrition so it doesn't try and spawn twenty immediately.
+		power_nutrition = min(power_nutrition, MAX_POWER_RESERVE)		//Cap the nutrition so it doesn't try and spawn twenty immediately.
 
 /mob/living/simple_animal/vermin/attackby(var/obj/item/O as obj)
 	. = ..()
 	if(QUALITY_HAMMERING in O.tool_qualities)
 		death()
+
+#undef POWER_TO_SPREAD
+#undef MAX_POWER_RESERVE
