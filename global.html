@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>(global) - Space Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">Space Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="global.html#var">Var Details</a> - <a href="global.html#proc">Proc Details</a></header>
+<main>
+<h1>(global)
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/(unknown)">
+        <img src="git.png" width="16" height="16" title="(unknown)"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="global.html#var/Debugger">Debugger</a></th><td>StonedMC</td></tr>
+            <tr><th><a href="global.html#var/Failsafe">Failsafe</a></th><td>Failsafe</td></tr>
+            <tr><th><a href="global.html#var/SSweather">SSweather</a></th><td></td></tr>
+            <tr><th><a href="global.html#var/access_cent_general">access_cent_general</a></th><td>Central Command</td></tr>
+            <tr><th><a href="global.html#var/access_change_medbay">access_change_medbay</a></th><td>Access Change</td></tr>
+            <tr><th><a href="global.html#var/access_mercenary">access_mercenary</a></th><td>Antag access</td></tr>
+            <tr><th><a href="global.html#var/access_nt_disciple">access_nt_disciple</a></th><td>NeoTheology</td></tr>
+            <tr><th><a href="global.html#var/access_security">access_security</a></th><td>Station access</td></tr>
+            <tr><th><a href="global.html#var/access_synth">access_synth</a></th><td>Misc</td></tr>
+            <tr><th><a href="global.html#var/comet_hardcore">comet_hardcore</a></th><td>........::::::%%%SPACE_COMET</td></tr>
+            <tr><th><a href="global.html#var/default_abstract_uplink_icon">default_abstract_uplink_icon</a></th><td>Abstract Uplink Entries</td></tr>
+            <tr><th><a href="global.html#var/photo_count">photo_count</a></th><td>photo</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="global.html#proc/Broadcast_Message">Broadcast_Message</a></th><td>Here is the big, bad function that broadcasts a message given the appropriate
+parameters.</td></tr>
+            <tr><th><a href="global.html#proc/CreateBans">CreateBans</a></th><td>DEBUG</td></tr>
+            <tr><th><a href="global.html#proc/WEAKREF">WEAKREF</a></th><td>Creates a weakref to the given input.
+See /datum/weakref's documentation for more information.</td></tr>
+            <tr><th><a href="global.html#proc/animate_aura">animate_aura</a></th><td>Animate a 'halo' around an object.</td></tr>
+            <tr><th><a href="global.html#proc/callHook">callHook</a></th><td>@file hooks.dm
+Implements hooks, a simple way to run code on pre-defined events.</td></tr>
+            <tr><th><a href="global.html#proc/callback_select">callback_select</a></th><td>Runs a list of callbacks asyncronously, returning only when all have finished</td></tr>
+            <tr><th><a href="global.html#proc/delete_all_SS_and_recreate_master">delete_all_SS_and_recreate_master</a></th><td>Delete all existing SS to basically start over</td></tr>
+            <tr><th><a href="global.html#proc/find_nearby_burrow">find_nearby_burrow</a></th><td>Burrow Finding and Sorting</td></tr>
+            <tr><th><a href="global.html#proc/generate_non_humanoid_icons">generate_non_humanoid_icons</a></th><td>hook/startup/proc/makeTeshIcons()</td></tr>
+            <tr><th><a href="global.html#proc/generate_record_id">generate_record_id</a></th><td>L.fields[&quot;id_gender&quot;]	= gender2text(H.identifying_gender)</td></tr>
+            <tr><th><a href="global.html#proc/getAssignedBlock">getAssignedBlock</a></th><td>DNA MACHINES</td></tr>
+            <tr><th><a href="global.html#proc/getOPressureDifferential">getOPressureDifferential</a></th><td>Gets the highest and lowest pressures from the tiles in cardinal directions
+around us, then checks the difference.</td></tr>
+            <tr><th><a href="global.html#proc/get_default_outfit_backpack">get_default_outfit_backpack</a></th><td>Helpers</td></tr>
+            <tr><th><a href="global.html#proc/get_random_uplink_items">get_random_uplink_items</a></th><td>Support procs</td></tr>
+            <tr><th><a href="global.html#proc/get_wound_type">get_wound_type</a></th><td>WOUND DEFINITIONS</td></tr>
+            <tr><th><a href="global.html#proc/hextostr">hextostr</a></th><td>Decodes hex to raw byte string. If safe=TRUE, returns null on incorrect input strings instead of CRASHing</td></tr>
+            <tr><th><a href="global.html#proc/is_special_character">is_special_character</a></th><td>ADMIN HELPER PROCS</td></tr>
+            <tr><th><a href="global.html#proc/makeDatumRefLists">makeDatumRefLists</a></th><td>Initial Building</td></tr>
+            <tr><th><a href="global.html#proc/message_adminTicket">message_adminTicket</a></th><td></td></tr>
+            <tr><th><a href="global.html#proc/message_mentorTicket">message_mentorTicket</a></th><td></td></tr>
+            <tr><th><a href="global.html#proc/number_of_issues">number_of_issues</a></th><td>USED BY UNIT TEST: uniqueness.dm</td></tr>
+            <tr><th><a href="global.html#proc/qdel">qdel</a></th><td>Should be treated as a replacement for the 'del' keyword.</td></tr>
+            <tr><th><a href="global.html#proc/recover_all_SS_and_recreate_master">recover_all_SS_and_recreate_master</a></th><td>Recreate all SSs which will still cause data survive due to Recover(), the new Master will then find and take them from global.vars</td></tr>
+            <tr><th><a href="global.html#proc/storyteller_button">storyteller_button</a></th><td>datum/storyteller/proc/trigger_event()</td></tr>
+            <tr><th><a href="global.html#proc/strip_improper">strip_improper</a></th><td>Strip out the special beyond characters for \proper and \improper
+from text that will be sent to the browser.</td></tr>
+            <tr><th><a href="global.html#proc/strtohex">strtohex</a></th><td>Encodes a string to hex</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/Debugger"><aside class="declaration">var </aside>Debugger
+            <aside>&ndash; /static/<a href="datum.html">datum</a>/debugger</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/controllers/master.dm#L14">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;master.dm 14"/></a></h3>
+        <p>StonedMC</p>
+<p>Designed to properly split up a given tick among subsystems
+Note: if you read parts of this code and think &quot;why is it doing it that way&quot;
+Odds are, there is a reason</p><h3 id="var/Failsafe"><aside class="declaration">var </aside>Failsafe
+            <aside>&ndash; /static/<a href="datum.html">datum</a>/controller/failsafe</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/controllers/failsafe.dm#L7">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;failsafe.dm 7"/></a></h3>
+        <p>Failsafe</p>
+<p>Pretty much pokes the MC to make sure it's still alive.</p><h3 id="var/SSweather"><aside class="declaration">var </aside>SSweather
+            <aside>&ndash; /static/<a href="datum.html">datum</a>/<a href="datum/controller/subsystem.html">controller/subsystem</a>/weather</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/gamemodes/events/weather.dm#L145">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;gamemodes&#x2F;events&#x2F;weather.dm 145"/></a></h3>
+        <pre><code>                                      |WEATHER SUBSYSTEM|
+</code></pre>
+<p>/////////                                 |SUBSYSTEM WEATHER|
+////////////////////                      -------------------</p><h3 id="var/access_cent_general"><aside class="declaration">var </aside>access_cent_general
+            <aside>&ndash; /const</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/jobs/access_datum.dm#L524">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;jobs&#x2F;access_datum.dm 524"/></a></h3>
+        <p>Central Command</p><h3 id="var/access_change_medbay"><aside class="declaration">var </aside>access_change_medbay
+            <aside>&ndash; /const</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/jobs/access_datum.dm#L479">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;jobs&#x2F;access_datum.dm 479"/></a></h3>
+        <p>Access Change</p><h3 id="var/access_mercenary"><aside class="declaration">var </aside>access_mercenary
+            <aside>&ndash; /const</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/jobs/access_datum.dm#L585">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;jobs&#x2F;access_datum.dm 585"/></a></h3>
+        <p>Antag access</p><h3 id="var/access_nt_disciple"><aside class="declaration">var </aside>access_nt_disciple
+            <aside>&ndash; /const</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/jobs/access_datum.dm#L440">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;jobs&#x2F;access_datum.dm 440"/></a></h3>
+        <p>NeoTheology</p><h3 id="var/access_security"><aside class="declaration">var </aside>access_security
+            <aside>&ndash; /const</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/jobs/access_datum.dm#L13">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;jobs&#x2F;access_datum.dm 13"/></a></h3>
+        <p>Station access</p><h3 id="var/access_synth"><aside class="declaration">var </aside>access_synth
+            <aside>&ndash; /const</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/jobs/access_datum.dm#L598">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;jobs&#x2F;access_datum.dm 598"/></a></h3>
+        <p>Misc</p><h3 id="var/comet_hardcore"><aside class="declaration">var </aside>comet_hardcore
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/gamemodes/events/meteors.dm#L237">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;gamemodes&#x2F;events&#x2F;meteors.dm 237"/></a></h3>
+        <p>........::::::%%%SPACE_COMET</p><h3 id="var/default_abstract_uplink_icon"><aside class="declaration">var </aside>default_abstract_uplink_icon
+            <aside>&ndash; /image</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/datums/uplink/uplink_items.dm#L138">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;uplink&#x2F;uplink_items.dm 138"/></a></h3>
+        <p>Abstract Uplink Entries</p><h3 id="var/photo_count"><aside class="declaration">var </aside>photo_count
+            <aside>&ndash; /static</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/paperwork/photography.dm#L24">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;paperwork&#x2F;photography.dm 24"/></a></h3>
+        <p>photo</p><h2 id="proc">Proc Details</h2><h3 id="proc/Broadcast_Message"><aside class="declaration">proc </aside>Broadcast_Message<aside>(/<a href="datum.html">datum</a>/radio_frequency/connection, /<a href="mob.html">mob</a>/M, vmask, vmessage, /<a href="obj/item.html">obj/item</a>/device/radio/radio, message, name, job, realname, vname, data, compression, /list/level, freq, verbage, /<a href="datum.html">datum</a>/language/speaking, text_size) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/machinery/telecomms/broadcaster.dm#L218">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;machinery&#x2F;telecomms&#x2F;broadcaster.dm 218"/></a></aside>
+        </h3>
+        <p>Here is the big, bad function that broadcasts a message given the appropriate
+parameters.</p>
+<p>@param connection:
+The datum generated in radio.dm, stored in signal.data[&quot;connection&quot;].</p>
+<p>@param M:
+Reference to the mob/speaker, stored in signal.data[&quot;mob&quot;]</p>
+<p>@param vmask:
+Boolean value if the mob is &quot;hiding&quot; its identity via voice mask, stored in
+signal.data[&quot;vmask&quot;]</p>
+<p>@param vmessage:
+If specified, will display this as the message; such as &quot;chimpering&quot;
+for monkies if the mob is not understood. Stored in signal.data[&quot;vmessage&quot;].</p>
+<p>@param radio:
+Reference to the radio broadcasting the message, stored in signal.data[&quot;radio&quot;]</p>
+<p>@param message:
+The actual string message to display to mobs who understood mob M. Stored in
+signal.data[&quot;message&quot;]</p>
+<p>@param name:
+The name to display when a mob receives the message. signal.data[&quot;name&quot;]</p>
+<p>@param job:
+The name job to display for the AI when it receives the message. signal.data[&quot;job&quot;]</p>
+<p>@param realname:
+The &quot;real&quot; name associated with the mob. signal.data[&quot;realname&quot;]</p>
+<p>@param vname:
+If specified, will use this name when mob M is not understood. signal.data[&quot;vname&quot;]</p>
+<p>@param data:
+If specified:
+1 -- Will only broadcast to intercoms
+2 -- Will only broadcast to intercoms and station-bounced radios
+3 -- Broadcast to syndicate frequency
+4 -- AI can't track down this person. Useful for imitation broadcasts where you can't find the actual mob</p>
+<p>@param compression:
+If 0, the signal is audible
+If nonzero, the signal may be partially inaudible or just complete gibberish.</p>
+<p>@param level:
+The list of Z levels that the sending radio is broadcasting to. Having 0 in the list broadcasts on all levels</p>
+<p>@param freq
+The frequency of the signal</p><h3 id="proc/CreateBans"><aside class="declaration">proc </aside>CreateBans<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/admin/NewBan.dm#L200">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;NewBan.dm 200"/></a></aside>
+        </h3>
+        <p>DEBUG</p><h3 id="proc/WEAKREF"><aside class="declaration">proc </aside>WEAKREF<aside>(/<a href="datum.html">datum</a>/input) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/datums/weakref.dm#L3">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;weakref.dm 3"/></a></aside>
+        </h3>
+        <p>Creates a weakref to the given input.
+See /datum/weakref's documentation for more information.</p><h3 id="proc/animate_aura"><aside class="declaration">proc </aside>animate_aura<aside>(/<a href="atom.html">atom</a>/A, simple_icons, color, anim_duration, offset, loops, grow_to, pixel_scale) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/__HELPERS/icons.dm#L1242">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;icons.dm 1242"/></a></aside>
+        </h3>
+        <p>Animate a 'halo' around an object.</p>
+<p>This proc is not exactly cheap. You'd be well advised to set up many-loops rather than call this super-often. getCompoundIcon is
+mostly to blame for this. If Byond ever implements a way to get something's icon more 'gently' than this, do that instead.</p>
+<p>@param A This is the atom to put the halo on
+@param simple_icons If set to TRUE, will just perform a very basic icon and icon_state steal. DO USE when possible.
+@param color This is the color for the halo
+@param anim_duration This decides how fast (or slow) the animation plays
+@param offset Mysterious variable that determines size of the halo's gap from icon
+@param loops How many times the animation loops
+@param grow_to Relative to the size of the icon, how big the halo grows while fading (don't use negatives for inward halos, use &lt; 1)
+@param pixel_scale If you'd like the halo to use pixel scale or the default 'fuzzy' scale</p><h3 id="proc/callHook"><aside class="declaration">proc </aside>callHook<aside>(hook, /list/args) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/controllers/hooks.dm#L26">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;hooks.dm 26"/></a></aside>
+        </h3>
+        <p>@file hooks.dm
+Implements hooks, a simple way to run code on pre-defined events.</p>
+<ul>
+<li>
+<p>@page hooks Code hooks</p>
+</li>
+<li>
+<p>@section hooks Hooks</p>
+</li>
+<li>
+<p>A hook is defined under /hook in the type tree.</p>
+</li>
+<li>
+<p>To add some code to be called by the hook, define a proc under the type, as so:</p>
+</li>
+<li>
+<p>@code
+hook/foo/proc/bar()
+if(1)
+return 1 //Sucessful
+else
+return 0 //Error, or runtime.</p>
+</li>
+<li>
+<p>@endcode</p>
+</li>
+<li>
+<p>All hooks must return nonzero on success, as runtimes will force return null.</p>
+</li>
+</ul>
+<p>Calls a hook, executing every piece of code that's attached to it.
+@param hook	Identifier of the hook to call.
+@returns		1 if all hooked code runs successfully, 0 otherwise.</p><h3 id="proc/callback_select"><aside class="declaration">proc </aside>callback_select<aside>(/list/callbacks, /list/callback_args, savereturns, resolution) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/datums/callback.dm#L205">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;callback.dm 205"/></a></aside>
+        </h3>
+        <p>Runs a list of callbacks asyncronously, returning only when all have finished</p>
+<p>Callbacks can be repeated, to call it multiple times</p>
+<p>Arguments:</p>
+<ul>
+<li>list/callbacks the list of callbacks to be called</li>
+<li>list/callback_args the list of lists of arguments to pass into each callback</li>
+<li>savereturns Optionally save and return the list of returned values from each of the callbacks</li>
+<li>resolution The number of byond ticks between each time you check if all callbacks are complete</li>
+</ul><h3 id="proc/delete_all_SS_and_recreate_master"><aside class="declaration">proc </aside>delete_all_SS_and_recreate_master<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/controllers/failsafe.dm#L166">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;failsafe.dm 166"/></a></aside>
+        </h3>
+        <p>Delete all existing SS to basically start over</p><h3 id="proc/find_nearby_burrow"><aside class="declaration">proc </aside>find_nearby_burrow<aside>(/<a href="atom.html">atom</a>/target, dist) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/controllers/subsystems/migration.dm#L415">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystems&#x2F;migration.dm 415"/></a></aside>
+        </h3>
+        <p>Burrow Finding and Sorting</p><h3 id="proc/generate_non_humanoid_icons"><aside class="declaration">proc </aside>generate_non_humanoid_icons<aside>(species_tag) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/mob/living/carbon/human/non_humanoid_icons.dm#L5">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;human&#x2F;non_humanoid_icons.dm 5"/></a></aside>
+        </h3>
+        <p>hook/startup/proc/makeTeshIcons()</p><h3 id="proc/generate_record_id"><aside class="declaration">proc </aside>generate_record_id<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/datums/datacore.dm#L231">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datacore.dm 231"/></a></aside>
+        </h3>
+        <p>L.fields[&quot;id_gender&quot;]	= gender2text(H.identifying_gender)</p><h3 id="proc/getAssignedBlock"><aside class="declaration">proc </aside>getAssignedBlock<aside>(name, /list/blocksLeft, activity_bounds) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/dna/setup_genetics.dm#L8">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;dna&#x2F;setup_genetics.dm 8"/></a></aside>
+        </h3>
+        <p>DNA MACHINES</p><h3 id="proc/getOPressureDifferential"><aside class="declaration">proc </aside>getOPressureDifferential<aside>(/<a href="turf.html">turf</a>/loc) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/__HELPERS/game.dm#L440">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;game.dm 440"/></a></aside>
+        </h3>
+        <p>Gets the highest and lowest pressures from the tiles in cardinal directions
+around us, then checks the difference.</p><h3 id="proc/get_default_outfit_backpack"><aside class="declaration">proc </aside>get_default_outfit_backpack<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/datums/outfits/equipment/backpacks.dm#L170">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;outfits&#x2F;equipment&#x2F;backpacks.dm 170"/></a></aside>
+        </h3>
+        <p>Helpers</p><h3 id="proc/get_random_uplink_items"><aside class="declaration">proc </aside>get_random_uplink_items<aside>(/<a href="obj/item.html">obj/item</a>/device/uplink/U, remaining_TC, loc) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/datums/uplink/uplink_items.dm#L148">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;uplink&#x2F;uplink_items.dm 148"/></a></aside>
+        </h3>
+        <p>Support procs</p><h3 id="proc/get_wound_type"><aside class="declaration">proc </aside>get_wound_type<aside>(type, damage) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/organs/wound.dm#L224">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;organs&#x2F;wound.dm 224"/></a></aside>
+        </h3>
+        <p>WOUND DEFINITIONS</p><h3 id="proc/hextostr"><aside class="declaration">proc </aside>hextostr<aside>(str, safe) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/integrated_electronics/core/helpers.dm#L157">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;integrated_electronics&#x2F;core&#x2F;helpers.dm 157"/></a></aside>
+        </h3>
+        <p>Decodes hex to raw byte string. If safe=TRUE, returns null on incorrect input strings instead of CRASHing</p><h3 id="proc/is_special_character"><aside class="declaration">proc </aside>is_special_character<aside>(/<a href="mob.html">mob</a>/M) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/admin/admin.dm#L794">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;admin.dm 794"/></a></aside>
+        </h3>
+        <p>ADMIN HELPER PROCS</p><h3 id="proc/makeDatumRefLists"><aside class="declaration">proc </aside>makeDatumRefLists<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/__HELPERS/global_lists.dm#L193">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;global_lists.dm 193"/></a></aside>
+        </h3>
+        <p>Initial Building</p><h3 id="proc/message_adminTicket"><aside class="declaration">proc </aside>message_adminTicket<aside>(msg, important) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/admin/admin.dm#L33">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;admin.dm 33"/></a></aside>
+        </h3>
+        <ul>
+<li>Sends a message to the staff able to see admin tickets</li>
+<li>Arguments:</li>
+<li>msg - The message being send</li>
+<li>important - If the message is important. If TRUE it will ignore the PREF_HEAR preferences,
+send a sound and flash the window. Defaults to FALSE</li>
+</ul><h3 id="proc/message_mentorTicket"><aside class="declaration">proc </aside>message_mentorTicket<aside>(msg, important) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/admin/admin.dm#L47">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;admin.dm 47"/></a></aside>
+        </h3>
+        <ul>
+<li>Sends a message to the staff able to see mentor tickets</li>
+<li>Arguments:</li>
+<li>msg - The message being send</li>
+<li>important - If the message is important. If TRUE it will ignore the PREF_HEAR preferences,
+send a sound and flash the window. Defaults to FALSE</li>
+</ul><h3 id="proc/number_of_issues"><aside class="declaration">proc </aside>number_of_issues<aside>(/list/entries, type) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/unit_tests/uniqueness.dm#L26">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;unit_tests&#x2F;uniqueness.dm 26"/></a></aside>
+        </h3>
+        <p>USED BY UNIT TEST: uniqueness.dm</p><h3 id="proc/qdel"><aside class="declaration">proc </aside>qdel<aside>(/<a href="datum.html">datum</a>/D, force, ...) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/controllers/subsystems/garbage.dm#L318">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystems&#x2F;garbage.dm 318"/></a></aside>
+        </h3>
+        <p>Should be treated as a replacement for the 'del' keyword.</p>
+<p>Datums passed to this will be given a chance to clean up references to allow the GC to collect them.</p><h3 id="proc/recover_all_SS_and_recreate_master"><aside class="declaration">proc </aside>recover_all_SS_and_recreate_master<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/controllers/failsafe.dm#L151">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;failsafe.dm 151"/></a></aside>
+        </h3>
+        <p>Recreate all SSs which will still cause data survive due to Recover(), the new Master will then find and take them from global.vars</p><h3 id="proc/storyteller_button"><aside class="declaration">proc </aside>storyteller_button<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/game/gamemodes/storyteller.dm#L202">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;gamemodes&#x2F;storyteller.dm 202"/></a></aside>
+        </h3>
+        <p>datum/storyteller/proc/trigger_event()</p><h3 id="proc/strip_improper"><aside class="declaration">proc </aside>strip_improper<aside>(text) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/__HELPERS/text.dm#L413">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;text.dm 413"/></a></aside>
+        </h3>
+        <p>Strip out the special beyond characters for \proper and \improper
+from text that will be sent to the browser.</p><h3 id="proc/strtohex"><aside class="declaration">proc </aside>strtohex<aside>(str) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/integrated_electronics/core/helpers.dm#L146">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;integrated_electronics&#x2F;core&#x2F;helpers.dm 146"/></a></aside>
+        </h3>
+        <p>Encodes a string to hex</p></main>
+<footer>
+    cev_eris.dme
+    <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/tree/50bd4b738085d867454ec9e6d535eca6f8e13d2e">50bd4b7</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>

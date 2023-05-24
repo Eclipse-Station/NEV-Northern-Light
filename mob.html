@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;mob - Space Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">Space Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="mob.html#var">Var Details</a> - <a href="mob.html#proc">Proc Details</a></header>
+<main>
+<h1>/<a href="mob.html">mob</a><aside> inherits /<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a></aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/_onclick/hud/parallax.dm#L70">
+        <img src="git.png" width="16" height="16" title="code&#x2F;_onclick&#x2F;hud&#x2F;parallax.dm 70"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="mob.html#var/registered_z">registered_z</a></th><td>The z level this mob is currently registered in</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="mob.html#proc/CanAvoidGravity">CanAvoidGravity</a></th><td>Used to determine whether or not a given mob can override gravity when
+attempting to Z-move UP.</td></tr>
+            <tr><th><a href="mob.html#proc/can_ztravel">can_ztravel</a></th><td>An initial check for Z-level travel. Called relatively early in mob/proc/zMove.</td></tr>
+            <tr><th><a href="mob.html#proc/down">down</a></th><td>Verb for the mob to move down a z-level if possible.</td></tr>
+            <tr><th><a href="mob.html#proc/get_effective_size">get_effective_size</a></th><td>Get the effective size of a mob.
+Currently this is based only on size_multiplier for micro/macro stuff,
+but in the future we may also incorporate the &quot;mob_size&quot;, so that
+a macro mouse is still only effectively &quot;normal&quot; or a micro dragon is still large etc.</td></tr>
+            <tr><th><a href="mob.html#proc/me_verb_subtle">me_verb_subtle</a></th><td>SUBTLE COMMAND</td></tr>
+            <tr><th><a href="mob.html#proc/set_see_in_dark">set_see_in_dark</a></th><td>See In Dark Set Handling</td></tr>
+            <tr><th><a href="mob.html#proc/set_see_invisible">set_see_invisible</a></th><td>See Invisible Set Handling</td></tr>
+            <tr><th><a href="mob.html#proc/set_sight">set_sight</a></th><td>Sight Set Handling</td></tr>
+            <tr><th><a href="mob.html#proc/up">up</a></th><td>Verb for the mob to move up a z-level if possible.</td></tr>
+            <tr><th><a href="mob.html#proc/zMove">zMove</a></th><td>Used to check if a mob can move up or down a Z-level and to then actually do the move.</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/registered_z"><aside class="declaration">var </aside>registered_z
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/mob/mob_defines.dm#L201">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;mob_defines.dm 201"/></a></h3>
+        <p>The z level this mob is currently registered in</p><h2 id="proc">Proc Details</h2><h3 id="proc/CanAvoidGravity"><aside class="declaration">proc </aside>CanAvoidGravity<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/multiz/movement.dm#L162">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;multiz&#x2F;movement.dm 162"/></a></aside>
+        </h3>
+        <p>Used to determine whether or not a given mob can override gravity when
+attempting to Z-move UP.</p>
+<p>Returns FALSE in standard mob cases. Exists for carbon/human and other child overrides.</p>
+<p>@return	TRUE if the mob can Z-move up despite gravity.
+FALSE otherwise.</p><h3 id="proc/can_ztravel"><aside class="declaration">proc </aside>can_ztravel<aside>(direction) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/multiz/movement.dm#L124">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;multiz&#x2F;movement.dm 124"/></a></aside>
+        </h3>
+        <p>An initial check for Z-level travel. Called relatively early in mob/proc/zMove.</p>
+<p>Useful for overwriting and special conditions for STOPPING z-level transit.</p>
+<p>@return	TRUE if the mob can move a Z-level of its own volition.
+FALSE otherwise.</p><h3 id="proc/down"><aside class="declaration">verb </aside>down<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/multiz/movement.dm#L24">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;multiz&#x2F;movement.dm 24"/></a></aside>
+        </h3>
+        <p>Verb for the mob to move down a z-level if possible.</p><h3 id="proc/get_effective_size"><aside class="declaration">proc </aside>get_effective_size<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/size/size.dm#L53">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;size&#x2F;size.dm 53"/></a></aside>
+        </h3>
+        <p>Get the effective size of a mob.
+Currently this is based only on size_multiplier for micro/macro stuff,
+but in the future we may also incorporate the &quot;mob_size&quot;, so that
+a macro mouse is still only effectively &quot;normal&quot; or a micro dragon is still large etc.</p><h3 id="proc/me_verb_subtle"><aside class="declaration">verb </aside>me_verb_subtle<aside>(message) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/mob/say_subtle.dm#L5">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;say_subtle.dm 5"/></a></aside>
+        </h3>
+        <p>SUBTLE COMMAND</p><h3 id="proc/set_see_in_dark"><aside class="declaration">proc </aside>set_see_in_dark<aside>(new_see_in_dark) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/datums/observation/see_in_dark_set.dm#L21">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;observation&#x2F;see_in_dark_set.dm 21"/></a></aside>
+        </h3>
+        <p>See In Dark Set Handling</p><h3 id="proc/set_see_invisible"><aside class="declaration">proc </aside>set_see_invisible<aside>(new_see_invisible) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/datums/observation/see_invisible_set.dm#L21">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;observation&#x2F;see_invisible_set.dm 21"/></a></aside>
+        </h3>
+        <p>See Invisible Set Handling</p><h3 id="proc/set_sight"><aside class="declaration">proc </aside>set_sight<aside>(new_sight) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/datums/observation/sight_set.dm#L21">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;observation&#x2F;sight_set.dm 21"/></a></aside>
+        </h3>
+        <p>Sight Set Handling</p><h3 id="proc/up"><aside class="declaration">verb </aside>up<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/multiz/movement.dm#L14">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;multiz&#x2F;movement.dm 14"/></a></aside>
+        </h3>
+        <p>Verb for the mob to move up a z-level if possible.</p><h3 id="proc/zMove"><aside class="declaration">proc </aside>zMove<aside>(direction, method) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/50bd4b738085d867454ec9e6d535eca6f8e13d2e/code/modules/multiz/movement.dm#L39">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;multiz&#x2F;movement.dm 39"/></a></aside>
+        </h3>
+        <p>Used to check if a mob can move up or down a Z-level and to then actually do the move.</p>
+<p>@param	direction The direction in which we're moving. Expects defines UP or DOWN.</p>
+<p>@return	TRUE if the mob has been successfully moved a Z-level.
+FALSE otherwise.</p></main>
+<footer>
+    cev_eris.dme
+    <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/tree/50bd4b738085d867454ec9e6d535eca6f8e13d2e">50bd4b7</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>
