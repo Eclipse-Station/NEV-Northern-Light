@@ -45374,7 +45374,6 @@
 /area/eris/crew_quarters/sleep)
 "cdv" = (
 /obj/structure/table/woodentable,
-/obj/item/talkingcrystal,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/sleep)
 "cdw" = (
