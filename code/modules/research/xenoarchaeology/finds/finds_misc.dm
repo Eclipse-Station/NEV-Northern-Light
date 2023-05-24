@@ -1,6 +1,6 @@
 //Talk crystal
 
-/obj/item/talkingcrystal
+/*/obj/item/talkingcrystal - Eclipse Edit - Removed
 
 	name = "Crystal"
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -13,3 +13,4 @@
 	src.talking_atom = new (src)
 	if(prob(50))
 		icon_state = "talk_crystal2"
+End of Eclipse Edit */
