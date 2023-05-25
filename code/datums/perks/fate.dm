@@ -157,7 +157,7 @@
 	holder.sanity.valid_inspirations += W
 	W = new W(T)
 	W.desc += " It has been inscribed with the \"[holder.family_name]\" family name."
-	W.name = "[W] of [holder.last_name]"
+	W.name = "[W] of [holder.family_name]"
 	var/oddities = rand(2,4)
 	var/list/stats = ALL_STATS
 	var/list/final_oddity = list()

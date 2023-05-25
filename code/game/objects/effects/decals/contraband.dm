@@ -34,7 +34,7 @@
 	..(loc)
 
 /obj/item/contraband/poster/asters
-	name = "rolled-up asters poster"
+	name = "rolled-up union poster"
 	desc = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
 	icon_state = "rolled_poster_asters"
 	poster_datum = "asters"
@@ -165,7 +165,7 @@
 	var/icon = 'icons/obj/contraband.dmi'
 
 /datum/poster/asters
-	description_fluff = "Appears to been produced by members of the Aster's Guild."
+	description_fluff = "Appears to been produced by members of the Free Trade Union."
 
 /datum/poster/proc/set_design(var/obj/item/contraband/poster/poster)
 	poster.name = "poster - [name]"

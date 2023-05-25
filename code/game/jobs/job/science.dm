@@ -163,15 +163,15 @@ Lastly, though they're not commonly used, you have the facilities to construct m
 	join_tag = /datum/job/roboticist
 
 /datum/job/psychiatrist
-	title = "Moebius Psychiatrist"
+	title = "Psychiatrist"
 	flag = PSYCHIATRIST
-	department = DEPARTMENT_SCIENCE
+	department = DEPARTMENT_SCIENCE		//ECLIPSE TODO: Check and fix. Might be overridden.
 	department_flag = SCIENCE
-	faction = "CEV Eris"
+	faction = "NEV Northern Light"		//Eclipse edit.
 	total_positions = 1
 	spawn_positions = 1
 	wage = WAGE_PROFESSIONAL
-	supervisors = "the Moebius Expedition Overseer"
+	supervisors = "the Chief Medical Officer"		//Eclipse edit.
 	selection_color = "#bdb1bb"
 	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
 
@@ -195,6 +195,6 @@ Lastly, though they're not commonly used, you have the facilities to construct m
 
 
 /obj/landmark/join/start/psychiatrist
-	name = "Moebius Psychiatrist"
+	name = "Psychiatrist"
 	icon_state = "player-purple"
 	join_tag = /datum/job/psychiatrist

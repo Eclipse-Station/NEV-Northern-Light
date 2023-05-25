@@ -100,12 +100,12 @@
 
 	perks = list(PERK_ARTIST)
 
-	description = "You are a creative soul aboard this vessel. You have been given home by the Club to create masterful works of art to be displayed or sold at mind-boggling prices... and something about the CEV Eris and it's doomed journey sparks the fire of creation within you.<br>\
+	description = "You are a creative soul aboard this vessel. You have been given home by the Club to create masterful works of art to be displayed or sold at mind-boggling prices... and something about the Northern Light and its doomed journey sparks the fire of creation within you.<br>\
 	You do not gain desires like other members of the crew. Instead, you stop gaining insight once you max out at 100 points.<br>\
 	You can gain desires by spending this insight at your Artist's Bench to build a work of art, this art you create vary wildly in type, quality, and value. Sell your artwork to the unwashed masses, display it in the club or give you work to the merchant to sell for a profit."
 
 	duties = "Create works of art using your insight.<br>\
-	Display your work, or sell it to the crew or Asters Guild for a profit.<br>\
+	Display your work, or sell it to the crew or the Free Trade Union for a profit.<br>\
 	Be in the midst of action or combat to level your insight faster."
 
 	loyalties = "You are loyal to your soul, first and foremost. You are fascinated by this cursed ship, and want to mold this interest into your works of art.<br>\

@@ -202,7 +202,7 @@
 	max_age = 250
 
 /obj/landmark/corpse/skeleton/maint //They look like human remains. Some poor soul expired here, a million miles from home.
-	name = "Eris Crewmember"
+	name = "Northern Light Crewmember"
 	corpseuniform = list(
 		/obj/item/clothing/under/oldsec,
 		/obj/item/clothing/under/rank/assistant,
@@ -315,7 +315,7 @@
 
 //Faction Corpses//
 /obj/landmark/corpse/operative
-	name = "Ironhammer Operative"
+	name = "Aegis Operative"
 	corpseuniform = list(/obj/item/clothing/under/rank/security, /obj/item/clothing/under/rank/security/turtleneck)
 	corpseshoes = /obj/item/clothing/shoes/jackboots/ironhammer
 	corpsegloves = list(/obj/item/clothing/gloves/security/ironhammer, /obj/item/clothing/gloves/stungloves)
@@ -326,7 +326,7 @@
 	corpsemask = /obj/item/clothing/mask/balaclava/tactical
 	corpsebelt = /obj/item/storage/belt/tactical/ironhammer
 	corpseid = 1
-	corpseidjob = "Ironhammer Operative"
+	corpseidjob = "Aegis Operative"
 	corpseidaccess = "ihoper"
 	injury_level = 9
 

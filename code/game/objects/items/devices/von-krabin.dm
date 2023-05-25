@@ -1,8 +1,8 @@
 /obj/item/device/von_krabin
 	name = "Von-Krabin Stimulator"
 	desc = "Psionic stimulator that make your brain work better."
-	description_info = "This is a powerful stimulator that links the brain of multiple people together, the more people are connected, the better its buffs are. \n Can be empowered even further by breaking the cruciforms of NT followers."
-	description_antag = "Can be destroyed with the NT sword, causes brain damage to everyone that is linked and reduces their base stats by 30, whilst buffing the EOTP's capabilities."
+	description_info = "This is a powerful stimulator that links the brain of multiple people together - the more people are connected, the better its buffs are."
+	description_antag = "Can be destroyed with the Mekhane's sword. This causes brain damage to everyone that is linked and reduces their base stats by 30, whilst buffing the capabilities of the Eye of the Protector."
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "von-krabin"
 	item_state = "von-krabin"
@@ -160,8 +160,8 @@
 			affected.stats.removeTempStat(stat, "von-crabbin")
 			if(stat in acquired_buffs)
 				affected.stats.addTempStat(stat, round(buff_power / 2), INFINITY, "von-crabbin")
-	else
-		affected.stats.addTempStat(stat, buff_power, INFINITY, "von-crabbin")
+			else
+				affected.stats.addTempStat(stat, buff_power, INFINITY, "von-crabbin")
 		if(lost_follower)
 			to_chat(affected, SPAN_NOTICE("You feel the knowledge from the [src] lessen as a linked mind is lost!"))
 		else

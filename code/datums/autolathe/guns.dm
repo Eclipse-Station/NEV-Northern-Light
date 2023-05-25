@@ -178,7 +178,7 @@
 	build_path = /obj/item/gun/projectile/boltgun/fs
 
 /datum/design/autolathe/gun/ak47
-	name = "Excelsior Car .30 Kalashnikov"
+	name = "Excelsior AR .30 Kalashnikov"
 	build_path = /obj/item/gun/projectile/automatic/modular/ak/excelsior
 
 /datum/design/autolathe/gun/ak47_fs

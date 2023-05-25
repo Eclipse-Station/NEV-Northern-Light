@@ -432,7 +432,7 @@ There are 9 wires.
 		if(!last_zap || (last_zap + 1 SECOND) < world.time)
 			if(shock(user, 100))
 				last_zap = world.time
-					return FALSE
+				return FALSE
 	..()
 
 /obj/machinery/door/airlock/proc/isElectrified()

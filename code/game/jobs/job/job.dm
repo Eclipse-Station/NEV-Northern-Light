@@ -72,7 +72,7 @@
 	for(var/perk in perks)
 		target.stats.addPerk(perk)
 
-	target.dna.stats = target.stats
+	target.dna.stats = target.stats		//ECLIPSE NOTE: LINT
 
 	return TRUE
 

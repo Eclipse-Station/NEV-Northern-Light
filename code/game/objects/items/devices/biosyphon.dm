@@ -2,7 +2,7 @@
 	name = "Lazarus Carbon Reclaimer"
 	desc = "A vat of bluespace-infused yeast that slowly produces donuts seemingly out of nowhere. LCR was generously donated to Aegis after one of the operatives was hospitalized as a result of inhaling Lazarus' macroinsect repellant. Yeast may also produce rare and powerful donuts when fed with the meat of local fauna."
 	description_info = "Produces donuts constantly, highly valuable. Can be upgraded with the Molitor-Riedel Enricher to also generate syringes of healing chemicals."
-	description_antag = "IH tends to fully trust any donut box thats put above the biospyhon. You could poison a box of donuts."
+	description_antag = "Aegis tends to fully trust any donut box thats put above the biospyhon. You could poison a box of donuts."
 	icon = 'icons/obj/faction_item.dmi'
 	icon_state = "biosyphon"
 	item_state = "biosyphon"

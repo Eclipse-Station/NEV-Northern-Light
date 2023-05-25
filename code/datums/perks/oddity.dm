@@ -418,7 +418,7 @@
 
 /datum/perk/big_shot/assign(mob/living/carbon/human/H)
 	if(..())
-	initial_time = world.time
+		initial_time = world.time
 		holder.stats.addTempStat(STAT_ROB, 20, INFINITY, "Big Shot")
 		holder.stats.addTempStat(STAT_TGH, 20, INFINITY, "Big Shot")
 		holder.stats.addTempStat(STAT_BIO, 20, INFINITY, "Big Shot")

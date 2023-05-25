@@ -12,12 +12,12 @@
 	var/obj/item/wedged_item
 
 /obj/machinery/door/holy/preacher
-	name = "NeoTheology clergy door"
+	name = "Mekhane clergy door"
 	icon = 'icons/obj/doors/Door_holy_preacher.dmi'
 	minimal_holiness = CLEARANCE_CLERGY
 
 /obj/machinery/door/holy/public
-	name = "NeoTheology public door"
+	name = "Mekhane public door"
 	icon = 'icons/obj/doors/Door_holy_public.dmi'
 	minimal_holiness = CLEARANCE_NONE
 

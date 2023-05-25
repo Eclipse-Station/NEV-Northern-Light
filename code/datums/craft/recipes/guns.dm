@@ -70,7 +70,7 @@
 	)
 
 /datum/craft_recipe/gun/makeshiftlaser
-	name = "HM LG \"Retina Burn\""
+	name = "HM LR \"Retina Burn\""
 	result = /obj/item/gun/energy/laser/makeshift
 	steps = list(
 		list(CRAFT_MATERIAL, 20, MATERIAL_STEEL),
@@ -82,7 +82,7 @@
 )
 
 /datum/craft_recipe/gun/makeshiftlaserpistol
-	name = "HM LG \"Scorcher\""
+	name = "HM LHG \"Scorcher\""
 	result = /obj/item/gun/energy/laser/makeshift_pistol
 	steps = list(
 		list(CRAFT_MATERIAL, 10, MATERIAL_STEEL),

@@ -2,7 +2,7 @@
 	name = "Techno-Tribalism Enforcer"
 	desc = "An enigmatic device, found by the first exploratory team. Seems to be a destructive analyzer of sorts, that spits out weird-looking devices once in a while."
 	icon = 'icons/obj/faction_item.dmi'
-	description_info = "Has an internal radio that informs technomancers of its delay, it can be re-enabled with a screwdriver if it is not functioning. Deconstructing other departmental oddities reduces its cooldown. Deconstructing combat-oriented oddities buffs its capability to make better combat oddities."
+	description_info = "Has an internal radio that informs engineers of its delay, it can be re-enabled with a screwdriver if it is not functioning. Deconstructing other departmental oddities reduces its cooldown. Deconstructing combat-oriented oddities buffs its capability to make better combat oddities."
 	description_antag = "You can disable its internal radio with a EMP."
 	icon_state = "techno_tribalism"
 	item_state = "techno_tribalism"

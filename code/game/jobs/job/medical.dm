@@ -267,7 +267,7 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 	join_tag = /datum/job/paramedic
 
 /datum/job/bioengineer
-	title = "Lazarus Bio-Engineer"
+	title = "Bio-Engineer"
 	flag = BIOENGINEER
 	department = DEPARTMENT_MEDICAL
 	department_flag = MEDICAL
@@ -308,17 +308,17 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 						-Genetics: Using the Chrysalis Pod and its associated tools to develop new and powerful mutations. <br>\
 						-Visceral Research: Creating new organs or upgrading existing ones using the organ fabricator.<br>\
 						<br>\
-					You have full access to Moebius medical facilities, and can utilize them if medical is short staffed. \
+					You have full access to the Lazarus medical facilities, and can utilize them if medical is short staffed. \
 					If there are dedicated doctors or chemists on staff, they take priority and their respective work areas belongs to them.<br>\
 					<br>\
 					Character Expectations:<br>\
 					You may be a doctor, but your research comes first.<br>\
 					While you have priority in Visceral Research and Genetics, you are expected to provide doctors with organ replacements if necessary."
 
-	loyalties = "As a medical researcher, your first loyalty is to progress. Your placement on the crew of the CEV Eris is the result of Moebius' desire for knowledge and your own morbid curiosity.<br>\
-Your second loyalty is to your career with Moebius, and to your coworkers in both branches of the corporation. Help out your scientific colleagues, and aid in their pursuit of knowledge."
+	loyalties = "As a medical researcher, your first loyalty is to progress. Your placement on the crew of the Northern Light is the result of Lazarus' desire for knowledge and your own morbid curiosity.<br>\
+Your second loyalty is to your career with Lazarus, and to your coworkers in both branches of the corporation. Help out your scientific colleagues, and aid in their pursuit of knowledge."
 
 /obj/landmark/join/start/bioengineer
-	name = "Moebius Bio-Engineer"
+	name = "Lazarus Bio-Engineer"
 	icon_state = "player-green"
 	join_tag = /datum/job/bioengineer
