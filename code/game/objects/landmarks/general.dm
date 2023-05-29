@@ -9,10 +9,10 @@
 /obj/landmark/IH_Armoury_Gun_Serial_Printer/LateInitialize()
 	. = ..()
 	var/area/our_area = get_area(src)
-	var/text = "CEV ERIS IHS Armoury gun serials \n"
+	var/text = "NEV Northern Light - Armory serial numbers \n"
 	for(var/obj/item/gun/firearm in our_area.contents)
 		if(firearm.serial_type)
 			text += "[firearm.serial_type] - [firearm.name] \n"
-	new /obj/item/paper(get_turf(src), text, "IH Armoury log")
+	new /obj/item/paper(get_turf(src), text, "\improper NEV Northern Light Armory Log")
 	delete_me = TRUE
 

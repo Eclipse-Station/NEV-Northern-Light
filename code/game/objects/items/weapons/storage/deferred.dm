@@ -229,7 +229,7 @@
 
 /obj/item/storage/deferred/crate/shotgun
 	name = "pointman shotgun crate"
-	desc = "A crate containing 4 bojevic autoshotguns and 120 rounds of .50 buck and slug ammunition each. good to keep handy \
+	desc = "A crate containing 4 Bojevic auto-shotguns and 120 rounds of .50 buck and slug ammunition each. good to keep handy \
 			for close encounters."
 	icon_state = "serbcrate_deferred_black"
 	initial_contents = list(

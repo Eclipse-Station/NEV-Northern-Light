@@ -23,7 +23,7 @@
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
 	description_info = "Can be used to clean clothes, microwaves and other messes"
-	description_antag = "Can throw it to delay IH if trying to escape, or to get rid of evidence"
+	description_antag = "Can throw it to delay Aegis if trying to escape, or to get rid of evidence"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "soap"
 	w_class = ITEM_SIZE_SMALL

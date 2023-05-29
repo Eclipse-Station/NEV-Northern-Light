@@ -91,7 +91,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/medical/genetics
-	disk_name = "Moebius Scientifica - Genetics"
+	disk_name = "Lazarus Scientifica - Genetics"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	spawn_blacklisted = TRUE	// So genetics has backups
 	license = -1
@@ -103,7 +103,7 @@
 	)
 
 /obj/item/computer_hardware/hard_drive/portable/design/medical/viscera
-	disk_name = "Moebius Scientifica - Viscera"
+	disk_name = "Lazarus Scientifica - Viscera"
 	spawn_tags = SPAWN_TAG_DESIGN_ADVANCED
 	spawn_blacklisted = TRUE	// So viscera has backups
 	license = -1

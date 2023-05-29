@@ -154,10 +154,10 @@
 		if(Proj.height == HEIGHT_LOW)// Bullet is too low
 			return TRUE
 		else if(Proj.height == HEIGHT_HIGH) // Guaranteed hit
-	var/proj_damage = Proj.get_structure_damage()
-		if(proj_damage)
-			hit(proj_damage)
-			..()
+			var/proj_damage = Proj.get_structure_damage()
+			if(proj_damage)
+				hit(proj_damage)
+				..()
 			return TRUE
 
 	var/targetzone = check_zone(Proj.def_zone)

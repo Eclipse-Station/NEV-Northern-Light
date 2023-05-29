@@ -68,7 +68,7 @@
 
 #define ORE_CARBON "o_carbon"
 #define ORE_IRON "o_hematite"
-#define ORE_PLASMA "o_plasma"
+#define ORE_PLASMA "o_phoron"
 #define ORE_SAND "o_sand"
 #define ORE_URANIUM "o_pitchblende"
 #define ORE_DIAMOND "o_diamond"

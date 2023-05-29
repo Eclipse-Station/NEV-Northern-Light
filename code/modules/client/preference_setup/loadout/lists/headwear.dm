@@ -21,7 +21,7 @@
 	path = /obj/item/clothing/head/beret/purple
 
 /datum/gear/head/beret/moebius
-	display_name = "beret, Moebius"
+	display_name = "beret, Lazarus"
 	path = /obj/item/clothing/head/beret/moebius
 	allowed_roles = list(JOBS_SCIENCE, JOBS_MEDICAL)
 
@@ -49,12 +49,12 @@
 	allowed_roles = list("Aegis Commander")
 
 /datum/gear/head/beret/eng
-	display_name = "beret, yellow Technomancer"
+	display_name = "beret, yellow enginering"
 	path = /obj/item/clothing/head/beret/engineering
 	allowed_roles = list(JOBS_ENGINEERING)
 
 /datum/gear/head/beret/eng/old
-	display_name = "beret, orange Technomancer"
+	display_name = "beret, orange engineering"
 	path = /obj/item/clothing/head/beret/engineering/old
 	allowed_roles = list(JOBS_ENGINEERING)
 

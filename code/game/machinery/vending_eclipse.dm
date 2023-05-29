@@ -131,6 +131,7 @@
 					/obj/item/reagent_containers/spray/pepper = 6,
 					/obj/item/gun/projectile/olivaw = 5,
 					/obj/item/gun/projectile/giskard = 5,
+					/obj/item/gun/projectile/colt = 4,
 					/obj/item/gun/energy/gun/martin = 5,
 					/obj/item/gun/energy/gun = 5,
 					/obj/item/gun/energy/lever_action = 2,

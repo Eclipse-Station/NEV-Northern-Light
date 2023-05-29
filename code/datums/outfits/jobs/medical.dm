@@ -61,7 +61,7 @@
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 
 /decl/hierarchy/outfit/job/medical/bioengineer
-	name = OUTFIT_JOB_NAME("Moebius Bio-Engineer")
+	name = OUTFIT_JOB_NAME("Lazarus Bio-Engineer")
 	uniform = /obj/item/clothing/under/rank/bioengineer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/bioengineer
 	l_hand = /obj/item/storage/freezer/medical

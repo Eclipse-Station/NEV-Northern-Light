@@ -41,7 +41,7 @@
 	sort_category = "Accessories"
 
 /datum/gear/accessory/guild
-	display_name = "armband, Aster's Guild"
+	display_name = "armband, free trade union"
 	path = /obj/item/clothing/accessory/armband/cargo
 	allowed_roles = list(JOBS_CARGO)
 
@@ -51,7 +51,7 @@
 	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/accessory/engineering
-	display_name = "armband, Technomancer League"
+	display_name = "armband, engineering"
 	path = /obj/item/clothing/accessory/armband/engine
 	allowed_roles = list(JOBS_ENGINEERING)
 
@@ -65,16 +65,16 @@
 	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/accessory/moebius
-	display_name = "Moebius armband selection"
+	display_name = "lazarus armband selection"
 	path = /obj/item/clothing/accessory/armband/science
 	allowed_roles = list(JOBS_LAZARUS)
 
 /datum/gear/accessory/moebius/New()
     ..()
     var/moebius_armband = list(
-        "Moebius armband, research purple"	 	=	 /obj/item/clothing/accessory/armband/science,
-		"Moebius armband, corporate colors" 	=	 /obj/item/clothing/accessory/armband/moebius,
-        "Moebius armband, biomedical blue" 		=	 /obj/item/clothing/accessory/armband/medgreen
+        "lazarus armband, research purple"	 	=	 /obj/item/clothing/accessory/armband/science,
+		"lazarus armband, corporate colors" 	=	 /obj/item/clothing/accessory/armband/moebius,
+        "lazarus armband, biomedical blue" 		=	 /obj/item/clothing/accessory/armband/medgreen
     )
     gear_tweaks += new /datum/gear_tweak/path(moebius_armband)
 

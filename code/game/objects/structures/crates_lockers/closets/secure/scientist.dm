@@ -20,7 +20,7 @@
 	new /obj/item/clothing/glasses/regular/goggles/clear(src)
 
 /obj/structure/closet/secure_closet/personal/psychiartist
-	name = "moebius psychiartist's locker"
+	name = "psychiartist's locker"
 	req_access = list(access_rd)
 	access_occupy = list(access_psychiatrist)
 	icon_state = "science"
