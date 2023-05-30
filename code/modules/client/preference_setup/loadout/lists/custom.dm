@@ -100,3 +100,8 @@
 	display_name = "Kiras Treasured Synthesizer"
 	path = /obj/item/device/synthesized_instrument/synthesizer/kira
 	ckey = "sfox63"
+
+/datum/gear/custom/sfox63
+	display_name = "Boemus' Befreier"
+	path = /obj/item/gun/projectile/modkit/befreier
+	ckey = "Gman222"
