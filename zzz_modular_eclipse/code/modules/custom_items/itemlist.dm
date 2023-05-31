@@ -139,9 +139,9 @@
 	spawn_blacklisted = TRUE
 
 /obj/item/gun/projectile/avasarala/befreier
-	name = "NL HG Befreier"
+	name = "NL HG .40 Magnum Befreier"
 	desc = "A heavy caliber pistol, the Befreier seems to have been carefully and thoughtfully assembled using the well worn but expertly maintained bits of several other weapons, including rare parts salvaged from otherwise junked weapons. \
-	Firing a full rifle round from a box magazine, this weapon was crafted with the vessels many enemies in mind. \
+	Firing magnum rounds from a box magazine, this weapon was crafted with the vessels many enemies in mind. \
 	The emblem of a compass star above a half cog has been carefully stenciled near the magazine well."
 	icon = 'zzz_modular_eclipse/icons/custom_items/nev_ghun.dmi'
 	icon_state = "befreier"
