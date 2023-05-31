@@ -282,7 +282,7 @@
 	new /obj/item/storage/fancy/candle_box(src)
 	new /obj/item/storage/fancy/candle_box(src)
 	new /obj/item/deck/tarot(src)
-	new /obj/item/talkingcrystal(src)
+	//new /obj/item/talkingcrystal(src) - Eclipse Edit - removed Talking Crystal
 
 /obj/structure/closet/wardrobe/engineering_yellow
 	name = "engineering wardrobe"

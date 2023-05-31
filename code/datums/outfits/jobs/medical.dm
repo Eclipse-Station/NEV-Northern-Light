@@ -57,5 +57,5 @@
 	suit = /obj/item/clothing/suit/armor/paramedic
 	shoes = /obj/item/clothing/shoes/jackboots
 	belt = /obj/item/storage/belt/medical/emt
-	backpack_contents = list(/obj/item/gun/projectile/selfload/moebius = 1, /obj/item/ammo_magazine/pistol/rubber = 1, /obj/item/modular_computer/tablet/moebius/preset = 1, /obj/item/storage/firstaid/adv = 1)
+	backpack_contents = list(/obj/item/gun/projectile/selfload/moebius = 1, /obj/item/ammo_magazine/pistol/rubber = 2, /obj/item/modular_computer/tablet/moebius/preset = 1, /obj/item/storage/firstaid/adv = 1) //Eclipse Edit - added an extra magazine
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL

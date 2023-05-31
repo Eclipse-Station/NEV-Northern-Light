@@ -3,7 +3,7 @@
 // RSpitzer 2020-04-18
 //
 
-#define CURRENT_CONFIG_VERSION 8
+#define CURRENT_CONFIG_VERSION 9
 
 /datum/configuration
 //For things that require delaying until the config loads for things (e.g. the
@@ -59,6 +59,7 @@
 	var/maximum_hug_sanity_restoration = 15		//Hugging will restore sanity up to this amount.
 	var/maximum_hug_sanity_restoration_plushie = 5	//Ditto, but for plushies.
 	var/number_of_exoplanets = 2
+	var/maximum_vermin = 750		//Absolute maximum number of vermin mobs that can exist before they can no longer reproduce.
 
 
 /hook/startup/proc/read_eclipse_config()
@@ -158,6 +159,8 @@
 				config.number_of_exoplanets = text2num(value)
 			if("ship_name")
 				station_name = value
+			if("vermin_limiter")
+				config.maximum_vermin = value
 
 //Version check, warns if the configuration file is updated and the sysop hasn't updated their copy.
 	if(!config.eclipse_config_version)
@@ -194,6 +197,13 @@
 		config.number_of_exoplanets = 0
 		spawn(0)
 			throw EXCEPTION("invalid configuration value: 'EXOPLANETS_TO_GENERATE' requires a positive number or zero as its value. Entry [_temp_data ? "of [_temp_data]" : "of a non-number"] is not valid.")
+
+	if(!isnum(config.maximum_vermin) || config.maximum_vermin < 0)
+		_config_error = TRUE
+		_temp_data = config.maximum_vermin
+		config.maximum_vermin = 250		//A low number, just in case.
+		spawn(0)
+			throw EXCEPTION("invalid configuration value: 'VERMIN_LIMITER' requires a positive number or zero as its value. Entry [_temp_data ? "of [_temp_data]" : "of a non-number"] is not valid.")
 
 	if(_config_error)
 		spawn(25 SECONDS)

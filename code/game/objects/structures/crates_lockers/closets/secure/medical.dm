@@ -78,13 +78,13 @@
 	new /obj/item/device/radio/color/lightblue(src)		//eclipse edit
 	new /obj/item/tool/crowbar(src)
 	new /obj/item/clothing/shoes/reinforced/medical(src)
-	new /obj/item/clothing/head/soft/medical(src)
+	new /obj/item/clothing/head/armor/faceshield/paramedic(src) //Eclipse edit - added trauma armour to lockers
 	new /obj/item/extinguisher/mini(src)
 	new /obj/item/clothing/shoes/reinforced(src)
 	new /obj/item/device/radio/headset/headset_med(src)
 	new /obj/item/taperoll/medical(src)
 	new /obj/item/storage/belt/medical/emt(src)
-	new /obj/item/clothing/suit/storage/hazardvest/black(src)
+	new /obj/item/clothing/suit/armor/paramedic(src) //Eclipse edit - added trauma armour to lockers
 	new /obj/item/storage/pouch/medical_supply(src)
 
 /obj/structure/closet/secure_closet/reinforced/CMO

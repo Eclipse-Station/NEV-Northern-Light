@@ -57,6 +57,16 @@ It focuses on spawning large numbers of moderate-to-weak monsters, and includes 
 		INFESTATION_SLIMES = 5
 	)
 
+// // // BEGIN ECLIPSE EDITS // // //
+// Don't overload us with mobs, here...
+//If we're at capacity, forcing this event will do nothing.
+/datum/event/infestation/can_trigger(forced)
+	if(SSmobs.mob_list.len >= GLOBAL_MOB_WARNING_LIMIT)
+		return FALSE
+
+	return TRUE
+// // // END ECLIPSE EDITS // // //
+
 /datum/event/infestation/setup()
 	announceWhen = rand(20,80) //Very large random window for announcement,
 	num_areas = 2

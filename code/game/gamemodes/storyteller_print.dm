@@ -244,17 +244,23 @@
 				message_admins("Event \"[evt.id]\" was [evt.enabled?"allowed":"restricted"] to spawn by [key_name(usr)]")
 				build_event_pools()
 			if(href_list["ev_spawn"])
+	// // // BEGIN ECLIPSE EDITS // // //
+	//Allow admins to attempt to bypass spawning requirements.
+				var/result
 				//When in debug mode, we pass in the user.
 					//If antag spawning fails, they will be spammed with text explaining why
 				if (!evt.can_trigger(href_list["severity"], debug_mode? usr : null))
 					var/answer = alert(usr, "\"[evt.id]\" is not allowed to trigger.\n\
 					To find out why, turn on debug mode in the storyteller panel and try again. \n\
-					You can also try to bypass the requirement and force it anyway, but this is unlikely to work\n \
+					You can also try to bypass the requirement and force it anyway, but this won't always work and may cause issues or undesirable behavior, especially on role-based events (e.g. turning an AI malf when there is no AI present).\n \
 					 Would you like to force it anyway?.", "Force Event? ", "yes", "no")
 					if (answer == "no")
 						return
-
-				var/result = evt.create(href_list["severity"])
+					else
+						result = evt.create(href_list["severity"], TRUE)		//Attempt to force-spawn it.
+				else
+					result = evt.create(href_list["severity"])		//We aren't attempting to force it to spawn, so we don't need the force-spawn flag.
+	// // // END ECLIPSE EDITS // // //
 				if (result)
 					message_admins("Event \"[evt.id]\" was successfully force spawned by [key_name(usr)]")
 				else

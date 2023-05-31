@@ -22,6 +22,16 @@
 	var/spawncount = 1
 
 
+// // // BEGIN ECLIPSE EDITS // // //
+// Don't overload us with mobs, here...
+//If we're at capacity, forcing this event will do nothing.
+/datum/event/spider_infestation/can_trigger(forced)
+	if(SSmobs.mob_list.len >= GLOBAL_MOB_WARNING_LIMIT)
+		return FALSE
+
+	return TRUE
+// // // END ECLIPSE EDITS // // //
+
 /datum/event/spider_infestation/setup()
 
 	//Randomised start times.

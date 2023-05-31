@@ -62,16 +62,18 @@
 	//Tags that describe what the event does. See __defines/storyteller.dm for a list
 	var/list/tags = list()
 
-
+// // // BEGIN ECLIPSE EDITS // // //
+//Event force spawning.
 
 //Check if we can trigger
-/datum/storyevent/proc/can_trigger(var/severity, var/mob/report)
+/datum/storyevent/proc/can_trigger(var/severity, var/mob/report, var/forced = FALSE)
 	.=TRUE
 	if (!enabled)
-		if (report) to_chat(report, SPAN_NOTICE("Failure: The event is disabled"))
+		if (report)
+			to_chat(report, SPAN_NOTICE("Failure: The event is disabled"))
 		return FALSE
 
-	if (ocurrences_max > 0 && ocurrences >= ocurrences_max)
+	if (ocurrences_max > 0 && ocurrences >= ocurrences_max && !forced)
 		if (report) to_chat(report, SPAN_NOTICE("Failure: The event has already triggered the maximum number of times for a single round"))
 		return FALSE
 
@@ -90,12 +92,13 @@
 		qdel(E)
 	return
 
+
 /datum/storyevent/proc/get_special_weight(var/weight)
 	return weight
 
 
-/datum/storyevent/proc/create(var/severity)
-	if(trigger_event(severity))
+/datum/storyevent/proc/create(var/severity, var/forced = FALSE)
+	if(trigger_event(severity, forced))		// // // END ECLIPSE EDITS // // //
 		ocurrences++
 		last_trigger_time = world.time
 		if(processing)
@@ -109,12 +112,17 @@
 	if (GLOB.storyteller)
 		GLOB.storyteller.modify_points(get_cost(type)*(1 - completion), type)
 
-/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE)
+
+// // // BEGIN ECLIPSE EDITS // // //
+// Allows for force-spawning of events.
+/datum/storyevent/proc/trigger_event(var/severity = EVENT_LEVEL_MUNDANE, var/_forced = FALSE)
 	if (event_type)
 		var/datum/event/E = new event_type(src, severity)
-		if (!E.can_trigger())
+		if (!E.can_trigger(forced = _forced))
 			return FALSE
 		//If we get here, the event is fine to fire!
+
+// // // END ECLIPSE EDITS // // //
 
 		//And away it goes.
 		E.Initialize()

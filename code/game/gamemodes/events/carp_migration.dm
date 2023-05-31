@@ -18,6 +18,16 @@
 	var/list/viable_turfs = list()
 	var/list/spawned_carp = list()
 
+// // // BEGIN ECLIPSE EDITS // // //
+// Don't overload us with mobs, here...
+//If we're at capacity, forcing this event will do nothing.
+/datum/event/carp_migration/can_trigger(forced)
+	if(SSmobs.mob_list.len >= (GLOBAL_MOB_WARNING_LIMIT - 260))		//A LOT oof carp spawn in the severe one...
+		return FALSE
+
+	return TRUE
+// // // END ECLIPSE EDITS // // //
+
 /datum/event/carp_migration/setup()
 	//We'll pick space tiles which have windows nearby
 	//This means that carp will only be spawned in places where someone could see them

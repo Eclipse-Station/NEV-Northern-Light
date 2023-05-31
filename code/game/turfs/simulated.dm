@@ -13,7 +13,7 @@
 	nitrogen = MOLES_N2STANDARD
 	var/to_be_destroyed = 0 //Used for fire, if a melting temperature was reached, it will be destroyed
 	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
-
+	var/dirt //Eclipse Edit - adds a war for making floors dirty
 
 
 /turf/simulated/New()
@@ -21,7 +21,7 @@
 	if(istype(loc, /area/eris/neotheology))
 		holy = 1
 	levelupdate()
-
+	dirt = rand(0, 40) // Eclipse Edit - Has the var assign a random number, so floors will get dirty semi-randomly
 
 
 /turf/simulated/Entered(atom/A, atom/OL)
@@ -33,6 +33,11 @@
 		var/mob/living/M = A
 		if(M.lying)
 			return ..()
+		dirt++ //Begin Eclipse Edit - Floors get dirty as they're walked on
+		if (dirt > 40)
+			dirt = 0
+			if (!locate(/obj/effect/decal/cleanable/dirt, src))
+				new /obj/effect/decal/cleanable/dirt(src) 		//End of Eclipse Edit
 
 		// Ugly hack :( Should never have multiple plants in the same tile.
 		var/obj/effect/plant/plant = locate() in contents

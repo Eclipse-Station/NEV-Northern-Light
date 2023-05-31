@@ -21,7 +21,9 @@
 // // // BEGIN ECLIPSE EDITS // // //
 //Hivemind should only start when there's more than 3 players total, or more than 6 if none of the players are command, engineering, or security.
 //This code is called in /datum/storyevent/.../can_trigger(), so we're safe putting this here.
-/datum/event/hivemind/can_trigger()
+/datum/event/hivemind/can_trigger(forced)
+	if(forced)
+		return TRUE
 	var/crew = 0
 	var/engis = 0
 	var/sec = 0
