@@ -428,7 +428,7 @@
 /obj/machinery/hivemind_machine/node/proc/gift()
 	var/gift = prob(GLOB.hive_data_float["core_oddity_drop_chance"]) ? pick(reward_oddity) : pick(reward_item)
 	new gift(get_turf(loc))
-		state("leaves behind an item!")
+	state("leaves behind an item!")
 
 /obj/machinery/hivemind_machine/node/proc/core()
 	state("leaves behind a weird looking datapad!")

@@ -809,7 +809,7 @@ var/list/rank_prefix = list(\
 
 
 /mob/living/carbon/human/proc/phaze_trough()
-	set name = "Phaze"
+	set name = "Phase"
 	set category = "Abilities"
 
 	if(stat)
@@ -833,7 +833,7 @@ var/list/rank_prefix = list(\
 				break
 
 	if(bingo)
-		to_chat(src, SPAN_NOTICE("You begin to phaze trough \the [bingo]"))
+		to_chat(src, SPAN_NOTICE("You begin to phase trough \the [bingo]"))
 		var/target_y = 0
 		var/target_x = 0
 		switch(dir)
@@ -1540,13 +1540,13 @@ var/list/rank_prefix = list(\
 	return ..()
 
 /mob/living/carbon/human/verb/pull_punches()
-	set name = "Hold your attacks back"
+	set name = "Pull Punches"
 	set desc = "Try not to hurt them."
 	set category = "IC"
 
 	if(stat) return
 	holding_back = !holding_back
-	to_chat(src, SPAN_NOTICE("You are now [holding_back ? "holding back your attacks" : "not holding back your attacks"]."))
+	to_chat(src, SPAN_NOTICE("You are now [holding_back ? "holding back when you punch" : "punching at full force"]."))
 	return
 
 /mob/living/carbon/human/verb/toggle_dodging()

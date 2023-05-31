@@ -138,7 +138,7 @@
 						continue
 					drop_from_inventory(r_hand)
 
-				drop_from_inventory(E)
+			drop_from_inventory(E)
 
 			if(E.limb_efficiency <= 50)
 				emote("me", 1, "drops what they were holding in their [E.name], [pick("unable to grasp it", "unable to feel it", "too weak to hold it")]!")

@@ -120,10 +120,10 @@
 
 /obj/item/clothing/accessory/badge/inspector
 	name = "Inspector's badge"
-	desc = "A leather-backed silver badge displaying the crest of the Ironhammer Inspectors."
+	desc = "A leather-backed silver badge displaying the crest of the Aegis Inspectors."
 	icon_state = "inspectorbadge"
 	item_state = "inspectorbadge"
-	badge_string = "Ironhammer Investigation Agency"
+	badge_string = "Aegis Investigation Agency"
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/accessory/badge/marshal

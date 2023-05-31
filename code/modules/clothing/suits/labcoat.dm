@@ -33,7 +33,7 @@
 	icon_closed = "labcoat_chem"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/bioengineer
-	name = "moebius bio-engineer labcoat"
+	name = "bio-engineer labcoat"
 	desc = "A suit that protects against minor chemical spills. Has a red stripe on the shoulder."
 	icon_state = "labcoat_vir_open"
 	icon_open = "labcoat_vir_open"

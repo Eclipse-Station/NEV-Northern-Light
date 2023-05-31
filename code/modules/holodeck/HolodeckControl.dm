@@ -342,6 +342,8 @@
 
 /obj/machinery/computer/HolodeckControl/Exodus/New()
 	..()
+	// // // BEGIN ECLIPSE EDITS // // //
+/*		//Eclipse removal: Not currently implemented.
 	supported_programs = list(
 	"Texas Saloon"		= "texas",
 	"Space Bar"			= "spacebar",
@@ -352,3 +354,24 @@
 	restricted_programs = list(
 	"Industrial Arenas"		= "industrial_arena"
 	)
+*/
+	supported_programs = list(
+	"Empty Court" 		= "emptycourt",
+	"Basketball Court" 	= "basketball",
+	"Thunderdome Court"	= "thunderdomecourt",
+	"Boxing Ring"		= "boxingcourt",
+	"Beach" 			= "beach",
+	"Desert" 			= "desert",
+	"Space" 			= "space",
+	"Picnic Area" 		= "picnicarea",
+	"Snow Field" 		= "snowfield",
+	"Theatre" 			= "theatre",
+	"Meeting Hall" 		= "meetinghall",
+	"Courtroom" 		= "courtroom"
+	)
+	
+	restricted_programs = list(
+	"Atmospheric Burn Simulation" = "burntest",
+	"Wildlife Simulation" = "wildlifecarp"
+	)
+	// // // END ECLIPSE EDITS // // //

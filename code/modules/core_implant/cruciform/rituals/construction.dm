@@ -376,7 +376,7 @@ GLOBAL_LIST_INIT(nt_constructs, init_nt_constructs())
 	build_time = 8 SECONDS
 
 /datum/nt_blueprint/machinery/altar
-	name = "NeoTheology's altar"
+	name = "Altar"
 	build_path = /obj/machinery/optable/altar
 	materials = list(
 		/obj/item/stack/material/steel = 10,

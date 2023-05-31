@@ -644,7 +644,7 @@
 /datum/ritual/cruciform/priest/acolyte/buy_item
 	name = "Order armaments"
 	phrase = "Et qui non habet, vendat tunicam suam et emat gladium."
-	desc = "Allows you to spend armament points to unlock a NT disk."
+	desc = "Allows you to spend armament points to unlock a NT disk."		//Eclipse note: Possible NeoTheo reference, flagging but leaving in.
 	success_message = "Your prayers have been heard."
 	fail_message = "Your prayers have not been answered."
 	power = 20

@@ -6,7 +6,7 @@ var/list/disciples = list()
 	name = "Mekhanite Cruciform"
 	icon_state = "cruciform_green"
 	desc =  "Soul holder for every disciple. With the proper rituals, this can be implanted to induct a believer into the very heart of Mekhane."
-	description_info = "The cruciform ensures genetic purity, it will purge any cybernetic attachments, or mutation that are not part of the standard human genome"
+//	description_info = "The cruciform ensures genetic purity, it will purge any cybernetic attachments, or mutation that are not part of the standard human genome"
 	matter = list(MATERIAL_BIOMATTER = 10, MATERIAL_PLASTEEL = 5, MATERIAL_GOLD = 2)
 	allowed_organs = list(BP_CHEST)
 	implant_type = /obj/item/implant/core_implant/cruciform

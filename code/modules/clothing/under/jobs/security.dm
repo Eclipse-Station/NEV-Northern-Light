@@ -10,14 +10,14 @@
  */
 
 /obj/item/clothing/under/security_formal
-	name = "ironhammer formal uniform"
-	desc = "A navy blue suit. Often used by Ironhammer personnel, for shooting with style."
+	name = "Aegis Operative formal uniform"
+	desc = "A navy blue suit. Often used by Aegis personnel, for shooting with style."
 	icon_state = "ih_formal"
 	item_state = "ih_formal"
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/under/rank/warden
-	desc = "The uniform worn by Ironhammer Sergeants, the sight of it is often followed by shouting. It has\"Gunnery Sergeant\" rank pins on the shoulders."
+	desc = "The uniform worn by Aegis Sergeants, the sight of it is often followed by shouting. It has\"Gunnery Sergeant\" rank pins on the shoulders."
 	name = "Gunnery Sergeant jumpsuit"
 	icon_state = "warden"
 	item_state = "r_suit"
@@ -37,14 +37,14 @@
 
 /obj/item/clothing/under/rank/security
 	name = "Aegis Operative jumpsuit"
-	desc = "The standard issue uniform of Ironhammer grunts all over the sector."
+	desc = "The standard issue uniform of Aegis grunts all over the sector."
 	icon_state = "security"
 	item_state = "ba_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/security/turtleneck
-	name = "Ironhammer Operative's turtleneck"
-	desc = "Same as the standard Ironhammer uniform but with a sleek black military style sweater. Best used in cold environments"
+	name = "Aegis Operative's turtleneck"
+	desc = "Same as the standard Aegis uniform but with a sleek black military style sweater. Best used in cold environments"
 	icon_state = "securityrturtle"
 
 /obj/item/clothing/under/rank/security/skirt
@@ -55,7 +55,7 @@
 
 /obj/item/clothing/under/rank/medspec
 	name = "Medical Specialist jumpsuit"
-	desc = "An Ironhammer uniform modified for use by medics. Comes with a white shirt and medical insignia. It has \"Specialist\" rank pins on the shoulders."
+	desc = "An Aegis uniform modified for use by medics. Comes with a white shirt and medical insignia. It has \"Specialist\" rank pins on the shoulders."
 	icon_state = "medspec"
 	item_state = "ba_suit"
 	siemens_coefficient = 0.8

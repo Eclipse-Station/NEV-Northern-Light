@@ -1,8 +1,0 @@
-author: Valanthe500
-delete-after: true
-changes:
-  - rscadd: Added new janitorial closets
-  - rscadd: added a new disposal chute from security disposals into the main disposal
-      line.
-  - rscdel: Removed a bunch of lights from maintenance,
-  - bugfix: fixes Neohongo - now mapped to "n"
