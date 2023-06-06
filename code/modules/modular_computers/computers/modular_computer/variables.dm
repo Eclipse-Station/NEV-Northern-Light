@@ -4,7 +4,7 @@
 	name = "Modular Computer"
 	desc = "A modular computer. You shouldn't see this."
 	description_info = "Can have its component or battery switched with a screwdriver."
-	description_antag = "Can be emagged for acces to illegal applications."
+	description_antag = "Can be emagged for access to illegal applications." //Eclipse Edit - fixed typo
 	spawn_blacklisted = TRUE
 	bad_type = /obj/item/modular_computer
 	var/enabled = 0											// Whether the computer is turned on.

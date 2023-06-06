@@ -1,13 +1,12 @@
 // Asters Guild faction posters
 /datum/poster/asters/asterite
-	name = "Voyage of The Asterites"
-	desc = "A flourished bit of symbolism representing the first Asterite's great exodus from Humanity's origin, now posed to to inherit the stars themselves. \
-	At least, that's what the small text says."
+	name = "Voyage of The Merchants" //Eclipse Edit - Lore compliance
+	desc = "A flourished bit of symbolism representing the first Free Trade Union's great exodus from Humanity's origin, now posed to to inherit the stars themselves. At least, that's what the small text says." //Eclipse Edit - Lore compliance
 	icon_state = "asters_asterite"
 
 /datum/poster/asters/blurb
-	name = "The Asterite's Message"
-	desc = "A poster labeling the good will and intentions of The Aster's Guild under Hanseatic principles of free will and enterprise."
+	name = "The Merchant's Promise" //Eclipse Edit - Lore compliance
+	desc = "A poster labeling the good will and intentions of The Trade Union under SolGov principles of free will and enterprise." //Eclipse Edit - Lore compliance
 	icon_state = "asters_blurb"
 
 /datum/poster/asters/social_pyramid
@@ -16,8 +15,8 @@
 	icon_state = "asters_social_pyramid"
 
 /datum/poster/asters/cev_eris
-	name = "CEV Eris"
-	desc = "A poster celebrating the maiden voyage of the Cosmic Exploration Vessel \"Eris\"."
+	name = "NEV Northern Light" //Eclipse Edit - Lore compliance
+	desc = "A poster celebrating the maiden voyage of the NanoTrasen Exploration Vessel \"Northern Light\"." //Eclipse Edit - Lore compliance
 	icon_state = "asters_cev_eris"
 
 /datum/poster/asters/rock_and_stone
