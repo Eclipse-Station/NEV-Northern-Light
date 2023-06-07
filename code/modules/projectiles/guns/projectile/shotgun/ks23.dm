@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/pump/ks
-	name = "Excelsior SG KS-23"
+	name = "\improper EX SG KS-23" //Eclipse Edit - added \improper & abbreviated excelsior
 	desc = "Karabin Spetsialniy, designed by Excelsior for cheap crowd control for their agents, made with reused anti-aircraft barrels."
 	icon = 'icons/obj/guns/projectile/ks23.dmi'
 	icon_state = "ks23"
@@ -18,4 +18,4 @@
 	can_dual = FALSE
 	saw_off = FALSE
 	spawn_blacklisted = TRUE
-	serial_type = "Excelsior"
+	serial_type = "EX"

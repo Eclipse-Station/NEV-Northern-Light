@@ -195,7 +195,7 @@
 	barrelvars = list(/obj/item/part/gun/modular/barrel/srifle/steel)
 
 /obj/item/gun/projectile/boltgun/fs/civilian
-	name = "FS BR .20 \"Arasaka\""
+	name = "\improper FS BR .20 \"Arasaka\"" //Eclipse Edit - added \improper
 	desc = "Weapon for hunting, or endless coastal warfare. \
 			A replica of a replica, this simple, low-cost bolt-action rifle offers superb armor-piercing short of anti-materiel rounds. \
 			This is mounted with a short scope, for ranges mildly longer than a maintenance tunnel."
@@ -210,7 +210,7 @@
 	price_tag = 1000
 
 /obj/item/gun/projectile/boltgun/handmade
-	name = "HM BR \"Riose\""
+	name = "\improper HM BR .30 \"Riose\"" //Eclipse Edit - gun names standardized
 	desc = "A handmade bolt action rifle, made from junk and some spare parts."
 	icon = 'icons/obj/guns/projectile/riose.dmi'
 	icon_state = "boltgun_hand"
@@ -251,7 +251,7 @@
 			return
 	..()
 /obj/item/part/gun/frame/riose
-	name = "Riose frame"
+	name = "\improper Riose frame" //Eclipse Edit - added \improper
 	desc = "A Riose bolt-action rifle frame. For hunting or endless maintenance warfare."
 	icon_state = "frame_riose"
 	matter = list(MATERIAL_STEEL = 5)

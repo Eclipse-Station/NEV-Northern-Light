@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/modular/ak // Frame
-	name = "\"Kalash\""
+	name = "\improper \"Kalash\"" //Eclipse Edit - added \improper
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 		 This is a copy of an ancient semi-automatic rifle. If it won't fire, percussive maintenance should get it working again. \
 		 It is known for its easy maintenance, and low price."
@@ -30,20 +30,20 @@
 	var/stock_type = (PARTMOD_FOLDING_STOCK & spriteTags) ? "AR" : "Car"
 	if(grip_type)
 		switch(grip_type)
-			if("wood")
-				return "FS [stock_type] [caliber] \"Vipr\""
+			if("wood") // Begin Eclipse Edit - added \improper to all of these
+				return "\improper FS [stock_type] [caliber] \"Vipr\""
 			if("black")
-				return "BM [stock_type] [caliber] \"MPi-K\"" // Name of East-German AKs
+				return "\improper BM [stock_type] [caliber] \"MPi-K\"" // Name of East-German AKs
 			if("rubber")
-				return "FS [stock_type] [caliber] \"Venger\""
+				return "\improper FS [stock_type] [caliber] \"Venger\""
 			if("excelsior")
-				return "Excelsior [stock_type] [caliber] \"Kalashnikov\""
+				return "\improper EX [stock_type] [caliber] \"Kalashnikov\"" // Eclipse Edit - Excelsior abbreviated
 			if("serbian")
-				return "SA [stock_type] [caliber] \"Krinkov\""
+				return "\improper SA [stock_type] [caliber] \"Krinkov\""
 			if("makeshift")
-				return "MS [stock_type] [caliber] \"[capitalize(english_list(shuffle(list("ka", "lash", "ni", "kov")), and_text = "", comma_text = "", final_comma_text = ""))]\""
+				return "\improper HM [stock_type] [caliber] \"[capitalize(english_list(shuffle(list("ka", "lash", "ni", "kov")), and_text = "", comma_text = "", final_comma_text = ""))]\"" //Eclipse Edit - HM for Handmade
 	else
-		return "Car [caliber] \"Kalash\"" // No nikov
+		return "\improper Car [caliber] \"Kalash\"" // No nikov | End Eclipse Edit
 
 /obj/item/gun/projectile/automatic/modular/ak/ironhammer_securities // Total points: 4, contains all the bits that make an IH ak an IH ak
 	gun_parts = list(/obj/item/part/gun/modular/mechanism/autorifle/heavy, /obj/item/part/gun/modular/barrel/lrifle, /obj/item/part/gun/modular/grip/rubber, /obj/item/part/gun/modular/stock)
@@ -78,4 +78,4 @@
 	init_recoil = RIFLE_RECOIL(1.25) // Placeholder debuff for makeshift production
 
 /obj/item/gun/projectile/automatic/modular/ak/makeshift/get_initial_name()
-		return "MS [caliber] \"Sermak\"" // Unlike normal AKs, the makeshift variant's frame is easily distinguishable at closer inspection. The name reflects this.
+		return "\improper HM [caliber] \"Sermak\"" // Unlike normal AKs, the makeshift variant's frame is easily distinguishable at closer inspection. The name reflects this.

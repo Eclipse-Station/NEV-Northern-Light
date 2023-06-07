@@ -34,7 +34,7 @@
 	saw_off = TRUE
 	sawn = /obj/item/gun/projectile/shotgun/doublebarrel/sawn
 	gun_parts = list(/obj/item/part/gun/frame/doublebarrel = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/shotgun = 1, /obj/item/part/gun/modular/barrel/shotgun = 1)
-	serial_type = "AGM" // asters guild manufacturing
+	serial_type = "CA" // Eclipse Edit - Chiropteran Arms
 
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet

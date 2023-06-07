@@ -117,7 +117,7 @@
 	fire_sound = 'sound/weapons/energy/incinerate.ogg'
 	fire_delay = 6
 	charge_cost = 15
-	serial_type = "ML"
+	serial_type = "NT" //Eclipse Edit - lore compliance
 	init_recoil = HANDGUN_RECOIL(1)
 	matter = list(MATERIAL_PLASTEEL = 10, MATERIAL_PLASTIC = 8, MATERIAL_PLASMA = 2, MATERIAL_SILVER = 3, MATERIAL_URANIUM = 3)
 

@@ -47,8 +47,8 @@
 	serial_type = "NT"
 
 /obj/item/gun/energy/stunrevolver/moebius
-	name = "LF SREV S \"Thor\""	//Eclipse Edit - gun names standardized, and renamed
+	name = "\improper LF SREV S \"Thor\""	//Eclipse Edit - gun names standardized, and renamed
 	desc = "Also know as stunrevolver. A Lazarus copy of the older and less precise NanoTrasen solution for non-lethal takedowns. This gun has smaller capacity in exchange for S-cells use."
 	icon = 'icons/obj/guns/energy/stunrevolver_moebius.dmi'
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_STEEL = 6, MATERIAL_SILVER = 2, MATERIAL_PLASTIC = 5)
-	serial_type = "ML"
+	serial_type = "LF" //Eclipse Edit - lore compliance

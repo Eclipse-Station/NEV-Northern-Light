@@ -1,5 +1,5 @@
 /obj/item/gun/energy/lasersmg
-	name = "HM Disco Vazer \"Lasblender\""
+	name = "\improper HM Disco Vazer \"Lasblender\""
 	desc = "This conversion of the \"Atreides\" enables it to shoot lasers. Unlike in other laser weapons, the process of creating a laser is based on a chain reaction of localized micro-explosions.\
 			While this method is charge-effective, the chain-reaction makes the gun always fire in bursts. \
 			Sometimes jokingly called the \"Disco Vazer\"."
@@ -19,7 +19,7 @@
 	damage_multiplier = 0.35 //makeshift laser
 	penetration_multiplier = 1
 	projectile_type = /obj/item/projectile/beam
-	init_offset = 0 
+	init_offset = 0
 	suitable_cell = /obj/item/cell/medium
 	charge_cost = 25 // 4 bursts with a 800m cell
 

@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/type_21
-	name = "OS Type 21 SG \"Yaoguai\"" //Demon
+	name = "\improper OS SG \"Type 21: Yaoguai\"" //Demon | Eclipse Edit - added \improper & standardized gun name
 	desc = "An early model shotgun used by One Star. It is compact with a sawn down barrel and no stock, and designed for police use in megacities. Its recoil kicks badly but the stopping power is worth it. Its fed from drum magazines"
 	icon = 'icons/obj/guns/projectile/os/type_21.dmi'
 	icon_state = "type_21"

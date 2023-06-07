@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver/handmade
-	name = "HM REV \"Cartel\""
+	name = "\improper HM REV .40 Magnum \"Cartel\"" //Eclipse Edit - added \improper & standardized gun names
 	desc = "A handmade revolver built with junk, duct tape and dubious engineering skills. Will it even work?"
 	icon = 'icons/obj/guns/projectile/handmade_revolver.dmi'
 	icon_state = "handmade_revolver"
@@ -38,7 +38,7 @@
 			return
 	..()
 /obj/item/part/gun/frame/revolver_handmade
-	name = "Handmade revolver frame"
+	name = "handmade revolver frame"
 	desc = "A handmade revolver. The second most ancient gun design, made with scrap and spit."
 	icon_state = "frame_revolver_hm"
 	matter = list(MATERIAL_STEEL = 5)

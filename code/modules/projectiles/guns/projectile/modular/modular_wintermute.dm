@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/automatic/modular/wintermute // Frame
-	name = "\"Wintermute\""
-	desc = "A high end military grade assault rifle, designed as a modern ballistic infantry weapon. Primarily used by and produced for IH troops. Uses IH .20 Rifle magazines. \
-			The design was made to be able to fit long magazine alongside the standard ones."
+	name = "\improper \"Wintermute\"" //Eclipse Edit - added \improper
+	desc = "A high end military grade assault rifle, designed as a modern ballistic infantry weapon. Primarily used by and produced for Aegis troops. Uses .20 Rifle magazines. \
+			The design was made to be able to fit long magazine alongside the standard ones." //Eclipse Edit - lore compliance
 	icon = 'icons/obj/guns/projectile/modular/wintermute.dmi'
 	w_class = ITEM_SIZE_BULKY
 	force = WEAPON_FORCE_PAINFUL
@@ -32,20 +32,20 @@
 /obj/item/gun/projectile/automatic/modular/wintermute/get_initial_name()
 	if(grip_type)
 		switch(grip_type)
-			if("wood")
-				return "FS AR [caliber] \"Fall\""
+			if("wood") // Begin Eclipse Edit - added \improper to all of these
+				return "\improper FS AR [caliber] \"Fall\""
 			if("black")
-				return "BM AR [caliber] \"Wintersun\""
+				return "\improper BM AR [caliber] \"Wintersun\""
 			if("rubber")
-				return "FS AR [caliber] \"Wintermute\""
+				return "\improper FS AR [caliber] \"Wintermute\""
 			if("excelsior")
-				return "Excelsior AR [caliber] \"Commute\""
+				return "\improper EX AR [caliber] \"Commute\"" //Eclipse Edit - abbreviated Excelsior
 			if("serbian")
-				return "SA AR [caliber] \"Mutiny\""
+				return "\improper SA AR [caliber] \"Mutiny\""
 			if("makeshift")
-				return "MS AR [caliber] \"Springloader\""
+				return "\improper HM AR [caliber] \"Springloader\"" //Eclipse Edit - HM for Handmade
 	else
-		return "AR [caliber] \"Winter\""
+		return "\improper AR [caliber] \"Winter\"" //End Eclipse Edit
 
 /obj/item/gun/projectile/automatic/modular/wintermute/finished
 	gun_parts = list(/obj/item/part/gun/modular/mechanism/autorifle/determined, /obj/item/part/gun/modular/barrel/srifle, /obj/item/part/gun/modular/grip/rubber, /obj/item/part/gun/modular/stock)

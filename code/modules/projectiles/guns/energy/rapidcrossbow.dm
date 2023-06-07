@@ -1,5 +1,5 @@
 /obj/item/gun/energy/rxd
-	name = "Rapid Crossbow Device"
+	name = "\improper Rapid Crossbow Device"
 	desc = "A hacked and heavily modified RCD. In exchange for losing versitility, it can flash forge its own ammunition using cell charges."
 	icon = 'icons/obj/guns/energy/rapidcrossbow.dmi' // NOTE! It lacks a back and onsuit sprites and requiers one now
 	icon_state = "rxb_empty"

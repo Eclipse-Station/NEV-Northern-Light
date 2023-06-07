@@ -81,8 +81,8 @@
 	damage_multiplier = 1
 	penetration_multiplier = -0.2	//Not quite as good as real syndi
 	gun_parts = list(/obj/item/part/gun/frame/c20r/moebius = 1, /obj/item/part/gun/modular/grip/black = 1, /obj/item/part/gun/modular/mechanism/smg = 1, /obj/item/part/gun/modular/barrel/pistol = 1)
-	serial_type = "ML"
-	
+	serial_type = "LF" //Eclipse Edit - lore compliance
+
 	simplemob_bonus_damage_multiplier = 0.15 //Eclipse edit: Balancing.
 
 /obj/item/part/gun/frame/c20r/moebius

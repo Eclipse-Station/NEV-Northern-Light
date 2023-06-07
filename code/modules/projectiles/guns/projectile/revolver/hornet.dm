@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver/hornet
-	name = "OR REV .20 \"LBR-8 Hornet\""
+	name = "\improper OSDF REV .20 \"LBR-8 Hornet\"" //Eclipse Edit - added \improper
 	desc = "An attempt by Oberth to replicate lost syndicate tech. In order to achieve satisfactory ballistic \
 			performance, it sports an usually long barrel and overpressurized chamber. Uses .20 rifle rounds."
 	icon = 'icons/obj/guns/projectile/hornet.dmi'
@@ -23,7 +23,7 @@
 	serial_type = "OR"
 
 /obj/item/part/gun/frame/hornet
-	name = "Hornet frame"
+	name = "\improper Hornet frame" //Eclipse Edit - added \improper
 	desc = "A Hornet revolver frame. Long, heavy, and hotloaded."
 	icon_state = "frame_hornet"
 	resultvars = list(/obj/item/gun/projectile/revolver/hornet)

@@ -176,7 +176,7 @@ var/list/disciples = list()
 	if(activate())
 		return TRUE
 
-/obj/item/implant/core_implant/cruciform/proc/remove_cyber()
+/* /obj/item/implant/core_implant/cruciform/proc/remove_cyber() Begin Eclipse Edit: our cruciforms don't reject augmentations
 	if(!wearer)
 		return
 	for(var/obj/O in wearer)
@@ -218,7 +218,7 @@ var/list/disciples = list()
 				wearer.visible_message(SPAN_NOTICE("<b>\The [AM]</b> rips through \the [wearer]'s flesh."), SPAN_NOTICE("<b>\The [AM]</b> rips through your flesh. Your [I.name] hurts."))
 	if(ishuman(wearer))
 		var/mob/living/carbon/human/H = wearer
-		H.update_implants()
+		H.update_implants() End of Eclipse Edit */
 
 /obj/item/implant/core_implant/cruciform/proc/update_data()
 	if(!wearer)

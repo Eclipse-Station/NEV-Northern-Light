@@ -13,7 +13,7 @@
 	fire_delay = 1
 	twohanded = TRUE
 	init_recoil = RIFLE_RECOIL(1)
-	serial_type = "ML"
+	serial_type = "LF" //Eclipse Edit - lore compliance
 	item_charge_meter = TRUE
 	charge_meter = TRUE
 

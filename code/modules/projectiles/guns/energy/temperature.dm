@@ -18,7 +18,7 @@
 	zoom_factors = list(2)
 	gun_parts = list(/obj/item/stack/material/steel = 4)
 	init_recoil = HANDGUN_RECOIL(1)
-	serial_type = "ML"
+	serial_type = "LF" //Eclipse Edit - lore compliance
 
 
 /obj/item/gun/energy/temperature/Initialize()

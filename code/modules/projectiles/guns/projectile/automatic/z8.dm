@@ -24,7 +24,7 @@
 	penetration_multiplier = 0.1
 	zoom_factors = list(0.2)
 	gun_tags = list(GUN_FA_MODDABLE)
-	
+
 	simplemob_bonus_damage_multiplier = 0.1 //Eclipse edit: Balancing.
 
 	init_firemodes = list(
@@ -37,8 +37,7 @@
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
 	gun_parts = list(/obj/item/part/gun/frame/z8 = 1, /obj/item/part/gun/modular/grip/black = 1, /obj/item/part/gun/modular/mechanism/autorifle/heavy = 1, /obj/item/part/gun/modular/barrel/srifle = 1)
-	serial_type = "OR"
-
+	serial_type = "OSDF" //Eclipse Edit - lore compliance
 /obj/item/gun/projectile/automatic/z8/Initialize()
 	. = ..()
 	launcher = new(src)

@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/handmade_pistol
-	name = "HM HG \"Bubba\""
+	name = "\improper HM HG \"Bubba\"" //Eclipse Edit - added \improper
 	desc = "Looks unreliable. May blow up in your hands."
 	icon = 'icons/obj/guns/projectile/hm_pistol.dmi'
 	icon_state = "hm_pistol"
@@ -25,7 +25,7 @@
 	var/jam_chance = 15
 
 /obj/item/part/gun/frame/handmade_pistol
-	name = "Handmade pistol frame"
+	name = "handmade pistol frame"
 	desc = "A handmade pistol frame. It is, without a doubt, absolute trash."
 	icon_state = "frame_pistol_hm"
 	matter = list(MATERIAL_STEEL = 5)

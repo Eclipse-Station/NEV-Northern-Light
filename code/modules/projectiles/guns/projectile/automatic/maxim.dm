@@ -39,7 +39,7 @@
 	wield_delay = 1 SECOND
 	wield_delay_factor = 0.9 // 90 vig
 	gun_parts = list(/obj/item/part/gun/frame/maxim = 1, /obj/item/part/gun/modular/grip/excel = 1, /obj/item/part/gun/modular/mechanism/machinegun = 1, /obj/item/part/gun/modular/barrel/lrifle = 1)
-	serial_type = "Excelsior"
+	serial_type = "EX" //Eclipse Edit - abbreviated serial
 
 /obj/item/gun/projectile/automatic/maxim/update_icon()
 	..()
