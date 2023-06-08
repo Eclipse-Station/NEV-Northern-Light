@@ -197,29 +197,30 @@ var/list/tts_seeds = list()
 				if("<")
 					character_sequence_end = ">"
 
-				// NT to NeoTheology
+				//Begin Eclipse Edit - lore compliance on all these
+				// NT to NanoTrasen
 				if("N")
 					listen_for_character = "T"
 					output += character
 				if("T")
-					output.Add((character == listen_for_character) ? list("e","o", "T","h","e","o","l","o","g","y") : character)
+					output.Add((character == listen_for_character) ? list("a","n","o","T","r","a","s","e","n") : character)
 
-				// IH to IronHammer
-				if("I")
+				// FT to FreeTradeUnion
+				if("F")
 					listen_for_character = "H"
 					output += character
-				if("H")
-					output.Add((character == listen_for_character) ? list("r","o","n", "H","a","m","m","e","r") : character)
+				if("T")
+					output.Add((character == listen_for_character) ? list("r","e","e", "T","r","a","d","e", "U","n","i","o","n") : character)
 
-				// ML to MoebiusLaboratories
-				if("M")
+				// LF to Lazarus Foundation
+				if("L")
 					listen_for_character = "L"
 					output += character
-				if("L")
-					output.Add((character == listen_for_character) ? list("o","e","b","i","u","s", "L","a","b","o","r","a","t","o","r","i","e","s") : character)
+				if("F")
+					output.Add((character == listen_for_character) ? list("a","z","a","r","u","s", "F","o","u","n","d","a","t","i","o","n") : character)
 
 				else
 					listen_for_character = null
 					output += character
-
+				//End Eclipse Edits
 	. = JOINTEXT(output)

@@ -1,5 +1,5 @@
 /datum/trade_station/station_zarya
-	name_pool = list("FTB 'Zarya'" = "Free Trade Beacon 'Zarya', they're sending a message. \"Privet, this is Free Trade Beacon 'Zarya'. We have everything for sale here, so don't be afraid to come aboard and check our wares!\".")
+	name_pool = list("FTB 'Zarya'" = "Free Trade Beacon 'Zarya', they're sending a message. \"Privet, this is Free Trade Beacon 'Zarya'. We have everything for sale here, so don't be afraid to check our wares!\".") //Eclipse Edit - lore compliance
 	icon_states = list("htu_station", "station")
 	uid = "techno_basic"
 	tree_x = 0.1
@@ -14,11 +14,12 @@
 	recommendation_threshold = 0
 	stations_recommended = list()
 	inventory = list(
+		//Eclipse Edit - lore compliance
 		"Design Disks" = list(
-			/obj/item/computer_hardware/hard_drive/portable/design/components = good_data("Technomancers ARK-034 Components", list(5, 10), 400),
-			/obj/item/computer_hardware/hard_drive/portable/design/adv_tools = good_data("Technomancers IJIRO-451 Advanced Tools", list(5, 10), 1500),
-			/obj/item/computer_hardware/hard_drive/portable/design/circuits = good_data("Technomancers ESPO-830 Circuits", list(5, 10), 400),
-			/obj/item/computer_hardware/hard_drive/portable/design/conveyors = good_data("Technomancers LAT-018 Logistics", list(5, 10), 300)
+			/obj/item/computer_hardware/hard_drive/portable/design/components = good_data("Engineering ARK-034 Components", list(5, 10), 400),
+			/obj/item/computer_hardware/hard_drive/portable/design/adv_tools = good_data("Engineering IJIRO-451 Advanced Tools", list(5, 10), 1500),
+			/obj/item/computer_hardware/hard_drive/portable/design/circuits = good_data("Engineering ESPO-830 Circuits", list(5, 10), 400),
+			/obj/item/computer_hardware/hard_drive/portable/design/conveyors = good_data("Engineering LAT-018 Logistics", list(5, 10), 300)
 		),
 		"Atmospherics" = list(
 			/obj/item/tank/air,

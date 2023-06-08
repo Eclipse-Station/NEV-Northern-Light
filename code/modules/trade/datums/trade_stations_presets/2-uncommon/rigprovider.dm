@@ -1,6 +1,6 @@
 /datum/trade_station/rigvider
 	name_pool = list(
-		"ATB \'Boris\'" = "Aster\'s Trade Beacon \'Boris\': \"Hello there, we are hardsuit salvagers. We will be around the system for some time and we have leftover stock. We can sell some off if you want them."
+		"FTB \'Boris\'" = "Free Trade Beacon \'Boris\': \"Hello there, we are hardsuit salvagers. We will be around the system for some time and we have leftover stock. We can sell some off if you want them." //Eclipse Edit - lore compliance
 	)
 	icon_states = list("htu_station", "station")
 	uid = "rigs"
@@ -62,8 +62,8 @@
 		/obj/item/rig/industrial = offer_data("industrial suit control module", 1000, 2),	// base price: 1290 (incl. components)
 		/obj/item/rig/hazmat = offer_data("AMI control module", 1000, 2),					// base price: 1290 (incl. components)
 		/obj/item/rig/combat = offer_data("combat hardsuit control module", 1500, 2),		// base price: 1590 (incl. components)
-		/obj/item/rig/techno = offer_data("technomancer suit control module", 8000, 1),
-		/obj/item/rig/combat/ironhammer = offer_data("Ironhammer hardsuit control module", 8000, 1),
+		/obj/item/rig/techno = offer_data("engineering suit control module", 8000, 1),		//Eclipse Edit - Lore Compliance
+		/obj/item/rig/combat/ironhammer = offer_data("Aegis hardsuit control module", 8000, 1),	//Eclipse Edit - Lore Compliance
 		/obj/item/rig/merc = offer_data("crimson hardsuit control module", 10000, 1),
 		/obj/item/rig/light/stealth = offer_data("stealth suit control module", 20000, 1),
 		/obj/item/rig/light/hacker = offer_data("cybersuit control module", 10000, 1)
