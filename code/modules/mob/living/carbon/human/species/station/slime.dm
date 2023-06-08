@@ -1,5 +1,5 @@
 /datum/species/slime
-	name = SPECIES_SLIME
+	name = SPECIES_PROMETHEAN
 	name_plural = "Prometheans"
 	mob_size = MOB_SMALL
 
