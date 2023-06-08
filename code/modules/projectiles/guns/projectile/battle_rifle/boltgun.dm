@@ -41,8 +41,7 @@
 	desc = "A bolt-action rifle frame. For hunting or endless trench warfare."
 	icon_state = "frame_serbrifle"
 	result = /obj/item/gun/projectile/boltgun
-	variant_grip = TRUE
-	gripvars = /obj/item/part/gun/grip/wood //eclipse edit: changed to not allow excelsior parts
+	gripvars = /obj/item/part/gun/modular/grip/wood //eclipse edit: changed to not allow excelsior parts
 	resultvars = /obj/item/gun/projectile/boltgun //Eclipse edit: can ONLY make the boltgun
 	mechanismvar = /obj/item/part/gun/modular/mechanism/boltgun
 	barrelvars = list(/obj/item/part/gun/modular/barrel/lrifle/steel)
@@ -208,6 +207,16 @@
 	spawn_blacklisted = FALSE
 	gun_parts = list(/obj/item/part/gun/frame/kadmin = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/boltgun = 1, /obj/item/part/gun/modular/barrel/srifle/steel = 1)
 	price_tag = 1000
+
+/obj/item/part/gun/frame/kadmin
+	name = "Kadmin frame"
+	desc = "A Kadmin bolt-action rifle frame. For hunting or endless coastal warfare."
+	icon_state = "frame_weebrifle"
+	result = /obj/item/gun/projectile/boltgun/fs
+	resultvars = list(/obj/item/gun/projectile/boltgun/fs, /obj/item/gun/projectile/boltgun/fs/civilian)
+	gripvars = list(/obj/item/part/gun/modular/grip/rubber, /obj/item/part/gun/modular/grip/wood)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/boltgun
+	barrelvars = list(/obj/item/part/gun/modular/barrel/srifle/steel)
 
 /obj/item/gun/projectile/boltgun/handmade
 	name = "\improper HM BR .30 \"Riose\"" //Eclipse Edit - gun names standardized

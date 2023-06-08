@@ -108,22 +108,8 @@
 	ChangeToHusk()
 	return
 
-/mob/living/carbon/human/proc/ChangeToSkeleton()
-	if(SKELETON in src.mutations)	return
-
-	if(f_style)
-		f_style = "Shaved"
-	if(h_style)
-		h_style = "Bald"
-	update_hair(0)
-
-	mutations.Add(SKELETON)
-	status_flags |= DISFIGURED
-	update_body(0)
-	return
-
 /mob/living/carbon/human/proc/UnHusk()
-	if(!(HUSK in mutations))	return FALSE
+//	if(!(HUSK in mutations))	return FALSE
 
 	if(f_style)
 		f_style = client.prefs.f_style	//we only change the icon_state of the hair datum, so it doesn't mess up their UI/UE
@@ -131,7 +117,7 @@
 		h_style = client.prefs.h_style
 	update_hair(0)
 
-	mutations.Remove(HUSK)
+//	mutations.Remove(HUSK)
 	status_flags &= ~DISFIGURED
 	var/obj/item/organ/external/head = get_organ(BP_HEAD)
 	head.disfigured = FALSE

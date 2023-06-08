@@ -123,6 +123,16 @@
 		STAT_TGH = 6,
 	)
 
+/obj/item/oddity/common/towel
+	name = "trustworthy towel"
+	desc = "It's always good to have one with you."
+	icon_state = "towel"
+	oddity_stats = list(
+		STAT_ROB = 6,
+		STAT_TGH = 6,
+	)
+	rarity_value = 15
+
 /obj/item/oddity/common/book_eyes
 	name = "observer book"
 	desc = "This book contains concise details on the nature of bluespace fauna. You're not quite sure those things are even real."
@@ -168,6 +178,16 @@
 	desc = "It's broken and stuck on some really strange readings. Was this thing even remotely humanoid?"
 	icon_state = "healthscanner"
 	item_state = "electronic"
+	oddity_stats = list(
+		STAT_BIO = 7,
+		STAT_VIG = 7,
+	)
+	rarity_value = 17
+
+/obj/item/oddity/common/photo_crime
+	name = "crime scene photo"
+	desc = "It is unclear whether this is a victim of suicide or murder. His face is frozen in a look of agony and terror, and you shudder to think at what his last moments might have been."
+	icon_state = "photo_crime"
 	oddity_stats = list(
 		STAT_BIO = 7,
 		STAT_VIG = 7,

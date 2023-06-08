@@ -48,7 +48,7 @@
 
 /datum/design/research/item/mechfab/prosthesis/r_foot
 	build_path = /obj/item/organ/external/robotic/r_foot
-/*
+
 //Upgraded prosthesis ========================
 /datum/design/research/item/mechfab/prosthesis_moebius
 	category = CAT_PROSTHESIS
@@ -73,7 +73,7 @@
 
 /datum/design/research/item/mechfab/prosthesis_moebius/head
 	build_path = /obj/item/organ/external/robotic/moebius/reinforced/head
-*/
+
 //Modules ====================================
 
 /datum/design/research/item/mechfab/modules
