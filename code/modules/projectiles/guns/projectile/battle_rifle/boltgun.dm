@@ -34,7 +34,7 @@
 	var/bolt_open = 0
 	var/item_suffix = ""
 	var/message = "bolt"        // what message appears when cocking, eg "You work the [bolt] open, ejecting a casing!"
-	gun_parts = list(/obj/item/part/gun/frame/boltgun = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/barrel/lrifle = 1) //Eclipse Edit: only gives you the frame and the grip, since only the frame and the grip are needed to create.
+	gun_parts = list(/obj/item/part/gun/frame/boltgun = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/barrel/lrifle/steel = 1) //Eclipse Edit: only gives you the frame and the grip, since only the frame and the grip are needed to create.
 
 /obj/item/part/gun/frame/boltgun
 	name = "bolt-action rifle frame"
