@@ -53,7 +53,7 @@
 #define ROLE_MALFUNCTION "malf"
 #define ROLE_CONTRACTOR "contractor"
 #define ROLE_CONTRACTOR_SYNTH "robo_contractor"
-#define ROLE_MARSHAL "marshal"
+#define ROLE_MARSHAL "bountyhunter" //Eclipse Edit - Marshal renamed
 
 #define ROLE_EXCELSIOR_REV "excelsior_rev"
 

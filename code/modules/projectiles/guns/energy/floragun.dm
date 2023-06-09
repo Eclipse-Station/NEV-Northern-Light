@@ -18,7 +18,7 @@
 		list(mode_name="increase yield", mode_desc="More fruit for your labour", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield", item_modifystate="yield", icon="stun"),
 		)
 
-	serial_type = "ML"
+	serial_type = "LF" //Eclipse Edit - lore compliance
 
 
 /obj/item/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)

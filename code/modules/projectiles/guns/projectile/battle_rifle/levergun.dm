@@ -26,7 +26,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/winchester = 1, /obj/item/part/gun/modular/grip/rubber = 1, /obj/item/part/gun/modular/mechanism/boltgun = 1, /obj/item/part/gun/modular/barrel/magnum = 1)
 
 /obj/item/part/gun/frame/winchester
-	name = "Svengali frame"
+	name = "\improper Svengali frame" //Eclipse Edit - added \improper
 	desc = "A Svengali lever rifle. If death is our destination this will surely bring it."
 	icon_state = "frame_winchester"
 	resultvars = list(/obj/item/gun/projectile/boltgun/levergun)
@@ -72,7 +72,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/levershotgun = 1, /obj/item/part/gun/modular/grip/rubber = 1, /obj/item/part/gun/modular/mechanism/boltgun = 1, /obj/item/part/gun/modular/barrel/shotgun= 1)
 
 /obj/item/part/gun/frame/levershotgun
-	name = "Sogekihei frame"
+	name = "\improper Sogekihei frame" //Eclipse Edit - added \improper
 	desc = "A Sogekihei lever shotgun. You are only missing a horse."
 	icon_state = "frame_levershotgun"
 	resultvars = list(/obj/item/gun/projectile/boltgun/levergun/shotgun)

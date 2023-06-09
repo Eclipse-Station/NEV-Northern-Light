@@ -1,6 +1,6 @@
 /datum/trade_station/computers
 	name_pool = list(
-		"MTB \'Macro Rim\'" = "Moebius Trade Beacon \'Macro Rim\': Connection with the Moebius computer surplus network established."
+		"LTB \'Macro Rim\'" = "Lazarus Trade Beacon \'Macro Rim\': Connection with the Lazarus computer surplus network established." //Eclipse Edit - lore compliance
 	)
 	icon_states = list("moe_frigate", "ship")
 	uid = "med_comp"
@@ -16,8 +16,9 @@
 	stations_recommended = list("moe_adv", "botany")
 	recommendations_needed = 0
 	inventory = list(
+		//Eclipse Edit - lore compliance
 		"Design Disks" = list(
-			/obj/item/computer_hardware/hard_drive/portable/design/computer = good_data("Moebius Computer Parts", list(1, 10), 500)
+			/obj/item/computer_hardware/hard_drive/portable/design/computer = good_data("Lazarus Computer Parts", list(1, 10), 500)
 		),
 		"Computer Frames" = list(
 			/obj/item/modular_computer/pda,

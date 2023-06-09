@@ -187,9 +187,10 @@
 	var/alt_icons_tag
 	var/list/alt_icons = list()
 
+/* Eclipse Edit - duplicate definition
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
-
+*/
 /datum/species/New()
 
 	species_flags = spawn_flags       // Flags that specify who can spawn as this species

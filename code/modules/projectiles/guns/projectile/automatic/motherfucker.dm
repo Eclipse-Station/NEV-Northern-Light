@@ -30,7 +30,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/motherfucker = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/shotgun = 1, /obj/item/part/gun/modular/barrel/pistol = 1)
 
 /obj/item/part/gun/frame/motherfucker
-	name = "Motherfucker frame"
+	name = "\improper Motherfucker frame" //Eclipse Edit - added \improper
 	desc = "The Motherfucker. You just know someone is about to have a bad day."
 	icon_state = "frame_motherfucker"
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_PLASTEEL = 10, MATERIAL_WOOD = 10, MATERIAL_PLASTIC = 10)

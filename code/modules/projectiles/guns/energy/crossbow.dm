@@ -17,7 +17,7 @@
 	charge_cost = 200
 	price_tag = 2500
 	init_recoil = HANDGUN_RECOIL(1)
-	serial_type = "S"
+	serial_type = "NT" //Eclipse Edit - lore compliance
 
 
 /obj/item/gun/energy/crossbow/ninja
@@ -36,5 +36,5 @@
 	matter = list(MATERIAL_PLASTEEL = 35, MATERIAL_PLASTIC = 20, MATERIAL_SILVER = 9, MATERIAL_URANIUM = 9)
 	projectile_type = /obj/item/projectile/energy/bolt/large
 	price_tag = 4000
-	serial_type = "NT"
+	serial_type = "MA" //Eclipse Edit - lore compliance
 	init_recoil = RIFLE_RECOIL(1)

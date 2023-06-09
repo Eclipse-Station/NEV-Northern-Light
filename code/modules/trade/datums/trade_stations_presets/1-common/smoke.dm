@@ -1,6 +1,6 @@
 /datum/trade_station/smoke
 	name_pool = list(
-		"FTB \'Costaguana\'" = "Free Trade Beacon \'Costaguana\': \"Bienvenidos, weary travelers. Collect your mind while you inhale the finest synthetic tobacco in Hanza space.\"",
+		"FTB \'Costaguana\'" = "Free Trade Beacon \'Costaguana\': \"Bienvenidos, weary travelers. Collect your mind while you inhale the finest synthetic tobacco.\"", //Eclipse Edit - lore compliance
 	)
 	icon_states = list("htu_station", "station")
 	uid = "smoke"

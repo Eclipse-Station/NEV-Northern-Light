@@ -34,15 +34,14 @@
 	var/bolt_open = 0
 	var/item_suffix = ""
 	var/message = "bolt"        // what message appears when cocking, eg "You work the [bolt] open, ejecting a casing!"
-	gun_parts = list(/obj/item/part/gun/frame/boltgun = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/barrel/lrifle = 1) //Eclipse Edit: only gives you the frame and the grip, since only the frame and the grip are needed to create.
+	gun_parts = list(/obj/item/part/gun/frame/boltgun = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/barrel/lrifle/steel = 1) //Eclipse Edit: only gives you the frame and the grip, since only the frame and the grip are needed to create.
 
 /obj/item/part/gun/frame/boltgun
 	name = "bolt-action rifle frame"
 	desc = "A bolt-action rifle frame. For hunting or endless trench warfare."
 	icon_state = "frame_serbrifle"
 	result = /obj/item/gun/projectile/boltgun
-	variant_grip = TRUE
-	gripvars = /obj/item/part/gun/grip/wood //eclipse edit: changed to not allow excelsior parts
+	gripvars = /obj/item/part/gun/modular/grip/wood //eclipse edit: changed to not allow excelsior parts
 	resultvars = /obj/item/gun/projectile/boltgun //Eclipse edit: can ONLY make the boltgun
 	mechanismvar = /obj/item/part/gun/modular/mechanism/boltgun
 	barrelvars = list(/obj/item/part/gun/modular/barrel/lrifle/steel)
@@ -195,7 +194,7 @@
 	barrelvars = list(/obj/item/part/gun/modular/barrel/srifle/steel)
 
 /obj/item/gun/projectile/boltgun/fs/civilian
-	name = "FS BR .20 \"Arasaka\""
+	name = "\improper FS BR .20 \"Arasaka\"" //Eclipse Edit - added \improper
 	desc = "Weapon for hunting, or endless coastal warfare. \
 			A replica of a replica, this simple, low-cost bolt-action rifle offers superb armor-piercing short of anti-materiel rounds. \
 			This is mounted with a short scope, for ranges mildly longer than a maintenance tunnel."
@@ -209,8 +208,18 @@
 	gun_parts = list(/obj/item/part/gun/frame/kadmin = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/boltgun = 1, /obj/item/part/gun/modular/barrel/srifle/steel = 1)
 	price_tag = 1000
 
+/obj/item/part/gun/frame/kadmin
+	name = "Kadmin frame"
+	desc = "A Kadmin bolt-action rifle frame. For hunting or endless coastal warfare."
+	icon_state = "frame_weebrifle"
+	result = /obj/item/gun/projectile/boltgun/fs
+	resultvars = list(/obj/item/gun/projectile/boltgun/fs, /obj/item/gun/projectile/boltgun/fs/civilian)
+	gripvars = list(/obj/item/part/gun/modular/grip/rubber, /obj/item/part/gun/modular/grip/wood)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/boltgun
+	barrelvars = list(/obj/item/part/gun/modular/barrel/srifle/steel)
+
 /obj/item/gun/projectile/boltgun/handmade
-	name = "HM BR \"Riose\""
+	name = "\improper HM BR .30 \"Riose\"" //Eclipse Edit - gun names standardized
 	desc = "A handmade bolt action rifle, made from junk and some spare parts."
 	icon = 'icons/obj/guns/projectile/riose.dmi'
 	icon_state = "boltgun_hand"
@@ -251,7 +260,7 @@
 			return
 	..()
 /obj/item/part/gun/frame/riose
-	name = "Riose frame"
+	name = "\improper Riose frame" //Eclipse Edit - added \improper
 	desc = "A Riose bolt-action rifle frame. For hunting or endless maintenance warfare."
 	icon_state = "frame_riose"
 	matter = list(MATERIAL_STEEL = 5)

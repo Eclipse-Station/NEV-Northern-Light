@@ -87,7 +87,7 @@
 	var/list/darts = list()
 	var/max_darts = 1
 	var/obj/item/syringe_cartridge/next
-	serial_type = "ML"
+	serial_type = "LF" //Eclipse Edit - lore compliance
 
 /obj/item/gun/launcher/syringe/consume_next_projectile()
 	if(next)

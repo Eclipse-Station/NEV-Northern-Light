@@ -28,7 +28,7 @@
 	barrelvars = list(/obj/item/part/gun/modular/barrel/shotgun)
 
 /obj/item/gun/projectile/shotgun/pump/regulator/army
-	name = "NT SG \"Regulator M1000\""
+	name = "\improper NT SG \"Regulator M1000\"" //Eclipse Edit - added \improper
 	desc = "Designed for close quarters combat, the Regulator is widely regarded as a weapon of choice for repelling boarders. \
 		Some may say that it's too old, but it actually proved itself useful. This is a military model with lightweight-yet-durable plastic and rubber parts. Can hold up to 7+1 shells in tube magazine."
 	icon_state = "regulator_army"

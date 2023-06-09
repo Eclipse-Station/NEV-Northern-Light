@@ -28,7 +28,7 @@
 	var/consume_cell = TRUE
 	init_recoil = RIFLE_RECOIL(1)
 
-	serial_type = "OR"
+	serial_type = "OSDF" //Eclipse Edit - lore compliance
 
 /obj/item/gun/energy/shrapnel/update_icon()
  	..()

@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/modular/mk58 // Parent type
-	name = "\"Mk58\""
+	name = "\improper \"Mk58\""
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, that was produced by a NanoTrasen subsidiary. Uses standard .35 and high capacity magazines."
 	icon = 'icons/obj/guns/projectile/modular/mk58.dmi'
 	icon_state = "frame" // frame_gray, frame_black, frame_tan
@@ -29,21 +29,21 @@
 
 /obj/item/gun/projectile/automatic/modular/mk58/get_initial_name()
 	if(grip_type)
-		switch(grip_type)
+		switch(grip_type) //Begin Eclipse Edit - added \improper to all of these
 			if("wood")
-				return "NT HG [caliber] \"Mk58 C\"" //civillian
+				return "\improper NT HG [caliber] \"Mk58 C\"" //civillian
 			if("black")
-				return "NT HG [caliber] \"Mk58 S\"" //security
+				return "\improper NT HG [caliber] \"Mk58 S\"" //security
 			if("rubber")
-				return "NT HG [caliber] \"Mk58 T\"" //tacticool
+				return "\improper NT HG [caliber] \"Mk58 T\"" //tacticool
 			if("excelsior")
-				return "NT HG [caliber] \"Mk58 M\"" //military
+				return "\improper NT HG [caliber] \"Mk58 M\"" //military
 			if("serbian")
-				return "SA HG [caliber] \"Mk58\"" //serbian arms
+				return "\improper SA HG [caliber] \"Mk58\"" //serbian arms
 			if("makeshift")
-				return "HM HG [caliber] \"Mk58\""
+				return "\improper HM HG [caliber] \"Mk58\""
 	else
-		return "NT [caliber] \"Mk58\""
+		return "\improper NT [caliber] \"Mk58\"" //End Eclipse Edit
 
 /obj/item/gun/projectile/automatic/modular/mk58/gray // Frame
 	icon_state = "frame_gray"

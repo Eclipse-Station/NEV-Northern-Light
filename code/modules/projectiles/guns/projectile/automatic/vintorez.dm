@@ -26,8 +26,8 @@
 		BURST_2_ROUND
 		)
 	gun_parts = list(/obj/item/part/gun/frame/vintorez = 1, /obj/item/part/gun/modular/grip/excel = 1, /obj/item/part/gun/modular/mechanism/autorifle/marksman = 1, /obj/item/part/gun/modular/barrel/srifle = 1)
-	serial_type = "Excelsior"
-			
+	serial_type = "EX" //Eclipse Edit - abbreviated serial
+
 
 /obj/item/gun/projectile/automatic/vintorez/update_icon()
 	..()
@@ -38,7 +38,7 @@
 		itemstring = initial(item_state) + wielded_item_state
 	else
 		itemstring = initial(item_state)
-	
+
 	if (ammo_magazine)
 		iconstring += "_mag"
 		itemstring += "_mag"
@@ -53,7 +53,7 @@
 	icon_state = iconstring
 	item_state = itemstring
 	set_item_state(itemstring)
-	
+
 /obj/item/part/gun/frame/vintorez
 	name = "\improper Vintorez frame"
 	desc = "A Vintorez rifle frame. Accurate and damaging."

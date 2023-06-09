@@ -21,7 +21,7 @@
 		)
 	init_recoil = HANDGUN_RECOIL(1)
 
-	serial_type = "ML"
+	serial_type = "LF" //Eclipse Edit - lore compliance
 	var/lightfail = 0
 
 

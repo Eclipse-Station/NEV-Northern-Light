@@ -97,18 +97,18 @@
 	var/list/pulsar_rifts = list()
 
 /datum/event/pulsar_overcharge/announce()
-	command_announcement.Announce("The pulsar sattelite has been overloaded with power, expect excess energy to be dumped onto your vessel.", "Technomancer Pulsar Monitor")
+	command_announcement.Announce("The pulsar sattelite has been overloaded with power, expect excess energy to be dumped onto your vessel.", "Xingyun Pulsar Monitor") //Eclipse Edit - lore compliance
 
 /datum/event/pulsar_overcharge/tick()
 	. = ..()
 	if(world.time > last_rift_spawn + PULAR_RIFT_COOLDOWN)
 		spwawn_new_rift_wave(rand(4,6))
 		last_rift_spawn = world.time
-		command_announcement.Announce("Another wave of energy has been dumped on your vessel.", "Technomancer Pulsar Monitor")
+		command_announcement.Announce("Another wave of energy has been dumped on your vessel.", "Xingyun Pulsar Monitor") //Eclipse Edit - lore compliance
 
 	for(var/obj/effect/rift as anything in pulsar_rifts)
 		projectile_explosion(get_turf(rift), 10, /obj/item/projectile/beam/emitter, rand(5, 10), list(BURN = 50))
-	
+
 
 /datum/event/pulsar_overcharge/proc/spwawn_new_rift_wave(amount)
 	for(var/i in 1 to amount)
@@ -120,13 +120,13 @@
 			continue
 		var/obj/effect/pulsar_rift/p = new(T)
 		pulsar_rifts |= p
-	
+
 
 /datum/event/pulsar_overcharge/end()
 	for(var/obj/effect/pulsar_rift/p as anything in pulsar_rifts)
 		pulsar_rifts -= p
 		qdel(p)
-	command_announcement.Announce("Pulsar sattelite energy levels stabilized.", "Technomancer Pulsar Monitor")
+	command_announcement.Announce("Pulsar satellite energy levels stabilized.", "Xingyun Pulsar Monitor") //Eclipse Edit - lore compliance
 	. = ..()
 
 /obj/effect/pulsar_rift

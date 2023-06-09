@@ -1,7 +1,7 @@
 #define MODULAR_VERBS list(/obj/item/gun/projectile/automatic/modular/proc/quick_fold)
 
 /obj/item/gun/projectile/automatic/modular // Parent type
-	name = "\"Kalashnikov\""
+	name = "\improper \"Kalashnikov\"" //Eclipse Edit - added \improper
 	desc = "Weapon of the oppressed, oppressors, and extremists of all flavours. \
 		 This is a copy of an ancient semi-automatic rifle. If it won't fire, percussive maintenance should get it working again. \
 		 It is known for its easy maintenance, and low price."

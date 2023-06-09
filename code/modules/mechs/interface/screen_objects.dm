@@ -306,7 +306,7 @@
 		var/modifiers = params2list(params)
 		if(modifiers["shift"])
 			if(owner && owner.material)
-				usr.show_message(SPAN_NOTICE("Your suit's safe operating limit ceiling is [(celsius ? "[owner.material.melting_point - T0C] °C" : "[owner.material.melting_point] K" )]."))
+				usr.show_message(SPAN_NOTICE("Your suit's maximum safe operating temperature is [(celsius ? "[owner.material.melting_point - T0C] °C" : "[owner.material.melting_point] K" )]."))
 			return
 		if(modifiers["ctrl"])
 			celsius = !celsius

@@ -143,7 +143,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	projectile_type = /obj/item/projectile/beam/heavylaser
 	charge_cost = 100
-	serial_type = "ML"
+	serial_type = "LF"
 	fire_delay = 20
 	zoom_factors = list()
 	damage_multiplier = 1
@@ -251,7 +251,7 @@
 	force = WEAPON_FORCE_NORMAL
 	slot_flags = SLOT_BELT|SLOT_BACK
 	contractor = TRUE
-	serial_type = "ML"
+	serial_type = "LF" //Eclipse Edit - lore compliance
 	pierce_multiplier = 4
 	zoom_factors = list()
 	damage_multiplier = 1
@@ -296,7 +296,7 @@
 		update_wear_icon()
 
 /obj/item/gun/energy/laser/makeshift
-	name = "HM LG \"Retina Burn\""
+	name = "HM LCAR M \"Retina Burn\""
 	desc = "A somewhat power inefficient makeshift laser carbine, but shockingly reliable."
 	icon = 'icons/obj/guns/energy/makeshift_carbine.dmi'
 	icon_state = "makeshift"
@@ -318,7 +318,7 @@
 	init_recoil = CARBINE_RECOIL(1)
 
 /obj/item/gun/energy/laser/makeshift_pistol
-	name = "HM LG \"Scorcher\""
+	name = "HM LHG M \"Scorcher\"" //Eclipse Edit - standardized gun names
 	desc = "A heavy makeshift laser pistol, trades off some power and efficiency for ease of storage and use."
 	icon = 'icons/obj/guns/energy/makeshift_pistol.dmi'
 	icon_state = "makeshiftpistol"

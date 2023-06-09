@@ -1,6 +1,6 @@
 /datum/trade_station/botany
 	name_pool = list(
-		"MTV \'Arbor\'" = "Moebius Trade Vessel \'Arbor\': Connection with the Moebius botanical research network established."
+		"LTB \'Arbor\'" = "Lazarus Trade Beacon \'Arbor\': Connection with the Moebius botanical research network established." //Eclipse Edit - lore compliance
 	)
 	icon_states = list("moe_capital", "ship")
 	uid = "botany"

@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/slidebarrel
-	name = "slide barrel shotgun"
+	name = "\improper HM SG \"Ponyets\"" //Eclipse Edit - standardized gun names
 	desc = "Made out of trash, but rather special in its design" //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/slideshotgun.dmi'
 	icon_state = "slideshotgun"
@@ -24,7 +24,7 @@
 	gun_parts = list(/obj/item/part/gun/frame/ponyets = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/shotgun/steel = 1, /obj/item/part/gun/modular/barrel/shotgun/steel = 1)
 
 /obj/item/part/gun/frame/ponyets
-	name = "Ponyets frame"
+	name = "\improper Ponyets frame" //Eclipse Edit - added \improper
 	desc = "A Ponyets. One shot, better make it count. And try not to blow your fingers off."
 	icon_state = "frame_ponyets"
 	matter = list(MATERIAL_STEEL = 5)

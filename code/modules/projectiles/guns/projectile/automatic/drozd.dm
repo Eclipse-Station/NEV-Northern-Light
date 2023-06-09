@@ -28,7 +28,7 @@
 		)
 	gun_parts = list(/obj/item/part/gun/frame/drozd = 1, /obj/item/part/gun/modular/grip/excel = 1, /obj/item/part/gun/modular/mechanism/smg = 1, /obj/item/part/gun/modular/barrel/magnum = 1)
 
-	serial_type = "Excelsior"
+	serial_type = "EX" //Eclipse Edit - abbreviated serial
 
 /obj/item/gun/projectile/automatic/drozd/update_icon()
 	cut_overlays()
