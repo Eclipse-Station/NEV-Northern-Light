@@ -17,7 +17,7 @@
 		results += "This energy weapon has a firemode selector. To switch firemodes, \
 		use the firemode selector button on \
 		your HUD."
-	
+
 	if(self_recharge)
 		results += "This energy weapon is self-recharging, and does not require a \
 		power cell to function."
@@ -26,24 +26,24 @@
 		power cell in order to fire. Power cells can be removed by dragging from \
 		the gun into an empty hand. You can tell what power cell a gun needs by \
 		the letter immediately before the gun's nickname."
-	
+
 	if(can_dual)
 		results += "This energy weapon can be held guns-akimbo. To dual-wield, find \
 		another firearm that can be dual-wielded, ensure the \
 		safety of both weapons is off, ensure you are on 'harm' intent, and click \
 		where you want to fire. Dual-wielding has an innate penalty to recoil control."
-		
-	
+
+
 	if(twohanded)
 		results += "This energy weapon is too heavy to fire with one hand. To hold \
 		it two-handed, press the wield button on your HUD, \
 		or press shift-X in hotkey mode."
-	else if(one_hand_penalty)
+	/*else if(one_hand_penalty) - Commenting this out for now as I can't figure out at this time how one_hand_penalty is actually defined now ~ Valanthe500
 		results += "This energy weapon is heavy. You'll have difficulty keeping it \
 		on target if you try to fire it one-handed. To hold it two-handed, press \
 		the wield button on your HUD, or press shift-X \
-		in hotkey mode."
-	
+		in hotkey mode."*/
+
 	return results
 
 /obj/item/gun/energy/ionrifle
@@ -117,34 +117,34 @@
 
 	results += "You can tell what caliber a firearm is chambered for by the designation \
 	immediately before the gun's nickname."
-	
+
 	if(firemodes.len)
 		results += "This firearm has a firemode selector. To switch firemodes, \
 		use the firemode selector button \
 		on your HUD."
-	
+
 	if(saw_off)
 		results += "This firearm can be made shorter by \
 		sawing it down. You can use any tool with the 'sawing' quality to do this. \
 		Obviously, it is a bad idea to saw down a loaded firearm."
-	
+
 	if(can_dual)
 		results += "This firearm can be held guns-akimbo. To dual-wield, find \
 		another firearm that can be dual-wielded, ensure the \
 		safety of both weapons is off, ensure you are on 'harm' intent, and click \
 		where you want to fire. Dual-wielding has an innate penalty to recoil control."
-	
+
 	if(twohanded)
 		results += "This firearm is too heavy to fire with one hand. To hold \
 		it two-handed, press the wield button on your HUD, \
 		or press shift-X in hotkey mode."
-	else if(one_hand_penalty)
+	/*else if(one_hand_penalty) - Commenting this out for now as I can't figure out at this time how one_hand_penalty is actually defined now ~ Valanthe500
 		results += "This firearm is heavy. You'll have difficulty keeping it \
 		on target if you try to fire it one-handed. To hold it two-handed, press \
 		the wield button on your HUD, or press shift-X \
-		in hotkey mode."
-	
-	
+		in hotkey mode."*/
+
+
 	return results
 
 /obj/item/gun/projectile/automatic/slaught_o_matic		//Disposable SMG
@@ -155,13 +155,13 @@
 
 /obj/item/gun/projectile/revolver/get_description_interaction()
 	var/list/results = list()
-	
+
 	results += "Revolvers store their ammunition in a cylinder. You can reload \
 	it by using bullets on the gun, or by using \
 	a speedloader. You can quickly dump the \
 	cylinder out on the ground by using it in your hand, pressing the 'Page Down' \
 	key, or (in hotkey mode) the Y or Z key."
-	
+
 	results += ..()
 	return results
 
@@ -182,7 +182,7 @@
 		results += "This firearm can be made shorter by \
 		sawing it down. You can use any tool with the 'sawing' quality to do this. \
 		Obviously, it is a bad idea to saw down a loaded firearm."
-	
+
 	if(can_dual)		//As if.
 		results += "This firearm can be held guns-akimbo. To dual-wield, find \
 		another firearm that can be dual-wielded, ensure the \
@@ -192,17 +192,17 @@
 		results += "This firearm is too heavy to fire with one hand. To hold \
 		it two-handed, press the wield button on your HUD, \
 		or press shift-X in hotkey mode."
-	else if(one_hand_penalty)
+	/*else if(one_hand_penalty) - Commenting this out for now as I can't figure out at this time how one_hand_penalty is actually defined now ~ Valanthe500
 		results += "This firearm is heavy. You'll have difficulty keeping it \
 		on target if you try to fire it one-handed. To hold it two-handed, press \
 		the wield button on your HUD, or press shift-X \
-		in hotkey mode."
-	
+		in hotkey mode."*/
+
 	return results
 
 /obj/item/gun/projectile/shotgun/get_description_interaction()		//lotta copy paste here.
 	var/list/results = list()
-	
+
 	if(load_method == MAGAZINE)
 		results += "Most ballistic weapons load from a \
 		magazine. To remove a magazine, drag it from a gun into an empty hand."
@@ -216,22 +216,22 @@
 		results += "This firearm has a firemode selector. To switch firemodes, \
 		use the firemode selector button \
 		on your HUD."
-	
+
 	if(saw_off)
 		results += "This firearm can be made shorter by \
 		sawing it down. You can use any tool with the 'sawing' quality to do this. \
 		Obviously, it is a bad idea to saw down a loaded firearm."
-		
+
 	if(twohanded)
 		results += "This firearm is too heavy to fire with one hand. To hold \
 		it two-handed, press the wield button on your HUD, \
 		or press shift-X in hotkey mode."
-	else if(one_hand_penalty)
+	/*else if(one_hand_penalty) - Commenting this out for now as I can't figure out at this time how one_hand_penalty is actually defined now ~ Valanthe500
 		results += "This firearm is heavy. You'll have difficulty keeping it \
 		on target if you try to fire it one-handed. To hold it two-handed, press \
 		the wield button on your HUD, or press shift-X \
-		in hotkey mode."
-	
+		in hotkey mode."*/
+
 	return results
 
 /obj/item/gun/projectile/shotgun/bull/get_description_interaction()		//Bull
@@ -241,22 +241,22 @@
 	hand after firing both barrels. To rack the slide and eject the chambered shells, use the \
 	gun in your hand, press the 'Page Down' key, or (in hotkey mode) the Y or Z key. \
 	To load ammo into this shotgun, click on it with a shell."
-	
+
 	if(firemodes.len)
 		results += "You can use the firemode \
 		selector to switch between firing one barrel at a time, and firing both barrels at once."
-	
+
 	return results
 
 /obj/item/gun/projectile/shotgun/doublebarrel/get_description_interaction()		//Double-barrel.
 	var/list/results = list()
-	
+
 	results += "This shotgun holds two shells - one per barrel. To open the breech, \
 	use the gun in your hand, press the 'Page Down' key, or (in hotkey mode) the \
 	Y or Z key. Opening the breech will automatically eject the shells in the chambers. \
 	To load ammo into this shotgun, click on it with a \
 	shell while the breech is open."
-	
+
 	if(firemodes.len)
 		results += "You can use the firemode \
 		selector to switch between firing one barrel at a time, and firing both barrels at once."
@@ -264,16 +264,16 @@
 		results += "This firearm can be made shorter by \
 		sawing it down. You can use any tool with the 'sawing' quality to do this. \
 		Obviously, it is a bad idea to saw down a loaded firearm."
-	
+
 	if(twohanded)
 		results += "This firearm is too heavy to fire with one hand. To hold \
 		it two-handed, press the wield button on your HUD, \
 		or press shift-X in hotkey mode."
-	else if(one_hand_penalty)
+	/*else if(one_hand_penalty) - Commenting this out for now as I can't figure out at this time how one_hand_penalty is actually defined now ~ Valanthe500
 		results += "This firearm is heavy. You'll have difficulty keeping it \
 		on target if you try to fire it one-handed. To hold it two-handed, press \
 		the wield button on your HUD, or press shift-X \
-		in hotkey mode."
+		in hotkey mode."*/
 	return results
 
 /obj/item/gun/projectile/rpg		//RPG-17.

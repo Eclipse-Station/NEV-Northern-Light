@@ -143,7 +143,7 @@
 	icon = 'icons/vore/customguns_eclipse/levergun.dmi'
 	icon_state = "levergun"
 	item_state = "levergun"
-	recoil_buildup = 0.4 // Double the excel variant
+	init_recoil = RIFLE_RECOIL(2)
 	matter = list(MATERIAL_STEEL = 20, MATERIAL_WOOD = 10)
 	wielded_item_state = "_doble"
 	rarity_value = 48
