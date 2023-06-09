@@ -135,7 +135,8 @@ Please contact me on #coderbus IRC. ~Carn x
 #define L_HAND_LAYER		27
 #define R_HAND_LAYER		28
 #define FIRE_LAYER			29		//If you're on fire
-#define TOTAL_LAYERS		29
+#define BLOCKING_LAYER		30
+#define TOTAL_LAYERS		30
 //////////////////////////////////
 
 /mob/living/carbon/human
@@ -398,7 +399,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
-				facial_s.Blend(rgb(r_facial, g_facial, b_facial), facial_hair_style.blend)
+				facial_s.Blend(facial_color, ICON_ADD)
 
 			face_standing.Blend(facial_s, ICON_OVERLAY)
 
@@ -411,7 +412,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]")
 			if(hair_style.do_colouration)
-				hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.blend)
+				hair_s.Blend(hair_color, ICON_ADD)
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
 

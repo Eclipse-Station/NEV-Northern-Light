@@ -38,10 +38,7 @@
 		if(mind)
 			mind.name = real_name
 
-		dna.age = age
-		dna.flavor_text = flavor_text
-		dna.stats = stats
-		sync_organ_dna()
+	sync_organ_dna()
 	make_blood()
 	generate_dna()
 
@@ -730,23 +727,17 @@ var/list/rank_prefix = list(\
 	// Can use ability multiple times in a row if necessary, but there is a price
 	vessel.remove_reagent("blood", 50)
 
-	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
+	var/new_facial = input("Please select facial hair color.", "Character Generation",facial_color) as color
 	if(new_facial)
-		r_facial = hex2num(copytext(new_facial, 2, 4))
-		g_facial = hex2num(copytext(new_facial, 4, 6))
-		b_facial = hex2num(copytext(new_facial, 6, 8))
+		facial_color = new_facial
 
-	var/new_hair = input("Please select hair color.", "Character Generation",rgb(r_hair,g_hair,b_hair)) as color
-	if(new_facial)
-		r_hair = hex2num(copytext(new_hair, 2, 4))
-		g_hair = hex2num(copytext(new_hair, 4, 6))
-		b_hair = hex2num(copytext(new_hair, 6, 8))
+	var/new_hair = input("Please select hair color.", "Character Generation",hair_color) as color
+	if(new_hair)
+		hair_color = new_hair
 
-	var/new_eyes = input("Please select eye color.", "Character Generation",rgb(r_eyes,g_eyes,b_eyes)) as color
+	var/new_eyes = input("Please select eye color.", "Character Generation",eyes_color) as color
 	if(new_eyes)
-		r_eyes = hex2num(copytext(new_eyes, 2, 4))
-		g_eyes = hex2num(copytext(new_eyes, 4, 6))
-		b_eyes = hex2num(copytext(new_eyes, 6, 8))
+		eyes_color = new_eyes
 		update_eyes()
 
 	var/new_tone = input("Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation", "[35-s_tone]")  as text

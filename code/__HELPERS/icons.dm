@@ -1347,7 +1347,6 @@ proc/get_average_color(var/icon, var/icon_state, var/image_dir)
 	qdel(west)
 	return full
 
-	return GLOB.average_icon_color["[icon]:[icon_state]:[image_dir]"]
 
 /// Generate a filename for this asset
 /// The same asset will always lead to the same asset name

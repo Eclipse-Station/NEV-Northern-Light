@@ -77,12 +77,9 @@
 	for(var/possible_cardinal in cardinal)
 		var/turf/simulated/turf_sim = get_step(src, possible_cardinal)
 		var/text_to_say = "&nbsp;&nbsp" // Magic bullshit im not even gonna question from the old proc
-		text_to_say += SPAN_NOTICE("[cardinal] :/:")
-		if(data[FIREDOOR_ATMOS])
-			var/datum/gas_mixture/gasses = data[FIREDOOR_ATMOS]
-			text_to_say += " KPA : [gasses.return_pressure()] | "
-		if(!data[FIREDOOR_ALERT])
-			text_to_say += " ALERT : NO DATA |"
+		text_to_say += "[uppertext(dir2text(possible_cardinal))] : "
+		if(!istype(turf_sim) || turf_sim.is_wall || !turf_sim.zone)
+			text_to_say += SPAN_NOTICE("NO DATA")
 			to_chat(user, text_to_say)
 			continue
 		var/dangerous = FALSE

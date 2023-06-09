@@ -202,9 +202,9 @@ var/global/list/modifications_types = list(
 	name = "Xion"
 	desc = "Prosthesis with minimalist black and red casing."
 	prosthetic_model = "xion"
-/*
+
 /datum/body_modification/limb/prosthesis/moebius
-	id = "prosthesis_moebius"
+	id = "prosthesis_lazarus"
 	replace_limb = /obj/item/organ/external/robotic/moebius
 	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN, BP_HEAD)
 	department_specific = list(DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE)
@@ -215,7 +215,7 @@ var/global/list/modifications_types = list(
 	replace_limb = /obj/item/organ/external/robotic/makeshift
 	body_parts = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN)
 	icon = 'icons/mob/human_races/cyberlimbs/ghetto.dmi'
-*/
+
 /datum/body_modification/limb/mutation/New()
 	short_name = "M: [name]"
 	name = "Mutation: [name]"
