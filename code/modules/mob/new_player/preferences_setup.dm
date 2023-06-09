@@ -1,4 +1,3 @@
-#define ASSIGN_LIST_TO_COLORS(L, R, G, B) if(L) { R = L[1]; G = L[2]; B = L[3]; }
 
 /datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
@@ -32,8 +31,6 @@
 		if(H)
 			copy_to(H)
 
-#undef ASSIGN_LIST_TO_COLORS
-/*
 /datum/preferences/proc/randomize_hair_color(var/target = "hair")
 	if(prob (75) && target == "facial") // Chance to inherit hair color
 		facial_color = hair_color
@@ -179,7 +176,7 @@
 	blue = max(min(blue + rand (-25, 25), 255), 0)
 
 	skin_color = rgb(red, green, blue)
-*/
+
 /datum/preferences/proc/dress_preview_mob(var/mob/living/carbon/human/mannequin, naked = FALSE)
 	var/update_icon = FALSE
 	copy_to(mannequin, TRUE)

@@ -13,18 +13,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/h_style = "Bald"				//Hair type
 	var/f_style = "Shaved"				//Face hair type
 
-	var/r_hair = 0						//Hair color
-	var/g_hair = 0						//Hair color
-	var/b_hair = 0						//Hair color
-	var/r_facial = 0					//Face hair color
-	var/g_facial = 0					//Face hair color
-	var/b_facial = 0					//Face hair color
-	var/r_skin = 238					//Skin color
-	var/g_skin = 206					//Skin color
-	var/b_skin = 179					//Skin color
-	var/r_eyes = 0						//Eye color
-	var/g_eyes = 0						//Eye color
-	var/b_eyes = 0						//Eye color
+	var/hair_color = "#000000"			//Hair color
+	var/facial_color = "#000000"		//Face hair color
+	var/skin_color = "#000000"			//Skin color
+	var/eyes_color = "#000000"			//Eye color
 
 	var/list/body_markings = list()
 	var/list/body_descriptors = list()
