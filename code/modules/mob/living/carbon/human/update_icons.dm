@@ -235,7 +235,7 @@ var/global/list/damage_icon_parts = list()
 
 			var/has_eyes = species.has_process[OP_EYES] //Eclipse add - to distinguish species that have no "eye" organ, but still have eye sprites
 			if(!has_eyes)
-				icon_key += "[r_eyes], [g_eyes], [b_eyes]"
+				icon_key += "eyes_color"
 
 			for(var/organ_tag in species.has_limbs)
 				var/obj/item/organ/external/part = organs_by_name[organ_tag]
@@ -289,7 +289,7 @@ var/global/list/damage_icon_parts = list()
 			if(!has_eyes && (species.appearance_flags & HAS_EYE_COLOR))
 				var/icon/eyes_icon = new/icon('icons/mob/human_face.dmi', "eye_l")
 				eyes_icon.Blend(icon('icons/mob/human_face.dmi', "eye_r"), ICON_OVERLAY)
-				var/newcolour = rgb(r_eyes, g_eyes, b_eyes)
+				var/newcolour = eyes_color
 				eyes_icon.Blend(newcolour, ICON_ADD)
 				base_icon.Blend(eyes_icon, ICON_OVERLAY)
 
@@ -1204,7 +1204,7 @@ var/global/list/damage_icon_parts = list()
 // // // END ECLIPSE EDITS // // //
 
 /mob/living/carbon/human/proc/get_tail_icon()
-	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin]"
+	var/icon_key = "[species.race_key][skin_color]"
 	var/icon/tail_icon = tail_icon_cache[icon_key]
 	if(!tail_icon)
 		//generate a new one
@@ -1212,7 +1212,7 @@ var/global/list/damage_icon_parts = list()
 		if(!species_tail_anim && species.icobase_tail) species_tail_anim = species.icobase //Eclipse Code Port - Allow override of file for non-animated tails
 		if(!species_tail_anim) species_tail_anim = 'icons/effects/species.dmi'
 		tail_icon = new/icon(species_tail_anim)
-		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.color_mult ? ICON_MULTIPLY : ICON_ADD) // Eclipse Code Port edit
+		tail_icon.Blend(skin_color, species.color_mult ? ICON_MULTIPLY : ICON_ADD) // Eclipse Code Port edit
 		// The following will not work with animated tails.
 /*		var/use_species_tail = species.get_tail_hair(src)
 		if(use_species_tail)
