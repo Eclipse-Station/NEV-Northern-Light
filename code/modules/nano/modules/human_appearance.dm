@@ -56,7 +56,7 @@
 		if(can_change_skin_color())
 			var/new_skin = input(usr, "Choose your character's skin colour: ", "Skin Color", owner.skin_color) as color|null
 			if(new_skin && can_still_topic(state))
-				if(owner.change_skin_color(r_skin, g_skin, b_skin))
+				if(owner.change_skin_color(new_skin))
 					return 1
 	if(href_list["hair"])
 		if(can_change(APPEARANCE_HAIR) && (href_list["hair"] in valid_hairstyles))
@@ -66,7 +66,7 @@
 		if(can_change(APPEARANCE_HAIR_COLOR))
 			var/new_hair = input("Please select hair color.", "Hair Color", owner.hair_color) as color|null
 			if(new_hair && can_still_topic(state))
-				if(owner.change_hair_color(r_hair, g_hair, b_hair))
+				if(owner.change_hair_color(new_hair))
 					return 1
 	if(href_list["facial_hair"])
 		if(can_change(APPEARANCE_FACIAL_HAIR) && (href_list["facial_hair"] in valid_facial_hairstyles))
@@ -76,13 +76,13 @@
 		if(can_change(APPEARANCE_FACIAL_HAIR_COLOR))
 			var/new_facial = input("Please select facial hair color.", "Facial Hair Color", owner.facial_color) as color|null
 			if(new_facial && can_still_topic(state))
-				if(owner.change_facial_hair_color(r_facial, g_facial, b_facial))
+				if(owner.change_facial_hair_color(new_facial))
 					return 1
 	if(href_list["eye_color"])
 		if(can_change(APPEARANCE_EYE_COLOR))
 			var/new_eyes = input("Please select eye color.", "Eye Color", owner.eyes_color) as color|null
 			if(new_eyes && can_still_topic(state))
-				if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
+				if(owner.change_eye_color(new_eyes))
 					return 1
 	return 0
 
