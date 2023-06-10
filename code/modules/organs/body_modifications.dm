@@ -270,7 +270,7 @@ var/global/list/modifications_types = list(
 	I.min_bruised_damage = 15
 	I.min_broken_damage = 35
 	if(istype(I, /obj/item/organ/internal/appendix))
-	return I
+		return I
 	I.icon_state = "[I.icon_state]_assisted"
 	return I
 

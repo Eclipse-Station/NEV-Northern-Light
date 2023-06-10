@@ -818,6 +818,6 @@
 		else
 			gender = FEMALE
 	regenerate_icons()
-	check_dna()
+
 
 	visible_message("<span class='notice'>\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!</span>", "<span class='notice'>You change your appearance!</span>", "<span class='warning'>Oh, god! What the hell was that?  It sounded like something goopy shifting and squelching!</span>")

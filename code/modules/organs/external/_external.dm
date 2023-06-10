@@ -42,6 +42,8 @@
 	var/force_icon			// Used to force override of species-specific limb icons (for prosthetics).
 	var/icon/mob_icon                  // Cached icon for use in mob overlays.
 	var/skin_tone			// Skin tone.
+	var/skin_col			// skin colour
+	var/hair_col
 
 	// Wound and structural data.
 	var/wound_update_accuracy = 1		// how often wounds should be updated, a higher number means less often

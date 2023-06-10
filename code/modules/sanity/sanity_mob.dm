@@ -190,13 +190,13 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 	give_insight(INSIGHT_GAIN(level_change) * insight_passive_gain_multiplier * moralist_factor * style_factor * life_tick_modifier * GLOB.GLOBAL_INSIGHT_MOD)
 	if(resting < max_resting && insight >= 100)
 		if(!rest_timer_active)//Prevent any exploits(timer is only active for one minute tops)
-		give_resting(1)
-		if(owner.stats.getPerk(PERK_ARTIST))
-			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to make art. You cannot gain more insight before you do." : null]"))
-		else
-			to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
-			pick_desires()
-		owner.playsound_local(get_turf(owner), 'sound/sanity/psychochimes.ogg', 100)
+			give_resting(1)
+			if(owner.stats.getPerk(PERK_ARTIST))
+				to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to make art. You cannot gain more insight before you do." : null]"))
+			else
+				to_chat(owner, SPAN_NOTICE("You have gained insight.[resting ? " Now you need to rest and rethink your life choices." : " Your previous insight has been discarded, shifting your desires for new ones."]"))
+				pick_desires()
+			owner.playsound_local(get_turf(owner), 'sound/sanity/psychochimes.ogg', 100)
 
 	var/obj/screen/sanity/hud = owner.HUDneed["sanity"]
 	hud?.update_icon()

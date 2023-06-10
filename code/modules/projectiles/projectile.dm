@@ -94,6 +94,10 @@
 
 	var/noshake = FALSE //Eclipse add
 	var/ignition_source = FALSE		//Eclipse add - see if the projectile is capable of detonating fuel tanks and nitro roaches.
+
+	//Eclipse added vars
+	var/simplemob_bonus_mult = 0		//0% extra; used in mob code to determine whether a mob gets more damage.
+
 /obj/item/projectile/Destroy()
 	firer = null
 	original = null

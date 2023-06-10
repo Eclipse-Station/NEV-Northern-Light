@@ -269,8 +269,8 @@
 	price_tag = 250
 	style = STYLE_HIGH
 
-/obj/item/clothing/suit/storage/detective/ironhammer
-	name = "Inspector's armored trenchcoat"
+/obj/item/clothing/suit/storage/detective/brown
+	name = "Inspector's brown armored trenchcoat"
 	desc = "Brown and armored trenchcoat, designed and created by Aegis Security Solutions. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
 	icon_state = "insp_coat"
 	item_state = "insp_coat"

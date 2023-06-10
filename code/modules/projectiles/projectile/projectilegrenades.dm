@@ -1,13 +1,3 @@
-/obj/item/projectile/bullet/batonround
-	name = "baton round"
-	icon_state = "grenade"
-	damage_types = list(BRUTE = 10)
-	agony = 80
-	check_armour = ARMOR_MELEE
-	armor_penetration = 0
-	embed = FALSE
-	sharp = FALSE
-	ignition_source = FALSE		//Eclipse add - the rest are subtypes of bullet and do explode.
 
 /obj/item/projectile/bullet/grenade
 	name = "grenade shell"
