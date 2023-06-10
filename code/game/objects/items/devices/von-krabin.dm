@@ -176,11 +176,11 @@
 		return FALSE
 	if(near_crystal)
 		for(var/stat in stats_buff)
-		affected.stats.removeTempStat(stat, "von-crabbin")
-		if(stat in acquired_buffs)
-			affected.stats.addTempStat(stat, round(buff_power / 4), INFINITY, "von-crabbin")
-		else
-			affected.stats.addTempStat(stat, round(buff_power / 2), INFINITY, "von-crabbin")
+			affected.stats.removeTempStat(stat, "von-crabbin")
+			if(stat in acquired_buffs)
+				affected.stats.addTempStat(stat, round(buff_power / 4), INFINITY, "von-crabbin")
+			else
+				affected.stats.addTempStat(stat, round(buff_power / 2), INFINITY, "von-crabbin")
 	else
 		for(var/stat in stats_buff)
 			affected.stats.removeTempStat(stat, "von-crabbin")

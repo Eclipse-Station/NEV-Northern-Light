@@ -46,7 +46,7 @@
 	item_state = "knife"
 	matter = list(MATERIAL_PLASTEEL = 2, MATERIAL_PLASTIC = 1)
 	force = WEAPON_FORCE_PAINFUL
-	armor_penetration = ARMOR_PEN_SHALLOW
+	armor_divisor = ARMOR_PEN_SHALLOW
 	tool_qualities = list(QUALITY_CUTTING = 20,  QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 15)
 	rarity_value = 20
 
@@ -67,7 +67,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "render"
 	force = WEAPON_FORCE_NORMAL+2
-	armor_penetration = ARMOR_PEN_SHALLOW
+	armor_divisor = ARMOR_PEN_SHALLOW
 	rarity_value = 20
 
 /obj/item/tool/knife/butch
@@ -90,7 +90,7 @@
 	item_state = "knife"
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_PLASTIC = 1)
 	force = WEAPON_FORCE_NORMAL
-	armor_penetration = ARMOR_PEN_GRAZING
+	armor_divisor = ARMOR_PEN_GRAZING
 	embed_mult = 6
 	max_upgrades = 3
 	spawn_blacklisted = TRUE
@@ -143,7 +143,7 @@
 	item_state = "bluespace_dagger"
 	matter = list(MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 2, MATERIAL_SILVER = 10, MATERIAL_GOLD = 5, MATERIAL_PLASMA = 20)
 	switched_on_force = WEAPON_FORCE_NORMAL+1
-	armor_penetration = ARMOR_PEN_DEEP
+	armor_divisor = ARMOR_PEN_DEEP
 	embed_mult = 50 //You WANT it to embed
 	suitable_cell = /obj/item/cell/small
 	toggleable = TRUE
@@ -222,7 +222,7 @@
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
 	switched_on_force = WEAPON_FORCE_NORMAL+2
-	armor_penetration = ARMOR_PEN_GRAZING
+	armor_divisor = ARMOR_PEN_GRAZING
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL =6)
 	switched_on_qualities = list(QUALITY_CUTTING = 20, QUALITY_WIRE_CUTTING = 10, QUALITY_SCREW_DRIVING = 5)
 	w_class = ITEM_SIZE_TINY
@@ -273,7 +273,7 @@
 	sharp = FALSE
 	force = WEAPON_FORCE_WEAK
 	switched_on_force = WEAPON_FORCE_NORMAL
-	armor_penetration = ARMOR_PEN_GRAZING
+	armor_divisor = ARMOR_PEN_GRAZING
 	w_class = ITEM_SIZE_TINY
 	var/switched_on_w_class = ITEM_SIZE_SMALL
 	matter = list(MATERIAL_PLASTEEL = 4, MATERIAL_STEEL = 6, MATERIAL_GOLD= 0.5)
