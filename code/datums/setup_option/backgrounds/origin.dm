@@ -172,11 +172,9 @@
 
 
 /datum/category_item/setup_option/background/origin/eureka
-    name = "Eureka"
-    desc = "Once a paradise for the Australian colonists that lived on it, their neutrality during the corporate wars cost them this paradise. \
-            And thus did the Syndicate and Nanotrasen both bomb Eureka to hell, causing once verdant lands to become hellish deserts of nuclear proportions. \
-            As a side effect of this once the corporate wars ended, Eurekans are known to be eerily good trackers and pathfinders in these conditions and elsewhere, causing what's left of the Eurekan people to pay a tithe to Hansa and Neotheology both in the form of criminals. \
-            All in the name of saving what's left."
+    name = "Tracker"
+    desc = "The world you grew up on was notoriously hostile. You learned to shoot the minute you were old enough to hold a gun, and your colony's laws forbade anyone leaving the walls of the settlement without one. \
+			Growing up in such an environment, you didn't have the fancy tools of the Core Worlds, they wouldn't have survived five minutes there anyway, so you never learned much about them. But you're a survivor, and can stare down a charging Shantak without flinching."
 
     stat_modifiers = list(
         STAT_ROB = -5,
@@ -188,10 +186,10 @@
     )
 
 /datum/category_item/setup_option/background/origin/streltsy
-	name = "Wandering Streltsy"
-	desc = "The Streltsy are known for their actions during the corporate wars on certain worlds such as Eureka and Predstraza. Serbians know them as valuable debt settlers and an escape from the conditions of their worlds, while more civilized worlds view them as despoilers and raiders. \
-			While both of these preconceptions are correct in their own right, a less known fact is that most Streltsy who've survived the corporate war are still suffering the consequences of their participation due to the decimation of their numbers during the war, leading to a miserable quality of life and forcing them to start recruitment from wartorn worlds to desperately replenish their numbers from before the war. \
-			Despite this, the survivors and their newer members are unparalleled in the arts of war, but lacking in the art of general technomancy."
+	name = "Ascended Barbarian"
+	desc = "The world you grew up on is so forgotten, you didn't even know other species existed beyond the stars. Your world may have been forgotten due to a beaurocratic error. Or maybe the nation that founded your world collapsed, and left no record. Perhaps your species never made it to the stars themselves. \
+			Regardless of the circumstances, your home is a place where the wonders of modern technology are akin to magic. But you've managed to find a way off that rock. Maybe you were taken by slavers, living in servitude until you bought your freedom (with coin or blood), or perhaps the people who forgot you have rediscovered your existance, and re-absorbed you into the larger galactic community. \
+			No matter what the reason, you might not understand all this fancy tech around you. But you're determined to make yourself a valuable member of the crew."
 	stat_modifiers = list(
 		STAT_ROB = 5,
 		STAT_TGH = 10,
@@ -204,10 +202,10 @@
 	restricted_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/chaplain, /datum/job/merchant, /datum/job/cmo, /datum/job/rd, /datum/job/ihc)
 	restricted_depts = IRONHAMMER | MEDICAL | SCIENCE | CHURCH | GUILD | CIVILIAN | SERVICE
 
-/datum/category_item/setup_option/background/origin/ihmaids
-	name = "Aegis M.A.I.D.S Corps"
-	desc = "Aegis Medical, Acquisition, Industrial Design and Security Corps are normally posted to construction work of particular importance to Aegis assets, such as fortifications or barracks for the garrisons on the way to the null sector, along with triage work for when an accident inevitably happens at those garrisons. \
-			At other times, they're assigned to Aegis security teams on exploratory missions into the null sector due to their prowess as construction specialists and medics."
+/datum/category_item/setup_option/background/origin/tripwire
+	name = "Combat Engineer"
+	desc = "Whether part of an organized military, a local militia, or a mercenary band for hire, all of them have equipment that needs to be maintained, fortifications to be built, and enemy emplacements to be removed; preferably as quickly and explosively as possible. \
+			Wherever you're from, your organization turned to you for that task. You're a soldier first, but when there's a wall in your way, you know exactly where toplant the C4 to make a door."
 
 	stat_modifiers = list(
 		STAT_ROB = -5,
@@ -219,10 +217,10 @@
 	)
 
 /datum/category_item/setup_option/background/origin/kestrel
-	name = "Kestrel Hive"
-	desc = "A massive fleet of nomadic space stations lacking FTL, originally little more than mobile refineries and ore smelters which turned into veritable towns inhabited by hardass miners and ruthless prospectors. The Hive is constantly busy with stripping the massive asteroid fields in a system at the edge of Hansa space that is little more than barren dwarf planets and desolate gas giants. \
-	The forge-towns can produce all needed equipment on-site thanks to their massive production facilities, though often the stations struggle to support the crammed population, so air and water rationing aren't uncommon, and even gravity generator shutdowns are a common occurrence. \
-	The cluster is owned and operated by Tartarus Industrial Union, a division of the idealistic Hansa megacorp in charge of heavy industries. The workers of Kestrel Hive, real rough folk, partake in several very dangerous recreational activities, from hopping from asteroid to asteroid with just your EVA suit and a spare tank of oxygen, to rocket-fuel and pure ethanol booze, with bits of radioactive byproducts mixed in. Strongest alcohol you’ll ever find, and you need a strong drink if you want to keep your wits during the twelve-hour shifts."
+	name = "Belt Miner"
+	desc = "Asteroid belts, planetary rings, and ancient debris fields are some of the most lucrative, and dangerous places to mine, and that's where you call home. Belt Miners are a self-sufficient lot, sent into these fields for years at a time to strip them of valuable materials. \
+	The stations you lived on can produce all needed equipment on-site thanks to their massive production facilities, though often the stations struggle to support the population, so air and water rationing aren't uncommon, and even gravity generator shutdowns are a common occurrence. \
+	Maybe you worked for the Free Trade Union, or one of the other megacorps. Or maybe you were part of an illegal Wildcat mining operation, jumping the claims of others and making off with the goods before they could catch you."
 
 	stat_modifiers = list(
 		STAT_ROB = 6,

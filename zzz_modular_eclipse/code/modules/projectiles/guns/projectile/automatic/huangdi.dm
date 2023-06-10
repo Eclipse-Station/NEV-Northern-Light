@@ -6,7 +6,7 @@
 	item_state = "huangdi"
 	w_class = ITEM_SIZE_HUGE
 	force = WEAPON_FORCE_ROBUST
-	armor_penetration = ARMOR_PEN_DEEP
+	armor_divisor = ARMOR_PEN_DEEP
 	caliber = CAL_SRIFLE
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1)
 	slot_flags = SLOT_BACK
@@ -22,19 +22,26 @@
 	cocked_sound = 'sound/weapons/guns/interact/ltrifle_cock.ogg'
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut") // Considering attached bayonet
 	sharp = TRUE
-	recoil_buildup = 1.5
-	one_hand_penalty = 15 //automatic rifle level
+	init_recoil = RIFLE_RECOIL(1.5)
+	init_offset = 4 //bayonet's effect on aim, reduced from 4
 	damage_multiplier = 1.15
 	gun_tags = list(GUN_SILENCABLE)
-
-	init_firemodes = list(
-		SEMI_AUTO_NODELAY
-		)
-
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
-	gun_parts = list(/obj/item/part/gun/frame/wintermute = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/autorifle = 1, /obj/item/part/gun/barrel/srifle = 1)
+	init_firemodes = list(SEMI_AUTO_300)
+
+	gun_parts = list(/obj/item/part/gun/frame/huangdi = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/autorifle/determined = 1, /obj/item/part/gun/modular/barrel/srifle/steel = 1)
 
 	simplemob_bonus_damage_multiplier = 0.05 //Eclipse edit: Balancing.
+
+/obj/item/part/gun/frame/huangdi
+	name = "huangdi rifle frame"
+	desc = "A huangdi rifle frame. A parade and civil defense rifle."
+	icon_state = "frame_serbrifle"
+	result = /obj/item/gun/projectile/huangdi
+	gripvars = /obj/item/part/gun/modular/grip/wood
+	resultvars = /obj/item/gun/projectile/huangdi
+	mechanismvar = /obj/item/part/gun/modular/mechanism/autorifle/determined
+	barrelvars = list(/obj/item/part/gun/modular/barrel/srifle/steel)
 
 /obj/item/gun/projectile/huangdi/update_icon()
 	..()

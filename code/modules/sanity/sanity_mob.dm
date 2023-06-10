@@ -286,20 +286,20 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 		)
 
 	if(rest == "Focus on an oddity")
-	if(owner.stats.getPerk(PERK_ARTIST))
-		to_chat(owner, SPAN_NOTICE("Your artistic mind prevents you from using an oddity."))
-		rest = "Internalize your recent experiences"
-	else
-		var/oddity_in_posession = FALSE
+		if(owner.stats.getPerk(PERK_ARTIST))
+			to_chat(owner, SPAN_NOTICE("Your artistic mind prevents you from using an oddity."))
+			rest = "Internalize your recent experiences"
+		else
+			var/oddity_in_posession = FALSE
 
-	for(var/obj/item/I in owner.get_contents())
-		if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
-			oddity_in_posession = TRUE
-			break
+			for(var/obj/item/I in owner.get_contents())
+				if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
+					oddity_in_posession = TRUE
+					break
 
-	if(!oddity_in_posession)
-		to_chat(owner, SPAN_NOTICE("You do not have any oddities to use."))
-		rest = "Internalize your recent experiences"
+			if(!oddity_in_posession)
+				to_chat(owner, SPAN_NOTICE("You do not have any oddities to use."))
+				rest = "Internalize your recent experiences"
 
 	switch(rest)
 
@@ -308,29 +308,29 @@ GLOBAL_VAR_INIT(GLOBAL_INSIGHT_MOD, 1)
 			var/list/inspiration_items = list()
 			for(var/obj/item/I in owner.get_contents()) //what oddities do we have?
 				if(is_type_in_list(I, valid_inspirations) && I.GetComponent(/datum/component/inspiration))
-			inspiration_items += I
+					inspiration_items += I
 
 			if(inspiration_items.len)//should always work, but in case of bug, there is an else
-		var/obj/item/O = inspiration_items.len > 1 ? owner.client ? input(owner, "Select something to use as inspiration", "Level up") in inspiration_items : pick(inspiration_items) : inspiration_items[1]
-		if(!O)
-			return
+				var/obj/item/O = inspiration_items.len > 1 ? owner.client ? input(owner, "Select something to use as inspiration", "Level up") in inspiration_items : pick(inspiration_items) : inspiration_items[1]
+				if(!O)
+					return
 
-		GET_COMPONENT_FROM(I, /datum/component/inspiration, O) // If it's a valid inspiration, it should have this component. If not, runtime
-		var/list/L = I.calculate_statistics()
-		for(var/stat in L)
-			var/stat_up = L[stat] * 2
-			to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_up]"))
-			owner.stats.changeStat(stat, stat_up)
+				GET_COMPONENT_FROM(I, /datum/component/inspiration, O) // If it's a valid inspiration, it should have this component. If not, runtime
+				var/list/L = I.calculate_statistics()
+				for(var/stat in L)
+					var/stat_up = L[stat] * 2
+					to_chat(owner, SPAN_NOTICE("Your [stat] stat goes up by [stat_up]"))
+					owner.stats.changeStat(stat, stat_up)
 
-		if(I.perk)
-			if(owner.stats.addPerk(I.perk))
-				I.perk = null
+				if(I.perk)
+					if(owner.stats.addPerk(I.perk))
+						I.perk = null
 
 				SEND_SIGNAL_OLD(O, COMSIG_ODDITY_USED)
-		for(var/mob/living/carbon/human/H in viewers(owner))
-			SEND_SIGNAL_OLD(H, COMSIG_HUMAN_ODDITY_LEVEL_UP, owner, O)
+				for(var/mob/living/carbon/human/H in viewers(owner))
+					SEND_SIGNAL_OLD(H, COMSIG_HUMAN_ODDITY_LEVEL_UP, owner, O)
 
-		else to_chat(owner, SPAN_NOTICE("Something really buggy just happened with your brain."))
+			else to_chat(owner, SPAN_NOTICE("Something really buggy just happened with your brain."))
 
 		if("Convert your fulfilled insight for later use")
 			owner.rest_points += 1 //yeah... that's it

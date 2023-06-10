@@ -236,12 +236,12 @@ var/global/ManifestJSON
 	var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[H.h_style]
 	if(hair_style)
 		temp = new/icon(hair_style.icon, hair_style.icon_state)
-		temp.Blend(rgb(H.r_hair, H.g_hair, H.b_hair), ICON_ADD)
+		temp.Blend(H.hair_color, ICON_ADD)
 
 	hair_style = GLOB.facial_hair_styles_list[H.h_style]
 	if(hair_style)
 		var/icon/facial = new/icon(hair_style.icon, hair_style.icon_state)
-		facial.Blend(rgb(H.r_facial, H.g_facial, H.b_facial), ICON_ADD)
+		facial.Blend(H.facial_color, ICON_ADD)
 		temp.Blend(facial, ICON_OVERLAY)
 
 	preview_icon.Blend(temp, ICON_OVERLAY)

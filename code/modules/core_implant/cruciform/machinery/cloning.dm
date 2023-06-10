@@ -209,14 +209,12 @@
 				return
 
 			occupant = new/mob/living/carbon/human(src)
-			occupant.dna = R.host_dna.Clone()
 			occupant.fingers_trace = R.fingers_trace
 			occupant.dna_trace = R.dna_trace
 			occupant.dormant_mutations = R.dormant_mutations
 			occupant.active_mutations = R.active_mutations
 			occupant.set_species()
-			occupant.real_name = R.host_dna.real_name
-			occupant.age = R.host_age
+			occupant.real_name = R.real_name
 			occupant.b_type = R.b_type
 			occupant.age = R.age
 			occupant.h_style = R.h_style
@@ -229,8 +227,8 @@
 			occupant.gender = R.gender
 			occupant.tts_seed = R.tts_seed
 			occupant.sync_organ_dna()
-			occupant.flavor_text = R.host_flavor_text
-			R.host_stats.copyTo(occupant.stats)
+			occupant.flavor_text = R.flavor
+			R.stats.copyTo(occupant.stats)
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
 			var/datum/effect/effect/system/spark_spread/s = new

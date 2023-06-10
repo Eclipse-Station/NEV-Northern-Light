@@ -211,7 +211,7 @@
 		verbs |= /mob/living/proc/hide
 		verbs |= /mob/living/simple_animal/promethean_blob/proc/evolve
 		verbs |= /mob/living/simple_animal/promethean_blob/proc/set_mood
-		color = rgb(min(H.r_skin + 40, 255), min(H.g_skin + 40, 255), min(H.b_skin + 40, 255))
+		color = rgb(rand(1,220),rand(1,220),rand(1,220))
 		if(H.health > (H.maxHealth - H.maxHealth/1.25))
 			overlays += "aslime-:33"
 		else
@@ -760,30 +760,22 @@
 			species.icobase = newicon_s.icobase
 			species.deform = newicon_s.icobase //also icobase because slimes don't really bleed or get deformed
 
-	var/new_skin = input(usr, "Please select your character's skin color: ", "Skin Color", rgb(r_skin, g_skin, b_skin)) as color|null
+	var/new_skin = input(usr, "Please select your character's skin color: ", "Skin Color", skin_color) as color|null
 	if(new_skin)
-		var/r_skin = hex2num(copytext(new_skin, 2, 4))
-		var/g_skin = hex2num(copytext(new_skin, 4, 6))
-		var/b_skin = hex2num(copytext(new_skin, 6, 8))
-		change_skin_color(r_skin, g_skin, b_skin)
+		skin_color = new_skin
+		change_skin_color(skin_color)
 
-	var/new_facial = input("Please select facial hair color.", "Character Generation", rgb(r_facial, g_facial, b_facial)) as color
+	var/new_facial = input("Please select facial hair color.", "Character Generation", facial_color) as color
 	if(new_facial)
-		r_facial = hex2num(copytext(new_facial, 2, 4))
-		g_facial = hex2num(copytext(new_facial, 4, 6))
-		b_facial = hex2num(copytext(new_facial, 6, 8))
+		facial_color = new_facial
 
-	var/new_hair = input("Please select hair color.", "Character Generation", rgb(r_hair, g_hair, b_hair)) as color
-	if(new_facial)
-		r_hair = hex2num(copytext(new_hair, 2, 4))
-		g_hair = hex2num(copytext(new_hair, 4, 6))
-		b_hair = hex2num(copytext(new_hair, 6, 8))
+	var/new_hair = input("Please select hair color.", "Character Generation", hair_color) as color
+	if(new_hair)
+		hair_color = new_hair
 
-	var/new_eyes = input("Please select eye color.", "Character Generation", rgb(r_eyes, g_eyes, b_eyes)) as color
+	var/new_eyes = input("Please select eye color.", "Character Generation", eyes_color) as color
 	if(new_eyes)
-		r_eyes = hex2num(copytext(new_eyes, 2, 4))
-		g_eyes = hex2num(copytext(new_eyes, 4, 6))
-		b_eyes = hex2num(copytext(new_eyes, 6, 8))
+		eyes_color = new_eyes
 		update_eyes()
 
 
