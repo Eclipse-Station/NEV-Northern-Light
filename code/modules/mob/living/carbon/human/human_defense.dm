@@ -64,9 +64,9 @@ meteor_act
 	var/hit_dirs = (r_dir in cardinal) ? r_dir : list(r_dir & NORTH|SOUTH, r_dir & EAST|WEST)
 
 	if(hit_zone == BP_R_LEG || hit_zone == BP_L_LEG)
-	if(prob(60 - stats.getStat(STAT_TGH)))
-		step(src, pick(cardinal - hit_dirs))
-		visible_message(SPAN_WARNING("[src] stumbles around."))
+		if(prob(60 - stats.getStat(STAT_TGH)))
+			step(src, pick(cardinal - hit_dirs))
+			visible_message(SPAN_WARNING("[src] stumbles around."))
 
 /mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone)
 
@@ -336,13 +336,13 @@ meteor_act
 		var/blood_color = species.blood_color
 		if(blood_color)
 		//Apply blood
-		if(!((I.flags & NOBLOODY)||(I.item_flags & NOBLOODY)))
-			I.add_blood(src)
-			var/splatter_dir = dir
-			splatter_dir = get_dir(user, target_location)
-			target_location = get_step(target_location, splatter_dir)
-			new /obj/effect/overlay/temp/dir_setting/bloodsplatter(loc, splatter_dir, blood_color)
-			target_location.add_blood(src)
+			if(!((I.flags & NOBLOODY)||(I.item_flags & NOBLOODY)))
+				I.add_blood(src)
+				var/splatter_dir = dir
+				splatter_dir = get_dir(user, target_location)
+				target_location = get_step(target_location, splatter_dir)
+				new /obj/effect/overlay/temp/dir_setting/bloodsplatter(loc, splatter_dir, blood_color)
+				target_location.add_blood(src)
 
 		//Intervention attacks
 		if(prob(max(5, min(30, 30 - stats.getStat(STAT_TGH)/2.5)))) //This is hell. 30% is default chance, 5% is minimum which is met at 80 TGH.
@@ -357,9 +357,9 @@ meteor_act
 			switch(intervention_type)
 				if("bloodstains")
 					if(blood_color)
-			var/turf/location = loc
-			if(istype(location, /turf/simulated))
-				location.add_blood(src)
+						var/turf/location = loc
+						if(istype(location, /turf/simulated))
+							location.add_blood(src)
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
 				if(get_dist(H, src) <= 1) //people with TK won't get smeared with blood
