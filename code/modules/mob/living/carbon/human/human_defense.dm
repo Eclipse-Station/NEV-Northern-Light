@@ -64,9 +64,9 @@ meteor_act
 	var/hit_dirs = (r_dir in cardinal) ? r_dir : list(r_dir & NORTH|SOUTH, r_dir & EAST|WEST)
 
 	if(hit_zone == BP_R_LEG || hit_zone == BP_L_LEG)
-	if(prob(60 - stats.getStat(STAT_TGH)))
-		step(src, pick(cardinal - hit_dirs))
-		visible_message(SPAN_WARNING("[src] stumbles around."))
+		if(prob(60 - stats.getStat(STAT_TGH)))
+			step(src, pick(cardinal - hit_dirs))
+			visible_message(SPAN_WARNING("[src] stumbles around."))
 
 /mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone)
 
@@ -75,12 +75,8 @@ meteor_act
 //	No siemens coefficient calculations now, it's all done with armor "Energy" protection stat
 
 	switch (def_zone)
-		if(BP_L_HAND, BP_R_HAND)
-			var/c_hand
-			if (def_zone == BP_L_HAND)
-				c_hand = l_hand
-			else
-				c_hand = r_hand
+		if(BP_L_ARM, BP_R_ARM)
+			var/obj/item/organ/external/hand = get_organ(def_zone)
 
 			if(hand && hand.mob_can_unequip(src) && (stun_amount || agony_amount > 10))
 				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect")
@@ -335,9 +331,9 @@ meteor_act
 		// Blood splatter
 		var/blood_color = species.blood_color
 		if(blood_color)
-		//Apply blood
-		if(!((I.flags & NOBLOODY)||(I.item_flags & NOBLOODY)))
-			I.add_blood(src)
+			//Apply blood
+			if(!((I.flags & NOBLOODY)||(I.item_flags & NOBLOODY)))
+				I.add_blood(src)
 			var/splatter_dir = dir
 			splatter_dir = get_dir(user, target_location)
 			target_location = get_step(target_location, splatter_dir)
@@ -357,29 +353,29 @@ meteor_act
 			switch(intervention_type)
 				if("bloodstains")
 					if(blood_color)
-			var/turf/location = loc
-			if(istype(location, /turf/simulated))
-				location.add_blood(src)
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
-				if(get_dist(H, src) <= 1) //people with TK won't get smeared with blood
-					H.bloody_body(src)
-					H.bloody_hands(src)
+						var/turf/location = loc
+						if(istype(location, /turf/simulated))
+							location.add_blood(src)
+						if(ishuman(user))
+							var/mob/living/carbon/human/H = user
+							if(get_dist(H, src) <= 1) //people with TK won't get smeared with blood
+								H.bloody_body(src)
+								H.bloody_hands(src)
 
-				if(prob(40))
-					if(wear_mask)
-						wear_mask.add_blood(src)
-						update_inv_wear_mask(0)
-					if(head)
-						head.add_blood(src)
-						update_inv_head(0)
-					if(glasses)
-						glasses.add_blood(src)
-						update_inv_glasses(0)
-				else
-					bloody_body(src)
-					visible_message(SPAN_WARNING("Blood stains [src]'s clothes!"), SPAN_DANGER("Blood seeps through your clothes and your heart skips a beat!"))
-					sanity.changeLevel(-5)
+							if(prob(40))
+								if(wear_mask)
+									wear_mask.add_blood(src)
+									update_inv_wear_mask(0)
+								if(head)
+									head.add_blood(src)
+									update_inv_head(0)
+								if(glasses)
+									glasses.add_blood(src)
+									update_inv_glasses(0)
+							else
+								bloody_body(src)
+						visible_message(SPAN_WARNING("Blood stains [src]'s clothes!"), SPAN_DANGER("Blood seeps through your clothes and your heart skips a beat!"))
+						sanity.changeLevel(-5)
 
 				if("out of breath")
 					if(!stat)

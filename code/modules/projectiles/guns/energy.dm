@@ -14,7 +14,7 @@
 	var/cell_type = /obj/item/cell/medium/high
 	var/projectile_type = /obj/item/projectile/beam/practice
 	var/auto_eject = FALSE			//Eclipse Edit - if the cell should automatically eject itself when empty
-	var/auto_eject_sound			
+	var/auto_eject_sound
 	var/modifystate
 	var/charge_meter = TRUE //if set, the icon state will be chosen based on the current charge
 	var/item_modifystate
@@ -36,7 +36,7 @@
 
 	wield_delay = 0 SECOND
 	wield_delay_factor = 0
-	
+
 	simplemob_bonus_damage_multiplier = -0.2		//Eclipse edit: -20% damage to simplemobs.
 	var/suppress_already_loaded_message = FALSE		//Eclipse edit: Suppress the "it's already loaded" message
 
@@ -167,14 +167,10 @@
 		return
 
 	if(istype(C, suitable_cell))
-	if(cell)
-		if(!suppress_already_loaded_message)		//Eclipse edit: In case of multiple cells.
-			to_chat(usr, SPAN_WARNING("[src] is already loaded."))		//End Eclipse edit.
-		return
-
+		if(cell)
 			if(replace_item(cell, C, user))
-		cell = C
-		update_icon()
+				cell = C
+				update_icon()
 		else if(insert_item(C, user))
 			cell = C
 			update_icon()

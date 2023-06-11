@@ -132,26 +132,26 @@
 			if(I.use_tool(user, src, WORKTIME_SLOW, QUALITY_HAMMERING, FAILCHANCE_EASY, required_stat = STAT_MEC))
 				user.visible_message(SPAN_DANGER("[user] removes \the [name]'s gun serial number."), SPAN_NOTICE("You successfully remove the serial number from \the [name]."))
 				serial_type = null
-		return FALSE
+				return FALSE
 
 		if(QUALITY_BOLT_TURNING)
-	if(!gun_parts)
-		to_chat(user, SPAN_NOTICE("You can't dismantle [src] as it has no gun parts! How strange..."))
-		return FALSE
+			if(!gun_parts)
+				to_chat(user, SPAN_NOTICE("You can't dismantle [src] as it has no gun parts! How strange..."))
+				return FALSE
 
-		user.visible_message(SPAN_NOTICE("[user] begins breaking apart [src]."), SPAN_WARNING("You begin breaking apart [src] for gun parts."))
-	if(I.use_tool(user, src, WORKTIME_SLOW, QUALITY_BOLT_TURNING, FAILCHANCE_EASY, required_stat = STAT_MEC))
-		user.visible_message(SPAN_NOTICE("[user] breaks [src] apart for gun parts!"), SPAN_NOTICE("You break [src] apart for gun parts."))
-		for(var/target_item in gun_parts)
-			var/amount = gun_parts[target_item]
-			while(amount)
-				if(ispath(target_item, /obj/item/part/gun/frame))
-					var/obj/item/part/gun/frame/F = new target_item(get_turf(src))
-					F.serial_type = serial_type
-				else
-					new target_item(get_turf(src))
-					amount--
-		qdel(src)
+			user.visible_message(SPAN_NOTICE("[user] begins breaking apart [src]."), SPAN_WARNING("You begin breaking apart [src] for gun parts."))
+			if(I.use_tool(user, src, WORKTIME_SLOW, QUALITY_BOLT_TURNING, FAILCHANCE_EASY, required_stat = STAT_MEC))
+				user.visible_message(SPAN_NOTICE("[user] breaks [src] apart for gun parts!"), SPAN_NOTICE("You break [src] apart for gun parts."))
+				for(var/target_item in gun_parts)
+					var/amount = gun_parts[target_item]
+					while(amount)
+						if(ispath(target_item, /obj/item/part/gun/frame))
+							var/obj/item/part/gun/frame/F = new target_item(get_turf(src))
+							F.serial_type = serial_type
+						else
+							new target_item(get_turf(src))
+						amount--
+				qdel(src)
 
 
 /obj/item/gun/get_item_cost(export)

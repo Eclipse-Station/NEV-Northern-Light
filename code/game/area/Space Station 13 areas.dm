@@ -493,9 +493,10 @@ area/space/atmosalert()
 	atmos = FALSE // So open spaces don't lose air
 	no_air = TRUE // Make there be no air to lose either
 
-/area/holodeck/source/off
+//Begin Eclipse Edit - Reverting all of this until we're ready for the Holobar
+/area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
-
+/*
 /area/holodeck/source/spacebar
 	name = "\improper Holodeck - Spacebar"
 	sound_env = LARGE_SOFTFLOOR
@@ -516,8 +517,8 @@ area/space/atmosalert()
 /area/holodeck/source/industrial_arena
 	name = "\improper Holodeck - Industrial arena"
 	sound_env = LARGE_ENCLOSED
+*/
 
-/*
 /area/holodeck/source_emptycourt
 	name = "\improper Holodeck - Empty Court"
 	sound_env = ARENA
@@ -572,7 +573,7 @@ area/space/atmosalert()
 /area/holodeck/source_theatre
 	name = "\improper Holodeck - Theatre"
 	sound_env = CONCERT_HALL
-*/
+// End of Eclipse Edits
 
 //DJSTATION
 

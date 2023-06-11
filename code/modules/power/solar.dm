@@ -255,8 +255,8 @@
 		if(locate(/obj/machinery/power/solar) in get_turf(src))
 			to_chat(user, SPAN_WARNING("A solar panel is already assembled here."))
 			return
-			var/obj/item/stack/material/S = I
-			if(S.use(2))
+		var/obj/item/stack/material/S = I
+		if(S.use(2))
 			glass_type = S.type
 			playsound(loc, 'sound/machines/click.ogg', 50, TRUE)
 			user.visible_message(SPAN_NOTICE("[user] places the glass on the solar assembly."), SPAN_NOTICE("You place the glass on the solar assembly."))

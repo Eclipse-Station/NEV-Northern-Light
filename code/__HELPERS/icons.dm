@@ -1069,6 +1069,7 @@ proc/get_average_color(var/icon, var/icon_state, var/image_dir)
 	GLOB.average_icon_color["[icon]:[icon_state]:[image_dir]"] = rgb(average_rgb[1],average_rgb[2],average_rgb[3])
 	return GLOB.average_icon_color["[icon]:[icon_state]:[image_dir]"]
 
+/* Begin Eclipse Edit - commenting this section out as it is a duplicate proc above, not sure of what it might be needed for, so I'm hesitant to delete it entirely in case we need to put it back. ~ Valanthe500
 /proc/getFlatIcon(image/A, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE)
 	// We start with a blank canvas, otherwise some icon procs crash silently
 	var/icon/flat = icon('icons/effects/effects.dmi', "nothing") // Final flattened icon
@@ -1252,7 +1253,7 @@ proc/get_average_color(var/icon, var/icon_state, var/image_dir)
 		return cleaned
 	else
 		return icon(flat, "", SOUTH)
-
+End of Eclipse edits */
 /**
 * Animate a 'halo' around an object.
 *

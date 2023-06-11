@@ -174,7 +174,7 @@
 
 /datum/perk/oddity/toxic_revenger/assign(mob/living/carbon/human/H)
 	if(..())
-	initial_time = world.time
+		initial_time = world.time
 
 /datum/perk/oddity/toxic_revenger/on_process()
 	if(!..())
@@ -233,7 +233,7 @@
 
 /datum/perk/nt_oddity/holy_light/assign(mob/living/carbon/human/H)
 	if(..())
-	initial_time = world.time
+		initial_time = world.time
 
 /datum/perk/nt_oddity/holy_light/on_process()
 	if(!..())
@@ -262,7 +262,7 @@
 
 /datum/perk/hive_oddity/hive_born/assign(mob/living/carbon/human/H)
 	if(..())
-	initial_time = world.time
+		initial_time = world.time
 
 /datum/perk/hive_oddity/hive_born/on_process()
 	if(!..())

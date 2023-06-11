@@ -201,7 +201,7 @@
 				stop()
 
 		if(progress >= CLONING_MEAT && !occupant)
-			var/obj/item/implant/core_implant/soulcrypt/R = reader.implant
+			var/datum/core_module/cruciform/cloning/R = reader.implant.get_module(CRUCIFORM_CLONING)
 			if(!R)
 				open_anim()
 				stop()
