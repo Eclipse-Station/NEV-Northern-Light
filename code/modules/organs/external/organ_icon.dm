@@ -23,8 +23,7 @@ var/global/list/limb_icon_cache = list()
 	if(!isnull(human.s_tone) && (human.species.appearance_flags & HAS_SKIN_TONE))
 		skin_tone = human.s_tone
 	if(human.species.appearance_flags & HAS_SKIN_COLOR)
-		skin_col = human.skin_color
-	hair_col = human.hair_color
+		s_col = list(human.r_skin, human.g_skin, human.b_skin)
 
 /obj/item/organ/external/proc/get_cache_key()
 	var/part_key = ""
@@ -91,7 +90,7 @@ var/global/list/limb_icon_cache = list()
 			if(facial_hair_style && facial_hair_style.species_allowed && (species.get_bodytype() in facial_hair_style.species_allowed))
 				var/icon/facial = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 				if(facial_hair_style.do_colouration)
-					facial.Blend(owner.facial_color, ICON_ADD)
+					facial.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)
 				overlays |= facial
 
 		if(owner.h_style && !(owner.head && (owner.head.flags_inv & BLOCKHEADHAIR)))
