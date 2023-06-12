@@ -75,12 +75,8 @@ meteor_act
 //	No siemens coefficient calculations now, it's all done with armor "Energy" protection stat
 
 	switch (def_zone)
-		if(BP_L_HAND, BP_R_HAND)
-			var/c_hand
-			if (def_zone == BP_L_HAND)
-				c_hand = l_hand
-			else
-				c_hand = r_hand
+		if(BP_L_ARM, BP_R_ARM)
+			var/obj/item/organ/external/hand = get_organ(def_zone)
 
 			if(hand && hand.mob_can_unequip(src) && (stun_amount || agony_amount > 10))
 				msg_admin_attack("[src.name] ([src.ckey]) was disarmed by a stun effect")
@@ -335,14 +331,14 @@ meteor_act
 		// Blood splatter
 		var/blood_color = species.blood_color
 		if(blood_color)
-		//Apply blood
+			//Apply blood
 			if(!((I.flags & NOBLOODY)||(I.item_flags & NOBLOODY)))
 				I.add_blood(src)
-				var/splatter_dir = dir
-				splatter_dir = get_dir(user, target_location)
-				target_location = get_step(target_location, splatter_dir)
-				new /obj/effect/overlay/temp/dir_setting/bloodsplatter(loc, splatter_dir, blood_color)
-				target_location.add_blood(src)
+			var/splatter_dir = dir
+			splatter_dir = get_dir(user, target_location)
+			target_location = get_step(target_location, splatter_dir)
+			new /obj/effect/overlay/temp/dir_setting/bloodsplatter(loc, splatter_dir, blood_color)
+			target_location.add_blood(src)
 
 		//Intervention attacks
 		if(prob(max(5, min(30, 30 - stats.getStat(STAT_TGH)/2.5)))) //This is hell. 30% is default chance, 5% is minimum which is met at 80 TGH.
@@ -360,26 +356,26 @@ meteor_act
 						var/turf/location = loc
 						if(istype(location, /turf/simulated))
 							location.add_blood(src)
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
-				if(get_dist(H, src) <= 1) //people with TK won't get smeared with blood
-					H.bloody_body(src)
-					H.bloody_hands(src)
+						if(ishuman(user))
+							var/mob/living/carbon/human/H = user
+							if(get_dist(H, src) <= 1) //people with TK won't get smeared with blood
+								H.bloody_body(src)
+								H.bloody_hands(src)
 
-				if(prob(40))
-					if(wear_mask)
-						wear_mask.add_blood(src)
-						update_inv_wear_mask(0)
-					if(head)
-						head.add_blood(src)
-						update_inv_head(0)
-					if(glasses)
-						glasses.add_blood(src)
-						update_inv_glasses(0)
-				else
-					bloody_body(src)
-					visible_message(SPAN_WARNING("Blood stains [src]'s clothes!"), SPAN_DANGER("Blood seeps through your clothes and your heart skips a beat!"))
-					sanity.changeLevel(-5)
+							if(prob(40))
+								if(wear_mask)
+									wear_mask.add_blood(src)
+									update_inv_wear_mask(0)
+								if(head)
+									head.add_blood(src)
+									update_inv_head(0)
+								if(glasses)
+									glasses.add_blood(src)
+									update_inv_glasses(0)
+							else
+								bloody_body(src)
+						visible_message(SPAN_WARNING("Blood stains [src]'s clothes!"), SPAN_DANGER("Blood seeps through your clothes and your heart skips a beat!"))
+						sanity.changeLevel(-5)
 
 				if("out of breath")
 					if(!stat)

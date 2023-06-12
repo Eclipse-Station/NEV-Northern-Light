@@ -427,7 +427,7 @@
 			psy.holder.reg_break(H)
 
 	if(result == PROJECTILE_STOP)
-	return TRUE
+		return TRUE
 	else
 		return FALSE
 
@@ -471,7 +471,7 @@
 		if(isturf(A))
 			for(var/obj/O in A)
 				if(O.density)
-				O.bullet_act(src)
+					O.bullet_act(src)
 			for(var/mob/living/M in A)
 				attack_mob(M)
 

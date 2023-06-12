@@ -149,9 +149,9 @@
 				H.Weaken(5)
 				for (var/mob/V in viewers(src))
 					V.show_message("\red [M] writhes in pain as \his vacuoles boil.", 3, "\red You hear the crunching of leaves.", 2)
-				else
-					M.adjustFireLoss(rand(5,15))
-					M.show_message("\red The radiation beam singes you!")
+			else
+				M.adjustFireLoss(rand(5,15))
+				M.show_message("\red The radiation beam singes you!")
 	else if(istype(target, /mob/living/carbon/))
 		M.show_message("\blue The radiation beam dissipates harmlessly through your body.")
 	else

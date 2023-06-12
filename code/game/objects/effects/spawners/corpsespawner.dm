@@ -47,46 +47,9 @@
 	M.gender = gender
 
 	M.set_species(species)
-	M.real_name = src.name
-	M.death(1) //Kills the new mob
-	M.r_skin = r_skin
-	M.g_skin = g_skin
-	M.b_skin = b_skin
-	M.update_dna()
-	M.force_update_limbs()
-	M.update_body(0)
-	M.update_icons()
-	M.heart_process() //THEY HAVE PULSE WHEN THEY DIE??? - Eclipse edit
-	if(src.corpseuniform)
-		M.equip_to_slot_or_del(new src.corpseuniform(M), slot_w_uniform)
-	if(src.corpsesuit)
-		M.equip_to_slot_or_del(new src.corpsesuit(M), slot_wear_suit)
-	if(src.corpseshoes)
-		M.equip_to_slot_or_del(new src.corpseshoes(M), slot_shoes)
-	if(src.corpsegloves)
-		M.equip_to_slot_or_del(new src.corpsegloves(M), slot_gloves)
-	if(src.corpseradio)
-		M.equip_to_slot_or_del(new src.corpseradio(M), slot_l_ear)
-	if(src.corpseglasses)
-		M.equip_to_slot_or_del(new src.corpseglasses(M), slot_glasses)
-	if(src.corpsemask)
-		M.equip_to_slot_or_del(new src.corpsemask(M), slot_wear_mask)
-	if(src.corpsehelmet)
-		M.equip_to_slot_or_del(new src.corpsehelmet(M), slot_head)
-	if(src.corpsebelt)
-		M.equip_to_slot_or_del(new src.corpsebelt(M), slot_belt)
-	if(src.corpsepocket1)
-		M.equip_to_slot_or_del(new src.corpsepocket1(M), slot_r_store)
-	if(src.corpsepocket2)
-		M.equip_to_slot_or_del(new src.corpsepocket2(M), slot_l_store)
-	if(src.corpseback)
-		M.equip_to_slot_or_del(new src.corpseback(M), slot_back)
 
 	if(species)
 		M.reset_hair()
-
-	if(faction)
-		M.faction = faction
 
 	for(var/count in 1 to injury_level)
 		M.take_overall_damage(30,10)

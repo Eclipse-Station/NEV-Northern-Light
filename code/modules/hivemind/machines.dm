@@ -579,18 +579,18 @@
 	for(var/i in GLOB.hivemind_mobs)
 		total_mobs += GLOB.hivemind_mobs[i]
 	if(!GLOB.hive_data_bool["maximum_existing_mobs"] || GLOB.hive_data_float["maximum_existing_mobs"] > total_mobs)
-	var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
-	var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
+		var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
+		var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
 
 //If we have less than so many players on, don't spawn certain mobs.
-	if(spawned_mob.maxHealth > 75 * player_check())
-		qdel(spawned_mob)
-		return FALSE		//We didn't successfully spawn a mob.
-	spawned_mob.loc = loc
-	spawned_creatures.Add(spawned_mob)
-	spawned_mob.master = src
-	flick("[icon_state]-anim", src)
-	qdel(CATCH)
+		if(spawned_mob.maxHealth > 75 * player_check())
+			qdel(spawned_mob)
+			return FALSE		//We didn't successfully spawn a mob.
+		spawned_mob.loc = loc
+		spawned_creatures.Add(spawned_mob)
+		spawned_mob.master = src
+		flick("[icon_state]-anim", src)
+		qdel(CATCH)
 	return TRUE		//We did successfuly spawn a mob, so the cooldown (above) will be set.
 // // // END ECLIPSE EDITS // // //
 
