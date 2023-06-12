@@ -3,7 +3,9 @@
 */
 #define SPECIES_BLOOD_DEFAULT 560
 /datum/species
-
+	var/humaniform = TRUE //Does the species use default human spritesheet?
+	var/alt_icons_tag
+	var/list/alt_icons = list()
 	// Descriptors and strings.
 	var/name                                             // Species name.
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
@@ -183,9 +185,7 @@
 
 /datum/species/proc/get_eyes(/mob/living/carbon/human/H)
 	//Eclipse additions
-	var/humaniform = TRUE //Does the species use default human spritesheet?
-	var/alt_icons_tag
-	var/list/alt_icons = list()
+
 
 /* Eclipse Edit - duplicate definition
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)

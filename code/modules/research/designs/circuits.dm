@@ -60,6 +60,8 @@
 	sort_string = "FACAA"
 	category = CAT_COMP
 
+
+
 /datum/design/research/circuit/sleeper
 	name = "Sleeper"
 	build_path = /obj/item/electronics/circuitboard/sleeper

@@ -289,7 +289,7 @@ var/global/list/damage_icon_parts = list()
 			if(!has_eyes && (species.appearance_flags & HAS_EYE_COLOR))
 				var/icon/eyes_icon = new/icon('icons/mob/human_face.dmi', "eye_l")
 				eyes_icon.Blend(icon('icons/mob/human_face.dmi', "eye_r"), ICON_OVERLAY)
-				var/newcolour = eyes_color
+				var/newcolour = rgb(r_eyes, g_eyes, b_eyes)
 				eyes_icon.Blend(newcolour, ICON_ADD)
 				base_icon.Blend(eyes_icon, ICON_OVERLAY)
 
@@ -345,7 +345,7 @@ var/global/list/damage_icon_parts = list()
 		var/datum/sprite_accessory/marking/real_marking = body_marking_styles_list[markname]
 		var/icon/specific_marking_icon = new()
 		for(var/part in real_marking.body_parts)
-			var/valid = (part in organs_by_name) && organs_by_name[part] && ((part in BP_BASE_PARTS) || organs_by_name[part].dislocated >= 0)
+			var/valid = (part in organs_by_name) && organs_by_name[part] && ((part in BP_BASE_PARTS) /*|| organs_by_name[part].dislocated >= 0*/)
 			if(valid && ("[real_marking.icon_state]-[part]" in icon_states(real_marking.icon)))
 				var/icon/specific_marking_subicon = icon(real_marking.icon, "[real_marking.icon_state]-[part]")
 				specific_marking_subicon.Blend(specific_marking_icon, ICON_OVERLAY)
@@ -399,7 +399,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
-				facial_s.Blend(facial_color, ICON_ADD)
+				facial_s.Blend(rgb(r_facial, g_facial, b_facial), ICON_ADD)
 
 			face_standing.Blend(facial_s, ICON_OVERLAY)
 
@@ -412,7 +412,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]")
 			if(hair_style.do_colouration)
-				hair_s.Blend(hair_color, ICON_ADD)
+				hair_s.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
 
@@ -1204,7 +1204,7 @@ var/global/list/damage_icon_parts = list()
 // // // END ECLIPSE EDITS // // //
 
 /mob/living/carbon/human/proc/get_tail_icon()
-	var/icon_key = "[species.race_key][skin_color]"
+	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin]"
 	var/icon/tail_icon = tail_icon_cache[icon_key]
 	if(!tail_icon)
 		//generate a new one
@@ -1212,7 +1212,7 @@ var/global/list/damage_icon_parts = list()
 		if(!species_tail_anim && species.icobase_tail) species_tail_anim = species.icobase //Eclipse Code Port - Allow override of file for non-animated tails
 		if(!species_tail_anim) species_tail_anim = 'icons/effects/species.dmi'
 		tail_icon = new/icon(species_tail_anim)
-		tail_icon.Blend(skin_color, species.color_mult ? ICON_MULTIPLY : ICON_ADD) // Eclipse Code Port edit
+		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.color_mult ? ICON_MULTIPLY : ICON_ADD) // Eclipse Code Port edit
 		// The following will not work with animated tails.
 /*		var/use_species_tail = species.get_tail_hair(src)
 		if(use_species_tail)
