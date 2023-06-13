@@ -105,9 +105,9 @@
 	LAZYCLEARLIST(permutated)
 	return ..()
 
-	//Eclipse added vars
+	/*Eclipse added vars - Commented out as it is not currently used
 	var/simplemob_bonus_mult = 0		//0% extra; used in mob code to determine whether a mob gets more damage.
-
+	*/
 /obj/item/projectile/is_hot()
 	if (damage_types[BURN])
 		return damage_types[BURN] * heat

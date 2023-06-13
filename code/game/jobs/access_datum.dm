@@ -281,7 +281,7 @@
 /var/const/access_artist = 44
 /datum/access/artist_office
 	id = access_artist
-	desc = "Union Artist"
+	desc = "Artist"
 	region = ACCESS_REGION_SUPPLY
 
 /var/const/access_surgery = 45

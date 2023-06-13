@@ -44,11 +44,12 @@
 	backpack_overrides[/decl/backpack_outfit/backsport]     = /obj/item/storage/backpack/sport/orange;
 	backpack_overrides[/decl/backpack_outfit/satchel]       = /obj/item/storage/backpack/satchel/orange/chemist;
 
-/decl/hierarchy/outfit/job/medical/psychiatrist
+/decl/hierarchy/outfit/job/medical/psychiatrist //Eclipse Edit - Keeping Psych as a medical role
 	name = OUTFIT_JOB_NAME("Psychiatrist")
 	uniform = /obj/item/clothing/under/rank/psych
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	belt = /obj/item/storage/belt/medical/
+	l_pocket = /obj/item/reagent_containers/glass/beaker/vial/psilocybin //Eclipse Edit - stole some of the science gear
 
 /decl/hierarchy/outfit/job/medical/paramedic
 	name = OUTFIT_JOB_NAME("Paramedic")

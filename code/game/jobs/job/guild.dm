@@ -181,6 +181,7 @@ Character Expectations:<br>\
 	icon_state = "player-beige"
 	join_tag = /datum/job/mining
 
+/* ECLIPSE EDIT - Artist is now under the Civilian Department, so I've moved their job datum there.
 /datum/job/artist
 	title = "Union Artist"
 	flag = ARTIST
@@ -223,3 +224,4 @@ Character Expectations:<br>\
 	name = "Union Artist"
 	icon_state = "player-grey"
 	join_tag = /datum/job/artist
+*/

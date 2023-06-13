@@ -162,6 +162,7 @@ Lastly, though they're not commonly used, you have the facilities to construct m
 	icon_state = "player-purple"
 	join_tag = /datum/job/roboticist
 
+/* ECLIPSE EDIT - Keeping Psych as a medical role
 /datum/job/psychiatrist
 	title = "Psychiatrist"
 	flag = PSYCHIATRIST
@@ -198,3 +199,4 @@ Lastly, though they're not commonly used, you have the facilities to construct m
 	name = "Psychiatrist"
 	icon_state = "player-purple"
 	join_tag = /datum/job/psychiatrist
+*/
