@@ -189,7 +189,7 @@ Your second loyalty is to your career with Lazarus, and to your coworkers in bot
 	stat_modifiers = list(
 		STAT_BIO = 25,
 		STAT_COG = 15,
-		STAT_VIG = 5
+		STAT_VIG = 15
 	)
 
 	perks = list(/datum/perk/selfmedicated)

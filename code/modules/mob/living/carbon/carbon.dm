@@ -243,9 +243,9 @@
 						if(Q.sanity)		//the person receiving the hug...
 							if(Q.sanity.level < config.maximum_hug_sanity_restoration)
 								Q.sanity.changeLevel(3)		//who's getting more.
-					
+
 					// // // END ECLIPSE EDITS // // //
-					
+
 				if(M.fire_stacks >= (src.fire_stacks + 3))
 					src.fire_stacks += 1
 					M.fire_stacks -= 1
@@ -259,6 +259,12 @@
 
 /mob/living/carbon/proc/eyecheck()
 	return 0
+/mob/living/carbon/proc/getDNA()
+	return dna
+
+/mob/living/carbon/proc/setDNA(var/datum/dna/newDNA)
+	dna = newDNA
+
 
 /mob/living/carbon/flash(duration = 0, drop_items = FALSE, doblind = FALSE, doblurry = FALSE)
 	if(blinded)
@@ -267,6 +273,7 @@
 		..(duration * species.flash_mod, drop_items, doblind, doblurry)
 	else
 		..(duration, drop_items, doblind, doblurry)
+
 //Throwing stuff
 /mob/proc/throw_item(atom/target)
 	return
