@@ -26,7 +26,7 @@
 		report("Scan Complete: No antibodies detected.", user)
 		return
 
-		report("Antibodies detected: [antigens2string(C.antibodies)]", user)
+	report("Antibodies detected: [antigens2string(C.antibodies)]", user)
 
 /obj/item/device/antibody_scanner/proc/report(var/text, mob/user as mob)
 	to_chat(user, "\blue \icon[src] \The [src] beeps, \"[text]\"")
