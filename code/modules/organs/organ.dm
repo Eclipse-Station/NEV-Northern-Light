@@ -31,6 +31,17 @@
 	var/b_type
 	var/datum/species/species
 
+	//Eclipse additions - organs carry info:
+	var/fingers_trace
+	var/dormant_mutations
+	var/active_mutations
+	var/real_name
+	var/age = 18 //Precaution
+	var/flavor
+	var/stats
+
+
+
 	// Damage vars.
 	var/min_bruised_damage = 10			// Damage before considered bruised
 	var/min_broken_damage = 30			// Damage before becoming broken
@@ -87,6 +98,19 @@
 	if(istype(C))
 		dna_trace = C.dna_trace
 		b_type = C.b_type
+
+		//ECLIPSE EDIT START
+		fingers_trace = C.fingers_trace
+		dormant_mutations = C.dormant_mutations
+		active_mutations = C.active_mutations
+		flavor = C.flavor_text
+		real_name = C.real_name
+		if(ishuman(C))
+			var/mob/living/carbon/human/H = C
+			age = H.age
+			stats = H.stats
+		//ECLIPSE EDIT END
+
 		if(!blood_DNA)
 			blood_DNA = list()
 		blood_DNA.Cut()

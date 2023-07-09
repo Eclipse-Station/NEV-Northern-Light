@@ -348,7 +348,7 @@
 			return
 
 		//And we call a proc that literally does it all for us.
-		H.UpdateAppearance()
+		//H.UpdateAppearance()
 	// // // END ECLIPSE EDITS // // //
 
 	else if(href_list["addlanguage"])

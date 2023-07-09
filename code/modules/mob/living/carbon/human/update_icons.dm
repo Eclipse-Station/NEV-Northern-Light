@@ -345,7 +345,7 @@ var/global/list/damage_icon_parts = list()
 		var/datum/sprite_accessory/marking/real_marking = body_marking_styles_list[markname]
 		var/icon/specific_marking_icon = new()
 		for(var/part in real_marking.body_parts)
-			var/valid = (part in organs_by_name) && organs_by_name[part] && ((part in BP_BASE_PARTS) || organs_by_name[part].dislocated >= 0)
+			var/valid = (part in organs_by_name) && organs_by_name[part] && ((part in BP_BASE_PARTS))
 			if(valid && ("[real_marking.icon_state]-[part]" in icon_states(real_marking.icon)))
 				var/icon/specific_marking_subicon = icon(real_marking.icon, "[real_marking.icon_state]-[part]")
 				specific_marking_subicon.Blend(specific_marking_icon, ICON_OVERLAY)
