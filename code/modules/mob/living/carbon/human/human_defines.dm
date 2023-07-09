@@ -6,34 +6,22 @@
 	var/family_name		//Replacement.
 
 	//Hair colour and style
-	//Hair colour and style
-	var/r_hair = 0
-	var/g_hair = 0
-	var/b_hair = 0
+	var/hair_color = "#000000"
 	var/h_style = "Bald"
 
 	//Facial hair colour and style
-	var/r_facial = 0
-	var/g_facial = 0
-	var/b_facial = 0
+	var/facial_color = "#000000"
 	var/f_style = "Shaved"
 
 	var/wagging = 0 //UGH.
 
 	//Eye colour
-	var/r_eyes = 0
-	var/g_eyes = 0
-	var/b_eyes = 0
+	var/eyes_color = "#000000"
 
 	var/s_tone = 0	//Skin tone
-	var/s_base = "" //Skin base
-
-
 
 	//Skin colour
-	var/r_skin = 0
-	var/g_skin = 0
-	var/b_skin = 0
+	var/skin_color = "#000000"
 
 	var/damage_multiplier = 1 //multiplies melee combat damage
 	var/icon_update = 1 //whether icon updating shall take place

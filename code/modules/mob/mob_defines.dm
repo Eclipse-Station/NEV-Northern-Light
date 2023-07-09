@@ -125,12 +125,6 @@ While it would be entirely possible to check the mob's move handlers list for th
 	var/can_pull_size = ITEM_SIZE_TITANIC // Maximum w_class the mob can pull.
 	var/can_pull_mobs = MOB_PULL_LARGER       // Whether or not the mob can pull other mobs.
 
-
-	var/datum/dna/dna //Carbon
-	var/list/active_genes=list()
-	var/list/mutations = list() //Carbon -- Doohl
-	//see: setup.dm for list of mutations
-
 	var/b_type // GLOB.blood_types // list("A-", "A+", "B-", "B+", "AB-", "AB+", "O-", "O+")
 	var/dna_trace // sha1(real_name)
 	var/fingers_trace // md5(real_name)

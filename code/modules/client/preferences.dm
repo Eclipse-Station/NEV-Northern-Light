@@ -210,23 +210,11 @@
 	// Build mob body from prefs
 	character.rebuild_organs(src)
 
+	character.eyes_color = eyes_color
+	character.hair_color = hair_color
+	character.facial_color = facial_color
+	character.skin_color = skin_color
 
-	character.r_eyes = r_eyes
-	character.g_eyes = g_eyes
-	character.b_eyes = b_eyes
-
-	character.h_style = h_style
-	character.r_hair = r_hair
-	character.g_hair = g_hair
-	character.b_hair = b_hair
-
-	character.f_style = f_style
-	character.r_facial = r_facial
-	character.g_facial = g_facial
-	character.b_facial = b_facial
-	character.r_skin = r_skin
-	character.g_skin = g_skin
-	character.b_skin = b_skin
 	character.s_tone = s_tone
 
 	character.ear_style			= ear_styles_list[ear_style]

@@ -27,7 +27,6 @@
 	var/list/transplant_data			// Transplant match data.
 	var/list/autopsy_data = list()		// Trauma data for forensics.
 	var/list/trace_chemicals = list()	// Traces of chemicals in the organ.
-	var/datum/dna/dna
 	var/dna_trace
 	var/b_type
 	var/datum/species/species
@@ -43,7 +42,7 @@
 /obj/item/organ/Destroy()
 	if(parent || owner)
 		removed()
-	QDEL_NULL(dna)
+
 	species = null
 	STOP_PROCESSING(SSobj, src)
 
@@ -59,9 +58,9 @@
 		max_damage = min_broken_damage * 2
 
 	if(istype(holder))
-		if(holder.dna)
-			dna = holder.dna.Clone()
-			species = all_species[dna.species]
+		species = holder.species
+		dna_trace = holder.dna_trace
+		b_type = holder.b_type
 
 		if(!blood_DNA)
 			blood_DNA = list()
@@ -86,7 +85,6 @@
 
 /obj/item/organ/proc/set_dna(mob/living/carbon/C)
 	if(istype(C))
-		dna = C.dna.Clone()
 		dna_trace = C.dna_trace
 		b_type = C.b_type
 		if(!blood_DNA)

@@ -207,9 +207,8 @@
 				stop()
 				update_icon()
 				return
-//TODO: FINISH PORTING CLONING OVER - NORTHERN LIGHT FIX REQUIRED
+
 			occupant = new/mob/living/carbon/human(src)
-			occupant.dna = R.dna
 			occupant.fingers_trace = R.fingers_trace
 			occupant.dna_trace = R.dna_trace
 			occupant.dormant_mutations = R.dormant_mutations
@@ -218,6 +217,13 @@
 			occupant.real_name = R.real_name
 			occupant.b_type = R.b_type
 			occupant.age = R.age
+			occupant.h_style = R.h_style
+			occupant.hair_color = R.hair_color
+			occupant.f_style = R.f_style
+			occupant.facial_color = R.facial_color
+			occupant.eyes_color = R.eyes_color
+			occupant.skin_color = R.skin_color
+			occupant.change_skin_tone(R.s_tone)
 			occupant.gender = R.gender
 			occupant.tts_seed = R.tts_seed
 			occupant.sync_organ_dna()

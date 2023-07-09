@@ -56,7 +56,6 @@
 
 
 /datum/core_module/cruciform/cloning
-	var/datum/dna/dna = null
 	var/age = 30
 	var/ckey = ""
 	var/flavor = ""
@@ -66,7 +65,11 @@
 	var/list/active_mutations
 	var/b_type
 	var/h_style
+	var/hair_color
 	var/f_style
+	var/facial_color
+	var/eyes_color
+	var/skin_color
 	var/s_tone
 	var/gender
 	var/tts_seed
@@ -76,13 +79,16 @@
 	var/languages = list()
 
 /datum/core_module/cruciform/cloning/proc/write_wearer(var/mob/living/carbon/human/H)
-	dna = H.dna
 	fingers_trace = H.fingers_trace
 	dna_trace = H.dna_trace
 	real_name = H.real_name
 	b_type = H.b_type
 	h_style = H.h_style
+	hair_color = H.hair_color
 	f_style = H.f_style
+	facial_color = H.facial_color
+	eyes_color = H.eyes_color
+	skin_color = H.skin_color
 	s_tone = H.s_tone
 	gender = H.gender
 	tts_seed = H.tts_seed
@@ -129,7 +135,7 @@
 /datum/core_module/cruciform/obey/uninstall()
 	if(implant && ishuman(implant.wearer))
 		var/mob/living/carbon/human/H = implant.wearer
-		var/txt = "<span class='info'>You are unslavered. Now you may ignore the laws.</span>"
+		var/txt = "<span class='info'>You are unslavered. Now you can to not obey the laws.</span>"
 		to_chat(H, txt)
 		H.mind.store_memory(txt)
 
