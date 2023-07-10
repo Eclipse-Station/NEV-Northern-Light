@@ -170,7 +170,7 @@
 	if(!istype(user))
 		return
 	var/icon/ears = new/icon('icons/inventory/head/mob.dmi', "kitty")
-	ears.Blend(user.hair_color, ICON_ADD)
+	ears.Blend(rgb(user.r_hair, user.g_hair, user.b_hair), ICON_ADD)
 
 	var/icon/earbit = new/icon('icons/inventory/head/mob.dmi', "kittyinner")
 	ears.Blend(earbit, ICON_OVERLAY)
