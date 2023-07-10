@@ -65,11 +65,19 @@
 	var/list/active_mutations
 	var/b_type
 	var/h_style
-	var/hair_color
+	var/r_hair
+	var/b_hair
+	var/g_hair
 	var/f_style
-	var/facial_color
-	var/eyes_color
-	var/skin_color
+	var/r_facial
+	var/b_facial
+	var/g_facial
+	var/r_eyes
+	var/b_eyes
+	var/g_eyes
+	var/r_skin
+	var/b_skin
+	var/g_skin
 	var/s_tone
 	var/gender
 	var/tts_seed
@@ -84,11 +92,19 @@
 	real_name = H.real_name
 	b_type = H.b_type
 	h_style = H.h_style
-	hair_color = H.hair_color
+	r_hair = H.r_hair
+	b_hair = H.b_hair
+	g_hair = H.g_hair
 	f_style = H.f_style
-	facial_color = H.facial_color
-	eyes_color = H.eyes_color
-	skin_color = H.skin_color
+	r_facial = H.r_facial
+	b_facial = H.b_facial
+	g_facial = H.g_facial
+	r_eyes = H.r_eyes
+	b_eyes = H.b_eyes
+	g_eyes = H.g_eyes
+	r_skin = H.r_skin
+	b_skin = H.b_skin
+	g_skin = H.g_skin
 	s_tone = H.s_tone
 	gender = H.gender
 	tts_seed = H.tts_seed

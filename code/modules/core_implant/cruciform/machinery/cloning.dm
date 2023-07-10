@@ -218,11 +218,19 @@
 			occupant.b_type = R.b_type
 			occupant.age = R.age
 			occupant.h_style = R.h_style
-			occupant.hair_color = R.hair_color
+			occupant.r_hair = R.r_hair
+			occupant.b_hair = R.g_hair
+			occupant.g_hair = R.b_hair
 			occupant.f_style = R.f_style
-			occupant.facial_color = R.facial_color
-			occupant.eyes_color = R.eyes_color
-			occupant.skin_color = R.skin_color
+			occupant.r_facial = R.r_facial
+			occupant.b_facial = R.b_facial
+			occupant.g_facial = R.g_facial
+			occupant.r_eyes = R.r_eyes
+			occupant.b_eyes = R.b_eyes
+			occupant.g_eyes = R.g_eyes
+			occupant.r_skin = R.r_skin
+			occupant.b_skin = R.b_skin
+			occupant.g_skin = R.g_skin
 			occupant.change_skin_tone(R.s_tone)
 			occupant.gender = R.gender
 			occupant.tts_seed = R.tts_seed

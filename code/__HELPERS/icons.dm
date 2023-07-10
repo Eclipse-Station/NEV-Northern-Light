@@ -1348,7 +1348,6 @@ End of Eclipse edits */
 	qdel(west)
 	return full
 
-
 /// Generate a filename for this asset
 /// The same asset will always lead to the same asset name
 /// (Generated names do not include file extention.)
