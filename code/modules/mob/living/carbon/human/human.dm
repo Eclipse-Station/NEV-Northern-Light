@@ -666,6 +666,10 @@ var/list/rank_prefix = list(\
 
 	return 0
 
+/mob/living/carbon/human/proc/check_dna()
+	dna.check_integrity(src)
+	return
+
 /mob/living/carbon/human/get_species()
 	if(!species)
 		set_species()
