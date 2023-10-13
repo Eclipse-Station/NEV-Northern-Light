@@ -1694,6 +1694,7 @@
 #include "code\modules\core_implant\cruciform\rituals\custodian.dm"
 #include "code\modules\core_implant\cruciform\rituals\group.dm"
 #include "code\modules\core_implant\cruciform\rituals\inquisitor.dm"
+#include "code\modules\core_implant\cruciform\rituals\machinery.dm"
 #include "code\modules\core_implant\cruciform\rituals\priest.dm"
 #include "code\modules\customitems\item_spawning.dm"
 #include "code\modules\detectivework\footprints.dm"

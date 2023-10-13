@@ -27,8 +27,7 @@
 	var/list/transplant_data			// Transplant match data.
 	var/list/autopsy_data = list()		// Trauma data for forensics.
 	var/list/trace_chemicals = list()	// Traces of chemicals in the organ.
-	var/dna_trace
-	var/b_type
+	var/datum/dna/dna
 	var/datum/species/species
 
 	//Eclipse additions - organs carry info:
@@ -54,6 +53,7 @@
 	if(parent || owner)
 		removed()
 
+	QDEL_NULL(dna)
 	species = null
 	STOP_PROCESSING(SSobj, src)
 

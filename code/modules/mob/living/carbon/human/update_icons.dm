@@ -211,9 +211,9 @@ var/global/list/damage_icon_parts = list()
 	var/husk_color_mod = rgb(96,88,80)
 	var/hulk_color_mod = rgb(48,224,40)
 
-	var/husk = FALSE // (HUSK in src.mutations)
-	var/hulk = FALSE // (HULK in src.mutations)
-	var/skeleton = FALSE // (SKELETON in src.mutations)
+	var/husk = (HUSK in src.mutations)
+	var/hulk = (HULK in src.mutations)
+	var/skeleton = (SKELETON in src.mutations)
 
 	//Create a new, blank icon for our mob to use.
 	if(stand_icon)
