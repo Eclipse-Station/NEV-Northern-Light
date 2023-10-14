@@ -1043,11 +1043,11 @@ var/list/rank_prefix = list(\
 	return 1 //we applied blood to the item
 
 /mob/living/carbon/human/proc/get_full_print()
-	if(!fingers_trace || get_active_mutation(src, MUTATION_NOPRINTS))
+	if(!dna ||!dna.uni_identity)
 		return
 	if(chem_effects[CE_DYNAMICFINGERS])
 		return md5(chem_effects[CE_DYNAMICFINGERS])
-	return fingers_trace
+	return md5(dna.uni_identity)
 
 /mob/living/carbon/human/clean_blood(clean_feet)
 	.=..()
