@@ -666,6 +666,10 @@ var/list/rank_prefix = list(\
 
 	return 0
 
+/mob/living/carbon/human/proc/check_dna()
+	dna.check_integrity(src)
+	return
+
 /mob/living/carbon/human/get_species()
 	if(!species)
 		set_species()
@@ -717,33 +721,28 @@ var/list/rank_prefix = list(\
 
 /mob/living/carbon/human/proc/morph()
 	set name = "Morph"
-	set category = "Abilities"
+	set category = "Superpower"
 
-	if(stat)
+	if(stat!=CONSCIOUS)
 		reset_view(0)
 		remoteview_target = null
 		return
 
-	// Can use ability multiple times in a row if necessary, but there is a price
-	vessel.remove_reagent("blood", 50)
+	if(!(mMorph in mutations))
+		src.verbs -= /mob/living/carbon/human/proc/morph
+		return
 
-	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
+	var/new_facial = input("Please select facial hair color.", "Character Generation",facial_color) as color
 	if(new_facial)
-		r_facial = hex2num(copytext(new_facial, 2, 4))
-		g_facial = hex2num(copytext(new_facial, 4, 6))
-		b_facial = hex2num(copytext(new_facial, 6, 8))
+		facial_color = new_facial
 
-	var/new_hair = input("Please select hair color.", "Character Generation",rgb(r_hair,g_hair,b_hair)) as color
-	if(new_facial)
-		r_hair = hex2num(copytext(new_hair, 2, 4))
-		g_hair = hex2num(copytext(new_hair, 4, 6))
-		b_hair = hex2num(copytext(new_hair, 6, 8))
+	var/new_hair = input("Please select hair color.", "Character Generation",hair_color) as color
+	if(new_hair)
+		hair_color = new_hair
 
-	var/new_eyes = input("Please select eye color.", "Character Generation",rgb(r_eyes,g_eyes,b_eyes)) as color
+	var/new_eyes = input("Please select eye color.", "Character Generation",eyes_color) as color
 	if(new_eyes)
-		r_eyes = hex2num(copytext(new_eyes, 2, 4))
-		g_eyes = hex2num(copytext(new_eyes, 4, 6))
-		b_eyes = hex2num(copytext(new_eyes, 6, 8))
+		eyes_color = new_eyes
 		update_eyes()
 
 	var/new_tone = input("Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation", "[35-s_tone]")  as text
@@ -1044,11 +1043,11 @@ var/list/rank_prefix = list(\
 	return 1 //we applied blood to the item
 
 /mob/living/carbon/human/proc/get_full_print()
-	if(!fingers_trace || get_active_mutation(src, MUTATION_NOPRINTS))
+	if(!dna ||!dna.uni_identity)
 		return
 	if(chem_effects[CE_DYNAMICFINGERS])
 		return md5(chem_effects[CE_DYNAMICFINGERS])
-	return fingers_trace
+	return md5(dna.uni_identity)
 
 /mob/living/carbon/human/clean_blood(clean_feet)
 	.=..()
@@ -1180,6 +1179,15 @@ var/list/rank_prefix = list(\
 		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
 /mob/living/carbon/human/proc/set_species(new_species, default_colour)
+	if(!dna)
+		if(!new_species)
+			new_species = SPECIES_HUMAN
+	else
+		if(!new_species)
+			new_species = dna.species
+		else
+			dna.species = new_species
+
 	// No more invisible screaming wheelchairs because of set_species() typos.
 	if(!all_species[new_species])
 		new_species = SPECIES_HUMAN
@@ -1206,16 +1214,13 @@ var/list/rank_prefix = list(\
 
 	if(species.base_color && default_colour)
 		//Apply colour.
-		r_skin = hex2num(copytext(species.base_color,2,4))
-		g_skin = hex2num(copytext(species.base_color,4,6))
-		b_skin = hex2num(copytext(species.base_color,6,8))
+		skin_color = species.base_color
 	else
-		r_skin = 0
-		g_skin = 0
-		b_skin = 0
+		skin_color = "#000000"
 
 	if(species.holder_type)
 		holder_type = species.holder_type
+
 
 	icon_state = lowertext(species.name)
 
@@ -1232,8 +1237,6 @@ var/list/rank_prefix = list(\
 	update_client_colour(0)
 
 	spawn(0)
-		if(QDELETED(src))	// Needed because mannequins will continue this proc and runtime after being qdel'd
-			return
 		regenerate_icons()
 		if(vessel.total_volume < species.blood_volume)
 			vessel.maximum_volume = species.blood_volume

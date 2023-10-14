@@ -27,8 +27,7 @@
 	var/list/transplant_data			// Transplant match data.
 	var/list/autopsy_data = list()		// Trauma data for forensics.
 	var/list/trace_chemicals = list()	// Traces of chemicals in the organ.
-	var/dna_trace
-	var/b_type
+	var/datum/dna/dna
 	var/datum/species/species
 
 	//Eclipse additions - organs carry info:
@@ -54,6 +53,7 @@
 	if(parent || owner)
 		removed()
 
+	QDEL_NULL(dna)
 	species = null
 	STOP_PROCESSING(SSobj, src)
 
@@ -312,8 +312,8 @@
 	transplant_data = list()
 	if(!transplant_blood)
 		transplant_data["species"] =    owner.species.name
-		transplant_data["blood_type"] = owner.b_type
-		transplant_data["blood_DNA"] =  owner.dna_trace
+		transplant_data["blood_type"] = owner.dna.b_type
+		transplant_data["blood_DNA"] =  owner.dna.unique_enzymes
 	else
 		transplant_data["species"] =    transplant_blood.data["species"]
 		transplant_data["blood_type"] = transplant_blood.data["blood_type"]

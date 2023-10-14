@@ -209,31 +209,11 @@
 				return
 
 			occupant = new/mob/living/carbon/human(src)
-			occupant.fingers_trace = R.fingers_trace
-			occupant.dna_trace = R.dna_trace
-			occupant.dormant_mutations = R.dormant_mutations
-			occupant.active_mutations = R.active_mutations
+			occupant.dna = R.dna.Clone()
 			occupant.set_species()
-			occupant.real_name = R.real_name
-			occupant.b_type = R.b_type
+			occupant.real_name = R.dna.real_name
 			occupant.age = R.age
-			occupant.h_style = R.h_style
-			occupant.r_hair = R.r_hair
-			occupant.b_hair = R.g_hair
-			occupant.g_hair = R.b_hair
-			occupant.f_style = R.f_style
-			occupant.r_facial = R.r_facial
-			occupant.b_facial = R.b_facial
-			occupant.g_facial = R.g_facial
-			occupant.r_eyes = R.r_eyes
-			occupant.b_eyes = R.b_eyes
-			occupant.g_eyes = R.g_eyes
-			occupant.r_skin = R.r_skin
-			occupant.b_skin = R.b_skin
-			occupant.g_skin = R.g_skin
-			occupant.change_skin_tone(R.s_tone)
-			occupant.gender = R.gender
-			occupant.tts_seed = R.tts_seed
+			occupant.UpdateAppearance()
 			occupant.sync_organ_dna()
 			occupant.flavor_text = R.flavor
 			R.stats.copyTo(occupant.stats)
