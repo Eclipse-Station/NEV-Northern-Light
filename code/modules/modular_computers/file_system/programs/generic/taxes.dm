@@ -27,7 +27,7 @@
 /datum/nano_module/program/tax/Topic(href, href_list)
 	if(..())
 		return TOPIC_HANDLED
-	
+
 	// Used to call set_icon()
 	// When not logined or have an "error" popup - screen is uplink red
 	// When logined and have no popups - screen is blue
@@ -89,7 +89,7 @@
 		else
 			P.set_icon("uplink")
 		return TOPIC_REFRESH
-	
+
 	if(href_list["transfer"])
 		var/target	= text2num(input(usr,"Target account number", "Funds transfer"))
 		var/amount	= text2num(input(usr,"Amount to transfer", "Funds transfer"))
@@ -177,7 +177,7 @@
 		return TOPIC_REFRESH
 
 	if(href_list["create_account"])
-		var/account_type = alert("Personal account have all basic functionality and cost [account_registration_fee] credits. Department account additionally can add other accounts to authomated payroll and cost [department_registration_fee] credits.", "Account Registration", "Personal", "Department", "Cancel")
+		var/account_type = alert("Personal accounts have all basic functionality and cost [account_registration_fee] credits. Department account additionally can add other accounts to authomated payroll and cost [department_registration_fee] credits.", "Account Registration", "Personal", "Department", "Cancel")
 		var/registration_fee
 		var/is_department
 		switch(account_type)

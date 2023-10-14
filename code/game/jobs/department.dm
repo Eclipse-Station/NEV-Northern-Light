@@ -78,7 +78,7 @@
 	name = "Lazarus Foundation: Medical Division"
 	id = DEPARTMENT_MEDICAL
 	account_initial_balance = 5000
-	funding_source = "DEPARTMENT_SCIENCE"
+	funding_source = DEPARTMENT_SCIENCE
 
 /datum/department/moebius_research
 	name = "Lazarus Foundation: Research Division"
