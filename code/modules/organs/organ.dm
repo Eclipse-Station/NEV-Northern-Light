@@ -102,7 +102,7 @@
 		//ECLIPSE EDIT START
 		fingers_trace = C.fingers_trace
 		dormant_mutations = C.dormant_mutations
-		active_mutations = C.active_mutations
+		active_mutations = C.mutations
 		flavor = C.flavor_text
 		real_name = C.real_name
 		if(ishuman(C))

@@ -127,17 +127,19 @@
 				var/default = dna_hash
 				if(default == initial(dna_hash) && ishuman(user))
 					var/mob/living/carbon/human/H = user
-					default = H.dna_trace
+					if(H.dna)
+						default = H.dna.unique_enzymes
 				var/new_dna_hash = sanitize(input(user,"What DNA hash would you like to be written on this card?","Agent Card DNA Hash",default) as null|text)
 				if(!isnull(new_dna_hash) && CanUseTopic(user, state))
-					dna_hash = new_dna_hash
+					src.dna_hash = new_dna_hash
 					to_chat(user, SPAN_NOTICE("DNA hash changed to '[new_dna_hash]'."))
 					. = 1
 			if("Fingerprint Hash")
 				var/default = fingerprint_hash
 				if(default == initial(fingerprint_hash) && ishuman(user))
 					var/mob/living/carbon/human/H = user
-					default = H.fingers_trace
+					if(H.dna)
+						default = md5(H.dna.uni_identity)
 				var/new_fingerprint_hash = sanitize(input(user,"What fingerprint hash would you like to be written on this card?","Agent Card Fingerprint Hash",default) as null|text)
 				if(!isnull(new_fingerprint_hash) && CanUseTopic(user, state))
 					src.fingerprint_hash = new_fingerprint_hash
