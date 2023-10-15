@@ -9,8 +9,6 @@
 	max_blood_storage = 10
 	oxygen_req = 1
 	nutriment_req = 1
-	min_bruised_damage = 4
-	min_broken_damage = 7
 	var/eyes_color = "#000000"
 	var/robo_color = "#000000"
 	var/cache_key = BP_EYES
@@ -29,32 +27,27 @@
 /obj/item/organ/internal/eyes/replaced_mob(mob/living/carbon/human/target)
 	..()
 	// Apply our eye colour to the target.
-	if(istype(target) && eyes_color)
-		var/list/eyecolors = ReadRGB(eyes_color)
-		target.r_eyes = eyecolors[1]
-		target.g_eyes = eyecolors[2]
-		target.b_eyes = eyecolors[3]
-		target.update_eyes()
-	..()
+	if(eyes_color)
+		owner.eyes_color = eyes_color
+		owner.update_eyes()
 	owner.update_client_colour()
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
 		return
-	eyes_color = rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
+	eyes_color = owner.eyes_color
 
-/obj/item/organ/internal/eyes/take_damage(amount, damage_type = BRUTE, wounding_multiplier = 1, sharp = FALSE, edge = FALSE, silent = FALSE)
+/obj/item/organ/internal/eyes/take_damage(amount, silent=0)
 	var/oldbroken = is_broken()
 	..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)
 		to_chat(owner, SPAN_DANGER("You go blind!"))
 
 /obj/item/organ/internal/eyes/proc/get_colourmatrix() //Returns a special colour matrix if the mob is colourblind, otherwise it uses the current one.
-	if(owner) //Eclipse edit - runtime fix
-		if(owner.stats.getPerk(PERK_OBORIN_SYNDROME) && !owner.is_dead())
-			return colourblind_matrix
-	return colourmatrix
-
+	if(owner.stats.getPerk(PERK_OBORIN_SYNDROME) && !owner.is_dead())
+		return colourblind_matrix
+	else
+		return colourmatrix
 
 //Subtypes
 /obj/item/organ/internal/eyes/oneeye

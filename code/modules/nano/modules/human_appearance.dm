@@ -20,12 +20,8 @@
 	src.whitelist = species_whitelist
 	src.blacklist = species_blacklist
 
-/datum/nano_module/appearance_changer/Destroy()
-	owner = null
-	topic_manager = null	// The mob is the topic manager and should not be deleted
-	..()
 
-/datum/nano_module/appearance_changer/Topic(ref, href_list, var/datum/nano_topic_state/state = GLOB.default_state)
+/datum/nano_module/appearance_changer/Topic(ref, href_list, var/datum/topic_state/state = GLOB.default_state)
 	if(..())
 		return 1
 
@@ -54,51 +50,46 @@
 				return owner.change_skin_tone(new_s_tone)*/
 	if(href_list["skin_color"])
 		if(can_change_skin_color())
-			var/new_skin = input(usr, "Choose your character's skin colour: ", "Skin Color", rgb(owner.r_skin, owner.g_skin, owner.b_skin)) as color|null
+			var/new_skin = input(usr, "Choose your character's skin colour: ", "Skin Color", owner.skin_color) as color|null
 			if(new_skin && can_still_topic(state))
-				var/r_skin = hex2num(copytext(new_skin, 2, 4))
-				var/g_skin = hex2num(copytext(new_skin, 4, 6))
-				var/b_skin = hex2num(copytext(new_skin, 6, 8))
-				if(owner.change_skin_color(r_skin, g_skin, b_skin))
+				if(owner.change_skin_color(new_skin))
+					update_dna()
 					return 1
 	if(href_list["hair"])
 		if(can_change(APPEARANCE_HAIR) && (href_list["hair"] in valid_hairstyles))
 			if(owner.change_hair(href_list["hair"]))
+				update_dna()
 				return 1
 	if(href_list["hair_color"])
 		if(can_change(APPEARANCE_HAIR_COLOR))
-			var/new_hair = input("Please select hair color.", "Hair Color", rgb(owner.r_hair, owner.g_hair, owner.b_hair)) as color|null
+			var/new_hair = input("Please select hair color.", "Hair Color", owner.hair_color) as color|null
 			if(new_hair && can_still_topic(state))
-				var/r_hair = hex2num(copytext(new_hair, 2, 4))
-				var/g_hair = hex2num(copytext(new_hair, 4, 6))
-				var/b_hair = hex2num(copytext(new_hair, 6, 8))
-				if(owner.change_hair_color(r_hair, g_hair, b_hair))
+				if(owner.change_hair_color(new_hair))
+					update_dna()
 					return 1
 	if(href_list["facial_hair"])
 		if(can_change(APPEARANCE_FACIAL_HAIR) && (href_list["facial_hair"] in valid_facial_hairstyles))
 			if(owner.change_facial_hair(href_list["facial_hair"]))
+				update_dna()
 				return 1
 	if(href_list["facial_hair_color"])
 		if(can_change(APPEARANCE_FACIAL_HAIR_COLOR))
-			var/new_facial = input("Please select facial hair color.", "Facial Hair Color", rgb(owner.r_facial, owner.g_facial, owner.b_facial)) as color|null
+			var/new_facial = input("Please select facial hair color.", "Facial Hair Color", owner.facial_color) as color|null
 			if(new_facial && can_still_topic(state))
-				var/r_facial = hex2num(copytext(new_facial, 2, 4))
-				var/g_facial = hex2num(copytext(new_facial, 4, 6))
-				var/b_facial = hex2num(copytext(new_facial, 6, 8))
-				if(owner.change_facial_hair_color(r_facial, g_facial, b_facial))
+				if(owner.change_facial_hair_color(new_facial))
+					update_dna()
 					return 1
 	if(href_list["eye_color"])
 		if(can_change(APPEARANCE_EYE_COLOR))
-			var/new_eyes = input("Please select eye color.", "Eye Color", rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)) as color|null
+			var/new_eyes = input("Please select eye color.", "Eye Color", owner.eyes_color) as color|null
 			if(new_eyes && can_still_topic(state))
-				var/r_eyes = hex2num(copytext(new_eyes, 2, 4))
-				var/g_eyes = hex2num(copytext(new_eyes, 4, 6))
-				var/b_eyes = hex2num(copytext(new_eyes, 6, 8))
-				if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
+				if(owner.change_eye_color(new_eyes))
+					update_dna()
 					return 1
+
 	return 0
 
-/datum/nano_module/appearance_changer/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/nano_topic_state/state = GLOB.default_state)
+/datum/nano_module/appearance_changer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/topic_state/state = GLOB.default_state)
 	if(!owner || !owner.species)
 		return
 
@@ -151,6 +142,10 @@
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
+
+/datum/nano_module/appearance_changer/proc/update_dna()
+	if(owner && (flags & APPEARANCE_UPDATE_DNA))
+		owner.update_dna()
 
 /datum/nano_module/appearance_changer/proc/can_change(var/flag)
 	return owner && (flags & flag)

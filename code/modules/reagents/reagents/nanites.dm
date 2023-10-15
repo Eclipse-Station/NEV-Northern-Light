@@ -69,7 +69,7 @@
 
 /datum/reagent/nanites/dead/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(..())
-		M.add_chemical_effect(CE_TOXIN, 2 * effect_multiplier)
+		M.adjustToxLoss(0.2 * effect_multiplier)
 
 /datum/reagent/nanites/uncapped
 	name = "Raw Uncapped Nanobots"
@@ -120,6 +120,7 @@
 						constant_metabolism = TRUE
 						return TRUE
 
+
 /datum/reagent/nanites/implant_medics/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(..() && ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -169,8 +170,8 @@
 /datum/reagent/nanites/nanosymbiotes/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(..())
 		M.heal_organ_damage(1 * effect_multiplier, 1 * effect_multiplier, 3 * effect_multiplier, 3 * effect_multiplier)
-		M.add_chemical_effect(CE_TOXIN, -((1 + (M.chem_effects[CE_TOXIN] * 0.03)) * effect_multiplier))
-		M.adjustOxyLoss(-(1 + (M.getOxyLoss() * 0.03)) * effect_multiplier)
+		M.adjustToxLoss(-((1 + (M.getToxLoss() * 0.03)) * effect_multiplier))
+		M.adjustCloneLoss(-(1 + (M.getCloneLoss() * 0.03)) * effect_multiplier)
 		M.adjustBrainLoss(-(1 + (M.getBrainLoss() * 0.03)) * effect_multiplier)
 
 /datum/reagent/nanites/oxyrush
@@ -280,8 +281,8 @@
 	var/mob/living/carbon/human/host = L
 	if(istype(host))
 		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
-			if(host != H && H.fingers_trace)
-				host.fingers_trace = H.fingers_trace
+			if(host != H && H.dna)
+				uni_identity = H.dna.uni_identity
 				return
 
 /datum/reagent/nanites/uncapped/dynamic_handprints/affect_blood(mob/living/carbon/M, alien, effect_multiplier)

@@ -14,8 +14,8 @@ var/global/list/limb_icon_cache = list()
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	skin_tone = null
-	s_col = null
-	h_col = null
+	skin_col = null
+	hair_col = null
 	if(BP_IS_ROBOTIC(src))
 		return
 	if(species && human.species && species.name != human.species.name)
@@ -23,7 +23,7 @@ var/global/list/limb_icon_cache = list()
 	if(!isnull(human.s_tone) && (human.species.appearance_flags & HAS_SKIN_TONE))
 		skin_tone = human.s_tone
 	if(human.species.appearance_flags & HAS_SKIN_COLOR)
-		s_col = human.skin_color
+		skin_col = human.skin_color
 	hair_col = human.hair_color
 
 /obj/item/organ/external/proc/sync_colour_to_dna()
