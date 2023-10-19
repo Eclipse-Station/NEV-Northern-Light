@@ -93,7 +93,7 @@
 	var/mob/living/player = owner.current
 	// Choose a name, if any.
 	var/newname = sanitize(input(player, "You are a [role_text]. Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
-	if(newname)
+	if (newname)
 		player.real_name = newname
 		player.name = player.real_name
 		player.dna_trace = sha1(player.real_name)

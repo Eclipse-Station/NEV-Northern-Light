@@ -225,15 +225,12 @@
 	animals lunging, etc.
 */
 /mob/proc/RangedAttack(var/atom/A, var/params)
-	if(!mutations.len) return
-	if((LASER in mutations) && a_intent == I_HURT)
-		LaserEyes(A) // moved into a proc below
-	else if(TK in mutations)
-		var/d = (get_dist(src, A))
-		if (d == 0)
-			return
-		if (d <= tk_maxrange)
-			A.attack_tk(src)
+	if(!active_mutations.len)
+		return
+//	if((LASER in mutations) && a_intent == I_HURT)
+//		LaserEyes(A) // moved into a proc below
+	if(get_active_mutation(src, MUTATION_TELEKINESIS) && get_dist(src, A) <= tk_maxrange)
+		A.attack_tk(src)
 
 /*
 	Restrained ClickOn

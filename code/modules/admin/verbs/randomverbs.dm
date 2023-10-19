@@ -345,12 +345,10 @@ ADMIN_VERB_ADD(/client/proc/respawn_character, R_FUN, FALSE)
 				break
 
 	if(record_found)//If they have a record we can determine a few things.
-		new_character.real_name		= record_found.fields["name"]
-		new_character.gender		= record_found.fields["sex"]
-		new_character.age			= record_found.fields["age"]
-		new_character.b_type		= record_found.fields["b_type"]
-		new_character.dna_trace		= record_found.fields["b_dna"]
-		new_character.fingers_trace	= record_found.fields["fingerprint"]
+		new_character.real_name = record_found.fields["name"]
+		new_character.gender = record_found.fields["sex"]
+		new_character.age = record_found.fields["age"]
+		new_character.b_type = record_found.fields["b_type"]
 	else
 		new_character.gender = pick(MALE,FEMALE,PLURAL)
 		var/datum/preferences/A = new()

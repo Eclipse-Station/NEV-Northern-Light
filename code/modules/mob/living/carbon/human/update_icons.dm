@@ -158,6 +158,19 @@ Please contact me on #coderbus IRC. ~Carn x
 		if(species.has_floating_eyes)
 			overlays |= species.get_eyes(src)
 
+	if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
+		var/matrix/M = matrix()
+		M.Turn(90)
+		M.Scale(size_multiplier)
+		M.Translate(1,-6)
+		src.transform = M
+	else
+		var/matrix/M = matrix()
+		M.Scale(size_multiplier)
+		M.Translate(0, 16*(size_multiplier-1))
+		src.transform = M
+	..()
+
 var/global/list/damage_icon_parts = list()
 
 //DAMAGE OVERLAYS
@@ -211,9 +224,9 @@ var/global/list/damage_icon_parts = list()
 	var/husk_color_mod = rgb(96,88,80)
 	var/hulk_color_mod = rgb(48,224,40)
 
-	var/husk = (HUSK in src.mutations)
-	var/hulk = (HULK in src.mutations)
-	var/skeleton = (SKELETON in src.mutations)
+	var/husk = FALSE // (HUSK in src.mutations)
+	var/hulk = FALSE // (HULK in src.mutations)
+	var/skeleton = FALSE // (SKELETON in src.mutations)
 
 	//Create a new, blank icon for our mob to use.
 	if(stand_icon)
@@ -429,9 +442,9 @@ var/global/list/damage_icon_parts = list()
 	var/image/standing = image("icon" = 'icons/effects/genetics.dmi')
 	var/add_image = 0
 	if(add_image)
-		overlays_standing[MUTATIONS_LAYER]	= standing
+		overlays_standing[MUTATIONS_LAYER] = standing
 	else
-		overlays_standing[MUTATIONS_LAYER]	= null
+		overlays_standing[MUTATIONS_LAYER] = null
 	if(update_icons)
 		update_icons()
 */
