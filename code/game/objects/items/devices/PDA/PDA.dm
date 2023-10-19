@@ -1209,11 +1209,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						user.show_message(SPAN_NOTICE("    Limbs are OK."),1)
 
 			if(2)
-				if(!C.fingers_trace || get_active_mutation(C, MUTATION_NOPRINTS))
+				if (!istype(C:dna, /datum/dna))
 					to_chat(user, SPAN_NOTICE("No fingerprints found on [C]"))
 				else
 					to_chat(user, text(SPAN_NOTICE("\The [C]'s Fingerprints: [C.fingers_trace]")))
-				if(!C:blood_DNA)
+				if ( !(C:blood_DNA) )
 					to_chat(user, SPAN_NOTICE("No blood found on [C]"))
 				else
 					to_chat(user, SPAN_NOTICE("Blood found on [C]. Analysing..."))

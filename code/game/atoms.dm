@@ -476,8 +476,11 @@ its easier to just keep the beam vertical.
 			return FALSE		//Now, lets get to the dirty work.
 		//First, make sure their DNA makes sense.
 		var/mob/living/carbon/human/H = M
-		if(!H.fingers_trace)
-			H.fingers_trace = md5(H.real_name)
+		if (!istype(H.dna, /datum/dna) || !H.dna.uni_identity || (length(H.dna.uni_identity) != 32))
+			if(!istype(H.dna, /datum/dna))
+				H.dna = new /datum/dna(null)
+				H.dna.real_name = H.real_name
+		H.check_dna()
 
 		//Now, deal with gloves.
 		if (H.gloves && H.gloves != src)
