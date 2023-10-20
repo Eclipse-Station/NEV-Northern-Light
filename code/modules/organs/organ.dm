@@ -151,17 +151,6 @@
 		if(config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
-		germ_level += rand(2,6)
-		if(germ_level >= INFECTION_LEVEL_TWO)
-			germ_level += rand(2,6)
-		if(germ_level >= INFECTION_LEVEL_THREE)
-			die()
-
-	else if(owner && owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
-		//** Handle antibiotics and curing infections
-		handle_antibiotics()
-		handle_rejection()
-		handle_germ_effects()
 
 	//check if we've hit max_damage
 	if(damage >= max_damage)
@@ -172,50 +161,7 @@
 	if(status & ORGAN_DEAD)
 		to_chat(user, SPAN_NOTICE("The decay has set in."))
 
-/obj/item/organ/proc/handle_germ_effects()
-	//** Handle the effects of infections
-	var/antibiotics = owner.reagents.get_reagent_amount("spaceacillin")
 
-	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(30))
-		germ_level--
-
-	if (germ_level >= INFECTION_LEVEL_ONE/2)
-		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 15 minutes
-		if(antibiotics < 5 && prob(round(germ_level/6)))
-			germ_level++
-
-	if(germ_level >= INFECTION_LEVEL_ONE)
-		var/fever_temperature = (owner.species.heat_level_1 - owner.species.body_temperature - 5)* min(germ_level/INFECTION_LEVEL_TWO, 1) + owner.species.body_temperature
-		owner.bodytemperature += between(0, (fever_temperature - T20C)/BODYTEMP_COLD_DIVISOR + 1, fever_temperature - owner.bodytemperature)
-
-	if (germ_level >= INFECTION_LEVEL_TWO)
-		//spread germs
-		if (antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))
-			parent.germ_level++
-
-		if (prob(3))	//about once every 30 seconds
-			take_damage(1,silent=prob(30))
-
-/obj/item/organ/proc/handle_rejection()
-	// Process unsuitable transplants. TODO: consider some kind of
-	// immunosuppressant that changes transplant data to make it match.
-	if(dna)
-		if(!rejecting)
-			if(blood_incompatible(dna.b_type, owner.dna.b_type, species, owner.species))
-				rejecting = 1
-		else
-			rejecting++ //Rejection severity increases over time.
-			if(rejecting % 10 == 0) //Only fire every ten rejection ticks.
-				switch(rejecting)
-					if(1 to 50)
-						germ_level++
-					if(51 to 200)
-						germ_level += rand(1,2)
-					if(201 to 500)
-						germ_level += rand(2,3)
-					if(501 to INFINITY)
-						germ_level += rand(3,5)
-						owner.reagents.add_reagent("toxin", rand(1,2))
 
 /obj/item/organ/proc/receive_chem(chemical as obj)
 	return 0
@@ -232,21 +178,6 @@
 /obj/item/organ/proc/is_broken()
 	return (damage >= min_broken_damage || (status & ORGAN_CUT_AWAY) || (status & ORGAN_BROKEN))
 
-//Germs
-/obj/item/organ/proc/handle_antibiotics()
-	var/antibiotics = 0
-	if(owner)
-		antibiotics = owner.reagents.get_reagent_amount("spaceacillin")
-
-	if (!germ_level || antibiotics < 5)
-		return
-
-	if (germ_level < INFECTION_LEVEL_ONE)
-		germ_level = 0	//cure instantly
-	else if (germ_level < INFECTION_LEVEL_TWO)
-		germ_level -= 6	//at germ_level == 500, this should cure the infection in a minute
-	else
-		germ_level -= 2 //at germ_level == 1000, this will cure the infection in 5 minutes
 
 //Adds autopsy data for used_weapon.
 /obj/item/organ/proc/add_autopsy_data(var/used_weapon, var/damage)

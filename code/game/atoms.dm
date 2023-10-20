@@ -592,12 +592,13 @@ its easier to just keep the beam vertical.
 	was_bloodied = TRUE
 	blood_color = "#A10808"
 	if(istype(M))
-		if(!M.fingers_trace)
-			M.fingers_trace = md5(M.real_name)
+		if (!istype(M.dna, /datum/dna))
+			M.dna = new /datum/dna(null)
+			M.dna.real_name = M.real_name
+		M.check_dna()
 		if (M.species)
 			blood_color = M.species.blood_color
-			if(!blood_color)
-				return FALSE
+	. = TRUE
 	return TRUE
 
 /atom/proc/add_vomit_floor(mob/living/carbon/M, var/toxvomit = FALSE)
