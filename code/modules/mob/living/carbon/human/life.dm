@@ -27,7 +27,7 @@
 
 /mob/living/carbon/human
 	var/oxygen_alert = 0
-	var/plasma_alert = 0
+	var/phoron_alert = 0
 	var/co2_alert = 0
 	var/fire_alert = FIRE_ALERT_NONE
 	var/pressure_alert = 0
@@ -458,9 +458,9 @@
 		var/ratio = (poison/safe_toxins_max) * 10
 		reagents.add_reagent("toxin", CLAMP(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 		breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
-		plasma_alert = 1
+		phoron_alert = 1
 	else
-		plasma_alert = 0
+		phoron_alert = 0
 
 	// If there's some other shit in the air lets deal with it here.
 	if(breath.gas["sleeping_agent"])

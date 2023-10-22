@@ -1,7 +1,6 @@
 /obj/item/organ
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
-	germ_level = 0
 	matter = list(MATERIAL_BIOMATTER = 20)
 	bad_type = /obj/item/organ
 	spawn_tags = SPAWN_TAG_ORGAN
@@ -135,11 +134,6 @@
 		return
 	// Don't process if we're in a freezer, an MMI or a stasis bag.or a freezer or something I dunno
 	if(is_in_stasis())
-		return
-
-	//Process infections
-	if (BP_IS_ROBOTIC(src) || (owner && owner.species && (owner.species.flags & IS_PLANT)))
-		germ_level = 0
 		return
 
 	if(!owner)
