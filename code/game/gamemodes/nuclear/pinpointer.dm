@@ -226,7 +226,9 @@
 					if(!DNAstring)
 						return
 					for(var/mob/living/carbon/M in SSmobs.mob_list)
-						if(M.dna_trace == DNAstring)
+						if(!M.dna)
+							continue
+						if(M.dna.unique_enzymes == DNAstring)
 							target = M
 							break
 

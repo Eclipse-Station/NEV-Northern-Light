@@ -209,14 +209,11 @@
 				return
 
 			occupant = new/mob/living/carbon/human(src)
-			occupant.fingers_trace = R.fingers_trace
-			occupant.dna_trace = R.dna_trace
-			occupant.dormant_mutations = R.dormant_mutations
-			occupant.active_mutations = R.active_mutations
+			occupant.dna = R.dna.Clone()
 			occupant.set_species()
-			occupant.real_name = R.real_name
-			occupant.b_type = R.b_type
+			occupant.real_name = R.dna.real_name
 			occupant.age = R.age
+			occupant.UpdateAppearance()
 			occupant.sync_organ_dna()
 			occupant.flavor_text = R.flavor
 			R.stats.copyTo(occupant.stats)
