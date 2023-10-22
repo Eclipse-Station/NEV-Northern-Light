@@ -86,7 +86,7 @@
 					if(ishuman(src) && isitem(used_weapon))
 						var/mob/living/carbon/human/H = src
 						var/obj/item/I = used_weapon
-						if((is_carrion(H) || mutations.len) && (SANCTIFIED in I.aspects))
+						if((is_carrion(H) || active_mutations.len) && (SANCTIFIED in I.aspects))
 							apply_damage(dmg / 2, BURN, def_zone, armor_divisor, wounding_multiplier, sharp, edge, used_weapon)
 
 				apply_damage(dmg, dmg_type, def_zone, armor_divisor, wounding_multiplier, sharp, edge, used_weapon)
