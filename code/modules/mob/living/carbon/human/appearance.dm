@@ -135,10 +135,6 @@
 	update_body()
 	return 1
 
-/mob/living/carbon/human/proc/update_dna()
-	check_dna()
-	dna.ready_dna(src)
-
 /mob/living/carbon/human/proc/generate_valid_species(var/check_whitelist = 1, var/list/whitelist = list(), var/list/blacklist = list())
 	var/list/valid_species = new()
 	for(var/current_species_name in all_species)

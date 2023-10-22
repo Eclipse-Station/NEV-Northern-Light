@@ -380,16 +380,13 @@
 			to_chat(user, "The vat does not have enough fluids to restore the body!")
 			return
 		var/obj/item/organ/donor = O
-		if(!donor.dna)
+		if(!donor.dna_trace)
 			to_chat(user, "\The [src] is rejected by the vat!")
 			return
 		var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
-		newbody.dna = donor.dna.Clone()
+		newbody.dna_trace = donor.dna_trace
 		newbody.set_species()
-		newbody.real_name = donor.dna.real_name
-		newbody.age = donor.dna.age
-		newbody.flavor_text = donor.dna.flavor
-		newbody.stats = donor.dna.stats
+		newbody.b_type = donor.b_type
 		//newbody.UpdateAppearance()
 		newbody.sync_organ_dna()
 		newbody.stat = DEAD //So it doesn't display the "Seizes up" message
@@ -455,8 +452,10 @@
 			user.drop_from_inventory(I)
 			I.forceMove(loc)
 			var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
+			newbody.dna_trace = R.dna_trace
 			newbody.set_species()
-			newbody.dna = R.dna.Clone()
+			newbody.dormant_mutations = R.dormant_mutations
+			newbody.active_mutations = R.active_mutations
 			newbody.real_name = R.real_name
 			newbody.age = R.age
 			newbody.b_type = R.b_type
