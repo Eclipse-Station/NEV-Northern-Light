@@ -987,7 +987,6 @@
 #include "code\game\objects\items\weapons\clown_items.dm"
 #include "code\game\objects\items\weapons\cosmetics.dm"
 #include "code\game\objects\items\weapons\dice.dm"
-#include "code\game\objects\items\weapons\disc.dm"
 #include "code\game\objects\items\weapons\emp_mine.dm"
 #include "code\game\objects\items\weapons\explosives.dm"
 #include "code\game\objects\items\weapons\extinguisher.dm"
