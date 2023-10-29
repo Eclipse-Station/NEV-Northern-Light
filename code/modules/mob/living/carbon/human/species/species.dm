@@ -490,8 +490,8 @@
 				dat += "</br><b>Has excellent traction.</b>"
 			if(species_flags & SPECIES_FLAG_NO_POISON)
 				dat += "</br><b>Immune to most poisons.</b>"
-			if(appearance_flags & HAS_A_SKIN_TONE)
-				dat += "</br><b>Has a variety of skin tones.</b>"
+//			if(appearance_flags & HAS_A_SKIN_TONE)
+//				dat += "</br><b>Has a variety of skin tones.</b>"
 			if(appearance_flags & HAS_SKIN_COLOR)
 				dat += "</br><b>Has a variety of skin colours.</b>"
 			if(appearance_flags & HAS_EYE_COLOR)

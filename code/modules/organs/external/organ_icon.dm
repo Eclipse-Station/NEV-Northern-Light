@@ -45,7 +45,7 @@ var/global/list/limb_icon_cache = list()
 	if(!appearance_test.colorize_organ)
 		part_key += "no_color"
 
-	part_key += "[owner && owner.gender == FEMALE]"
+	part_key += "[owner && gendered ? (owner.gender == FEMALE ? "_f" : "_m") : ""]"
 	part_key += "[skin_tone]"
 	part_key += skin_col
 	part_key += model
@@ -109,9 +109,9 @@ var/global/list/limb_icon_cache = list()
 	gender = owner.gender == FEMALE ? "_f" : "_m"
 
 	if(appearance_test.simple_setup)
-		icon_state = "[organ_tag][gender]"
+		icon_state = "[organ_tag][gendered ? gender : ""]"
 	else
-		icon_state = "[organ_tag][gender][is_stump()?"_s":""]"
+		icon_state = "[organ_tag][gendered ? gender : ""][is_stump()?"_s":""]"
 
 	if(!species && iscarbon(owner))
 		species = owner.species
@@ -136,15 +136,13 @@ var/global/list/limb_icon_cache = list()
 		if(status & ORGAN_DEAD)
 			mob_icon.ColorTone(rgb(10,50,0))
 			mob_icon.SetIntensity(0.7)
+		if(skin_col)
+			mob_icon.Blend(skin_col, ICON_MULTIPLY)
 		if(skin_tone)
 			if(skin_tone >= 0)
 				mob_icon.Blend(rgb(skin_tone, skin_tone, skin_tone), ICON_ADD)
 			else
 				mob_icon.Blend(rgb(-skin_tone,  -skin_tone,  -skin_tone), ICON_SUBTRACT)
-		else
-			if(skin_col)
-				mob_icon.Blend(skin_col, ICON_ADD)
-
 
 	dir = EAST
 	icon = mob_icon

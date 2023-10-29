@@ -11,6 +11,7 @@
 	var/using_scope // This is not very good either, because I've copied it. Sorry.
 
 /mob/living/carbon/human/Initialize(new_loc, new_species)
+	. = ..()
 
 	if(!species)
 		if(new_species)
@@ -36,20 +37,6 @@
 	hud_list[EXCELSIOR_HUD]   = image('icons/mob/hud.dmi', src, "hudblank",     ON_MOB_HUD_LAYER)
 
 	GLOB.human_mob_list |= src
-
-	. = ..()
-
-	if(!species)
-		if(new_species)
-			set_species(new_species,1)
-		else
-			set_species()
-
-	if(species)
-		real_name = species.get_random_name(gender)
-		name = real_name
-		if(mind)
-			mind.name = real_name
 
 	sync_organ_dna()
 	make_blood()
@@ -1215,7 +1202,7 @@ var/list/rank_prefix = list(\
 		//Apply colour.
 		skin_color = species.base_color
 	else
-		skin_color = "#000000"
+		skin_color = "#FEA666"
 
 	if(species.holder_type)
 		holder_type = species.holder_type
