@@ -286,10 +286,10 @@
 /datum/component/internal_wound/organic/parenchyma/UnregisterFromParent()
 	. = ..()
 	var/obj/item/organ/O = parent
-	
+
 	if(O.owner)
 		O.owner.mutation_index--
-	
+
 /datum/component/internal_wound/organic/parenchyma/heart
 	name = "heart parenchyma"
 	organ_efficiency_mod = list(OP_HEART = 10)

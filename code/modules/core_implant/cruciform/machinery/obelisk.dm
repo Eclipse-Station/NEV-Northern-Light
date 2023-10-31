@@ -140,15 +140,6 @@ GLOBAL_LIST_EMPTY(all_obelisk)
 			eotp.scanned |= mob
 			if(I && I.active && I.wearer)
 				eotp.addObservation(20)
-			else if(mob.mutation_index > 4 && !get_active_mutation(mob, MUTATION_ATHEIST) && !get_active_mutation(mob, MUTATION_GODBLOOD))
-				var/mutation_damage = mob.mutation_index / 2
-				mob.adjustFireLoss(mutation_damage)
-				eotp.removeObservation(15)
-				if(mob.mutation_index > 9)
-					mob.adjustFireLoss(mutation_damage * 2)
-					mob.sanity.changeLevel(-1)
-				if(prob(10))
-					to_chat(mob, SPAN_WARNING("You feel uncomfortable being around [src]."))
 			else if(is_carrion(mob))
 				eotp.removeObservation(20)
 			else

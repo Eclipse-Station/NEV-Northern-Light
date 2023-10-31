@@ -250,22 +250,26 @@
 				// Effects of kelotane, bicaridine (minus percentage healing) and tricordrazine
 				adjustOxyLoss(-0.6)
 				heal_organ_damage(0.6, 0.6)
-				bloodstr.add_reagent("leukotriene", REM)		// Anti-tox 0.5
-				bloodstr.add_reagent("thrombopoietin", REM)		// Blood-clotting 0.25
+				adjustToxLoss(-0.3)
+				add_chemical_effect(CE_BLOODCLOT, 0.15)
 
 			else if(get_active_mutation(src, MUTATION_LESSER_HEALING))
 				// Effects of tricordrazine
 				adjustOxyLoss(-0.6)
 				heal_organ_damage(0.3, 0.3)
-				bloodstr.add_reagent("leukotriene", REM)		// Anti-tox 0.5
-				bloodstr.add_reagent("thrombopoietin", REM)		// Blood-clotting 0.25
+				adjustToxLoss(-0.3)
+				add_chemical_effect(CE_BLOODCLOT, 0.1)
 
 	radiation = CLAMP(radiation,0,100)
 
-	if (radiation)
+	if(radiation)
+		var/damage = 0
 		radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+		if(prob(25))
+			damage = 1
 
-		if (radiation > 50)
+		if(radiation > 50)
+			damage = 1
 			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 			if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
 				radiation -= 5 * RADIATION_SPEED_COEFFICIENT
@@ -280,15 +284,23 @@
 					f_style = "Shaved"
 					update_hair()
 
-		if (radiation > 75)
+		if(radiation > 75)
 			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
+			damage = 3
 			if(prob(5))
 				take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
 			if(prob(1))
 				to_chat(src, SPAN_WARNING("You feel strange!"))
-				var/obj/item/organ/external/E = pick(organs)
-				E.mutate()
+				adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
 				emote("gasp")
+
+		if(damage)
+			damage *= species.radiation_mod
+			adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
+			updatehealth()
+			if(organs.len)
+				var/obj/item/organ/external/O = pick(organs)
+				if(istype(O)) O.add_autopsy_data("Radiation Poisoning", damage)
 
 	/** breathing **/
 
@@ -362,7 +374,7 @@
 		return FALSE
 	//vars - feel free to modulate if you want more effects that are not gained with efficiency
 	var/breath_type = species.breath_type ? species.breath_type : "oxygen"
-	var/poison_type = species.poison_type ? species.poison_type : "plasma"
+	var/poison_type = species.poison_type ? species.poison_type : "phoron"
 	var/exhale_type = species.exhale_type ? species.exhale_type : 0
 
 	var/min_breath_pressure = species.breath_pressure
@@ -371,10 +383,6 @@
 	var/safe_toxins_max = 0.2
 	var/SA_para_min = 1
 	var/SA_sleep_min = 5
-
-	//Eclipse added vars
-	var/chloramine_warn_min = 0.4		//Temporarily the same as nitrous oxide for testing. TODO - SET THIS TO A DECENT VALUE
-	var/chloramine_toxic_min = 2
 
 	var/lung_efficiency = get_organ_efficiency(OP_LUNGS)
 
@@ -448,9 +456,8 @@
 	// Too much poison in the air.
 
 	if(toxins_pp > safe_toxins_max)
-		var/ratio = CLAMP((poison/safe_toxins_max) * 10, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE)
-		var/obj/item/organ/internal/I = pick(internal_organs_by_efficiency[OP_LUNGS])
-		I.take_damage(4 * ratio, TOX)
+		var/ratio = (poison/safe_toxins_max) * 10
+		reagents.add_reagent("toxin", CLAMP(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 		breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
 		phoron_alert = 1
 	else
@@ -460,48 +467,14 @@
 	if(breath.gas["sleeping_agent"])
 		var/SA_pp = (breath.gas["sleeping_agent"] / breath.total_moles) * breath_pressure
 		if(SA_pp > SA_para_min)		// Enough to make us paralysed for a bit
-			reagents.add_reagent("sagent", 2)
+			Paralyse(3)	// 3 gives them one second to wake up and run away a bit!
 			if(SA_pp > SA_sleep_min)	// Enough to make us sleep as well
-				reagents.add_reagent("sagent", 5)
+				Sleeping(5)
 		else if(SA_pp > 0.15)	// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
-			reagents.add_reagent("sagent", 1)
+			if(prob(20))
+				emote(pick("giggle", "laugh"))
 
 		breath.adjust_gas("sleeping_agent", -breath.gas["sleeping_agent"]/6, update = 0) //update after
-
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Chloramines. Lachrymator agent, surprisingly only mildly toxic.
-	if(breath.gas["trichloramine"] || breath.gas["monochloramine"])
-		var/chloramine_pp = ((breath.gas["trichloramine"] + breath.gas["monochloramine"]) / breath.total_moles) * breath_pressure
-		var/ratio = ((breath.gas["trichloramine"]+breath.gas["monochloramine"]) * 5)
-
-	//Right. Let's get this party started.
-
-		if(chloramine_pp >= chloramine_warn_min)		//If we're less than or equal to the minimum we care about, forget it.
-			//Go ahead and define the notif variable.
-			var/notif = "Alan, write some dialogue here!"		//Calm down, Gage. If the player sees this, it's not set for some reason.
-
-			if(chloramine_pp >= chloramine_toxic_min)
-				notif = pick("Your eyes sting!","Your throat burns!","You feel very dizzy!","You feel like you're choking!")
-				if(prob(60))
-					to_chat(src,"<span class='danger'>[notif]</span>")
-				if(prob(20))
-					emote("cough")
-				if(reagents)
-					reagents.add_reagent("liquid_chlor", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
-
-			//Not lethal, but makes loud messages.
-			else
-				notif = pick("Your eyes water.","Your throat itches.","You feel a little dizzy.","You feel faint.","You feel short of breath.","You feel momentarily confused.")
-				if(prob(30))
-					to_chat(src, "<span class='warning'>[notif]</span>")
-
-		if(breath.gas["trichloramine"])
-			breath.adjust_gas("trichloramine", -breath.gas["trichloramine"]/6, update = 0) //update after
-		if(breath.gas["monochloramine"])
-			breath.adjust_gas("monochloramine", -breath.gas["monochloramine"]/6, update = 0) //update after
-
-	// // // END ECLIPSE EDITS // // //
-
 
 	// Were we able to breathe?
 	var/failed_breath = failed_inhale || failed_exhale
@@ -669,12 +642,15 @@
 		pressure_alert = 0
 	else if(adjusted_pressure >= species.hazard_low_pressure)
 		pressure_alert = -1
-	else
-		take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
-		if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
-			adjustOxyLoss(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, roughly twenty seconds
-		pressure_alert = -2
-
+/*	else
+		if( !(COLD_RESISTANCE in mutations))
+			take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
+			if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
+				adjustOxyLoss(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, roughly twenty seconds
+			pressure_alert = -2
+		else
+			pressure_alert = -1
+*/
 	return
 
 /*
@@ -775,14 +751,6 @@
 			. += THERMAL_PROTECTION_ARM_LEFT
 		if(flags & ARM_RIGHT)
 			. += THERMAL_PROTECTION_ARM_RIGHT
-		if(flags & FOOT_LEFT)
-			. += THERMAL_PROTECTION_FOOT_LEFT
-		if(flags & FOOT_RIGHT)
-			. += THERMAL_PROTECTION_FOOT_RIGHT
-		if(flags & HAND_LEFT)
-			. += THERMAL_PROTECTION_HAND_LEFT
-		if(flags & HAND_RIGHT)
-			. += THERMAL_PROTECTION_HAND_RIGHT
 	return min(1,.)
 
 /mob/living/carbon/human/handle_chemicals_in_body()
@@ -793,12 +761,9 @@
 		chem_effects.Cut()
 		analgesic = 0
 
-		if(touching)
-			touching.metabolize()
-		if(ingested)
-			ingested.metabolize()
-		if(bloodstr)
-			bloodstr.metabolize()
+		if(touching) touching.metabolize()
+		if(ingested) ingested.metabolize()
+		if(bloodstr) bloodstr.metabolize()
 		metabolism_effects.process()
 
 		if(CE_PAINKILLER in chem_effects)
@@ -813,12 +778,9 @@
 		for(var/obj/item/I in src)
 			if(I.contaminated)
 				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
-		if(!(status_flags & GODMODE))
-			adjustToxLoss(total_phoronloss)
-			bloodstr.add_reagent("phoron", total_phoronloss)
+		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
 
-	if(status_flags & GODMODE)
-		return FALSE	//godmode
+	if(status_flags & GODMODE)	return 0	//godmode
 
 	if(species.light_dam)
 		var/light_amount = 0
@@ -862,6 +824,7 @@
 			if(stats.getPerk(PERK_UNFINISHED_DELIVERY) && prob(33)) //Unless you have this perk
 				heal_organ_damage(20, 20)
 				adjustOxyLoss(-100)
+				adjustToxLoss(-20)
 				AdjustSleeping(rand(20,30))
 				updatehealth()
 				stats.removePerk(PERK_UNFINISHED_DELIVERY)
@@ -1018,23 +981,7 @@
 		if(stat == DEAD)
 			holder.icon_state = "hudhealth-100" 	// X_X
 		else
-			var/organ_health
-			var/organ_damage
-			var/limb_health
-			var/limb_damage
-
-			for(var/obj/item/organ/external/E in organs)
-				organ_health += E.total_internal_health
-				organ_damage += E.severity_internal_wounds
-				limb_health += E.max_damage
-				limb_damage += max(E.brute_dam, E.burn_dam)
-
-			var/crit_health = (health / maxHealth) * 100
-			var/external_health = (1 - (limb_health ? limb_damage / limb_health : 0)) * 100
-			var/internal_health = (1 - (organ_health ? organ_damage / organ_health : 0)) * 100
-
-			var/percentage_health = RoundHealth(min(crit_health, external_health, internal_health))	// Old: RoundHealth((health-HEALTH_THRESHOLD_CRIT)/(maxHealth-HEALTH_THRESHOLD_CRIT)*100)
-
+			var/percentage_health = RoundHealth((health-HEALTH_THRESHOLD_CRIT)/(maxHealth-HEALTH_THRESHOLD_CRIT)*100)
 			holder.icon_state = "hud[percentage_health]"
 		hud_list[HEALTH_HUD] = holder
 
@@ -1059,7 +1006,7 @@
 		else if(foundVirus)
 			holder.icon_state = "hudill"
 		else if(has_brain_worms())
-			var/mob/living/simple_animal/borer/B = get_brain_worms()
+			var/mob/living/simple_animal/borer/B = has_brain_worms()
 			if(B.controlling)
 				holder.icon_state = "hudbrainworm"
 			else
@@ -1187,31 +1134,6 @@
 	sanity.setLevel(sanity.max_level)
 	timeofdeath = 0
 	restore_blood()
-
-	// If a limb was missing, regrow
-	if(LAZYLEN(organs) < 7)
-		var/list/tags_to_grow = list(BP_HEAD, BP_CHEST, BP_GROIN, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
-		var/upper_body_nature
-
-		for(var/obj/item/organ/external/E in organs)
-			if(!E.is_stump())
-				tags_to_grow -= E.organ_tag
-				if(E.organ_tag == BP_CHEST)
-					upper_body_nature = E.nature
-			else
-				qdel(E)		// Will regrow
-
-		var/datum/preferences/user_pref = client ? client.prefs : null
-
-		for(var/tag in tags_to_grow)
-			// FBP limbs get replaced with makeshift if not defined by user or clientless
-			var/datum/body_modification/BM = user_pref ? user_pref.get_modification(tag) : (upper_body_nature == MODIFICATION_ORGANIC) ? new /datum/body_modification/none : new /datum/body_modification/limb/prosthesis/makeshift
-			var/datum/organ_description/OD = species.has_limbs[tag]
-			if(BM.is_allowed(tag, user_pref, src))
-				BM.create_organ(src, OD, user_pref.modifications_colors[tag])
-			else
-				OD.create_organ(src)
-
 	..()
 
 /mob/living/carbon/human/handle_vision()

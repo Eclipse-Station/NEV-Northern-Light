@@ -130,7 +130,7 @@
 					default = H.dna_trace
 				var/new_dna_hash = sanitize(input(user,"What DNA hash would you like to be written on this card?","Agent Card DNA Hash",default) as null|text)
 				if(!isnull(new_dna_hash) && CanUseTopic(user, state))
-					dna_hash = new_dna_hash
+					src.dna_hash = new_dna_hash
 					to_chat(user, SPAN_NOTICE("DNA hash changed to '[new_dna_hash]'."))
 					. = 1
 			if("Fingerprint Hash")

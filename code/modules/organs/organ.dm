@@ -27,19 +27,9 @@
 	var/list/transplant_data			// Transplant match data.
 	var/list/autopsy_data = list()		// Trauma data for forensics.
 	var/list/trace_chemicals = list()	// Traces of chemicals in the organ.
-	var/datum/dna/dna
+	var/dna_trace
+	var/b_type
 	var/datum/species/species
-
-	//Eclipse additions - organs carry info:
-	var/fingers_trace
-	var/dormant_mutations
-	var/active_mutations
-	var/real_name
-	var/age = 18 //Precaution
-	var/flavor
-	var/stats
-
-
 
 	// Damage vars.
 	var/min_bruised_damage = 10			// Damage before considered bruised
@@ -53,7 +43,6 @@
 	if(parent || owner)
 		removed()
 
-	QDEL_NULL(dna)
 	species = null
 	STOP_PROCESSING(SSobj, src)
 
@@ -98,27 +87,14 @@
 	if(istype(C))
 		dna_trace = C.dna_trace
 		b_type = C.b_type
-
-		//ECLIPSE EDIT START
-		fingers_trace = C.fingers_trace
-		dormant_mutations = C.dormant_mutations
-		active_mutations = C.active_mutations
-		flavor = C.flavor_text
-		real_name = C.real_name
-		if(ishuman(C))
-			var/mob/living/carbon/human/H = C
-			age = H.age
-			stats = H.stats
-		//ECLIPSE EDIT END
-
 		if(!blood_DNA)
 			blood_DNA = list()
 		blood_DNA.Cut()
 		blood_DNA[C.dna_trace] = C.b_type
-		species = all_species[C.species.name]
+		species = all_species[C.species]
 
 /obj/item/organ/proc/die()
-	if(BP_IS_ROBOTIC(src) || status & ORGAN_DEAD)
+	if(BP_IS_ROBOTIC(src))
 		return
 	damage = max_damage
 	status |= ORGAN_DEAD
@@ -131,7 +107,7 @@
 
 /obj/item/organ/get_item_cost()
 	if((status & ORGAN_DEAD) || species != all_species[SPECIES_HUMAN]) //No dead or monkey organs!
-		return FALSE
+		return 0
 	return ..()
 
 
@@ -140,65 +116,44 @@
 	if(istype(loc, /obj/item/device/mmi) || istype(loc, /mob/living/simple_animal/spider_core))
 		return TRUE
 
-	var/list/stasis_types = list(
-		/obj/structure/closet/body_bag/cryobag,
-		/obj/structure/closet/crate/freezer,
-		/obj/item/storage/freezer,
-		/obj/machinery/smartfridge,
-		/obj/machinery/reagentgrinder/industrial/disgorger,
-		/obj/machinery/vending
-	)
-
-	if(is_type_in_list(loc, stasis_types))
+	if(istype(loc, /obj/structure/closet/body_bag/cryobag) || istype(loc, /obj/structure/closet/crate/freezer) || istype(loc, /obj/item/storage/freezer))
 		return TRUE
 
 	return FALSE
 
 
 /obj/item/organ/Process()
+
 	if(loc != owner)
 		owner = null
-
-	//check if we've hit max_damage
-	if(damage >= max_damage)
-		die()
 
 	//dead already, no need for more processing
 	if(status & ORGAN_DEAD)
 		return
-
-	if(BP_IS_ROBOTIC(src))
+	// Don't process if we're in a freezer, an MMI or a stasis bag.or a freezer or something I dunno
+	if(is_in_stasis())
 		return
 
 	if(!owner)
-		if(is_in_stasis())
-			return
 		if(reagents)
 			var/datum/reagent/organic/blood/B = locate(/datum/reagent/organic/blood) in reagents.reagent_list
 			if(B && prob(40))
 				reagents.remove_reagent("blood",0.1)
 				blood_splatter(src,B,1)
-		if(config.organs_decay)
-			if(prob(5))
-				take_damage(12, TOX)	// Will cause toxin accumulation wounds
-	else
-		handle_rejection()
+		if(config.organs_decay) damage += rand(1,3)
+		if(damage >= max_damage)
+			damage = max_damage
+
+	//check if we've hit max_damage
+	if(damage >= max_damage)
+		die()
 
 /obj/item/organ/examine(mob/user)
 	..(user)
 	if(status & ORGAN_DEAD)
 		to_chat(user, SPAN_NOTICE("The decay has set in."))
 
-/obj/item/organ/proc/handle_rejection()
-	// Process unsuitable transplants. TODO: consider some kind of
-	// immunosuppressant that changes transplant data to make it match.
-	if(!rejecting)
-		if(blood_incompatible(b_type, owner.b_type, species, owner.species) && !get_active_mutation(owner, MUTATION_NO_REJECT))
-			rejecting = 1
-	else
-		rejecting++ //Rejection severity increases over time.
-		if(rejecting % 10 == 0) //Only fire every ten rejection ticks.
-			take_damage(round(rejecting / 50), TOX)		// Will cause toxin accumulation wounds
+
 
 /obj/item/organ/proc/receive_chem(chemical as obj)
 	return 0
@@ -215,6 +170,7 @@
 /obj/item/organ/proc/is_broken()
 	return (damage >= min_broken_damage || (status & ORGAN_CUT_AWAY) || (status & ORGAN_BROKEN))
 
+
 //Adds autopsy data for used_weapon.
 /obj/item/organ/proc/add_autopsy_data(var/used_weapon, var/damage)
 	var/datum/autopsy_data/W = autopsy_data[used_weapon]
@@ -228,22 +184,29 @@
 	W.time_inflicted = world.time
 
 //Note: external organs have their own version of this proc
-/obj/item/organ/proc/take_damage(amount, damage_type, wounding_multiplier = 1, silent)
-	if(!BP_IS_ROBOTIC(src))
+/obj/item/organ/proc/take_damage(amount, var/silent=0)
+	if(BP_IS_ROBOTIC(src))
+		src.damage = between(0, src.damage + (amount * 0.8), max_damage)
+	else
+		src.damage = between(0, src.damage + amount, max_damage)
+
 		//only show this if the organ is not robotic
 		if(owner && parent && amount > 0 && !silent)
 			owner.custom_pain("Something inside your [parent.name] hurts a lot.", 1)
+
+/obj/item/organ/proc/bruise()
+	damage = max(damage, min_bruised_damage)
 
 /obj/item/organ/emp_act(severity)
 	if(!BP_IS_ROBOTIC(src))
 		return
 	switch (severity)
-		if(1)
-			take_damage(12, BURN)
-		if(2)
-			take_damage(6, BURN)
-		if(3)
-			take_damage(3, BURN)
+		if (1)
+			take_damage(12)
+		if (2)
+			take_damage(6)
+		if (3)
+			take_damage(3)
 
 // Gets the limb this organ is located in, if any
 /obj/item/organ/proc/get_limb()
@@ -255,6 +218,8 @@
 
 	else if(istype(loc, /obj/item/organ/external))
 		return loc
+
+	return null
 
 
 /obj/item/organ/proc/removed(mob/living/user)
@@ -282,9 +247,6 @@
 			admin_attack_log(user, owner, "Removed a vital organ ([src])", "Had a a vital organ ([src]) removed.", "removed a vital organ ([src]) from")
 		owner.death()
 
-	if(LAZYLEN(item_upgrades))
-		owner.mutation_index--
-
 	owner = null
 	rejecting = null
 
@@ -306,21 +268,18 @@
 	forceMove(owner)
 	STOP_PROCESSING(SSobj, src)
 	if(BP_IS_ROBOTIC(src))
-		SEND_SIGNAL_OLD(owner, COMSIG_HUMAN_ROBOTIC_MODIFICATION)
+		SEND_SIGNAL(owner, COMSIG_HUMAN_ROBOTIC_MODIFICATION)
 
 	var/datum/reagent/organic/blood/transplant_blood = locate(/datum/reagent/organic/blood) in reagents?.reagent_list
 	transplant_data = list()
 	if(!transplant_blood)
 		transplant_data["species"] =    owner.species.name
-		transplant_data["blood_type"] = owner.dna.b_type
-		transplant_data["blood_DNA"] =  owner.dna.unique_enzymes
+		transplant_data["blood_type"] = owner.b_type
+		transplant_data["blood_DNA"] =  owner.dna_trace
 	else
 		transplant_data["species"] =    transplant_blood.data["species"]
 		transplant_data["blood_type"] = transplant_blood.data["blood_type"]
 		transplant_data["blood_DNA"] =  transplant_blood.data["blood_DNA"]
-
-	if(LAZYLEN(item_upgrades))
-		owner.mutation_index++
 
 /obj/item/organ/proc/heal_damage(amount)
 	return
@@ -350,4 +309,4 @@
 	return TRUE
 
 /obj/item/organ/proc/is_usable()
-	return !(status & (ORGAN_CUT_AWAY|ORGAN_DEAD))
+	return !(status & (ORGAN_CUT_AWAY|ORGAN_MUTATED|ORGAN_DEAD))

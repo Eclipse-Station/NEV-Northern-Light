@@ -384,16 +384,9 @@
 			to_chat(user, "\The [src] is rejected by the vat!")
 			return
 		var/mob/living/carbon/human/newbody = new/mob/living/carbon/human(loc)
-		newbody.fingers_trace = donor.fingers_trace
 		newbody.dna_trace = donor.dna_trace
-		newbody.dormant_mutations = donor.dormant_mutations
-		newbody.active_mutations = donor.active_mutations
 		newbody.set_species()
-		newbody.real_name = donor.real_name
-		newbody.age = donor.age
 		newbody.b_type = donor.b_type
-		newbody.flavor_text = donor.flavor
-		newbody.stats = donor.stats
 		//newbody.UpdateAppearance()
 		newbody.sync_organ_dna()
 		newbody.stat = DEAD //So it doesn't display the "Seizes up" message
