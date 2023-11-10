@@ -57,7 +57,7 @@
 		BP_R_LEG =  new /datum/organ_description/leg/right/skeletal
 		)
 
-	spawn_flags = IS_RESTRICTED
+	spawn_flags = SPECIES_IS_RESTRICTED
 
 /datum/species/skeleton/get_random_name()
 	return "skeletal remains"

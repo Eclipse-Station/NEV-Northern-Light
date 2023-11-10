@@ -287,9 +287,9 @@ GLOBAL_LIST_EMPTY(ignore_health_alerts_from)
 		S.race_key = rkey //Used in mob icon caching.
 		all_species[S.name] = S
 
-		if(!(S.spawn_flags & IS_RESTRICTED))
+		if(!(S.spawn_flags & SPECIES_IS_RESTRICTED))
 			playable_species += S.name
-		if(S.spawn_flags & IS_WHITELISTED)
+		if(S.spawn_flags & SPECIES_IS_WHITELISTED)
 			whitelisted_species += S.name
 
 	//Posters
