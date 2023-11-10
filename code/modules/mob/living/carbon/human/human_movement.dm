@@ -17,7 +17,7 @@
 				tally -= 0.5
 			else if(see_invisible != SEE_INVISIBLE_NOLIGHTING)
 				tally += 0.5
-	if(stats.getPerk(PERK_FAST_WALKER))
+	if(stats && stats.getPerk(PERK_FAST_WALKER))
 		tally -= 0.5
 	if(blocking)
 		tally += 1

@@ -46,6 +46,8 @@
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
+	if(!vessel)
+		return
 	for(var/datum/reagent/organic/blood/B in vessel.reagent_list)
 		if(B.id == "blood")
 			var/data = list("donor"=src,"viruses"=null,"species"=species.name,"blood_DNA"=dna_trace,"blood_colour"= species.blood_color,"blood_type"=b_type,	\
@@ -95,7 +97,7 @@
 	if(species && species.flags & NO_BLOOD) //TODO: Make drips come from the reagents instead.
 		return
 
-	if(!amt)
+	if(!amt || !vessel)
 		return
 
 	vessel.remove_reagent("blood",amt)
@@ -120,6 +122,9 @@
 /mob/living/carbon/human/take_blood(obj/item/reagent_containers/container, var/amount)
 
 	if(species && species.flags & NO_BLOOD)
+		return null
+
+	if(!vessel)
 		return null
 
 	if(vessel.get_reagent_amount("blood") < amount)

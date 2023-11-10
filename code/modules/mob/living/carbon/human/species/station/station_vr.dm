@@ -30,7 +30,7 @@
 
 	primitive_form = "Saru"
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 //	//inherent_verbs = list(/mob/living/proc/shred_limb)
 
@@ -92,7 +92,7 @@
 
 	primitive_form = "Sobaka"
 
-	spawn_flags = CAN_JOIN
+	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#AFA59E"
@@ -187,7 +187,7 @@
 		"Your overheated skin itches."
 		)
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
-	
+
 	reagent_tag = IS_ZORREN		//Eclipse edit.
 
 /datum/species/fl_zorren
@@ -278,7 +278,7 @@
 
 	min_age = 18
 	max_age = 80
-	
+
 	reagent_tag = IS_VULP		//Eclipse edit
 /*
 /datum/species/unathi
