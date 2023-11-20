@@ -43,7 +43,7 @@
 			if("serbian")
 				return "\improper SA AR [caliber] \"Mutiny\""
 			if("makeshift")
-				return "\improper HM AR [caliber] \"Springloader\"" //Eclipse Edit - HM for Handmade
+				return "\improper hand-tooled AR [caliber] \"Springloader\""		//Eclipse edit - hand-tooled
 	else
 		return "\improper AR [caliber] \"Winter\"" //End Eclipse Edit
 

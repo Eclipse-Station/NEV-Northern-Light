@@ -68,8 +68,9 @@
 	init_recoil = RIFLE_RECOIL(2.3)
 	matter = list(MATERIAL_STEEL = 15, MATERIAL_PLASTIC = 10, MATERIAL_PLASTEEL = 20)
 	wielded_item_state = "_doble_shotgun"
-	sawn = /obj/item/gun/projectile/boltgun/levergun/shotgun/sawn
+//	sawn = /obj/item/gun/projectile/boltgun/levergun/shotgun/sawn		//Eclipse removal - sawn sprite is currently busted for now
 	gun_parts = list(/obj/item/part/gun/frame/levershotgun = 1, /obj/item/part/gun/modular/grip/rubber = 1, /obj/item/part/gun/modular/mechanism/boltgun = 1, /obj/item/part/gun/modular/barrel/shotgun= 1)
+	saw_off = FALSE		//Eclipse edit - missing sawn-off sprite.
 
 /obj/item/part/gun/frame/levershotgun
 	name = "\improper Sogekihei frame" //Eclipse Edit - added \improper
@@ -80,6 +81,15 @@
 	mechanismvar = /obj/item/part/gun/modular/mechanism/boltgun // consistent with the other lever guns
 	barrelvars = list(/obj/item/part/gun/modular/barrel/shotgun)
 
+/* ECLIPSE REMOVAL - MISSING SPRITES.
+ * 
+ * When sprites are fixed, you need to re-enable the sawn-off mechanics and other
+ * miscellany relating to the sawn-off lever-action shotty. These can be found at:
+ * > This file, lines 71 and 73
+ * > /code/game/objects/items/weapons/storage/holster.dm, lines 48 and 204.
+ */
+
+/*
 /obj/item/gun/projectile/boltgun/levergun/shotgun/sawn
 	name = "sawn-off FS BR \"Sogekihei\""
 	icon_state = "lever_shotgun_sawn"
@@ -94,3 +104,4 @@
 	wielded_item_state = "_doble_shotgun_sawn"
 	can_dual = TRUE
 	twohanded = FALSE
+*/		//END ECLIPSE REMOVAL

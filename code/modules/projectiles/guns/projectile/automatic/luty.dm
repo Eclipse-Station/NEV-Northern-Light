@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/automatic/luty
-	name = "\improper HM SMG .35 Auto \"Luty\""
+	name = "hand-tooled SMG .35 Auto \"Luty\""		//Eclipse edit - hand-tooled
 	desc = "A dead simple open-bolt automatic firearm, easily made and easily concealed.\
 			A gun that has gone by many names, from the Grease gun to the Carlo to the Swedish K. \
 			Some designs are too good to change."

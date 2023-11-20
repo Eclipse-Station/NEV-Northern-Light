@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/revolver/handmade
-	name = "\improper HM REV .40 Magnum \"Cartel\"" //Eclipse Edit - added \improper & standardized gun names
+	name = "hand-tooled REV .40 Magnum \"Cartel\"" //Eclipse Edit - standardized gun names
 	desc = "A handmade revolver built with junk, duct tape and dubious engineering skills. Will it even work?"
 	icon = 'icons/obj/guns/projectile/handmade_revolver.dmi'
 	icon_state = "handmade_revolver"

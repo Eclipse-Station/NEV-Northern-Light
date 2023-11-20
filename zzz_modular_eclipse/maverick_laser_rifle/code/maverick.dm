@@ -5,7 +5,7 @@
 	name = "\improper CA ELAR S \"Maverick\""
 	desc = "A revision of Chiropteran Arms' popular lever-action varmint-hunting rifle, this rifle design was produced in smaller numbers for colonists who needed the versatility of a laser weapon with the power of a ballistic weapon."
 
-	//Icon and sounds. //TODO TODO TODO - CHANGE ALL THIS!
+	//Icon and sounds.
 	icon = 'zzz_modular_eclipse/maverick_laser_rifle/icon/maverick.dmi'
 	icon_state = "winchester"
 	item_state = "winchester"
@@ -45,3 +45,4 @@
 	var/list/magazine = list()
 	var/magazine_capacity = 3 //We hold 3 cells.
 	suppress_already_loaded_message = TRUE //because we can load more than one cell.
+	serial_type = "CA"

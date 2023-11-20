@@ -219,7 +219,7 @@
 	barrelvars = list(/obj/item/part/gun/modular/barrel/srifle/steel)
 
 /obj/item/gun/projectile/boltgun/handmade
-	name = "\improper HM BR .30 \"Riose\"" //Eclipse Edit - gun names standardized
+	name = "hand-tooled BR .30 \"Riose\"" //Eclipse Edit - gun names standardized
 	desc = "A handmade bolt action rifle, made from junk and some spare parts."
 	icon = 'icons/obj/guns/projectile/riose.dmi'
 	icon_state = "boltgun_hand"
@@ -303,7 +303,7 @@
 	matter = list(MATERIAL_STEEL = 10, MATERIAL_WOOD = 5)
 
 /obj/item/gun/projectile/boltgun/obrez/handmade
-	name = "sawn-off HM BR \"Riose\""
+	name = "sawn-off hand-tooled BR \"Riose\""		//Eclipse edit - hand-tooled
 	icon = 'icons/obj/guns/projectile/obrez_bolt.dmi'
 	icon_state = "obrez_hand"
 	item_suffix  = "_hand"

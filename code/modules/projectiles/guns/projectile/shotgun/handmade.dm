@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/shotgun/slidebarrel
-	name = "\improper HM SG \"Ponyets\"" //Eclipse Edit - standardized gun names
+	name = "hand-tooled SG \"Ponyets\"" //Eclipse Edit - standardized gun names
 	desc = "Made out of trash, but rather special in its design" //Eclipse Edit - grammar
 	icon = 'icons/obj/guns/projectile/slideshotgun.dmi'
 	icon_state = "slideshotgun"

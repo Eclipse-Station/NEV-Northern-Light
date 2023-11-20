@@ -296,7 +296,7 @@
 		update_wear_icon()
 
 /obj/item/gun/energy/laser/makeshift
-	name = "HM LCAR M \"Retina Burn\""
+	name = "hand-tooled LCAR M \"Retina Burn\""		//Eclipse edit: hand-tooled.
 	desc = "A somewhat power inefficient makeshift laser carbine, but shockingly reliable."
 	icon = 'icons/obj/guns/energy/makeshift_carbine.dmi'
 	icon_state = "makeshift"
@@ -318,7 +318,7 @@
 	init_recoil = CARBINE_RECOIL(1)
 
 /obj/item/gun/energy/laser/makeshift_pistol
-	name = "HM LHG M \"Scorcher\"" //Eclipse Edit - standardized gun names
+	name = "hand-tooled LHG M \"Scorcher\"" //Eclipse Edit - standardized gun names
 	desc = "A heavy makeshift laser pistol, trades off some power and efficiency for ease of storage and use."
 	icon = 'icons/obj/guns/energy/makeshift_pistol.dmi'
 	icon_state = "makeshiftpistol"

@@ -77745,14 +77745,14 @@
 /area/eris/security/armory)
 "dBv" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/wintermute,
-/obj/item/gun/projectile/automatic/wintermute,
+/obj/item/gun/projectile/automatic/modular/wintermute/finished,
+/obj/item/gun/projectile/automatic/modular/wintermute/finished,
 /obj/machinery/door/blast/shutters/glass{
 	id = "Armoury";
 	name = "Armoury showcase"
 	},
-/obj/item/gun/projectile/automatic/wintermute,
-/obj/item/gun/projectile/automatic/wintermute,
+/obj/item/gun/projectile/automatic/modular/wintermute/finished,
+/obj/item/gun/projectile/automatic/modular/wintermute/finished,
 /obj/machinery/camera/network/security{
 	dir = 8
 	},

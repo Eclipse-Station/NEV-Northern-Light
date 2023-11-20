@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/handmade_pistol
-	name = "\improper HM HG \"Bubba\"" //Eclipse Edit - added \improper
+	name = "hand-tooled HG \"Bubba\""		//Eclipse edit - hand-tooled
 	desc = "Looks unreliable. May blow up in your hands."
 	icon = 'icons/obj/guns/projectile/hm_pistol.dmi'
 	icon_state = "hm_pistol"

@@ -41,7 +41,7 @@
 			if("serbian")
 				return "\improper SA [stock_type] [caliber] \"Krinkov\""
 			if("makeshift")
-				return "\improper HM [stock_type] [caliber] \"[capitalize(english_list(shuffle(list("ka", "lash", "ni", "kov")), and_text = "", comma_text = "", final_comma_text = ""))]\"" //Eclipse Edit - HM for Handmade
+				return "\improper hand-tooled [stock_type] [caliber] \"[capitalize(english_list(shuffle(list("ka", "lash", "ni", "kov")), and_text = "", comma_text = "", final_comma_text = ""))]\""		//Eclipse edit - hand-tooled
 	else
 		return "\improper Car [caliber] \"Kalash\"" // No nikov | End Eclipse Edit
 
@@ -78,4 +78,4 @@
 	init_recoil = RIFLE_RECOIL(1.25) // Placeholder debuff for makeshift production
 
 /obj/item/gun/projectile/automatic/modular/ak/makeshift/get_initial_name()
-		return "\improper HM [caliber] \"Sermak\"" // Unlike normal AKs, the makeshift variant's frame is easily distinguishable at closer inspection. The name reflects this.
+		return "\improper hand-tooled [caliber] \"Sermak\"" // Unlike normal AKs, the makeshift variant's frame is easily distinguishable at closer inspection. The name reflects this.		//Eclipse edit - hand-tooled

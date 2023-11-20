@@ -10,7 +10,7 @@
 	if(prob(5))			//chance to get good shit.
 		new /obj/item/gun/projectile/automatic/modular/mk58/gray/wood(src)
 	else
-		new /obj/item/gun/projectile/mk58(src)
+		new /obj/item/gun/projectile/automatic/modular/mk58(src)
 	new /obj/item/ammo_magazine/pistol(src)
 	new /obj/item/ammo_magazine/pistol(src)
 

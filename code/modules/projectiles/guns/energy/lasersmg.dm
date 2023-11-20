@@ -1,5 +1,5 @@
 /obj/item/gun/energy/lasersmg
-	name = "\improper HM Disco Vazer \"Lasblender\""
+	name = "hand-tooled Disco Vazer \"Lasblender\""		//Eclipse edit - hand-tooled.
 	desc = "This conversion of the \"Atreides\" enables it to shoot lasers. Unlike in other laser weapons, the process of creating a laser is based on a chain reaction of localized micro-explosions.\
 			While this method is charge-effective, the chain-reaction makes the gun always fire in bursts. \
 			Sometimes jokingly called the \"Disco Vazer\"."

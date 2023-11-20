@@ -45,7 +45,7 @@
 		/obj/item/gun/projectile/automatic/luty,
 		/obj/item/gun/projectile/revolver/hornet,
 		/obj/item/gun/projectile/shotgun/slidebarrel,
-		/obj/item/gun/projectile/boltgun/levergun/shotgun/sawn,
+//		/obj/item/gun/projectile/boltgun/levergun/shotgun/sawn,		//Eclipse removal - Gun is disabled.
 		/obj/item/gun/projectile/boltgun/levergun/sawn,
 		/obj/item/gun/projectile/automatic/slaught_o_matic,
 		/obj/item/gun/energy/rxd,
@@ -201,7 +201,7 @@
 		/obj/item/gun/projectile/automatic/luty,
 		/obj/item/gun/projectile/revolver/hornet,
 		/obj/item/gun/projectile/shotgun/slidebarrel,
-		/obj/item/gun/projectile/boltgun/levergun/shotgun/sawn,
+//		/obj/item/gun/projectile/boltgun/levergun/shotgun/sawn,		//Eclipse removal - gun is disabled.
 		/obj/item/gun/projectile/boltgun/levergun/sawn,
 		/obj/item/gun/projectile/automatic/slaught_o_matic,
 		/obj/item/gun/energy/rxd,

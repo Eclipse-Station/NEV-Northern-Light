@@ -41,7 +41,7 @@
 			if("serbian")
 				return "\improper SA HG [caliber] \"Mk58\"" //serbian arms
 			if("makeshift")
-				return "\improper HM HG [caliber] \"Mk58\""
+				return "\improper hand-tooled HG [caliber] \"Mk58\""		//Eclipse edit - hand-tooled
 	else
 		return "\improper NT [caliber] \"Mk58\"" //End Eclipse Edit
 
