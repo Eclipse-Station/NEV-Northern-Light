@@ -13,6 +13,7 @@
 #define CAL_DART "chemical dart"
 #define CAL_FLARE "flare shell"
 #define CAL_GRENADE "grenade"
+#define CAL_CBOLT "crossbow bolt"
 
 //Gun loading types
 #define SINGLE_CASING 	1	//The gun only accepts ammo_casings. ammo_magazines should never have this as their mag_type.
@@ -40,3 +41,7 @@
 #define SLOT_UNDERBARREL "underbarrel"
 #define SLOT_MECHANICS "mechanics"
 #define SLOT_BAYONET "bayonet slot"
+
+#define HEIGHT_LOW 1
+#define HEIGHT_CENTER 0
+#define HEIGHT_HIGH 2

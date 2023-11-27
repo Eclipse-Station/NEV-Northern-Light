@@ -2,6 +2,7 @@
 	name = "autolathe"
 	desc = "It produces items using metal and glass."
 	icon = 'icons/obj/machines/autolathe.dmi'
+	description_info = "Can be upgraded to print faster, cheaper or hold more material. Can recycle items by trying to insert them as material"
 	icon_state = "autolathe"
 	density = TRUE
 	anchored = TRUE
@@ -25,7 +26,6 @@
 	var/list/special_actions
 
 	// Used by wires - unused for now
-	var/hacked = FALSE
 	var/disabled = FALSE
 	var/shocked = FALSE
 
@@ -53,6 +53,8 @@
 
 	var/list/unsuitable_materials = list(MATERIAL_BIOMATTER)
 	var/list/suitable_materials //List that limits autolathes to eating mats only in that list.
+
+	var/list/selectively_recycled_types = list()
 
 	var/global/list/error_messages = list(
 		ERR_NOLICENSE = "Not enough license points left.",
@@ -137,7 +139,7 @@
 	return data
 
 
-/obj/machinery/autolathe/ui_data()
+/obj/machinery/autolathe/nano_ui_data()
 	var/list/data = list()
 
 	data["have_disk"] = have_disk
@@ -171,12 +173,12 @@
 	for(var/d in design_list())
 		var/datum/computer_file/binary/design/design_file = d
 		if(!show_category || design_file.design.category == show_category)
-			L.Add(list(design_file.ui_data()))
+			L.Add(list(design_file.nano_ui_data()))
 	data["designs"] = L
 
 
 	if(current_file)
-		data["current"] = current_file.ui_data()
+		data["current"] = current_file.nano_ui_data()
 		data["progress"] = progress
 
 	var/list/Q = list()
@@ -185,7 +187,7 @@
 
 	for(var/i = 1; i <= queue.len; i++)
 		var/datum/computer_file/binary/design/design_file = queue[i]
-		var/list/QR = design_file.ui_data()
+		var/list/QR = design_file.nano_ui_data()
 
 		QR["ind"] = i
 
@@ -230,8 +232,12 @@
 	return data
 
 
-/obj/machinery/autolathe/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
-	var/list/data = ui_data(user, ui_key)
+/obj/machinery/autolathe/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+	var/list/data = nano_ui_data(user, ui_key)
+
+	var/datum/asset/designIcons = get_asset_datum(/datum/asset/simple/design_icons)
+	if (designIcons.send(user.client))
+		user.client.browse_queue_flush() // stall loading nanoui until assets actualy gets sent
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
@@ -283,7 +289,7 @@
 		return
 
 	user.set_machine(src)
-	ui_interact(user)
+	nano_ui_interact(user)
 
 /obj/machinery/autolathe/proc/check_user(mob/user)
 	return TRUE
@@ -296,7 +302,7 @@
 		return TRUE
 
 	user.set_machine(src)
-	ui_interact(user)
+	nano_ui_interact(user)
 	wires.Interact(user)
 
 /obj/machinery/autolathe/Topic(href, href_list)
@@ -532,7 +538,7 @@
 	if(is_robot_module(eating))
 		return FALSE
 
-	if(!have_recycling && !istype(eating, /obj/item/stack))
+	if(!have_recycling && !(istype(eating, /obj/item/stack) || can_recycle(eating)))
 		to_chat(user, SPAN_WARNING("[src] does not support material recycling."))
 		return FALSE
 
@@ -549,7 +555,6 @@
 	var/filltype = 0       // Used to determine message.
 	var/reagents_filltype = 0
 	var/total_used = 0     // Amount of material used.
-	var/mass_per_sheet = 0 // Amount of material constituting one sheet.
 
 	var/list/total_material_gained = list()
 
@@ -591,7 +596,6 @@
 
 				total_material_gained[material] += total_material
 				total_used += total_material
-				mass_per_sheet += O.matter[material]
 
 		if(O.matter_reagents)
 			if(container)
@@ -624,7 +628,7 @@
 	if(istype(eating, /obj/item/stack))
 		res_load(get_material_by_name(main_material)) // Play insertion animation.
 		var/obj/item/stack/stack = eating
-		var/used_sheets = min(stack.get_amount(), round(total_used/mass_per_sheet))
+		var/used_sheets = min(stack.get_amount(), round(total_used))
 
 		to_chat(user, SPAN_NOTICE("You add [used_sheets] [main_material] [stack.singular_name]\s to \the [src]."))
 
@@ -640,6 +644,18 @@
 	else if(reagents_filltype == 2)
 		to_chat(user, SPAN_NOTICE("Some liquid flowed to the floor from \the [src]."))
 
+
+/obj/machinery/autolathe/proc/can_recycle(obj/O)
+	if(!selectively_recycled_types)
+		return FALSE
+	if(!selectively_recycled_types.len)
+		return FALSE
+
+	for(var/type in selectively_recycled_types)
+		if(istype(O, type))
+			return TRUE
+
+	return FALSE
 
 /obj/machinery/autolathe/proc/queue_design(datum/computer_file/binary/design/design_file, amount=1)
 	if(!design_file || !amount)
@@ -740,8 +756,6 @@
 
 /obj/machinery/autolathe/proc/can_print(datum/computer_file/binary/design/design_file)
 
-	if(use_oddities && !oddity)
-		return ERR_NOODDITY
 
 	if(paused)
 		return ERR_PAUSED

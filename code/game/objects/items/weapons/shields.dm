@@ -41,13 +41,13 @@
 	. = ..()
 	switch(get_block_chance(user))
 		if(0 to 30)
-			to_chat(user, "So heavy... You feel doubtful in your ability to parry with this shield. Maybe if you changed your grip?")
+			to_chat(user, "So heavy... You feel doubtful in your ability to parry with this shield using only one hand until you grow stronger.")
 		if(31 to 45)
-			to_chat(user, "Holding this feels a little clumsy.")
+			to_chat(user, "Holding this feels a little clumsy. Perhaps if you were a bit stronger...")
 		if(46 to 55)
-			to_chat(user, "With a comfortable grip, you feel condifent in your ability to parry with this shield.")
+			to_chat(user, "A bit hefty, but you feel confident in your ability to parry with this shield.")
 		if(56 to 70)
-			to_chat(user, "The shield feels just right, you feel you can parry anything!")
+			to_chat(user, "The weight of this shield feels comfortable and maneuverable.")
 		if(71 to INFINITY)
 			to_chat(user, "You feel ready for a gladiator duel! Bring it on, roaches!")
 
@@ -110,7 +110,6 @@
 		else
 			return FALSE
 
-
 	if(wielded && !(attack_dir && (attack_dir & bad_arc)))
 		return TRUE
 	else if(!(attack_dir == bad_arc) && !(attack_dir == reverse_direction(shield_dir)) && !(attack_dir == (bad_arc | reverse_direction(shield_dir))))
@@ -150,7 +149,7 @@
 	matter = list(MATERIAL_GLASS = 5, MATERIAL_STEEL = 5, MATERIAL_PLASTEEL = 12)
 	price_tag = 500
 	attack_verb = list("shoved", "bashed")
-	shield_integrity = 125
+	shield_integrity = 195
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 	var/picked_by_human = FALSE
 	var/mob/living/carbon/human/picking_human
@@ -208,7 +207,7 @@
 	base_block_chance = 45
 	shield_difficulty = 35
 	attack_verb = list("shoved", "bashed")
-	shield_integrity = 135
+	shield_integrity = 205
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 	var/picked_by_human = FALSE
 	var/mob/living/carbon/human/picking_human
@@ -249,25 +248,28 @@
 	else return get_protected_area(user)
 
 /obj/item/shield/riot/New()
-	RegisterSignal(src, COMSIG_ITEM_PICKED, .proc/is_picked)
-	RegisterSignal(src, COMSIG_ITEM_DROPPED, .proc/is_dropped)
+	RegisterSignal(src, COMSIG_ITEM_PICKED, PROC_REF(is_picked))
+	RegisterSignal(src, COMSIG_ITEM_DROPPED, PROC_REF(is_dropped))
 	return ..()
 
 /obj/item/shield/riot/proc/is_picked()
+	SIGNAL_HANDLER
 	var/mob/living/carbon/human/user = loc
 	if(istype(user))
 		picked_by_human = TRUE
 		picking_human = user
-		RegisterSignal(picking_human, COMSIG_HUMAN_WALKINTENT_CHANGE, .proc/update_state)
+		RegisterSignal(picking_human, COMSIG_HUMAN_WALKINTENT_CHANGE, PROC_REF(update_state))
 		update_state()
 
 /obj/item/shield/riot/proc/is_dropped()
+	SIGNAL_HANDLER
 	if(picked_by_human && picking_human)
 		UnregisterSignal(picking_human, COMSIG_HUMAN_WALKINTENT_CHANGE)
 		picked_by_human = FALSE
 		picking_human = null
 
 /obj/item/shield/riot/proc/update_state()
+	SIGNAL_HANDLER
 	if(!picking_human)
 		return
 	if(MOVING_QUICKLY(picking_human))
@@ -290,6 +292,33 @@
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 		cooldown = world.time
 
+/obj/item/shield/riot/dozershield
+	name = "bulldozer shield"
+	desc = "A crude beast of a shield hewn from slabs of metal welded to a locker door, it has been forged into a wall that stands between you and your foes."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "dozershield"
+	item_state = "dozershield"
+	flags = CONDUCT
+	slot_flags = SLOT_BACK
+	force = WEAPON_FORCE_DANGEROUS
+	throwforce = WEAPON_FORCE_DANGEROUS
+	throw_speed = 1
+	throw_range = 4
+	w_class = ITEM_SIZE_HUGE
+	origin_tech = list()
+	matter = list(MATERIAL_GLASS = 20, MATERIAL_STEEL = 20, MATERIAL_PLASTEEL = 10)
+	price_tag = 200
+	base_block_chance = 55
+	shield_difficulty = 10
+	shield_integrity = 230
+	slowdown_hold = 1
+
+/obj/item/shield/riot/dozershield/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/tool/hammer) || istype(W, /obj/item/tool/sword))
+		on_bash(W, user)
+	else
+		..()
+
 /obj/item/shield/hardsuit
 	name = "hardsuit shield"
 	desc = "A massive ballistic shield that seems impossible to wield without mechanical assist."
@@ -309,7 +338,7 @@
 	base_block_chance = 60
 	shield_difficulty = 10
 	attack_verb = list("smashed", "bashed")
-	shield_integrity = 160
+	shield_integrity = 250
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 	var/picked_by_human = FALSE
 	var/mob/living/carbon/human/picking_human
@@ -317,7 +346,7 @@
 	var/mob/living/creator
 	var/cleanup = TRUE	// Should the shield despawn moments after being discarded by the summoner?
 	var/init_procees = TRUE
-	spawn_blacklisted = TRUE
+	bad_type = /obj/item/shield/hardsuit
 
 /obj/item/shield/hardsuit/get_protected_area(mob/user)
 	var/list/p_area = list(BP_CHEST, BP_GROIN, BP_HEAD)
@@ -387,7 +416,7 @@
 	matter = list(MATERIAL_STEEL = 6)
 	base_block_chance = 35
 	shield_difficulty = 65
-	shield_integrity = 100
+	shield_integrity = 170
 
 /obj/item/shield/buckler/handmade/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/extinguisher) || istype(W, /obj/item/storage/toolbox) || istype(W, /obj/item/melee))
@@ -406,7 +435,7 @@
 	matter = list(MATERIAL_STEEL = 4)
 	base_block_chance = 40
 	shield_difficulty = 30
-	shield_integrity = 85
+	shield_integrity = 155
 
 /obj/item/shield/riot/tray/get_protected_area(mob/user)
 	var/list/p_area = list(BP_CHEST, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_GROIN)
@@ -441,7 +470,7 @@
 	var/active = 0
 	base_block_chance = 35
 	shield_difficulty = 70
-	shield_integrity = 130
+	shield_integrity = 200
 
 /obj/item/shield/buckler/energy/handle_shield(mob/user)
 	if(!active)
@@ -455,11 +484,12 @@
 		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
 
 /obj/item/shield/buckler/energy/attack_self(mob/living/user as mob)
-	if ((CLUMSY in user.mutations) && prob(50))
+/*	if ((CLUMSY in user.mutations) && prob(50))
 		to_chat(user, SPAN_WARNING("You beat yourself in the head with [src]."))
 		user.take_organ_damage(5)
 	active = !active
-	if (active)
+*/
+	if(active)
 		force = WEAPON_FORCE_PAINFUL
 		update_icon()
 		w_class = ITEM_SIZE_BULKY

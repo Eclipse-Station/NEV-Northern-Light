@@ -52,7 +52,8 @@ var/global/floorIsLava = 0
 				sound_to(C, 'sound/effects/adminhelp.ogg')
 
 proc/admin_notice(message, rights)
-	for(var/mob/M in SSmobs.mob_list)
+	var/list/mob_list = SSmobs.mob_list | SShumans.mob_list
+	for(var/mob/M in mob_list)
 		if(check_rights(rights, 0, M))
 			to_chat(M, message)
 
@@ -91,7 +92,7 @@ proc/admin_notice(message, rights)
 
 ADMIN_VERB_ADD(/datum/admins/proc/show_player_panel, null, TRUE)
 //shows an interface for individual players, with various links (links require additional flags
-/datum/admins/proc/show_player_panel(mob/M in SSmobs.mob_list)
+/datum/admins/proc/show_player_panel(mob/M in SSmobs.mob_list | SShumans.mob_list)
 	set category = null
 	set name = "Show Player Panel"
 	set desc = "Edit player (respawn, ban, heal, etc)"
@@ -156,6 +157,7 @@ ADMIN_VERB_ADD(/datum/admins/proc/show_player_panel, null, TRUE)
 			<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_PRAY]'><font color='[(muted & MUTE_PRAY)?"red":"blue"]'>PRAY</font></a> |
 			<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_ADMINHELP]'><font color='[(muted & MUTE_ADMINHELP)?"red":"blue"]'>ADMINHELP</font></a> |
 			<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_DEADCHAT]'><font color='[(muted & MUTE_DEADCHAT)?"red":"blue"]'>DEADCHAT</font></a>\]
+			<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_TTS]'><font color='[(muted & MUTE_TTS)?"red":"blue"]'>TTS</font></a>\]
 			(<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_ALL]'><font color='[(muted & MUTE_ALL)?"red":"blue"]'>toggle all</font></a>)
 		"}
 
@@ -200,25 +202,6 @@ ADMIN_VERB_ADD(/datum/admins/proc/show_player_panel, null, TRUE)
 				body += "<A href='?src=\ref[src];makeanimal=\ref[M]'>Re-Animalize</A> | "
 			else
 				body += "<A href='?src=\ref[src];makeanimal=\ref[M]'>Animalize</A> | "
-
-			// DNA2 - Admin Hax
-			if(M.dna && iscarbon(M))
-				body += "<br><br>"
-				body += "<b>DNA Blocks:</b><br><table border='0'><tr><th>&nbsp;</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>"
-				var/bname
-				for(var/block=1;block<=DNA_SE_LENGTH;block++)
-					if(((block-1)%5)==0)
-						body += "</tr><tr><th>[block-1]</th>"
-					bname = assigned_blocks[block]
-					body += "<td>"
-					if(bname)
-						var/bstate=M.dna.GetSEState(block)
-						var/bcolor="[(bstate)?"#006600":"#ff0000"]"
-						body += "<A href='?src=\ref[src];togmutate=\ref[M];block=[block]' style='color:[bcolor];'>[bname]</A><sub>[block]</sub>"
-					else
-						body += "[block]"
-					body+="</td>"
-				body += "</tr></table>"
 
 			body += {"<br><br>
 				<b>Rudimentary transformation:</b><font size=2><br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.</font><br>
@@ -620,6 +603,21 @@ ADMIN_VERB_ADD(/datum/admins/proc/announce, R_ADMIN, FALSE)
 		log_admin("Announce: [key_name(usr)] : [message]")
 
 
+ADMIN_VERB_ADD(/datum/admins/proc/set_respawn_timer, R_ADMIN, FALSE)
+/datum/admins/proc/set_respawn_timer()
+	set name = "Set Respawn Timer"
+	set category = "Server"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/delay = input(usr, "Enter new respawn delays in minutes", "Respawn timer configuration") as null|num
+	if(!isnull(delay))
+		delay = CLAMP(delay, 0, INFINITY)
+		config.respawn_delay = delay
+		log_and_message_admins("changed respawn delay to [delay] minutes.")
+
+
 ADMIN_VERB_ADD(/datum/admins/proc/toggleooc, R_ADMIN, FALSE)
 //toggles ooc on/off for everyone
 /datum/admins/proc/toggleooc()
@@ -803,7 +801,7 @@ ADMIN_VERB_ADD(/datum/admins/proc/immreboot, R_SERVER, FALSE)
 
 	if(isrobot(M))
 		var/mob/living/silicon/robot/R = M
-		if(R.emagged)
+		if(R.HasTrait(CYBORG_TRAIT_EMAGGED))
 			return ANTAG
 
 	return NO_ANTAG
@@ -925,7 +923,7 @@ ADMIN_VERB_ADD(/datum/admins/proc/spawn_atom, R_DEBUG, FALSE)
 	log_and_message_admins("spawned [chosen] at ([usr.x],[usr.y],[usr.z])")
 
 //interface which shows a mob's mind
-/datum/admins/proc/show_contractor_panel(var/mob/M in SSmobs.mob_list)
+/datum/admins/proc/show_contractor_panel(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 	set category = "Admin"
 	set desc = "Edit mobs's memory and role"
 	set name = "Show Contractor Panel"
@@ -1002,9 +1000,102 @@ ADMIN_VERB_ADD(/datum/admins/proc/toggleguests, R_ADMIN, FALSE)
 	message_admins("\blue [key_name_admin(usr)] toggled guests game entering [config.guests_allowed?"":"dis"]allowed.", 1)
 
 
+ADMIN_VERB_ADD(/datum/admins/proc/toggle_tts, R_SERVER, FALSE)
+/datum/admins/proc/toggle_tts()
+	set category = "Server"
+	set name = "Toggle text-to-speech"
+
+	if(GLOB.tts_bearer)
+		config.tts_enabled = !config.tts_enabled
+	else
+		to_chat(usr, "Configuration file [config.tts_key ? "contains invalid" : "is missing"] authentication key.")
+		return
+
+	to_chat(world, "<B>The text-to-speech has been globally [config.tts_enabled ? "enabled" : "disabled"]!</B>")
+
+	message_admins("\blue [key_name_admin(usr)] set text-to-speech to [config.tts_enabled ? "On" : "Off"].", 1)
+	log_admin("[key_name(usr)] set text-to-speech to [config.tts_enabled ? "On" : "Off"].")
+
+
+ADMIN_VERB_ADD(/datum/admins/proc/toggle_tts_cache, R_SERVER, FALSE)
+/datum/admins/proc/toggle_tts_cache()
+	set category = "Server"
+	set name = "Toggle text-to-speech caching"
+
+	config.tts_cache = !config.tts_cache
+
+	message_admins("\blue [key_name_admin(usr)] set text-to-speech caching to [config.tts_cache ? "On" : "Off"].", 1)
+	log_admin("[key_name(usr)] set text-to-speech caching to [config.tts_cache ? "On" : "Off"].")
+
+
+ADMIN_VERB_ADD(/datum/admins/proc/check_tts_stat, R_SERVER, FALSE)
+/datum/admins/proc/check_tts_stat()
+	set category = "Server"
+	set name = "Print text-to-speech stats"
+
+	to_chat(usr, "Text-to-speech is globally [config.tts_enabled ? "enabled" : (GLOB.tts_bearer ? "disabled" : "disabled and authentication data is missing")]")
+	to_chat(usr, "Total tts files wanted this round: [GLOB.tts_wanted]")
+	to_chat(usr, "Successfully generated tts files: [GLOB.tts_request_succeeded]")
+	to_chat(usr, "Failed to generate tts files: [GLOB.tts_request_failed]")
+	to_chat(usr, "Reused tts files: [GLOB.tts_reused]")
+	to_chat(usr, "Files waiting to be deleted: [LAZYLEN(GLOB.tts_death_row)]")
+	if(LAZYLEN(GLOB.tts_errors))
+		to_chat(usr, "Following errors occured:")
+		for(var/i in GLOB.tts_errors)
+			to_chat(usr, "[i] - [GLOB.tts_errors[i]]")
+	if(GLOB.tts_error_raw)
+		to_chat(usr, "Last raw response: [GLOB.tts_error_raw]")
+
+
+ADMIN_VERB_ADD(/datum/admins/proc/add_tts_seed, R_FUN, FALSE)
+/datum/admins/proc/add_tts_seed()
+	set category = "Fun"
+	set name = "Add text-to-speech seed"
+
+	var/seed_name = input(usr, "Give it a name. It should not contain any spaces.", "Add text-to-speech seed") as null|text
+	if(!seed_name)
+		return
+	var/seed_value = input(usr, "Enter a seed value. No spaces.", "Add text-to-speech seed") as null|text
+	if(!seed_value)
+		return
+	var/seed_category = "any" // To be implemented, for now there is only humans who can choose, so catergory doesn't matter
+	var/seed_gender_restriction = "any"
+	var/gender = alert(usr, "Should it have gender restriction?", "Add text-to-speech seed", "Male only", "Female only", "No")
+	switch(gender)
+		if("Male only")
+			seed_gender_restriction = "male"
+		if("Female only")
+			seed_gender_restriction = "female"
+
+	if(!tts_seeds[seed_name])
+		tts_seeds += seed_name
+	tts_seeds[seed_name] = list("value" = seed_value, "category" = seed_category, "gender" = seed_gender_restriction)
+
+	call(RUST_G, "file_write")("[seed_value]", "sound/tts_cache/[seed_name]/seed.txt")
+	call(RUST_G, "file_write")("[seed_value]", "sound/tts_scrambled/[seed_name]/seed.txt")
+
+	message_admins("\blue [key_name_admin(usr)] added text-to-speech seed \"[seed_value]\", named \"[seed_name]\".", 1)
+	log_admin("[key_name(usr)] added text-to-speech seed \"[seed_value]\", named \"[seed_name]\".")
+
+
+ADMIN_VERB_ADD(/datum/admins/proc/select_tts_seed, R_FUN, FALSE)
+/datum/admins/proc/select_tts_seed()
+	set category = "Fun"
+	set name = "Select text-to-speech seed"
+
+	if(!isliving(usr))
+		to_chat(usr, "Only living mobs may have TTS.")
+		return
+
+	var/mob/living/user = usr
+	var/choice = input(user, "Pick a voice preset.") as null|anything in tts_seeds
+	if(choice)
+		user.tts_seed = choice
+
+
 /datum/admins/proc/output_ai_laws()
 	var/ai_number = 0
-	for(var/mob/living/silicon/S in SSmobs.mob_list)
+	for(var/mob/living/silicon/S in SSmobs.mob_list | SShumans.mob_list)
 		ai_number++
 		if(isAI(S))
 			to_chat(usr, "<b>AI [key_name(S, usr)]'s laws:</b>")
@@ -1189,3 +1280,18 @@ ADMIN_VERB_ADD(/datum/admins/proc/paralyze_mob, R_ADMIN, FALSE)
 			return 0
 		return 1
 	return 0
+
+ADMIN_VERB_ADD(/datum/admins/proc/z_level_shooting, R_SERVER, FALSE)
+/datum/admins/proc/z_level_shooting()
+	set category = "Server"
+	set name = "Toggle shooting between z-levels"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	config.z_level_shooting = !(config.z_level_shooting)
+	if (config.z_level_shooting)
+		to_chat(world, "<B>Shooting between z-levels has been globally enabled! Use the lookup verb to shoot up, click on empty spaces to shoot down!</B>")
+	else
+		to_chat(world, "<B>Shooting between z-levels has been globally disabled!</B>")
+	log_and_message_admins("toggled z_level_shooting.")

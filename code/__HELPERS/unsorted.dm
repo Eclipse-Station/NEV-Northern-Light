@@ -7,14 +7,6 @@
 //Checks if all high bits in req_mask are set in bitfield
 #define BIT_TEST_ALL(bitfield, req_mask) ((~(bitfield) & (req_mask)) == 0)
 
-/// isnum() returns TRUE for NaN. Also, NaN != NaN. Checkmate, BYOND.
-#define isnan(x) ( (x) != (x) )
-
-#define isinf(x) (isnum((x)) && (((x) == text2num("inf")) || ((x) == text2num("-inf"))))
-
-/// NaN isn't a number, damn it. Infinity is a problem too.
-#define isnum_safe(x) ( isnum((x)) && !isnan((x)) && !isinf((x)) )
-
 //Inverts the colour of an HTML string
 /proc/invertHTML(HTMLstring)
 	if(!istext(HTMLstring))
@@ -282,8 +274,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	name = newname
 	if(mind)
 		mind.name = newname
-	if(dna)
-		dna.real_name = real_name
 
 	if(oldname)
 		//update the datacore records! This is goig to be a bit costly.
@@ -454,7 +444,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //Orders mobs by type then by name
 /proc/sortmobs()
 	var/list/moblist = list()
-	var/list/sortmob = sortNames(SSmobs.mob_list)
+	var/list/sortmob = sortNames(SSmobs.mob_list | SShumans.mob_list)
 	for(var/mob/observer/eye/M in sortmob)
 		moblist.Add(M)
 	for(var/mob/living/silicon/ai/M in sortmob)
@@ -1034,7 +1024,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 /proc/get_mob_with_client_list()
 	var/list/mobs = list()
-	for(var/mob/M in SSmobs.mob_list)
+	for(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 		if(M.client)
 			mobs += M
 	return mobs
@@ -1276,8 +1266,9 @@ var/list/FLOORITEMS = list(
 	see_in_dark = 1e6
 
 /mob/dview/Destroy()
-	crash_with("Prevented attempt to delete dview mob: [log_info_line(src)]")
-	return QDEL_HINT_LETMELIVE // Prevents destruction
+	. = QDEL_HINT_LETMELIVE // Prevents destruction
+	CRASH("Prevented attempt to delete dview mob: [log_info_line(src)]")
+
 
 /atom/proc/get_light_and_color(atom/origin)
 	if(origin)
@@ -1287,9 +1278,7 @@ var/list/FLOORITEMS = list(
 /mob/dview/Initialize() // Properly prevents this mob from gaining huds or joining any global lists
 	return INITIALIZE_HINT_NORMAL
 
-// call to generate a stack trace and print to runtime logs
-/proc/crash_with(msg)
-	CRASH(msg)
+
 
 /proc/CheckFace(atom/Obj1, atom/Obj2)
 	var/CurrentDir = get_dir(Obj1, Obj2)
@@ -1309,18 +1298,20 @@ var/list/FLOORITEMS = list(
 /proc/pass(...)
 	return
 
-// \ref behaviour got changed in 512 so this is necesary to replicate old behaviour.
-// If it ever becomes necesary to get a more performant REF(), this lies here in wait
-// #define REF(thing) (thing && istype(thing, /datum) && (thing:datum_flags & DF_USE_TAG) && thing:tag ? "[thing:tag]" : "\ref[thing]")
+/**
+ * \ref behaviour got changed in 512 so this is necesary to replicate old behaviour.
+ * If it ever becomes necesary to get a more performant REF(), this lies here in wait
+ * #define REF(thing) (thing && isdatum(thing) && (thing:datum_flags & DF_USE_TAG) && thing:tag ? "[thing:tag]" : "\ref[thing]")
+**/
 /proc/REF(input)
-	// if(istype(input, /datum))
-	// 	var/datum/thing = input
-	// 	if(thing.datum_flags & DF_USE_TAG)
-	// 		if(!thing.tag)
-	// 			stack_trace("A ref was requested of an object with DF_USE_TAG set but no tag: [thing]")
-	// 			thing.datum_flags &= ~DF_USE_TAG
-	// 		else
-	// 			return "\[[url_encode(thing.tag)]\]"
+	if(isdatum(input))
+		var/datum/thing = input
+		if(thing.datum_flags & DF_USE_TAG)
+			if(!thing.tag)
+				stack_trace("A ref was requested of an object with DF_USE_TAG set but no tag: [thing]")
+				thing.datum_flags &= ~DF_USE_TAG
+			else
+				return "\[[url_encode(thing.tag)]\]"
 	return "\ref[input]"
 
 // Makes a call in the context of a different usr
@@ -1350,3 +1341,15 @@ var/list/FLOORITEMS = list(
 	// 	D.vv_edit_var(var_name, var_value) //same result generally, unless badmemes
 	// else
 	D.vars[var_name] = var_value
+
+/proc/generate_single_gun_number()
+	return pick(1,2,3,4,5,6,7,8,9,0)
+
+/proc/generate_gun_serial(digit_numbers)
+	var/generated_code = ""
+	while(digit_numbers)
+		digit_numbers--
+		generated_code += "[generate_single_gun_number()]" // cast to string
+	return generated_code
+
+

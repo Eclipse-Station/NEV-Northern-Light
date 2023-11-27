@@ -20,7 +20,7 @@
 
 /obj/machinery/computer/station_alert/Initialize()
 	alarm_monitor = new monitor_type(src)
-	alarm_monitor.register_alarm(src, /atom.proc/update_icon)
+	alarm_monitor.register_alarm(src, TYPE_PROC_REF(/atom, update_icon))
 	. = ..()
 	if(monitor_type)
 		register_monitor(new monitor_type(src))
@@ -34,7 +34,7 @@
 		return
 
 	alarm_monitor = monitor
-	alarm_monitor.register_alarm(src, /atom.proc/update_icon)
+	alarm_monitor.register_alarm(src, TYPE_PROC_REF(/atom, update_icon))
 
 /obj/machinery/computer/station_alert/proc/unregister_monitor()
 	if(alarm_monitor)
@@ -45,11 +45,11 @@
 /obj/machinery/computer/station_alert/attack_hand(mob/user)
 	if(..())
 		return
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/computer/station_alert/ui_interact(mob/user)
+/obj/machinery/computer/station_alert/nano_ui_interact(mob/user)
 	if(alarm_monitor)
-		alarm_monitor.ui_interact(user)
+		alarm_monitor.nano_ui_interact(user)
 
 /obj/machinery/computer/station_alert/nano_container()
 	return alarm_monitor

@@ -1,30 +1,38 @@
 /datum/trade_station/gamba
 	name_pool = list(
-		"FTB 'Solntsey'" = "Free Trade Beacon 'Solntsey': \"Try your luck with our grab bag specials!\"",
+		"FTB \'Solntsey\'" = "Free Trade Beacon \'Solntsey\': \"Try your luck with our grab bag specials!\"",
 	)
+	icon_states = list("htu_station", "station")
 	uid = "casino"
+	tree_x = 0.58
+	tree_y = 0.7
 	start_discovered = FALSE
 	spawn_always = TRUE
-	markup = 10				// High markup, low base price to prevent export abuse
-	base_income = 0
+	markup = 1
+	base_income = 10000
 	wealth = 0
-	secret_inv_threshold = 2000
+	hidden_inv_threshold = 2000
 	recommendation_threshold = 4000
 	stations_recommended = list("illegal1", "serbian")
 	recommendations_needed = 1
-	assortiment = list(
+	inventory = list(
 		"Assorted Goods" = list(
-			/obj/item/storage/deferred/disks = custom_good_amount_range(list(2, 4)),
-			/obj/item/storage/deferred/gun_parts = custom_good_amount_range(list(2, 4)),
-			/obj/item/storage/deferred/powercells = custom_good_amount_range(list(2, 4)),
-			/obj/item/storage/deferred/electronics = custom_good_amount_range(list(2, 4))
+			/obj/item/storage/deferred/disks = custom_good_price(5000),
+			/obj/item/storage/deferred/gun_parts = custom_good_price(3000),
+			/obj/item/storage/deferred/powercells = custom_good_price(2000),
+			/obj/item/storage/deferred/electronics = custom_good_price(1000)
 		)
 	)
-	secret_inventory = list(
+	hidden_inventory = list(
 		// TODO: More stuff.
 	)
 	offer_types = list(
-		/obj/item/coin = offer_data("metal coin", 2000, 1),						// From what I can tell, these are pretty rare
-		/obj/item/oddity/common/coin = offer_data("strange coin", 800, 1),
-		/obj/item/oddity/common/old_money = offer_data("old money", 800, 1)
+		/obj/item/oddity/common/coin = offer_data("strange coin", 500, 1),
+		/obj/item/oddity/common/old_money = offer_data("old money", 500, 1),
+		/obj/item/oddity/common/teddy = offer_data("teddy bear", 500, 1),
+		/obj/item/oddity/common/paper_crumpled = offer_data("turn-out page", 500, 1),
+		/obj/item/oddity/common/paper_bundle = offer_data("paper bundle", 500, 1),
+		/obj/item/music_tape = offer_data("music tape", 600, 4),
+		/obj/item/oddity/artwork = offer_data("artistic oddity", 1600, 1),
+		/obj/item/coin = offer_data("metal coin", 4000, 1)						// From what I can tell, these are pretty rare
 	)

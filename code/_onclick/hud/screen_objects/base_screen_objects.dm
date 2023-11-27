@@ -32,6 +32,9 @@
 		src.icon_state = _icon_state
 	..()
 
+/obj/screen/examine(mob/user)
+	if(desc)
+		to_chat(user, SPAN_NOTICE(desc))
 
 /obj/screen/Process()
 	return
@@ -41,6 +44,7 @@
 
 /obj/screen/Destroy()
 	master = null
+	parentmob = null
 	return ..()
 
 /obj/screen/update_plane()
@@ -51,11 +55,13 @@
 
 
 /obj/screen/Click(location, control, params)
-	if(!usr)
-		return TRUE
+	// Object Click() processed before and separately from mob's ClickOn(), thus every shift click doubles as just click
+	// This is a band aid to prevent such behavior
+	var/list/modifiers = params2list(params)
+	if(desc && modifiers["shift"])
+		return
 
 	switch(name)
-
 		if("equip")
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
@@ -63,8 +69,7 @@
 
 		if("Reset Machine")
 			usr.unset_machine()
-		else
-			return FALSE
+
 	return TRUE
 //--------------------------------------------------close---------------------------------------------------------
 
@@ -85,6 +90,7 @@
 
 //--------------------------------------------------GRAB---------------------------------------------------------
 /obj/screen/grab
+	icon = 'icons/mob/grab_icons.dmi'
 	name = "grab"
 
 /obj/screen/grab/Click()
@@ -334,6 +340,9 @@
 //--------------------------------------------------health---------------------------------------------------------
 /obj/screen/health
 	name = "health"
+	desc = "Not your actual health, but an estimate of how much pain you feel.\
+	<br>Experience too much of it, and you will lose consciousness.\
+	<br>Pain tolerance scales with your Toughness."
 	icon = 'icons/mob/screen/ErisStyle.dmi'
 	icon_state = "health0"
 	screen_loc = "15,7"
@@ -376,6 +385,8 @@
 	overlays += ovrls["health7"]
 
 /obj/screen/health/Click()
+	if(!..())
+		return
 	if(ishuman(parentmob))
 		var/mob/living/carbon/human/H = parentmob
 		H.check_self_for_injuries()
@@ -384,6 +395,10 @@
 //--------------------------------------------------sanity---------------------------------------------------------
 /obj/screen/sanity
 	name = "sanity"
+	desc = "Soundness of your mind. Not keeping it in check may result in a breakdown.\
+	<br>Damaged by feeling pain, as well as seeing grime and gore; \
+	soothed by taking drugs, drinking, eating decent food and talking, preferably in a clean place with fellow humans around.\
+	<br>Sanity damage scales with your Vigilance. Left-click eye icon to see your current sanity, insight and style."
 	icon_state = "blank"
 
 /obj/screen/sanity/New()
@@ -445,16 +460,21 @@
 	overlays += ovrls["sanity0"]
 
 /obj/screen/sanity/Click()
+	if(!..())
+		return
 	if(!ishuman(parentmob))
 		return FALSE
 	var/mob/living/carbon/human/H = parentmob
-	H.ui_interact(H)
+	H.nano_ui_interact(H)
 	return	TRUE
 
 //--------------------------------------------------sanity end---------------------------------------------------------
 //--------------------------------------------------nsa---------------------------------------------------------
 /obj/screen/nsa
 	name = "nsa"
+	desc = "Neural System Accumulation depicts strain your body is experiencing.\
+	<br>It is increased by chemicals and mutations.\
+	<br>Going beyond your body's limits has negative consequences. NSA limit scales with your Cognition."
 	icon_state = "blank"
 
 /obj/screen/nsa/New()
@@ -509,6 +529,7 @@
 //--------------------------------------------------nutrition---------------------------------------------------------
 /obj/screen/nutrition
 	name = "nutrition"
+	desc = "This shows how much hunger you feel. Being malnourished significantly slows you down. Not updated immediately after eating."
 	icon = 'icons/mob/screen/ErisStyle.dmi'
 	icon_state = "blank"
 	screen_loc = "15,6"
@@ -546,6 +567,9 @@
 //--------------------------------------------------bodytemp---------------------------------------------------------
 /obj/screen/bodytemp
 	name = "bodytemp"
+	desc = "Temperature of your body. Affected by environment, health and ingested chemicals.\
+	<br>Fever might be a sign of untreated infection.\
+	<br>You are slowed down if your body temperature is low enough."
 	icon = 'icons/mob/screen/ErisStyle.dmi'
 	icon_state = "blank"
 	screen_loc = "15,8"
@@ -615,6 +639,8 @@
 //--------------------------------------------------pressure---------------------------------------------------------
 /obj/screen/pressure
 	name = "pressure"
+	desc = "Barometric pressure experienced by your body.\
+	<br>Being in an environment with extreme pressure without a voidsuit is fatal."
 	icon = 'icons/mob/screen/ErisStyle.dmi'
 	icon_state = "blank"
 	screen_loc = "15,13"
@@ -948,6 +974,32 @@ obj/screen/fire/DEADelize()
 		icon_state = "act_throw_off"
 //-----------------------throw END------------------------------
 
+//-----------------------block------------------------------
+/obj/screen/block
+	name = "block"
+	icon_state = "block_off"
+	screen_loc = "15:-16,3"
+	layer = HUD_LAYER
+	plane = HUD_PLANE
+
+/obj/screen/block/New()
+	..()
+	update_icon()
+
+/obj/screen/block/Click()
+	if(usr.client)
+		usr.client.blocking()
+		update_icon()
+
+/obj/screen/block/update_icon()
+	if(ishuman(parentmob))//always true, but just in case
+		var/mob/living/carbon/human/H = parentmob
+		if(H.blocking)
+			icon_state = "block_on"
+		else
+			icon_state = "block_off"
+//-----------------------block END------------------------------
+
 //-----------------------drop------------------------------
 /obj/screen/drop
 	name = "drop"
@@ -1001,7 +1053,7 @@ obj/screen/fire/DEADelize()
 	var/decl/move_intent/newintent = decls_repository.get_decl(move_intent_type)
 	if (newintent.can_enter(parentmob, TRUE))
 		parentmob.move_intent = newintent
-		SEND_SIGNAL(parentmob, COMSIG_HUMAN_WALKINTENT_CHANGE, parentmob, newintent)
+		SEND_SIGNAL_OLD(parentmob, COMSIG_HUMAN_WALKINTENT_CHANGE, parentmob, newintent)
 		update_icon()
 
 	update_icon()
@@ -1114,7 +1166,7 @@ obj/screen/fire/DEADelize()
 		parentmob.a_intent_change(I_GRAB)
 	if(_x>=17 && _y>=17)
 		parentmob.a_intent_change(I_DISARM)
-	SEND_SIGNAL(parentmob, COMSIG_HUMAN_ACTIONINTENT_CHANGE, parentmob)
+	SEND_SIGNAL_OLD(parentmob, COMSIG_HUMAN_ACTIONINTENT_CHANGE, parentmob)
 
 /obj/screen/intent/update_icon()
 	src.cut_overlays()
@@ -1175,14 +1227,14 @@ obj/screen/fire/DEADelize()
 
 /obj/screen/drugoverlay/update_icon()
 	underlays.Cut()
-	if (parentmob.disabilities & NEARSIGHTED)
-		var/obj/item/clothing/glasses/G = parentmob.get_equipped_item(slot_glasses)
-		if(!G || !G.prescription)
-			underlays += global_hud.vimpaired
+//	if (parentmob.disabilities & NEARSIGHTED)
+//		var/obj/item/clothing/glasses/G = parentmob.get_equipped_item(slot_glasses)
+//		if(!G || !G.prescription)
+//			underlays += global_hud.vimpaired
 	if (parentmob.eye_blurry)
-		underlays += global_hud.blurry
+		underlays |= global_hud.blurry
 	if (parentmob.druggy)
-		underlays += global_hud.druggy
+		underlays |= global_hud.druggy
 
 
 /obj/screen/full_1_tile_overlay
@@ -1320,13 +1372,17 @@ obj/screen/fire/DEADelize()
 	var/mob/living/carbon/human/H = parentmob
 	if(istype(H.glasses, /obj/item/clothing/glasses))
 		var/obj/item/clothing/glasses/G = H.glasses
-		if (G.active && G.overlay)//check here need if someone want call this func directly
+		if(G.active && G.overlay)//check here need if someone want call this func directly
 			overlays |= G.overlay
 
 	if(istype(H.wearing_rig,/obj/item/rig))
 		var/obj/item/clothing/glasses/G = H.wearing_rig.getCurrentGlasses()
-		if (G && H.wearing_rig.visor.active)
+		if(G && H.wearing_rig.visor.active)
 			overlays |= G.overlay
+
+	if(get_active_mutation(H, MUTATION_NIGHT_VISION))
+		overlays |= global_hud.nvg
+
 
 //-----------------------toggle_invetory------------------------------
 /obj/screen/toggle_invetory

@@ -42,7 +42,8 @@
 	if(cnt < 3 || !stat_buff)
 		to_chat(M, SPAN_NOTICE("Insufficient participants."))
 		return FALSE
-	M.stats.changeStat(stat_buff, buff_value + cnt * aditional_value)
+	if(!get_active_mutation(M, MUTATION_ATHEIST))
+		M.stats.changeStat(stat_buff, buff_value + cnt * aditional_value)
 
 /datum/ritual/group/cruciform/stat/mechanical
 	name = "Pounding Whisper"
@@ -231,5 +232,5 @@
 		O.force_active = max(60, O.force_active)
 
 /area/proc/sanctify()
-	SEND_SIGNAL(src, COMSIG_AREA_SANCTIFY)
+	SEND_SIGNAL_OLD(src, COMSIG_AREA_SANCTIFY)
 	return

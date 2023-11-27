@@ -11,7 +11,7 @@
 	force = WEAPON_FORCE_NORMAL
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(MATERIAL_STEEL = 20, "biomatter" = 10, MATERIAL_GOLD = 5)
-	zoom_factor = 0
+	zoom_factors = list(0)
 	damage_multiplier = 2.5 //75 damage
 	charge_cost = 100000 //No matter what cell you put in, it's gonna fry it.
 	suitable_cell = /obj/item/cell/medium

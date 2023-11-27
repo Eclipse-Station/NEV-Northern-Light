@@ -7,7 +7,6 @@
 	price_tag = 1000
 	bad_type = /obj/item/clothing/head/collectable
 	spawn_blacklisted = TRUE
-	style = STYLE_HATHATHAT//well, they are rare!
 
 /obj/item/clothing/head/collectable/petehat
 	name = "ultra rare hat"
@@ -105,7 +104,6 @@
 	desc = "The fur feels... a bit too realistic."
 	icon_state = "kitty"
 	body_parts_covered = 0
-	style = STYLE_NEG_HIGH//no.
 
 /obj/item/clothing/head/collectable/rabbitears
 	name = "collectable rabbit ears"

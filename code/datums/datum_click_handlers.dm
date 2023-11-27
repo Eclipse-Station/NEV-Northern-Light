@@ -1,6 +1,4 @@
 /datum/click_handler
-//	var/mob_type
-	var/species
 	var/handler_name
 	var/one_use_flag = 1//drop client.CH after succes ability use
 	var/client/owner
@@ -79,6 +77,7 @@
 	var/obj/item/gun/reciever // The thing we send firing signals to, spelled reciever instead of receiver for some reason
 	var/time_since_last_init // Time since last start of full auto fire , used to prevent ANGRY smashing of M1 to fire faster.
 	//Todo: Make this work with callbacks
+	var/time_since_last_shot // Keeping track of last shot to determine next one
 
 /datum/click_handler/fullauto/Click()
 	return TRUE //Doesn't work with normal clicks
@@ -102,18 +101,24 @@
 	object = resolve_world_target(object)
 	if(object)
 		target = object
+		time_since_last_shot = world.time
 		shooting_loop()
-		time_since_last_init = world.time + reciever.burst_delay
+		time_since_last_init = world.time + (reciever.fire_delay < GUN_MINIMUM_FIRETIME ? GUN_MINIMUM_FIRETIME : reciever.fire_delay) * min(world.tick_lag, 1)
 	return TRUE
 
 /datum/click_handler/fullauto/proc/shooting_loop()
 
-	if(owner.mob.resting)
+	if(!owner || !owner.mob || owner.mob.resting)
 		return FALSE
 	if(target)
 		owner.mob.face_atom(target)
+
+	while(time_since_last_shot < world.time)
 		do_fire()
-		spawn(reciever.burst_delay) shooting_loop()
+		time_since_last_shot = world.time + (reciever.fire_delay < GUN_MINIMUM_FIRETIME ? GUN_MINIMUM_FIRETIME : reciever.fire_delay) * min(world.tick_lag, 1)
+
+	spawn(1)
+		shooting_loop()
 
 /datum/click_handler/fullauto/MouseDrag(over_object, src_location, over_location, src_control, over_control, params)
 	src_location = resolve_world_target(src_location)
@@ -130,11 +135,37 @@
 	stop_firing() //Without this it keeps firing in an infinite loop when deleted
 	.=..()
 
-/datum/click_handler/human/mob_check(mob/living/carbon/human/user)
-	if(ishuman(user))
-		if(user.species.name == src.species)
-			return 1
-	return 0
+/***********
+ * AI Control
+ */
 
-/datum/click_handler/human/use_ability(mob/living/carbon/human/user,atom/target)
-	return
+/datum/click_handler/ai
+
+/datum/click_handler/ai/Click(atom/target, location, control, params)
+	var/modifiers = params2list(params)
+	if(isHUDobj(target) || istype(target, /HUD_element) || istype(target, /obj/effect))
+		return TRUE
+	if(!isatom(target))
+		return TRUE
+	if (mob_check(owner.mob) && use_ability(owner.mob, target, params))
+		return TRUE
+	else if(modifiers["shift"])
+		owner.mob.examinate(target)
+		return FALSE
+	if(ismachinery(target))
+		to_chat(usr, SPAN_NOTICE("ERROR: No response from targeted device"))
+	return FALSE
+
+/datum/click_handler/ai/mob_check(mob/living/silicon/ai/user) //Check can mob use a ability
+	return TRUE
+
+/datum/click_handler/ai/use_ability(mob/living/silicon/ai/user,atom/target, params)
+	var/signalStrength
+	if(get_dist_euclidian(owner.mob, get_turf(target)) < 24)
+		// Can't block at such close distance
+		signalStrength = 1000
+	else
+		signalStrength = 10
+	if(SSjamming.IsPositionJammed(get_turf(target),  signalStrength))
+		return FALSE
+	return TRUE

@@ -34,8 +34,8 @@
 
 	var/construction_stage
 
-	var/maxhealth = 600
-	var/health = 600
+	var/maxhealth = 450
+	var/health = 450
 
 	var/hitsound = 'sound/weapons/Genhit.ogg'
 	climbable = TRUE
@@ -44,6 +44,7 @@
 /obj/structure/low_wall/onestar
 	wall_color = "#FFFFFF"
 	icon_state = "onestar"
+	name = "One Star low wall"
 
 
 
@@ -151,14 +152,20 @@
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
 /obj/structure/low_wall/proc/check_cover(obj/item/projectile/P, turf/from)
+
+	if(config.z_level_shooting)
+		if(P.height == HEIGHT_HIGH)
+			return TRUE // Bullet is too high to hit
+		P.height = (P.height == HEIGHT_LOW) ? HEIGHT_LOW : HEIGHT_CENTER
+
 	if (get_dist(P.starting, loc) <= 1) //Tables won't help you if people are THIS close
 		return 1
+	if(get_dist(loc, P.trajectory.target) > 1 ) // Target turf must be adjacent for it to count as cover
+		return TRUE
 	var/valid = FALSE
-	var/distance = get_dist(P.last_interact,loc)
 
 	if(!P.def_zone)
 		return 1 // Emitters, or anything with no targeted bodypart will always bypass the cover
-	P.check_hit_zone(loc, distance)
 	var/targetzone = check_zone(P.def_zone)
 	if (targetzone in list(BP_R_LEG, BP_L_LEG, BP_GROIN))
 		valid = TRUE //The lower body is always concealed
@@ -166,6 +173,11 @@
 		var/mob/M = P.original
 		if (M.lying)
 			valid = TRUE			//Lying down covers your whole body
+
+	// Bullet is low enough to hit the wall
+	if(config.z_level_shooting && P.height == HEIGHT_LOW)
+		valid = TRUE
+
 	if(valid)
 		var/pierce = P.check_penetrate(src)
 		health -= P.get_structure_damage()/2
@@ -443,7 +455,7 @@
 			playsound(src, hitsound, 80, 1)
 			if(!prob(dam_prob))
 				visible_message(SPAN_DANGER("\The [user] attacks \the [src] with \the [I]!"))
-				playsound(src, pick(WALLHIT_SOUNDS), 100, 5)
+				playsound(loc, pick(WALLHIT_SOUNDS), 100, 5)
 				take_damage(attackforce)
 			else
 				visible_message(SPAN_WARNING("\The [user] attacks \the [src] with \the [I]!"))
@@ -452,7 +464,15 @@
 		user.do_attack_animation(src)
 		return
 
-
+/obj/structure/low_wall/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		playsound(loc, 'sound/effects/metalhit2.ogg', 50, 1)
+		M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		take_damage(damage*2)
+	else
+		attack_hand(M)
 
 /obj/structure/low_wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product)
 	if (QDELETED(src))

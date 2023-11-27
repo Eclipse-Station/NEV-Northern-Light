@@ -11,7 +11,7 @@
 	force = WEAPON_FORCE_NORMAL
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(MATERIAL_STEEL = 10, "biomatter" = 5, MATERIAL_GOLD = 2)
-	zoom_factor = 0
+	zoom_factors = list(0)
 	damage_multiplier = 2 //60 damage base
 	charge_cost = 10000
 	suitable_cell = /obj/item/cell/small

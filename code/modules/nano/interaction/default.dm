@@ -1,9 +1,9 @@
-GLOBAL_DATUM_INIT(default_state, /datum/topic_state/default, new)
+GLOBAL_DATUM_INIT(default_state, /datum/nano_topic_state/default, new)
 
-/datum/topic_state/default/href_list(var/mob/user)
+/datum/nano_topic_state/default/href_list(var/mob/user)
 	return list()
 
-/datum/topic_state/default/can_use_topic(var/src_object, var/mob/user)
+/datum/nano_topic_state/default/can_use_topic(var/src_object, var/mob/user)
 	return user.default_can_use_topic(src_object)
 
 /mob/proc/default_can_use_topic(var/src_object)
@@ -92,5 +92,5 @@ GLOBAL_DATUM_INIT(default_state, /datum/topic_state/default, new)
 			. = min(., loc.contents_nano_distance(src_object, src))
 		else
 			. = min(., shared_living_nano_distance(src_object))
-		if(. == STATUS_UPDATE && (TK in mutations))	// If we have telekinesis and remain close enough, allow interaction.
+		if(. == STATUS_UPDATE && get_active_mutation(src, MUTATION_TELEKINESIS))	// If we have telekinesis and remain close enough, allow interaction.
 			return STATUS_INTERACTIVE

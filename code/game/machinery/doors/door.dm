@@ -40,6 +40,8 @@
 	var/damage_smoke = FALSE
 	var/tryingToLock = FALSE // for autoclosing
 
+	atmos_canpass = CANPASS_PROC
+
 	// turf animation
 	var/atom/movable/overlay/c_animation
 
@@ -472,7 +474,7 @@
 	operating = FALSE
 	if(autoclose)
 		var/wait = normalspeed ? 150 : 5
-		addtimer(CALLBACK(src, .proc/close), wait)
+		addtimer(CALLBACK(src, PROC_REF(close)), wait)
 	return TRUE
 
 /obj/machinery/door/proc/close(var/forced = 0)

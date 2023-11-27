@@ -47,6 +47,12 @@
 /tipsAndTricks/gameplay/cuffHardsuit
     tipText = "People in RIG/Hardsuits need to be cuffed using zipties or cable cuffs. Normal cuffs are not large enough to cover their gauntlets."
 
+/tipsAndTricks/gameplay/examinetab
+    tipText = "Automatically switching to the examine tab upon examining something can be disabled in your preferences."
+
+/tipsAndTricks/gameplay/nudestyle
+    tipText = "You do not have to cover yourself from ears to toes to look stylish - not wearing anything on your head, eyes, gloves or back looks cool enough."
+
 /tipsAndTricks/gameplay/backRooms
     tipText = "There are some parts of the ship so remote and deep that it feels like you can only find them by accident. Were these rooms here before...?"
 

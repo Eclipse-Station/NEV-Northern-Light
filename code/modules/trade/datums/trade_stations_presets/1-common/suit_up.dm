@@ -1,20 +1,26 @@
 /datum/trade_station/suit_up
 	name_pool = list("FTUTB 'Suit Up!'" = "Free Trade Union Trade Beacon 'Suit Up!'. They're broadcasting a message. \"Suits, voidsuits and more for you, traveler!\"")
+	icon_states = list("htu_station", "station")
 	uid = "suit_up"
+	tree_x = 0.66
+	tree_y = 0.9
 	start_discovered = TRUE
 	spawn_always = TRUE
-	markup = COMMON_GOODS
+	markup = WHOLESALE_GOODS
 	offer_limit = 20
 	base_income = 3200
 	wealth = 0
-	secret_inv_threshold = 2000
+	hidden_inv_threshold = 2000
 	recommendation_threshold = 4000
-	stations_recommended = list("rigs")
-	assortiment = list(
-		"Spacesuits" = list(
-			/obj/item/clothing/suit/space/void,
-			/obj/item/clothing/suit/space/void/atmos,
-			/obj/item/rig/eva
+	stations_recommended = list("rigs", "style")
+	inventory = list(
+		"Basic Space Gear" = list(
+			/obj/item/clothing/suit/space/void = custom_good_price(200),
+			/obj/item/clothing/suit/space/void/atmos = custom_good_price(210),
+			/obj/item/rig/eva = custom_good_price(800),
+			/obj/item/tank/jetpack/oxygen = custom_good_price(100),
+			/obj/item/tank/jetpack/carbondioxide = custom_good_price(100),
+			/obj/item/device/suit_cooling_unit
 		),
 		"Cosmetic Accesories" = list(
 			/obj/item/clothing/ears/earmuffs,
@@ -32,8 +38,6 @@
 			/obj/item/clothing/head/chaplain_hood,
 			/obj/item/clothing/head/chefhat,
 			/obj/item/clothing/head/chicken,
-			/obj/item/clothing/head/feathertrilby,
-			/obj/item/clothing/head/fedora,
 			/obj/item/clothing/head/fez,
 			/obj/item/clothing/head/gladiator,
 			/obj/item/clothing/head/hgpiratecap,
@@ -44,7 +48,14 @@
 			/obj/item/clothing/head/that,
 			/obj/item/clothing/head/ushanka,
 			/obj/item/clothing/head/witchwig,
-			/obj/item/clothing/head/xenos
+			/obj/item/clothing/head/xenos,
+			/obj/item/clothing/head/beret/oldsec,
+			/obj/item/clothing/head/cowboy,
+			/obj/item/clothing/head/cowboy/white,
+			/obj/item/clothing/head/cowboy/black,
+			/obj/item/clothing/head/cowboy/wide,
+			/obj/item/clothing/head/cowboy/wide/white,
+			/obj/item/clothing/head/cowboy/wide/black
 		),
 		"Masks" = list(
 			/obj/item/clothing/mask/fakemoustache,
@@ -92,9 +103,8 @@
 			/obj/item/clothing/under/suit_jacket/red,
 			/obj/item/clothing/under/bride_white,
 			/obj/item/clothing/under/tuxedo,
-			/obj/item/clothing/under/rank/fo_suit,
-			/obj/item/clothing/under/rank/janitor,
-			/obj/item/clothing/under/rank/hydroponics
+			/obj/item/clothing/under/wifebeater,
+			/obj/item/clothing/under/oldsec
 		),
 		"Suits" = list(
 			/obj/item/clothing/suit/apron,
@@ -114,67 +124,39 @@
 			/obj/item/clothing/suit/wcoat,
 			/obj/item/clothing/suit/xenos
 		),
-		"Premium collectable Hats" = list(
-			/obj/item/clothing/head/collectable/chef,
-			/obj/item/clothing/head/collectable/paper,
-			/obj/item/clothing/head/collectable/tophat,
-			/obj/item/clothing/head/collectable/captain,
-			/obj/item/clothing/head/collectable/beret,
-			/obj/item/clothing/head/collectable/welding,
-			/obj/item/clothing/head/collectable/flatcap,
-			/obj/item/clothing/head/collectable/pirate,
-			/obj/item/clothing/head/collectable/kitty,
-			/obj/item/clothing/head/collectable/rabbitears,
-			/obj/item/clothing/head/collectable/wizard,
-			/obj/item/clothing/head/collectable/hardhat,
-			/obj/item/clothing/head/collectable/thunderdome,
-			/obj/item/clothing/head/collectable/swat,
-			/obj/item/clothing/head/collectable/slime,
-			/obj/item/clothing/head/collectable/police,
-			/obj/item/clothing/head/collectable/xenom,
-			/obj/item/clothing/head/collectable/petehat,
-			/obj/item/clothing/head/collectable/festive
+		"Utility" = list(
+			/obj/item/clothing/suit/storage/greatcoat,
+			/obj/item/clothing/suit/storage/vest,
+			/obj/item/clothing/head/bio_hood,
+			/obj/item/clothing/suit/bio_suit,
+			/obj/item/clothing/suit/fire,
+			/obj/item/clothing/head/radiation,
+			/obj/item/clothing/suit/radiation
 		)
 	)
-	secret_inventory = list(
+	hidden_inventory = list(
 		"Voidsuits" = list(
-			/obj/item/clothing/suit/space/void/mining = custom_good_amount_range(list(1, 5)),
-			/obj/item/clothing/suit/space/void/engineering = custom_good_amount_range(list(1, 5)),
-			/obj/item/clothing/suit/space/void/medical = custom_good_amount_range(list(1, 5)),
-			/obj/item/clothing/suit/space/void/security = custom_good_amount_range(list(1, 5))
+			/obj/item/clothing/suit/space/void/mining = custom_good_price(312),
+			/obj/item/clothing/suit/space/void/engineering = custom_good_price(312),
+			/obj/item/clothing/suit/space/void/medical,
+			/obj/item/clothing/suit/space/void/security = custom_good_price(520),
+			/obj/item/clothing/suit/space/void/hazardsuit = custom_good_price(312)
 		),
-		"RIGs" =  list(
-			/obj/item/rig/medical = custom_good_amount_range(list(1, 5)),
-			/obj/item/rig/hazmat = custom_good_amount_range(list(1, 5)),
-			/obj/item/rig/hazard = custom_good_amount_range(list(1, 5)),
-			/obj/item/rig/industrial = custom_good_amount_range(list(1, 5))
-		),
-		"RIG Specialized Modules" = list(
-			/obj/item/rig_module/storage = good_data("Internal Storage compartment", list(1, 10)),
-			/obj/item/rig_module/maneuvering_jets = good_data("Mounted Jetpack", list(1, 10)),
-			/obj/item/rig_module/device/flash = good_data("Mounted Flash", list(1, 10)),
-			/obj/item/rig_module/mounted/egun = good_data("Mounted Energy Gun", list(1, 10)),
-			/obj/item/rig_module/mounted/taser = good_data("Mounted Taser", list(1, 10)),
-			/obj/item/rig_module/device/drill = good_data("Mounted Drill", list(1, 10)),
-			/obj/item/rig_module/device/orescanner = good_data("Mounted Ore Scanner", list(1, 10)),
-			/obj/item/rig_module/device/anomaly_scanner = good_data("Mounted Anomaly Scanner", list(1,10)),
-			/obj/item/rig_module/device/rcd = good_data("Mounted RCD", list(1, 10)),
-			/obj/item/rig_module/device/healthscanner = good_data("Mounted Health Scanner", list(1, 10)),
-			/obj/item/rig_module/chem_dispenser/ninja = good_data("Mounted Chemical Dispenser (small version)", list(-3, 2)),
-			/obj/item/rig_module/ai_container,
-			/obj/item/rig_module/power_sink,
-			/obj/item/rig_module/vision/meson,
-			/obj/item/rig_module/vision/nvg,
-			/obj/item/rig_module/vision/sechud,
-			/obj/item/rig_module/vision/medhud
+		"Oberth Attire" = list(
+			/obj/item/clothing/gloves/german,
+			/obj/item/clothing/head/beret/german,
+			/obj/item/clothing/mask/gas/german,
+			/obj/item/clothing/shoes/jackboots/german,
+			/obj/item/clothing/suit/storage/greatcoat/german_overcoat,
+			/obj/item/clothing/under/germansuit
 		)
 	)
 	offer_types = list(
-		/obj/item/rig_module = offer_data("rig module", 500, 10),							// base price: 500
-		/obj/item/rig/medical = offer_data("rescue suit control module", 700, 2),			// base price: 682 (incl. components)
-		/obj/item/rig/eva = offer_data("EVA suit control module", 700, 2),					// base price: 682 (incl. components)
-		/obj/item/rig/hazard = offer_data("hazard hardsuit control module", 700, 2),		// base price: 682 (incl. components)
-		/obj/item/rig/industrial = offer_data("industrial suit control module", 950, 2),	// base price: 882 (incl. components)
-		/obj/item/rig/hazmat = offer_data("AMI control module", 950, 2),					// base price: 882 (incl. components)
-		/obj/item/rig/combat = offer_data("combat hardsuit control module", 1100, 2)		// base price: 1032 (incl. components)
+		/obj/item/rig_module = offer_data("rig module", 500, 6),							// base price: 500
+		/obj/item/rig/eva = offer_data("EVA suit control module", 300, 2),					// base price: 1090 (incl. components)
+		/obj/item/rig/medical = offer_data("rescue suit control module", 800, 2),			// base price: 1090 (incl. components)
+		/obj/item/rig/hazard = offer_data("hazard hardsuit control module", 800, 2),		// base price: 1090 (incl. components)
+		/obj/item/rig/industrial = offer_data("industrial suit control module", 1000, 2),	// base price: 1290 (incl. components)
+		/obj/item/rig/hazmat = offer_data("AMI control module", 1000, 2),					// base price: 1290 (incl. components)
+		/obj/item/rig/combat = offer_data("combat hardsuit control module", 1500, 2)		// base price: 1590 (incl. components)
 	)

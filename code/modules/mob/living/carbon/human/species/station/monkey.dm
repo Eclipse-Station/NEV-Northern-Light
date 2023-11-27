@@ -1,5 +1,5 @@
 /datum/species/monkey
-	name = "Monkey"
+	name = SPECIES_MONKEY
 	name_plural = "Monkeys"
 	blurb = "Ook."
 
@@ -33,7 +33,7 @@
 	burn_mod = 1.5
 	lower_sanity_process = TRUE
 
-	spawn_flags = IS_RESTRICTED
+	spawn_flags = SPECIES_IS_RESTRICTED
 
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL

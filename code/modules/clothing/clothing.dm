@@ -28,8 +28,9 @@
 	var/brightness_on
 	var/on = FALSE
 
-	stiffness = 0 // Recoil caused by moving, defined in obj/item
-	obscuration = 0 // Similar to tint, but decreases firearm accuracy instead via giving minimum extra offset, defined in obj/item
+
+
+	price_tag = 30
 
 /obj/item/clothing/attack_self(mob/user)
 	if(brightness_on)
@@ -80,16 +81,19 @@
 
 	var/obj/screen/item_action/action = new /obj/screen/item_action/top_bar/clothing_info
 	action.owner = src
-	if(!islist(hud_actions)) hud_actions = list()
+	if(!hud_actions)
+		hud_actions = list()
 	hud_actions += action
 
 	if(matter)
 		return
 
-	else if(!matter)
-		matter = list()
+	else if(chameleon_type)
+		matter = list(MATERIAL_PLASTIC = 2 * w_class)
+		origin_tech = list(TECH_COVERT = 3)
+	else
+		matter = list(MATERIAL_BIOMATTER = 5 * w_class)
 
-	matter.Add(list(MATERIAL_BIOMATTER = 5 * w_class))    // based of item size
 
 /obj/item/clothing/Destroy()
 	for(var/obj/item/clothing/accessory/A in accessories)
@@ -181,7 +185,7 @@
 
 	return english_list(body_partsL)
 
-/obj/item/clothing/ui_data()
+/obj/item/clothing/nano_ui_data()
 	var/list/data = list()
 	var/list/armorlist = armor.getList()
 	if(armorlist.len)
@@ -204,10 +208,11 @@
 		data["cold_protection"] = body_part_coverage_to_string(cold_protection)
 		data["cold_protection_temperature"] = min_cold_protection_temperature
 	data["equip_delay"] = equip_delay
+	data["info_style"] = style
 	return data
 
-/obj/item/clothing/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
-	var/list/data = ui_data(user)
+/obj/item/clothing/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
+	var/list/data = nano_ui_data(user)
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
@@ -218,7 +223,7 @@
 
 /obj/item/clothing/ui_action_click(mob/living/user, action_name)
 	if(action_name == "Clothing information")
-		ui_interact(user)
+		nano_ui_interact(user)
 		return TRUE
 	return ..()
 
@@ -303,7 +308,8 @@
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
-	slot_flags = SLOT_EARS | SLOT_TWOEARS
+	slot_flags = SLOT_EARS
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASTIC = 1)
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -342,7 +348,7 @@ BLIND     // can't see anything
 	bad_type = /obj/item/clothing/gloves
 	spawn_tags = SPAWN_TAG_GLOVES
 	body_parts_covered = HANDS
-	armor = list(melee = 10, bullet = 0, energy = 15, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 2, bullet = 0, energy = 3, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
 	style = STYLE_LOW
@@ -444,7 +450,7 @@ BLIND     // can't see anything
 	spawn_tags = SPAWN_TAG_SHOES
 	bad_type = /obj/item/clothing/shoes
 
-	armor = list(melee = 10, bullet = 0, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 2, bullet = 0, energy = 2, bomb = 0, bio = 0, rad = 0)
 	permeability_coefficient = 0.50
 	slowdown = SHOES_SLOWDOWN
 	style = STYLE_LOW
@@ -585,8 +591,9 @@ BLIND     // can't see anything
 		/obj/item/reagent_containers/spray,
 		/obj/item/device/radio,
 		/obj/item/clothing/mask,
-		/obj/item/storage/belt/sheath,
-		/obj/item/implant/carrion_spider/holographic)
+		/obj/item/storage/pouch/holster/belt/sheath,
+		/obj/item/implant/carrion_spider/holographic,
+		/obj/item/shield)
 	slot_flags = SLOT_OCLOTHING
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
@@ -617,6 +624,7 @@ BLIND     // can't see anything
 	slot_flags = SLOT_ICLOTHING
 	w_class = ITEM_SIZE_NORMAL
 	spawn_tags = SPAWN_TAG_CLOTHING_UNDER
+	style = STYLE_LOW
 	bad_type = /obj/item/clothing/under
 	var/has_sensor = 1 //For the crew computer 2 = unable to change mode
 	var/sensor_mode = 0

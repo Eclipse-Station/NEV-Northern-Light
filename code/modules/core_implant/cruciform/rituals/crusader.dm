@@ -41,7 +41,7 @@
 	log_and_message_admins("performed a crusade litany")
 	to_chat(user, SPAN_NOTICE("You feel an extraordinary burst of energy."))
 	set_personal_cooldown(user)
-	addtimer(CALLBACK(src, .proc/discard_effect, user, count), src.cooldown_time)
+	addtimer(CALLBACK(src, PROC_REF(discard_effect), user, count), src.cooldown_time)
 	return TRUE
 
 /datum/ritual/cruciform/crusader/battle_call/proc/discard_effect(mob/living/carbon/human/user, amount)
@@ -52,7 +52,7 @@
 /datum/ritual/cruciform/crusader/flash
 	name = "Searing Revelation"
 	phrase = "Per fidem enim ambulamus et non per speciem."
-	desc = "Knocks over everybody without cruciform in the view range. Psy-wave is too powerful, speaker can be knocked too."
+	desc = "Knocks over everybody without a cruciform in the view range. Psy-wave is too powerful, speaker can be knocked down too."
 	cooldown = TRUE
 	cooldown_time = 2 MINUTES
 	cooldown_category = "flash"
@@ -67,7 +67,9 @@
 	log_and_message_admins("performed a searing revelation litany")
 	for(var/mob/living/carbon/human/victim in view(user))
 		if(!victim.get_core_implant(/obj/item/implant/core_implant/cruciform))
-			if(prob(100 - victim.stats.getStat(STAT_VIG)))
+			if(get_active_mutation(victim, MUTATION_ATHEIST))
+				to_chat(victim, SPAN_NOTICE("You don't even flinch as the flux of psy-energy passes through you!"))
+			else if(prob(100 - victim.stats.getStat(STAT_VIG)))
 				to_chat(victim, SPAN_WARNING("You feel that your knees bend!"))
 				victim.Weaken(5)
 			else

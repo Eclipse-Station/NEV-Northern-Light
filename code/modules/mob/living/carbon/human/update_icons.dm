@@ -5,7 +5,7 @@
 	icon_key is [species.race_key][husk][hulk][skeleton]
 */
 var/global/list/human_icon_cache = list()
-var/global/list/tail_icon_cache = list() //key is [species.race_key][r_skin][g_skin][b_skin]
+var/global/list/tail_icon_cache = list() //key is [species.race_key][skin_color]
 var/global/list/light_overlay_cache = list()
 
 	///////////////////////
@@ -135,7 +135,8 @@ Please contact me on #coderbus IRC. ~Carn x
 #define L_HAND_LAYER		27
 #define R_HAND_LAYER		28
 #define FIRE_LAYER			29		//If you're on fire
-#define TOTAL_LAYERS		29
+#define BLOCKING_LAYER		30
+#define TOTAL_LAYERS		30
 //////////////////////////////////
 
 /mob/living/carbon/human
@@ -156,6 +157,19 @@ Please contact me on #coderbus IRC. ~Carn x
 			overlays += I
 		if(species.has_floating_eyes)
 			overlays |= species.get_eyes(src)
+
+	if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
+		var/matrix/M = matrix()
+		M.Turn(90)
+		M.Scale(size_multiplier)
+		M.Translate(1,-6)
+		src.transform = M
+	else
+		var/matrix/M = matrix()
+		M.Scale(size_multiplier)
+		M.Translate(0, 16*(size_multiplier-1))
+		src.transform = M
+	..()
 
 var/global/list/damage_icon_parts = list()
 
@@ -179,23 +193,24 @@ var/global/list/damage_icon_parts = list()
 	var/image/standing_image = image(species.damage_overlays, icon_state = "00")
 
 	// blend the individual damage states with our icons
-	for(var/obj/item/organ/external/O in organs)
-		if(O.is_stump())
-			continue
+	if(species.blood_color)
+		for(var/obj/item/organ/external/O in organs)
+			if(O.is_stump())
+				continue
 
-		O.update_damstate()
-		if(O.damage_state == "00") continue
-		var/icon/DI
-		var/cache_index = "[O.damage_state]/[O.organ_tag]/[species.blood_color]/[species.get_bodytype()]"
-		if(damage_icon_parts[cache_index] == null)
-			DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
-			DI.Blend(new /icon(species.damage_mask, O.organ_tag), ICON_MULTIPLY)	// mask with this organ's pixels
-			DI.Blend(species.blood_color, ICON_MULTIPLY)
-			damage_icon_parts[cache_index] = DI
-		else
-			DI = damage_icon_parts[cache_index]
+			O.update_damstate()
+			if(O.damage_state == "00") continue
+			var/icon/DI
+			var/cache_index = "[O.damage_state]/[O.organ_tag]/[species.blood_color]/[species.get_bodytype()]"
+			if(damage_icon_parts[cache_index] == null)
+				DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
+				DI.Blend(new /icon(species.damage_mask, O.organ_tag), ICON_MULTIPLY)	// mask with this organ's pixels
+				DI.Blend(species.blood_color, ICON_MULTIPLY)
+				damage_icon_parts[cache_index] = DI
+			else
+				DI = damage_icon_parts[cache_index]
 
-		standing_image.overlays += DI
+			standing_image.overlays += DI
 
 	overlays_standing[DAMAGE_LAYER] = standing_image
 
@@ -209,9 +224,9 @@ var/global/list/damage_icon_parts = list()
 	var/husk_color_mod = rgb(96,88,80)
 	var/hulk_color_mod = rgb(48,224,40)
 
-	var/husk = (HUSK in src.mutations)
-	var/hulk = (HULK in src.mutations)
-	var/skeleton = (SKELETON in src.mutations)
+	var/husk = FALSE // (HUSK in src.mutations)
+	var/hulk = FALSE // (HULK in src.mutations)
+	var/skeleton = FALSE // (SKELETON in src.mutations)
 
 	//Create a new, blank icon for our mob to use.
 	if(stand_icon)
@@ -233,7 +248,7 @@ var/global/list/damage_icon_parts = list()
 
 			var/has_eyes = species.has_process[OP_EYES] //Eclipse add - to distinguish species that have no "eye" organ, but still have eye sprites
 			if(!has_eyes)
-				icon_key += "[r_eyes], [g_eyes], [b_eyes]"
+				icon_key += "[eyes_color]"
 
 			for(var/organ_tag in species.has_limbs)
 				var/obj/item/organ/external/part = organs_by_name[organ_tag]
@@ -287,7 +302,7 @@ var/global/list/damage_icon_parts = list()
 			if(!has_eyes && (species.appearance_flags & HAS_EYE_COLOR))
 				var/icon/eyes_icon = new/icon('icons/mob/human_face.dmi', "eye_l")
 				eyes_icon.Blend(icon('icons/mob/human_face.dmi', "eye_r"), ICON_OVERLAY)
-				var/newcolour = rgb(r_eyes, g_eyes, b_eyes)
+				var/newcolour = eyes_color
 				eyes_icon.Blend(newcolour, ICON_ADD)
 				base_icon.Blend(eyes_icon, ICON_OVERLAY)
 
@@ -343,7 +358,7 @@ var/global/list/damage_icon_parts = list()
 		var/datum/sprite_accessory/marking/real_marking = body_marking_styles_list[markname]
 		var/icon/specific_marking_icon = new()
 		for(var/part in real_marking.body_parts)
-			var/valid = (part in organs_by_name) && organs_by_name[part] && ((part in BP_BASE_PARTS) || organs_by_name[part].dislocated >= 0)
+			var/valid = (part in organs_by_name) && organs_by_name[part] && ((part in BP_BASE_PARTS))
 			if(valid && ("[real_marking.icon_state]-[part]" in icon_states(real_marking.icon)))
 				var/icon/specific_marking_subicon = icon(real_marking.icon, "[real_marking.icon_state]-[part]")
 				specific_marking_subicon.Blend(specific_marking_icon, ICON_OVERLAY)
@@ -397,7 +412,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
-				facial_s.Blend(rgb(r_facial, g_facial, b_facial), facial_hair_style.blend)
+				facial_s.Blend(facial_color, facial_hair_style.blend)
 
 			face_standing.Blend(facial_s, ICON_OVERLAY)
 
@@ -410,7 +425,7 @@ var/global/list/damage_icon_parts = list()
 			else
 				hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]")
 			if(hair_style.do_colouration)
-				hair_s.Blend(rgb(r_hair, g_hair, b_hair), hair_style.blend)
+				hair_s.Blend(hair_color, hair_style.blend)
 
 			face_standing.Blend(hair_s, ICON_OVERLAY)
 
@@ -422,31 +437,17 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)   update_icons()
 
 /mob/living/carbon/human/update_mutations(var/update_icons=1)
-
+	return
+/*
 	var/image/standing = image("icon" = 'icons/effects/genetics.dmi')
 	var/add_image = 0
-	var/g = "m"
-	if(gender == FEMALE)	g = "f"
-	// DNA2 - Drawing underlays.
-	for(var/datum/dna/gene/gene in dna_genes)
-		if(!gene.block)
-			continue
-		if(gene.is_active(src))
-			var/underlay=gene.OnDrawUnderlays(src,g)
-			if(underlay)
-				standing.underlays += underlay
-				add_image = 1
-	for(var/mut in mutations)
-		switch(mut)
-			if(LASER)
-				standing.overlays += "lasereyes_s"
-				add_image = 1
 	if(add_image)
-		overlays_standing[MUTATIONS_LAYER]	= standing
+		overlays_standing[MUTATIONS_LAYER] = standing
 	else
-		overlays_standing[MUTATIONS_LAYER]	= null
-	if(update_icons)   update_icons()
-
+		overlays_standing[MUTATIONS_LAYER] = null
+	if(update_icons)
+		update_icons()
+*/
 /mob/proc/update_implants(var/update_icons = 1)
 	return
 
@@ -890,6 +891,7 @@ var/global/list/damage_icon_parts = list()
 			t_icon = get_gender_icon(gender, "belt")
 
 		standing = image(icon = t_icon, icon_state = t_state)
+		standing.color = belt.color
 
 		var/beltlayer = BELT_LAYER
 		var/otherlayer = BELT_LAYER_ALT
@@ -1215,7 +1217,7 @@ var/global/list/damage_icon_parts = list()
 // // // END ECLIPSE EDITS // // //
 
 /mob/living/carbon/human/proc/get_tail_icon()
-	var/icon_key = "[species.race_key][r_skin][g_skin][b_skin]"
+	var/icon_key = "[species.race_key][skin_color]"
 	var/icon/tail_icon = tail_icon_cache[icon_key]
 	if(!tail_icon)
 		//generate a new one
@@ -1223,7 +1225,7 @@ var/global/list/damage_icon_parts = list()
 		if(!species_tail_anim && species.icobase_tail) species_tail_anim = species.icobase //Eclipse Code Port - Allow override of file for non-animated tails
 		if(!species_tail_anim) species_tail_anim = 'icons/effects/species.dmi'
 		tail_icon = new/icon(species_tail_anim)
-		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.color_mult ? ICON_MULTIPLY : ICON_ADD) // Eclipse Code Port edit
+		tail_icon.Blend(skin_color, species.color_mult ? ICON_MULTIPLY : ICON_ADD) // Eclipse Code Port edit
 		// The following will not work with animated tails.
 /*		var/use_species_tail = species.get_tail_hair(src)
 		if(use_species_tail)
@@ -1311,6 +1313,13 @@ var/global/list/damage_icon_parts = list()
 		overlays_standing[FIRE_LAYER] = image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing", "layer"=FIRE_LAYER)
 
 	if(update_icons)   update_icons()
+
+/mob/living/carbon/human/proc/update_block_overlay(var/update_icons=1)
+	overlays_standing[BLOCKING_LAYER] = null
+	if(blocking)
+		overlays_standing[BLOCKING_LAYER] = image("icon"='icons/mob/misc_overlays.dmi', "icon_state"="block", "layer"=BLOCKING_LAYER)
+
+	update_icons()
 
 /mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
 	overlays_standing[SURGERY_LAYER] = null

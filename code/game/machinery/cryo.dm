@@ -69,12 +69,12 @@
 		go_out()
 
 /obj/machinery/atmospherics/unary/cryo_cell/attack_hand(mob/user)
-	ui_interact(user)
+	nano_ui_interact(user)
 
  /**
-  * The ui_interact proc is used to open and update Nano UIs
-  * If ui_interact is not used then the UI will not update correctly
-  * ui_interact is currently defined for /atom/movable (which is inherited by /obj and /mob)
+  * The nano_ui_interact proc is used to open and update Nano UIs
+  * If nano_ui_interact is not used then the UI will not update correctly
+  * nano_ui_interact is currently defined for /atom/movable (which is inherited by /obj and /mob)
   *
   * @param user /mob The mob who is interacting with this ui
   * @param ui_key string A string key to use for this ui. Allows for multiple unique uis on one obj/mob (defaut value "main")
@@ -82,7 +82,7 @@
   *
   * @return nothing
   */
-/obj/machinery/atmospherics/unary/cryo_cell/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/atmospherics/unary/cryo_cell/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 
 	if(user == occupant || user.stat)
 		return
@@ -237,8 +237,6 @@
 				occupant.adjustOxyLoss(-1)
 			//severe damage should heal waaay slower without proper chemicals
 			if(occupant.bodytemperature < 225)
-				if (occupant.getToxLoss())
-					occupant.adjustToxLoss(max(-1, -20/occupant.getToxLoss()))
 				var/heal_brute = occupant.getBruteLoss() ? min(1, 20/occupant.getBruteLoss()) : 0
 				var/heal_fire = occupant.getFireLoss() ? min(1, 20/occupant.getFireLoss()) : 0
 				occupant.heal_organ_damage(heal_brute,heal_fire)

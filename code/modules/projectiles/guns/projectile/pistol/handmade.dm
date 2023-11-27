@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/handmade_pistol
-	name = "handmade pistol"
-	desc = "Looks unreliable. May blow up in your hands. Due to a strange design, it can only be reloaded after being shot. Or with the use of a screwdriver." //Eclipse Edit - grammar
+	name = "hand-tooled HG \"Bubba\""		//Eclipse edit - hand-tooled
+	desc = "Looks unreliable. May blow up in your hands."
 	icon = 'icons/obj/guns/projectile/hm_pistol.dmi'
 	icon_state = "hm_pistol"
 	item_state = "pistol"
@@ -10,17 +10,29 @@
 	can_dual = TRUE
 	load_method = SINGLE_CASING
 	max_shells = 1
-	matter = list(MATERIAL_STEEL = 5, MATERIAL_WOOD = 5)
-	gun_parts = list(/obj/item/stack/material/steel = 2)
+	matter = list(MATERIAL_STEEL = 10, MATERIAL_WOOD = 5)
+	gun_parts = list(/obj/item/part/gun/frame/handmade_pistol = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/pistol/steel = 1, /obj/item/part/gun/modular/barrel/pistol/steel = 1)
 	ammo_type = /obj/item/ammo_casing/magnum
-	damage_multiplier = 1.36
-	recoil_buildup = 15
+	damage_multiplier = 1.35
+	penetration_multiplier = 0
+	init_recoil = HANDGUN_RECOIL(2)
+	style_damage_multiplier = 2
 	spawn_frequency = 0
 	spawn_blacklisted = FALSE
 	spawn_tags = SPAWN_TAG_GUN_HANDMADE
 	var/chamber_open = FALSE
 	var/jammed = FALSE
 	var/jam_chance = 15
+
+/obj/item/part/gun/frame/handmade_pistol
+	name = "handmade pistol frame"
+	desc = "A handmade pistol frame. It is, without a doubt, absolute trash."
+	icon_state = "frame_pistol_hm"
+	matter = list(MATERIAL_STEEL = 5)
+	resultvars = list(/obj/item/gun/projectile/handmade_pistol)
+	gripvars = list(/obj/item/part/gun/modular/grip/wood)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/pistol/steel
+	barrelvars = list(/obj/item/part/gun/modular/barrel/pistol/steel, /obj/item/part/gun/modular/barrel/magnum/steel)
 
 /obj/item/gun/projectile/handmade_pistol/New()
 	..()

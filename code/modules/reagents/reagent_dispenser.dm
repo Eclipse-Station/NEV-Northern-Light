@@ -81,8 +81,10 @@
 				explode()
 				return
 
-
-
+/obj/structure/reagent_dispensers/get_item_cost(export)
+	if(export)
+		return ..() + round(reagents.total_volume * 0.125)
+	return ..() + contents_cost
 
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
@@ -115,6 +117,7 @@
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
 	desc = "A tank full of industrial welding fuel. Do not consume."
+	description_antag = "Can have an assembly with a igniter attached for detonation upon a trigger. Can also use a screwdriver to leak fuel when dragged"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "weldtank"
 	amount_per_transfer_from_this = 10
@@ -282,6 +285,17 @@
 	price_tag = 50
 	contents_cost = 700
 	spawn_blacklisted = TRUE
+
+/obj/structure/reagent_dispensers/coolanttank
+	name = "coolant tank"
+	desc = "A tank of industrial coolant"
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "coolanttank"
+	amount_per_transfer_from_this = 10
+	volume = 1000
+	starting_reagent = "coolant"
+	price_tag = 50
+	contents_cost = 700
 
 
 /obj/structure/reagent_dispensers/cahorsbarrel

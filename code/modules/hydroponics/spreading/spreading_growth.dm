@@ -41,10 +41,6 @@
 		//There also can be special conditions handling
 		if (!floor.Enter(src))
 
-			if(CanPass(src, floor))
-				neighbors |= floor
-				continue
-
 			//Maintshooms cannot, spread trait must be 3 or more
 			if(seed.get_trait(TRAIT_SPREAD) < 3)
 				continue

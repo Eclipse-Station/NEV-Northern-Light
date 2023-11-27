@@ -65,8 +65,8 @@
 	var/squeakcooldown = 0
 
 
-/mob/living/simple_animal/mouse/New()
-	..()
+/mob/living/simple_animal/mouse/Initialize()
+	. = ..()
 	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
 
 /mob/living/simple_animal/mouse/Life()
@@ -244,7 +244,7 @@
 		if(ckey || prob(35))
 			squeak_loud(0)//deathgasp
 
-		addtimer(CALLBACK(src, .proc/dust), decompose_time)
+		addtimer(CALLBACK(src, PROC_REF(dust)), decompose_time)
 
 	..()
 

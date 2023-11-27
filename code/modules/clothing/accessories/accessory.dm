@@ -129,7 +129,7 @@
 
 							if(!(M.organ_list_by_process(OP_LUNGS).len) || M.losebreath)
 								sound += " and no respiration"
-							else if(M.is_lung_ruptured() || M.getOxyLoss() > 50)
+							else if(M.getOxyLoss() > 50)
 								sound += " and [pick("wheezing","gurgling")] sounds"
 							else
 								sound += " and healthy respiration"
@@ -201,26 +201,24 @@
 	w_class = ITEM_SIZE_NORMAL
 	isRemovable = FALSE
 	armor = list(
-		melee = 30,
-		bullet = 30,
-		energy = 30,
+		melee = 7,
+		bullet = 7,
+		energy = 7,
 		bomb = 5,
 		bio = 0,
 		rad = 0
 	)
 	matter = list(
 		MATERIAL_STEEL = 8,
-		MATERIAL_PLASTEEL = 1,
+		MATERIAL_PLASTEEL = 1
 	)
-	slowdown = 0
-	stiffness = LIGHT_STIFFNESS
+	slowdown = LIGHT_SLOWDOWN
 
 /obj/item/clothing/accessory/armor/on_attached()
 	..()
 	has_suit.armor = armor
 	has_suit.style -= 2
-	has_suit.slowdown = slowdown
-	has_suit.stiffness = stiffness
+	has_suit.slowdown += slowdown
 	has_suit.body_parts_covered = UPPER_TORSO|LOWER_TORSO // Tears up the clothes
 
 /obj/item/clothing/accessory/armor/bullet
@@ -228,27 +226,26 @@
 	desc = "Plates from a bulletproof vest, now usable to reinforce clothes."
 	icon_state = "armor_bullet"
 	armor = list(
-		melee = 20,
-		bullet = 45,
-		energy = 20,
+		melee = 5,
+		bullet = 11,
+		energy = 5,
 		bomb = 0,
 		bio = 0,
 		rad = 0
 	)
 	matter = list(
 		MATERIAL_STEEL = 10,
-		MATERIAL_PLASTEEL = 3,
+		MATERIAL_PLASTEEL = 3
 	)
 	slowdown = LIGHT_SLOWDOWN
-	stiffness = MEDIUM_STIFFNESS
 
 /obj/item/clothing/accessory/armor/platecarrier
 	name = "platecarrier armor plates"
 	desc = "Plates from a platecarrier, now usable to reinforce clothes."
 	icon_state = "armor_platecarrier"
 	armor = list(
-		melee = 20,
-		bullet = 40,
+		melee = 5,
+		bullet = 10,
 		energy = 0,
 		bomb = 0,
 		bio = 0,
@@ -256,35 +253,83 @@
 	)
 	matter = list(
 		MATERIAL_STEEL = 10,
-		MATERIAL_PLASTEEL = 3,
+		MATERIAL_PLASTEEL = 3
 	)
-	slowdown = LIGHT_SLOWDOWN
 
 /obj/item/clothing/accessory/armor/riot
 	name = "padded armor plates"
 	desc = "Plates from riot armor, now usable to reinforce clothes."
 	icon_state = "armor_riot"
 	armor = list(
-		melee = 50,
-		bullet = 25,
-		energy = 25,
+		melee = 13,
+		bullet = 6,
+		energy = 6,
 		bomb = 15,
 		bio = 0,
 		rad = 0
 	)
 	slowdown = MEDIUM_SLOWDOWN
-	stiffness = MEDIUM_STIFFNESS
 
 /obj/item/clothing/accessory/armor/laser
 	name = "ablative armor plates"
 	desc = "Sheets from ablative armor, now usable to reinforce clothes. The shape somehow feels off."
 	icon_state = "armor_ablative"
 	armor = list(
-		melee = 20,
-		bullet = 20,
-		energy = 40,
+		melee = 5,
+		bullet = 5,
+		energy = 10,
 		bomb = 0,
 		bio = 0,
 		rad = 0
 	)
-	slowdown = LIGHT_SLOWDOWN
+
+//Ponchos, Capes and Cloaks//
+
+/obj/item/clothing/accessory/cloak
+	name = "oversized poncho"
+	desc = "Able to be worn over a voidsuit or smaller rigs. More of a fashion statement than anything else."
+	icon_state = "oversized_poncho"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+
+/obj/item/clothing/accessory/cloak/ponchoblue
+	name = "blue oversized poncho"
+	desc = "Able to be worn over a voidsuit or smaller rigs. The tactical choice."
+	icon_state = "oversized_poncho_blue"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+
+/obj/item/clothing/accessory/cloak/ponchored
+	name = "red oversized poncho"
+	desc = "Able to be worn over a voidsuit or smaller rigs. Good for hiding bloodstains."
+	icon_state = "oversized_poncho_red"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+
+/obj/item/clothing/accessory/cloak/ponchogreen
+	name = "green oversized poncho"
+	desc = "Able to be worn over a voidsuit or smaller rigs. The roach guts blend right in."
+	icon_state = "oversized_poncho_green"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+
+/obj/item/clothing/accessory/cloak/ponchopurple
+	name = "purple oversized poncho"
+	desc = "Meant to be worn over a voidsuit or smaller rigs. For someone wearing a glorified sack, you feel quite regal."
+	icon_state = "oversized_poncho_purple"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+
+/obj/item/clothing/accessory/cloak/ponchoash
+	name = "ash oversized poncho"
+	desc = "Able to be worn over a voidsuit or smaller rigs. Good for stalking the tunnels."
+	icon_state = "oversized_poncho_ash"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+
+/obj/item/clothing/accessory/cloak/ponchowhite
+	name = "white oversized poncho"
+	desc = "Able to be worn over a voidsuit or smaller rigs. A bold move considering how filthy the ship gets."
+	icon_state = "oversized_poncho_white"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+
+/obj/item/clothing/accessory/cloak/clowncho
+	name = "clown poncho"
+	desc = "Able to be worn over a voidsuit or smaller rigs. This is certainly a choice."
+	icon_state = "clowncho"
+	slot_flags = SLOT_ACCESSORY_BUFFER
+	style = STYLE_NEG_HIGH

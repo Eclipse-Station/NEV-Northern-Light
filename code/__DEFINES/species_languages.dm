@@ -9,11 +9,6 @@
 #define NO_MINOR_CUT      0x80   // Can step on broken glass with no ill-effects. Either thick skin, cut resistant (slimes) or incorporeal (shadows)
 // unused: 0x8000 - higher than this will overflow
 
-// Species spawn flags
-#define IS_WHITELISTED    0x1    // Must be whitelisted to play.
-#define CAN_JOIN          0x2    // Species is selectable in chargen.
-#define IS_RESTRICTED     0x4    // Is not a core/normally playable species. (castes, mutantraces)
-
 // Languages.
 #define LANGUAGE_COMMON "Galactic Common"
 #define LANGUAGE_CYRILLIC "Techno-Russian"

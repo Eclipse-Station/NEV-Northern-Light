@@ -107,7 +107,7 @@
 
 		owner.put_in_active_hand(spider)
 
-/obj/item/organ/internal/carrion/core/ui_interact(mob/user, ui_key, datum/nanoui/ui, force_open, datum/nanoui/master_ui, datum/topic_state/state)
+/obj/item/organ/internal/carrion/core/ui_interact(mob/user, ui_key, datum/nanoui/ui, force_open, datum/nanoui/master_ui, datum/nano_topic_state/state)
 	var/list/data = list()
 
 	var/list/spiders_in_list = list()
@@ -147,7 +147,7 @@
 		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["activate_spider"]) in active_spiders
 		if(activated_spider)
 			activated_spider.activate()
-	
+
 	if(href_list["pop_out_spider"])
 		var/obj/item/implant/carrion_spider/activated_spider = locate(href_list["pop_out_spider"]) in active_spiders
 		if(activated_spider)
@@ -243,13 +243,6 @@
 		..()
 		forceMove(associated_spider)
 
-/obj/item/organ/internal/carrion/core/proc/GetDNA(var/dna_owner)
-	var/datum/dna/chosen_dna
-	for(var/datum/dna/DNA in absorbed_dna)
-		if(dna_owner == DNA.real_name)
-			chosen_dna = DNA
-			break
-	return chosen_dna
 
 /obj/item/organ/internal/carrion/core/proc/carrion_transform()
 	set category = "Carrion"
@@ -258,37 +251,32 @@
 	if (owner.transforming)
 		return
 
-	var/list/names = list()
 
 	if (!owner)
 		return
 
-	for(var/datum/dna/DNA in absorbed_dna)
-		names += "[DNA.real_name]"
-
-	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in names
 	if(!absorbed_dna.len)
 		to_chat(owner, SPAN_WARNING("You have no DNA absorbed!"))
 		return
 
-	var/datum/dna/chosen_dna = GetDNA(S)
-	if(!chosen_dna)
+	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in absorbed_dna
+
+	if(!S)
 		return
 
 	if(!owner.check_ability(5))
 		return
 
-	if(HUSK in owner.mutations)
-		owner.mutations -= HUSK
-		if(istype(owner))
-			owner.update_body(0)
+//	if(HUSK in owner.mutations)
+//		owner.mutations -= HUSK
+//		if(istype(owner))
+//			owner.update_body(0)
 
 	owner.visible_message(SPAN_WARNING("[owner] transforms!"))
-	owner.dna = chosen_dna.Clone()
-	owner.real_name = chosen_dna.real_name
+	owner.real_name = S
+	owner.dna_trace = sha1(S)
+	owner.fingers_trace = md5(S)
 	owner.flavor_text = ""
-	owner.UpdateAppearance()
-	domutcheck(owner, null)
 
 	return 1
 
@@ -384,7 +372,7 @@
 						blacklist += to_blacklist
 						continue
 					if (istype(to_blacklist, /obj/item/organ/internal/brain/))
-						blacklist += to_blacklist// removing bones from a valid_organs list based on			
+						blacklist += to_blacklist// removing bones from a valid_organs list based on
 				var/list/valid_organs = E.internal_organs - blacklist// E.internal_organs gibs the victim.
 				if (!valid_organs.len)
 					visible_message(SPAN_DANGER("[owner] tears up [H]'s [E.name]!"))
@@ -397,7 +385,7 @@
 			else
 				tearing = FALSE
 		else
-			to_chat(owner, SPAN_WARNING("You can only tear flesh out of humanoids!"))	
+			to_chat(owner, SPAN_WARNING("You can only tear flesh out of humanoids!"))
 			return
 
 	if(istype(food, /obj/item/organ) || istype(food, /obj/item/reagent_containers/food/snacks/meat))

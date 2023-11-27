@@ -11,17 +11,24 @@
 
 /obj/item/clothing/shoes/jackboots
 	name = "jackboots"
-	desc = "Standard-issue Security combat boots for combat scenarios or combat situations. All combat, all the time."
+	desc = "Standard-issue combat boots for combat scenarios or combat situations. All combat, all the time."
 	icon_state = "jackboots"
 	item_state = "jackboots"
 	force = WEAPON_FORCE_HARMLESS
-	armor = list(melee = 15, bullet = 0, energy = 10, bomb = 0, bio = 25, rad = 0)
+	armor = list(
+		melee = 3,
+		bullet = 0,
+		energy = 2,
+		bomb = 0,
+		bio = 25,
+		rad = 0
+	)
 	siemens_coefficient = 0.6
 	can_hold_knife = TRUE
 
 /obj/item/clothing/shoes/jackboots/ironhammer
 	icon_state = "jackboots_ironhammer"
-	spawn_blacklisted = TRUE
+	desc = "Standard-issue Aegis combat boots for combat scenarios or combat situations. All combat, all the time."
 
 /obj/item/clothing/shoes/jackboots/german
 	name = "Oberth Republic boots"
@@ -44,12 +51,18 @@
 	desc = "Slightly reinforced shoes. Optimal for your journey into a wonderful world of maintenance."
 	icon_state = "reinforced"
 	item_state = "reinforced"
-	armor = list(melee = 15, bullet = 0, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = 3,
+		bullet = 0,
+		energy = 2,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
 	siemens_coefficient = 0.5
 
 /obj/item/clothing/shoes/reinforced/ironhammer
 	icon_state = "reinforced_ironhammer"
-	spawn_blacklisted = TRUE
 
 /obj/item/clothing/shoes/reinforced/medical
 	name = "Lazarus reinforced shoes"
@@ -64,7 +77,14 @@
 	icon_state = "workboots"
 	item_state = "workboots"
 	siemens_coefficient = 0
-	armor = list(melee = 10, bullet = 0, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = 2,
+		bullet = 0,
+		energy = 2,
+		bomb = 0,
+		bio = 0,
+		rad = 0
+	)
 	can_hold_knife = TRUE
 	style = STYLE_NEG_HIGH
 

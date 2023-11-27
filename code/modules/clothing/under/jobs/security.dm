@@ -1,15 +1,23 @@
 /*
  * Contains:
  *		Security
- *		Detective
+ *		Inspector
  *		Aegis Commander
  */
 
 /*
  * Security
  */
+
+/obj/item/clothing/under/security_formal
+	name = "Aegis Operative formal uniform"
+	desc = "A navy blue suit. Often used by Aegis personnel, for shooting with style."
+	icon_state = "ih_formal"
+	item_state = "ih_formal"
+	spawn_blacklisted = TRUE
+
 /obj/item/clothing/under/rank/warden
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the words \"Gunnery Sergeant\" written on the shoulders."
+	desc = "The uniform worn by Aegis Sergeants, the sight of it is often followed by shouting. It has\"Gunnery Sergeant\" rank pins on the shoulders."
 	name = "Gunnery Sergeant jumpsuit"
 	icon_state = "warden"
 	item_state = "r_suit"
@@ -17,26 +25,26 @@
 
 /obj/item/clothing/under/rank/warden/skirt
 	name = "Gunnery Sergeant jumpskirt"
-	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for more robust protection. It has the words \"Gunnery Sergeant\" written on the shoulders."
+	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for more robust protection. It has\"Gunnery Sergeant\" rank pins on the shoulders."
 	icon_state = "warden_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/head/warden
-	name = "Gunnery Sergeant hat"
+/obj/item/clothing/head/warden //legacy security hat
+	name = "warden hat"
 	desc = "A special helmet issued to the Warden of a securiy force."
 	icon_state = "policehelm"
 	body_parts_covered = NONE
 
 /obj/item/clothing/under/rank/security
 	name = "Aegis Operative jumpsuit"
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
+	desc = "The standard issue uniform of Aegis grunts all over the sector."
 	icon_state = "security"
 	item_state = "ba_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/security/turtleneck
-	name = "Ironhammer Operative's turtleneck"
-	desc = "Military style turtleneck, made of a slightly sturdier material than standard jumpsuits, to allow for robust protection"
+	name = "Aegis Operative's turtleneck"
+	desc = "Same as the standard Aegis uniform but with a sleek black military style sweater. Best used in cold environments"
 	icon_state = "securityrturtle"
 
 /obj/item/clothing/under/rank/security/skirt
@@ -47,19 +55,19 @@
 
 /obj/item/clothing/under/rank/medspec
 	name = "Medical Specialist jumpsuit"
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection. It has the words \"Medical Specialist\" written on the shoulders."
+	desc = "An Aegis uniform modified for use by medics. Comes with a white shirt and medical insignia. It has \"Specialist\" rank pins on the shoulders."
 	icon_state = "medspec"
 	item_state = "ba_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/medspec/skirt
 	name = "Medical Specialist jumpskirt"
-	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for robust protection. It has the words \"Medical Specialist\" written on the shoulders."
+	desc = "It's made of a slightly sturdier material than standard jumpskirts, to allow for robust protection. It has \"Specialist\" rank pins on the shoulders."
 	icon_state = "medspec_skirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /*
- * Detective
+ * Inspector
  */
 /obj/item/clothing/under/rank/inspector
 	name = "inspector's suit"
@@ -80,17 +88,17 @@
 	//item_state = "sl_suit"
 	desc = "An immaculate white dress shirt, paired with a pair of dark grey dress pants, a red tie, and a charcoal vest."
 
-/obj/item/clothing/head/det
+/obj/item/clothing/head/detective
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "detective"
+	icon_state = "detective_brown"
 	item_state_slots = list(
-		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat",
+		slot_l_hand_str = "detective_hat",
+		slot_r_hand_str = "detective_hat",
 		)
 	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/pen)
 	armor = list(
-		melee = 10,
+		melee = 2,
 		bullet = 0,
 		energy = 0,
 		bomb = 0,
@@ -100,9 +108,13 @@
 	siemens_coefficient = 0.8
 	body_parts_covered = NONE
 
-/obj/item/clothing/head/det/grey
-	icon_state = "detective2"
+/obj/item/clothing/head/detective/grey
+	icon_state = "detective_gray"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
+
+/obj/item/clothing/head/detective/black
+	icon_state = "detective_black"
+	desc = "A black fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
 
 /*
@@ -129,7 +141,7 @@
 	siemens_coefficient = 0.8
 
 /*
- * Navy uniforms
+ * "Navy" uniforms
  */
 /obj/item/clothing/under/rank/cadet
 	name = "Aegis Cadet jumpskirt"

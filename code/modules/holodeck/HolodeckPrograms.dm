@@ -1,5 +1,21 @@
+// // // BEGIN ECLIPSE EDITS // // //
+
+/*
+
 var/global/list/holodeck_programs = list(
-	"emptycourt" 		= new/datum/holodeck_program(/area/holodeck/source_emptycourt),
+
+	"texas" 			= new/datum/holodeck_program(/area/holodeck/source/texas),
+	"spacebar" 		= new/datum/holodeck_program(/area/holodeck/source/spacebar),
+	"wireframe" 			= new/datum/holodeck_program(/area/holodeck/source/wireframe),
+	"industrial" 		= new/datum/holodeck_program(/area/holodeck/source/industrial),
+	"industrial_arena" 			= new/datum/holodeck_program(/area/holodeck/source/industrial_arena),
+	"turnoff" 			= new/datum/holodeck_program(/area/holodeck/source/off)
+	)
+
+*/
+
+var/global/list/holodeck_programs = list(
+"emptycourt" 		= new/datum/holodeck_program(/area/holodeck/source_emptycourt),
 	"boxingcourt" 		= new/datum/holodeck_program(/area/holodeck/source_boxingcourt),
 	"basketball" 		= new/datum/holodeck_program(/area/holodeck/source_basketball),
 	"thunderdomecourt"	= new/datum/holodeck_program(/area/holodeck/source_thunderdomecourt),
@@ -37,6 +53,8 @@ var/global/list/holodeck_programs = list(
 	"wildlifecarp" 		= new/datum/holodeck_program(/area/holodeck/source_wildlife),
 	"turnoff" 			= new/datum/holodeck_program(/area/holodeck/source_plating)
 	)
+
+// // // END ECLIPSE EDITS // // //
 
 /datum/holodeck_program
 	var/target

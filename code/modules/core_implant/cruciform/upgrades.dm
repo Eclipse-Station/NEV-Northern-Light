@@ -36,6 +36,7 @@
 	icon = 'icons/obj/module.dmi'
 	icon_state = "core_upgrade"
 	bad_type = /obj/item/cruciform_upgrade
+	unacidable = 1
 	var/mob/living/carbon/human/wearer
 	var/obj/item/implant/core_implant/cruciform/cruciform
 	var/active = FALSE
@@ -106,7 +107,7 @@
 	desc = "This upgrade will slightly increase follower resistance to physical and burn injuries from any source."
 	icon_state = "faiths_shield"
 	matter = list(MATERIAL_BIOMATTER = 50, MATERIAL_GOLD = 5, MATERIAL_PLASTEEL = 10)
-	var/shield_mod = 0.1
+	var/shield_mod = 0.2
 
 /obj/item/cruciform_upgrade/faiths_shield/OnInstall(var/disciple, var/_cruciform)
 	..()
@@ -150,7 +151,7 @@
 
 /obj/item/cruciform_upgrade/wrath_of_god
 	name = "Wrath of god"
-	desc = "This upgrade make the follower deal more damage in melee, but also receive a slightly more damage from all sources."
+	desc = "This upgrade makes the follower deal more damage in melee, but also receive slightly more damage from all sources."
 	icon_state = "wrath_of_god"
 	matter = list(MATERIAL_BIOMATTER = 50, MATERIAL_GOLD = 5, MATERIAL_PLASTEEL = 15)
 	var/damage_mod = 0.2

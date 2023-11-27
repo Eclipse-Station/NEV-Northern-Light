@@ -7,6 +7,8 @@ var/global/obj/machinery/power/eotp/eotp
 	desc = "He observes, he protects."
 	icon = 'icons/obj/eotp.dmi'
 	icon_state = "Eye_of_the_Protector"
+	description_info = "When miracles happen, group litanies can be commenced. Its power grows the more followers there are, and when heretics are purged"
+	description_antag = "Can be blown with C4."
 
 	density = TRUE
 	anchored = TRUE
@@ -16,7 +18,7 @@ var/global/obj/machinery/power/eotp/eotp
 	idle_power_usage = 30
 	active_power_usage = 2500
 
-	var/list/rewards = list(ARMAMENTS, ALERT, INSPIRATION, ODDITY, STAT_BUFF, MATERIAL_REWARD, ENERGY_REWARD)
+	var/list/rewards = list(ALERT, INSPIRATION, ODDITY, STAT_BUFF, MATERIAL_REWARD, ENERGY_REWARD)
 	var/list/current_rewards
 
 	var/list/materials = list(/obj/item/stack/material/gold = 60,
@@ -28,11 +30,12 @@ var/global/obj/machinery/power/eotp/eotp
 	var/list/disk_types = list()
 	var/list/unneeded_disk_types = list()
 
+
 	var/list/mob/living/carbon/human/scanned = list()
-	var/max_power = 100
+	var/max_power = 120
 	var/power = 0
 	var/power_gaine = 2
-	var/max_observation = 800
+	var/max_observation = 1800
 	var/observation = 0
 	var/min_observation = -100
 
@@ -42,10 +45,22 @@ var/global/obj/machinery/power/eotp/eotp
 	var/last_power_update = 0
 	var/rescan_cooldown = 10 MINUTES
 	var/last_rescan = 0
+	var/list/armaments = list()
+	var/armaments_points = 0
+	var/max_armaments_points = 150
+	var/armaments_rate = 125
+	var/static/list/unneeded_armaments = list(/datum/armament/item/gun, /datum/armament/item, /datum/armament/item/disk)
 
 /obj/machinery/power/eotp/New()
 	..()
 	eotp = src
+	var/list/arm_paths = subtypesof(/datum/armament) - unneeded_armaments
+	for(var/arm in arm_paths)
+		armaments += new arm
+
+/obj/machinery/power/eotp/Destroy()
+	. = ..()
+	eotp = null
 
 /obj/machinery/power/eotp/examine(user)
 	..()
@@ -56,14 +71,13 @@ var/global/obj/machinery/power/eotp/eotp
 		if(I && I.active && I.wearer)
 			var/comment = "Power level: [power]/[max_power]."
 			comment += "\nObservation level: [observation]/[max_observation]."
+			comment += "\nArmement level: [armaments_points]/[max_armaments_points]"
 			to_chat(user, SPAN_NOTICE(comment))
 
 /obj/machinery/power/eotp/Process()
 	..()
 	if(stat)
 		return
-
-	updateObservation()
 
 	if(world.time >= (last_rescan + rescan_cooldown) && length(scanned))
 		var/mob/living/carbon/human/H = pick(scanned)
@@ -94,26 +108,19 @@ var/global/obj/machinery/power/eotp/eotp
 	observation -= number
 	return observation
 
-/obj/machinery/power/eotp/proc/updateObservation()
-	if(observation > max_observation)
-		observation = max_observation
-
-	if(observation < min_observation)
-		observation = min_observation
-
 /obj/machinery/power/eotp/proc/updatePower()
-	power_gaine = initial(power_gaine) + (observation / 100)
+	power_gaine = initial(power_gaine) + (CLAMP(observation, min_observation, max_observation) / 100)
 
 	if(world.time >= (last_power_update + power_cooldown))
 		power += power_gaine
+		for(var/mob/living/carbon/human/believer in disciples)
+			if(believer.client && ishuman(believer))
+				power++ // 1 power per disciple
 		last_power_update = world.time
 
 	if(power >= max_power)
 		power -= max_power
 		power_release()
-
-/obj/machinery/power/eotp/proc/disk_reward_update()
-	disk_types =  subtypesof(/obj/item/computer_hardware/hard_drive/portable/design/nt) - unneeded_disk_types
 
 /obj/machinery/power/eotp/proc/power_release()
 	var/type_release
@@ -123,15 +130,11 @@ var/global/obj/machinery/power/eotp/eotp
 	else
 		type_release = pick(rewards)
 
-	if(type_release == ARMAMENTS)
-		if(!length(disk_types))
-			disk_reward_update()
-		var/reward_disk = pick(disk_types)
-		disk_types -= reward_disk
-		var/obj/item/_item = new reward_disk(get_turf(src))
-		visible_message(SPAN_NOTICE("The [_item.name] appers out of bluespace near the [src]!"))
 
-	else if(type_release == ALERT)
+	armaments_points = min(armaments_points + armaments_rate, max_armaments_points)
+
+
+	if(type_release == ALERT)
 
 		var/area/antagonist_area
 		var/preacher
@@ -168,13 +171,14 @@ var/global/obj/machinery/power/eotp/eotp
 	else if(type_release == ODDITY)
 		var/oddity_reward = pick(subtypesof(/obj/item/oddity/nt))
 		var/obj/item/_item = new oddity_reward(get_turf(src))
-		visible_message(SPAN_NOTICE("The [_item.name] appers out of bluespace near the [src]!"))
+		visible_message(SPAN_NOTICE("The [_item.name] appears out of bluespace near the [src]!"))
+		rewards -= ODDITY
 
 	else if(type_release == STAT_BUFF)
 		var/random_stat = pick(ALL_STATS)
 		for(var/mob/living/carbon/human/H in disciples)
 			if(H.stats)
-				to_chat(H, SPAN_NOTICE("You feel the gaze of [src] pierce your mind, body, and soul. You are enlightened, and gain deeper knowledge in [random_stat]; however, you can already feel this newfound knowledge beginning to slip away.."))
+				to_chat(H, SPAN_NOTICE("You feel the gaze of [src] pierce your mind, body, and soul. You are enlightened, and gain deeper knowledge in [random_stat]; however, you can already feel this newfound knowledge beginning to slip away..."))
 				H.stats.addTempStat(random_stat, stat_buff_power, 20 MINUTES, "Eye_of_the_Protector")
 
 	else if(type_release == MATERIAL_REWARD)
@@ -182,7 +186,7 @@ var/global/obj/machinery/power/eotp/eotp
 		var/reward_min_amount = materials[materials_reward]
 		var/obj/item/stack/material/_item = new materials_reward(get_turf(src))
 		_item.amount = rand(reward_min_amount, _item.max_amount)
-		visible_message(SPAN_NOTICE("The [_item.name] appers out of bluespace near the [src]!"))
+		visible_message(SPAN_NOTICE("The [_item.name] appears out of bluespace near the [src]!"))
 
 	else if(type_release == ENERGY_REWARD)
 		for(var/mob/living/carbon/human/H in disciples)

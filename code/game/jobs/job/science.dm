@@ -161,3 +161,42 @@ Lastly, though they're not commonly used, you have the facilities to construct m
 	name = "Roboticist"
 	icon_state = "player-purple"
 	join_tag = /datum/job/roboticist
+
+/* ECLIPSE EDIT - Keeping Psych as a medical role
+/datum/job/psychiatrist
+	title = "Psychiatrist"
+	flag = PSYCHIATRIST
+	department = DEPARTMENT_SCIENCE		//ECLIPSE TODO: Check and fix. Might be overridden.
+	department_flag = SCIENCE
+	faction = "NEV Northern Light"		//Eclipse edit.
+	total_positions = 1
+	spawn_positions = 1
+	wage = WAGE_PROFESSIONAL
+	supervisors = "the Chief Medical Officer"		//Eclipse edit.
+	selection_color = "#bdb1bb"
+	also_known_languages = list(LANGUAGE_CYRILLIC = 10)
+
+	outfit_type = /decl/hierarchy/outfit/job/science/psychiatrist
+
+	access = list(
+		access_robotics, access_tox, access_tox_storage, access_moebius, access_maint_tunnels, access_research_equipment, access_psychiatrist, access_medical_equip
+	)
+
+	stat_modifiers = list(
+		STAT_BIO = 25,
+		STAT_COG = 15,
+		STAT_VIG = 15
+	)
+
+	perks = list(/datum/perk/selfmedicated)
+
+	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
+							/datum/computer_file/program/chem_catalog,
+							/datum/computer_file/program/camera_monitor)
+
+
+/obj/landmark/join/start/psychiatrist
+	name = "Psychiatrist"
+	icon_state = "player-purple"
+	join_tag = /datum/job/psychiatrist
+*/

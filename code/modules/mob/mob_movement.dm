@@ -111,6 +111,14 @@
 	else
 		return
 
+/client/verb/blocking()
+	set hidden = 1
+	if(!istype(mob, /mob/living/carbon/human))
+		return
+	if(!mob.stat && isturf(mob.loc) && !mob.restrained())
+		mob:blocking()
+	else
+		return
 
 /client/verb/drop_item()
 	set hidden = 1
@@ -245,3 +253,6 @@
 		delay /= speed_factor
 
 	return delay
+
+/mob/proc/add_momentum()
+	return FALSE

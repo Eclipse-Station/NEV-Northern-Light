@@ -110,8 +110,8 @@
 			else
 				if (istype(H))
 					damage += max(0, (H.stats.getStat(STAT_ROB) / 10))
-					if (HULK in H.mutations)
-						damage *= 2
+//					if (HULK in H.mutations)
+//						damage *= 2
 
 				playsound(loc, "punch", 25, 1, -1)
 				M.visible_message("\red [M] has punched \the [src]")
@@ -124,9 +124,7 @@
 
 /mob/living/carbon/superior_animal/ex_act(severity)
 	..()
-	if(!blinded)
-		if (HUDtech.Find("flash"))
-			flick("flash", HUDtech["flash"])
+	flash(5, FALSE ,FALSE ,FALSE)
 
 	var/bomb_defense = getarmor(null, ARMOR_BOMB)
 	var/b_loss = null
@@ -144,7 +142,7 @@
 			if (prob(50))
 				Paralyse(1)
 			adjustEarDamage(15,60)
-		
+
 		if (4)
 			b_loss += 15
 			if (prob(25))
@@ -257,7 +255,7 @@
 
 /mob/living/carbon/superior_animal/rejuvenate()
 	density = initial(density)
-	layer = initial(layer)
+	reset_layer()
 
 	. = ..()
 
@@ -413,9 +411,9 @@
 	var/penetration = 0
 	if(istype(user, /mob/living))
 		var/mob/living/L = user
-		penetration = L.armor_penetration
+		penetration = L.armor_divisor
 
-	damage_through_armor(damage, BRUTE, attack_flag=ARMOR_MELEE, armour_pen=penetration)
+	damage_through_armor(damage, BRUTE, attack_flag=ARMOR_MELEE, armor_divisor=penetration)
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>")
 	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
 	src.visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))

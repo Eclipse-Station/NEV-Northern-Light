@@ -129,7 +129,7 @@
 	destination_tags = list(
 		"nav_skipjack_northwest",
 		"nav_skipjack_southeast",
-		"nav_skipjack_dock", 
+		"nav_skipjack_dock",
 		"nav_skipjack_start",
 		)
 	shuttle_area =  /area/skipjack_station/start
@@ -307,6 +307,7 @@
 
 //Cargo shuttle
 
+/* ECLIPSE EDIT - removed to prevent runtimes
 /datum/shuttle/autodock/ferry/supply/drone
 	name = "Supply Shuttle"
 	location = 1
@@ -324,3 +325,4 @@
 	name = "Dock"
 	landmark_tag = "nav_cargo_vessel"
 	dock_target = "cargo_bay"
+*/

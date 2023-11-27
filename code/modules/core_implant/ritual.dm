@@ -79,7 +79,7 @@
 /datum/ritual/proc/set_global_cooldown()
 	if(src.cooldown)
 		GLOB.global_ritual_cooldowns[src.cooldown_category] = TRUE
-		addtimer(CALLBACK(src, .proc/reset_global_cooldown), src.cooldown_time)
+		addtimer(CALLBACK(src, PROC_REF(reset_global_cooldown)), src.cooldown_time)
 //resets personal cooldown for user if he's not nil or resets global cooldown, internal proc
 /datum/ritual/proc/reset_global_cooldown()
 	GLOB.global_ritual_cooldowns[src.cooldown_category] = FALSE
@@ -159,12 +159,13 @@
 
 /proc/pick_disciple_global(var/mob/user, var/allow_dead = TRUE)
 	var/list/candidates = list()
-	for (var/mob/living/L in disciples)
-		if (QDELETED(L))
+	for(var/mob/living/L in disciples)
+		if(QDELETED(L))
 			continue
-		if (!allow_dead && L.stat == DEAD)
+		if(!allow_dead && L.stat == DEAD)
 			continue
-
+		if(get_active_mutation(L, MUTATION_ATHEIST))
+			continue
 		candidates += L
 
 	return input(user, "Who do you wish to target?", "Select a disciple") as null|mob in candidates

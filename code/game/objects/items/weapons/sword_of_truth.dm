@@ -2,6 +2,8 @@
 	name = "Sword of Truth"
 	desc = "Sword out of unknown alloy, humming from unknown power source."
 	icon = 'icons/obj/faction_item.dmi'
+	description_info = "Can be used to stun non-believers by using it in-hand"
+	description_antag = "Can be used to destroy departmental oddities on harm intent, boosting the EOTP's stats all round and adding observation."
 	icon_state = "nt_sword_truth"
 	item_state = "nt_sword_truth"
 	slot_flags = FALSE
@@ -26,7 +28,7 @@
 
 /obj/item/tool/sword/nt_sword/Destroy()
 	for(var/mob/living/carbon/human/H in viewers(get_turf(src)))
-		SEND_SIGNAL(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
+		SEND_SIGNAL_OLD(H, COMSIG_OBJ_FACTION_ITEM_DESTROY, src)
 	GLOB.all_faction_items -= src
 	GLOB.neotheology_faction_item_loss++
 	..()
@@ -100,7 +102,7 @@
 /obj/item/tool/sword/nt_sword/equipped(mob/living/M)
 	. = ..()
 	if(is_held() && is_neotheology_disciple(M))
-		embed_mult = 0.1
+		embed_mult = 0.2
 	else
 		embed_mult = initial(embed_mult)
 

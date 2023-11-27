@@ -14,7 +14,7 @@ var/global/list/minor_air_alarms = list()
 
 /obj/machinery/computer/atmos_alert/Initialize()
 	. = ..()
-	atmosphere_alarm.register_alarm(src, /atom.proc/update_icon)
+	atmosphere_alarm.register_alarm(src, TYPE_PROC_REF(/atom, update_icon))
 
 /obj/machinery/computer/atmos_alert/Destroy()
 	atmosphere_alarm.unregister_alarm(src)
@@ -23,9 +23,9 @@ var/global/list/minor_air_alarms = list()
 /obj/machinery/computer/atmos_alert/attack_hand(mob/user)
 	if(..())
 		return
-	ui_interact(user)
+	nano_ui_interact(user)
 
-/obj/machinery/computer/atmos_alert/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
+/obj/machinery/computer/atmos_alert/nano_ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = NANOUI_FOCUS)
 	var/data[0]
 	var/major_alarms[0]
 	var/minor_alarms[0]

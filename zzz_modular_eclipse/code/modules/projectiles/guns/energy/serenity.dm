@@ -13,7 +13,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	can_dual = TRUE
 	projectile_type = /obj/item/projectile/beam/midlaser
-	zoom_factor = 0
+	zoom_factors = list(0)
 	damage_multiplier = 1.4
 	origin_tech = null
 	self_recharge = TRUE

@@ -85,7 +85,7 @@ ADMIN_VERB_ADD(/client/proc/respawn_character_virgo, R_FUN, FALSE)
 			equipment = TRUE
 		else
 			equipment = FALSE
-	
+
 	//We can also add them to the player tracking system of the dispatcher
 	var/ptrack
 	if(charjob)
@@ -142,8 +142,8 @@ ADMIN_VERB_ADD(/client/proc/respawn_character_virgo, R_FUN, FALSE)
 
 	//Write the appearance and whatnot out to the character
 	picked_client.prefs.copy_to(new_character)
-	if(new_character.dna)
-		new_character.dna.ResetUIFrom(new_character)
+	if(new_character)
+		//new_character.ResetUIFrom(new_character)
 		new_character.sync_organ_dna()
 	if(inhabit)
 		new_character.key = player_key

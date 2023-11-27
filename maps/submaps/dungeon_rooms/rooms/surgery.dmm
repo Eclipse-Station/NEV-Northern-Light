@@ -14,9 +14,8 @@
 /turf/simulated/floor/tiled/cafe,
 /area/crawler)
 "e" = (
+/obj/effect/window_lwall_spawn/smartspawn/onestar,
 /obj/structure/curtain/medical,
-/obj/structure/low_wall,
-/obj/effect/window_lwall_spawn,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/crawler)
 "f" = (
@@ -43,7 +42,7 @@
 /area/crawler)
 "k" = (
 /obj/structure/window/reinforced,
-/obj/machinery/computer/operating{
+/obj/structure/salvageable/os/console_broken{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/cafe,
@@ -63,7 +62,7 @@
 /area/crawler)
 "o" = (
 /obj/structure/window/reinforced,
-/obj/machinery/computer/operating{
+/obj/structure/salvageable/os/console_broken{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/cafe,
@@ -112,6 +111,7 @@
 "w" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
+/obj/spawner/medical,
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)
 "x" = (
@@ -119,8 +119,7 @@
 /turf/simulated/floor/tiled/derelict,
 /area/crawler)
 "y" = (
-/obj/structure/low_wall,
-/obj/effect/window_lwall_spawn,
+/obj/effect/window_lwall_spawn/smartspawn/onestar,
 /turf/simulated/floor/tiled/derelict/white_small_edges,
 /area/crawler)
 "z" = (
@@ -143,6 +142,29 @@
 /area/crawler)
 "D" = (
 /obj/machinery/door/window/northleft,
+/turf/simulated/floor/tiled/cafe,
+/area/crawler)
+"F" = (
+/obj/structure/table/onestar,
+/obj/item/tool/medmultitool,
+/turf/simulated/floor/tiled/cafe,
+/area/crawler)
+"G" = (
+/obj/structure/table/onestar,
+/obj/spawner/surgery_tool,
+/obj/spawner/surgery_tool,
+/turf/simulated/floor/tiled/cafe,
+/area/crawler)
+"I" = (
+/obj/effect/floor_decal/industrial/outline,
+/obj/structure/table/rack,
+/obj/spawner/medical/low_chance,
+/turf/simulated/floor/tiled/derelict,
+/area/crawler)
+"R" = (
+/obj/structure/window/reinforced,
+/obj/structure/table/onestar,
+/obj/spawner/prothesis_one_star,
 /turf/simulated/floor/tiled/cafe,
 /area/crawler)
 
@@ -181,7 +203,7 @@ a
 "}
 (4,1,1) = {"
 a
-h
+F
 m
 j
 j
@@ -247,8 +269,8 @@ i
 "}
 (10,1,1) = {"
 a
-h
-m
+G
+R
 j
 j
 j
@@ -273,7 +295,7 @@ d
 o
 p
 s
-w
+I
 z
 c
 a

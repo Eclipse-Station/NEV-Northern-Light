@@ -30,7 +30,7 @@
 			AC.name = "SalonPro Nano-Mirror&trade;"
 			AC.flags = appearance_changer_flags
 			ui_users[user] = AC
-		AC.ui_interact(user)
+		AC.nano_ui_interact(user)
 
 /obj/structure/mirror/proc/shatter()
 	if(shattered)	return
@@ -86,6 +86,7 @@
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "mirror"
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_GLASS = 1)
 	var/list/ui_users = list()
 
 /obj/item/mirror/attack_self(mob/user as mob)
@@ -96,7 +97,7 @@
 			AC.name = "SalonPro Nano-Mirror&trade;"
 			AC.flags = APPEARANCE_HAIR
 			ui_users[user] = AC
-		AC.ui_interact(user)
+		AC.nano_ui_interact(user)
 
 /obj/item/mirror/Destroy()
 	for(var/user in ui_users)

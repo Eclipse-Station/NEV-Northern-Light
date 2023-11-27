@@ -6,7 +6,7 @@
 
 /datum/ritual/cruciform/agrolyte/accelerated_growth
 	name = "Accelerated growth"
-	phrase = "Plantae crescere in divinum lumen tua"
+	phrase = "Plantae crescere in divinum lumen tua."
 	desc = "This litany boosts the growth of all plants in sight for about ten minutes. "
 	cooldown = TRUE
 	cooldown_time = 5 MINUTES
@@ -36,17 +36,17 @@
 
 /datum/ritual/cruciform/agrolyte/accelerated_growth/proc/give_boost(datum/seed/S)
 	S.set_trait(TRAIT_BOOSTED_GROWTH, boost_value)
-	addtimer(CALLBACK(src, .proc/take_boost, S), effect_time)
+	addtimer(CALLBACK(src, PROC_REF(take_boost), S), effect_time)
 
 /datum/ritual/cruciform/agrolyte/accelerated_growth/proc/take_boost(datum/seed/S, stat, amount)
-	// take_boost is automatically triggered by a callback function when the boost ends but the seed 
+	// take_boost is automatically triggered by a callback function when the boost ends but the seed
 	// may have been deleted during the duration of the boost
 	if(S) // check if seed still exist otherwise we cannot read null.stats
 		S.set_trait(TRAIT_BOOSTED_GROWTH, 1)
 
 /datum/ritual/cruciform/agrolyte/mercy
 	name = "Hand of mercy"
-	phrase = "Non est verus dolor"
+	phrase = "Non est verus dolor."
 	desc = "Relieves the pain of a person in front of you."
 	power = 5
 
@@ -54,6 +54,10 @@
 	var/mob/living/carbon/human/T = get_front_human_in_range(user, 1)
 	if(!T)
 		fail("No target in front of you.", user, C)
+		return FALSE
+
+	if(get_active_mutation(T, MUTATION_ATHEIST))
+		fail("[T.name]\'s mutated flesh rejects your will.", user, C)
 		return FALSE
 
 	to_chat(T, SPAN_NOTICE("You feel slightly better as your pain eases."))
@@ -65,7 +69,7 @@
 
 /datum/ritual/cruciform/agrolyte/absolution
 	name = "Absolution of wounds"
-	phrase = "Surge et ambula"
+	phrase = "Surge et ambula."
 	desc = "Stabilizes the health of a person in front of you."
 	power = 10
 

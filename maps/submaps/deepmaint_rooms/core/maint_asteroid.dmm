@@ -56,17 +56,13 @@
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
 "ao" = (
-/obj/item/remains/human,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
 /obj/spawner/pack/gun_loot,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/plating/under,
 /area/deepmaint)
 "ap" = (
-/obj/item/remains/human,
-/obj/spawner/pack/cloth,
-/obj/spawner/pack/cloth,
 /obj/spawner/pack/gun_loot,
+/obj/landmark/corpse/skeleton/maint,
 /turf/simulated/floor/asteroid,
 /area/deepmaint)
 "aq" = (
@@ -312,6 +308,10 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/steel/brown_perforated,
+/area/deepmaint)
+"Yi" = (
+/obj/machinery/vending/plant_gene,
+/turf/simulated/floor/asteroid,
 /area/deepmaint)
 
 (1,1,1) = {"
@@ -654,7 +654,7 @@ af
 af
 af
 af
-af
+Yi
 ah
 ab
 ab

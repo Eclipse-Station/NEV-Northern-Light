@@ -281,10 +281,51 @@
 	var/mob/living/carbon/human/host = L
 	if(istype(host))
 		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
-			if(host != H && H.dna)
-				uni_identity = H.dna.uni_identity
+			if(host != H && H.fingers_trace)
+				host.fingers_trace = H.fingers_trace
 				return
 
 /datum/reagent/nanites/uncapped/dynamic_handprints/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	if(..())
 		M.add_chemical_effect(CE_DYNAMICFINGERS, uni_identity)
+
+// FBP med - simple nanites for dealing with wounds and applying robo-chem effects
+/datum/reagent/nanites/fbp
+	name = "simple nanobots"
+	description = "Microscopic construction robots. Useless without programming and have limited use."
+	id = "dont use these either"
+	constant_metabolism = TRUE
+
+/datum/reagent/nanites/fbp/will_occur(mob/living/carbon/M, alien, var/location)
+	if(location == CHEM_INGEST)
+		return TRUE
+
+// "Blood" clot
+/datum/reagent/nanites/fbp/repair
+	name = "repair nanites"
+	description = "Microscopic construction robots programmed to repair internal components."
+	id = "fbp_repair"
+	overdose = REAGENTS_OVERDOSE / 6
+
+/datum/reagent/nanites/fbp/repair/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
+	if(!..())
+		return
+	M.add_chemical_effect(CE_MECH_REPAIR, 0.25)
+
+/datum/reagent/nanites/fbp/repair/overdose(mob/living/carbon/M, alien)
+	if(!..())
+		return
+	M.add_chemical_effect(CE_MECH_REPAIR, 0.75)
+
+/* Uncomment when CE_MECH_REPLENISH has a use
+// "Blood" restore
+/datum/reagent/nanites/fbp/replenish
+	name = "replenishing nanobots"
+	description = "Microscopic construction robots programmed to replenish internal fluids."
+	id = "fbp_replenish"
+
+/datum/reagent/nanites/fbp/replenish/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
+	if(!..())
+		return
+	M.add_chemical_effect(CE_MECH_REPLENISH, 1)
+*/

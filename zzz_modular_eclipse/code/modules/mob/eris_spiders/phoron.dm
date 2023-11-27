@@ -14,7 +14,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/spider
 	meat_amount = 4
 	emote_see = list("chitters.","rubs its legs.","vibrates.")
-	armor_penetration = 50
+	armor_divisor = ARMOR_PEN_MODERATE
 	rarity_value = 90
 	var/exploded = FALSE
 	var/impending_explosion = FALSE

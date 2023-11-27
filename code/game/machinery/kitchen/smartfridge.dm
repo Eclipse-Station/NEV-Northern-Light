@@ -36,6 +36,24 @@
 
 
 /*******************
+*   Disk Storage
+********************/
+/obj/machinery/smartfridge/disks
+	name = "\improper Disks Storage"
+	desc = "When you need disks fast!"
+	icon_state = "smartfridge"
+	icon_fill10 = "diskfridge-fill10"
+	icon_fill20 = "diskfridge-fill20"
+	icon_fill30 = "diskfridge-fill30"
+
+/obj/machinery/smartfridge/disks/accept_check(var/obj/item/O as obj)
+	if(istype(O,/obj/item/computer_hardware/hard_drive/portable))
+		return 1
+	return 0
+
+
+
+/*******************
 *   Seed Storage
 ********************/
 /obj/machinery/smartfridge/seeds
@@ -344,7 +362,7 @@
 	if(stat & (NOPOWER|BROKEN))
 		return
 	wires.Interact(user)
-	ui_interact(user)
+	nano_ui_interact(user)
 
 
 /obj/machinery/smartfridge/proc/update_contents()
@@ -355,7 +373,7 @@
 *   SmartFridge Menu
 ********************/
 
-/obj/machinery/smartfridge/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/smartfridge/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 	user.set_machine(src)
 
 	var/data[0]
@@ -419,7 +437,7 @@
 		return 1
 	return 0
 
-/obj/machinery/smartfridge/proc/throw_item()
+/obj/machinery/smartfridge/throw_item()
 	var/obj/throw_item = null
 	var/mob/living/target = locate() in view(7,src)
 	if(!target)

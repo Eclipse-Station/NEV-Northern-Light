@@ -219,7 +219,7 @@
 	name = "Emo Fringe"
 	icon_state = "emofringe"
 
-/datum/sprite_accessory/hair/fag
+/datum/sprite_accessory/hair/flow
 	name = "Flow"
 	icon_state = "flowhair"
 
@@ -717,3 +717,12 @@
 /datum/sprite_accessory/hair/bedhead_longest
 	name = "Bedhead Longest"
 	icon_state = "hair_longest_bedhead"
+	icon_state = "zone"
+
+/datum/sprite_accessory/hair/croft
+	name = "Croft"
+	icon_state = "croft"
+
+/datum/sprite_accessory/hair/row_braid
+	name = "Row Braid"
+	icon_state = "row_braid"

@@ -24,6 +24,7 @@
 #define DEPARTMENT_CIVILIAN	"Civilian"
 #define DEPARTMENT_CHURCH	"Church"
 #define DEPARTMENT_OFFSHIP "Offship"
+#define DEPARTMENT_SILICON "Silicon"
 
 //Eclipse Additions for manual whitelist behaviour
 //(refer to /code/game/jobs/job/job_eclipse.dm for manual and explanations)

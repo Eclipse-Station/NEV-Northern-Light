@@ -18,6 +18,7 @@
 /obj/item/gun_upgrade/underbarrel/bipod
 	name = "bipod"
 	desc = "A simple set of telescopic poles to keep a weapon stabilized during firing. It greatly reduces recoil when deployed, but also increases the gun\'s weight, making it unwieldy unless braced."
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTEEL = 3)
 	icon_state = "bipod"
 	rarity_value = 15
 
@@ -55,6 +56,7 @@
 /obj/item/gun_upgrade/barrel/forged
 	name = "forged barrel"
 	desc = "Despite advancements in 3D printing, a properly forged plasteel barrel can still outperform anything that comes from an autolathe."
+	matter = list(MATERIAL_PLASTEEL = 5)
 	icon_state = "Forged_barrel"
 	rarity_value = 10
 
@@ -70,6 +72,7 @@
 /obj/item/gun_upgrade/barrel/blender
 	name = "\improper OR \"Bullet Blender\" barrel"
 	desc = "A curious-looking barrel bearing the Oberth insignia. A small label reads \"No refunds for any collateral damage caused\"."
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_PLASTEEL = 3, MATERIAL_DIAMOND = 1)
 	icon_state = "Penetrator"
 	rarity_value = 30
 
@@ -77,11 +80,11 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-		GUN_UPGRADE_PEN_MULT = 0.2,
+		GUN_UPGRADE_PEN_MULT = -0.2,
 		GUN_UPGRADE_PIERC_MULT = 3,
 		GUN_UPGRADE_RICO_MULT = 5,
 		GUN_UPGRADE_STEPDELAY_MULT = 0.6,
-		GUN_UPGRADE_RECOIL = 1.4
+		GUN_UPGRADE_RECOIL = 1.2
 		)
 	I.gun_loc_tag = GUN_BARREL
 	I.req_gun_tags = list(GUN_PROJECTILE)
@@ -91,7 +94,7 @@
 	name = "\improper NanoTrasen \"EXCRUCIATOR\" giga lens"
 	desc = "It's time for us to shine."
 	icon_state = "Excruciator"
-	matter = list(MATERIAL_BIOMATTER = 3, MATERIAL_PLASTEEL = 1, MATERIAL_GOLD = 1, MATERIAL_GLASS = 1)
+	matter = list(MATERIAL_BIOMATTER = 3, MATERIAL_PLASTEEL = 2, MATERIAL_GOLD = 2, MATERIAL_GLASS = 1)
 	rarity_value = 50
 
 /obj/item/gun_upgrade/barrel/excruciator/New()
@@ -111,6 +114,7 @@
 /obj/item/gun_upgrade/trigger/dangerzone
 	name = "\improper Frozen Star \"Danger Zone\" Trigger"
 	desc = "When you need that extra edge."
+	matter = list(MATERIAL_PLASTEEL = 2, MATERIAL_SILVER = 1)
 	icon_state = "Danger_Zone"
 	rarity_value = 15
 
@@ -128,6 +132,7 @@
 /obj/item/gun_upgrade/trigger/cop_block
 	name = "\improper Frozen Star \"Cop Block\" Trigger"
 	desc = "A simpler way of making a weapon display-only"
+	matter = list(MATERIAL_PLASTEEL = 2)
 	icon_state = "Cop_Block"
 	rarity_value = 15
 
@@ -144,6 +149,7 @@
 /obj/item/gun_upgrade/trigger/dnalock
 	name = "\improper Frozen Star \"DNA lock\" Trigger"
 	desc = "There are many guns, but that one will be yours. Prevents others from using weapon with this trigger."
+	matter = list(MATERIAL_PLASTEEL = 2, MATERIAL_DIAMOND = 1)
 	icon_state = "DNA_lock"
 	rarity_value = 15
 
@@ -165,6 +171,7 @@
 /obj/item/gun_upgrade/mechanism/overshooter
 	name = "\improper Frozen Star \"Overshooter\" internal magazine kit"
 	desc = "A method of overloading a weapon's internal magazine, fitting more ammunition within the weapon."
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTEEL = 4, MATERIAL_PLASTIC = 4)
 	icon_state = "Overshooter"
 	rarity_value = 20
 
@@ -181,6 +188,7 @@
 /obj/item/gun_upgrade/mechanism/glass_widow
 	name = "\improper Syndicate \"Glass Widow\" infuser"
 	desc = "An illegal modification, used to make formerly useless civilian-grade weaponry into something much more lethal."
+	matter = list(MATERIAL_STEEL = 2, MATERIAL_URANIUM = 3)
 	icon_state = "Glass_Widow"
 	rarity_value = 50
 	spawn_blacklisted = TRUE
@@ -189,7 +197,7 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-		GUN_UPGRADE_DAMAGE_RADIATION = 100
+		GUN_UPGRADE_DAMAGE_RADIATION = 25
 	)
 	I.req_gun_tags = list(GUN_PROJECTILE, GUN_CALIBRE_35)
 	I.gun_loc_tag = GUN_MECHANISM
@@ -198,6 +206,7 @@
 /obj/item/gun_upgrade/mechanism/weintraub
 	name = "\improper Frozen Star \"Weintraub\" full auto kit"
 	desc = "A fully automatic receiver for rifles"
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTEEL = 3)
 	icon_state = "Weintraub"
 	rarity_value = 30
 
@@ -215,6 +224,7 @@
 /obj/item/gun_upgrade/mechanism/reverse_loader
 	name = "\improper Syndicate reverse loader"
 	desc = "Makes bullets loaded into the weapon fire backwards, into its user."
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASTEEL = 3, MATERIAL_PLASTIC = 3)
 	icon_state = "Reverse_loader"
 	spawn_blacklisted = TRUE
 
@@ -242,10 +252,12 @@
 	new /obj/item/tool_upgrade/productivity/ergonomic_grip(src)
 	new /obj/item/tool_upgrade/refinement/laserguide(src)
 	new /obj/item/tool_upgrade/augment/ai_tool(src)
+	new /obj/item/tool_upgrade/refinement/gravenhancer(src)
 
 /obj/item/gun_upgrade/trigger/boom
 	name = "\improper Syndicate \"Self Destruct\" trigger"
 	desc = "Trigger that shorts the battery of an energy weapon, causing it to explode when fired."
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_SILVER = 3)
 	icon_state = "Boom"
 	spawn_blacklisted = TRUE
 
@@ -265,6 +277,7 @@
 /obj/item/gun_upgrade/scope/watchman
 	name = "\improper Frozen Star \"Watchman\" scope"
 	desc = "Scope that can be attached to an average gun."
+	matter = list(MATERIAL_GLASS = 2, MATERIAL_PLASTEEL = 2)
 	icon_state = "Watchman"
 
 /obj/item/gun_upgrade/scope/watchman/New()
@@ -280,6 +293,7 @@
 /obj/item/gun_upgrade/scope/killer
 	name = "\improper Syndicate \"Contract Killer\" scope"
 	desc = "Scope used for sniping from large distances."
+	matter = list(MATERIAL_PLASMAGLASS = 3, MATERIAL_PLASTEEL = 3)
 	icon_state = "Killer"
 	spawn_blacklisted = TRUE
 
@@ -297,6 +311,7 @@
 /obj/item/gun_upgrade/mechanism/gravcharger
 	name = "makeshift bullet time generator"
 	desc = "When attached to a gun, this device bends time and space to create a localized microgravity field around each bullet, with peculiar results"
+	matter = list(MATERIAL_STEEL = 3, MATERIAL_PLASMA = 2, MATERIAL_PLASTEEL = 2, MATERIAL_URANIUM = 2)
 	icon_state = "gravbarrel"
 	rarity_value = 20
 
@@ -362,7 +377,7 @@
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
 		GUN_UPGRADE_OFFSET = rand(5,15),
-		GUN_UPGRADE_PEN_MULT = rand(0.8,1.2),
+		GUN_UPGRADE_PEN_MULT = rand(-0.2,0.2),
 		GUN_UPGRADE_DAMAGE_MULT = rand(0.8,1.2)
 	)
 	I.destroy_on_removal = TRUE
@@ -380,7 +395,7 @@
 	..()
 	var/datum/component/item_upgrade/I = AddComponent(/datum/component/item_upgrade)
 	I.weapon_upgrades = list(
-		GUN_UPGRADE_PEN_MULT = rand(4,9)/10,
+		GUN_UPGRADE_PEN_MULT = -rand(0.1,0.6)/10,
 		GUN_UPGRADE_STEPDELAY_MULT = rand(10,12)/10,
 		GUN_UPGRADE_SILENCER = TRUE
 	)
@@ -487,6 +502,7 @@
 /obj/item/gun_upgrade/scope/better
 	name = "high-res scope"
 	desc = "A high resolution scope"
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_PLASMAGLASS = 3)
 	spawn_blacklisted = TRUE
 	price_tag = 100
 

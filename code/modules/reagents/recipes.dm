@@ -116,6 +116,8 @@
 			var/datum/gas_mixture/GM = location.return_air()
 			if(GM.return_pressure() > maximum_pressure)
 				return FALSE
+		else
+			return FALSE
 
 
 	return TRUE
@@ -219,7 +221,7 @@
 	return null
 
 // UI data used by chemical catalog
-/datum/chemical_reaction/ui_data()
+/datum/chemical_reaction/nano_ui_data()
 	var/list/dat = list()
 	if(required_reagents)
 		dat["reagents"] = list()
@@ -404,6 +406,12 @@
 	result = "ryetalyn"
 	required_reagents = list("arithrazine" = 1, "carbon" = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/kognim
+	result = "kognim"
+	required_reagents = list("radium" = 1, "ryetalyn" = 2, "synaptizine" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/negative_ling
 	result = "negativeling"
 	required_reagents = list("ryetalyn" = 1, "carbon" = 1)
@@ -545,7 +553,11 @@
 	result = "coolant"
 	required_reagents = list("tungsten" = 1, "acetone" = 1, "water" = 1)
 	result_amount = 3
-	log_is_important = 1
+
+/datum/chemical_reaction/refrigerant
+	result = "refrigerant"
+	required_reagents = list("carbon" = 1, "acetone" = 1, "water" = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/rezadone
 	result = "rezadone"
@@ -609,7 +621,7 @@
 
 /datum/chemical_reaction/uraniumsolidification
 	result = null
-	required_reagents = list("iron" = 5, "frostoil" = 5, "uranium" = 20)
+	required_reagents = list("aluminum" = 5, "frostoil" = 10, "uranium" = 20)
 	result_amount = 1
 
 /datum/chemical_reaction/uraniumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -669,22 +681,12 @@
 	for(var/mob/living/carbon/M in viewers(world.view, location))
 		switch(get_dist(M, location))
 			if(0 to 3)
-				if(hasvar(M, "glasses"))
-					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
-						continue
-
-				if (M.HUDtech.Find("flash"))
-					flick("e_flash", M.HUDtech["flash"])
-				M.Weaken(15)
+				if(M.eyecheck() <= FLASH_PROTECTION_MAJOR)
+					M.flash(15, FALSE , FALSE , FALSE)
 
 			if(4 to 5)
-				if(hasvar(M, "glasses"))
-					if(istype(M:glasses, /obj/item/clothing/glasses/sunglasses))
-						continue
-
-				if (M.HUDtech.Find("flash"))
-					flick("e_flash", M.HUDtech["flash"])
-				M.Stun(5)
+				if(M.eyecheck() <= FLASH_PROTECTION_MAJOR)
+					M.flash(0, FALSE , FALSE , FALSE)
 
 /datum/chemical_reaction/emp_pulse
 	result = null
@@ -991,7 +993,7 @@
 /datum/chemical_reaction/slime
 	var/required = null
 
-/datum/chemical_reaction/slime/ui_data()
+/datum/chemical_reaction/slime/nano_ui_data()
 	var/list/dat = ..()
 	dat["required_object"] = required
 	return dat
@@ -1085,8 +1087,7 @@
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
-			if (M.HUDtech.Find("flash"))
-				flick("e_flash", M.HUDtech["flash"])
+			M.flash(0, FALSE , FALSE , FALSE, 0) // flashed by the gods or something idk
 
 	for(var/i = 1, i <= 4 + rand(1,2), i++)
 		var/chosen = pick(borks)
@@ -2166,3 +2167,31 @@
 	result = "kaiserbeer"
 	required_reagents = list("fuhrerole" = 1, "kaiseraurum" = 1, "roachbeer" = 2)
 	result_amount = 2
+
+/* Other */
+
+/datum/chemical_reaction/protein_shake
+	result = "protein_shake"
+	required_reagents = list("milk" = 1, "protein" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/suppressital
+	result = "suppressital"
+	required_reagents = list("blood" = 1, "citalopram" = 1)
+	result_amount = 2
+	maximum_temperature = 12.7
+	minimum_temperature = 7.7
+
+/* FBP "medicine" */
+
+/datum/chemical_reaction/fbp_repair
+	result = "fbp_repair"
+	required_reagents = list("nanites" = 1, "silicon" = 1)
+	result_amount = 2
+
+/* Uncomment when CE_MECH_REPLENISH has a use
+/datum/chemical_reaction/fbp_replenish
+	result = "fbp_replenish"
+	required_reagents = list("nanites" = 1, "oil" = 1)
+	result_amount = 2
+*/
