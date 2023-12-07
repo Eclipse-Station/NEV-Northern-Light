@@ -8,8 +8,7 @@
 	spawn_tags = SPAWN_TAG_CLOSET
 
 
-/obj/structure/closet/bombcloset/populate_contents()
-	new /obj/structure/mopbucket(src)
+/obj/structure/closet/mopcloset/populate_contents()
 	new /obj/item/reagent_containers/glass/bucket(src)
 	new /obj/item/mop(src)
 	new /obj/item/soap/nanotrasen(src)
