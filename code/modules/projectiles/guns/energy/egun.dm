@@ -15,12 +15,20 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	modifystate = "energystun"
 	item_modifystate = "stun"
+	init_recoil = SMG_RECOIL(1)
 
 	init_firemodes = list(
 		STUNBOLT,
 		LETHAL,
 		WEAPON_CHARGE,
 		)
+	serial_type = "FS"
+
+/obj/item/gun/energy/gun/update_icon()
+	..()
+	if(wielded)
+		set_item_state(item_state)
+
 
 /obj/item/gun/energy/gun/mounted
 	name = "mounted energy gun"
@@ -46,6 +54,9 @@
 	modifystate = null
 	suitable_cell = /obj/item/cell/small
 	cell_type = /obj/item/cell/small
+	init_recoil = HANDGUN_RECOIL(1)
+
+	serial_type = "FS"
 
 	spawn_tags = SPAWN_TAG_FS_ENERGY
 
@@ -57,8 +68,10 @@
 		overlays += "taser_pdw"
 	else
 		overlays += "lazer_pdw"
+	update_held_icon()
 
 /obj/item/gun/energy/gun/martin/update_icon()
 	cut_overlays()
+	wielded_item_state = null
 	if(cell && cell.charge >= charge_cost) //no overlay if we dont have any power
 		update_mode()

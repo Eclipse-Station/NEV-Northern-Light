@@ -1,18 +1,21 @@
 /obj/item/gun/projectile/revolver/handmade
-	name = "handmade revolver"
-	desc = "A handmade revolver, made from gun parts and some duct tape. Will it even hold up?"
+	name = "hand-tooled REV .40 Magnum \"Cartel\"" //Eclipse Edit - standardized gun names
+	desc = "A handmade revolver built with junk, duct tape and dubious engineering skills. Will it even work?"
 	icon = 'icons/obj/guns/projectile/handmade_revolver.dmi'
 	icon_state = "handmade_revolver"
 	caliber = CAL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
-	max_shells = 5
-	matter = list(MATERIAL_PLASTIC = 10, MATERIAL_STEEL = 15)
+	max_shells = 6
+	matter = list(MATERIAL_STEEL = 10, MATERIAL_WOOD = 5)
 	price_tag = 250 //one of the cheapest revolvers here
-	damage_multiplier = 1.3
-	recoil_buildup = 7
+	damage_multiplier = 1.25
+	penetration_multiplier = 0.1
+	init_recoil = HANDGUN_RECOIL(1.2)
 	gun_parts = list(/obj/item/part/gun = 1 ,/obj/item/stack/material/steel = 15)
 	spawn_blacklisted = FALSE
 	spawn_tags = SPAWN_TAG_GUN_HANDMADE
+	serial_type = ""
+	gun_parts = list(/obj/item/part/gun/frame/revolver_handmade = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/revolver/steel = 1, /obj/item/part/gun/modular/barrel/magnum/steel = 1)
 
 /obj/item/gun/projectile/revolver/handmade/attackby(obj/item/W, mob/user)
 	if(QUALITY_SCREW_DRIVING in W.tool_qualities)
@@ -34,3 +37,12 @@
 			to_chat(user, SPAN_WARNING("You cannot rechamber a loaded firearm!"))
 			return
 	..()
+/obj/item/part/gun/frame/revolver_handmade
+	name = "handmade revolver frame"
+	desc = "A handmade revolver. The second most ancient gun design, made with scrap and spit."
+	icon_state = "frame_revolver_hm"
+	matter = list(MATERIAL_STEEL = 5)
+	resultvars = list(/obj/item/gun/projectile/revolver/handmade)
+	gripvars = list(/obj/item/part/gun/modular/grip/wood)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/revolver/steel
+	barrelvars = list(/obj/item/part/gun/modular/barrel/magnum/steel, /obj/item/part/gun/modular/barrel/pistol/steel)

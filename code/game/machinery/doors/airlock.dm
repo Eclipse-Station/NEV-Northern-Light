@@ -3,6 +3,8 @@ GLOBAL_LIST_EMPTY(wedge_icon_cache)
 /obj/machinery/door/airlock
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorint.dmi'
+	description_info = "Can be forced to remain open by leaving in a decently sized tool such as a wrench or crowbar. Can also be deconstructed by cutting all wires other than the bolt wire, welding, and then trying to crowbar it with its panel open. The bolts can be forced upwards if the door is unpowered with a hammering tool"
+	description_antag = "Can have signalers attached to the wires. Letting you get alerts whenever someone uses a door"
 	icon_state = "door_closed"
 	power_channel = STATIC_ENVIRON
 
@@ -31,7 +33,7 @@ GLOBAL_LIST_EMPTY(wedge_icon_cache)
 	autoclose = 1
 	var/assembly_type = /obj/structure/door_assembly
 	var/mineral
-	var/justzap = 0
+	var/last_zap // Timestamp
 	var/safe = 1
 	normalspeed = 1
 	var/obj/item/electronics/airlock/electronics
@@ -426,22 +428,10 @@ There are 9 wires.
 
 
 /obj/machinery/door/airlock/bumpopen(mob/living/user) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
-	if(!issilicon(usr))
-		if(src.isElectrified())
-			if(!src.justzap)
-				if(src.shock(user, 100))
-					src.justzap = 1
-					spawn (10)
-						src.justzap = 0
-					return FALSE
-			else /*if(src.justzap)*/
-				return FALSE
-		else if(prob(10) && src.operating == 0)
-			var/mob/living/carbon/C = user
-			if(istype(C) && C.hallucination_power > 25)
-				to_chat(user, "<span class='danger'>You feel a powerful shock course through your body!</span>")
-				user.adjustHalLoss(10)
-				user.Stun(10)
+	if(!issilicon(user) && isElectrified())
+		if(!last_zap || (last_zap + 1 SECOND) < world.time)
+			if(shock(user, 100))
+				last_zap = world.time
 				return FALSE
 	..()
 
@@ -484,12 +474,12 @@ There are 9 wires.
 /obj/machinery/door/airlock/proc/loseMainPower()
 	main_power_lost_until = mainPowerCablesCut() ? -1 : SecondsToTicks(60)
 	if(main_power_lost_until > 0)
-		addtimer(CALLBACK(src, .proc/regainMainPower), main_power_lost_until)
+		addtimer(CALLBACK(src, PROC_REF(regainMainPower)), main_power_lost_until)
 
 	// If backup power is permanently disabled then activate in 10 seconds if possible, otherwise it's already enabled or a timer is already running
 	if(backup_power_lost_until == -1 && !backupPowerCablesCut())
 		backup_power_lost_until = SecondsToTicks(10)
-		addtimer(CALLBACK(src, .proc/regainBackupPower), backup_power_lost_until)
+		addtimer(CALLBACK(src, PROC_REF(regainBackupPower)), backup_power_lost_until)
 
 	// Disable electricity if required
 	if(electrified_until && isAllPowerLoss())
@@ -498,7 +488,7 @@ There are 9 wires.
 /obj/machinery/door/airlock/proc/loseBackupPower()
 	backup_power_lost_until = backupPowerCablesCut() ? -1 : SecondsToTicks(60)
 	if(backup_power_lost_until > 0)
-		addtimer(CALLBACK(src, .proc/regainBackupPower), backup_power_lost_until)
+		addtimer(CALLBACK(src, PROC_REF(regainBackupPower)), backup_power_lost_until)
 
 	// Disable electricity if required
 	if(electrified_until && isAllPowerLoss())
@@ -536,7 +526,7 @@ There are 9 wires.
 		message = "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
 		electrified_until = duration == -1 ? -1 : SecondsToTicks(duration)
 		if(electrified_until > 0)
-			addtimer(CALLBACK(src, .proc/electrify), electrified_until)
+			addtimer(CALLBACK(src, PROC_REF(electrify)), electrified_until)
 
 	if(feedback && message)
 		to_chat(usr, message)
@@ -720,9 +710,9 @@ There are 9 wires.
 
 /obj/machinery/door/airlock/attack_ai(mob/user as mob)
 	if(!isblitzshell(user))
-		ui_interact(user)
+		nano_ui_interact(user)
 
-/obj/machinery/door/airlock/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/door/airlock/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS, var/datum/nano_topic_state/state = GLOB.default_state)
 	var/data[0]
 
 	data["main_power_loss"]		= round(main_power_lost_until 	> 0 ? max(main_power_lost_until - world.time,	0) / 10 : main_power_lost_until,	1)
@@ -972,7 +962,7 @@ There are 9 wires.
 		hit(user, I)
 		return
 
-	var/tool_type = I.get_tool_type(user, list(QUALITY_PRYING, QUALITY_SCREW_DRIVING, QUALITY_WELDING, p_open ? QUALITY_PULSING : null), src)
+	var/tool_type = I.get_tool_type(user, list(QUALITY_PRYING, QUALITY_SCREW_DRIVING, QUALITY_WELDING, p_open ? QUALITY_PULSING : null, p_open ? QUALITY_HAMMERING : null), src)
 	switch(tool_type)
 		if(QUALITY_PRYING)
 			if(!repairing)
@@ -1041,6 +1031,17 @@ There are 9 wires.
 			else
 				..()
 			return
+
+		if(QUALITY_HAMMERING)
+			if(stat & NOPOWER && locked)
+				to_chat(user, SPAN_NOTICE("You start hammering the bolts into the unlocked position"))
+				// long time and high chance to fail.
+				if(I.use_tool(user, src, WORKTIME_LONG, tool_type, FAILCHANCE_VERY_HARD, required_stat = STAT_MEC))
+					to_chat(user, SPAN_NOTICE("You unbolt the door."))
+					locked = FALSE
+			else
+				to_chat(user, SPAN_NOTICE("You can\'t hammer away the bolts if the door is powered or not bolted."))
+				return
 
 
 		if(ABORT_CHECK)
@@ -1203,7 +1204,7 @@ There are 9 wires.
 			for(var/atom/movable/AM in turf)
 				if(AM.blocks_airlock())
 					if(autoclose && tryingToLock)
-						addtimer(CALLBACK(src, .proc/close), 30 SECONDS)
+						addtimer(CALLBACK(src, PROC_REF(close)), 30 SECONDS)
 					if(world.time > next_beep_at)
 						playsound(loc, 'sound/machines/buzz-two.ogg', 30, 1, -1)
 						next_beep_at = world.time + SecondsToTicks(10)

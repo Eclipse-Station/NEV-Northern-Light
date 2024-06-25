@@ -70,7 +70,7 @@
 
 		//Organs and blood
 		handle_organs()
-		process_internal_ograns()
+		process_internal_organs()
 		handle_blood()
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
@@ -186,37 +186,16 @@
 			if(equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
 				eye_blurry = max(eye_blurry-2, 0)
 
-	if (disabilities & EPILEPSY)
-		if ((prob(1) && paralysis < 1))
-			to_chat(src, "\red You have a seizure!")
-			for(var/mob/O in viewers(src, null))
-				if(O == src)
-					continue
-				O.show_message(text(SPAN_DANGER("[src] starts having a seizure!")), 1)
-			Paralyse(10)
-			make_jittery(1000)
-	if (disabilities & COUGHING)
-		if ((prob(5) && paralysis <= 1))
-			drop_item()
-			spawn( 0 )
-				emote("cough")
-				return
-	if (disabilities & TOURETTES)
-		speech_problem_flag = 1
-		if ((prob(10) && paralysis <= 1))
-			Stun(10)
-			spawn( 0 )
-				switch(rand(1, 3))
-					if(1)
-						emote("twitch")
-					if(2 to 3)
-						say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]")
-				make_jittery(100)
-				return
-	if (disabilities & NERVOUS)
-		speech_problem_flag = 1
-		if (prob(10))
-			stuttering = max(10, stuttering)
+//	if (disabilities & COUGHING)
+//		if ((prob(5) && paralysis <= 1))
+//			drop_item()
+//			spawn( 0 )
+//				emote("cough")
+//				return
+//	if (disabilities & NERVOUS)
+//		speech_problem_flag = 1
+//		if (prob(10))
+//			stuttering = max(10, stuttering)
 
 	if(stat != DEAD)
 		var/rn = rand(0, 200)
@@ -246,28 +225,50 @@
 	if(in_stasis)
 		return
 
-	if(getFireLoss())
-		if((COLD_RESISTANCE in mutations) || (prob(1)))
-			heal_organ_damage(0,1)
+	if(mutation_index)
+		if(get_active_mutation(src, MUTATION_REJECT))
+			for(var/obj/item/organ/external/limb in organs)
+				for(var/obj/thing in limb.implants)
+					if(istype(thing, /obj/item/implant))
+						var/obj/item/implant/implant = thing
+						implant.uninstall()
+						implant.malfunction = MALFUNCTION_PERMANENT
+					else
+						limb.remove_item(thing)
+					limb.take_damage(rand(15, 30))
+					visible_message(SPAN_DANGER("[thing.name] rips through [src]'s [limb.name]."),\
+					SPAN_DANGER("[thing.name] rips through your [limb.name]."))
 
-	// DNA2 - Gene processing.
-	// The HULK stuff that was here is now in the hulk gene.
-	for(var/datum/dna/gene/gene in dna_genes)
-		if(!gene.block)
-			continue
-		if(gene.is_active(src))
-			speech_problem_flag = 1
-			gene.OnMobLife(src)
+				if(BP_IS_ROBOTIC(limb))
+					visible_message(SPAN_DANGER("[src]'s [limb.name] tears off."),
+					SPAN_DANGER("Your [limb.name] tears off."))
+					limb.droplimb()
+					update_implants()
+
+		if(health != maxHealth)
+			if(get_active_mutation(src, MUTATION_GREATER_HEALING))
+				// Effects of kelotane, bicaridine (minus percentage healing) and tricordrazine
+				adjustOxyLoss(-0.6)
+				heal_organ_damage(0.6, 0.6)
+				adjustToxLoss(-0.3)
+				add_chemical_effect(CE_BLOODCLOT, 0.15)
+
+			else if(get_active_mutation(src, MUTATION_LESSER_HEALING))
+				// Effects of tricordrazine
+				adjustOxyLoss(-0.6)
+				heal_organ_damage(0.3, 0.3)
+				adjustToxLoss(-0.3)
+				add_chemical_effect(CE_BLOODCLOT, 0.1)
 
 	radiation = CLAMP(radiation,0,100)
 
-	if (radiation)
+	if(radiation)
 		var/damage = 0
 		radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 		if(prob(25))
 			damage = 1
 
-		if (radiation > 50)
+		if(radiation > 50)
 			damage = 1
 			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 			if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
@@ -283,7 +284,7 @@
 					f_style = "Shaved"
 					update_hair()
 
-		if (radiation > 75)
+		if(radiation > 75)
 			radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 			damage = 3
 			if(prob(5))
@@ -373,7 +374,7 @@
 		return FALSE
 	//vars - feel free to modulate if you want more effects that are not gained with efficiency
 	var/breath_type = species.breath_type ? species.breath_type : "oxygen"
-	var/poison_type = species.poison_type ? species.poison_type : "plasma"
+	var/poison_type = species.poison_type ? species.poison_type : "phoron"
 	var/exhale_type = species.exhale_type ? species.exhale_type : 0
 
 	var/min_breath_pressure = species.breath_pressure
@@ -382,10 +383,6 @@
 	var/safe_toxins_max = 0.2
 	var/SA_para_min = 1
 	var/SA_sleep_min = 5
-
-	//Eclipse added vars
-	var/chloramine_warn_min = 0.4		//Temporarily the same as nitrous oxide for testing. TODO - SET THIS TO A DECENT VALUE
-	var/chloramine_toxic_min = 2
 
 	var/lung_efficiency = get_organ_efficiency(OP_LUNGS)
 
@@ -479,41 +476,6 @@
 
 		breath.adjust_gas("sleeping_agent", -breath.gas["sleeping_agent"]/6, update = 0) //update after
 
-	// // // BEGIN ECLIPSE EDITS // // //
-	// Chloramines. Lachrymator agent, surprisingly only mildly toxic.
-	if(breath.gas["trichloramine"] || breath.gas["monochloramine"])
-		var/chloramine_pp = ((breath.gas["trichloramine"] + breath.gas["monochloramine"]) / breath.total_moles) * breath_pressure
-		var/ratio = ((breath.gas["trichloramine"]+breath.gas["monochloramine"]) * 5)
-
-	//Right. Let's get this party started.
-
-		if(chloramine_pp >= chloramine_warn_min)		//If we're less than or equal to the minimum we care about, forget it.
-			//Go ahead and define the notif variable.
-			var/notif = "Alan, write some dialogue here!"		//Calm down, Gage. If the player sees this, it's not set for some reason.
-
-			if(chloramine_pp >= chloramine_toxic_min)
-				notif = pick("Your eyes sting!","Your throat burns!","You feel very dizzy!","You feel like you're choking!")
-				if(prob(60))
-					to_chat(src,"<span class='danger'>[notif]</span>")
-				if(prob(20))
-					emote("cough")
-				if(reagents)
-					reagents.add_reagent("liquid_chlor", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
-
-			//Not lethal, but makes loud messages.
-			else
-				notif = pick("Your eyes water.","Your throat itches.","You feel a little dizzy.","You feel faint.","You feel short of breath.","You feel momentarily confused.")
-				if(prob(30))
-					to_chat(src, "<span class='warning'>[notif]</span>")
-
-		if(breath.gas["trichloramine"])
-			breath.adjust_gas("trichloramine", -breath.gas["trichloramine"]/6, update = 0) //update after
-		if(breath.gas["monochloramine"])
-			breath.adjust_gas("monochloramine", -breath.gas["monochloramine"]/6, update = 0) //update after
-
-	// // // END ECLIPSE EDITS // // //
-
-
 	// Were we able to breathe?
 	var/failed_breath = failed_inhale || failed_exhale
 	if (!failed_breath)
@@ -528,16 +490,15 @@
 	if(!species)
 		return
 	// Hot air hurts :( :(
-	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(COLD_RESISTANCE in mutations))
+	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1)) // && !(COLD_RESISTANCE in mutations)
 		var/damage = 0
 		if(breath.temperature <= species.cold_level_1)
 			if(prob(20))
 				to_chat(src, SPAN_DANGER("You feel your face freezing and icicles forming in your lungs!"))
 
-			switch(breath.temperature)
-				if(species.cold_level_3 to species.cold_level_2)
+				if(breath.temperature >= species.cold_level_3 && breath.temperature < species.cold_level_2)
 					damage = COLD_GAS_DAMAGE_LEVEL_3
-				if(species.cold_level_2 to species.cold_level_1)
+				else if(breath.temperature >= species.cold_level_2 && breath.temperature < species.cold_level_1)
 					damage = COLD_GAS_DAMAGE_LEVEL_2
 				else
 					damage = COLD_GAS_DAMAGE_LEVEL_1
@@ -548,10 +509,9 @@
 			if(prob(20))
 				to_chat(src, SPAN_DANGER("You feel your face burning and a searing heat in your lungs!"))
 
-			switch(breath.temperature)
-				if(species.heat_level_1 to species.heat_level_2)
+				if(breath.temperature >= species.heat_level_1 && breath.temperature <= species.heat_level_2)
 					damage = HEAT_GAS_DAMAGE_LEVEL_1
-				if(species.heat_level_2 to species.heat_level_3)
+				else if(breath.temperature > species.heat_level_2 && breath.temperature <= species.heat_level_3)
 					damage = HEAT_GAS_DAMAGE_LEVEL_2
 				else
 					damage = HEAT_GAS_DAMAGE_LEVEL_3
@@ -640,13 +600,13 @@
 		fire_alert = max(fire_alert, FIRE_ALERT_COLD)
 		if(status_flags & GODMODE)	return 1	//godmode
 		var/burn_dam = 0
-		switch(bodytemperature)
-			if(species.heat_level_1 to species.heat_level_2)
-				burn_dam = HEAT_DAMAGE_LEVEL_1
-			if(species.heat_level_2 to species.heat_level_3)
-				burn_dam = HEAT_DAMAGE_LEVEL_2
-			if(species.heat_level_3 to INFINITY)
-				burn_dam = HEAT_DAMAGE_LEVEL_3
+		if(bodytemperature >= species.heat_level_1 && bodytemperature <= species.heat_level_2)
+			burn_dam = HEAT_DAMAGE_LEVEL_1
+		else if(bodytemperature > species.heat_level_2 && bodytemperature <= species.heat_level_3)
+			burn_dam = HEAT_DAMAGE_LEVEL_2
+		else if(bodytemperature > species.heat_level_3)
+			burn_dam = HEAT_DAMAGE_LEVEL_3
+
 		take_overall_damage(burn=burn_dam, used_weapon = "High Body Temperature")
 		fire_alert = max(fire_alert, FIRE_ALERT_HOT)
 
@@ -656,13 +616,13 @@
 
 		if(!istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
 			var/burn_dam = 0
-			switch(bodytemperature)
-				if(-INFINITY to species.cold_level_3)
-					burn_dam = COLD_DAMAGE_LEVEL_1
-				if(species.cold_level_3 to species.cold_level_2)
-					burn_dam = COLD_DAMAGE_LEVEL_2
-				if(species.cold_level_2 to species.cold_level_1)
-					burn_dam = COLD_DAMAGE_LEVEL_3
+			if(bodytemperature <= species.cold_level_3)
+				burn_dam = COLD_DAMAGE_LEVEL_1
+			else if(bodytemperature > species.cold_level_3 && bodytemperature <= species.cold_level_2)
+				burn_dam = COLD_DAMAGE_LEVEL_2
+			else if(bodytemperature > species.cold_level_2 && bodytemperature <= species.cold_level_1)
+				burn_dam = COLD_DAMAGE_LEVEL_3
+
 			take_overall_damage(burn=burn_dam, used_weapon = "Low Body Temperature")
 			fire_alert = max(fire_alert, FIRE_ALERT_COLD)
 
@@ -680,7 +640,7 @@
 		pressure_alert = 0
 	else if(adjusted_pressure >= species.hazard_low_pressure)
 		pressure_alert = -1
-	else
+/*	else
 		if( !(COLD_RESISTANCE in mutations))
 			take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
 			if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
@@ -688,7 +648,7 @@
 			pressure_alert = -2
 		else
 			pressure_alert = -1
-
+*/
 	return
 
 /*
@@ -765,8 +725,8 @@
 	return get_thermal_protection(thermal_protection_flags)
 
 /mob/living/carbon/human/get_cold_protection(temperature)
-	if(COLD_RESISTANCE in mutations)
-		return 1 //Fully protected from the cold.
+//	if(COLD_RESISTANCE in mutations)
+//		return 1 //Fully protected from the cold.
 
 	temperature = max(temperature, 2.7) //There is an occasional bug where the temperature is miscalculated in ares with a small amount of gas on them, so this is necessary to ensure that that bug does not affect this calculation. Space's temperature is 2.7K and most suits that are intended to protect against any cold, protect down to 2.0K.
 	var/thermal_protection_flags = get_cold_protection_flags(temperature)
@@ -789,14 +749,6 @@
 			. += THERMAL_PROTECTION_ARM_LEFT
 		if(flags & ARM_RIGHT)
 			. += THERMAL_PROTECTION_ARM_RIGHT
-		if(flags & FOOT_LEFT)
-			. += THERMAL_PROTECTION_FOOT_LEFT
-		if(flags & FOOT_RIGHT)
-			. += THERMAL_PROTECTION_FOOT_RIGHT
-		if(flags & HAND_LEFT)
-			. += THERMAL_PROTECTION_HAND_LEFT
-		if(flags & HAND_RIGHT)
-			. += THERMAL_PROTECTION_HAND_RIGHT
 	return min(1,.)
 
 /mob/living/carbon/human/handle_chemicals_in_body()
@@ -948,10 +900,6 @@
 				Paralyse(5)
 
 		confused = max(0, confused - 1)
-
-		// If you're dirty, your gloves will become dirty, too.
-		if(gloves && germ_level > gloves.germ_level && prob(10))
-			gloves.germ_level += 1
 
 	return 1
 
@@ -1208,7 +1156,7 @@
 			isRemoteObserve = TRUE
 		else if(client.eye && istype(client.eye,/obj/structure/multiz))
 			isRemoteObserve = TRUE
-		else if(((mRemote in mutations) || remoteviewer) && remoteview_target)
+		else if((get_active_mutation(src, MUTATION_REMOTESEE) || remoteviewer) && remoteview_target)
 			if(remoteview_target.stat == CONSCIOUS)
 				isRemoteObserve = TRUE
 		if(!isRemoteObserve && client && !client.adminobs && !using_scope)
@@ -1222,8 +1170,12 @@
 	..()
 	if(stat == DEAD)
 		return
-	if(XRAY in mutations)
-		sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+
+	if(get_active_mutation(src, MUTATION_XRAY))
+		sight |= SEE_TURFS|SEE_OBJS|SEE_MOBS
+	else if(get_active_mutation(src, MUTATION_THERMAL_VISION))
+		sight |= SEE_MOBS
+
 
 /mob/living/carbon/human/proc/regen_slickness(var/source_modifier = 1)
 	var/slick = TRUE

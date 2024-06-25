@@ -41,7 +41,7 @@
 	id_type = /obj/item/card/id/hop
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/storage/box/ids = 1, /obj/item/tool/knife/dagger/ceremonial = 1, /obj/item/clothing/accessory/cross = 1, /obj/item/gun/projectile/avasarala = 1, /obj/item/ammo_magazine/magnum/rubber = 2)
-
+//boffa deez nuts lmao
 /decl/hierarchy/outfit/job/boff
 	name = OUTFIT_JOB_NAME("Bridge Officer")
 	head = /obj/item/clothing/head/beret/boff

@@ -31,7 +31,6 @@
 		/obj/structure/sink,
 		/obj/item/storage,
 		/obj/machinery/atmospherics/unary/cryo_cell,
-		/obj/machinery/dna_scannernew,
 		/obj/item/grenade/chem_grenade,
 		/mob/living/bot/medbot,
 		/obj/item/storage/secure/safe,
@@ -44,7 +43,6 @@
 		/obj/machinery/smartfridge/,
 		/obj/machinery/biogenerator,
 		/obj/machinery/constructable_frame,
-		/obj/machinery/radiocarbon_spectrometer,
 		/obj/machinery/centrifuge,
 		/obj/machinery/electrolyzer
 		)

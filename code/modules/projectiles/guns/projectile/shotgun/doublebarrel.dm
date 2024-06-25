@@ -14,14 +14,16 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	caliber = CAL_SHOTGUN
-	recoil_buildup = 7
+	init_recoil = RIFLE_RECOIL(1.7)
+	style_damage_multiplier = 2
+	damage_multiplier = 1
+	penetration_multiplier = 0.1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	bulletinsert_sound = 'sound/weapons/guns/interact/shotgun_insert.ogg'
 	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 10)
 	price_tag = 1200
-	one_hand_penalty = 15 //full sized shotgun level
 	var/bolt_open = 0
 	burst_delay = 0
 	no_internal_mag = TRUE
@@ -31,7 +33,8 @@
 		)
 	saw_off = TRUE
 	sawn = /obj/item/gun/projectile/shotgun/doublebarrel/sawn
-	gun_parts = list(/obj/item/part/gun/frame/doublebarrel = 1, /obj/item/part/gun/grip/wood = 1, /obj/item/part/gun/mechanism/shotgun = 1, /obj/item/part/gun/barrel/shotgun = 1)
+	gun_parts = list(/obj/item/part/gun/frame/doublebarrel = 1, /obj/item/part/gun/modular/grip/wood = 1, /obj/item/part/gun/modular/mechanism/shotgun = 1, /obj/item/part/gun/modular/barrel/shotgun = 1)
+	serial_type = "CA" // Eclipse Edit - Chiropteran Arms
 
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
@@ -91,7 +94,7 @@
 	name = "double-barreled shotgun frame"
 	desc = "A double-barreled shotgun frame. An immortal classic of cowboys and bartenders alike."
 	icon_state = "frame_dshotgun"
-	result = /obj/item/gun/projectile/shotgun/doublebarrel
-	grip = /obj/item/part/gun/grip/wood
-	mechanism = /obj/item/part/gun/mechanism/shotgun
-	barrel = /obj/item/part/gun/barrel/shotgun
+	resultvars = list(/obj/item/gun/projectile/shotgun/doublebarrel)
+	gripvars = list(/obj/item/part/gun/modular/grip/wood)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/shotgun
+	barrelvars = list(/obj/item/part/gun/modular/barrel/shotgun)

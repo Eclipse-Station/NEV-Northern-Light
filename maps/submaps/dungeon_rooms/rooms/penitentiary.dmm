@@ -17,6 +17,9 @@
 /turf/simulated/floor/plating/under,
 /area/crawler)
 "e" = (
+/obj/machinery/door/airlock/sandstone{
+	name = "OneStar Airlock"
+	},
 /turf/simulated/floor/tiled/derelict/red_white_edges,
 /area/crawler)
 "f" = (
@@ -31,6 +34,8 @@
 /area/crawler)
 "i" = (
 /obj/structure/table/onestar,
+/obj/spawner/gun/energy_cheap/low_chance,
+/obj/spawner/cloth/onestar/low_chance,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "j" = (
@@ -44,7 +49,7 @@
 /turf/simulated/floor/plating/under,
 /area/crawler)
 "l" = (
-/obj/machinery/computer/prisoner{
+/obj/structure/salvageable/os/computer{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/brown_perforated,
@@ -109,20 +114,30 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
-"A" = (
-/obj/machinery/door/window/northright,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark/brown_perforated,
-/area/crawler)
 "B" = (
-/obj/machinery/door/window/northleft,
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/window{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/brown_perforated,
 /area/crawler)
 "C" = (
-/obj/structure/low_wall/onestar,
 /obj/effect/window_lwall_spawn/smartspawn/onestar,
 /turf/simulated/floor/tiled/dark/brown_perforated,
+/area/crawler)
+"H" = (
+/obj/structure/table/onestar,
+/obj/item/handcuffs,
+/obj/item/gun/energy/retro,
+/turf/simulated/floor/tiled/dark/brown_perforated,
+/area/crawler)
+"J" = (
+/obj/landmark/corpse/one_star/void,
+/turf/simulated/floor/tiled/dark/brown_platform,
+/area/crawler)
+"N" = (
+/obj/item/remains,
+/turf/simulated/floor/tiled/dark/brown_platform,
 /area/crawler)
 
 (1,1,1) = {"
@@ -154,8 +169,8 @@ d
 r
 w
 u
-A
-g
+B
+N
 a
 "}
 (4,1,1) = {"
@@ -183,11 +198,11 @@ b
 (6,1,1) = {"
 b
 g
-g
+J
 C
 u
 t
-A
+B
 g
 b
 "}
@@ -216,7 +231,7 @@ b
 (9,1,1) = {"
 a
 i
-i
+H
 a
 t
 u

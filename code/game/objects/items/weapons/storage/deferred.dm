@@ -71,7 +71,7 @@
 /obj/item/storage/deferred/pouches
 	name = "uniform modification kit"
 	desc = "A box full of hard-wearing pouches designed for easy attachment to clothing and armor. Good for carrying extra ammo or tools in the field."
-	initial_contents = list(/obj/spawner/pouch = 8, /obj/item/storage/pouch/pistol_holster = 1)
+	initial_contents = list(/obj/spawner/pouch = 8, /obj/item/storage/pouch/holster = 1)
 	//One guaranteed holster and plenty of randoms
 
 /obj/item/storage/deferred/comms
@@ -161,7 +161,7 @@
 	name = "rifleman crate"
 	desc = "A crate containing six SA AK-47 rifles, and plenty of magazines."
 	icon_state = "serbcrate_deferred_green"
-	initial_contents = list(/obj/item/gun/projectile/automatic/ak47/sa  = 6,
+	initial_contents = list(/obj/item/gun/projectile/automatic/modular/ak/serbian_arms  = 6,
 	/obj/item/ammo_magazine/lrifle = 12, /obj/item/ammo_magazine/lrifle/drum = 6)
 
 /obj/item/storage/deferred/crate/kovacs
@@ -169,16 +169,16 @@
 	desc = "A crate containing six \"Kovacs\" battle rifles, and plenty of mags."
 	icon_state = "serbcrate_deferred_green"
 	initial_contents = list(/obj/item/gun/projectile/kovacs = 6,
-	/obj/item/ammo_magazine/srifle = 18)
+	/obj/item/ammo_magazine/lrifle = 18)
 
 /obj/item/storage/deferred/crate/grenadier
 	name = "grenadier crate"
 	desc = "A crate containing one \"Lenar\" launcher, and copious quantities of hand-propelled explosive devices."
 	icon_state = "serbcrate_deferred_black"
-	initial_contents = list(/obj/item/grenade/explosive = 5,
-	/obj/item/grenade/frag = 14,
-	/obj/item/grenade/empgrenade/low_yield = 4,
-	/obj/item/grenade/smokebomb = 8,
+	initial_contents = list(
+	/obj/item/ammo_casing/grenade/blast = 5,
+	/obj/item/ammo_casing/grenade/frag = 14,
+	/obj/item/ammo_casing/grenade/emp = 4,
 	/obj/item/gun/projectile/shotgun/pump/grenade/lenar = 1)
 
 /obj/item/storage/deferred/crate/antiarmor //change to demolitions, won't do now because will affect map
@@ -227,6 +227,17 @@
 		/obj/item/ammo_magazine/msmg = 16,
 		)
 
+/obj/item/storage/deferred/crate/shotgun
+	name = "pointman shotgun crate"
+	desc = "A crate containing 4 Bojevic auto-shotguns and 120 rounds of .50 buck and slug ammunition each. good to keep handy \
+			for close encounters."
+	icon_state = "serbcrate_deferred_black"
+	initial_contents = list(
+		/obj/item/gun/projectile/shotgun/bojevic = 4,
+		/obj/item/ammo_magazine/m12/pellet = 10,
+		/obj/item/ammo_magazine/m12 = 10
+		)
+
 /obj/item/storage/deferred/crate/cells
 	name = "power cell bin"
 	desc = "A moderately sized crate full of various power cells."
@@ -251,9 +262,9 @@
 	/obj/item/clothing/head/soft/green2soft = 1,
 	/obj/item/clothing/suit/armor/platecarrier/green = 1,
 	/obj/item/clothing/head/armor/faceshield/altyn = 1,
-	/obj/item/clothing/mask/balaclava/tactical = 1,
+	/obj/item/clothing/mask/balaclava = 1,
 	/obj/item/clothing/shoes/jackboots = 1,
-	/obj/item/clothing/gloves/fingerless = 1)
+	/obj/item/clothing/gloves/security = 1)
 
 /obj/item/storage/deferred/crate/uniform_brown
 	name = "brown uniform kit"
@@ -264,8 +275,9 @@
 	/obj/item/clothing/head/soft/tan2soft = 1,
 	/obj/item/clothing/suit/armor/platecarrier/tan = 1,
 	/obj/item/clothing/head/armor/faceshield/altyn/brown = 1,
-	/obj/item/clothing/mask/balaclava/tactical = 1,
+	/obj/item/clothing/mask/balaclava = 1,
 	/obj/item/clothing/shoes/jackboots = 1,
+	/obj/item/clothing/gloves/security = 1,
 	/obj/item/clothing/suit/storage/greatcoat/serbian_overcoat_brown = 1)
 
 /obj/item/storage/deferred/crate/uniform_black
@@ -276,9 +288,9 @@
 	/obj/item/clothing/under/serbiansuit/black = 1,
 	/obj/item/clothing/suit/armor/platecarrier = 1,
 	/obj/item/clothing/head/armor/faceshield/altyn/black = 1,
-	/obj/item/clothing/mask/balaclava/tactical = 1,
+	/obj/item/clothing/mask/balaclava = 1,
 	/obj/item/clothing/shoes/jackboots = 1,
-	/obj/item/clothing/gloves/fingerless = 1,
+	/obj/item/clothing/gloves/security = 1,
 	/obj/item/clothing/suit/storage/greatcoat/serbian_overcoat = 1)
 
 /obj/item/storage/deferred/crate/uniform_flak
@@ -289,9 +301,9 @@
 	/obj/item/clothing/under/serbiansuit = 1,
 	/obj/item/clothing/suit/armor/flak/green = 1,
 	/obj/item/clothing/head/armor/faceshield/altyn/maska = 1,
-	/obj/item/clothing/mask/balaclava/tactical = 1,
+	/obj/item/clothing/mask/balaclava = 1,
 	/obj/item/clothing/shoes/jackboots = 1,
-	/obj/item/clothing/gloves/fingerless = 1,
+	/obj/item/clothing/gloves/security = 1,
 	/obj/item/storage/fancy/cigarettes = 1)
 
 /obj/item/storage/deferred/crate/uniform_light
@@ -369,32 +381,28 @@
 
 // TRADE
 
-// Gambling - markup = 10
+// Gambling
 /obj/item/storage/deferred/disks
 	name = "autolathe disk box"
 	desc = "A small collection of autolathe disks"
 	initial_contents = list(/obj/spawner/lathe_disk = 7)
-	price_tag = 300
 
 /obj/item/storage/deferred/gun_parts
 	name = "gun part box"
 	desc = "Uppers, lowers, and everything in between"
 	initial_contents = list(/obj/spawner/gun_parts = 7)
-	price_tag = 300
 
 /obj/item/storage/deferred/powercells
 	name = "powercell box"
 	desc = "A small collection of powercells"
 	initial_contents = list(/obj/spawner/powercell = 7)
-	price_tag = 200
 
 /obj/item/storage/deferred/electronics
 	name = "circuit board box"
 	desc = "A small collection of circuit boards"
 	initial_contents = list(/obj/spawner/electronics = 7)
-	price_tag = 500
 
-// Kitchen supply - markup = 1.2
+// Kitchen supply
 /obj/item/storage/deferred/kitchen
 	name = "galley supply box"
 	desc = "A small collection of kitchen essentials"
@@ -406,18 +414,15 @@
 		/obj/item/reagent_containers/food/condiment/saltshaker = 1,
 		/obj/item/reagent_containers/food/condiment/peppermill = 1
 	)
-	price_tag = 50
 
-// MoeSci supply - markup = 3.6
+// MoeSci supply
 /obj/item/storage/deferred/slime
 	name = "slime supply box"
 	desc = "A slime startup kit"
 	initial_contents = list(
 		/obj/item/slime_extract/grey = 4,
 		/obj/item/extinguisher = 1,
-		/obj/item/storage/box/monkeycubes = 1
 	)
-	price_tag = 200
 
 /obj/item/storage/deferred/xenobotany
 	name = "xenobotany supply box"
@@ -425,21 +430,20 @@
 	initial_contents = list(
 		/obj/item/seeds/random = 7
 	)
-	price_tag = 200
 
 /obj/item/storage/deferred/rnd
 	name = "research box"
 	desc = "A packaged intellectual curiosity"
 	initial_contents = list(
-		/obj/item/computer_hardware/hard_drive/portable/research_points = 1
+		/obj/item/computer_hardware/hard_drive/portable/research_points = 2
 	)
-	price_tag = 500
 
-// Trapper - markup = 4.8
+// Trapper
 /obj/item/storage/deferred/roacheggs
 	name = "roach egg box"
 	desc = "A carton for eggs of the roach variety"
+	icon = 'icons/obj/food.dmi'
+	icon_state = "eggbox"
 	initial_contents = list(
 		/obj/item/roach_egg = 12
 	)
-	price_tag = 100

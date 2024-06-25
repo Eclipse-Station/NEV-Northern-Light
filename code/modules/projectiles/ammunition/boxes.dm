@@ -8,6 +8,7 @@
 	ammo_mag = "box"
 	matter = list(MATERIAL_CARDBOARD = 1)
 	bad_type = /obj/item/ammo_magazine/ammobox
+	price_tag = 100
 
 /obj/item/ammo_magazine/ammobox/resolve_attackby(atom/A, mob/user)
 	if(isturf(A) && locate(/obj/item/ammo_casing) in A || istype(A, /obj/item/ammo_casing))
@@ -67,11 +68,11 @@
 /obj/item/ammo_magazine/ammobox/magnum
 	name = "ammunition packet (.40 Magnum)"
 	icon_state = "magnum"
-	matter = list(MATERIAL_STEEL = 9, MATERIAL_CARDBOARD = 1)
+	matter = list(MATERIAL_STEEL = 10, MATERIAL_CARDBOARD = 1)
 	caliber = CAL_MAGNUM
 	ammo_type = /obj/item/ammo_casing/magnum
-	max_ammo = 30
-	ammo_states = list(30)
+	max_ammo = 50
+	ammo_states = list(50)
 
 /obj/item/ammo_magazine/ammobox/magnum/practice
 	ammo_type = /obj/item/ammo_casing/magnum/practice
@@ -106,7 +107,7 @@
 /obj/item/ammo_magazine/ammobox/srifle_small
 	name = "ammunition packet (.20 Rifle)"
 	icon_state = "srifle"
-	matter = list(MATERIAL_STEEL = 20, MATERIAL_CARDBOARD = 1)
+	matter = list(MATERIAL_STEEL = 10, MATERIAL_CARDBOARD = 1)
 	caliber = CAL_SRIFLE
 	ammo_type = /obj/item/ammo_casing/srifle
 	max_ammo = 50
@@ -147,7 +148,7 @@
 /obj/item/ammo_magazine/ammobox/clrifle_small
 	name = "ammunition packet (.25 Caseless Rifle)"
 	icon_state = "clrifle"
-	matter = list(MATERIAL_STEEL = 20, MATERIAL_CARDBOARD = 1)
+	matter = list(MATERIAL_STEEL = 10, MATERIAL_CARDBOARD = 1)
 	caliber = CAL_CLRIFLE
 	ammo_type = /obj/item/ammo_casing/clrifle
 	max_ammo = 60
@@ -185,7 +186,7 @@
 /obj/item/ammo_magazine/ammobox/lrifle_small
 	name = "ammunition packet (.30 Rifle)"
 	icon_state = "lrifle"
-	matter = list(MATERIAL_STEEL = 20, MATERIAL_CARDBOARD = 1)
+	matter = list(MATERIAL_STEEL = 10, MATERIAL_CARDBOARD = 1)
 	caliber = CAL_LRIFLE
 	ammo_type = /obj/item/ammo_casing/lrifle
 	max_ammo = 60
@@ -252,7 +253,7 @@
 	rarity_value = 10
 	spawn_tags = SPAWN_TAG_AMMO_SHOTGUN_COMMON
 
-/obj/item/ammo_magazine/ammobox/shotgun/beanbags
+/obj/item/ammo_magazine/ammobox/shotgun/beanbag
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	rarity_value = 10
 
