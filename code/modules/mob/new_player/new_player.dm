@@ -222,13 +222,13 @@
 
 		if(!check_rights(R_ADMIN, 0))
 			var/datum/species/S = all_species[client.prefs.species]
-			if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species))
+		/*	if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species))
 				src << alert("You are currently not whitelisted to play [client.prefs.species].")
-				return 0
+				return 0*/
 
-			#if(!(S.spawn_flags & CAN_JOIN))
-			#	src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
-			#	return 0
+			/*if(!(S.spawn_flags & CAN_JOIN))
+				src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
+				return 0*/
 
 		LateChoices()
 
@@ -250,9 +250,9 @@
 			src << alert("You are currently not whitelisted to play [client.prefs.species].")
 			return 0
 
-		#if(!(S.spawn_flags & CAN_JOIN))
-		#	src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
-		#	return 0
+		/*if(!(S.spawn_flags & CAN_JOIN))
+			src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
+			return 0*/
 
 		AttemptLateSpawn(href_list["SelectedJob"], client.prefs.spawnpoint)
 		return

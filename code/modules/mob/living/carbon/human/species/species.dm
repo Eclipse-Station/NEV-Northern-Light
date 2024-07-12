@@ -132,7 +132,7 @@
 	var/darksight = 2             // Native darksight distance.
 	var/flags = 0                 // Various specific features.
 	var/appearance_flags = 0      // Appearance/display related features.
-	var/spawn_flags = CAN_JOIN    // Flags that specify who can spawn as this species
+	var/spawn_flags = 0   // Flags that specify who can spawn as this species
 	var/species_flags = 0
 	var/species_preview = 0
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
@@ -191,7 +191,7 @@
 
 /datum/species/New()
 
-	species_flags = CAN_SPAWN   // Flags that specify who can spawn as this species
+	species_flags = 0  // Flags that specify who can spawn as this species
 
 	if(hud_type)
 		hud = new hud_type()
@@ -477,10 +477,10 @@
 			dat += "<img src='species_preview_[name].png' width='64px' height='64px'><br/><br/>"
 		if(!skip_detail)
 			dat += "<small>"
-			#if(spawn_flags & SPECIES_CAN_JOIN)
+			/*if(spawn_flags & SPECIES_CAN_JOIN)
 			#	dat += "</br><b>Often present among humans.</b>"
 			#if(spawn_flags & SPECIES_IS_WHITELISTED)
-			#	dat += "</br><b>Whitelist restricted.</b>"
+				dat += "</br><b>Whitelist restricted.</b>"*/
 			if(!has_process[OP_HEART])
 				dat += "</br><b>Does not have blood.</b>"
 		/*	if(!has_organ[breathing_organ])

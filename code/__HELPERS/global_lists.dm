@@ -66,7 +66,7 @@ var/list/mannequins_
 var/global/list/all_species[0]
 var/global/list/all_languages[0]
 var/global/list/language_keys[0]					// Table of say codes for all languages
-var/global/list/whitelisted_species = list(SPECIES_HUMAN) // Species that require a whitelist check.
+var/global/list/whitelisted_species = 0 // Species that require a whitelist check.
 var/global/list/playable_species = list(SPECIES_HUMAN)    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
 // Posters
@@ -287,10 +287,8 @@ GLOBAL_LIST_EMPTY(ignore_health_alerts_from)
 		S.race_key = rkey //Used in mob icon caching.
 		all_species[S.name] = S
 
-		if(!(S.spawn_flags & IS_RESTRICTED))
-			playable_species += S.name
-		if(S.spawn_flags & IS_WHITELISTED)
-			whitelisted_species += S.name
+		playable_species += S.name
+
 
 	//Posters
 	paths = subtypesof(/datum/poster) - /datum/poster/wanted

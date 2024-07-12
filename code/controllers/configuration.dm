@@ -7,7 +7,7 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 
 	var/nudge_script_path = "nudge.py"  // where the nudge.py script is located
 
-	var/usealienwhitelist = 1 //Eclipse addition
+	var/usealienwhitelist = 0 //Eclipse addition
 
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
