@@ -132,7 +132,7 @@
 	var/darksight = 2             // Native darksight distance.
 	var/flags = 0                 // Various specific features.
 	var/appearance_flags = 0      // Appearance/display related features.
-	var/spawn_flags = 0           // Flags that specify who can spawn as this species
+	var/spawn_flags = CAN_JOIN    // Flags that specify who can spawn as this species
 	var/species_flags = 0
 	var/species_preview = 0
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)

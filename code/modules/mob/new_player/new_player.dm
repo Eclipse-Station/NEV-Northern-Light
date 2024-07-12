@@ -226,9 +226,9 @@
 				src << alert("You are currently not whitelisted to play [client.prefs.species].")
 				return 0
 
-			if(!(S.spawn_flags & CAN_JOIN))
-				src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
-				return 0
+			#if(!(S.spawn_flags & CAN_JOIN))
+			#	src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
+			#	return 0
 
 		LateChoices()
 
