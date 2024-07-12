@@ -187,7 +187,7 @@
 		"Your overheated skin itches."
 		)
 	//inherent_verbs = list(/mob/living/proc/shred_limb)
-	
+
 	reagent_tag = IS_ZORREN		//Eclipse edit.
 
 /datum/species/fl_zorren
@@ -278,7 +278,7 @@
 
 	min_age = 18
 	max_age = 80
-	
+
 	reagent_tag = IS_VULP		//Eclipse edit
 /*
 /datum/species/unathi
@@ -311,7 +311,7 @@
 	reagent_tag = null
 
 /datum/species/diona
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+	spawn_flags = SPECIES_CAN_JOIN
 	min_age = 18
 
 /datum/species/teshari
@@ -351,7 +351,7 @@
 
 /datum/species/vox
 	gluttonous = 0
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
+	spawn_flags = SPECIES_CAN_JOIN
 	min_age = 18
 	icobase = 'icons/mob/human_races/r_vox_old.dmi'
 	deform = 'icons/mob/human_races/r_def_vox_old.dmi'
