@@ -191,7 +191,7 @@
 
 /datum/species/New()
 
-	species_flags = spawn_flags       // Flags that specify who can spawn as this species
+	species_flags = CAN_SPAWN   // Flags that specify who can spawn as this species
 
 	if(hud_type)
 		hud = new hud_type()
@@ -477,10 +477,10 @@
 			dat += "<img src='species_preview_[name].png' width='64px' height='64px'><br/><br/>"
 		if(!skip_detail)
 			dat += "<small>"
-			if(spawn_flags & SPECIES_CAN_JOIN)
-				dat += "</br><b>Often present among humans.</b>"
-			if(spawn_flags & SPECIES_IS_WHITELISTED)
-				dat += "</br><b>Whitelist restricted.</b>"
+			#if(spawn_flags & SPECIES_CAN_JOIN)
+			#	dat += "</br><b>Often present among humans.</b>"
+			#if(spawn_flags & SPECIES_IS_WHITELISTED)
+			#	dat += "</br><b>Whitelist restricted.</b>"
 			if(!has_process[OP_HEART])
 				dat += "</br><b>Does not have blood.</b>"
 		/*	if(!has_organ[breathing_organ])
