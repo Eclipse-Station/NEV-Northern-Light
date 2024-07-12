@@ -5,7 +5,7 @@
 	category = /datum/uplink_category/visible_weapons
 
 /datum/uplink_item/item/visible_weapons/dartgun
-	name = "Dart Gun"
+	name = "Z-H P \"Artemis\" Dart Gun"
 	item_cost = 4
 	path = /obj/item/storage/box/syndie_kit/dartgun
 
@@ -25,15 +25,22 @@
 	path = /obj/item/storage/box/syndie_kit/pistol
 
 /datum/uplink_item/item/visible_weapons/riggedlaser
-	name = "Exosuit (APLU) Rigged Laser"
+	name = "Exosuit 'Immolator' Energy Weapon"
 	item_cost = 4
 	path = /obj/item/mech_equipment/mounted_system/taser/laser
 
 
 /datum/uplink_item/item/visible_weapons/revolver
-	name = "Revolver"
+	name = "FS REV .40 Magnum \"Miller\" Revolver"
 	item_cost = 7
+	antag_roles = list(ROLE_CONTRACTOR,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syndie_kit/revolver
+
+/datum/uplink_item/item/visible_weapons/hornet
+	name = "OR REV .20 \"LBR-8 Hornet\" Revolver"
+	item_cost = 7
+	antag_roles = list(ROLE_MARSHAL)
+	path = /obj/item/storage/box/syndie_kit/hornet
 
 /datum/uplink_item/item/visible_weapons/submachinegun
 	name = "C20r Submachine Gun"
@@ -41,7 +48,7 @@
 	path = /obj/item/storage/box/syndie_kit/c20r
 
 /datum/uplink_item/item/visible_weapons/assaultrifle
-	name = "Assault Rifle"
+	name = "OR BR \"STS-35\" Battle Rifle"
 	item_cost = 10
 	antag_roles = list(ROLE_CONTRACTOR,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syndie_kit/sts35
@@ -59,13 +66,13 @@
 	path = /obj/item/storage/box/syndie_kit/lshotgun
 
 /datum/uplink_item/item/visible_weapons/pug
-	name = "Pug Shotgun"
+	name = "SA SG \"Bojevic\" Pug Shotgun"
 	item_cost = 8
 	antag_roles = list(ROLE_CONTRACTOR,ROLE_INQUISITOR,ROLE_MERCENARY,ROLE_CARRION)
 	path = /obj/item/storage/box/syndie_kit/pug
 
 /datum/uplink_item/item/visible_weapons/heavysniper
-	name = "Anti-material Rifle"
+	name = "SA AMR .60 \"Hristov\" Anti-material Rifle"
 	item_cost = 20
 	path = /obj/item/storage/briefcase/antimaterial_rifle
 

@@ -14,14 +14,14 @@
 	matter = list(MATERIAL_STEEL = 10, MATERIAL_PLASTIC = 15, MATERIAL_GLASS = 5)
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 6
-	zoom_factor = 0
+	zoom_factors = list(0)
 	damage_multiplier = 0.53
 	penetration_multiplier = 0.9
 	charge_cost = 25
 	price_tag = 750
 	init_firemodes = list(
 		BURST_3_ROUND,
-		SEMI_AUTO_NODELAY
+		SEMI_AUTO_300
 	)
 	twohanded = TRUE
 	saw_off = TRUE
@@ -41,7 +41,7 @@
 	charge_cost = 25
 	price_tag = 400
 	init_firemodes = list(
-		SEMI_AUTO_NODELAY
+		SEMI_AUTO_300
 	)
 	twohanded = FALSE
 	saw_off = FALSE
@@ -59,7 +59,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	can_dual = TRUE
 	projectile_type = /obj/item/projectile/beam/midlaser
-	zoom_factor = 0
+	zoom_factors = (0)
 	damage_multiplier = 1.2
 	charge_cost = 100
 	price_tag = 4500

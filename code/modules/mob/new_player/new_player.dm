@@ -222,11 +222,15 @@
 
 		if(!check_rights(R_ADMIN, 0))
 			var/datum/species/S = all_species[client.prefs.species]
+
 		/*	if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species))
+
 				src << alert("You are currently not whitelisted to play [client.prefs.species].")
 				return 0*/
 
+
 			/*if(!(S.spawn_flags & CAN_JOIN))
+
 				src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
 				return 0*/
 
@@ -246,11 +250,16 @@
 			return
 
 		var/datum/species/S = all_species[client.prefs.species]
-		if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species))
+		if(!S)
+			src << alert("Your current species, [client.prefs.species], does not appear to exist. Contact an admin.")
+			return 0
+		if((S.spawn_flags & SPECIES_IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species))
 			src << alert("You are currently not whitelisted to play [client.prefs.species].")
 			return 0
 
+
 		/*if(!(S.spawn_flags & CAN_JOIN))
+
 			src << alert("Your current species, [client.prefs.species], is not available for play on the ship.")
 			return 0*/
 
@@ -445,18 +454,11 @@
 	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = GLOB.lobby_sound_channel))
 
 	new_character.name = real_name
-	new_character.dna.ready_dna(new_character)
-	new_character.dna.flavor_text = client.prefs.flavor_text
-	new_character.dna.age = client.prefs.age
-	new_character.dna.b_type = client.prefs.b_type
+	new_character.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
 	if(client.prefs.disabilities)
-		// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
-		new_character.dna.SetSEState(GLASSESBLOCK,1,0)
-		new_character.disabilities |= NEARSIGHTED
-
-	// And uncomment this, too.
-	//new_character.dna.UpdateSE()
+		if(client.prefs.disabilities & NEARSIGHTED)
+			new_character.add_mutation(MUTATION_NEARSIGHTED)
 
 	// Do the initial caching of the player's body icons.
 	new_character.force_update_limbs()
@@ -477,7 +479,7 @@
 
 /mob/new_player/proc/is_species_whitelisted(datum/species/S)
 	if(!S) return 1
-	return is_alien_whitelisted(src, S.name) || !(S.spawn_flags & IS_WHITELISTED)
+	return is_alien_whitelisted(src, S.name) || !(S.spawn_flags & SPECIES_IS_WHITELISTED)
 
 /mob/new_player/get_species()
 	var/datum/species/chosen_species

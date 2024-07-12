@@ -1,7 +1,7 @@
 /datum/species/human
 	name = SPECIES_HUMAN
 	name_plural = "Humans"
-	primitive_form = "Monkey"
+	primitive_form = SPECIES_MONKEY
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
 	blurb = "Humanity originated in the Sol system, and over the last two centuries has spread \
 	colonies across a wide swathe of space. They hold a wide range of forms and creeds.<br/><br/> \
@@ -12,7 +12,9 @@
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	min_age = 18
 	max_age = 110
-	spawn_flags = CAN_JOIN
+	remains_type = /obj/item/remains/human
+
+	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
 /*/datum/species/human/get_bodytype()
@@ -57,7 +59,7 @@
 	Most Unathi are guided by a complex Ethnoreligion called the Unity,\
 	which stresses honesty, bravery, and the perfection of one's craft. \
 	Discovered less then a generation ago by SolGov,\
-	an ensuring war against SolGov by the Unathi over the colony of Abel’s Rest has led to cross-migration between the two powers."
+	an ensuring war against SolGov by the Unathi over the colony of Abelï¿½s Rest has led to cross-migration between the two powers."
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200
@@ -81,7 +83,9 @@
 */
 	body_temperature = T20C
 
+
 	spawn_flags = CAN_JOIN
+
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#34AF10"
@@ -194,7 +198,9 @@
 */
 	primitive_form = SPECIES_MONKEY_TAJ
 
+
 	spawn_flags = CAN_JOIN
+
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#AFA59E"
@@ -261,7 +267,9 @@
 
 //	ambiguous_genders = TRUE
 
+
 	spawn_flags = CAN_JOIN
+
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 	flesh_color = "#8CD7A3"

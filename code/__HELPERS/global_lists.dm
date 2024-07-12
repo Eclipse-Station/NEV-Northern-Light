@@ -51,7 +51,6 @@ GLOBAL_LIST_EMPTY(joblist)					//list of all jobstypes, minus borg and AI
 GLOBAL_LIST_EMPTY(all_departments)			//List of all department datums
 var/global/list/department_IDs = list(DEPARTMENT_COMMAND, DEPARTMENT_MEDICAL, DEPARTMENT_ENGINEERING,
  DEPARTMENT_SCIENCE, DEPARTMENT_SECURITY, DEPARTMENT_GUILD, DEPARTMENT_CHURCH, DEPARTMENT_CIVILIAN, DEPARTMENT_OFFSHIP)
-GLOBAL_LIST_EMPTY(global_corporations)
 
 
 GLOBAL_LIST_EMPTY(HUDdatums)
@@ -71,6 +70,7 @@ var/global/list/playable_species = list(SPECIES_HUMAN)    // A list of ALL playa
 
 // Posters
 GLOBAL_LIST_EMPTY(poster_designs)
+GLOBAL_LIST_EMPTY(poster_designs_asters)
 
 // Uplinks
 var/list/obj/item/device/uplink/world_uplinks = list()
@@ -287,20 +287,22 @@ GLOBAL_LIST_EMPTY(ignore_health_alerts_from)
 		S.race_key = rkey //Used in mob icon caching.
 		all_species[S.name] = S
 
+
 		playable_species += S.name
 
 
-	//Posters
-	paths = subtypesof(/datum/poster) - /datum/poster/wanted
-	for(var/T in paths)
-		var/datum/poster/P = new T
-		GLOB.poster_designs += P
 
-	//Corporations
-	paths = subtypesof(/datum/corporation)
+	//Posters
+	paths = subtypesof(/datum/poster) - /datum/poster/wanted - /datum/poster/asters
 	for(var/T in paths)
-		var/datum/corporation/C = new T
-		global.GLOB.global_corporations[C.name] = C
+		var/datum/poster/poster = new T
+		GLOB.poster_designs += poster
+
+	// Aster posters
+	paths = subtypesof(/datum/poster/asters) - /datum/poster/wanted
+	for(var/T in paths)
+		var/datum/poster/asters/poster = new T
+		GLOB.poster_designs_asters += poster
 
 	paths = subtypesof(/datum/hud)
 	for(var/T in paths)

@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/shotgun/bull
 	name = "\improper FS SG \"Bull\""
 	desc = "A \"Frozen Star\" double-barreled pump-action shotgun. Marvel of engineering, this gun is often used by Aegis tactical units. \
-			Due to shorter than usual barrels, damage are somewhat lower and recoil kicks slightly harder, but possibility to fire two barrels at once overshadows all bad design flaws."
+			Due to shorter than usual barrels, damage are somewhat lower and recoil kicks slightly harder, but possibility to fire two barrels at once overshadows all bad design flaws. Can hold up to 7+2 shells."
 	icon = 'icons/obj/guns/projectile/bull.dmi'
 	icon_state = "bull"
 	item_state = "bull"
@@ -17,12 +17,11 @@
 	var/reload = 1
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 4)
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_PLASTIC = 6)
-	damage_multiplier = 0.75
-	penetration_multiplier = 0.75
-	recoil_buildup = 7
-	one_hand_penalty = 10 //compact shotgun level
+	damage_multiplier = 0.8
+	penetration_multiplier = 0.1
+	init_recoil = CARBINE_RECOIL(1.5)
 	burst_delay = null
-	fire_delay = null
+	fire_delay = 4
 	bulletinsert_sound = 'sound/weapons/guns/interact/shotgun_insert.ogg'
 	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
 	move_delay = null
@@ -33,7 +32,8 @@
 
 	spawn_tags = SPANW_TAG_FS_SHOTGUN
 	price_tag = 2000 //gives tactical advantage with beanbags, but consumes more ammo and hits less harder with lethal ammo, so Gladstone or Regulator would be better for lethal takedowns in general
-	gun_parts = list(/obj/item/part/gun/frame/bull = 1, /obj/item/part/gun/grip/rubber = 1, /obj/item/part/gun/mechanism/shotgun = 1, /obj/item/part/gun/barrel/shotgun = 1)
+	gun_parts = list(/obj/item/part/gun/frame/bull = 1, /obj/item/part/gun/modular/grip/rubber = 1, /obj/item/part/gun/modular/mechanism/shotgun = 1, /obj/item/part/gun/modular/barrel/shotgun = 1)
+	serial_type = "FS"
 
 /obj/item/gun/projectile/shotgun/bull/proc/pump(mob/M as mob)
 	var/turf/newloc = get_turf(src)
@@ -93,23 +93,28 @@
 
 /obj/item/gun/projectile/shotgun/bull/update_icon()
 	..()
-
+	var/ratio = get_ammo() / (max_shells + 1)
+	ratio = round(ratio, 0.25) * 100
 	var/iconstring = initial(icon_state)
 	var/itemstring = ""
 
-	if(wielded)
-		itemstring += "_doble"
+	if(ratio > 0)
+		wielded_item_state = "_doble_mag"
+	else
+		wielded_item_state = "_doble"
+		itemstring += "_empty"
 
 	icon_state = iconstring
 	set_item_state(itemstring)
 	cut_overlays()
+	update_held_icon()
 	update_charge()
 
 /obj/item/part/gun/frame/bull
 	name = "\improper Bull frame"
 	desc = "A Bull shotgun frame. Double-barrel and pump action, through a miracle of engineering."
 	icon_state = "frame_bull"
-	result = /obj/item/gun/projectile/shotgun/bull
-	grip = /obj/item/part/gun/grip/rubber
-	mechanism = /obj/item/part/gun/mechanism/shotgun
-	barrel = /obj/item/part/gun/barrel/shotgun
+	resultvars = list(/obj/item/gun/projectile/shotgun/bull)
+	gripvars = list(/obj/item/part/gun/modular/grip/rubber)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/shotgun
+	barrelvars = list(/obj/item/part/gun/modular/barrel/shotgun)

@@ -49,7 +49,7 @@
 	var/min_age = 17
 	var/max_age = 70
 	var/preview_icon = null
-	// Language/culture vars.
+	// Language vars.
 	var/default_language = LANGUAGE_COMMON   // Default language is used when 'say' is used without modifiers.
 	var/language = LANGUAGE_COMMON           // Default racial language, if any.
 	var/list/secondary_langs = list()        // The names of secondary languages that are available to this species.
@@ -186,9 +186,14 @@
 	var/alt_icons_tag
 	var/list/alt_icons = list()
 
-/datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
+/datum/species/proc/get_eyes(/mob/living/carbon/human/H)
 	return
 
+
+/* Eclipse Edit - duplicate definition
+/datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
+	return
+*/
 /datum/species/New()
 
 	species_flags = 0  // Flags that specify who can spawn as this species
@@ -213,7 +218,7 @@
 	return name
 
 
-/datum/species/proc/get_environment_discomfort(var/mob/living/carbon/human/H, var/msg_type)
+/datum/species/proc/get_environment_discomfort(mob/living/carbon/human/H, msg_type)
 
 	if(!prob(5))
 		return
@@ -280,7 +285,7 @@
 /datum/species/proc/organs_spawned(mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/hug(mob/living/carbon/human/H,var/mob/living/target)
+/datum/species/proc/hug(mob/living/carbon/human/H, mob/living/target)
 
 	var/t_him = "them"
 	switch(target.gender)
@@ -292,19 +297,19 @@
 	H.visible_message(SPAN_NOTICE("[H] hugs [target] to make [t_him] feel better!"), \
 					SPAN_NOTICE("You hug [target] to make [t_him] feel better!"))
 
-/datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
+/datum/species/proc/remove_inherent_verbs(mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs -= verb_path
 	return
 
-/datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
+/datum/species/proc/add_inherent_verbs(mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
 			H.verbs |= verb_path
 	return
 
-/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H) //Handles anything not already covered by basic species assignment.
+/datum/species/proc/handle_post_spawn(mob/living/carbon/human/H) //Handles anything not already covered by basic species assignment.
 	add_inherent_verbs(H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
@@ -312,31 +317,31 @@
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
 
-/datum/species/proc/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
+/datum/species/proc/handle_death(mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
 
 // Only used for alien phoron weeds atm, but could be used for Dionaea later.
-/datum/species/proc/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_environment_special(mob/living/carbon/human/H)
 	return
 
 // Used to update alien icons for aliens.
-/datum/species/proc/handle_login_special(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_login_special(mob/living/carbon/human/H)
 	return
 
 // As above.
-/datum/species/proc/handle_logout_special(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_logout_special(mob/living/carbon/human/H)
 	return
 
 // Builds the HUD using species-specific icons and usable slots.
-/datum/species/proc/build_hud(var/mob/living/carbon/human/H)
+/datum/species/proc/build_hud(mob/living/carbon/human/H)
 	return
 
 //Used by xenos understanding larvae and dionaea understanding nymphs.
-/datum/species/proc/can_understand(var/mob/other)
+/datum/species/proc/can_understand(mob/other)
 	return
 
 // Called when using the shredding behavior.
-/datum/species/proc/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
+/datum/species/proc/can_shred(mob/living/carbon/human/H, ignore_intent)
 
 	if(!ignore_intent && H.a_intent != I_HURT)
 		return 0
@@ -350,19 +355,19 @@
 	return 0
 
 // Called in life() when the mob has no client.
-/datum/species/proc/handle_npc(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_npc(mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/get_vision_flags(var/mob/living/carbon/human/H)
+/datum/species/proc/get_vision_flags(mob/living/carbon/human/H)
 	return vision_flags
 
-/datum/species/proc/handle_vision(var/mob/living/carbon/human/H)
+/datum/species/proc/handle_vision(mob/living/carbon/human/H)
+	if(!H.client || H.stat == DEAD) // No client - no screen to update
+		return
+
 	H.update_sight()
 	H.sight |= get_vision_flags(H)
 	H.sight |= H.equipment_vision_flags
-
-	if(H.stat == DEAD)
-		return 1
 
 	if(!H.druggy)
 		H.see_in_dark = (H.sight == SEE_TURFS|SEE_MOBS|SEE_OBJS) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
@@ -373,29 +378,19 @@
 	if(H.equipment_tint_total >= TINT_BLIND)
 		H.eye_blind = max(H.eye_blind, 1)
 
-/*	if(H.blind)
-		H.blind.alpha = (H.eye_blind ? 255 : 0)*/
-
-	if(!H.client)//no client, no screen to update
-		return 1
-
 	if(config.welder_vision)
 		if(H.equipment_tint_total == TINT_HEAVY)
-			H.client.screen += global_hud.darkMask
-		else if((!H.equipment_prescription && (H.disabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
-			H.client.screen += global_hud.vimpaired
+			H.client.screen |= global_hud.darkMask
+		else if((!H.equipment_prescription && (H.sdisabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
+			H.client.screen |= global_hud.vimpaired
 		else if(H.equipment_tint_total == TINT_LOW)
-			H.client.screen += global_hud.lightMask
-
-//	if(H.eye_blurry)	H.client.screen += global_hud.blurry
-//	if(H.druggy)		H.client.screen += global_hud.druggy
+			H.client.screen |= global_hud.lightMask
 
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
 
-	return 1
 
-/datum/species/proc/get_facial_hair_styles(var/gender)
+/datum/species/proc/get_facial_hair_styles(gender)
 	var/list/facial_hair_styles_by_species = LAZYACCESS(facial_hair_styles, type)
 	if(!facial_hair_styles_by_species)
 		facial_hair_styles_by_species = list()
@@ -495,8 +490,8 @@
 				dat += "</br><b>Has excellent traction.</b>"
 			if(species_flags & SPECIES_FLAG_NO_POISON)
 				dat += "</br><b>Immune to most poisons.</b>"
-			if(appearance_flags & HAS_A_SKIN_TONE)
-				dat += "</br><b>Has a variety of skin tones.</b>"
+//			if(appearance_flags & HAS_A_SKIN_TONE)
+//				dat += "</br><b>Has a variety of skin tones.</b>"
 			if(appearance_flags & HAS_SKIN_COLOR)
 				dat += "</br><b>Has a variety of skin colours.</b>"
 			if(appearance_flags & HAS_EYE_COLOR)

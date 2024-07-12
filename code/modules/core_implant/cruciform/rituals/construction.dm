@@ -1,5 +1,6 @@
 #define CRUCIFORM_TYPE obj/item/implant/core_implant/cruciform
 
+//Create a list of what can be created via construction ritual
 GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 
 /proc/init_nt_blueprints()
@@ -11,7 +12,17 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 			continue
 		var/datum/nt_blueprint/pb = new blueprint_type()
 		list[pb.name] = pb
-	return list
+	. = list
+
+//Create a list of what the blueprints actually make, and the materials required to make them. Blueprints list generation turns them into text format, not datums.
+GLOBAL_LIST_INIT(nt_constructs, init_nt_constructs())
+
+/proc/init_nt_constructs()
+	var/list/nt_constructs = list()
+	for(var/name in GLOB.nt_blueprints)
+		var/datum/nt_blueprint/accessed = GLOB.nt_blueprints[name]
+		nt_constructs[accessed.build_path] = accessed.materials
+	. = nt_constructs
 
 /datum/ritual/cruciform/priest/acolyte/blueprint_check
 	name = "Divine Guidance"
@@ -33,7 +44,7 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 /datum/ritual/cruciform/priest/acolyte/construction
 	name = "Manifestation"
 	phrase = "Omnia autem quae arguuntur a lumine manifestantur omne enim quod manifestatur lumen est."
-	desc = "Build and expand. Shape your faith in something more sensible."
+	desc = "Build and expand. Shape your faith into something more sensible."
 	power = 40
 
 /datum/ritual/cruciform/priest/acolyte/construction/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C, list/targets)
@@ -45,6 +56,9 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 		return
 	if(!items_check(user, target_turf, blueprint))
 		fail("Something is missing.",user,C,targets)
+		return
+	if(istype(blueprint,/datum/nt_blueprint/machinery/eotp) && eotp != null)
+		fail("You cannot build a second Eye of the Protector in this area. The Last Shelter forbids it.")
 		return
 
 	user.visible_message(SPAN_NOTICE("You see as [user] passes their hands over something."),SPAN_NOTICE("You see your faith take physical form as you concentrate on [blueprint.name] image"))
@@ -74,6 +88,59 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 	var/build_path = blueprint.build_path
 	new build_path(target_turf)
 
+/datum/ritual/cruciform/priest/acolyte/deconstruction
+	name = "Uproot"
+	phrase = "Dominus dedit, Dominus abstulit."
+	desc = "Mistakes are to be a lesson, but first we must correct it by deconstructing its form."
+	power = 40
+
+/datum/ritual/cruciform/priest/acolyte/deconstruction/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C, list/targets)
+	if(!GLOB.nt_constructs) //Makes sure the list we curated earlier actually exists
+		fail("You have no idea what constitutes a church construct.",user,C,targets)
+		return
+
+	var/obj/reclaimed //Variable to be defined later as the removed construct
+	var/loot //Variable to be defined later as materials resulting from deconstruction
+	var/turf/target_turf = get_step(user,user.dir) //Gets the turf in front of the user
+
+	//Find the NT Structure in front of the player
+	for(reclaimed in target_turf)
+		if(reclaimed.type in GLOB.nt_constructs)
+			loot = GLOB.nt_constructs[reclaimed.type]
+			break
+
+	if(isnull(loot))
+		fail("There is no mistake to remove here.",user,C,targets)
+		return
+	if(reclaimed.type == /obj/machinery/power/eotp && !(is_preacher(user) || is_inquisidor(user)))
+		fail("The power of moving such holy buildings is only placed in the power of the upmost faithful!")
+		return
+	user.visible_message(SPAN_NOTICE("[user] places one hand on their chest, and the other stretched forward."),SPAN_NOTICE("You take back what is, returning it to what was."))
+
+	var/obj/effect/overlay/nt_construction/effect = new(target_turf, 5 SECONDS)
+
+	if(!do_after(user, 5 SECONDS, target_turf)) //"Sit still" timer
+		fail("You feel something is judging you upon your impatience",user,C,targets)
+		effect.failure()
+		return
+
+	if(QDELETED(reclaimed) || reclaimed.loc != target_turf)
+		fail("It's no longer there.", user, C, targets)
+		effect.failure()
+		return
+
+	//Lets spawn and drop the materials resulting from deconstruction
+	for(var/obj/scrap as anything in loot)
+		if(ispath(scrap, /obj/item/stack))
+			var/obj/item/stack/mat = new scrap(target_turf)
+			mat.amount = loot[scrap]
+		else
+			scrap = new scrap(target_turf)
+
+	effect.success()
+	user.visible_message(SPAN_NOTICE("Clanking of parts hit the floor as [user] finishes their prayer and the machine falls apart."),SPAN_NOTICE("Collect the evidence, and begin to atone."))
+
+	qdel(reclaimed)
 
 /datum/ritual/cruciform/priest/acolyte/construction/proc/items_check(mob/user,turf/target, datum/nt_blueprint/blueprint)
 	var/list/turf_contents = target.contents
@@ -126,6 +193,18 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 		/CRUCIFORM_TYPE = 1
 	)
 	build_time = 8 SECONDS
+
+/datum/nt_blueprint/machinery/eotp
+	name = "Eye of the Protector"
+	build_path = /obj/machinery/power/eotp
+	materials = list(
+		/obj/item/device/last_shelter = 1,
+		/obj/item/stack/material/gold = 15,
+		/obj/item/stack/material/plasteel = 50,
+		/obj/item/stack/material/biomatter = 100,
+		/CRUCIFORM_TYPE = 1
+
+	)
 /datum/nt_blueprint/machinery/bioprinter
 	name = "Biomatter Printer"
 	build_path = /obj/machinery/autolathe/bioprinter
@@ -133,7 +212,7 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 		/obj/item/stack/material/steel = 10,
 		/obj/item/stack/material/glass = 2,
 		/obj/item/stack/material/silver = 6,
-		/obj/item/storage/toolbox = 1
+		/obj/item/storage/toolbox/mechanical = 1
 	)
 	build_time = 5 SECONDS
 /datum/nt_blueprint/machinery/solidifier
@@ -222,7 +301,7 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 
 /datum/nt_blueprint/machinery/bioreactor_metrics
 	name = "Biomatter Reactor: Metrics"
-	build_path = /obj/machinery/multistructure/biogenerator_part/console
+	build_path = /obj/machinery/multistructure/bioreactor_part/console
 	materials = list(
 		/obj/item/stack/material/steel = 2,
 		/obj/item/stack/material/silver = 5,
@@ -285,3 +364,24 @@ GLOBAL_LIST_INIT(nt_blueprints, init_nt_blueprints())
 		/obj/item/stack/material/gold = 3
 	)
 	build_time = 8 SECONDS
+
+/datum/nt_blueprint/machinery/door_public
+	name = "Public Door"
+	build_path = /obj/machinery/door/holy/public
+	materials = list(
+		/obj/item/stack/material/steel = 5,
+		/obj/item/stack/material/biomatter = 20,
+		/obj/item/stack/material/silver = 3
+	)
+	build_time = 8 SECONDS
+
+/datum/nt_blueprint/machinery/altar
+	name = "Altar"
+	build_path = /obj/machinery/optable/altar
+	materials = list(
+		/obj/item/stack/material/steel = 10,
+		/obj/item/stack/material/biomatter = 50,
+		/obj/item/stack/material/silver = 5,
+		/CRUCIFORM_TYPE = 1
+	)
+	build_time = 10 SECONDS

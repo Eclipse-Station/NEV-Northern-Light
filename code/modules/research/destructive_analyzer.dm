@@ -9,6 +9,8 @@ Note: Must be placed within 3 tiles of the R&D Console
 /obj/machinery/r_n_d/destructive_analyzer
 	name = "destructive analyzer"
 	icon_state = "d_analyzer"
+	description_info = "Can deconstruct items for technology points. Rare or illegal technology yields more"
+	description_antag = "The perfect device to get rid of evidence"
 	var/obj/item/loaded_item = null
 	var/decon_mod = 0
 	var/busy = FALSE
@@ -93,7 +95,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 			loaded_item = I
 			to_chat(user, SPAN_NOTICE("You add \the [I] to \the [src]."))
 			flick("d_analyzer_la", src)
-			addtimer(CALLBACK(src, .proc/reset_busy), 1 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(reset_busy)), 1 SECONDS)
 			return TRUE
 	return
 
@@ -113,7 +115,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 
 	busy = TRUE
 	flick("d_analyzer_process", src)
-	addtimer(CALLBACK(src, .proc/finish_deconstructing), 2.4 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finish_deconstructing)), 2.4 SECONDS)
 	return TRUE
 
 /obj/machinery/r_n_d/destructive_analyzer/proc/finish_deconstructing()
@@ -123,7 +125,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 	if(linked_console)
 		linked_console.handle_item_analysis(loaded_item)
 	for(var/mob/living/carbon/human/H in viewers(src))
-		SEND_SIGNAL(H, COMSING_DESTRUCTIVE_ANALIZER, loaded_item)
+		SEND_SIGNAL_OLD(H, COMSING_DESTRUCTIVE_ANALIZER, loaded_item)
 	if(istype(loaded_item,/obj/item/stack))
 		var/obj/item/stack/S = loaded_item
 		if(S.amount <= 1)

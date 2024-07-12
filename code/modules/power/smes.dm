@@ -8,6 +8,8 @@
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
+	description_info = "Can be fast toggled with AltClick and CtrlClick"
+	description_antag = "Cutting the safety wire lets you insert SMES components when its charged, doing so will create a pretty big blast" //Eclipse Edit - fixed typo
 	icon_state = "smes"
 	density = TRUE
 	anchored = TRUE
@@ -49,7 +51,7 @@
 	var/building_terminal = 0 //Suggestions about how to avoid clickspam building several terminals accepted!
 	var/obj/machinery/power/terminal/terminal = null
 	var/should_be_mapped = 0 // If this is set to 0 it will send out warning on New()
-	
+
 	var/input_used = 0		//Eclipse var: Add input tracking for I/O status
 
 /obj/machinery/power/smes/AltClick(mob/user)
@@ -275,7 +277,7 @@
 
 /obj/machinery/power/smes/attack_hand(mob/user)
 	add_fingerprint(user)
-	ui_interact(user)
+	nano_ui_interact(user)
 
 
 /obj/machinery/power/smes/attackby(var/obj/item/I, var/mob/user)
@@ -337,7 +339,7 @@
 
 	return tool_type || 1
 
-/obj/machinery/power/smes/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
+/obj/machinery/power/smes/nano_ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = NANOUI_FOCUS)
 
 	if(stat & BROKEN)
 		return

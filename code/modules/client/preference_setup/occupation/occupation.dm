@@ -132,6 +132,10 @@
 			bad_message = "<b> \[UNAVAILABLE]</b>"
 		else if(jobban_isbanned(user, rank))
 			bad_message = "<b> \[BANNED]</b>"
+		else if(IsGuestKey(user.client.ckey) && SSjob.job_to_playtime_requirement[job.title])
+			bad_message = "<b> \[ACCOUNT REQUIRED </b>"
+		else if(!SSjob.ckey_to_job_to_can_play[user.client.ckey][job.title])
+			bad_message = "\[PLAYTIME REQUIRED : [SSjob.job_to_playtime_requirement[job.title]] Minutes as [job.department]]"
 		/*else if(!job.player_old_enough(user.client))
 			var/available_in_days = job.available_in_days(user.client)
 			bad_message = "\[IN [(available_in_days)] DAYS]"*/
@@ -302,14 +306,7 @@
 	job_desc += "<tr><td style='width: 220px;overflow: hidden;display: inline-block; white-space: nowrap;'>"
 	//The mannequin and its buttons are in their own little mini table, within a fixed width 200px cell
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = job.get_job_mannequin()
-	mannequin.r_skin = 238
-	mannequin.g_skin = 206
-	mannequin.b_skin = 179
-	mannequin.update_dna()
-	mannequin.force_update_limbs()
-	mannequin.update_body(0)
-	mannequin.update_icons()
-	var/icon/job_icon = getFlatIcon(mannequin, defdir=job_icon_dir)
+	var/icon/job_icon = getFlatIcon(mannequin, job_icon_dir)
 	job_icon.Scale(job_icon.Width() * 2.5, job_icon.Height() * 2.5)
 	send_rsc(user, job_icon, "job_icon_[job_icon_dir].png")
 	job_desc += "<table style='float:left; height = 270px; table-layout: fixed; vertical-align:top' cellpadding='0' cellspacing='0'><tr><td><img src=job_icon_[job_icon_dir].png width=220 height=220 style='float:left;'></td></tr>"

@@ -31,7 +31,9 @@
 	name = "Church Generator Room"
 	icon_state = "erisgreen"
 
-
+/area/erida/crew_quarters/firing_range
+	name = "\improper Public Firing Range"
+	icon_state = "firingrange"
 
 /area/erida/maintenance
 	is_maintenance = TRUE

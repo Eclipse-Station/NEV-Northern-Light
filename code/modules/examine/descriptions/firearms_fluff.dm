@@ -1,4 +1,4 @@
-//Fluff text for firearms.
+//Eclipse/Northern Light fluff text for firearms.
 
 ///////////////
 // ENERGY
@@ -44,7 +44,7 @@
 	description_fluff = null		//Handmade.
 
 /obj/item/gun/energy/lasersmg
-	description_fluff = GENERIC_FLUFF_FIREARMS_FROZEN_STAR		//Technically, Frozen Star made the Atreides...
+	description_fluff = null		//Handmade.
 
 /obj/item/gun/energy/nt_svalinn
 	description_fluff = GENERIC_FLUFF_FIREARMS_NANOTRASEN
@@ -260,10 +260,10 @@ obj/item/gun/projectile/mk58
 /obj/item/gun/projectile/selfload/moebius
 	description_fluff = GENERIC_FLUFF_FIREARMS_LAZARUS
 
-/obj/item/gun/projectile/type_42
+/obj/item/gun/projectile/pistol/type_62
 	description_fluff = GENERIC_FLUFF_FIREARMS_ONESTAR
 
-/obj/item/gun/projectile/type_69
+/obj/item/gun/projectile/pistol/type_90
 	description_fluff = GENERIC_FLUFF_FIREARMS_ONESTAR
 
 //---

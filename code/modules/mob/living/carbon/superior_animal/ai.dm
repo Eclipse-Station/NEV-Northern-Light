@@ -31,7 +31,14 @@
 		if ((M.z == src.z) && (get_dist(src, M) <= viewRange) && isValidAttackTarget(M))
 			filteredTargets += M
 
-	return safepick(nearestObjectsInList(filteredTargets, src, acceptableTargetDistance))
+	var/target = safepick(nearestObjectsInList(filteredTargets, src, acceptableTargetDistance))
+	RegisterSignal(target, COMSIG_NULL_TARGET, PROC_REF(clearTarget), TRUE)
+	return target
+
+/mob/living/carbon/superior_animal/proc/clearTarget()
+	if(target_mob)
+		UnregisterSignal(target_mob, COMSIG_NULL_TARGET)
+		target_mob = null
 
 /mob/living/carbon/superior_animal/proc/attemptAttackOnTarget()
 	if (!Adjacent(target_mob))
@@ -75,25 +82,25 @@
 	if (prob(break_stuff_probability))
 
 		for (var/obj/structure/window/obstacle in src.loc) // To destroy directional windows that are on the creature's tile
-			obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+			obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),pick(attacktext))
 			return
 
 		for (var/obj/machinery/door/window/obstacle in src.loc) // To destroy windoors that are on the creature's tile
-			obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+			obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),pick(attacktext))
 			return
 
 		for (var/dir in cardinal) // North, South, East, West
 			for (var/obj/structure/window/obstacle in get_step(src, dir))
 				if ((obstacle.is_full_window()) || (obstacle.dir == reverse_dir[dir])) // So that directional windows get smashed in the right order
-					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),pick(attacktext))
 					return
 
 			for (var/obj/machinery/door/window/obstacle in get_step(src, dir))
 				if (obstacle.dir == reverse_dir[dir]) // So that windoors get smashed in the right order
-					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),pick(attacktext))
 					return
 
 			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))
 			if (istype(obstacle, /obj/structure/window) || istype(obstacle, /obj/structure/closet) || istype(obstacle, /obj/structure/table) || istype(obstacle, /obj/structure/grille))
-				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),pick(attacktext))
 

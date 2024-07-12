@@ -32,8 +32,8 @@
 		STAT_VIG = 40,
 	)
 
-	perks = list(/datum/perk/survivor,
-				 /datum/perk/codespeak)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/digitalwarrant,
@@ -73,7 +73,7 @@
 	supervisors = "the Aegis Commander"
 	selection_color = "#a7bbc6"
 	department_account_access = TRUE
-	wage = WAGE_LABOUR_HAZARD
+	wage = WAGE_PROFESSIONAL
 	also_known_languages = list(LANGUAGE_NEOHONGO = 100)
 
 	wl_config_sec = TRUE		//Eclipse edit.
@@ -92,8 +92,8 @@
 		STAT_VIG = 25,
 	)
 
-	perks = list(/datum/perk/survivor,
-				 /datum/perk/codespeak)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)
@@ -144,11 +144,12 @@
 		STAT_VIG = 25,
 	)
 
-	perks = list(/datum/perk/survivor,
-				 /datum/perk/codespeak)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/audio,
+							 /datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/camera_monitor)
 
 	description = "You are the ship's detective, here to take care of the cases that aren't always what they seem, and suspects that aren't always caught red handed or ready to confess.<br>\
@@ -198,8 +199,8 @@
 		STAT_VIG = 15,
 	)
 
-	perks = list(/datum/perk/survivor,
-				 /datum/perk/codespeak)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/suit_sensors,
@@ -255,8 +256,8 @@
 		STAT_VIG = 25,
 	)
 
-	perks = list(/datum/perk/survivor,
-				 /datum/perk/codespeak)
+	perks = list(PERK_SURVIVOR,
+				 PERK_CODESPEAK_COP)
 
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)

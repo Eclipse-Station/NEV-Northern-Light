@@ -1,4 +1,4 @@
-datum/preferences
+/datum/preferences
 	var/gender = MALE					//gender of character (well duh)
 	var/age = 30						//age of character
 	var/spawnpoint = "Aft Cryogenic Storage" 			//where this character will spawn
@@ -6,6 +6,7 @@ datum/preferences
 //	var/real_first_name					//Eclipse Removal
 	var/family_name						//Eclipse refactor: Used in some perks. Clan/family name.
 	var/be_random_name = 0				//whether we are a random name every round
+	var/tts_seed = TTS_SEED_DEFAULT_MALE
 
 /datum/category_item/player_setup_item/physical/basic
 	name = "Basic"
@@ -19,6 +20,7 @@ datum/preferences
 	from_file(S["family_name"],           pref.family_name)		//Eclipse Edit
 	from_file(S["real_name"],             pref.real_name)
 	from_file(S["name_is_always_random"], pref.be_random_name)
+	from_file(S["tts_seed"],              pref.tts_seed)
 
 /datum/category_item/player_setup_item/physical/basic/save_character(savefile/S)
 	to_file(S["gender"],                  pref.gender)
@@ -28,6 +30,7 @@ datum/preferences
 	to_file(S["family_name"],             pref.family_name)			//Eclipse Edit
 	to_file(S["real_name"],               pref.real_name)
 	to_file(S["name_is_always_random"],   pref.be_random_name)
+	to_file(S["tts_seed"],                pref.tts_seed)
 
 /datum/category_item/player_setup_item/physical/basic/sanitize_character()
 	var/datum/species/S = all_species[pref.species ? pref.species : SPECIES_HUMAN]
@@ -37,16 +40,6 @@ datum/preferences
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, get_late_spawntypes(), initial(pref.spawnpoint))
 	pref.be_random_name     = sanitize_integer(pref.be_random_name, 0, 1, initial(pref.be_random_name))
 
-	// This is a bit noodly. If pref.cultural_info[TAG_CULTURE] is null, then we haven't finished loading/sanitizing, which means we might purge
-	// numbers or w/e from someone's name by comparing them to the map default. So we just don't bother sanitizing at this point otherwise.
-	/*
-	if(pref.cultural_info[TAG_CULTURE])
-		var/decl/cultural_info/check = SSculture.get_culture(pref.cultural_info[TAG_CULTURE])
-		if(check)
-			pref.real_name = check.sanitize_name(pref.real_name, pref.species)
-			if(!pref.real_name)
-				pref.real_name = random_name(pref.gender, pref.species)
-	*/
 /datum/category_item/player_setup_item/physical/basic/content()
 	. = list()
 	. += "<b>Character name:</b> "		//Begin eclipse edit
@@ -59,6 +52,7 @@ datum/preferences
 	. += "<b>Gender:</b> <a href='?src=\ref[src];gender=1'><b>[gender2text(pref.gender)]</b></a><br>"
 	. += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
 	. += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a><br>"
+	. += "<b>Text-to-speech seed</b>: <a href='?src=\ref[src];tts_seed=1'>[pref.tts_seed]</a><br>"
 
 	. = jointext(.,null)
 
@@ -110,6 +104,14 @@ datum/preferences
 		S = all_species[pref.species]
 		if(new_gender && CanUseTopic(user) && (new_gender in S.genders))
 			pref.gender = new_gender
+			var/list/seeds = new()
+			for(var/i in tts_seeds)
+				var/list/L = tts_seeds[i]
+				if((L["category"] == "any" || L["category"] == "human") && (L["gender"] == "any" || L["gender"] == pref.gender))
+					seeds += i
+			if(!LAZYLEN(seeds))
+				seeds = tts_seeds
+			pref.tts_seed = pick(seeds)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["age"])
@@ -127,5 +129,21 @@ datum/preferences
 		if(!choice || !get_late_spawntypes()[choice] || !CanUseTopic(user))	return TOPIC_NOACTION
 		pref.spawnpoint = choice
 		return TOPIC_REFRESH
+
+	else if(href_list["tts_seed"])
+		var/list/seeds = new()
+		for(var/i in tts_seeds)
+			var/list/L = tts_seeds[i]
+			if((L["category"] == "any" || L["category"] == "human") && (L["gender"] == "any" || L["gender"] == pref.gender))
+				seeds += i
+		if(!LAZYLEN(seeds))
+			seeds = tts_seeds
+
+		var/choice = input(user, "Pick a voice preset.") as null|anything in seeds
+		if(choice)
+			tts_cast(user, "You'll sound like this... when talking.", choice)
+			pref.tts_seed = choice
+			return TOPIC_REFRESH
+		return TOPIC_NOACTION
 
 	return ..()
