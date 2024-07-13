@@ -6,9 +6,9 @@
 
 	heat_protection = HEAD
 	armor = list(
-		melee = 30,
-		bullet = 20,
-		energy = 15,
+		melee = 7,
+		bullet = 5,
+		energy = 3,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -17,7 +17,6 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	light_overlay = "helmet_light"
 	spawn_tags = null
-	obscuration = LIGHT_OBSCURATION
 
 /obj/item/clothing/suit/space/void
 	name = "voidsuit"
@@ -25,9 +24,9 @@
 	item_state = "void"
 	desc = "A high-tech dark red space suit. Used for AI satellite maintenance."
 	armor = list(
-		melee = 30,
-		bullet = 20,
-		energy = 15,
+		melee = 7,
+		bullet = 5,
+		energy = 3,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -41,7 +40,6 @@
 	spawn_tags = SPAWN_TAG_VOID_SUIT
 	accompanying_object = /obj/item/clothing/shoes/magboots
 	slowdown = MEDIUM_SLOWDOWN
-	stiffness = HEAVY_STIFFNESS // Very hard to aim in
 
 	//Inbuilt devices.
 	var/obj/item/clothing/shoes/magboots/boots // Deployable boots, if any.

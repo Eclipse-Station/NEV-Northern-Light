@@ -68,10 +68,10 @@ Proc defines should contain full type path.
 
 ```
 /obj/item/pistol
-    proc
+	proc
 	fire()
 
-    proc/reload()
+	proc/reload()
 ```
 ***
 If, else, for, return, continue and break expressions should not be inline.
@@ -79,11 +79,11 @@ If, else, for, return, continue and break expressions should not be inline.
 ***Good:***
 ```
 if(condition)
-    foo()
+	foo()
 ```
 ```
 for(var/object in objects)
-    foo(object)
+	foo(object)
 ```
 ***Bad:***
 ```
@@ -98,17 +98,17 @@ Spaces are needed between function agruments (declaration and definition). Space
 
 ***Good:***
 ```
-/obj/item/pistol/fire(var/user, var/target)
-    if(can_fire() && target)
-        ammo--
-        var/corpse = target
+/obj/item/pistol/fire(user, target)
+	if(can_fire() && target)
+		ammo--
+		var/corpse = target
 ```
 ***Bad:***
 ```
-/obj/item/pistol/fire(var/user,var/target)
-    if ( can_fire()&&target )
-        ammo --
-        var/corpset=target
+/obj/item/pistol/fire(user,target)
+	if ( can_fire()&&target )
+		ammo --
+		var/corpset=target
 ```
 ***
 
@@ -230,18 +230,18 @@ Do not use src.var if it can be helped.
 
 ***Good:***
 ```
-/obj/set_name(var/newname)
+/obj/set_name(newname)
 	name = newname
 	
-/obj/set_name(var/_name)
+/obj/set_name(_name)
 	name = _name
 ```
 ***Bad:***
 ```
-/obj/set_name(var/name)
+/obj/set_name(name)
 	name = name
 	
-/obj/set_name(var/name)
+/obj/set_name(name)
 	src.name = name
 ```
 ***
@@ -250,12 +250,26 @@ Variables, types and methods should be named in "snake case". Constant values sh
 
 ***Good:***
 ```
-proc/redraw_icons()
+/proc/redraw_icons()
 #define SHIP_NAME "Eris"
 ```
 ***Bad:***
 ```
-proc/Reload_gun()
+/proc/Reload_gun()
 var/brigArea
+```
+***
+
+Procedure arguments should not contain `var/`. Specified input type e.g. `some_turf as turf` is inadvisable.
+
+***Good:***
+```
+/proc/rename_area(mob/user, area/A, new_name)
+
+```
+***Bad:***
+```
+/proc/rename_area(var/mob/user as mob, var/area/A as area, var/new_name as text)
+
 ```
 ***

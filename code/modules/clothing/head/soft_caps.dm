@@ -81,9 +81,9 @@
 	icon_state = "rainbowsoft"
 
 /obj/item/clothing/head/soft/sec
-	name = "security cap"
-	initial_name = "security cap"
-	desc = "A field cap in tasteful red color."
+	name = "old security cap"
+	initial_name = "old  security cap"
+	desc = "A washed out red cap bearing logo of the long defunct \"Securitech\" company."
 	icon_state = "secsoft"
 
 /obj/item/clothing/head/soft/sec/corp
@@ -120,10 +120,16 @@
 	desc = "A field cap for officers."
 	icon_state = "sargesoft"
 
-// M O E B I U S //m
+// M O E B I U S //
 
 /obj/item/clothing/head/soft/medical
 	name = "medical cap"
 	desc = "Cap worn by medical personnel, usually outside spacecraft."
 	icon_state = "medcap"
 	item_state = "medcap"
+
+///obj/item/clothing/head/soft/science
+	//name = "research cap"
+	//desc = "Cap worn by moebius research personnel."
+	//icon_state = "scicap"
+	//item_state = "scicap"

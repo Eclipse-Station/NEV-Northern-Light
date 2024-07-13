@@ -21,13 +21,12 @@
 	reload_sound = 'sound/weapons/guns/interact/ltrifle_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ltrifle_cock.ogg'
 	penetration_multiplier = 1.1
-	recoil_buildup = 1
-	one_hand_penalty = 15 //automatic rifle level
+	init_recoil = RIFLE_RECOIL(1)
 	damage_multiplier = 1.1
 	rarity_value = 45
 
 	init_firemodes = list(
-		SEMI_AUTO_NODELAY,
+		SEMI_AUTO_300,
 		BURST_3_ROUND
 		)
 

@@ -56,7 +56,6 @@ SUBSYSTEM_DEF(ticker)
 		syndicate_code_response = generate_code_phrase()
 
 	setup_objects()
-	setup_genetics()
 	setup_huds()
 
 	return ..()
@@ -90,7 +89,6 @@ SUBSYSTEM_DEF(ticker)
 			if(!start_immediately)
 				to_chat(world, "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
 			current_state = GAME_STATE_PREGAME
-			send_assets()
 			fire()
 
 		if(GAME_STATE_PREGAME)
@@ -137,6 +135,8 @@ SUBSYSTEM_DEF(ticker)
 			if(!nuke_in_progress && game_finished)
 				current_state = GAME_STATE_FINISHED
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
+				for(var/client/t in clients)
+					SSjob.SavePlaytimes(t)
 				declare_completion()
 
 				spawn(50)
@@ -265,11 +265,11 @@ SUBSYSTEM_DEF(ticker)
 		N.new_player_panel_proc()
 
 	CHECK_TICK
-
+	setup_codespeak()
 	generate_contracts(min(6 + round(minds.len / 5), 12))
 	generate_excel_contracts(min(6 + round(minds.len / 5), 12))
 	excel_check()
-	addtimer(CALLBACK(src, .proc/contract_tick), 15 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(contract_tick)), 15 MINUTES)
 	//start_events() //handles random events and space dust.
 	//new random event system is handled from the MC.
 
@@ -307,7 +307,7 @@ SUBSYSTEM_DEF(ticker)
 	cinematic.mouse_opacity = 0
 	cinematic.screen_loc = "1,0"
 
-	for(var/mob/M in SSmobs.mob_list)
+	for(var/mob/M in SSmobs.mob_list | SShumans.mob_list)
 		if(isOnStationLevel(M))
 			if(M.client)
 				M.client.screen += cinematic
@@ -449,12 +449,12 @@ SUBSYSTEM_DEF(ticker)
 				marked_areas += 1
 		if (marked_areas >= 3)
 			M.complete()
-	addtimer(CALLBACK(src, .proc/excel_check), 3 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(excel_check)), 3 MINUTES)
 
 /datum/controller/subsystem/ticker/proc/contract_tick()
 	generate_contracts(1)
 	generate_excel_contracts(1)
-	addtimer(CALLBACK(src, .proc/contract_tick), 15 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(contract_tick)), 15 MINUTES)
 
 
 /datum/controller/subsystem/ticker/proc/equip_characters()

@@ -185,9 +185,9 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/fsassault
 	name = "FS Assault Pack"
-	contains = list(/obj/item/gun/projectile/automatic/ak47/fs,
-			/obj/item/gun/projectile/automatic/ak47/fs,
-			/obj/item/gun/projectile/automatic/ak47/fs)
+	contains = list(/obj/item/gun/projectile/automatic/modular/ak/frozen_star,
+			/obj/item/gun/projectile/automatic/modular/ak/frozen_star,
+			/obj/item/gun/projectile/automatic/modular/ak/frozen_star)
 	cost = 3600
 	containertype = /obj/structure/closet/crate/secure/weapon
 	crate_name = "FS Assault Pack"
@@ -280,11 +280,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 
 /datum/supply_pack/shotgunammo_beanbag
 	name = "FS Shotgun shells (Beanbag)"
-	contains = list(/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
-					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
-					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
-					/obj/item/ammo_magazine/ammobox/shotgun/beanbags,
-					/obj/item/ammo_magazine/ammobox/shotgun/beanbags)
+	contains = list(/obj/item/ammo_magazine/ammobox/shotgun/beanbag,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbag,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbag,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbag,
+					/obj/item/ammo_magazine/ammobox/shotgun/beanbag)
 	cost = 1000
 	crate_name = "FS Shotgun shells (Beanbag)"
 	group = "Security"
@@ -734,6 +734,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_pack/mech_ripley
 	name = "exosuit assembly crate"
 	contains = list(
+		/obj/structure/heavy_vehicle_frame,
 		/obj/item/mech_equipment/drill,
 		/obj/item/mech_equipment/clamp,
 		/obj/item/mech_equipment/light,
@@ -741,8 +742,15 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 		/obj/item/mech_component/chassis/cheap,
 		/obj/item/mech_component/manipulators/cheap,
 		/obj/item/mech_component/propulsion/cheap,
+		/obj/item/electronics/circuitboard/exosystem/utility,
+		/obj/item/robot_parts/robot_component/actuator,
+		/obj/item/robot_parts/robot_component/actuator,
+		/obj/item/robot_parts/robot_component/camera,
+		/obj/item/robot_parts/robot_component/radio,
 		/obj/item/robot_parts/robot_component/exosuit_control,
-		/obj/item/robot_parts/robot_component/armour/exosuit/plain
+		/obj/item/robot_parts/robot_component/armour/exosuit/plain,
+		/obj/item/robot_parts/robot_component/diagnosis_unit,
+		/obj/item/cell/large
 	)
 	cost = 2000
 	containertype = /obj/structure/closet/crate/secure/scisecurecrate
@@ -993,13 +1001,6 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	crate_name = "body bags crate"
 	group = "Medical / Science"
 
-/datum/supply_pack/suspension_gen
-	name = "Suspension Field Generetor Crate"
-	cost = 2500
-	contains = list(/obj/machinery/suspension_gen)
-	containertype = /obj/structure/closet/crate/secure/scisecurecrate
-	crate_name = "Suspension Field Generetor Crate"
-	group = "Medical / Science"
 
 /datum/supply_pack/floodlight
 	name = "Emergency Floodlight Crate"

@@ -9,6 +9,10 @@
 	if(istype(parent_mob))
 		parent = parent_mob
 
+/datum/reagents/metabolism/Destroy()
+	parent = null
+	return ..()
+
 /datum/reagents/metabolism/proc/metabolize()
 	expose_temperature(parent.bodytemperature, 0.25)
 
@@ -42,10 +46,16 @@
 	/// The final chance for an addiction to manifest is multiplied by this value before being passed to prob.
 	var/addiction_chance_multiplier = 1
 
+/datum/metabolism_effects/Destroy()
+	parent = null
+	withdrawal_list.Cut()
+	active_withdrawals.Cut()
+	addiction_list.Cut()
+	return ..()
+
 /datum/metabolism_effects/proc/adjust_nsa(value, tag)
 	if(!tag)
-		crash_with("no tag given to adjust_nsa()")
-		return
+		CRASH("no tag given to adjust_nsa()")
 	nerve_system_accumulations[tag] = value
 
 /datum/metabolism_effects/proc/remove_nsa(tag)
@@ -59,7 +69,7 @@
 		return nerve_system_accumulations[tag]
 
 /datum/metabolism_effects/proc/get_nsa()
-	SEND_SIGNAL(parent, COMSING_NSA, nsa_current)
+	SEND_SIGNAL_OLD(parent, COMSIG_NSA, nsa_current)
 	return nsa_current
 
 /datum/metabolism_effects/proc/get_nsa_target()
@@ -150,7 +160,7 @@
 			addiction_list.Add(new_reagent)
 			addiction_list[new_reagent] = 0
 			for(var/mob/living/carbon/human/H in viewers(parent))
-				SEND_SIGNAL(H, COMSIG_CARBON_ADICTION, parent, R)
+				SEND_SIGNAL_OLD(H, COMSIG_CARBON_ADICTION, parent, R)
 
 	if(is_type_in_list(R, addiction_list))
 		for(var/addiction in addiction_list)

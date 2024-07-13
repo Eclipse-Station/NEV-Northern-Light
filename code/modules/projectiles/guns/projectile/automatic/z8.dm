@@ -14,22 +14,21 @@
 	fire_sound = 'sound/weapons/guns/fire/batrifle_fire.ogg'
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	mag_well = MAG_WELL_RIFLE
+	mag_well = MAG_WELL_RIFLE|MAG_WELL_RIFLE_L
 	magazine_type = /obj/item/ammo_magazine/srifle
 	unload_sound = 'sound/weapons/guns/interact/batrifle_magout.ogg'
 	reload_sound = 'sound/weapons/guns/interact/batrifle_magin.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/batrifle_cock.ogg'
-	recoil_buildup = 1
-	penetration_multiplier = 1.1
-	damage_multiplier = 1.1
-	zoom_factor = 0.2
-	one_hand_penalty = 10 //bullpup rifle level
+	init_recoil = CARBINE_RECOIL(0.5)
+	damage_multiplier = 1.15
+	penetration_multiplier = 0.1
+	zoom_factors = list(0.2)
 	gun_tags = list(GUN_FA_MODDABLE)
-	
+
 	simplemob_bonus_damage_multiplier = 0.1 //Eclipse edit: Balancing.
 
 	init_firemodes = list(
-		SEMI_AUTO_NODELAY,
+		SEMI_AUTO_300,
 		BURST_3_ROUND,
 		list(mode_name="fire grenades", mode_desc="Unlocks the underbarrel grenade launcher", burst=null, fire_delay=null, move_delay=null,  icon="grenade", use_launcher=1)
 		)
@@ -37,8 +36,8 @@
 	var/obj/item/gun/projectile/shotgun/pump/grenade/underslung/launcher
 
 	spawn_tags = SPAWN_TAG_FS_PROJECTILE
-	gun_parts = list(/obj/item/part/gun/frame/z8 = 1, /obj/item/part/gun/grip/black = 1, /obj/item/part/gun/mechanism/autorifle = 1, /obj/item/part/gun/barrel/srifle = 1)
-
+	gun_parts = list(/obj/item/part/gun/frame/z8 = 1, /obj/item/part/gun/modular/grip/black = 1, /obj/item/part/gun/modular/mechanism/autorifle/heavy = 1, /obj/item/part/gun/modular/barrel/srifle = 1)
+	serial_type = "OSDF" //Eclipse Edit - lore compliance
 /obj/item/gun/projectile/automatic/z8/Initialize()
 	. = ..()
 	launcher = new(src)
@@ -71,12 +70,7 @@
 	..()
 
 	var/iconstring = initial(icon_state)
-
-	if (ammo_magazine)
-		iconstring += "_mag"
-
-	if (!ammo_magazine || !length(ammo_magazine.stored_ammo))
-		iconstring += "_slide"
+	iconstring = initial(icon_state) + (ammo_magazine ? "_mag" + (ammo_magazine.mag_well == MAG_WELL_RIFLE_L ? "_l" : (ammo_magazine.mag_well == MAG_WELL_RIFLE_D ? "_d" : "")) : "")
 
 	icon_state = iconstring
 
@@ -95,7 +89,7 @@
 	name = "\improper Z8 Bulldog frame"
 	desc = "A Z8 Bulldog carbine frame. Old but gold."
 	icon_state = "frame_pug"
-	result = /obj/item/gun/projectile/automatic/z8
-	grip = /obj/item/part/gun/grip/black
-	mechanism = /obj/item/part/gun/mechanism/autorifle
-	barrel = /obj/item/part/gun/barrel/srifle
+	resultvars = list(/obj/item/gun/projectile/automatic/z8)
+	gripvars = list(/obj/item/part/gun/modular/grip/black)
+	mechanismvar = /obj/item/part/gun/modular/mechanism/autorifle
+	barrelvars = list(/obj/item/part/gun/modular/barrel/srifle)

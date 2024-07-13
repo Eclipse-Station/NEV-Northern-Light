@@ -25,20 +25,21 @@
 	var/spawn_tags
 	var/rarity_value = 1 //min:1
 	var/spawn_frequency = 0 //min:0
-	var/accompanying_object	//path or text "obj/item,/obj/item/device"
-	var/prob_aditional_object = 100
-	var/spawn_blacklisted = FALSE
-	var/bad_type //path
+	var/accompanying_object	// path or text "obj/item,/obj/item/device". This object will spawn alongside (in turf of) the spawned atom.
+	var/prob_aditional_object = 100 // Probability for the accompanying_object to spawn.
+	var/spawn_blacklisted = FALSE // Generally for niche objects, atoms blacklisted can spawn if enabled by spawner. Examples include exoplanet loot tables you don't want spawning within the player starting area.
+	var/bad_type // Use path Ex:(bad_type = obj/item). Generally for abstract code objects, atoms with a set bad_type can never be selected by spawner. Examples include parent objects which should only exist within the code, or deployable embedded items.
 
 /atom/movable/Del()
 	if(isnull(gc_destroyed) && loc)
 		testing("GC: -- [type] was deleted via del() rather than qdel() --")
-		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
+		CRASH("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
 //	else if(isnull(gcDestroyed))
 //		testing("GC: [type] was deleted via GC without qdel()") //Not really a huge issue but from now on, please qdel()
 //	else
 //		testing("GC: [type] was deleted via GC with qdel()")
 	..()
+
 
 /atom/movable/Destroy()
 	. = ..()
@@ -70,9 +71,17 @@
 /atom/movable/proc/entered_with_container(var/atom/old_loc)
 	return
 
+// Gets the top-atom that contains us, doesn't care about how deeply nested a item is
+/atom/proc/getContainingMovable()
+	var/atom/checking = src
+	while(!isturf(checking.loc) && !isnull(checking.loc))
+		checking = checking.loc
+	return checking
+
+
 /atom/movable/proc/forceMove(atom/destination, var/special_event, glide_size_override=0)
 	if(loc == destination)
-		return 0
+		return FALSE
 
 	if (glide_size_override)
 		set_glide_size(glide_size_override)
@@ -105,14 +114,29 @@
 				destination.loc.Entered(src, origin)
 
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, origin, loc)
-
-	// Only update plane if we're located on map
-	if(isturf(loc))
-		// if we wasn't on map OR our Z coord was changed
-		if( !isturf(origin) || (get_z(loc) != get_z(origin)) )
+	if(origin && destination)
+		if(get_z(origin) != get_z(destination))
+			SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, get_z(origin) , get_z(destination))
 			update_plane()
+		else if(!is_origin_turf)
+			update_plane()
+			//for(var/atom/movable/thing in contents)
+			//	SEND_SIGNAL(thing, COMSIG_MOVABLE_Z_CHANGED,get_z(origin),get_z(destination))
+	else if(destination)
+		update_plane()
 
-	return 1
+	// Container change
+	if((!is_origin_turf || !is_destination_turf) || ((!is_origin_turf && !is_destination_turf) && (origin != destination)))
+		SEND_SIGNAL(src, COMSIG_ATOM_CONTAINERED, getContainingMovable())
+	/*
+	// Only update plane if we're located on map
+	if(is_destination_turf)
+		// if we wasn't on map OR our Z coord was changed
+		if(!is_origin_turf || (get_z(loc) != get_z(origin)) )
+			update_plane()
+	*/
+
+	return TRUE
 
 
 //called when src is thrown into hit_atom
@@ -160,9 +184,9 @@
 	src.thrower = thrower
 	src.throw_source = get_turf(src)	//store the origin turf
 
-	if(usr)
-		if(HULK in usr.mutations)
-			src.throwing = 2 // really strong throw!
+//	if(usr)
+//		if(HULK in usr.mutations)
+//			src.throwing = 2 // really strong throw!
 
 	var/dist_x = abs(target.x - src.x)
 	var/dist_y = abs(target.y - src.y)
@@ -335,9 +359,8 @@
 		set_glide_size(glide_size_override)
 
 	// To prevent issues, diagonal movements are broken up into two cardinal movements.
-
 	// Is this a diagonal movement?
-	SEND_SIGNAL(src, COMSIG_MOVABLE_PREMOVE, src)
+	SEND_SIGNAL_OLD(src, COMSIG_MOVABLE_PREMOVE, src)
 	if (Dir & (Dir - 1))
 		if (Dir & NORTH)
 			if (Dir & EAST)
@@ -392,9 +415,15 @@
 			// if we wasn't on map OR our Z coord was changed
 			if( !isturf(oldloc) || (get_z(loc) != get_z(oldloc)) )
 				update_plane()
-				onTransitZ(get_z(oldloc, get_z(loc)))
+
+		if(get_z(oldloc) != get_z(loc))
+			SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, get_z(oldloc), get_z(NewLoc))
 
 		SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, oldloc, loc)
+		/* Inserting into contents uses only forceMove
+		if(!isturf(oldloc) || !isturf(loc))
+			SEND_SIGNAL(src, COMSIG_ATOM_CONTAINERED, getContainingMovable())
+		*/
 
 // Wrapper of step() that also sets glide size to a specific value.
 /proc/step_glide(atom/movable/AM, newdir, glide_size_override)
@@ -402,10 +431,14 @@
 	return step(AM, newdir)
 
 //We're changing zlevel
+/*
 /atom/movable/proc/onTransitZ(old_z, new_z)//uncomment when something is receiving this signal
-	/*SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_z, new_z)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_z, new_z)
+	/*
 	for(var/atom/movable/AM in src) // Notify contents of Z-transition. This can be overridden IF we know the items contents do not care.
-		AM.onTransitZ(old_z,new_z)*/
+		AM.onTransitZ(old_z,new_z)
+	*/
+*/
 
 /mob/living/proc/update_z(new_z) // 1+ to register, null to unregister
 	if (registered_z != new_z)
@@ -442,10 +475,10 @@
 	if(anchored == anchorvalue || !can_anchor)
 		return FALSE
 	anchored = anchorvalue
-	SEND_SIGNAL(src, COMSIG_ATOM_UNFASTEN, anchored)
+	SEND_SIGNAL_OLD(src, COMSIG_ATOM_UNFASTEN, anchored)
 	. = TRUE
 
 /atom/movable/proc/update_overlays()
 	SHOULD_CALL_PARENT(TRUE)
 	. = list()
-	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_OVERLAYS, .)
+	SEND_SIGNAL_OLD(src, COMSIG_ATOM_UPDATE_OVERLAYS, .)

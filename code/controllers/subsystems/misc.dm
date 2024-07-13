@@ -2,14 +2,14 @@ SUBSYSTEM_DEF(misc)
 	name = "Misc"
 	init_order = INIT_ORDER_LATELOAD
 	flags = SS_NO_FIRE
-//	var/num_exoplanets = 2			//Eclipse edit: deprecated.
+	var/num_exoplanets = 2			//Eclipse edit: deprecated.
 	var/list/planet_size  //dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
 
 /datum/controller/subsystem/misc/Initialize(timeofday)
 	if(!LAZYLEN(planet_size))
 		planet_size = list(world.maxx - 30 , world.maxy - 30)
 	initialize_cursors()
-	build_exoplanets()
+	// build_exoplanets()  // 18/09/2022 Commented till lag gets better overhaul
 	build_junk_field()
 	return ..()
 

@@ -214,3 +214,24 @@
 
 /datum/job_flavor/assistant/archimandrite
 	title = "Christian Era Vector \"Northen Light\" Archimandrite"
+
+/datum/job_flavor/assistant/prisoner
+	title = "Convict Exploitation Vehicle \"Northen Light\" Prisoner"
+
+/datum/job_flavor/assistant/guard
+	title = "Convict Exploitation Vehicle \"Northen Light\" Guard"
+
+/datum/job_flavor/assistant/warden
+	title = "Convict Exploitation Vehicle \"Northen Light\" Warden"
+
+/datum/job_flavor/assistant/smuggler
+	title = "Cargo Export Vehicle \"Northen Light\" Smuggler"
+
+/datum/job_flavor/assistant/salesman
+	title = "Cargo Export Vehicle \"Northen Light\" Salesman"
+
+/datum/job_flavor/assistant/stockmarket
+	title = "Capital Exchange Venue \"Northen Light\" Market Analyst"
+
+/datum/job_flavor/assistant/executive
+	title = "Capital Exchange Venue \"Northen Light\" Executive"
