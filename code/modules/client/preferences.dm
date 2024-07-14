@@ -89,14 +89,15 @@
 		load_and_update_character()
 
 	var/dat = "<html><body><center>"
-
 	if(path)
+		SSjob.UpdatePlayableJobs(user.client.ckey)
 		dat += "Slot - "
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
 		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
 		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a> - "		//Eclipse edit.
 		dat += "<a href='?src=\ref[src];copy=1'>Copy slot</a> "				//Eclipse edit.
+
 
 	else
 		dat += "Please create an account to save your preferences."
@@ -202,30 +203,16 @@
 	character.gender = gender
 	character.age = age
 	character.b_type = b_type
-
+	character.tts_seed = tts_seed
 	character.h_style = h_style
 	character.f_style = f_style
 
 	// Build mob body from prefs
 	character.rebuild_organs(src)
 
-
-	character.r_eyes = r_eyes
-	character.g_eyes = g_eyes
-	character.b_eyes = b_eyes
-
-	character.h_style = h_style
-	character.r_hair = r_hair
-	character.g_hair = g_hair
-	character.b_hair = b_hair
-
-	character.f_style = f_style
-	character.r_facial = r_facial
-	character.g_facial = g_facial
-	character.b_facial = b_facial
-	character.r_skin = r_skin
-	character.g_skin = g_skin
-	character.b_skin = b_skin
+	character.hair_color = hair_color
+	character.facial_color = facial_color
+	character.skin_color = skin_color
 
 	character.s_tone = s_tone
 

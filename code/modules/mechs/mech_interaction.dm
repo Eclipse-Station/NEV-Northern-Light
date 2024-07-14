@@ -10,6 +10,11 @@
 				return 0
 	else . = ..()
 
+/mob/living/exosuit/MouseDrop(mob/living/carbon/human/over_object) //going from assumption none of previous options are relevant to exosuit
+	if(body)
+		if(!body.MouseDrop(over_object))
+			return ..()
+
 /mob/living/exosuit/proc/arms_action_delay()
 	return arms ? arms.action_delay : 15
 
@@ -29,6 +34,13 @@
 	if(modifiers["shift"])
 		A.examine(user)
 		return
+
+	if(modifiers["ctrl"])
+		if(selected_system)
+			if(selected_system == A)
+				selected_system.CtrlClick(user)
+				setClickCooldown(3)
+			return
 
 	if(!(user in pilots) && user != src)
 		return
@@ -113,7 +125,7 @@
 
 		var/resolved
 		if(adj)
-			resolved = A.attackby(temp_system, src)
+			resolved = temp_system.resolve_attackby(A, src, params)
 
 		if(!resolved && A && temp_system)
 			var/mob/ruser = src
@@ -314,22 +326,48 @@
 		P.use(1, user)
 		return TRUE
 
-	else if(istype(I, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/coil = I
-		if(coil.amount < 5)
-			to_chat(user, SPAN_WARNING("You need at least 5 cable coil pieces in order to replace wiring."))
+	else if(istype(I, /obj/item/device/robotanalyzer))
+		to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
+		for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
+			if(MC)
+				MC.return_diagnostics(user)
+		return
+
+	else if(istype(I, /obj/item/stack/nanopaste))
+		var/obj/item/stack/nanopaste/paste = I
+		if(paste.amount < 2)
+			to_chat(user, SPAN_WARNING("You need at least 2 nanite segments in order to repair damage."))
 			return TRUE
 		var/obj/item/mech_component/mc = get_targeted_part(user)
 		if(!repairing_check(mc, user))
 			return TRUE
-		if(mc.burn_damage <= 0)
-			to_chat(user, SPAN_WARNING("Wiring on this part is already repaired."))
+		if(mc.total_damage <= 0)
+			to_chat(user, SPAN_WARNING("Damage on this part is already repaired."))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You start feeding nanite segments into \the [src]'s nanite port."))
+		if(do_mob(user, src, 30) && paste.use(2))
+			mc.repair_burn_damage(15)
+			mc.repair_brute_damage(15)
+
+	else if(istype(I, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/coil = I
+		if(coil.amount < 5)
+			to_chat(user, SPAN_WARNING("You need at least 5 pieces of cable in order to replace wiring."))
+			return TRUE
+		var/obj/item/mech_component/mc = get_targeted_part(user)
+		if(!repairing_check(mc, user))
+			return TRUE
+		if(mc.total_damage > mc.max_damage/2)
+			to_chat(user, SPAN_WARNING("The damage is too severe to repair when the exosuit is active."))
+			return
+		if(mc.total_damage <= 0)
+			to_chat(user, SPAN_WARNING("Damage on this part is already repaired."))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You start replacing wiring in \the [src]."))
 		if(do_mob(user, src, 30) && coil.use(5))
 			mc.repair_burn_damage(15)
 
-	var/list/usable_qualities = list(QUALITY_PULSING, QUALITY_BOLT_TURNING, QUALITY_WELDING)
+	var/list/usable_qualities = list(QUALITY_PULSING, QUALITY_BOLT_TURNING, QUALITY_PRYING, QUALITY_SCREW_DRIVING, QUALITY_WELDING)
 
 	var/tool_type = I.get_tool_type(user, usable_qualities, src)
 	switch(tool_type)
@@ -368,9 +406,15 @@
 			return TRUE
 
 		if(QUALITY_WELDING)
+			if(!maintenance_protocols)
+				to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
+				return TRUE
 			var/obj/item/mech_component/mc = get_targeted_part(user)
 			if(!repairing_check(mc, user))
 				return TRUE
+			if(mc.total_damage > mc.max_damage/2)
+				to_chat(user, SPAN_WARNING("The damage is too severe to repair when the exosuit is active."))
+				return
 			if(mc.brute_damage <= 0)
 				to_chat(user, SPAN_WARNING("Brute damage on this part is already repaired."))
 				return TRUE
@@ -379,40 +423,32 @@
 				mc.repair_brute_damage(15)
 				return TRUE
 
-		if(ABORT_CHECK)
-			return
 
-
-/mob/living/exosuit/MouseDrop(atom/over_object)
-	var/mob/living/carbon/human/user = usr
-
-	// Clickdragging, either onto a mob or into inventory hand
-	if(istype(user) && user.Adjacent(src) && (over_object == user || istype(over_object, /obj/screen/inventory/hand)))
-		// Ejecting exosuit power cell
-		var/obj/item/cell/cell = get_cell()
-		if(cell)
-			if(!maintenance_protocols)
-				to_chat(user, SPAN_WARNING("The power cell bay is locked while maintenance protocols are disabled."))
-				return
-
+		if(QUALITY_PRYING)
+			var/obj/item/cell/cell = get_cell()
+			if(cell)
+				if(!maintenance_protocols)
+					to_chat(user, SPAN_WARNING("The power cell bay is locked while maintenance protocols are disabled."))
+					return TRUE
 			to_chat(user, SPAN_NOTICE("You start removing [cell] from \the [src]."))
 			if(do_mob(user, src, 30) && cell == body.cell && body.eject_item(cell, user))
 				body.cell = null
-
-		// Removing software boards
-		else if(length(body.computer?.contents))
-			if(!maintenance_protocols)
-				to_chat(user, SPAN_WARNING("The software upload bay is locked while maintenance protocols are disabled."))
 				return
 
-			var/obj/item/board = body.computer.contents[length(body.computer.contents)]
-			to_chat(user, SPAN_NOTICE("You start removing [board] from \the [src]."))
-			if(do_mob(user, src, 30) && (board in body.computer) && body.computer?.eject_item(board, user))
-				body.computer.update_software()
+		if(QUALITY_SCREW_DRIVING)
+			if(length(body.computer?.contents))
+				if(!maintenance_protocols)
+					to_chat(user, SPAN_WARNING("The software upload bay is locked while maintenance protocols are disabled."))
+					return
+				var/obj/item/board = body.computer.contents[length(body.computer.contents)]
+				to_chat(user, SPAN_NOTICE("You start removing [board] from \the [src]."))
+				if(do_mob(user, src, 30) && (board in body.computer) && body.computer?.eject_item(board, user))
+					body.computer.update_software()
+					return
 
-		return
+		if(ABORT_CHECK)
+			return
 
-	return ..()
 
 /mob/living/exosuit/attack_hand(mob/living/user)
 	// Drag the pilot out if possible.

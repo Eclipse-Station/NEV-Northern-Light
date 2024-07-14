@@ -3,6 +3,8 @@
 /obj/item/gripper
 	name = "magnetic gripper"
 	desc = "A simple grasping tool specialized in construction and engineering work."
+	description_info = "Can be used to remove sticky tape from cameras on help intent."
+	description_antag = "Can be used for a strong brute attack on humans using harm intent."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
 	spawn_tags = null
@@ -159,6 +161,14 @@
 	if(wrapped) //Already have an item.
 		return//This is handled in /mob/living/silicon/robot/GripperClickOn
 
+	if(istype(target, /obj/machinery/camera) && user.a_intent == I_HELP)
+		var/obj/machinery/camera/cam = target
+		if(cam.taped)
+			to_chat(user, SPAN_NOTICE("You remove the tape from \the [cam] using the edge of your magnetic gripper."))
+			cam.icon_state = "camera"
+			cam.taped = 0
+			cam.set_status(1)
+
 	else if (istype(target, /obj/item/storage) && !istype(target, /obj/item/storage/pill_bottle) && !istype(target, /obj/item/storage/secure))
 		var/obj/item/storage/S = target
 		for (var/obj/item/C in S.contents)
@@ -213,9 +223,15 @@
 		/obj/item/clipboard,
 		/obj/item/paper,
 		/obj/item/paper_bundle,
+		/obj/item/paper_bin,
 		/obj/item/card/id,
 		/obj/item/book,
-		/obj/item/newspaper
+		/obj/item/newspaper,
+		/obj/item/pen,
+		/obj/item/stamp,
+		/obj/item/packageWrap,
+		/obj/item/device/destTagger,
+		/obj/item/smallDelivery
 		)
 
 /obj/item/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
@@ -288,7 +304,9 @@
 		/obj/item/newspaper,
 		/obj/item/electronics/circuitboard/broken,
 		/obj/item/clothing/mask/smokable/cigarette,
-		///obj/item/reagent_containers/cooking_container //PArt of cooking overhaul, not yet ported
+		/obj/item/spacecash,
+		/obj/item/device/eftpos,
+		///obj/item/reagent_containers/cooking_container //Part of cooking overhaul, not yet ported
 		)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item

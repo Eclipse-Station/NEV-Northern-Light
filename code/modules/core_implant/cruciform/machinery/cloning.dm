@@ -200,18 +200,8 @@
 			else
 				stop()
 
-		if(occupant && ishuman(occupant))
-			occupant.setCloneLoss(max(CLONING_DONE-progress, clone_damage))
-			occupant.setBrainLoss(CLONING_DONE-progress)
-
-			occupant.adjustOxyLoss(-4)
-			occupant.Paralyse(4)
-
-			occupant.updatehealth()
-
-
 		if(progress >= CLONING_MEAT && !occupant)
-			var/obj/item/implant/core_implant/soulcrypt/R = reader.implant
+			var/datum/core_module/cruciform/cloning/R = reader.implant.get_module(CRUCIFORM_CLONING)
 			if(!R)
 				open_anim()
 				stop()
@@ -219,14 +209,17 @@
 				return
 
 			occupant = new/mob/living/carbon/human(src)
-			occupant.dna = R.host_dna.Clone()
+			occupant.fingers_trace = R.fingers_trace
+			occupant.dna_trace = R.dna_trace
+			occupant.dormant_mutations = R.dormant_mutations
+			occupant.active_mutations = R.active_mutations
 			occupant.set_species()
-			occupant.real_name = R.host_dna.real_name
-			occupant.age = R.host_age
-			occupant.UpdateAppearance()
+			occupant.real_name = R.real_name
+			occupant.b_type = R.b_type
+			occupant.age = R.age
 			occupant.sync_organ_dna()
-			occupant.flavor_text = R.host_flavor_text
-			R.host_stats.copyTo(occupant.stats)
+			occupant.flavor_text = R.flavor
+			R.stats.copyTo(occupant.stats)
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
 			var/datum/effect/effect/system/spark_spread/s = new
@@ -390,7 +383,7 @@
 	if (istype(I, /obj/item/stack/material/biomatter))
 		var/obj/item/stack/material/biomatter/B = I
 		if (B.biomatter_in_sheet && B.amount)
-			var/sheets_amount_to_transfer = input(user, "How many sheets you want to load?", "Biomatter melting", 1) as num
+			var/sheets_amount_to_transfer = input(user, "How many sheets do you want to load?", "Biomatter melting", 1) as num
 			if(sheets_amount_to_transfer > 0)
 				if(sheets_amount_to_transfer > B.amount)
 					sheets_amount_to_transfer = B.amount

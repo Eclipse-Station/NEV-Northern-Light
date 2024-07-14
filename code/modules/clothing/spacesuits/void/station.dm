@@ -1,5 +1,5 @@
-// Station voidsuits
-//Engineering rig
+// Ship voidsuits
+//Engineering void
 /obj/item/clothing/head/space/void/engineering
 	name = "engineering voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
@@ -11,9 +11,9 @@
 		slot_r_hand_str = "eng_helm",
 		)
 	armor = list(
-		melee = 35,
-		bullet = 30,
-		energy = 30,
+		melee = 8,
+		bullet = 7,
+		energy = 7,
 		bomb = 40,
 		bio = 100,
 		rad = 100
@@ -26,9 +26,9 @@
 	icon_state = "technosuit_old"
 	item_state = "technosuit_old"
 	armor = list(
-		melee = 35,
-		bullet = 30,
-		energy = 30,
+		melee = 8,
+		bullet = 7,
+		energy = 7,
 		bomb = 40,
 		bio = 100,
 		rad = 100
@@ -49,7 +49,7 @@
 	accompanying_object = null
 	spawn_blacklisted = TRUE
 
-//Old engineering rig
+//Old engineering void
 /obj/item/clothing/head/space/void/engineeringold
 	name = "outdated Technomancer voidsuit helmet"
 	desc = "This visor has a few more options in its shape than its more newer version."
@@ -61,9 +61,9 @@
 		slot_r_hand_str = "eng_helm",
 		)
 	armor = list(
-		melee = 35,
-		bullet = 30,
-		energy = 30,
+		melee = 8,
+		bullet = 7,
+		energy = 7,
 		bomb = 40,
 		bio = 100,
 		rad = 100
@@ -100,9 +100,9 @@
 	icon_state = "technosuit"
 	item_state = "technosuit"
 	armor = list(
-		melee = 35,
-		bullet = 30,
-		energy = 30,
+		melee = 8,
+		bullet = 7,
+		energy = 7,
 		bomb = 40,
 		bio = 100,
 		rad = 100
@@ -134,9 +134,9 @@
 		slot_r_hand_str = "mining_helm",
 		)
 	armor = list(
-		melee = 50,
-		bullet = 40,
-		energy = 30,
+		melee = 13,
+		bullet = 10,
+		energy = 7,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -149,9 +149,9 @@
 	item_state = "miner_suit"
 	icon_state = "miner_suit"
 	armor = list(
-		melee = 50,
-		bullet = 40,
-		energy = 30,
+		melee = 13,
+		bullet = 10,
+		energy = 7,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -170,9 +170,9 @@
 		slot_r_hand_str = "medical_helm",
 		)
 	armor = list(
-		melee = 30,
-		bullet = 10,
-		energy = 40,
+		melee = 7,
+		bullet = 2,
+		energy = 10,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -190,9 +190,9 @@
 		/obj/item/roller
 	)
 	armor = list(
-		melee = 20,
-		bullet = 10,
-		energy = 35,
+		melee = 5,
+		bullet = 2,
+		energy = 8,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -217,16 +217,15 @@
 		)
 
 	armor = list(
-		melee = 35,
-		bullet = 50,
-		energy = 40,
+		melee = 8,
+		bullet = 13,
+		energy = 10,
 		bomb = 25,
 		bio = 100,
 		rad = 75
 	)
 	siemens_coefficient = 0.7
 	light_overlay = "helmet_light_ihs"
-	obscuration = MEDIUM_OBSCURATION
 
 /obj/item/clothing/suit/space/void/security
 	name = "aegis voidsuit"
@@ -234,9 +233,9 @@
 	desc = "A bulky suit that protects against hazardous, low pressure environments. Sacrifices mobility for protection."
 	item_state = "ihvoidsuit"
 	armor = list(
-		melee = 35,
-		bullet = 50,
-		energy = 40,
+		melee = 8,
+		bullet = 13,
+		energy = 10,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -262,9 +261,9 @@
 		slot_r_hand_str = "atmos_helm",
 		)
 	armor = list(
-		melee = 30,
-		bullet = 10,
-		energy = 10,
+		melee = 7,
+		bullet = 2,
+		energy = 2,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -278,9 +277,9 @@
 	name = "atmos voidsuit"
 	item_state = "atmos_voidsuit"
 	armor = list(
-		melee = 30,
-		bullet = 10,
-		energy = 10,
+		melee = 7,
+		bullet = 2,
+		energy = 2,
 		bomb = 25,
 		bio = 100,
 		rad = 75
@@ -305,17 +304,15 @@
 	)
 	price_tag = 200
 	armor = list(
-		melee = 40,
-		bullet = 50,
-		energy = 60,
+		melee = 10,
+		bullet = 13,
+		energy = 15,
 		bomb = 40,
 		bio = 100,
 		rad = 75
 	)
 	siemens_coefficient = 0.4
 	light_overlay = "helmet_light_dual"
-	obscuration = 0
-
 /obj/item/clothing/head/space/void/science
 	var/list/icon_states = list(
 		"Blue" = "moebiushelmb",
@@ -357,9 +354,9 @@
 	MATERIAL_PLATINUM = 5
 	)
 	armor = list(
-		melee = 40,
-		bullet = 50,
-		energy = 60,
+		melee = 10,
+		bullet = 13,
+		energy = 15,
 		bomb = 40, //platinum price justifies bloated stats
 		bio = 100,
 		rad = 75
@@ -369,7 +366,6 @@
 	siemens_coefficient = 0.4
 	helmet = /obj/item/clothing/head/space/void/science
 	spawn_blacklisted = TRUE
-	stiffness = MEDIUM_STIFFNESS
 
 /obj/item/clothing/suit/space/void/science/handle_shield(mob/user, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
@@ -389,7 +385,7 @@
 			// redirect the projectile
 			P.redirect(new_x, new_y, curloc, user)
 
-			return PROJECTILE_CONTINUE // complete projectile permutation
+			return PROJECTILE_FORCE_MISS_SILENCED // complete projectile permutation
 
 /obj/item/clothing/head/space/void/riggedvoidsuit
 	name = "makeshift armored Helmet"
@@ -399,12 +395,12 @@
 	slowdown = 2
 
 	armor = list(
-		melee = 30,
-		bullet = 30,
-		energy = 30,
+		melee = 7,
+		bullet = 7,
+		energy = 7,
 		bomb = 25,
 		bio = 100,
-		rad = 0
+		rad = 5
 	)
 	light_overlay = "helmet_light_dual"
 	siemens_coefficient = 0.8
@@ -416,16 +412,47 @@
 	item_state = "makeshift_void"
 	siemens_coefficient = 0.4
 	armor = list(
-		melee = 30,
-		bullet = 30,
-		energy = 30,
+		melee = 7,
+		bullet = 7,
+		energy = 7,
 		bomb = 25,
 		bio = 100,
-		rad = 0
+		rad = 5
 	)
 	siemens_coefficient = 0.8
 	helmet = /obj/item/clothing/head/space/void/riggedvoidsuit
 	spawn_blacklisted = TRUE
+	item_flags = DRAG_AND_DROP_UNEQUIP|EQUIP_SOUNDS|STOPPRESSUREDAMAGE|THICKMATERIAL|COVER_PREVENT_MANIPULATION
+	var/obj/item/storage/internal/pockets
+
+/obj/item/clothing/suit/space/void/riggedvoidsuit/New()
+	..()
+	pockets = new/obj/item/storage/internal(src)
+	pockets.storage_slots = 3	//three slots
+	pockets.max_w_class = ITEM_SIZE_SMALL		//fit only pocket sized items
+	pockets.max_storage_space = 4
+
+/obj/item/clothing/suit/space/void/riggedvoidsuit/Destroy()
+	QDEL_NULL(pockets)
+	. = ..()
+
+/obj/item/clothing/suit/space/void/riggedvoidsuit/attack_hand(mob/user)
+	if ((is_worn() || is_held()) && !pockets.handle_attack_hand(user))
+		return TRUE
+	..(user)
+
+/obj/item/clothing/suit/space/void/riggedvoidsuit/MouseDrop(obj/over_object)
+	if(pockets.handle_mousedrop(usr, over_object))
+		return TRUE
+	..(over_object)
+
+/obj/item/clothing/suit/space/void/riggedvoidsuit/attackby(obj/item/W, mob/user)
+	..()
+	pockets.attackby(W, user)
+
+/obj/item/clothing/suit/space/void/riggedvoidsuit/emp_act(severity)
+	pockets.emp_act(severity)
+	..()
 
 //NT
 
@@ -437,9 +464,9 @@
 	action_button_name = "Toggle Helmet Light"
 	flags_inv = BLOCKHAIR
 	armor = list(
-		melee = 40,
-		bullet = 40,
-		energy = 40,
+		melee = 13,
+		bullet = 11,
+		energy = 12,
 		bomb = 30,
 		bio = 100,
 		rad = 50
@@ -457,9 +484,9 @@
 	slowdown = 0.3
 	flags_inv = HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL
 	armor = list(
-	    melee = 40,
-		bullet = 40,
-		energy = 40,
+	    melee = 12,
+		bullet = 11,
+		energy = 12,
 		bomb = 30,
 		bio = 100,
 		rad = 50

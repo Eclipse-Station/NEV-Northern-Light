@@ -104,7 +104,7 @@
 
 /obj/machinery/hivemind_machine/Process()
 	process_ticks++		//increment our tick counter
-	if(wireweeds_required && !locate(/obj/effect/plant/hivemind) in loc)
+	if(!hive_mind_ai || (wireweeds_required && !locate(/obj/effect/plant/hivemind) in loc))
 		take_damage(5, on_damage_react = FALSE)
 
 	if(SDP)
@@ -204,8 +204,8 @@
 	rebuild_anim.icon_state = "rebuild"
 	rebuild_anim.anchored = TRUE
 	rebuild_anim.density = FALSE
-	addtimer(CALLBACK(src, .proc/finish_rebuild, new_machine_path), time_in_seconds SECONDS)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, rebuild_anim), time_in_seconds SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finish_rebuild), new_machine_path), time_in_seconds SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(qdel), rebuild_anim), time_in_seconds SECONDS)
 
 
 /obj/machinery/hivemind_machine/proc/finish_rebuild(var/new_machine_path)
@@ -290,7 +290,7 @@
 	can_regenerate = FALSE
 	update_icon()
 	if(amount)
-		addtimer(CALLBACK(src, .proc/unstun), amount SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(unstun)), amount SECONDS)
 
 
 /obj/machinery/hivemind_machine/proc/unstun()
@@ -306,6 +306,15 @@
 		Proj.on_hit(loc)
 	. = ..()
 
+/obj/machinery/hivemind_machine/attack_generic(mob/M, damage, attack_message)
+	if(damage)
+		M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		M.do_attack_animation(src)
+		M.visible_message(SPAN_DANGER("\The [M] [attack_message] \the [src]!"))
+		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		take_damage(damage)
+	else
+		attack_hand(M)
 
 /obj/machinery/hivemind_machine/attackby(obj/item/I, mob/user)
 	if(!(I.flags & NOBLUDGEON) && I.force)
@@ -381,22 +390,21 @@
 	var/list/reward_item = list(
 		/obj/item/tool/weldingtool/hivemind,
 		/obj/item/tool/crowbar/pneumatic/hivemind,
-		/obj/item/reagent_containers/glass/beaker/hivemind,
+		/obj/item/reagent_containers/glass/beaker/hivemind)
+	var/list/reward_oddity = list(
 		/obj/item/oddity/hivemind/old_radio,
-		/obj/item/oddity/hivemind/old_pda
-		)
+		/obj/item/oddity/hivemind/old_pda)
 
 
-/obj/machinery/hivemind_machine/node/Initialize()
+/obj/machinery/hivemind_machine/node/New(loc, _name, _surname)
 	if(!hive_mind_ai)
-		hive_mind_ai = new /datum/hivemind
+		hive_mind_ai = new /datum/hivemind(_name, _surname)
 	..()
 
 	hive_mind_ai.hives.Add(src)
 	hive_mind_ai.level_up()
 
 	update_icon()
-
 
 	var/obj/effect/plant/hivemind/founded_wire = locate() in loc
 	if(!founded_wire)
@@ -418,19 +426,17 @@
 	SDP.set_master(src)
 
 /obj/machinery/hivemind_machine/node/proc/gift()
-	if(prob(10))
-		state("leaves behind an item!")
-		var/gift = pick(reward_item)
-		new gift(get_turf(loc))
+	var/gift = prob(GLOB.hive_data_float["core_oddity_drop_chance"]) ? pick(reward_oddity) : pick(reward_item)
+	new gift(get_turf(loc))
+	state("leaves behind an item!")
 
 /obj/machinery/hivemind_machine/node/proc/core()
 	state("leaves behind a weird looking datapad!")
-	var/core = /obj/item/oddity/hivemind/hive_core
-	new core(get_turf(loc))
+	new /obj/item/oddity/hivemind/hive_core(get_turf(loc))
 
 /obj/machinery/hivemind_machine/node/Destroy()
 	gift()
-	hive_mind_ai.hives.Remove(src)
+	hive_mind_ai?.hives.Remove(src)
 	check_for_other()
 	if(hive_mind_ai == null)
 		core()
@@ -491,12 +497,8 @@
 //There we check for other nodes
 //If no any other hives will be found, it's game over
 /obj/machinery/hivemind_machine/node/proc/check_for_other()
-	if(hive_mind_ai)
-		if(!hive_mind_ai.hives.len)
-			hive_mind_ai.die()
-
-
-
+	if(hive_mind_ai && !hive_mind_ai.hives.len)
+		hive_mind_ai.die()
 
 //TURRET
 //shooting the target with toxic goo
@@ -573,18 +575,22 @@
 
 
 /obj/machinery/hivemind_machine/mob_spawner/use_ability()
-	var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
-	var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
+	var/total_mobs = 0
+	for(var/i in GLOB.hivemind_mobs)
+		total_mobs += GLOB.hivemind_mobs[i]
+	if(!GLOB.hive_data_bool["maximum_existing_mobs"] || GLOB.hive_data_float["maximum_existing_mobs"] > total_mobs)
+		var/obj/randomcatcher/CATCH = new /obj/randomcatcher(src)
+		var/mob/living/simple_animal/hostile/hivemind/spawned_mob = CATCH.get_item(mob_to_spawn)
 
 //If we have less than so many players on, don't spawn certain mobs.
-	if(spawned_mob.maxHealth > 75 * player_check())
-		qdel(spawned_mob)
-		return FALSE		//We didn't successfully spawn a mob.
-	spawned_mob.loc = loc
-	spawned_creatures.Add(spawned_mob)
-	spawned_mob.master = src
-	flick("[icon_state]-anim", src)
-	qdel(CATCH)
+		if(spawned_mob.maxHealth > 75 * player_check())
+			qdel(spawned_mob)
+			return FALSE		//We didn't successfully spawn a mob.
+		spawned_mob.loc = loc
+		spawned_creatures.Add(spawned_mob)
+		spawned_mob.master = src
+		flick("[icon_state]-anim", src)
+		qdel(CATCH)
 	return TRUE		//We did successfuly spawn a mob, so the cooldown (above) will be set.
 // // // END ECLIPSE EDITS // // //
 

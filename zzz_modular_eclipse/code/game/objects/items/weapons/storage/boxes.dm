@@ -7,12 +7,12 @@
 	icon_state = "petcubebox"
 	illustration = null
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube/iancube)
-	initial_amount = 5
-	spawn_type = /obj/item/reagent_containers/food/snacks/monkeycube/iancube/wrapped
+	prespawned_content_amount = 5
+	prespawned_content_type = /obj/item/reagent_containers/food/snacks/monkeycube/iancube/wrapped
 
 /obj/item/storage/box/iancubes/populate_contents()
-	for(var/i in 1 to initial_amount)
-		new spawn_type(src)
+	for(var/i in 1 to prespawned_content_amount)
+		new prespawned_content_type(src)
 
 /obj/item/storage/box/catcubes
 	name = "Cat cube box"
@@ -21,9 +21,9 @@
 	icon_state = "petcubebox"
 	illustration = null
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube/catcube)
-	initial_amount = 5
-	spawn_type = /obj/item/reagent_containers/food/snacks/monkeycube/catcube/wrapped
+	prespawned_content_amount = 5
+	prespawned_content_type = /obj/item/reagent_containers/food/snacks/monkeycube/catcube/wrapped
 
 /obj/item/storage/box/catcubes/populate_contents()
-	for(var/i in 1 to initial_amount)
-		new spawn_type(src)
+	for(var/i in 1 to prespawned_content_amount)
+		new prespawned_content_type(src)

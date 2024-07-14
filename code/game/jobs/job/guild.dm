@@ -53,6 +53,7 @@ Your second loyalty is to the Union. Ensure it retains good relations with priva
 
 	software_on_spawn = list(///datum/computer_file/program/supply,
 							 ///datum/computer_file/program/deck_management,
+							 /datum/computer_file/program/trade,
 							 /datum/computer_file/program/scanner,
 							 /datum/computer_file/program/wordprocessor,
 							 /datum/computer_file/program/reports)
@@ -180,6 +181,7 @@ Character Expectations:<br>\
 	icon_state = "player-beige"
 	join_tag = /datum/job/mining
 
+/* ECLIPSE EDIT - Artist is now under the Civilian Department, so I've moved their job datum there.
 /datum/job/artist
 	title = "Union Artist"
 	flag = ARTIST
@@ -222,3 +224,4 @@ Character Expectations:<br>\
 	name = "Union Artist"
 	icon_state = "player-grey"
 	join_tag = /datum/job/artist
+*/

@@ -65,16 +65,16 @@
 	// Basic intro text.
 	to_chat(player, "<span class='danger'><font size=3>You are a [role_text]!</font></span>")
 
-	to_chat(player, "The Inquisitors are Mekhane’s chosen agents, selected from the ranks of the faithful by The Mekhanite Council to expand the church’s interests and protect its followers. <br> <br>\
-You are here to not only accomplish your assigned objectives, but also root out spies, saboteurs, and criminals within the church’s ranks. Interrogate Children of Mekhane followers, and deal with those who would tarnish the public image of the church, or betray its principles.  <br> <br> \
-Any local church staff are your subordinates, and should obey your commands. With other disciples, things are less clear. People may put their shipboard duties above their loyalty to the church. You should be discreet with the ship’s command staff, revealing your role may tarnish the church’s reputation. It is often best to deal with internal problems quietly.")
+	to_chat(player, "The Inquisitors are Mekhane's chosen agents, selected from the ranks of the faithful by The Mekhanite Council to expand the church's interests and protect its followers. <br> <br>\
+You are here to not only accomplish your assigned objectives, but also root out spies, saboteurs, and criminals within the church's ranks. Interrogate Children of Mekhane followers, and deal with those who would tarnish the public image of the church, or betray its principles.  <br> <br> \
+Any local church staff are your subordinates, and should obey your commands. With other disciples, things are less clear. People may put their shipboard duties above their loyalty to the church. You should be discreet with the ship's command staff, revealing your role may tarnish the church's reputation. It is often best to deal with internal problems quietly.")
 
 	if (was_priest)
 		to_chat(player, "If you were the ship's preacher before, you have the authority to promote someone to be your replacement.")
 	else
 		to_chat(player, "You have been working undercover here, until a signal from the Mekhanite Council command calls you to action. You may wish to make your presence known to the local preacher, if there is one.")
 
-	to_chat(player, "You will need a ritual book to utilise your abilities. They can be found or purchased in the chapel. The Bounty ritual can be used to request items from central command. You may request a Priest upgrade to promote a new preacher.")
+	to_chat(player, "You will need a ritual book to utilise your abilities. They can be found or purchased in the chapel. The Bounty ritual can be used to request items from The Council. You may request a Priest upgrade to promote a new preacher.") //Eclipse Edit - Eris lore removed
 
 
 	show_objectives()

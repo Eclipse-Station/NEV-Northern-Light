@@ -8,14 +8,14 @@ var/datum/appearance_test/appearance_test = new
 	var/get_species_sprite = TRUE
 	var/colorize_organ = TRUE
 	var/cache_sprites = FALSE
-	var/log_sprite_gen = TRUE
+	var/log_sprite_gen = FALSE
 	var/log_sprite_gen_to_world = FALSE
 	var/special_update = TRUE
 	var/simple_setup = FALSE
 	var/cache_generation_log = ""
 
 /datum/appearance_test/proc/rebuild_humans()
-	for(var/mob/living/carbon/human/H in SSmobs.mob_list)
+	for(var/mob/living/carbon/human/H in SShumans.mob_list)
 		H.update_body()
 
 /datum/appearance_test/proc/interact(var/mob/user)
@@ -102,9 +102,7 @@ var/datum/appearance_test/appearance_test = new
 
 /mob/living/carbon/human/appearance_test/New()
 	s_tone = -rand(10, 210)
-	r_eyes = rand(1,220)
-	b_eyes = rand(1,220)
-	g_eyes = rand(1,220)
+	eyes_color = rgb(rand(1,220),rand(1,220),rand(1,220))
 	..()
 	var/list/organs = list(BP_L_ARM, BP_R_ARM, BP_R_HAND, BP_L_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
 	for(var/i = 1 to 2)

@@ -18,7 +18,6 @@
 		slot_r_hand_str = "caphat",
 		)
 	body_parts_covered = 0
-	style = STYLE_HATHATHAT
 
 /obj/item/clothing/head/caphat/cap
 	name = "captain's cap"
@@ -32,14 +31,14 @@
 	icon_state = "officercap"
 	spawn_blacklisted = TRUE
 
-//HOP
+//First Officer
 /obj/item/clothing/head/caphat/hop
 	name = "first officer's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
 	spawn_blacklisted = TRUE
 
-//Chaplain
+//NeoTheology
 /obj/item/clothing/head/chaplain_hood
 	name = "preacher's hood"
 	desc = "It's hood that covers the head. It keeps you warm during the space winters."
@@ -64,7 +63,6 @@
 	spawn_blacklisted = TRUE
 	style_coverage = COVERS_EYES|COVERS_HAIR
 
-//Mime
 /obj/item/clothing/head/beret
 	name = "beret"
 	desc = "A beret, an artists favorite headwear."
@@ -73,16 +71,16 @@
 	spawn_blacklisted = TRUE
 	style_coverage = COVERS_HAIR
 
-//Security
+//Ironhammer
 /obj/item/clothing/head/beret/sec/navy/officer
 	name = "Operative beret"
-	desc = "A navy blue beret with an Operative's rank emblem. For officers that are more inclined towards style than safety."
+	desc = "A navy blue beret with an Operative's rank emblem. For operatives that are more inclined towards style than safety."
 	icon_state = "beret_navy_officer"
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/beret/sec/navy/hos
 	name = "Commander beret"
-	desc = "Grey beret with a Commander's rank emblem. For officers that are more inclined towards style than safety."
+	desc = "Grey beret with a Lieutenant's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "beret_navy_hos"
 	spawn_blacklisted = TRUE
 
@@ -92,26 +90,37 @@
 	icon_state = "beret_navy_warden"
 	spawn_blacklisted = TRUE
 
-/obj/item/clothing/head/beret/engineering
-	name = "engineering beret"
-	desc = "A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety."
-	icon_state = "beret_engineering"
-	spawn_blacklisted = TRUE
-
 /obj/item/clothing/head/beret/purple
 	name = "purple beret"
 	desc = "A stylish, if purple, beret."
 	icon_state = "beret_purple"
+
+/obj/item/clothing/head/beret/engineering
+	name = "engineering yellow beret"
+	desc = "A beret with the Xīngyún Engineering Corps insignia emblazoned on it. For engineers that are more inclined towards style than safety."
+	icon_state = "beret_engineering"
+	spawn_blacklisted = TRUE
+
+/obj/item/clothing/head/beret/engineering/old
+	name = "engineering orange beret"
+	desc = "A beret with the Xīngyún Engineering Corps insignia emblazoned on it. For engineers that are more inclined towards style than safety."
+	icon_state = "beret_engineering_old"
 	spawn_blacklisted = TRUE
 
 /obj/item/clothing/head/beret/artist
-	name = "Feathered Beret"
+	name = "feathered beret"
 	desc = "Fit for artists, frenchmen, and eccentric military officers across the cosmos."
 	icon_state = "beret_artist"
 	item_state = "beret_artist"
 	spawn_frequency = 0
 
-//Medical
+//Moebius
+/obj/item/clothing/head/beret/moebius
+	name = "Lazarus beret"
+	desc = "A purple beret emblazioned with the Lazarus Foundation logo."
+	icon_state = "beret_moebius"
+	spawn_blacklisted = TRUE
+
 /obj/item/clothing/head/surgery
 	name = "surgical cap"
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs."
