@@ -1,5 +1,3 @@
-/* Eclipse Edit - We don't use the Pulsar
-
 //Pulsar events
 
 /datum/pulsar_event
@@ -136,4 +134,3 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "wormhole"
 	anchored = TRUE
-*/
