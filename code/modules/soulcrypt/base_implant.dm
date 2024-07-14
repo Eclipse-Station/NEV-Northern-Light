@@ -33,7 +33,7 @@ The module base code is held in module.dm
 	external = FALSE
 	//Host variables, stored for cloning.
 	var/datum/dna/host_dna //Eclipse Edit: NEEDED FOR THE SOULCRYPT TO ACTUALLY WORK NESTOR YOU TROGLADYTE <3
-	var/datum/mind/host_mindf
+	var/datum/mind/host_mind
 	var/host_age
 	var/host_flavor_text
 	var/datum/stat_holder/host_stats
