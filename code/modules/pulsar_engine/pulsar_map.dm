@@ -1,3 +1,5 @@
+//Eclipse Edit - We don't use the Pulsar
+/*
 /obj/effect/pulsar
 	name = "Barber's Sun"
 	desc = "An insanely quickly rotating star, that releases 2 giant ratiation beams"
@@ -48,7 +50,7 @@
 	addtimer(CALLBACK(src, .proc/decay_orbit), decay_timer)
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 	name = pick(list("Dutchman", "Celeste", "Barnham's Pride", "Horseman", "Christian", "Hera's Dream", "Manatee", "Antelope"))
-	
+
 /obj/effect/pulsar_ship/Destroy()
 	. = ..()
 	qdel(radio)
@@ -100,11 +102,11 @@
 		if(!overcharge_timer_id)
 			radio.autosay("WARNING: PULSAR OVERCHARGE IMMINENT! ETA: 3 MINUTES!", "Pulsar Monitor", "Engineering", TRUE)
 			overcharge_timer_id = addtimer(CALLBACK(src, .proc/overcharge), 3 MINUTES, TIMER_STOPPABLE)	//15 seconds so debuging is easier
-	else 
+	else
 		if(overcharge_timer_id)
 			deltimer(overcharge_timer_id)
 			radio.autosay("Pulsar overcharge avoided.", "Pulsar Monitor", "Engineering", TRUE)
-			overcharge_timer_id = null	
+			overcharge_timer_id = null
 		if(overcharge)
 			overcharge.endWhen = 1
 			overcharge = null
@@ -119,3 +121,4 @@
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "tm_satellite_g"
 	alpha = 255 * 0.5
+*/
