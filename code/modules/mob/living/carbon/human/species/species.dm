@@ -32,6 +32,50 @@
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
 	var/blood_color = "#A10808"                          // Red.
 	var/flesh_color = "#FFC896"                          // Pink.
+	var/list/typical_skin_tones = list(
+		"#ffe0d1",
+		"#fcccb3",
+		"#e8b59b",
+		"#d9ae96",
+		"#c79b8b",
+		"#ffdeb3",
+		"#e3ba84",
+		"#c4915e",
+		"#b87840",
+		"#a57a66",
+		"#87563d",
+		"#725547",
+		"#866e63",
+		"#754523",
+		"#471c18",
+		"#fff4e6",
+		"#ffc905",
+		"#8CD7A3",  // Light Matcha Green
+		"#7CFC00",  // Lawn Green
+		"#32CD32",  // Lime Green
+		"#20B2AA",  // Light Sea Green
+		"#4682B4",  // Steel Blue
+		"#1E90FF",  // Dodger Blue
+		"#8B4513",  // Saddle Brown
+		"#D2691E",  // Chocolate
+		"#CD853F",  // Peru
+		"#DEB887",  // Burlywood
+		"#FFD700",  // Gold
+		"#FF4500",  // Orange Red
+		"#DC143C",  // Crimson
+		"#8B008B",  // Dark Magenta
+		"#9932CC",  // Dark Orchid
+		"#4B0082",  // Indigo
+		"#708090",  // Slate Gray
+		"#2F4F4F",  // Dark Slate Gray
+		"#800000",  // Maroon
+		"#008080",  // Teal
+		"#40E0D0",  // Turquoise
+		"#00CED1",  // Dark Turquoise
+		"#FF69B4",  // Hot Pink
+		"#DA70D6"   // Orchid
+
+	)
 	var/base_color                                       // Used by carrions. Should also be used for icon previes..
 	var/tail                                             // Name of tail state in species effects icon file.
 	var/tail_animation                                   // If set, the icon to obtain tail animation states from.

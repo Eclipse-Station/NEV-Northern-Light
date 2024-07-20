@@ -124,7 +124,7 @@
 	force_update_limbs()
 	update_body()
 	return 1
-
+/*
 /mob/living/carbon/human/proc/change_skin_tone(var/tone)
 	if(s_tone == tone || !(species.appearance_flags & HAS_SKIN_TONE))
 		return
@@ -134,7 +134,7 @@
 	force_update_limbs()
 	update_body()
 	return 1
-
+*/
 /mob/living/carbon/human/proc/generate_valid_species(var/check_whitelist = 1, var/list/whitelist = list(), var/list/blacklist = list())
 	var/list/valid_species = new()
 	for(var/current_species_name in all_species)

@@ -461,9 +461,9 @@
 	new_character.update_eyes()
 	new_character.regenerate_icons()
 	new_character.key = key//Manually transfer the key to log them in
-/*	if(new_character.client && new_character.client.prefs.has_soulcrypt)
+	if(new_character.client && new_character.client.prefs.has_soulcrypt)
 		new_character.create_soulcrypt()
-*/
+
 	return new_character
 
 /mob/new_player/Move(NewLoc, Dir = 0, step_x = 0, step_y = 0, var/glide_size_override = 0)

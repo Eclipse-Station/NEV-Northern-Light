@@ -8,7 +8,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/b_type = "A+"					//blood type (not-chooseable)
 
 	var/s_base = ""						//Base skin colour
-	var/s_tone = 0						//Skin tone
+//	var/s_tone = 0						//Skin tone
 
 	var/h_style = "Bald"				//Hair type
 	var/f_style = "Shaved"				//Face hair type
@@ -28,7 +28,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	var/icon/bgstate = "black"
 	var/list/bgstate_options = list("steel", "dark_steel", "white_tiles", "black_tiles", "wood", "carpet", "white", "black")
-//	var/has_soulcrypt = TRUE
+	var/has_soulcrypt = TRUE
 
 /datum/category_item/player_setup_item/physical/body
 	name = "Body"
@@ -56,7 +56,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	//## end legacy compatibility ##//
 
 	from_file(S["species"], pref.species)
-	from_file(S["skin_tone"], pref.s_tone)
+//	from_file(S["skin_tone"], pref.s_tone)
 	from_file(S["skin_base"], pref.s_base)
 	from_file(S["hair_style_name"], pref.h_style)
 	from_file(S["facial_style_name"], pref.f_style)
@@ -69,10 +69,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	from_file(S["hair_color"], pref.hair_color)
 	from_file(S["facial_color"], pref.facial_color)
 	from_file(S["body_markings"], pref.body_markings)
+	from_file(S["has_soulcrypt"], pref.has_soulcrypt)
 
 /datum/category_item/player_setup_item/physical/body/save_character(var/savefile/S)
 	to_file(S["species"], pref.species)
-	to_file(S["skin_tone"], pref.s_tone)
+//	to_file(S["skin_tone"], pref.s_tone)
 	to_file(S["skin_base"], pref.s_base)
 	to_file(S["hair_style_name"],pref.h_style)
 	to_file(S["facial_style_name"],pref.f_style)
@@ -84,6 +85,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	to_file(S["hair_color"], pref.hair_color)
 	to_file(S["facial_color"], pref.facial_color)
 	to_file(S["body_markings"], pref.body_markings)
+	to_file(S["has_soulcrypt"], pref.has_soulcrypt)
 
 /datum/category_item/player_setup_item/physical/body/sanitize_character(var/savefile/S)
 	pref.h_style		= sanitize_inlist(pref.h_style, GLOB.hair_styles_list, initial(pref.h_style))
@@ -93,11 +95,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.facial_color	= iscolor(pref.facial_color) ? pref.facial_color : "#000000"
 	pref.skin_color		= iscolor(pref.skin_color) ? pref.skin_color : "#000000"
 	pref.eyes_color		= iscolor(pref.eyes_color) ? pref.eyes_color : "#000000"
+	pref.has_soulcrypt = sanitize_bool(pref.has_soulcrypt, initial(pref.has_soulcrypt))
 
 	if(!pref.species || !(pref.species in playable_species))
 		pref.species = SPECIES_HUMAN
 
-	sanitize_integer(pref.s_tone, -185, 34, initial(pref.s_tone))
+//	sanitize_integer(pref.s_tone, -185, 34, initial(pref.s_tone))
 
 	pref.s_base = ""
 
@@ -151,6 +154,19 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(has_flag(mob_species, HAS_SKIN_COLOR))
 		. += "<br><b>Body Color: </b>"
 		. += "<a href='?src=\ref[src];skin_color=1'><span class='color_holder_box' style='background-color:[pref.skin_color]'></span></a><br>"
+		. += "<br><b><font face='fixedsys' size='3'>Presets:</font></b>"
+		. += "<table>"
+		var/i = 0
+		for(var/scolor in mob_species.typical_skin_tones)
+			var/new_skin_color = replacetext(scolor, "#", "")
+
+			if(i % 5 == 0) . += "<br><tr>"
+			. += "<a href='?src=\ref[src];set_skin_color=[new_skin_color]'><span class='color_holder_box' style='background-color:[scolor]'></span></a></td>"
+			i++
+			if(i % 5 == 0) . += "</tr><br>"
+		if(i % 5 != 0) . += "</tr>"
+		. += "</table>"
+
 
 	. += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
@@ -158,6 +174,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		. += "<font face='fixedsys' size='3' color='[pref.body_markings[M]]'><table style='display:inline;' bgcolor='[pref.body_markings[M]]'><tr><td>__</td></tr></table></font>"
 		. += "<br>"
 
+	. += "Soulcrypt: "
+	. += pref.has_soulcrypt ? "Has Soulcrypt" : "<b>Does not have Soulcrypt.</b>"
+	. += " \[<a href='byond://?src=\ref[src];toggle_soulcrypt=1'>toggle</a>\]"
+	. += "<br>"
 
 
 	. += "</td><td style = 'text-align:center;' width = 35%><b>Preview</b><br>"
@@ -197,6 +217,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			user << browse(current_species.get_description(), "window=species;size=700x400")
 			return TOPIC_HANDLED
 
+	else if(href_list["toggle_soulcrypt"])
+		pref.has_soulcrypt = !pref.has_soulcrypt
+		return TOPIC_REFRESH
+
 	else if(href_list["set_species"])
 
 		var/list/species_to_pick = list()
@@ -224,7 +248,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			//reset hair colour and skin colour
 			pref.hair_color = "#000"
-			pref.s_tone = 0
+//			pref.s_tone = 0
 			pref.age = max(min(pref.age, mob_species.max_age), mob_species.min_age)
 
 			reset_limbs() // Safety for species with incompatible manufacturers; easier than trying to do it case by case.
@@ -275,7 +299,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(new_s_base && CanUseTopic(user))
 			pref.s_base = new_s_base
 			return TOPIC_REFRESH_UPDATE_PREVIEW
-*/
+
 	else if(href_list["skin_tone"])
 		//var/new_s_tone = input(user, "Choose your character's skin-tone. Lower numbers are lighter, higher are darker. Range: 1 to [mob_species.max_skin_tone()]", CHARACTER_PREFERENCE_INPUT_TITLE, (-pref.s_tone) + 35) as num|null
 		var/new_s_tone = input(user, "Choose your character's skin-tone. Lower numbers are lighter, higher are darker. Range: 1 to 225", CHARACTER_PREFERENCE_INPUT_TITLE, (-pref.s_tone) + 35) as num|null
@@ -285,12 +309,21 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			//pref.s_tone = 35 - max(min(round(new_s_tone), mob_species.max_skin_tone()), 1)
 			pref.s_tone = 35 - max(min(round(new_s_tone), 220), 1)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
-
+*/
 	else if(href_list["skin_color"])
 		if(!has_flag(mob_species, HAS_SKIN_COLOR))
 			return TOPIC_NOACTION
 		var/new_skin = input(user, "Choose your character's skin colour: ", CHARACTER_PREFERENCE_INPUT_TITLE, pref.skin_color) as color|null
 		if(new_skin && has_flag(all_species[pref.species], HAS_SKIN_COLOR) && CanUseTopic(user))
+			pref.skin_color = new_skin
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["set_skin_color"])
+		if(!has_flag(mob_species, HAS_SKIN_COLOR))
+			return TOPIC_NOACTION
+		var/new_skin = href_list["set_skin_color"]
+		new_skin = "#[new_skin]"
+		if(new_skin && CanUseTopic(user))
 			pref.skin_color = new_skin
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 

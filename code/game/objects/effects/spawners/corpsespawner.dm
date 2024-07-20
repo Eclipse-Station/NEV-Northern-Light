@@ -67,6 +67,7 @@
 	else
 		M.real_name = M.species.get_random_name(gender)
 
+/*
 	if(skintone)
 		M.change_skin_tone(skintone)
 	else
@@ -74,7 +75,9 @@
 			M.change_skin_tone(rand(-80,-15))
 		else
 			M.change_skin_tone(rand(-200,-81))
-
+*/
+	if(M.species)
+		M.skin_color = pick(M.species.typical_skin_tones)
 	if(min_age && max_age)
 		M.age = rand(min_age, max_age)
 	else if(M.species.min_age && M.species.max_age)

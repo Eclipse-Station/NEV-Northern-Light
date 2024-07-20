@@ -32,13 +32,37 @@ The module base code is held in module.dm
 	var/stat //Status.
 	external = FALSE
 	//Host variables, stored for cloning.
-	var/dna_trace = null
+	var/b_type // GLOB.blood_types // list("A-", "A+", "B-", "B+", "AB-", "AB+", "O-", "O+")
+	var/dna_trace // sha1(real_name)
+	var/fingers_trace // md5(real_name)
+	var/real_name = null
+	var/age = null
+	var/flavor = null
+	var/owner_gender = null
+	var/datum/stat_holder/stats
+	var/list/dormant_mutations = list()
+	var/list/active_mutations = list()
+	var/datum/species/species = null
+
+	// Adds more aesthetics, also used for cloning
+	var/family_name		//Replacement.
+	//Eye colour
+	var/eyes_color = "#000000"
+
+//	var/s_tone = 0	//Skin tone
+
+	//Skin colour
+	var/skin_color = "#000000"
+	//Hair colour and style
+	var/hair_color = "#000000"
+	var/h_style = "Bald"
+
+	//Facial hair colour and style
+	var/facial_color = "#000000"
+	var/f_style = "Shaved"
+
 	var/datum/mind/host_mind
-	var/host_age
-	var/host_flavor_text
-	var/datum/stat_holder/host_stats
 	var/list/host_languages = list()
-	var/host_name
 
 	var/datum/soulcrypt_module/filemanager
 
@@ -70,8 +94,8 @@ The module base code is held in module.dm
 
 /obj/item/implant/core_implant/soulcrypt/examine(mob/user)
 	. = ..()
-	if(host_name)
-		to_chat(user, SPAN_NOTICE("This one appears to belong to [host_name]."))
+	if(real_name)
+		to_chat(user, SPAN_NOTICE("This one appears to belong to [real_name]."))
 	if(hacked_snatcher)
 		to_chat(user, SPAN_DANGER("Debug mode light is on."))
 
@@ -95,13 +119,31 @@ The module base code is held in module.dm
 
 /obj/item/implant/core_implant/soulcrypt/activate()
 	if(!has_stored_info)
+		// dna transfer
+		b_type = wearer.b_type // GLOB.blood_types // list("A-", "A+", "B-", "B+", "AB-", "AB+", "O-", "O+")
+		dna_trace = wearer.dna_trace // sha1(real_name)
+		fingers_trace = wearer.fingers_trace// md5(real_name)
+		real_name = wearer.real_name
+		age = wearer.age
+		flavor = wearer.flavor_text
+		stats = wearer.stats
+		dormant_mutations = list()
+		active_mutations = list()
 		host_mind = wearer.mind
-		host_age = wearer.age
-		host_flavor_text = wearer.flavor_text
 		has_stored_info = TRUE
-		host_name = wearer.real_name
-		host_stats = wearer.stats
+		owner_gender = wearer.gender
+
+		family_name = wearer.family_name
+		eyes_color = wearer.eyes_color
+	//	s_tone = wearer.s_tone
+		skin_color = wearer.skin_color
+		hair_color = wearer.hair_color
+		h_style = wearer.h_style
+		facial_color = wearer.facial_color
+		f_style = wearer.f_style
+
 		store_host_languages()
+		species = wearer.species
 	stat = SOULCRYPT_ONLINE
 
 	if(!wearer.mind || hacked_snatcher) //We're in a blank body. Or we're a bad person.
