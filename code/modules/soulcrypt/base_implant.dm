@@ -1,6 +1,7 @@
 /*
 Soulcrypt base implant. All base functions are held here.
 The module base code is held in module.dm
+Updated to work with Eris's new DNA system.
 */
 
 /obj/item/implant/core_implant/soulcrypt
