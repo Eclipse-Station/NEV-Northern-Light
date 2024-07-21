@@ -35,7 +35,7 @@ SUBSYSTEM_DEF(mapping)
 //	world.max_z_changed() // This is to set up the player z-level list, maxz hasn't actually changed (probably)
 	maploader = new()
 	load_map_templates()
-	build_pulsar()
+	//build_pulsar() Eclipse Edit - Stops Pulsar from being created. (I hope)
 
 	// Generate cache of all areas in world. This cache allows world areas to be looked up on a list instead of being searched for EACH time
 	for(var/area/A in world)
