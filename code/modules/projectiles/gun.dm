@@ -166,7 +166,10 @@
 		recoil = getRecoil()
 	else if(!istype(recoil, /datum/recoil))
 		error("Invalid type [recoil.type] found in .recoil during /obj Initialize()")
-	initial_zoom_factors = zoom_factors.Copy()
+	if(zoom_factors)
+		initial_zoom_factors = zoom_factors.Copy()
+	else
+		zoom = FALSE
 	. = ..()
 	initialize_firemodes()
 	initialize_firemode_actions()

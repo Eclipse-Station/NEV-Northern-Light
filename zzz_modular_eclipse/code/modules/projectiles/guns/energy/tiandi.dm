@@ -59,7 +59,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	can_dual = TRUE
 	projectile_type = /obj/item/projectile/beam/midlaser
-	zoom_factors = (0)
+	zoom_factors = list(0)
 	damage_multiplier = 1.2
 	charge_cost = 100
 	price_tag = 4500
