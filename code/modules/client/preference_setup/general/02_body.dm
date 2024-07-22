@@ -28,7 +28,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	var/icon/bgstate = "black"
 	var/list/bgstate_options = list("steel", "dark_steel", "white_tiles", "black_tiles", "wood", "carpet", "white", "black")
-	var/has_soulcrypt = TRUE
+//	var/has_soulcrypt = TRUE
 
 /datum/category_item/player_setup_item/physical/body
 	name = "Body"
@@ -69,7 +69,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	from_file(S["hair_color"], pref.hair_color)
 	from_file(S["facial_color"], pref.facial_color)
 	from_file(S["body_markings"], pref.body_markings)
-	from_file(S["has_soulcrypt"], pref.has_soulcrypt)
+//	from_file(S["has_soulcrypt"], pref.has_soulcrypt)
 
 /datum/category_item/player_setup_item/physical/body/save_character(var/savefile/S)
 	to_file(S["species"], pref.species)
@@ -85,7 +85,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	to_file(S["hair_color"], pref.hair_color)
 	to_file(S["facial_color"], pref.facial_color)
 	to_file(S["body_markings"], pref.body_markings)
-	to_file(S["has_soulcrypt"], pref.has_soulcrypt)
+//	to_file(S["has_soulcrypt"], pref.has_soulcrypt)
 
 /datum/category_item/player_setup_item/physical/body/sanitize_character(var/savefile/S)
 	pref.h_style		= sanitize_inlist(pref.h_style, GLOB.hair_styles_list, initial(pref.h_style))
@@ -95,7 +95,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.facial_color	= iscolor(pref.facial_color) ? pref.facial_color : "#000000"
 	pref.skin_color		= iscolor(pref.skin_color) ? pref.skin_color : "#000000"
 	pref.eyes_color		= iscolor(pref.eyes_color) ? pref.eyes_color : "#000000"
-	pref.has_soulcrypt = sanitize_bool(pref.has_soulcrypt, initial(pref.has_soulcrypt))
+//	pref.has_soulcrypt = sanitize_bool(pref.has_soulcrypt, initial(pref.has_soulcrypt))
 
 	if(!pref.species || !(pref.species in playable_species))
 		pref.species = SPECIES_HUMAN
@@ -173,12 +173,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		. += "[M] [pref.body_markings.len > 1 ? "<a href='?src=\ref[src];marking_up=[M]'>&#708;</a> <a href='?src=\ref[src];marking_down=[M]'>&#709;</a> " : ""]<a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
 		. += "<font face='fixedsys' size='3' color='[pref.body_markings[M]]'><table style='display:inline;' bgcolor='[pref.body_markings[M]]'><tr><td>__</td></tr></table></font>"
 		. += "<br>"
-
+/*
 	. += "Soulcrypt: "
 	. += pref.has_soulcrypt ? "Has Soulcrypt" : "<b>Does not have Soulcrypt.</b>"
 	. += " \[<a href='byond://?src=\ref[src];toggle_soulcrypt=1'>toggle</a>\]"
 	. += "<br>"
-
+*/
 
 	. += "</td><td style = 'text-align:center;' width = 35%><b>Preview</b><br>"
 	. += "<div style ='padding-bottom:-2px;' class='statusDisplay'><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></div>"
@@ -216,11 +216,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/datum/species/current_species = all_species[choice]
 			user << browse(current_species.get_description(), "window=species;size=700x400")
 			return TOPIC_HANDLED
-
+/*
 	else if(href_list["toggle_soulcrypt"])
 		pref.has_soulcrypt = !pref.has_soulcrypt
 		return TOPIC_REFRESH
-
+*/
 	else if(href_list["set_species"])
 
 		var/list/species_to_pick = list()
