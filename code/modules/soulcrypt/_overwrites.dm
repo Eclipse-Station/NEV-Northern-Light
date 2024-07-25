@@ -13,3 +13,5 @@
 		var/obj/item/implant/core_implant/soulcrypt/crypt = new
 		crypt.install(src)
 		to_chat(src, SPAN_NOTICE("You feel a faint sense of vertigo as your soulcrypt boots up."))
+
+	return TRUE

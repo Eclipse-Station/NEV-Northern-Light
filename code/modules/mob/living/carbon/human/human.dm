@@ -10,7 +10,7 @@
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_lying_buckled_and_verb_status() call.
 	var/using_scope // This is not very good either, because I've copied it. Sorry.
 
-/mob/living/carbon/human/Initialize(new_loc, new_species)
+/mob/living/carbon/human/Initialize(new_loc, new_species = SPECIES_HUMAN)
 	. = ..()
 
 	if(!species)
@@ -734,14 +734,17 @@ var/list/rank_prefix = list(\
 	if(new_eyes)
 		eyes_color = new_eyes
 		update_eyes()
-
+	var/new_skin = input("Please select skin color.", "Character Generation",skin_color) as color
+	if(new_skin)
+		skin_color = new_skin
+/*
 	var/new_tone = input("Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation", "[35-s_tone]")  as text
 
 	if (!new_tone)
 		new_tone = 35
 	s_tone = max(min(round(text2num(new_tone)), 220), 1)
 	s_tone =  -s_tone + 35
-
+*/
 	// hair
 	var/list/all_hairs = typesof(/datum/sprite_accessory/hair) - /datum/sprite_accessory/hair
 	var/list/hairs = list()

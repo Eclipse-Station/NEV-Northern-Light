@@ -201,25 +201,40 @@
 				stop()
 
 		if(progress >= CLONING_MEAT && !occupant)
-			var/datum/core_module/cruciform/cloning/R = reader.implant.get_module(CRUCIFORM_CLONING)
+			var/obj/item/implant/core_implant/soulcrypt/R = reader.implant
 			if(!R)
 				open_anim()
 				stop()
 				update_icon()
 				return
-
 			occupant = new/mob/living/carbon/human(src)
 			occupant.fingers_trace = R.fingers_trace
 			occupant.dna_trace = R.dna_trace
 			occupant.dormant_mutations = R.dormant_mutations
 			occupant.active_mutations = R.active_mutations
-			occupant.set_species()
 			occupant.real_name = R.real_name
 			occupant.b_type = R.b_type
 			occupant.age = R.age
-			occupant.sync_organ_dna()
 			occupant.flavor_text = R.flavor
-			R.stats.copyTo(occupant.stats)
+			occupant.gender = R.owner_gender
+
+			occupant.family_name = R.family_name
+			occupant.eyes_color = R.eyes_color
+//			occupant.s_tone = R.s_tone
+			occupant.skin_color = R.skin_color
+			occupant.hair_color = R.hair_color
+			occupant.h_style = R.h_style
+			occupant.facial_color = R.facial_color
+			occupant.f_style = R.f_style
+
+			if(R.species)
+				occupant.set_species(R.species.name)
+			occupant.sync_organ_dna()
+			occupant.rebuild_organs()
+			if(LAZYLEN(R.stats))
+				R.stats.copyTo(occupant.stats)
+
+
 
 		if(progress == CLONING_BODY || progress <= CLONING_BODY && progress > CLONING_BODY-10)
 			var/datum/effect/effect/system/spark_spread/s = new
