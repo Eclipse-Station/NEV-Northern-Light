@@ -2513,8 +2513,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/neotheology/generator)
 "afK" = (
@@ -2720,7 +2718,6 @@
 	icon_state = "0-2"
 	},
 /obj/structure/catwalk,
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/neotheology/generator)
 "afZ" = (
@@ -3414,7 +3411,6 @@
 	icon_state = "1-8"
 	},
 /obj/structure/catwalk,
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/neotheology/generator)
 "ahw" = (
@@ -3673,7 +3669,6 @@
 	},
 /obj/structure/catwalk,
 /obj/spawner/junk/low_chance,
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/neotheology/generator)
 "ahZ" = (
@@ -3719,7 +3714,6 @@
 	tag = "icon-intact (NORTHWEST)"
 	},
 /obj/structure/catwalk,
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/neotheology/generator)
 "aij" = (
@@ -5000,7 +4994,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/gravity_generator)
 "alh" = (
@@ -5824,6 +5817,8 @@
 "anq" = (
 /obj/structure/table/standard,
 /obj/item/storage/freezer/contains_food,
+/obj/item/tool/shovel/improvised,
+/obj/item/tool/shovel/improvised,
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/medbreak)
 "anr" = (
@@ -6347,7 +6342,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "aol" = (
@@ -6455,7 +6449,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 4;
 	icon_state = "pipe-j2s";
-	sortType = list("Research        and        Development");
+	sortType = list("Research                and                Development");
 	tag = "icon-pipe-j2s (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -6775,6 +6769,7 @@
 "apr" = (
 /obj/structure/table/woodentable,
 /obj/structure/disposalpipe/segment,
+/obj/item/tool/shovel/improvised,
 /turf/simulated/floor/carpet/bcarpet,
 /area/eris/command/meeting_room)
 "aps" = (
@@ -6820,7 +6815,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/wood,
 /area/eris/command/captain)
 "apz" = (
@@ -9283,8 +9277,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/prisoncells)
 "avm" = (
@@ -9301,7 +9293,6 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/prisoncells)
 "avp" = (
@@ -9317,7 +9308,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/prisoncells)
 "avr" = (
@@ -9531,7 +9521,6 @@
 /turf/simulated/floor/plating/under,
 /area/eris/security/disposal)
 "avP" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prisoncells)
 "avQ" = (
@@ -9599,7 +9588,6 @@
 	dir = 1
 	},
 /obj/machinery/hologram/holopad,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prisoncells)
 "avZ" = (
@@ -10970,7 +10958,6 @@
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "azl" = (
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/armory)
 "azm" = (
@@ -12051,6 +12038,7 @@
 	name = "reception door";
 	req_access = list(5)
 	},
+/obj/item/tool/shovel/improvised,
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/reception)
 "aBE" = (
@@ -14248,7 +14236,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/bluecorner,
 /area/eris/security/armory)
 "aGK" = (
@@ -15934,6 +15921,7 @@
 	name = "Bioengineering Counter Shutters";
 	opacity = 0
 	},
+/obj/item/tool/shovel/improvised,
 /turf/simulated/floor/plating,
 /area/eris/medical/genetics)
 "aKR" = (
@@ -16551,7 +16539,6 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/wood,
 /area/eris/neotheology/chapelritualroom)
 "aMe" = (
@@ -18819,7 +18806,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/evidencestorage)
 "aRo" = (
@@ -20114,7 +20100,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/anomal)
 "aUc" = (
@@ -20482,7 +20467,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aUX" = (
@@ -20520,7 +20504,6 @@
 	dir = 4;
 	tag = "icon-map (EAST)"
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aVb" = (
@@ -20577,7 +20560,6 @@
 /area/eris/engineering/atmos)
 "aVi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aVj" = (
@@ -20595,7 +20577,6 @@
 	dir = 8;
 	tag = "icon-map (WEST)"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aVm" = (
@@ -20603,7 +20584,6 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
 "aVn" = (
@@ -21000,7 +20980,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 2;
 	icon_state = "pipe-j2s";
-	sortType = list("Cargo        Bay")
+	sortType = list("Cargo                Bay")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -21428,7 +21408,6 @@
 	dir = 5;
 	tag = "icon-intact (NORTHEAST)"
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aXi" = (
@@ -21470,7 +21449,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/grass,
 /area/eris/crew_quarters/hydroponics/garden)
 "aXp" = (
@@ -21524,7 +21502,6 @@
 	dir = 4;
 	name = "N2O to Transit"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
 "aXv" = (
@@ -21536,7 +21513,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aXx" = (
@@ -21735,7 +21711,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aXX" = (
@@ -21755,7 +21730,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aXZ" = (
@@ -22024,7 +21998,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "aYM" = (
@@ -24586,7 +24559,6 @@
 "beL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/bluecorner,
 /area/eris/security/armory)
 "beM" = (
@@ -25255,7 +25227,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "bgG" = (
@@ -25283,7 +25254,7 @@
 	input_tag = "toxins1_in";
 	name = "Mixing Chamber 1 Monitor";
 	output_tag = "toxins1_out";
-	sensors = list("toxins_mixing_1"="Mixing        Chamber        -        1")
+	sensors = list("toxins_mixing_1"="Mixing                Chamber                -                1")
 	},
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
@@ -25554,7 +25525,6 @@
 /obj/machinery/camera/network/engineering{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/long_range_scanner)
 "bhp" = (
@@ -25607,7 +25577,6 @@
 	tag_south = 8;
 	tag_west = 1
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "bhv" = (
@@ -25708,7 +25677,7 @@
 	input_tag = "toxins2_in";
 	name = "Mixing Chamber 2 Monitor";
 	output_tag = "toxins2_out";
-	sensors = list("toxins_mixing_2"="Mixing        Chamber        -        2")
+	sensors = list("toxins_mixing_2"="Mixing                Chamber                -                2")
 	},
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
@@ -26172,7 +26141,7 @@
 	dir = 4;
 	frequency = 1430;
 	name = "Mixing Chamber Monitor";
-	sensors = list("toxins_mixing_1"="Mixing        Chamber        -        1","toxins_mixing_2"="Mixing        Chamber        -        2")
+	sensors = list("toxins_mixing_1"="Mixing                Chamber                -                1","toxins_mixing_2"="Mixing                Chamber                -                2")
 	},
 /turf/simulated/floor/tiled/white/gray_perforated,
 /area/eris/rnd/mixing)
@@ -26380,7 +26349,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 9
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
 "bjj" = (
@@ -26605,7 +26573,6 @@
 	dir = 1;
 	name = "NH2CL to Mixing"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
 "bjK" = (
@@ -27467,7 +27434,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/main)
 "blF" = (
@@ -27488,7 +27454,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/main)
 "blH" = (
@@ -28188,7 +28153,6 @@
 	dir = 1;
 	name = "NCL3 to Connector"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/engineering/atmos)
 "bnn" = (
@@ -28319,7 +28283,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/main)
 "bnw" = (
@@ -28553,7 +28516,6 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "bnV" = (
@@ -28887,7 +28849,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "boE" = (
@@ -28925,6 +28886,7 @@
 	pixel_x = -28;
 	req_access = list(1)
 	},
+/obj/item/tool/shovel/improvised,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/main)
 "boI" = (
@@ -31181,6 +31143,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/item/tool/shovel/improvised,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/breakroom)
 "btG" = (
@@ -31996,7 +31959,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/barracks)
 "bvs" = (
@@ -32004,7 +31966,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/barracks)
 "bvt" = (
@@ -33564,7 +33525,7 @@
 "bzq" = (
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
-	sortType = list("First        Officer        Office")
+	sortType = list("First                Officer                Office")
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
@@ -33926,7 +33887,6 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/prisoncells)
 "bAe" = (
@@ -34577,7 +34537,7 @@
 /obj/machinery/camera/network/security{
 	dir = 1
 	},
-/obj/spawner/mob/spiders/cluster,
+/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/prison)
 "bBI" = (
@@ -34909,7 +34869,6 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/crew_quarters/janitor)
 "bCw" = (
@@ -35800,7 +35759,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/crew_quarters/janitor)
 "bEn" = (
@@ -36489,7 +36447,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/foyer)
 "bFR" = (
@@ -36567,7 +36524,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/armory)
 "bFZ" = (
@@ -37124,7 +37080,6 @@
 /obj/machinery/camera/network/security{
 	dir = 1
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/armory)
 "bHm" = (
@@ -37434,7 +37389,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/command/tcommsat/chamber)
 "bHY" = (
@@ -37591,7 +37545,6 @@
 /obj/machinery/camera/network/security{
 	dir = 1
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
 "bIt" = (
@@ -37940,7 +37893,6 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/main)
 "bJi" = (
@@ -37956,7 +37908,6 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/foyer)
 "bJj" = (
@@ -38890,7 +38841,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/engineering/foyer)
 "bLd" = (
@@ -39218,7 +39168,6 @@
 "bLT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/catwalk,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/foyer)
 "bLU" = (
@@ -39243,6 +39192,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/security/prison)
 "bLY" = (
@@ -39910,7 +39860,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/foyer)
 "bNs" = (
@@ -39950,7 +39899,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/foyer)
 "bNw" = (
@@ -40211,7 +40159,6 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/security/lobby)
 "bNU" = (
@@ -40221,7 +40168,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/security/lobby)
 "bNV" = (
@@ -40269,7 +40215,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/security/lobby)
 "bNZ" = (
@@ -40630,14 +40575,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/command/exultant)
 "bOG" = (
 /obj/structure/bed/chair,
 /obj/structure/disposalpipe/segment,
-/obj/spawner/mob/spiders/cluster/low_chance,
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/lobby)
 "bOH" = (
@@ -41377,7 +41319,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/steel,
 /area/eris/security/lobby)
 "bQf" = (
@@ -41687,7 +41628,7 @@
 	frequency = 1443;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("mair_in_meter"="Mixed        Air        In","air_sensor"="Mixed        Air        Supply        Tank","mair_out_meter"="Mixed        Air        Out","dloop_atm_meter"="Distribution        Loop","wloop_atm_meter"="Engine        Waste")
+	sensors = list("mair_in_meter"="Mixed                Air                In","air_sensor"="Mixed                Air                Supply                Tank","mair_out_meter"="Mixed                Air                Out","dloop_atm_meter"="Distribution                Loop","wloop_atm_meter"="Engine                Waste")
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/exultant)
@@ -41722,7 +41663,7 @@
 	dir = 1;
 	frequency = 1441;
 	name = "Tank Monitor";
-	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon        Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous        Oxide","waste_sensor"="Gas        Mix        Tank")
+	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon                Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous                Oxide","waste_sensor"="Gas                Mix                Tank")
 	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/command/exultant)
@@ -42082,6 +42023,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/tool/shovel/improvised,
 /turf/simulated/floor/tiled/dark/golden,
 /area/eris/neotheology/chapelritualroom)
 "bRG" = (
@@ -42520,7 +42462,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/golden,
 /area/eris/hallway/side/eschangarb)
 "bSH" = (
@@ -42790,7 +42731,6 @@
 /obj/machinery/camera/network/second_section{
 	dir = 1
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
 "bTn" = (
@@ -43375,7 +43315,6 @@
 /obj/machinery/camera/network/second_section{
 	dir = 4
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/neotheology/bioreactor)
 "bUw" = (
@@ -43552,7 +43491,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/wood,
 /area/eris/command/fo)
 "bUT" = (
@@ -43656,7 +43594,6 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/security/lobby)
 "bVg" = (
@@ -44339,7 +44276,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/command/courtroom)
 "bWx" = (
@@ -46211,7 +46147,6 @@
 /area/eris/quartermaster/disposaldrop)
 "caI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "caJ" = (
@@ -47596,7 +47531,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/exerooms)
 "cet" = (
@@ -48139,7 +48073,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/security/lobby)
 "cfs" = (
@@ -48863,7 +48796,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/miningdock)
 "cgX" = (
@@ -48875,7 +48807,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/foyer)
 "cgY" = (
@@ -49316,7 +49247,6 @@
 	tag = "icon-manifold-f (EAST)"
 	},
 /obj/structure/catwalk,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/quartermaster/miningdock)
 "chZ" = (
@@ -49480,7 +49410,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/propulsion/right)
 "ciu" = (
@@ -50303,7 +50232,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/propulsion/left)
 "ckA" = (
@@ -50824,7 +50752,7 @@
 "clJ" = (
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
-	sortType = list("Kitchen","Hydropinics","Chapel","Bar","Research        and        Development","Cargo        Bay")
+	sortType = list("Kitchen","Hydropinics","Chapel","Bar","Research                and                Development","Cargo                Bay")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -50895,7 +50823,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/hydroponics)
 "clR" = (
@@ -51483,7 +51410,6 @@
 /area/shuttle/research/station)
 "cni" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
 "cnj" = (
@@ -52152,7 +52078,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
 "coW" = (
@@ -52321,7 +52246,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white/panels,
 /area/eris/medical/virology)
 "cpp" = (
@@ -52482,7 +52406,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/panels,
 /area/eris/crew_quarters/hydroponics)
 "cpE" = (
@@ -54102,7 +54025,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/maintenance/junk)
 "cts" = (
@@ -54161,7 +54083,6 @@
 	pixel_x = -24;
 	req_access = list(39)
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white/panels,
 /area/eris/medical/virology)
 "ctz" = (
@@ -54387,8 +54308,6 @@
 /obj/machinery/conveyor_switch/oneway{
 	id = "QMLoad2"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/hangarsupply)
 "ctZ" = (
@@ -55734,7 +55653,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/crew_quarters/pubeva)
 "cxs" = (
@@ -56412,7 +56330,6 @@
 /obj/machinery/firealarm{
 	pixel_y = 28
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "cyL" = (
@@ -57003,7 +56920,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/storage)
 "cAn" = (
@@ -57085,7 +57001,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/storage)
 "cAy" = (
@@ -57716,7 +57631,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/storage)
 "cBX" = (
@@ -57842,7 +57756,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/neotheology/storage)
 "cCn" = (
@@ -57930,7 +57843,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "9,11"
 	},
@@ -58298,7 +58210,7 @@
 "cDa" = (
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
-	sortType = list("Chapel        Office","Trade        Port")
+	sortType = list("Chapel                Office","Trade                Port")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -58340,7 +58252,7 @@
 "cDc" = (
 /obj/structure/disposalpipe/sortjunction{
 	dir = 4;
-	sortType = list("Engineering        Lobby");
+	sortType = list("Engineering                Lobby");
 	tag = "icon-pipe-j2s"
 	},
 /obj/structure/cable{
@@ -59363,6 +59275,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/item/tool/shovel/improvised,
 /turf/simulated/open,
 /area/eris/crew_quarters/sleep/cryo)
 "cFF" = (
@@ -60076,7 +59989,6 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/hallway/side/eschangarb)
 "cHp" = (
@@ -60147,7 +60059,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
 /area/eris/medical/morgue)
 "cHv" = (
@@ -60207,7 +60118,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "cHz" = (
@@ -60225,7 +60135,6 @@
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/panels,
 /area/eris/quartermaster/storage)
 "cHB" = (
@@ -61541,7 +61450,6 @@
 /obj/machinery/camera/network/fist_section{
 	dir = 1
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/security/lobby)
 "cKl" = (
@@ -62839,7 +62747,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/orangecorner,
 /area/eris/storage/tech)
 "cNP" = (
@@ -63836,7 +63743,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "9,14"
 	},
@@ -64048,7 +63954,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "4,3"
 	},
@@ -64103,7 +64008,6 @@
 	},
 /area/shuttle/research/station)
 "cRc" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/shuttle/floor/science{
 	icon_state = "12,3"
 	},
@@ -64971,7 +64875,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/shuttle/floor/mining{
 	icon_state = "8,9"
 	},
@@ -66234,7 +66137,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/erida/hallway/side/docks)
 "cXd" = (
@@ -66415,7 +66317,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/erida/hallway/side/docks)
 "cXs" = (
@@ -66921,7 +66822,6 @@
 /obj/machinery/camera/network/engineering{
 	dir = 8
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/right)
 "cYx" = (
@@ -67363,7 +67263,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
 "cZq" = (
@@ -67608,7 +67507,6 @@
 	dir = 5;
 	tag = "icon-intact (NORTHEAST)"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel,
 /area/eris/engineering/engine_room)
 "cZT" = (
@@ -67711,7 +67609,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine        Core")
+	sensors = list("engine_sensor"="Engine                Core")
 	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/engineering/engine_room)
@@ -68434,7 +68332,7 @@
 /obj/structure/table/rack/shelf,
 /obj/structure/disposalpipe/sortjunction/flipped{
 	dir = 8;
-	sortType = list("Trade        Port")
+	sortType = list("Trade                Port")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -68576,7 +68474,6 @@
 	name = "AI Requests Console";
 	pixel_y = -29
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/command/tcommsat/chamber)
 "dbN" = (
@@ -68705,7 +68602,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 8
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/danger,
 /area/eris/engineering/engine_room)
 "dci" = (
@@ -69392,7 +69288,6 @@
 	icon_state = "2-4"
 	},
 /obj/structure/catwalk,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
 "ddV" = (
@@ -69755,7 +69650,6 @@
 /obj/machinery/camera/network/medbay{
 	dir = 8
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "deO" = (
@@ -71134,7 +71028,6 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/security/lobby)
 "dis" = (
@@ -72429,7 +72322,7 @@
 "dkA" = (
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
-	sortType = list("Chapel        Office")
+	sortType = list("Chapel                Office")
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -72603,7 +72496,6 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/maintenance/junk)
 "dkS" = (
@@ -75036,7 +74928,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
 "dqE" = (
@@ -76504,7 +76395,6 @@
 	dir = 8;
 	pixel_x = 22
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
 "dut" = (
@@ -77060,7 +76950,6 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/main)
 "dvE" = (
@@ -78417,7 +78306,6 @@
 	pixel_y = -32;
 	dir = 1
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/hallway/side/docks)
 "dyj" = (
@@ -80847,7 +80735,6 @@
 /obj/machinery/camera/network/engineering{
 	dir = 1
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/foyer)
 "dCL" = (
@@ -82656,7 +82543,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/spawner/mob/roaches/cluster/low_chance,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor7";
 	tag = "icon-cargofloor7"
@@ -82835,7 +82721,6 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "dNn" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/carpet/blucarpet,
 /area/eris/command/fo)
 "dNv" = (
@@ -82874,11 +82759,6 @@
 /obj/spawner/credits,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck2)
-"dRD" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/cyan,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/engineering/engine_room)
 "dRI" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -82895,7 +82775,6 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel,
 /area/eris/hallway/side/eschangara)
 "dSu" = (
@@ -82945,15 +82824,15 @@
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "dVf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/bar_dance,
-/area/eris/crew_quarters/bar)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/item/tool/shovel/improvised,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/office)
 "dVP" = (
 /obj/structure/closet/mopcloset,
 /turf/simulated/floor/reinforced,
@@ -82961,15 +82840,6 @@
 "dXf" = (
 /turf/simulated/floor/carpet,
 /area/eris/command/courtroom)
-"dXk" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 4;
-	tag = "icon-intact (EAST)"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/engineering/atmos)
 "dYr" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -83069,7 +82939,6 @@
 "eeO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/storage/primary)
 "eeQ" = (
@@ -83369,12 +83238,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/quartermaster/disposaldrop)
-"eEi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/white,
-/area/eris/crew_quarters/fitness)
 "eEr" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
@@ -83410,7 +83273,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/brig)
 "eHH" = (
@@ -83566,22 +83428,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck1central)
-"eVE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/plating/under,
-/area/eris/crew_quarters/hydroponics)
 "eVO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/multi_tile/glass,
@@ -83596,20 +83442,13 @@
 	},
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/engineering/foyer)
-"eYt" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 9
-	},
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/engineering/atmos)
 "eZD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/white,
-/area/eris/rnd/lab)
+/obj/item/tool/shovel/improvised,
+/turf/simulated/floor/tiled/steel,
+/area/eris/quartermaster/office)
 "fbF" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 1;
@@ -84274,14 +84113,8 @@
 /turf/simulated/open,
 /area/eris/hallway/main/section2)
 "giV" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark,
-/area/eris/command/exultant)
+/turf/simulated/floor/tiled/steel/techfloor,
+/area/eris/engineering/foyer)
 "gkS" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -84303,10 +84136,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/wood,
 /area/eris/command/meeting_room)
-"gmu" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/white/brown_perforated,
-/area/eris/security/exerooms)
 "gmF" = (
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white,
@@ -84439,7 +84268,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
 "gAH" = (
@@ -84472,16 +84300,6 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck3central)
-"gBN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor_grid,
-/area/eris/medical/morgue)
 "gCu" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 1;
@@ -85116,10 +84934,6 @@
 	},
 /turf/simulated/floor/tiled/white/cargo,
 /area/eris/medical/reception)
-"hFm" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/engineering/propulsion/left)
 "hGk" = (
 /obj/structure/table/standard,
 /obj/machinery/camera/network/fist_section{
@@ -85329,7 +85143,6 @@
 /area/eris/crew_quarters/fitness)
 "hZL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/atmos)
 "iaw" = (
@@ -85614,10 +85427,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/portsection2deck3)
-"iyS" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/medical/morgue)
 "izG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -85847,15 +85656,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/open,
 /area/eris/hallway/main/section2)
-"iWU" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark,
-/area/eris/security/barracks)
 "iXu" = (
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor_grid,
@@ -86061,13 +85861,10 @@
 /turf/simulated/floor/tiled/steel/bar_dance,
 /area/eris/crew_quarters/bar)
 "jyN" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 1;
-	name = "O2 to Connector"
-	},
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/danger,
-/area/eris/engineering/atmos)
+/obj/structure/catwalk,
+/obj/item/tool/shovel/improvised,
+/turf/simulated/open,
+/area/eris/crew_quarters/sleep/cryo)
 "jzj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
@@ -86088,15 +85885,10 @@
 /turf/simulated/open,
 /area/erida/maintenance/portsection2deck2)
 "jAw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel,
-/area/eris/hallway/main/section2)
+/obj/structure/table/woodentable,
+/obj/item/tool/shovel/improvised,
+/turf/simulated/floor/carpet/bcarpet,
+/area/eris/command/meeting_room)
 "jAL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -86175,7 +85967,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/crew_quarters/fitness)
 "jGL" = (
@@ -86312,9 +86103,10 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/inspectors_office)
 "jSs" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/bluecorner,
-/area/eris/security/armory)
+/obj/structure/catwalk,
+/obj/item/tool/shovel/improvised,
+/turf/simulated/floor/plating/under,
+/area/eris/engineering/breakroom)
 "jTG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -86525,18 +86317,6 @@
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck1central)
-"koK" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/white,
-/area/eris/rnd/anomal)
 "koU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -86838,16 +86618,6 @@
 /obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck3)
-"kVg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/cargo,
-/area/eris/security/armory)
 "kVw" = (
 /obj/structure/railing{
 	dir = 4;
@@ -86917,22 +86687,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
-"ldq" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/catwalk,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/plating/under,
-/area/erida/hallway/side/docks)
 "ler" = (
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
@@ -87175,11 +86929,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/brig)
-"lzX" = (
-/obj/spawner/junk/low_chance,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/carpet,
-/area/eris/command/courtroom)
 "lAo" = (
 /obj/structure/catwalk,
 /obj/structure/cable/green{
@@ -87248,11 +86997,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/drone_fabrication)
-"lEt" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/engineering/propulsion/right)
 "lEO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -87439,10 +87183,6 @@
 /obj/item/tool/hammer/mace/makeshift/baseballbat,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/erida/maintenance/starboardsection2deck4)
-"lWM" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/panels,
-/area/erida/crew_quarters/firing_range)
 "lXv" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
@@ -87456,15 +87196,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/eris/maintenance/section1deck1central)
-"lYB" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
 "lZd" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -87682,10 +87413,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/armory)
-"mze" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark,
-/area/eris/security/main)
 "mzP" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -87731,9 +87458,11 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/brig)
 "mBp" = (
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/golden,
-/area/eris/neotheology/storage)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor1"
+	},
+/area/eris/hallway/side/eschangarb)
 "mBr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -87803,14 +87532,6 @@
 	},
 /obj/spawner/junk/low_chance,
 /obj/spawner/scrap/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/engineering/atmos)
-"mJi" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 4;
-	tag = "icon-intact (EAST)"
-	},
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "mKu" = (
@@ -88040,10 +87761,6 @@
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/security/exerooms)
-"nhE" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/wood,
-/area/eris/command/commander)
 "nhJ" = (
 /obj/spawner/junk/low_chance,
 /obj/spawner/scrap/low_chance,
@@ -88074,17 +87791,6 @@
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/erida/maintenance/starboardsection2deck2)
-"nno" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/plating/under,
-/area/eris/engineering/foyer)
 "nog" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -88141,15 +87847,6 @@
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white/techfloor,
 /area/eris/medical/medeva)
-"nwe" = (
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/danger,
-/area/eris/engineering/engine_room)
 "nwp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -88170,7 +87867,6 @@
 /area/eris/quartermaster/storage)
 "nwL" = (
 /obj/machinery/hologram/holopad,
-/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/security/lobby)
 "nwW" = (
@@ -88505,14 +88201,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/lab)
-"nYw" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 4;
-	tag = "icon-intact (EAST)"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/engineering/atmos)
 "nYI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -88808,6 +88496,7 @@
 /obj/item/spacecash/bundle/c500,
 /obj/effect/decal/cleanable/blood,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
+/obj/item/tool/shovel/improvised,
 /turf/simulated/floor/plating/under,
 /area/eris/security/main)
 "owk" = (
@@ -88866,7 +88555,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/command/courtroom)
 "oyd" = (
@@ -89050,10 +88738,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/erida/maintenance/sciweapondeck)
-"oOP" = (
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/security/range)
 "oQo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -89121,7 +88805,6 @@
 /area/eris/medical/chemstor)
 "oWy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/gravity_generator)
 "oXN" = (
@@ -89132,16 +88815,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/crew_quarters/fitness)
-"oZq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/white,
-/area/eris/rnd/lab)
 "oZv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -89295,10 +88968,11 @@
 /turf/simulated/floor/tiled/dark/gray_perforated,
 /area/eris/command/bridge)
 "plx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor7";
+	tag = "icon-cargofloor7"
+	},
+/area/eris/hallway/side/eschangarb)
 "pmd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -89339,7 +89013,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/storage)
 "pro" = (
@@ -89479,14 +89152,6 @@
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/portsection2deck3)
-"pGl" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	name = "Waste to Port"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/brown_perforated,
-/area/eris/maintenance/disposal)
 "pHG" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -89846,10 +89511,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/xenobiology)
-"qmb" = (
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/neotheology/storage)
 "qmm" = (
 /obj/structure/catwalk,
 /obj/spawner/mob/spiders/cluster/low_chance,
@@ -89896,10 +89557,6 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
-"qtk" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai)
 "qtK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5;
@@ -89974,15 +89631,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/propulsion/left)
-"qxh" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	dir = 4;
-	tag = "icon-intact (EAST)"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/engineering/atmos)
 "qxV" = (
 /obj/spawner/junk/low_chance,
 /obj/spawner/scrap/low_chance,
@@ -90068,11 +89716,6 @@
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/techmaint_perforated,
 /area/eris/maintenance/section1deck4central)
-"qBj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/monofloor,
-/area/eris/hallway/main/section2)
 "qBu" = (
 /obj/spawner/junk/low_chance,
 /obj/spawner/scrap/low_chance,
@@ -90301,9 +89944,12 @@
 /turf/simulated/floor/plating,
 /area/eris/engineering/propulsion/left)
 "qWl" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/white/brown_platform,
-/area/eris/medical/reception)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/shuttle/floor{
+	icon_state = "cargofloor7";
+	tag = "icon-cargofloor7"
+	},
+/area/eris/hallway/side/eschangarb)
 "qWH" = (
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/steel/brown_perforated,
@@ -90323,10 +89969,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating/under,
 /area/erida/maintenance/starboardsection2deck3)
-"rbm" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark,
-/area/eris/engineering/atmos)
 "rbQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -90395,11 +90037,6 @@
 	},
 /turf/simulated/floor/tiled/steel/brown_perforated,
 /area/eris/quartermaster/office)
-"reN" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/plating/under,
-/area/eris/engineering/atmos)
 "reQ" = (
 /obj/structure/table/rack/shelf,
 /obj/spawner/lowkeyrandom/low_chance,
@@ -90426,10 +90063,12 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/starboardsection2deck3)
 "rfH" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/engineering/atmos)
+/obj/machinery/atmospherics/valve/digital{
+	dir = 4;
+	name = "Waste Cooling"
+	},
+/turf/simulated/floor/tiled/steel/gray_platform,
+/area/eris/engineering/engine_room)
 "rhf" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/spawner/junk/low_chance,
@@ -90541,13 +90180,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section1deck4central)
-"ruF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark,
-/area/eris/security/brig)
 "rvM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -90672,20 +90304,10 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/starboardsection2deck3)
-"rBT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/quartermaster/disposaldrop)
 "rCT" = (
-/obj/spawner/mob/spiders/cluster,
+/obj/spawner/mob/spiders/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/security/disposal)
-"rDr" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/techfloor_grid,
-/area/eris/crew_quarters/pubeva)
 "rES" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/techmaint,
@@ -90839,13 +90461,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/steel,
 /area/eris/quartermaster/office)
-"rLn" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4
-	},
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/engineering/atmos)
 "rLo" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -91112,13 +90727,6 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/command/courtroom)
-"skO" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/carpet/bcarpet,
-/area/eris/command/commander)
 "soJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -91155,7 +90763,6 @@
 /turf/simulated/floor/tiled/steel/monofloor,
 /area/eris/crew_quarters/fitness)
 "ste" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/white,
 /area/eris/rnd/lab)
 "stq" = (
@@ -91512,14 +91119,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
-"tdA" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 1;
-	tag = "icon-map (NORTH)"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/engineering/atmos)
 "teg" = (
 /obj/machinery/gym,
 /turf/simulated/floor/tiled/steel/techfloor,
@@ -91649,13 +91248,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/long_range_scanner)
-"tmP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/techfloor,
-/area/eris/engineering/atmos)
 "tno" = (
 /obj/structure/table/reinforced,
 /obj/item/book/manual/wiki/chef_recipes,
@@ -92023,10 +91615,8 @@
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/crew_quarters/fitness)
 "tSz" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/danger,
-/area/eris/engineering/atmos)
+/turf/simulated/floor/tiled/white/gray_perforated,
+/area/eris/security/exerooms)
 "tSE" = (
 /obj/item/gun/projectile/selfload/moebius,
 /obj/item/ammo_magazine/pistol,
@@ -92067,7 +91657,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/long_range_scanner)
 "tVw" = (
@@ -92481,14 +92070,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/engineering/engine_room)
-"uBi" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 1;
-	tag = "icon-map (NORTH)"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/engineering/propulsion/right)
 "uBj" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/reinforced,
@@ -92524,14 +92105,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/engineering/gravity_generator)
-"uCJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel,
-/area/eris/hallway/main/section2)
 "uCL" = (
 /obj/item/stool/padded,
 /obj/spawner/mob/roaches/cluster/low_chance,
@@ -92647,10 +92220,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/wood,
 /area/eris/crew_quarters/sleep)
-"uLQ" = (
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark,
-/area/eris/security/range)
 "uMm" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -92673,15 +92242,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
-"uOx" = (
-/obj/machinery/atmospherics/pipe/simple/visible/blue{
-	dir = 4;
-	tag = "icon-intact (EAST)"
-	},
-/obj/structure/catwalk,
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/plating/under,
-/area/erida/neotheology/generator)
 "uPq" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -92812,14 +92372,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/patients_rooms)
-"vee" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4;
-	tag = "icon-intact (EAST)"
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/danger,
-/area/eris/engineering/engine_room)
 "vez" = (
 /obj/machinery/atmospherics/valve/digital/open,
 /obj/spawner/mob/roaches/cluster/low_chance,
@@ -93165,11 +92717,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/open,
 /area/eris/security/lobby)
-"vJv" = (
-/obj/structure/catwalk,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/plating/under,
-/area/eris/quartermaster/miningdock)
 "vJY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -93209,10 +92756,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/main)
-"vLy" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/virology)
 "vLS" = (
 /turf/space,
 /area/eris/maintenance/junk)
@@ -93307,7 +92850,6 @@
 "vRp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/shuttle/floor{
 	icon_state = "cargofloor1"
 	},
@@ -93446,14 +92988,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/erida/maintenance/starboardsection2deck2)
-"vZx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/open,
-/area/eris/security/lobby)
 "vZP" = (
 /obj/machinery/light/small,
 /obj/spawner/mob/roaches/cluster/low_chance,
@@ -93600,13 +93134,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/brig)
-"wpT" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/cargo,
-/area/eris/security/armory)
 "wqh" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -93697,13 +93224,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/eris/command/courtroom)
-"wvI" = (
-/obj/machinery/multistructure/bioreactor_part/platform{
-	make_glasswalls_after_creation = 1
-	},
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/gray_platform,
-/area/eris/neotheology/bioreactor)
 "wvZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -93834,19 +93354,6 @@
 /obj/spawner/junk/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section3deck4starboard)
-"wEL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel,
-/area/eris/crew_quarters/fitness)
 "wFe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -94001,13 +93508,6 @@
 /obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/plating/under,
 /area/eris/medical/reception)
-"wOE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 6
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/techfloor,
-/area/eris/engineering/propulsion/left)
 "wPf" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -94058,10 +93558,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/plating/under,
 /area/erida/hallway/side/docks)
-"wTp" = (
-/obj/spawner/mob/spiders/cluster/low_chance,
-/turf/simulated/floor/tiled/dark/gray_perforated,
-/area/eris/quartermaster/disposaldrop)
 "wTF" = (
 /obj/structure/table/woodentable,
 /obj/item/book/manual/wiki/security_ironparagraphs,
@@ -94408,7 +93904,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/barracks)
 "xxW" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
 /turf/simulated/floor/tiled/dark/techfloor,
 /area/eris/engineering/atmos)
 "xxX" = (
@@ -94641,13 +94136,6 @@
 /obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/plating/under,
 /area/eris/command/meeting_room)
-"xMy" = (
-/obj/machinery/camera/network/engineering{
-	dir = 8
-	},
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/plating/under,
-/area/eris/engineering/engine_room)
 "xNq" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -94832,10 +94320,6 @@
 /obj/spawner/scrap/low_chance,
 /turf/simulated/floor/tiled/dark/danger,
 /area/eris/command/tcommsat/chamber)
-"ylA" = (
-/obj/spawner/mob/roaches/cluster/low_chance,
-/turf/simulated/floor/tiled/steel/panels,
-/area/eris/quartermaster/storage)
 "ylP" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 1;
@@ -100877,7 +100361,7 @@ aTz
 aUd
 aXF
 bab
-koK
+bab
 bdC
 bAR
 cGk
@@ -102395,7 +101879,7 @@ aNH
 bwK
 nRu
 uWw
-eEi
+uWw
 uth
 mAt
 kit
@@ -103164,7 +102648,7 @@ kZD
 ssc
 rLo
 cco
-wEL
+bzX
 abT
 aMt
 adj
@@ -103920,7 +103404,7 @@ syw
 unI
 aql
 abK
-lWM
+bpc
 bpc
 cdn
 agc
@@ -103928,7 +103412,7 @@ nrM
 bAa
 xxj
 apA
-kzZ
+bAa
 bAa
 abT
 aMt
@@ -105282,7 +104766,7 @@ ayi
 ayi
 ayi
 bFF
-szy
+atX
 uFD
 agA
 bLL
@@ -108124,7 +107608,7 @@ bzG
 arU
 abQ
 ati
-lKm
+arr
 ofF
 ofF
 ofF
@@ -108273,14 +107757,14 @@ bzg
 anB
 aah
 dfn
-lKm
+arr
 arV
 abQ
 arL
 pSu
 pSu
 pSu
-lKm
+arr
 nbx
 aah
 aeK
@@ -109105,7 +108589,7 @@ ahA
 glL
 ajF
 alk
-alB
+jAw
 alL
 alB
 apJ
@@ -125069,7 +124553,7 @@ aOW
 aFV
 czk
 czv
-vXx
+czv
 csM
 czJ
 czv
@@ -125986,7 +125470,7 @@ bAv
 cyZ
 aFV
 czn
-ylA
+czw
 qRG
 fel
 lfN
@@ -126464,7 +125948,7 @@ cBc
 cAW
 eDa
 eDa
-fDA
+cBe
 cBu
 aHX
 aav
@@ -126538,7 +126022,7 @@ auR
 auR
 auM
 avU
-nQM
+awo
 bBU
 auM
 axl
@@ -126549,7 +126033,7 @@ axh
 aGS
 aRi
 etu
-bfC
+tSz
 joE
 bfC
 aLn
@@ -126581,7 +126065,7 @@ aHn
 btp
 cpb
 csm
-gBN
+cHr
 clN
 dNv
 dNv
@@ -126616,7 +126100,7 @@ cCV
 cBc
 dhu
 cBe
-wTp
+cBe
 cBn
 dhw
 aHX
@@ -126700,7 +126184,7 @@ axh
 apo
 axh
 bLV
-gmu
+aGU
 aGU
 bfD
 bgQ
@@ -126899,7 +126383,7 @@ doj
 ark
 hgc
 ehF
-vLy
+csO
 cwt
 cze
 aFV
@@ -127059,7 +126543,7 @@ aFV
 bGW
 czv
 xJY
-uae
+czy
 czO
 czY
 aFV
@@ -127074,7 +126558,7 @@ cCN
 cJp
 cAQ
 cAZ
-rBT
+cBg
 cBg
 cBq
 cBx
@@ -127303,7 +126787,7 @@ avp
 wzo
 avH
 awf
-nQM
+awo
 bBU
 auM
 avE
@@ -127363,7 +126847,7 @@ cyT
 dmm
 aFV
 czr
-vXx
+czv
 xJY
 dmy
 bLk
@@ -127456,7 +126940,7 @@ avq
 dYN
 auR
 avP
-nQM
+awo
 awz
 awK
 avE
@@ -127482,7 +126966,7 @@ axh
 bli
 bli
 bhd
-mze
+blW
 bhd
 aav
 avi
@@ -127653,7 +127137,7 @@ aOV
 cpb
 cuD
 cHu
-iyS
+clN
 dNv
 dNv
 bUx
@@ -128024,7 +127508,7 @@ aOF
 bsE
 bsU
 btF
-bsV
+jSs
 dnv
 lcu
 buR
@@ -128381,7 +127865,7 @@ awN
 awD
 aBm
 aBl
-sDD
+aGD
 aHe
 bNc
 beb
@@ -128589,7 +128073,7 @@ aNY
 aFV
 cGe
 czw
-xYN
+czG
 czG
 czU
 cAc
@@ -128734,7 +128218,7 @@ uUI
 pWd
 cFI
 bXy
-plx
+aAQ
 coX
 cwW
 aNY
@@ -128932,8 +128416,8 @@ aXA
 aXy
 lcQ
 beY
-tSz
-jyN
+biT
+bkN
 dns
 aHy
 aHy
@@ -128994,7 +128478,7 @@ ayM
 aBq
 aBl
 eyl
-sDD
+aGD
 bNl
 bNp
 bNt
@@ -129227,7 +128711,7 @@ fJH
 aWW
 aPN
 aQk
-rfH
+aQH
 aSp
 aUF
 aVc
@@ -129236,7 +128720,7 @@ aVc
 aXg
 aXy
 aRB
-rLn
+aRB
 icu
 aOD
 blI
@@ -129451,7 +128935,7 @@ awN
 awC
 ayM
 aBJ
-dLc
+aBl
 eyl
 fdD
 bNo
@@ -129540,7 +129024,7 @@ aOh
 aVm
 vgP
 aXk
-eYt
+aXB
 aXY
 aYN
 beY
@@ -129691,7 +129175,7 @@ aSB
 aUI
 dnl
 aVr
-reN
+aWT
 aXl
 aXC
 aXZ
@@ -129849,7 +129333,7 @@ aUE
 uNM
 aYb
 aYU
-nYw
+beY
 bjm
 bmB
 aNU
@@ -129997,7 +129481,7 @@ jVC
 aPd
 aQw
 aNU
-lwG
+aNU
 aUE
 nQU
 aYv
@@ -130102,7 +129586,7 @@ aaU
 avS
 bTv
 awU
-ptL
+awU
 awU
 ptL
 aXo
@@ -130125,7 +129609,7 @@ cwy
 cwx
 nwW
 cBz
-wvI
+cBz
 cCg
 cCs
 bYK
@@ -130147,7 +129631,7 @@ ddP
 isf
 htg
 mRa
-rbm
+aPd
 aQw
 aVv
 hZL
@@ -130766,8 +130250,8 @@ aNO
 aHy
 dnp
 uNM
-tmP
-mJi
+aXy
+beY
 biT
 bnm
 cqv
@@ -130891,7 +130375,7 @@ cwT
 czI
 dTp
 bXh
-qPB
+cwS
 ctx
 abI
 atn
@@ -130919,8 +130403,8 @@ aav
 aHy
 dhv
 uNM
-tdA
-qxh
+aQB
+bbi
 bjH
 bnt
 aOf
@@ -130984,8 +130468,8 @@ aCi
 agp
 dvv
 oGQ
-wpT
-jSs
+aRy
+aGG
 aHm
 aRy
 xYe
@@ -131024,7 +130508,7 @@ aTO
 aVU
 sLj
 twu
-sLj
+aVJ
 bza
 aTO
 bqD
@@ -131053,7 +130537,7 @@ aSI
 aem
 afy
 ojE
-uOx
+ahD
 aem
 aem
 aem
@@ -131175,7 +130659,7 @@ rng
 awU
 aTO
 aVU
-sLj
+aVJ
 aXp
 aVJ
 bAb
@@ -131225,7 +130709,7 @@ aav
 aHy
 aUE
 uNM
-lEO
+aXy
 bhu
 bjj
 bjj
@@ -131323,7 +130807,7 @@ aaF
 aaC
 awS
 awU
-ptL
+awU
 awU
 abz
 abz
@@ -131532,7 +131016,7 @@ aHy
 cow
 uNM
 aXY
-dXk
+bbi
 bjJ
 bow
 aOf
@@ -131544,7 +131028,7 @@ aHy
 btl
 btZ
 mER
-wjJ
+bui
 vkB
 qgV
 mER
@@ -131748,7 +131232,7 @@ ayZ
 aDF
 aFH
 aGH
-kVg
+aPG
 aPG
 bfe
 aPG
@@ -131759,7 +131243,7 @@ blr
 blJ
 bmo
 wBu
-wBu
+bnO
 boT
 bvs
 bvK
@@ -131904,8 +131388,8 @@ aGJ
 rnj
 aPJ
 bfm
-rnj
-rnj
+aPJ
+aPJ
 bkh
 bkF
 bls
@@ -132068,7 +131552,7 @@ bnQ
 boz
 bpd
 bvu
-iWU
+bvK
 bwF
 bkE
 bkE
@@ -132398,7 +131882,7 @@ azE
 aEy
 aEy
 aEy
-jnW
+awT
 awU
 awU
 awU
@@ -132557,7 +132041,7 @@ nhJ
 nhJ
 aYM
 lSG
-eVE
+brh
 bwz
 bbZ
 bwz
@@ -133798,7 +133282,7 @@ cWG
 ktU
 cBK
 cBZ
-mBp
+cwL
 ktU
 aCT
 tTh
@@ -133951,7 +133435,7 @@ ktU
 ktU
 cBL
 cCa
-mBp
+cwL
 bYr
 cqj
 cCc
@@ -134100,7 +133584,7 @@ emC
 dmz
 cqj
 caY
-qmb
+csu
 csu
 cWP
 emC
@@ -147407,7 +146891,7 @@ ehZ
 abi
 aEx
 aGa
-eZD
+aIN
 aJq
 ofb
 aHt
@@ -148360,7 +147844,7 @@ xiW
 gps
 lAZ
 lAZ
-hFm
+kPx
 wlZ
 iOv
 fvY
@@ -148491,7 +147975,7 @@ aPz
 aWz
 aKD
 dwA
-uCJ
+aZI
 dtY
 baV
 bbH
@@ -148621,7 +148105,7 @@ dto
 dvU
 axU
 azb
-xIS
+aqU
 axU
 axA
 aoJ
@@ -148785,7 +148269,7 @@ dzU
 abi
 bIv
 aIR
-oZq
+aJt
 aKf
 aKA
 cmh
@@ -149277,7 +148761,7 @@ oMQ
 lsK
 cox
 lAZ
-wOE
+bXL
 bXN
 wlZ
 iOv
@@ -149537,7 +149021,7 @@ are
 asw
 apn
 bme
-lYB
+apn
 azn
 azX
 uUI
@@ -149711,7 +149195,7 @@ abi
 dCo
 oaQ
 aPX
-aVu
+dVf
 aXi
 aKD
 dtV
@@ -149863,7 +149347,7 @@ abi
 abi
 aMz
 kCM
-aPX
+eZD
 aVu
 aXj
 aKD
@@ -149961,7 +149445,7 @@ dvI
 bFB
 dBw
 bFy
-gbu
+dvI
 bFB
 dBz
 bFy
@@ -150043,7 +149527,7 @@ cnx
 cnx
 cnx
 mjj
-mlJ
+cnR
 ibo
 wGv
 dal
@@ -150494,7 +149978,7 @@ bBj
 aav
 dqz
 bTB
-nno
+bUg
 aDM
 aMt
 ccW
@@ -150919,7 +150403,7 @@ dwp
 aAg
 xAE
 qim
-qWl
+aAN
 dxC
 amM
 dza
@@ -151083,7 +150567,7 @@ tkU
 aJB
 dpu
 aIs
-jAw
+aIs
 aLK
 edQ
 aNs
@@ -151734,7 +151218,7 @@ cZD
 cZS
 cnR
 cnR
-mlJ
+cnR
 mlJ
 ccW
 dFt
@@ -151813,7 +151297,7 @@ cfB
 bRN
 bSd
 wvZ
-vZx
+bSU
 bTz
 dti
 dGA
@@ -152156,7 +151640,7 @@ rGo
 rGo
 aqf
 aLO
-qBj
+aqf
 rGo
 rGo
 aVO
@@ -152413,7 +151897,7 @@ bHQ
 cfj
 bIB
 fkm
-xOE
+bIy
 bJO
 bKf
 bKZ
@@ -152558,7 +152042,7 @@ cgH
 axa
 fox
 lIE
-uaM
+bGu
 tZJ
 axa
 bHy
@@ -152581,7 +152065,7 @@ wvZ
 bSU
 bTU
 dti
-oqy
+bKx
 bUW
 usF
 bQw
@@ -152884,7 +152368,7 @@ bQy
 bRL
 bSd
 bSy
-vZx
+bSU
 bTq
 bUz
 gHd
@@ -153113,7 +152597,7 @@ cYG
 cZJ
 cuT
 cYG
-fWb
+rfH
 cnR
 ccW
 ccW
@@ -153633,7 +153117,7 @@ lwS
 bHe
 bHo
 bHC
-ruF
+bHR
 dlH
 bIK
 bJg
@@ -153722,7 +153206,7 @@ cnR
 dlR
 cnR
 cnR
-xMy
+dDn
 cwg
 dFp
 dFp
@@ -154160,12 +153644,12 @@ bPS
 bMs
 bMZ
 bOM
-giV
+bPS
 dCM
 bDW
 aav
 dqz
-qzn
+giV
 bUj
 dqz
 arF
@@ -154233,7 +153717,7 @@ bAo
 bAt
 dvF
 qxV
-uLQ
+bBt
 bAt
 axa
 axa
@@ -154690,7 +154174,7 @@ bAh
 bRk
 bAh
 bAt
-oOP
+bBw
 bBw
 qxV
 bAt
@@ -154719,7 +154203,7 @@ bQs
 bGw
 aio
 ajm
-ajK
+plx
 ajm
 akc
 aav
@@ -155013,7 +154497,7 @@ bHJ
 bIa
 bIn
 bIS
-qtk
+bIT
 cfn
 bCH
 bGw
@@ -155025,7 +154509,7 @@ bGw
 bGw
 aiH
 ajo
-jBo
+qWl
 ajX
 ake
 aav
@@ -155332,7 +154816,7 @@ aMt
 aje
 vRp
 jBo
-aju
+mBp
 akg
 aav
 aav
@@ -155395,7 +154879,7 @@ chX
 ciY
 cir
 cmL
-lEt
+cmL
 cip
 gCu
 fir
@@ -155550,7 +155034,7 @@ cmL
 dCX
 cip
 coT
-uBi
+cYt
 cYL
 cZi
 dsp
@@ -155686,7 +155170,7 @@ aZY
 bam
 cFh
 cFm
-cFx
+jyN
 cFG
 cFM
 cFT
@@ -169458,7 +168942,7 @@ chA
 ybh
 ybh
 lHc
-vJv
+chA
 ybh
 ckK
 cmM
@@ -173283,7 +172767,7 @@ cjV
 ckr
 drW
 pjH
-ijy
+cXB
 cqx
 dEI
 cts
@@ -173917,7 +173401,7 @@ dcu
 dcF
 kFo
 kFo
-dgI
+dbJ
 dcW
 dbH
 dbH
@@ -174222,7 +173706,7 @@ dcj
 cuw
 cuw
 dcO
-nwe
+dcP
 dcP
 dcX
 dak
@@ -174526,7 +174010,7 @@ dbS
 dai
 dcl
 dcw
-dRD
+dcH
 kFo
 kFo
 dbJ
@@ -174812,7 +174296,7 @@ dvf
 ckr
 dvf
 dxR
-ldq
+dkw
 dyi
 cqz
 cqz
@@ -175053,7 +174537,7 @@ bWj
 dtg
 jZR
 iqe
-lzX
+eeQ
 fSM
 rFM
 bVZ
@@ -175061,7 +174545,7 @@ bBR
 bDg
 bGX
 bYH
-nhE
+bYX
 bZF
 bZW
 fRO
@@ -175206,7 +174690,7 @@ rwf
 nwp
 eeQ
 dXf
-jZR
+dXf
 wTF
 stq
 gcF
@@ -175523,7 +175007,7 @@ bYF
 bZc
 bZH
 mPe
-skO
+caq
 caQ
 bYH
 cbw
@@ -176200,7 +175684,7 @@ dxM
 nYV
 dsk
 dsk
-rDr
+cLW
 cQJ
 cqB
 dyb
@@ -176208,7 +175692,7 @@ dlN
 dbS
 dai
 dcj
-vee
+dcA
 ccW
 ccW
 kFo
@@ -177119,7 +176603,7 @@ cMW
 cNW
 cOW
 dlo
-pGl
+cQO
 cQO
 cqD
 cSN
@@ -177990,7 +177474,7 @@ aav
 aaC
 aaC
 aqi
-dVf
+bhU
 ozJ
 doH
 dDO
