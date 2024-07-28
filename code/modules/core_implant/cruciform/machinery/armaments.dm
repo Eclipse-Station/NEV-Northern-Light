@@ -164,6 +164,12 @@
 	min_cost = 75
 	path = /obj/item/computer_hardware/hard_drive/portable/design/nt/nt_svalinn
 
+/datum/armament/item/disk/nt_mk58
+	name = "MK58 Handgun disk"
+	cost = 125
+	min_cost = 75
+	path = /obj/item/computer_hardware/hard_drive/portable/design/guns/nt_mk58
+
 /datum/armament/item/disk/velite
 	name = "Velite disk"
 	cost = 125

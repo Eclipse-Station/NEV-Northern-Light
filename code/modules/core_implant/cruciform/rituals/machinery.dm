@@ -9,37 +9,6 @@
 
 
 
-//Cloning
-/datum/ritual/cruciform/machines/resurrection
-	name = "Resurrection"
-	phrase = "Qui fuit, et crediderunt in me non morietur in aeternum."
-	desc = "A ritual of formation of a new body in a specially designed machine.  Deceased person's cruciform has to be placed on the scanner then a prayer is to be uttered over the apparatus."
-	var/clone_damage = 60
-
-/datum/ritual/cruciform/machines/resurrection/perform(mob/living/carbon/human/user, obj/item/implant/core_implant/C)
-	var/list/OBJS = get_front(user)
-
-	var/obj/machinery/neotheology/cloner/pod = locate(/obj/machinery/neotheology/cloner) in OBJS
-
-	if(!pod)
-		fail("You fail to find any cloner here.", user, C)
-		return FALSE
-
-	if(pod.cloning)
-		fail("Cloner is already cloning.", user, C)
-		return FALSE
-
-	if(pod.stat & NOPOWER)
-		fail("Cloner is off.", user, C)
-		return FALSE
-
-	if(pod.start())
-		var/damage_modifier = 1
-		if(is_inquisidor(user) || is_preacher(user) || is_acolyte(user)) // previously acolytes had 0.5 modifier but that's too bad
-			damage_modifier = 0
-		pod.clone_damage = clone_damage * damage_modifier
-	return TRUE
-
 /datum/ritual/cruciform/machines/cruciformforge
 	name = "Make cruciform"
 	phrase = "Nos nostrae initium creatores."
