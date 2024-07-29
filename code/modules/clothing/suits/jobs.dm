@@ -272,8 +272,8 @@
 /obj/item/clothing/suit/storage/detective/brown
 	name = "Inspector's brown armored trenchcoat"
 	desc = "Brown and armored trenchcoat, designed and created by Aegis Security Solutions. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
-	icon_state = "insp_coat"
-	item_state = "insp_coat"
+	icon_state = "detective_brown" //Eclipse edit - fixed bad sprite path
+	item_state = "detective_brown" //Eclipse edit - fixed bad sprite path
 	blood_overlay_type = "coat"
 
 /obj/item/clothing/suit/storage/detective/black
