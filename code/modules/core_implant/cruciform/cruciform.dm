@@ -89,11 +89,13 @@ var/list/disciples = list()
 	var/observation_points = 200
 	if(!wearer || active)
 		return
+	/* //eclipse edit
 	if(get_active_mutation(wearer, MUTATION_GODBLOOD))
 		spawn(2 MINUTES)
 		for(var/mob/living/carbon/human/H in (disciples - wearer))
 			to_chat(H, SPAN_WARNING("A distant scream pierced your mind. You feel that a vile mutant sneaked among the faithful."))
 			playsound(wearer.loc, 'sound/hallucinations/veryfar_noise.ogg', 55, 1)
+	*/
 	else if(is_carrion(wearer))
 		if(wearer.get_species() == SPECIES_MONKEY)
 			observation_points /= 20
@@ -144,11 +146,12 @@ var/list/disciples = list()
 	..()
 //	if(active && round(world.time) % 5 == 0)
 //		remove_cyber()   -- Eclipse Edit
+/* -- Eclipse Edit church is cool with mutants here
 	if(wearer.mutation_index)
 		var/datum/mutation/M = pick(wearer.active_mutations)
 		M.cleanse(wearer)
 		wearer.adjustFireLoss(rand(5,25))
-
+*/
 	if(wearer.stat == DEAD)
 		deactivate()
 	else if(ishuman(wearer)) //Eclipse add

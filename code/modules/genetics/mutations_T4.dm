@@ -19,7 +19,7 @@
 
 /datum/mutation/t4/godblood
 	name = "God Blood"
-	desc = "Suppresses cruciform, allowing to have any implant or organ, as well as mutations."
+	desc = "Suppresses cruciform, allowing them to block Atonement and other litanies that force control over it." //eclipse edit.
 
 /datum/mutation/t4/xray
 	name = "X Ray Vision"
