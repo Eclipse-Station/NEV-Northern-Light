@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;mob&#x2F;living - Space Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">Space Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="mob/living.html#proc">Proc Details</a></header>
+<main>
+<h1>living <aside>/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a></aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/datums/craft/menu.dm#L1">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;craft&#x2F;menu.dm 1"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="mob/living.html#proc/create_HUDtech">create_HUDtech</a></th><td>mob/living/proc/create_HUDprocess()</td></tr>
+            <tr><th><a href="mob/living.html#proc/resize">resize</a></th><td>Resizes the mob immediately to the desired mod, animating it growing/shrinking.
+It can be used by anything that calls it.</td></tr>
+            <tr><th><a href="mob/living.html#proc/set_size">set_size</a></th><td>Verb proc for a command that lets players change their size OOCly.
+Ace was here! Redid this a little so we'd use math for shrinking characters. This is the old code.</td></tr>
+            <tr><th><a href="mob/living.html#proc/shared_living_ui_distance">shared_living_ui_distance</a></th><td>public</td></tr>
+            <tr><th><a href="mob/living.html#proc/update_icons">update_icons</a></th><td>Scale up the size of a mob's icon by the size_multiplier.
+NOTE: mob/living/carbon/human/update_icons() has a more complicated system and
+is already applying this transform.   BUT, it does not call ..()
+as long as that is true, we should be fine.  If that changes we need to
+re-evaluate.</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/create_HUDtech"><aside class="declaration">proc </aside>create_HUDtech<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/mob/living/living_hud.dm#L90">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;living_hud.dm 90"/></a></aside>
+        </h3>
+        <p>mob/living/proc/create_HUDprocess()</p><h3 id="proc/resize"><aside class="declaration">proc </aside>resize<aside>(new_size, animate) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/size/size.dm#L63">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;size&#x2F;size.dm 63"/></a></aside>
+        </h3>
+        <p>Resizes the mob immediately to the desired mod, animating it growing/shrinking.
+It can be used by anything that calls it.</p><h3 id="proc/set_size"><aside class="declaration">proc </aside>set_size<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/size/size.dm#L97">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;size&#x2F;size.dm 97"/></a></aside>
+        </h3>
+        <p>Verb proc for a command that lets players change their size OOCly.
+Ace was here! Redid this a little so we'd use math for shrinking characters. This is the old code.</p><h3 id="proc/shared_living_ui_distance"><aside class="declaration">proc </aside>shared_living_ui_distance<aside>(/<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/src_object, viewcheck, allow_tk) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/tgui/states.dm#L104">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;tgui&#x2F;states.dm 104"/></a></aside>
+        </h3>
+        <p>public</p>
+<p>Distance versus interaction check.</p>
+<p>required src_object atom/movable The object which owns the UI.</p>
+<p>return UI_state The state of the UI.</p><h3 id="proc/update_icons">update_icons<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/size/size.dm#L40">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;size&#x2F;size.dm 40"/></a></aside>
+        </h3>
+        <p>Scale up the size of a mob's icon by the size_multiplier.
+NOTE: mob/living/carbon/human/update_icons() has a more complicated system and
+is already applying this transform.   BUT, it does not call ..()
+as long as that is true, we should be fine.  If that changes we need to
+re-evaluate.</p></main>
+<footer>
+    cev_eris.dme
+    <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/tree/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8">ee264d7</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.4.1</a></footer>
+</body>
+</html>

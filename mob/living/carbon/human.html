@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;human - Space Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">Space Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="mob/living/carbon/human.html#proc">Proc Details</a></header>
+<main>
+<h1>human <aside>/<a href="mob.html">mob</a>/<a href="mob/living.html">living</a>/<a href="mob/living/carbon.html">carbon</a>/<a href="mob/living/carbon/human.html">human</a></aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/mob/language/codespeak.dm#L49">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;language&#x2F;codespeak.dm 49"/></a></h1>
+
+<ul>
+<li>Attempt to scoop up this mob up into H's hands, if the size difference is large enough.</li>
+<li>@return false if normal code should continue, 1 to prevent normal code.</li>
+</ul>
+<p>/mob/living/proc/attempt_to_scoop(var/mob/living/M, var/ignoresizediff = 0)
+var/size_diff = M.get_effective_size() - get_effective_size()
+if(!holder_default &amp;&amp; holder_type)
+holder_default = holder_type
+if(!istype(M))
+return 0
+if(isanimal(M))
+var/mob/living/simple_animal/SA = M
+if(!SA.has_hands)
+return 0
+if(M.buckled)
+to_chat(usr,&quot;<span class='notice'>You have to unbuckle \the [M] before you pick them up.</span>&quot;)
+return 0
+if(size_diff &gt;= 0.50 || ignoresizediff)
+holder_type = /obj/item/holder/micro
+var/obj/item/holder/m_holder = get_scooped(M)
+holder_type = holder_default
+if (m_holder)
+return 1
+else
+return 0; // Unable to scoop, let other code run</p>
+<p>Additional variables that must be defined on /mob/living/carbon/human
+for use in code that is part of the vore modules.</p>
+<p>These variables are declared here (separately from the normal human_defines.dm)
+in order to isolate VOREStation changes and ease merging of other codebases.</p><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="mob/living/carbon/human.html#proc/embed">embed</a></th><td>Get hit with glass shards , your fibers are on them now, or with a rod idk.</td></tr>
+            <tr><th><a href="mob/living/carbon/human.html#proc/eyecheck">eyecheck</a></th><td>eyecheck()
+Returns a number between -1 to 2</td></tr>
+            <tr><th><a href="mob/living/carbon/human.html#proc/handle_chemical_smoke">handle_chemical_smoke</a></th><td>breathing</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/embed">embed<aside>(/obj/O, def_zone) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/mob/living/carbon/human/human_defense.dm#L529">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;human&#x2F;human_defense.dm 529"/></a></aside>
+        </h3>
+        <p>Get hit with glass shards , your fibers are on them now, or with a rod idk.</p><h3 id="proc/eyecheck">eyecheck<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/mob/living/carbon/human/human.dm#L616">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;human&#x2F;human.dm 616"/></a></aside>
+        </h3>
+        <p>eyecheck()
+Returns a number between -1 to 2</p><h3 id="proc/handle_chemical_smoke">handle_chemical_smoke<aside>(/<a href="datum.html">datum</a>/gas_mixture/environment) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/mob/living/carbon/human/life.dm#L307">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;human&#x2F;life.dm 307"/></a></aside>
+        </h3>
+        <p>breathing</p></main>
+<footer>
+    cev_eris.dme
+    <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/tree/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8">ee264d7</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.4.1</a></footer>
+</body>
+</html>

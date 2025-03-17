@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;atom - Space Station 13</title>
+</head>
+<body>
+<header>
+    <a href="index.html">Space Station 13</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="atom.html#var">Var Details</a> - <a href="atom.html#proc">Proc Details</a></header>
+<main>
+<h1>atom <aside>/<a href="atom.html">atom</a></aside><aside> inherits /<a href="datum.html">datum</a></aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/controllers/subsystems/staverbs.dm#L67">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystems&#x2F;staverbs.dm 67"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="atom.html#var/atom_colours">atom_colours</a></th><td>used to store the different colors on an atom</td></tr>
+            <tr><th><a href="atom.html#var/reagent_flags">reagent_flags</a></th><td>Chemistry.</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="atom.html#proc/GenerateTag">GenerateTag</a></th><td>Generate a tag for this atom</td></tr>
+            <tr><th><a href="atom.html#proc/LateInitialize">LateInitialize</a></th><td>Late Intialization, for code that should run after all atoms have run Intialization</td></tr>
+            <tr><th><a href="atom.html#proc/New">New</a></th><td>Called when an atom is created in byond (built in engine proc)</td></tr>
+            <tr><th><a href="atom.html#proc/SetName">SetName</a></th><td>Name Set Handling</td></tr>
+            <tr><th><a href="atom.html#proc/add_atom_colour">add_atom_colour</a></th><td>Adds an instance of colour_type to the atom's atom_colours list</td></tr>
+            <tr><th><a href="atom.html#proc/get_alarm_z">get_alarm_z</a></th><td>Assisting procs</td></tr>
+            <tr><th><a href="atom.html#proc/set_density">set_density</a></th><td>Density Handling</td></tr>
+            <tr><th><a href="atom.html#proc/set_dir">set_dir</a></th><td>Direction Handling</td></tr>
+            <tr><th><a href="atom.html#proc/set_invisibility">set_invisibility</a></th><td>Invisibility Set Handling</td></tr>
+            <tr><th><a href="atom.html#proc/set_opacity">set_opacity</a></th><td>Opacity Handling</td></tr>
+            <tr><th><a href="atom.html#proc/singuloCanEat">singuloCanEat</a></th><td>Nar-Sie Act/Pull</td></tr>
+            <tr><th><a href="atom.html#proc/update_atom_colour">update_atom_colour</a></th><td>Resets the atom's color to null, and then sets it to the highest priority colour available</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/atom_colours"><aside class="declaration">var </aside>atom_colours
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/game/atoms.dm#L43">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;atoms.dm 43"/></a></h3>
+        <p>used to store the different colors on an atom</p>
+<p>its inherent color, the colored paint applied on it, special color effect etc...</p><h3 id="var/reagent_flags"><aside class="declaration">var </aside>reagent_flags
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/game/atoms.dm#L22">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;atoms.dm 22"/></a></h3>
+        <p>Chemistry.</p><h2 id="proc">Proc Details</h2><h3 id="proc/GenerateTag"><aside class="declaration">proc </aside>GenerateTag<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/game/atoms.dm#L163">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;atoms.dm 163"/></a></aside>
+        </h3>
+        <p>Generate a tag for this atom</p><h3 id="proc/LateInitialize"><aside class="declaration">proc </aside>LateInitialize<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/game/atoms.dm#L138">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;atoms.dm 138"/></a></aside>
+        </h3>
+        <p>Late Intialization, for code that should run after all atoms have run Intialization</p>
+<p>To have your LateIntialize proc be called, your atoms [Initalization][/atom/proc/Initialize]
+proc must return the hint
+<a href="code/__DEFINES/subsystems.html#define/INITIALIZE_HINT_LATELOAD" title="INITIALIZE_HINT_LATELOAD">INITIALIZE_HINT_LATELOAD</a> otherwise you will never be called.</p>
+<p>useful for doing things like finding other machines on GLOB.machines because you can guarantee
+that all atoms will actually exist in the &quot;WORLD&quot; at this time and that all their Intialization
+code has been run</p><h3 id="proc/New">New<aside>(loc, ...) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/game/atoms.dm#L56">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;atoms.dm 56"/></a></aside>
+        </h3>
+        <p>Called when an atom is created in byond (built in engine proc)</p>
+<p>Not a lot happens here in SS13 code, as we offload most of the work to the
+[Intialization][/atom/proc/Initialize] proc, mostly we run the preloader
+if the preloader is being used and then call <a href="datum/controller/subsystem/atoms.html#proc/InitAtom" title="/datum/controller/subsystem/atoms">InitAtom</a> of which the ultimate
+result is that the Intialize proc is called.</p>
+<p>We also generate a tag here if the DF_USE_TAG flag is set on the atom</p><h3 id="proc/SetName"><aside class="declaration">proc </aside>SetName<aside>(new_name) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/datums/observation/name_set.dm#L21">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;observation&#x2F;name_set.dm 21"/></a></aside>
+        </h3>
+        <p>Name Set Handling</p><h3 id="proc/add_atom_colour"><aside class="declaration">proc </aside>add_atom_colour<aside>(coloration, colour_priority) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/game/atoms.dm#L804">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;atoms.dm 804"/></a></aside>
+        </h3>
+        <p>Adds an instance of colour_type to the atom's atom_colours list</p><h3 id="proc/get_alarm_z"><aside class="declaration">proc </aside>get_alarm_z<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/alarm/alarm.dm#L109">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;alarm&#x2F;alarm.dm 109"/></a></aside>
+        </h3>
+        <p>Assisting procs</p><h3 id="proc/set_density"><aside class="declaration">proc </aside>set_density<aside>(new_density) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/datums/observation/density_set.dm#L20">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;observation&#x2F;density_set.dm 20"/></a></aside>
+        </h3>
+        <p>Density Handling</p><h3 id="proc/set_dir"><aside class="declaration">proc </aside>set_dir<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/datums/observation/dir_set.dm#L28">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;observation&#x2F;dir_set.dm 28"/></a></aside>
+        </h3>
+        <p>Direction Handling</p><h3 id="proc/set_invisibility"><aside class="declaration">proc </aside>set_invisibility<aside>(new_invisibility) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/datums/observation/set_invisibility.dm#L21">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;observation&#x2F;set_invisibility.dm 21"/></a></aside>
+        </h3>
+        <p>Invisibility Set Handling</p><h3 id="proc/set_opacity"><aside class="declaration">proc </aside>set_opacity<aside>(new_opacity) 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/datums/observation/opacity_set.dm#L21">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;observation&#x2F;opacity_set.dm 21"/></a></aside>
+        </h3>
+        <p>Opacity Handling</p><h3 id="proc/singuloCanEat"><aside class="declaration">proc </aside>singuloCanEat<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/modules/power/singularity/act.dm#L127">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;power&#x2F;singularity&#x2F;act.dm 127"/></a></aside>
+        </h3>
+        <p>Nar-Sie Act/Pull</p><h3 id="proc/update_atom_colour"><aside class="declaration">proc </aside>update_atom_colour<aside>() 
+        
+    
+            <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/blob/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8/code/game/atoms.dm#L816">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;atoms.dm 816"/></a></aside>
+        </h3>
+        <p>Resets the atom's color to null, and then sets it to the highest priority colour available</p></main>
+<footer>
+    cev_eris.dme
+    <a href="https://github.com/Eclipse-Station/NEV-Northern-Light/tree/ee264d799a4f84dbc40bbe6038ae9a60e15e28f8">ee264d7</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.4.1</a></footer>
+</body>
+</html>
