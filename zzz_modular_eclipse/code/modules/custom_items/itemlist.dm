@@ -137,3 +137,32 @@
 	name = "Kira\'s Treasured Synthesizer"
 	desc = "This Synthesizer is the only thing that Kira has left of her old life. It is her most precious posession."
 	spawn_blacklisted = TRUE
+
+/obj/item/gun/projectile/avasarala/befreier
+	name = "NL HG .40 Magnum Befreier"
+	desc = "A heavy caliber pistol, the Befreier seems to have been carefully and thoughtfully assembled using the well worn but expertly maintained bits of several other weapons, including rare parts salvaged from otherwise junked weapons. \
+	Firing magnum rounds from a box magazine, this weapon was crafted with the vessels many enemies in mind. \
+	The emblem of a compass star above a half cog has been carefully stenciled near the magazine well."
+	icon = 'zzz_modular_eclipse/icons/custom_items/nev_ghun.dmi'
+	icon_state = "befreier"
+	item_state = "befreier"
+	price_tag = 3000
+
+
+
+/obj/item/gun/projectile/avasarala/befreier/update_icon()
+	if(wielded_item_state)
+		if(icon_contained)//If it has it own icon file then we want to pull from that.
+			if(wielded)
+				item_state_slots[slot_l_hand_str] = "lefthand"  + wielded_item_state
+				item_state_slots[slot_r_hand_str] = "righthand" + wielded_item_state
+			else
+				item_state_slots[slot_l_hand_str] = "lefthand"
+				item_state_slots[slot_r_hand_str] = "righthand"
+		else//Otherwise we can just pull from the generic left and right hand icons.
+			if(wielded)
+				item_state_slots[slot_l_hand_str] = wielded_item_state
+				item_state_slots[slot_r_hand_str] = wielded_item_state
+			else
+				item_state_slots[slot_l_hand_str] = initial(item_state)
+				item_state_slots[slot_r_hand_str] = initial(item_state)
