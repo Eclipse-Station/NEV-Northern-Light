@@ -213,8 +213,9 @@
 	character.hair_color = hair_color
 	character.facial_color = facial_color
 	character.skin_color = skin_color
+	character.eyes_color = eyes_color
 
-	character.s_tone = s_tone
+//	character.s_tone = s_tone
 
 	character.ear_style			= ear_styles_list[ear_style]
 	character.r_ears			= r_ears

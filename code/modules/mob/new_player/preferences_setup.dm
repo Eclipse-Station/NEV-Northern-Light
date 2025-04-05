@@ -10,12 +10,17 @@
 		h_style = random_hair_style(gender, species)
 		f_style = random_facial_hair_style(gender, species)
 		if(current_species)
+			/*
 			if(current_species.appearance_flags & HAS_A_SKIN_TONE)
 				s_tone = current_species.get_random_skin_tone()
+			*/
 			if(current_species.appearance_flags & HAS_EYE_COLOR)
 				eyes_color = current_species.get_random_eye_color()
 			if(current_species.appearance_flags & HAS_SKIN_COLOR)
-				skin_color = current_species.get_random_skin_color()
+				if(LAZYLEN(current_species.typical_skin_tones))
+					skin_color = pick(current_species.typical_skin_tones)
+				else
+					skin_color = current_species.get_random_skin_color()
 			if(current_species.appearance_flags & HAS_HAIR_COLOR)
 				var/hair_colors = current_species.get_random_hair_color()
 				if(hair_colors)

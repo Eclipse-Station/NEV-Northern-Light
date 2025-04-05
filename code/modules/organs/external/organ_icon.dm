@@ -20,8 +20,10 @@ var/global/list/limb_icon_cache = list()
 		return
 	if(species && human.species && species.name != human.species.name)
 		return
+	/*
 	if(!isnull(human.s_tone) && (human.species.appearance_flags & HAS_SKIN_TONE))
 		skin_tone = human.s_tone
+	*/
 	if(human.species.appearance_flags & HAS_SKIN_COLOR)
 		skin_col = human.skin_color
 	hair_col = human.hair_color

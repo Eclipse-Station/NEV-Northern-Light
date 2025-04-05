@@ -70,7 +70,7 @@ var/global/list/modifications_types = list(
 			if(!department)
 				return FALSE
 			else if(!department_specific.Find(department))
-				to_chat(usr, "This body-mod does not match your chosen department.")
+				to_chat(usr, "This body-mod ([name]) does not match your chosen department.") // Something for help devs see what that incompatible body mod is
 				return FALSE
 		else if(P)
 			var/datum/job/J
@@ -79,7 +79,7 @@ var/global/list/modifications_types = list(
 			else
 				J = SSjob.GetJob(P.job_high)
 			if(!J || !department_specific.Find(J.department))
-				to_chat(usr, "This body-mod does not match your highest-priority department.")
+				to_chat(usr, "This body-mod ([name]) does not match your highest-priority department.") // Something for help devs see what that incompatible body mod is
 				return FALSE
 
 	return TRUE

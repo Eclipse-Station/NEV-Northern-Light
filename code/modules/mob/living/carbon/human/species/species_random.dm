@@ -5,7 +5,7 @@
 		return;\
 	}\
 	var/decl/color_generator/CG = decls_repository.get_decl(pickweight(random_##Y));\
-	return CG && CG.GenerateRGB();\
+	return CG && CG.GenerateHex();\
 }
 
 #define SETUP_RANDOM_COLOR_SETTER(X, Y)\
@@ -58,14 +58,19 @@ SETUP_RANDOM_COLOR_SETTER(eye_color, change_eye_color)
 SETUP_RANDOM_COLOR_SETTER(facial_hair_color, change_facial_hair_color)
 
 /datum/species/proc/get_random_skin_tone()
-	return random_skin_tone(src)
+	var/list/rgb_skin_tone = random_skin_tone(src)
+	if(!LAZYLEN(rgb_skin_tone))
+		return FALSE
+	return rgb(rgb_skin_tone[1], rgb_skin_tone[2], rgb_skin_tone[3])
 
+/*
 /mob/living/carbon/human/proc/randomize_skin_tone()
 	if(!species)
 		return
 	var/new_tone = species.get_random_skin_tone()
 	if(!isnull(new_tone))
 		change_skin_tone(new_tone)
+*/
 
 /mob/living/carbon/human/proc/randomize_hair_style()
 	change_hair(safepick(generate_valid_hairstyles()))

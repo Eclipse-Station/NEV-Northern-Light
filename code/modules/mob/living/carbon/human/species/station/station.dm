@@ -13,7 +13,21 @@
 	min_age = 18
 	max_age = 110
 	remains_type = /obj/item/remains/human
-
+	typical_skin_tones = list("#ffe0d1",
+		"#fcccb3",
+		"#e8b59b",
+		"#d9ae96",
+		"#c79b8b",
+		"#ffdeb3",
+		"#e3ba84",
+		"#c4915e",
+		"#b87840",
+		"#a57a66",
+		"#87563d",
+		"#725547",
+		"#866e63",
+		"#754523",
+		"#471c18")
 	spawn_flags = SPECIES_CAN_JOIN
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
 
@@ -89,6 +103,27 @@
 	flesh_color = "#34AF10"
 	blood_color = "#b3cbc3"
 	base_color = "#066000"
+
+	typical_skin_tones = list(
+    "#7cfc00",  // Lawn Green
+    "#32cd32",  // Lime Green
+    "#228b22",  // Forest Green
+    "#006400",  // Dark Green
+    "#8b4513",  // Saddle Brown
+    "#a0522d",  // Sienna
+    "#d2691e",  // Chocolate
+    "#8b0000",  // Dark Red
+    "#556b2f",  // Dark Olive Green
+    "#6b8e23",  // Olive Drab
+    "#808000",  // Olive
+    "#9acd32",  // Yellow Green
+    "#2e8b57",  // Sea Green
+    "#66cdaa",  // Medium Aquamarine
+    "#20b2aa",  // Light Sea Green
+    "#4682b4",  // Steel Blue
+    "#5f9ea0",  // Cadet Blue
+    "#8fbc8f"   // Dark Sea Green
+	)
 
 	reagent_tag = IS_UNATHI
 
@@ -201,7 +236,26 @@
 
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
-
+	typical_skin_tones = list(
+		"#8b4513",  // Saddle Brown
+		"#a0522d",  // Sienna
+		"#d2691e",  // Chocolate
+		"#cd853f",  // Peru
+		"#deb887",  // Burlywood
+		"#f5deb3",  // Wheat
+		"#ffe4c4",  // Bisque
+		"#d2b48c",  // Tan
+		"#a52a2a",  // Brown
+		"#800000",  // Maroon
+		"#000000",  // Black
+		"#696969",  // Dim Gray
+		"#808080",  // Gray
+		"#a9a9a9",  // Dark Gray
+		"#c0c0c0",  // Silver
+		"#d3d3d3",  // Light Gray
+		"#f0e68c",  // Khaki
+		"#fff8dc"   // Cornsilk
+	)
 	reagent_tag = IS_TAJARA
 
 //	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
@@ -236,7 +290,7 @@
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch)
-	blurb = "n amphibious herbivore species, Skrell come from the Qerr'Vallis system, Skrell Society is very rigid and regimental \
+	blurb = "An amphibious herbivore species, Skrell come from the Qerr'Vallis system, Skrell Society is very rigid and regimental \
 	with a focus on knowlege and defined by an all encompassing caste system, with rulers, builders, scientists, artists and warriors. \
 	The Skrell city-states are also close allies with humantiy and the Sol Central Government \
 	though there remains a great tension over the regimented nature of Skrell society \
@@ -269,7 +323,28 @@
 	flesh_color = "#8CD7A3"
 	blood_color = "#1D2CBF"
 	base_color = "#006666"
-
+	typical_skin_tones = list(
+		"#8CD7A3",  // Light Matcha (as specified)
+		"#5F9EA0",  // Cadet Blue
+		"#20B2AA",  // Light Sea Green
+		"#48D1CC",  // Medium Turquoise
+		"#40E0D0",  // Turquoise
+		"#7FFFD4",  // Aquamarine
+		"#00CED1",  // Dark Turquoise
+		"#4682B4",  // Steel Blue
+		"#6495ED",  // Cornflower Blue
+		"#00BFFF",  // Deep Sky Blue
+		"#1E90FF",  // Dodger Blue
+		"#98FB98",  // Pale Green
+		"#90EE90",  // Light Green
+		"#3CB371",  // Medium Sea Green
+		"#2E8B57",  // Sea Green
+		"#006400",  // Dark Green
+		"#008080",  // Teal
+		"#66CDAA",  // Medium Aquamarine
+		"#7CFC00",  // Lawn Green
+		"#00FA9A"   // Medium Spring Green
+	)
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200
 	cold_level_3 = 130 //Default 120
