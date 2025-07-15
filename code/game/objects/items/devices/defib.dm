@@ -1,5 +1,5 @@
-#define DEFIB_TIME_LIMIT (8 MINUTES) //past this many seconds, defib is useless. Currently 8 Minutes
-#define DEFIB_TIME_LOSS  (2 MINUTES) //past this many seconds, brain damage occurs. Currently 2 minutes
+#define DEFIB_TIME_LIMIT (15 MINUTES) //past this many seconds, defib is useless. Eclipse edited to 15 minutes.
+#define DEFIB_TIME_LOSS  (4 MINUTES) //past this many seconds, brain damage occurs. Eclipse edited to 4 mintues.
 
 
 //backpack item
@@ -294,6 +294,16 @@
 	var/deadtime = world.time - H.timeofdeath
 	if (deadtime > DEFIB_TIME_LIMIT && !H.isSynthetic())
 		return "buzzes, \"Resuscitation failed - Excessive neural degeneration. Further attempts futile.\""
+	
+	// // // ECLIPSE TO-DO // // //
+	/* 
+	 * This needs to scale based on player count, 3 to 8 players, ± 5 minutes if there's a medic on shift.
+	 * At 3 players with no medic, you get the maximum time; at 8 players with a medic, you get the minimum.
+	 * Minimum 8 minutes; maximum 12, add 5 if there's no medic on shift.
+	 *
+	 * The reason this isn't done yet is this will require also scaling brain damage below (^F for DEFIB_TIME_LIMIT, it's
+	 * around like 540-ish),
+	 */
 
 	H.updatehealth()
 
