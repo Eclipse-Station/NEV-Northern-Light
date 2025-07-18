@@ -10014,7 +10014,7 @@
 "awY" = (
 /obj/structure/disposalpipe/sortjunction{
 	dir = 4;
-	sortType = list("QM                                Office");
+	sortType = list("QM                                                                Office");
 	tag = "icon-pipe-j2s"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -23476,7 +23476,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
 	icon_state = "pipe-j2s";
-	sortType = list("Security","First                                Officer                                Office")
+	sortType = list("Security","First                                                                Officer                                                                Office")
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -24214,7 +24214,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 2;
 	icon_state = "pipe-j2s";
-	sortType = list("Medbay","CMO                                Office","Chemistry","Research","Robotics");
+	sortType = list("Medbay","CMO                                                                Office","Chemistry","Research","Robotics");
 	tag = "icon-pipe-j2s"
 	},
 /obj/structure/cable/green{
@@ -28659,7 +28659,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 2;
 	icon_state = "pipe-j2s";
-	sortType = list("RD                                Office");
+	sortType = list("RD                                                                Office");
 	tag = "icon-pipe-j2s"
 	},
 /obj/structure/catwalk,
@@ -29773,7 +29773,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 2;
 	icon_state = "pipe-j2s";
-	sortType = list("NeoTheology                                Machine                                Room");
+	sortType = list("NeoTheology                                                                Machine                                                                Room");
 	tag = "icon-pipe-j2s"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -31870,7 +31870,7 @@
 	frequency = 1443;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("mair_in_meter"="Mixed                                Air                                In","air_sensor"="Mixed                                Air                                Supply                                Tank","mair_out_meter"="Mixed                                Air                                Out","dloop_atm_meter"="Distribution                                Loop","wloop_atm_meter"="Waste                                Loop")
+	sensors = list("mair_in_meter"="Mixed                                                                Air                                                                In","air_sensor"="Mixed                                                                Air                                                                Supply                                                                Tank","mair_out_meter"="Mixed                                                                Air                                                                Out","dloop_atm_meter"="Distribution                                                                Loop","wloop_atm_meter"="Waste                                                                Loop")
 	},
 /obj/machinery/camera/network/engineering{
 	dir = 1
@@ -33132,7 +33132,7 @@
 	dir = 8;
 	frequency = 1441;
 	name = "Tank Monitor";
-	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon                                Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous                                Oxide","waste_sensor"="Gas                                Mix                                Tank")
+	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon                                                                Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous                                                                Oxide","waste_sensor"="Gas                                                                Mix                                                                Tank")
 	},
 /obj/machinery/power/apc{
 	name = "South APC";
@@ -39001,7 +39001,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
 	icon_state = "pipe-j2s";
-	sortType = list("Engineering","CE                                Office","Atmospherics")
+	sortType = list("Engineering","CE                                                                Office","Atmospherics")
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -40072,7 +40072,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/sortjunction{
-	sortType = list("Construction                                Site")
+	sortType = list("Construction                                                                Site")
 	},
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section4deck4port)
@@ -43689,7 +43689,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 2;
 	icon_state = "pipe-j2s";
-	sortType = list("First                                Officer                                Office")
+	sortType = list("First                                                                Officer                                                                Office")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -49884,7 +49884,7 @@
 	input_tag = "toxins1_in";
 	name = "Mixing Chamber 1 Monitor";
 	output_tag = "toxins1_out";
-	sensors = list("toxins_mixing_1"="Mixing                                Chamber                                -                                1")
+	sensors = list("toxins_mixing_1"="Mixing                                                                Chamber                                                                -                                                                1")
 	},
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
@@ -50036,7 +50036,7 @@
 	dir = 8;
 	frequency = 1430;
 	name = "Mixing Chamber Monitor";
-	sensors = list("toxins_mixing_1"="Mixing                                Chamber                                -                                1","toxins_mixing_2"="Mixing                                Chamber                                -                                2")
+	sensors = list("toxins_mixing_1"="Mixing                                                                Chamber                                                                -                                                                1","toxins_mixing_2"="Mixing                                                                Chamber                                                                -                                                                2")
 	},
 /turf/simulated/floor/tiled/white/gray_perforated,
 /area/eris/rnd/mixing)
@@ -50300,7 +50300,7 @@
 	input_tag = "toxins2_in";
 	name = "Mixing Chamber 2 Monitor";
 	output_tag = "toxins2_out";
-	sensors = list("toxins_mixing_2"="Mixing                                Chamber                                -                                2")
+	sensors = list("toxins_mixing_2"="Mixing                                                                Chamber                                                                -                                                                2")
 	},
 /turf/simulated/floor/tiled/white/techfloor_grid,
 /area/eris/rnd/mixing)
@@ -53103,12 +53103,6 @@
 	},
 /turf/simulated/floor/tiled/white/brown_platform,
 /area/eris/medical/medbay)
-"cqJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
 "cqK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -59653,7 +59647,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 2;
 	icon_state = "pipe-j2s";
-	sortType = list("Cargo                                Bay","QM                                Office","Library                                Backroom","Chapel","Preacher                                Office","Theatre","Hydroponics","NeoTheology                                Machine                                Room");
+	sortType = list("Cargo                                                                Bay","QM                                                                Office","Library                                                                Backroom","Chapel","Preacher                                                                Office","Theatre","Hydroponics","NeoTheology                                                                Machine                                                                Room");
 	tag = "icon-pipe-j2s"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -65473,6 +65467,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/structure/closet/secure_closet/personal/engi_enforcer_personal,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/checkpoint/engineering)
 "cTX" = (
@@ -74640,9 +74635,6 @@
 	name = "Medbay Total Lockdown";
 	opacity = 0
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/table/standard,
 /obj/machinery/door/window/brigdoor/southleft{
 	dir = 4;
@@ -76070,9 +76062,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dru" = (
@@ -76765,8 +76755,6 @@
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/evidencestorage)
 "dsV" = (
-/obj/structure/table/reinforced,
-/obj/machinery/recharger,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -76901,6 +76889,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/landmark/join/start/enforcer,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/checkpoint/engineering)
 "dtm" = (
@@ -76917,6 +76906,8 @@
 /obj/machinery/camera/network/engineering{
 	dir = 8
 	},
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/checkpoint/engineering)
 "dto" = (
@@ -77097,6 +77088,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/landmark/join/start/enforcer,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/checkpoint/engineering)
 "dtI" = (
@@ -77264,6 +77256,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/personal/engi_enforcer_personal,
 /turf/simulated/floor/tiled/steel/bluecorner,
 /area/eris/security/checkpoint/engineering)
 "due" = (
@@ -78348,13 +78341,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating/under,
 /area/eris/maintenance/section2deck2port)
-"dwy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
 "dwz" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -80823,7 +80809,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
-	sortType = list("CMO                                Office")
+	sortType = list("CMO                                                                Office")
 	},
 /obj/structure/bed/chair/office/light{
 	dir = 1
@@ -80832,15 +80818,10 @@
 /turf/simulated/floor/tiled/white/brown_perforated,
 /area/eris/medical/chemistry)
 "dCv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
+/obj/structure/closet/mopcloset,
+/turf/simulated/floor/plating,
+/area/eris/engineering/foyer)
 "dCw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/bed/chair/office/light{
 	dir = 4
 	},
@@ -80892,9 +80873,9 @@
 /turf/simulated/floor/tiled/steel/bar_light,
 /area/eris/crew_quarters/bar)
 "dCC" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/eclipse/laz3,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dCD" = (
@@ -80919,9 +80900,6 @@
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
 "dCG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/effect/floor_decal/eclipse/laz4,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
@@ -80945,14 +80923,15 @@
 /turf/simulated/floor/wood,
 /area/eris/command/mbo/quarters)
 "dCJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/eris/medical/reception)
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/eris/crew_quarters/library)
 "dCK" = (
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dCL" = (
@@ -81134,9 +81113,7 @@
 	icon_state = "2-8"
 	},
 /obj/effect/floor_decal/eclipse/laz1,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dDg" = (
@@ -81144,13 +81121,18 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/eclipse/laz2,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dDh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/eris/medical/reception)
 "dDi" = (
@@ -82598,7 +82580,7 @@
 "dGD" = (
 /obj/structure/disposalpipe/sortjunction{
 	dir = 4;
-	sortType = list("Cargo                                Bay");
+	sortType = list("Cargo                                                                Bay");
 	tag = "icon-pipe-j2s"
 	},
 /turf/simulated/floor/plating/under,
@@ -82986,6 +82968,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	name = "Library"
+	},
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/crew_quarters/library)
 "dHv" = (
@@ -83206,10 +83192,7 @@
 /area/eris/engineering/engine_room)
 "dHP" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	name = "Library"
-	},
+/obj/effect/window_lwall_spawn/smartspawn,
 /turf/simulated/floor/tiled/steel/cargo,
 /area/eris/crew_quarters/library)
 "dHQ" = (
@@ -84009,7 +83992,7 @@
 	dir = 1;
 	frequency = 1441;
 	name = "Tank Monitor";
-	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon                                Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous                                Oxide","waste_sensor"="Gas                                Mix                                Tank")
+	sensors = list("n2_sensor"="Nitrogen","o2_sensor"="Oxygen","co2_sensor"="Carbon                                                                Dioxide","tox_sensor"="Toxins","n2o_sensor"="Nitrous                                                                Oxide","waste_sensor"="Gas                                                                Mix                                                                Tank")
 	},
 /turf/simulated/floor/tiled/steel/brown_platform,
 /area/eris/command/exultant)
@@ -84885,7 +84868,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine                                Core")
+	sensors = list("engine_sensor"="Engine                                                                Core")
 	},
 /turf/simulated/floor/tiled/steel/gray_perforated,
 /area/eris/engineering/engine_room)
@@ -87536,16 +87519,16 @@
 "dRo" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/airlock/glass_security{
-	name = "Security Post";
-	req_access = list(1)
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_engineering{
+	name = "Engineering";
+	req_access = list(10)
+	},
 /turf/simulated/floor/tiled/steel,
 /area/eris/security/checkpoint/engineering)
 "dRp" = (
@@ -94753,7 +94736,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
 	icon_state = "pipe-j2s";
-	sortType = list("CE                                Office")
+	sortType = list("CE                                                                Office")
 	},
 /obj/structure/catwalk,
 /obj/structure/cable/green{
@@ -102576,7 +102559,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
 	icon_state = "pipe-j2s";
-	sortType = list("Library                                Backroom")
+	sortType = list("Library                                                                Backroom")
 	},
 /obj/structure/railing{
 	dir = 4;
@@ -105554,7 +105537,7 @@
 	frequency = 1443;
 	level = 3;
 	name = "Distribution and Waste Monitor";
-	sensors = list("mair_in_meter"="Mixed                                Air                                In","air_sensor"="Mixed                                Air                                Supply                                Tank","mair_out_meter"="Mixed                                Air                                Out","dloop_atm_meter"="Distribution                                Loop","wloop_atm_meter"="Engine                                Waste")
+	sensors = list("mair_in_meter"="Mixed                                                                Air                                                                In","air_sensor"="Mixed                                                                Air                                                                Supply                                                                Tank","mair_out_meter"="Mixed                                                                Air                                                                Out","dloop_atm_meter"="Distribution                                                                Loop","wloop_atm_meter"="Engine                                                                Waste")
 	},
 /obj/machinery/light{
 	dir = 8
@@ -111556,6 +111539,9 @@
 /area/eris/rnd/lab)
 "xdY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -209696,7 +209682,7 @@ dwD
 chM
 cuU
 dCm
-dCv
+dRG
 drt
 dDD
 dsY
@@ -210302,7 +210288,7 @@ dxd
 ckx
 cKh
 coS
-cqJ
+coS
 drx
 coS
 dtb
@@ -210908,7 +210894,7 @@ csM
 ckx
 dCc
 coS
-cqJ
+coS
 xdY
 coS
 dto
@@ -211110,7 +211096,7 @@ hhC
 dBN
 djy
 dpp
-cqJ
+coS
 xdY
 coS
 dto
@@ -211312,7 +211298,7 @@ diB
 dBO
 dAE
 dpf
-dCJ
+coS
 dDh
 dRG
 dtp
@@ -211514,7 +211500,7 @@ cwC
 erE
 erE
 dno
-cqJ
+coS
 xdY
 coS
 coS
@@ -211716,7 +211702,7 @@ dzc
 dAz
 dBP
 dnh
-dwy
+rGT
 dCK
 coS
 coS
@@ -250129,7 +250115,7 @@ cDu
 awr
 awr
 dHk
-dHk
+dCJ
 dHu
 dHP
 ayg
@@ -251958,7 +251944,7 @@ dEy
 dEy
 cLV
 dVM
-dUp
+dCv
 cLV
 dLb
 dLb
