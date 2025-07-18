@@ -143,7 +143,7 @@
 
 /datum/breakdown/negative/selfharm
 	name = "Self-harm"
-	duration = 1 MINUTES
+	duration = 50 SECONDS		//Eclipse edit: Reduced 1 minute to 50 seconds.
 	delay = 30 SECONDS
 	restore_sanity_post = 70
 
@@ -212,7 +212,7 @@
 
 /datum/breakdown/negative/hysteric
 	name = "Hysteric"
-	duration = 1.5 MINUTES
+	duration = 75 SECONDS		//Eclipse edit: Reduced 1.5 minutes (90 seconds) to 75 seconds.
 	delay = 60 SECONDS
 	restore_sanity_post = 50
 
@@ -285,7 +285,7 @@
 
 /datum/breakdown/negative/fabric
 	name = "The Fabric"
-	duration = 3 MINUTES
+	duration = 2 MINUTES		//Eclipse edit - Reduced 3 minutes to 2 minutes.
 	var/list/image/images = list()
 
 	start_messages = list(
@@ -349,7 +349,7 @@
 
 /datum/breakdown/common/power_hungry
 	name = "Power Hungry"
-	duration = 15 MINUTES
+	duration = 15 MINUTES		//Eclipse note: Left alone due to the insight reward and sanity restoration.
 	insight_reward = 20
 	restore_sanity_post = 80
 
@@ -393,7 +393,7 @@
 
 /datum/breakdown/negative/glassification
 	name = "Glassification"
-	duration = 2 MINUTES
+	duration = 100 SECONDS		//Eclipse edit: Reduced from 2 minutes (120 seconds) to 100 seconds.
 	restore_sanity_post = 40
 	var/time
 	var/cooldown = 20 SECONDS
@@ -448,7 +448,7 @@
 	name = "Herald"
 	restore_sanity_pre = 5
 	restore_sanity_post = 45
-	duration = 5 MINUTES
+	duration = 4 MINUTES		//Eclipse edit: Reduced from 5 minutes to 4.
 	start_messages = list("You've seen the abyss too long, and now forbidden knowledge haunts you.")
 	end_messages = list("You feel like you've forgotten something important. But this comforts you.")
 	var/message_time = 0
@@ -493,7 +493,7 @@
 
 /datum/breakdown/common/false_nostalgy
 	name = "False Nostalgy"
-	duration = 10 MINUTES
+	duration = 12 MINUTES		//Eclipse edit: Increase duration from 10 minutes to 12.
 	insight_reward = 10
 	restore_sanity_post = 50
 	var/message_time = 0
@@ -523,6 +523,8 @@
 		return FALSE
 	if(get_area(holder.owner) == target)
 		finished = TRUE
+		insight_reward += 20			//Eclipse edit: reward for making it there
+		restore_sanity_post += 15		//Eclipse edit: ditto.
 		conclude()
 		return FALSE
 	if(world.time >= message_time)
@@ -531,7 +533,7 @@
 
 /datum/breakdown/common/new_heights
 	name = "New Heights"
-	duration = 10 MINUTES
+	duration = 10 MINUTES		//Eclipse note: left alone due to sanity increase on conclusion
 	insight_reward = 25
 	restore_sanity_post = 80
 	start_messages = list("This no longer suffices. You turned stale and gray. You need more! Reach for a new horizon!")
@@ -560,7 +562,7 @@
 	restore_sanity_post = 70
 	var/mob/living/carbon/human/target
 	var/message_time = 0
-	var/obsession_time = 3 MINUTES
+	var/obsession_time = 5 MINUTES		//Eclipse edit: Increased how long you can have an accidental foot fetish for to 5 minutes, from 3.
 	var/last_time
 	var/delta_time
 
@@ -631,7 +633,7 @@
 
 /datum/breakdown/common/kleptomania
 	name = "Kleptomania"
-	duration = 5 MINUTES
+	duration = 4 MINUTES		//Eclipse edit: Reduced from 5 to 4.
 	restore_sanity_post = 50
 	var/pickup_time = 0
 
